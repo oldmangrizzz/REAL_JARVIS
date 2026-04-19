@@ -1,0 +1,37 @@
+services:
+  jarvis-cockpit:
+    image: nginx:alpine
+    container_name: jarvis-cockpit
+    restart: unless-stopped
+    volumes:
+      - /opt/jarvis-cockpit:/usr/share/nginx/html:ro
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.jarvis-cockpit.rule=Host(`jarvis.grizzlymedicine.icu`)
+      - traefik.http.routers.jarvis-cockpit.entrypoints=web,websecure
+      - traefik.http.routers.jarvis-cockpit.tls.certresolver=letsencrypt
+      - traefik.http.services.jarvis-cockpit.loadbalancer.server.port=80
+
+  jarvis-ws-proxy:
+    image: node:20-alpine
+    container_name: jarvis-ws-proxy
+    restart: unless-stopped
+    working_dir: /app
+    volumes:
+      - ./ws-proxy:/app
+    command: node jarvis-ws-proxy.js
+    environment:
+      - TUNNEL_HOST=192.168.4.151
+      - TUNNEL_PORT=9443
+      - WS_PORT=9444
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.jarvis-ws.rule=Host(`jarvis.grizzlymedicine.icu`) && PathPrefix(`/ws`)
+      - traefik.http.routers.jarvis-ws.entrypoints=web,websecure
+      - traefik.http.routers.jarvis-ws.tls.certresolver=letsencrypt
+      - traefik.http.services.jarvis-ws.loadbalancer.server.port=9444
+      # WebSocket support
+      - traefik.http.middlewares.jarvis-ws-rw.ReplacePathRegex.regex=^/ws/(.*)
+      - traefik.http.middlewares.jarvis-ws-rw.ReplacePathRegex.replacement=/$${1}
+      - traefik.http.routers.jarvis-ws.middlewares=jarvis-ws-rw

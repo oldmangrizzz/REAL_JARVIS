@@ -1,0 +1,19 @@
+JARVIS CANON SIGNING PACKET
+Operator: Robert Barclay Hanson (Grizz)
+Generated: 2026-04-18
+
+The following SHA-256 hashes uniquely identify the four ratified canon
+documents. Signing this packet with the Ed25519 cold root binds your
+signature to all four documents simultaneously.
+
+REALIGNMENT_1218.md:
+  ccb43d8b62dabf57d978293ed85e7e7db34100ae60bc3486a071484fdc4007ad
+
+MANIFEST.md:
+  043561f3afa3cada4cda4390ac4f09f3a1223e7f430335aa5c755ca037a59bc0
+
+PRINCIPLES.md:
+  2f34d18ba38fb5eb45a61d15eaf82680c1419eac153dc6bb6145f9dbb4904063
+
+SOUL_ANCHOR.md:
+  62272f556009220e7163aa4e288bf677496a869cc1245b4ec2a3ea59de31021a

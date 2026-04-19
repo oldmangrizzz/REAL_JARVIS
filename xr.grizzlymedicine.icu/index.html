@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jarvis Spatial HUD Portal</title>
+  <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe-event-set-component/5.0.0/aframe-event-set-component.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-physics-system@v4.2.1/dist/aframe-physics-system.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-teleport-controls@v4.1.1/dist/aframe-teleport-controls.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0b1020; color: #e5eefc; margin: 0; padding: 0; overflow: hidden; }
+    #ui-overlay { position: fixed; top: 16px; left: 16px; right: 16px; display: flex; justify-content: space-between; pointer-events: none; z-index: 999; }
+    .panel { background: rgba(17, 24, 39, 0.92); border: 1px solid rgba(99, 102, 241, 0.35); border-radius: 18px; padding: 14px 18px; backdrop-filter: blur(10px); box-shadow: 0 10px 40px rgba(0,0,0,0.4); }
+    .panel h1 { margin: 0 0 6px 0; font-size: 14px; font-weight: 600; color: #6366f1; text-transform: uppercase; letter-spacing: 0.08em; }
+    .value { font-size: 18px; font-weight: 500; }
+    .status-ok { color: #86efac; }
+    .status-warn { color: #facc15; }
+    .status-err { color: #f87171; }
+    .status-grey { color: #94a3b8; }
+    #xr-button { pointer-events: auto; cursor: pointer; padding: 12px 24px; border-radius: 12px; border: none; background: linear-gradient(135deg, #1e293b, #0f172a); color: #e5eefc; font-weight: 600; box-shadow: 0 6px 24px rgba(99,102,241,0.3); transition: all 0.2s; }
+    #xr-button:hover { transform: translateY(-2px); box-shadow: 0 12px 48px rgba(99,102,241,0.4); }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div id="ui-overlay">
+    <div class="panel">
+      <h1>JARVIS SPATIAL HUD</h1>
+      <div id="tunnel-status"><span class="status-grey">●</span> Disconnected</div>
+      <div id="voice-gate" class="value hidden">Voice Gate: <span class="status-grey">—</span></div>
+    </div>
+    <button id="xr-button"><i class="fas fa-vr-cardboard"></i> Enter Workshop (WebXR)</button>
+  </div>
+
+  <a-scene embedded vr-mode-ui="enterButton: #xr-button" vr-mode-ui-enabled="false" physics="debug: false">
+    <a-entity id="rig" position="0 0 0">
+      <a-entity camera position="0 0 0" look-controls="pointerLockEnabled: true" wasd-controls="enabled: true">
+        <a-entity cursor="rayOrigin: eye" raycaster="objects: .clickable"></a-entity>
+      </a-entity>
+      <a-entity position="0 -1 0" dynamic-body="shape: sphere; radius: 0.5" teleport-controls="cameraRig: #rig; teleportDuration: 500"></a-entity>
+    </a-entity>
+
+    <a-entity id="voice-gate-indicator" position="0 0.4 -1"
+              geometry="primitive: sphere; radius: 0.08"
+              material="color: #94a3b8; emissive: #1e293b; emissiveIntensity: 0.3"
+              animation="property: scale; from: 1 1 1; to: 1.2 1.2 1.2; dur: 1000; dir: alternate; repeat: infinite"
+              class="clickable" data-action="toggleGate">
+    </a-entity>
+
+    <a-entity id="connection-badge" position="0.8 0.3 -1"
+              geometry="primitive: box; width: 0.6; height: 0.14; depth: 0.04"
+              material="color: #1e293b; opacity: 0.9"
+              text="value: CONNECTED; color: #86efac; width: 1.2; align: center">
+    </a-entity>
+
+    <a-entity id="hud-container">
+      <a-box id="panel-telemetry" class="clickable" data-panel="telemetry"
+             position="-0.6 0.2 -1.2" geometry="width: 1.2; height: 0.8" material="color: #0f172a; opacity: 0.95; emissive: #1e293b; emissiveIntensity: 0.2"
+             text="value: TELEMETRY; color: #94a3b8; width: 2.5; align: center">
+      </a-box>
+      <a-box id="panel-homekit" class="clickable" data-panel="homekit"
+             position="0 0.2 -1.2" geometry="width: 1.2; height: 0.8" material="color: #0f172a; opacity: 0.95; emissive: #1e293b; emissiveIntensity: 0.2"
+             text="value: HOMEKIT; color: #94a3b8; width: 1.2; align: center">
+      </a-box>
+      <a-box id="panel-spatial" class="clickable" data-panel="spatial"
+             position="0.6 0.2 -1.2" geometry="width: 1.2; height: 0.8" material="color: #0f172a; opacity: 0.95; emissive: #1e293b; emissiveIntensity: 0.2"
+             text="value: SPATIAL HUD; color: #94a3b8; width: 1.6; align: center">
+      </a-box>
+    </a-entity>
+
+    <a-entity id="knowledge-graph" position="0 0 -3">
+      <a-sphere position="0 0 0" radius="0.04" color="#6366f1" class="clickable" data-entity="node-0"></a-sphere>
+      <a-sphere position="1.5 0 0" radius="0.04" color="#86efac" class="clickable" data-entity="node-1"></a-sphere>
+      <a-sphere position="-1.5 0 0" radius="0.04" color="#facc15" class="clickable" data-entity="node-2"></a-sphere>
+      <a-sphere position="0 0 1.5" radius="0.04" color="#f87171" class="clickable" data-entity="node-3"></a-sphere>
+      <a-sphere position="0 0 -1.5" radius="0.04" color="#38bdf8" class="clickable" data-entity="node-4"></a-sphere>
+      <a-cylinder position="0 0 0" radius="0.005" length="1.5" rotation="0 0 0" color="#334155"></a-cylinder>
+      <a-cylinder position="1.5 0 0" radius="0.005" length="1.5" rotation="0 0 -45" color="#334155"></a-cylinder>
+      <a-cylinder position="-1.5 0 0" radius="0.005" length="1.5" rotation="0 0 45" color="#334155"></a-cylinder>
+      <a-cylinder position="0 0 1.5" radius="0.005" length="1.5" rotation="0 0 90" color="#334155"></a-cylinder>
+      <a-cylinder position="0 0 -1.5" radius="0.005" length="1.5" rotation="0 0 -90" color="#334155"></a-cylinder>
+    </a-entity>
+
+    <a-entity light="type: ambient; color: #e5eefc; intensity: 0.3"></a-entity>
+    <a-entity light="type: directional; color: #e5eefc; intensity: 0.6" position="1 1 1"></a-entity>
+    <a-entity light="type: point; color: #6366f1; intensity: 0.8" position="-1 2 -1"></a-entity>
+
+    <a-sky color="#0b1020" rotation="0 0 0"></a-sky>
+  </a-scene>
+
+  <script>
+    const GMRI = {
+      emerald: '#86efac',
+      silver: '#e5eefc',
+      black: '#0b1020',
+      crimson: '#f87171',
+      slate: '#1e293b',
+      indigo: '#6366f1',
+      amber: '#facc15',
+      sky: '#38bdf8'
+    };
+
+    let socket = null;
+    let xrEnabled = false;
+
+    function connectTunnel() {
+      const wsUrl = 'ws://charlie.grizzlymedicine.icu:3000/ws';
+      socket = new WebSocket(wsUrl);
+
+      socket.onopen = () => {
+        updateStatus('connected', 'CONNECTED', '#86efac');
+        sendRegistration();
+        sendHeartbeat();
+      };
+
+      socket.onmessage = (event) => {
+        try {
+          const packet = JSON.parse(event.data);
+          if (packet.kind === 'snapshot') {
+            renderSpatialHUD(packet.snapshot);
+          }
+        } catch (e) { console.error('Tunnel msg parse error:', e); }
+      };
+
+      socket.onclose = () => {
+        updateStatus('disconnected', 'DISCONNECTED', '#f87171');
+        setTimeout(connectTunnel, 5000);
+      };
+
+      socket.onerror = (err) => {
+        console.error('Tunnel socket error:', err);
+        updateStatus('error', 'ERROR', '#f87171');
+      };
+    }
+
+    function sendRegistration() {
+      if (socket && socket.readyState === WebSocket.OPEN) {
+        socket.send(JSON.stringify({ kind: 'register', client: 'xr-portal', version: '1.0.0' }));
+      }
+    }
+
+    function sendHeartbeat() {
+      if (socket && socket.readyState === WebSocket.OPEN) {
+        socket.send(JSON.stringify({ kind: 'heartbeat', timestamp: Date.now() }));
+      }
+      setTimeout(sendHeartbeat, 15000);
+    }
+
+    function updateStatus(state, text, color) {
+      const el = document.getElementById('tunnel-status');
+      if (el) {
+        el.innerHTML = `<span style="color: ${color}">●</span> ${text}`;
+      }
+    }
+
+    function renderSpatialHUD(snapshot) {
+      if (!snapshot) return;
+
+      const gate = document.getElementById('voice-gate-indicator');
+      if (snapshot.voiceGate) {
+        const color = colorForGateState(snapshot.voiceGate.state);
+        gate.setAttribute('material', 'color', color);
+        gate.setAttribute('material', 'emissive', color);
+        gate.setAttribute('material', 'emissiveIntensity', '0.6');
+        document.getElementById('voice-gate').classList.remove('hidden');
+        document.getElementById('voice-gate').textContent = `Voice Gate: ${snapshot.voiceGate.state}`;
+      }
+
+      if (snapshot.spatialHUD) {
+        snapshot.spatialHUD.forEach((el, i) => {
+          updateHUDElement(el, i);
+        });
+      }
+    }
+
+    function colorForGateState(state) {
+      switch (state) {
+        case 'green': return GMRI.emerald;
+        case 'red': return GMRI.crimson;
+        case 'yellow': return GMRI.amber;
+        case 'orange': return GMRI.slate;
+        default: return GMRI.slate;
+      }
+    }
+
+    function updateHUDElement(element, index) {
+      const id = `hud-panel-${index}`;
+      let pan = document.getElementById(id);
+      if (!pan) {
+        const container = document.getElementById('hud-container');
+        pan = document.createElement('a-box');
+        pan.setAttribute('id', id);
+        pan.setAttribute('class', 'clickable');
+        pan.setAttribute('data-panel', element.id);
+        pan.setAttribute('geometry', 'width: 1; height: 0.6');
+        pan.setAttribute('material', 'color: #0f172a; opacity: 0.95; emissive: #1e293b; emissiveIntensity: 0.2');
+        pan.setAttribute('text', `value: ${element.title || 'HUD'}; color: #e5eefc; width: 1.5; align: center`);
+        container.appendChild(pan);
+      }
+      if (element.position) {
+        pan.setAttribute('position', element.position.join(' '));
+      }
+    }
+
+    document.getElementById('xr-button').addEventListener('click', async () => {
+      const scene = document.querySelector('a-scene');
+      if (navigator.xr) {
+        const supported = await navigator.xr.isSessionSupported('immersive-ar');
+        if (supported) {
+          xrEnabled = true;
+          scene.vrModeUI.setEnterButton(null);
+          const session = await navigator.xr.requestSession('immersive-ar', { requiredFeatures: ['hit-test'] });
+          scene.enterVR();
+        }
+      } else {
+        connectTunnel();
+      }
+    });
+
+    connectTunnel();
+  </script>
+</body>
+</html>

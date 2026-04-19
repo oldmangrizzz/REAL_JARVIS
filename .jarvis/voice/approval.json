@@ -1,0 +1,12 @@
+{
+  "approvedAtISO8601" : "2026-04-18T16:41:15Z",
+  "composite" : "d96ff3f616c6bc19fb90efe92f2900fb9e2febd9abbade43c16be68d549ffbee",
+  "fingerprint" : {
+    "modelRepository" : "vibevoice\/VibeVoice-1.5B",
+    "personaFramingVersion" : "persona-frame-v2-vibevoice-cfg2.1-ddpm10",
+    "referenceAudioDigest" : "14b96d0e0b0de9d0b096a6b7ee4743227aa92fd0e3b192f290ae0d82b22a3556",
+    "referenceTranscriptDigest" : "67edacd339c0030065022a12343047d7b4075f2455302a8dad521d63426770f2"
+  },
+  "notes" : "matrix-01 winner: ref0299 cfg2.1 ddpm10 — Iron Man 1 dub-stage tone",
+  "operatorLabel" : "grizzly"
+}

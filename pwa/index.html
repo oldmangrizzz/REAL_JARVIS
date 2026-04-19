@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="JARVIS">
+<meta name="theme-color" content="#00A86B">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<title>JARVIS Cockpit</title>
+<style>
+:root {
+  --emerald: #00A86B;
+  --silver: #C0C0C0;
+  --black: #0A0A0A;
+  --crimson: #DC143C;
+  --panel-bg: rgba(10,10,10,0.6);
+  --panel-border: rgba(0,168,107,0.4);
+  --mono: 'SF Mono', 'Menlo', 'Consolas', monospace;
+  --radius: 2px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html, body {
+  background: var(--black);
+  color: var(--silver);
+  font-family: var(--mono);
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* NAV */
+.nav {
+  background: var(--black);
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(0,168,107,0.2);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--emerald);
+  letter-spacing: 1px;
+}
+.nav-status {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 3px;
+  border: 1px solid;
+}
+.nav-status.disconnected { color: var(--silver); border-color: rgba(192,192,192,0.3); }
+.nav-status.connecting  { color: #FFD700; border-color: rgba(255,215,0,0.3); }
+.nav-status.online       { color: var(--emerald); border-color: var(--panel-border); }
+.nav-status.degraded     { color: #FFA500; border-color: rgba(255,165,0,0.3); }
+.nav-status.failed       { color: var(--crimson); border-color: rgba(220,20,60,0.3); }
+
+.nav-btn {
+  background: none;
+  border: 1px solid rgba(0,168,107,0.3);
+  color: var(--emerald);
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 4px 10px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.nav-btn:hover { background: rgba(0,168,107,0.1); }
+.nav-btn.carplay-active { background: var(--emerald); color: var(--black); }
+
+/* LAYOUT */
+.cockpit {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.cockpit.tablet-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 1200px;
+}
+
+/* PANEL */
+.panel {
+  padding: 14px;
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+}
+.panel-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.panel-icon {
+  font-size: 14px;
+  font-weight: 700;
+}
+.panel-title {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* LABEL ROW */
+.lbl-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  margin-bottom: 4px;
+}
+.lbl-key {
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(192,192,192,0.7);
+  min-width: 90px;
+  flex-shrink: 0;
+}
+.lbl-val {
+  font-size: 11px;
+  font-weight: 700;
+  word-break: break-word;
+}
+
+/* HUD ELEMENT */
+.hud-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
+}
+.hud-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.hud-dot.green  { background: var(--emerald); box-shadow: 0 0 6px var(--emerald); }
+.hud-dot.yellow { background: var(--silver); }
+.hud-dot.orange { background: var(--silver); }
+.hud-dot.red    { background: var(--crimson); box-shadow: 0 0 6px var(--crimson); }
+.hud-dot.grey   { background: #333; }
+.hud-label { flex: 1; }
+.hud-label-main { font-size: 12px; font-weight: 600; }
+.hud-label-sub  { font-size: 10px; color: rgba(192,192,192,0.8); margin-top: 2px; }
+.hud-anchor {
+  font-size: 9px;
+  padding: 3px 6px;
+  background: rgba(0,168,107,0.1);
+  border-radius: 2px;
+  color: var(--emerald);
+}
+
+/* THOUGHT / SIGNAL */
+.trace-item { margin-bottom: 8px; }
+.trace-path { font-size: 11px; }
+.trace-time { font-size: 10px; color: rgba(192,192,192,0.6); margin-top: 2px; }
+.signal-item { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.signal-route { font-size: 11px; }
+.signal-meta { font-size: 10px; color: var(--emerald); opacity: 0.8; }
+.signal-time { margin-left: auto; font-size: 10px; color: rgba(192,192,192,0.6); }
+
+/* CARPLAY MODE */
+body.carplay .cockpit { padding: 24px 32px; gap: 16px; }
+body.carplay .panel { padding: 20px; }
+body.carplay .panel-title { font-size: 18px; }
+body.carplay .lbl-key { font-size: 15px; min-width: 120px; }
+body.carplay .lbl-val { font-size: 15px; }
+body.carplay .hud-label-main { font-size: 16px; }
+body.carplay .hud-label-sub  { font-size: 13px; }
+body.carplay .nav-title { font-size: 22px; }
+body.carplay .nav-status { font-size: 14px; padding: 5px 12px; }
+body.carplay .nav-btn { font-size: 14px; padding: 6px 14px; }
+
+/* CarPlay big-tile grid */
+body.carplay .cockpit.carplay-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 1400px;
+  padding: 24px 40px;
+}
+body.carplay .carplay-hero {
+  grid-column: 1 / -1;
+  font-size: 28px;
+  text-align: center;
+  padding: 40px 20px;
+}
+body.carplay .carplay-hero .hero-status {
+  font-size: 36px;
+  font-weight: 900;
+  margin: 12px 0;
+}
+body.carplay .carplay-hero .hero-voice {
+  font-size: 20px;
+}
+body.carplay .carplay-nav-shortcuts {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+body.carplay .carplay-nav-shortcuts button {
+  font-family: var(--mono);
+  font-size: 16px;
+  padding: 12px 24px;
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  color: var(--emerald);
+  border-radius: 4px;
+  min-width: 120px;
+  cursor: pointer;
+}
+body.carplay .carplay-nav-shortcuts button:active { background: var(--emerald); color: var(--black); }
+
+/* EMPTY STATE */
+.empty-state {
+  font-size: 11px;
+  color: rgba(192,192,192,0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* SETTINGS MODAL */
+.modal-overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 200;
+  justify-content: center;
+  align-items: center;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: #111;
+  border: 1px solid var(--panel-border);
+  border-radius: 6px;
+  padding: 24px;
+  width: 90%;
+  max-width: 440px;
+}
+.modal h2 {
+  color: var(--emerald);
+  font-size: 15px;
+  margin-bottom: 16px;
+}
+.modal label {
+  display: block;
+  font-size: 11px;
+  color: rgba(192,192,192,0.7);
+  margin-bottom: 4px;
+}
+.modal input {
+  width: 100%;
+  background: var(--black);
+  border: 1px solid rgba(0,168,107,0.3);
+  color: var(--silver);
+  font-family: var(--mono);
+  font-size: 12px;
+  padding: 8px;
+  margin-bottom: 12px;
+  border-radius: 3px;
+}
+.modal input:focus { outline: none; border-color: var(--emerald); }
+.modal-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 16px; }
+.modal-actions button {
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 6px 14px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.modal-actions .btn-save {
+  background: var(--emerald);
+  color: var(--black);
+  border: none;
+  font-weight: 700;
+}
+.modal-actions .btn-cancel {
+  background: none;
+  border: 1px solid rgba(192,192,192,0.3);
+  color: var(--silver);
+}
+
+/* RESPONSIVE */
+@media (min-width: 768px) {
+  .cockpit.phone-layout {
+    max-width: 768px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV BAR -->
+<nav class="nav">
+  <span class="nav-title">JARVIS COCKPIT</span>
+  <button class="nav-btn" id="btn-settings" title="Connection settings">SETTINGS</button>
+  <button class="nav-btn" id="btn-carplay" title="Toggle CarPlay mode">CARPLAY</button>
+  <span class="nav-status disconnected" id="conn-status">DISCONNECTED</span>
+</nav>
+
+<!-- MAIN -->
+<main class="cockpit phone-layout" id="cockpit">
+
+  <!-- CENTRAL BRAIN -->
+  <section class="panel" id="panel-status">
+    <div class="panel-head">
+      <span class="panel-icon" style="color:var(--emerald)">&#x1F9E0;</span>
+      <span class="panel-title" style="color:var(--emerald)">Central Brain</span>
+    </div>
+    <div id="status-content">
+      <p class="empty-state">Awaiting host snapshot.</p>
+    </div>
+  </section>
+
+  <!-- VOICE APPROVAL GATE -->
+  <section class="panel" id="panel-voice" style="border-color:rgba(192,192,192,0.4)">
+    <div class="panel-head">
+      <span class="panel-icon" style="color:var(--silver)">&#x1F6E1;</span>
+      <span class="panel-title" style="color:var(--silver)">Voice Approval Gate</span>
+    </div>
+    <div id="voice-content">
+      <div class="lbl-row"><span class="lbl-key">State:</span><span class="lbl-val" id="voice-state" style="color:var(--silver)">ABSENT</span></div>
+    </div>
+  </section>
+
+  <!-- SPATIAL HUD -->
+  <section class="panel" id="panel-hud">
+    <div class="panel-head">
+      <span class="panel-icon" style="color:var(--emerald)">&#x1F4CD;</span>
+      <span class="panel-title" style="color:var(--emerald)">Spatial HUD Elements</span>
+    </div>
+    <div id="hud-content">
+      <p class="empty-state">NO ACTIVE HOLOGRAPHIC ELEMENTS</p>
+    </div>
+  </section>
+
+  <!-- AUTHORIZATION -->
+  <section class="panel" id="panel-auth">
+    <div class="panel-head">
+      <span class="panel-icon" style="color:var(--emerald)">&#x1F512;</span>
+      <span class="panel-title" style="color:var(--emerald)">Authorization</span>
+    </div>
+    <div id="auth-content">
+      <p style="font-size:11px;color:rgba(192,192,192,0.7)">Command execution restricted to Obsidian Command Bar and terminal.</p>
+    </div>
+  </section>
+
+  <!-- HOMEKIT BRIDGE -->
+  <section class="panel" id="panel-bridge">
+    <div class="panel-head">
+      <span class="panel-icon" style="color:var(--emerald)">&#x1F3E0;</span>
+      <span class="panel-title" style="color:var(--emerald)">HomeKit Bridge</span>
+    </div>
+    <div id="bridge-content">
+      <span style="color:var(--crimson)">OFFLINE</span>
+    </div>
+  </section>
+
+  <!-- OBSIDIAN CONTROL PLANE -->
+  <section class="panel" id="panel-vault">
+    <div class="panel-head">
+      <span class="panel-icon" style="color:var(--emerald)">&#x1F4DA;</span>
+      <span class="panel-title" style="color:var(--emerald)">Obsidian Control Plane</span>
+    </div>
+    <div id="vault-content">
+      <span class="empty-state">NO SNAPSHOT</span>
+    </div>
+  </section>
+
+  <!-- RECURSIVE THOUGHTS -->
+  <section class="panel" id="panel-thoughts">
+    <div class="panel-head">
+      <span class="panel-icon" style="color:var(--emerald)">&#x1F4CA;</span>
+      <span class="panel-title" style="color:var(--emerald)">Recursive Thoughts</span>
+    </div>
+    <div id="thoughts-content">
+      <p class="empty-state">QUIET</p>
+    </div>
+  </section>
+
+  <!-- STIGMERGIC SIGNALS -->
+  <section class="panel" id="panel-signals">
+    <div class="panel-head">
+      <span class="panel-icon" style="color:var(--emerald)">&#x1F4E1;</span>
+      <span class="panel-title" style="color:var(--emerald)">Stigmergic Signals</span>
+    </div>
+    <div id="signals-content">
+      <p class="empty-state">NO TRAFFIC</p>
+    </div>
+  </section>
+</main>
+
+<!-- CARPLAY MODE (hidden until toggled) -->
+<main class="cockpit carplay-grid" id="carplay-cockpit" style="display:none">
+  <div class="panel carplay-hero" id="carplay-hero">
+    <div style="color:var(--emerald);font-size:20px;letter-spacing:3px">JARVIS</div>
+    <div class="hero-status" id="carplay-status" style="color:var(--silver)">STANDBY</div>
+    <div class="hero-voice" id="carplay-voice" style="color:var(--silver)">Voice: warming</div>
+  </div>
+  <div class="panel" id="carplay-tunnel">
+    <div class="panel-head"><span class="panel-title" style="color:var(--emerald)">Tunnel</span></div>
+    <div id="carplay-tunnel-content" class="lbl-row"><span class="lbl-key">Status:</span><span class="lbl-val" style="color:var(--silver)">disconnected</span></div>
+  </div>
+  <div class="panel" id="carplay-vault">
+    <div class="panel-head"><span class="panel-title" style="color:var(--emerald)">Obsidian</span></div>
+    <div id="carplay-vault-content"><span class="empty-state">NO SNAPSHOT</span></div>
+  </div>
+  <div class="panel" id="carplay-bridge">
+    <div class="panel-head"><span class="panel-title" style="color:var(--emerald)">HomeKit</span></div>
+    <div id="carplay-bridge-content"><span style="color:var(--crimson)">OFFLINE</span></div>
+  </div>
+  <div class="panel" id="carplay-gate">
+    <div class="panel-head"><span class="panel-title" style="color:var(--silver)">Voice Gate</span></div>
+    <div id="carplay-gate-content"><span class="lbl-val" style="color:var(--silver)">ABSENT</span></div>
+  </div>
+  <div class="panel" id="carplay-hud">
+    <div class="panel-head"><span class="panel-title" style="color:var(--emerald)">HUD</span></div>
+    <div id="carplay-hud-content"><span class="empty-state">INACTIVE</span></div>
+  </div>
+  <div class="carplay-nav-shortcuts">
+    <button id="cp-refresh">REFRESH</button>
+    <button id="cp-reconnect">RECONNECT</button>
+    <button id="cp-speak">SPEAK</button>
+  </div>
+</main>
+
+<!-- SETTINGS MODAL -->
+<div class="modal-overlay" id="settings-modal">
+  <div class="modal">
+    <h2>CONNECTION SETTINGS</h2>
+    <label for="set-host">Host Address</label>
+    <input id="set-host" type="text" placeholder="127.0.0.1">
+    <label for="set-port">Tunnel Port</label>
+    <input id="set-port" type="number" placeholder="9443">
+    <label for="set-secret">Shared Secret</label>
+    <input id="set-secret" type="password" placeholder="jarvis-tunnel-secret">
+    <label for="set-convex">Convex URL</label>
+    <input id="set-convex" type="text" placeholder="https://real-jarvis.convex.site">
+    <label for="set-wsproxy">WebSocket Proxy (ws://host:port)</label>
+    <input id="set-wsproxy" type="text" placeholder="ws://127.0.0.1:9444">
+    <div class="modal-actions">
+      <button class="btn-cancel" id="settings-cancel">CANCEL</button>
+      <button class="btn-save" id="settings-save">SAVE</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// =====================================================================
+// JARVIS COCKPIT PWA — GMRI // Clan Munro // Am Freiceadan Dubh
+// =====================================================================
+
+const PALETTE = Object.freeze({
+  emerald: '#00A86B',
+  silver:  '#C0C0C0',
+  black:   '#0A0A0A',
+  crimson: '#DC143C'
+});
+
+const STATE_COLORS = {
+  green: PALETTE.emerald,
+  yellow: PALETTE.silver,
+  orange: PALETTE.silver,
+  red: PALETTE.crimson,
+  grey: PALETTE.black
+};
+
+// ---- PERSISTENT CONFIG ----
+const CONFIG_KEY = 'jarvis.pwa.config';
+const ID_KEY = 'jarvis.pwa.device-id';
+
+function loadConfig() {
+  try { return JSON.parse(localStorage.getItem(CONFIG_KEY)) || {}; } catch { return {}; }
+}
+function saveConfig(c) { localStorage.setItem(CONFIG_KEY, JSON.stringify(c)); }
+function getDeviceID() {
+  let id = localStorage.getItem(ID_KEY);
+  if (!id) { id = crypto.randomUUID(); localStorage.setItem(ID_KEY, id); }
+  return id;
+}
+
+const DEFAULT_CONFIG = {
+  host: '127.0.0.1',
+  port: 9443,
+  secret: '',
+  convexURL: 'https://real-jarvis.convex.site',
+  wsProxy: 'ws://127.0.0.1:9444'
+};
+
+let config = { ...DEFAULT_CONFIG, ...loadConfig() };
+
+// ---- STATE ----
+let connectionState = 'disconnected';
+let socket = null;
+let tunnelCrypto = null;
+let reconnTimer = null;
+let heartbeatTimer = null;
+let convexTimer = null;
+let carplayMode = false;
+
+const state = {
+  snapshot: null,
+  voiceGate: null,
+  spatialHUD: [],
+  thoughts: [],
+  signals: [],
+  voiceState: 'warming',
+  latestResponse: '',
+  diagnostics: ''
+};
+
+// ---- TUNNEL CRYPTO (ChaCha20-Poly1305 via Web Crypto API) ----
+class TunnelCrypto {
+  constructor(sharedSecret) {
+    this.keyPromise = this._deriveKey(sharedSecret);
+    this._encoder = new TextEncoder();
+    this._decoder = new TextDecoder();
+  }
+  async _deriveKey(secret) {
+    const encoded = this._encoder.encode(secret);
+    const hash = await crypto.subtle.digest('SHA-256', encoded);
+    return await crypto.subtle.importKey('raw', hash, { name: 'ChaCha20-Poly1305' }, false, ['encrypt', 'decrypt']);
+  }
+  async seal(obj) {
+    const key = await this.keyPromise;
+    const data = this._encoder.encode(JSON.stringify(obj));
+    const nonce = crypto.getRandomValues(new Uint8Array(12));
+    const encrypted = await crypto.subtle.encrypt({ name: 'ChaCha20-Poly1305', iv: nonce }, key, data);
+    const combined = new Uint8Array(nonce.length + encrypted.byteLength);
+    combined.set(nonce, 0);
+    combined.set(new Uint8Array(encrypted), nonce.length);
+    return btoa(String.fromCharCode(...combined));
+  }
+  async open(b64) {
+    const key = await this.keyPromise;
+    const raw = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
+    const nonce = raw.slice(0, 12);
+    const ciphertext = raw.slice(12);
+    const decrypted = await crypto.subtle.decrypt({ name: 'ChaCha20-Poly1305', iv: nonce }, key, ciphertext);
+    return JSON.parse(this._decoder.decode(decrypted));
+  }
+}
+
+// ---- WEBSOCKET TUNNEL PROXY ----
+// The native tunnel is TCP+0x0A delimited. For browser we use a WebSocket proxy
+// that bridges to the TCP tunnel server. The proxy speaks the same
+// newline-delimited JSON transport packet format over WS.
+// If direct TCP is needed, a companion Node.js bridge is required.
+
+function connectTunnel() {
+  if (socket && socket.readyState <= 1) return;
+
+  const wsURL = config.wsProxy || `wss://${location.host}/ws`;
+  tunnelCrypto = new TunnelCrypto(config.secret || `jarvis-pwa-${getDeviceID()}`);
+
+  setConnectionState('connecting');
+  socket = new WebSocket(wsURL);
+
+  socket.onopen = () => {
+    setConnectionState('online');
+    sendRegister();
+    startHeartbeat();
+  };
+
+  socket.onmessage = (evt) => {
+    const lines = evt.data.split('\n').filter(l => l.trim());
+    for (const line of lines) {
+      handleTransportPacket(line);
+    }
+  };
+
+  socket.onclose = () => {
+    setConnectionState('disconnected');
+    socket = null;
+    stopHeartbeat();
+    scheduleReconnect();
+  };
+
+  socket.onerror = () => {
+    setConnectionState('failed');
+    state.diagnostics = 'WebSocket connection failed. Check proxy or host settings.';
+    render();
+  };
+}
+
+function disconnectTunnel() {
+  if (socket) { socket.close(); socket = null; }
+  stopHeartbeat();
+  clearReconnect();
+  setConnectionState('disconnected');
+}
+
+function scheduleReconnect() {
+  clearReconnect();
+  reconnTimer = setTimeout(() => {
+    if (connectionState === 'disconnected' || connectionState === 'failed') connectTunnel();
+  }, 5000);
+}
+
+function clearReconnect() {
+  if (reconnTimer) { clearTimeout(reconnTimer); reconnTimer = null; }
+}
+
+function startHeartbeat() {
+  stopHeartbeat();
+  heartbeatTimer = setInterval(() => {
+    if (socket && socket.readyState === 1) sendHeartbeat();
+  }, 30000);
+}
+
+function stopHeartbeat() {
+  if (heartbeatTimer) { clearInterval(heartbeatTimer); heartbeatTimer = null; }
+}
+
+async function sendTunnelMessage(msg) {
+  if (!socket || socket.readyState !== 1 || !tunnelCrypto) return;
+  try {
+    const sealed = await tunnelCrypto.seal(msg);
+    const packet = {
+      origin: getDeviceID(),
+      timestamp: new Date().toISOString(),
+      payload: sealed
+    };
+    socket.send(JSON.stringify(packet) + '\n');
+  } catch (e) {
+    console.error('Tunnel send error:', e);
+  }
+}
+
+function sendRegister() {
+  sendTunnelMessage({
+    kind: 'register',
+    registration: {
+      deviceID: getDeviceID(),
+      deviceName: 'JARVIS PWA',
+      platform: navigator.platform,
+      role: 'pwa',
+      appVersion: '1.0.0'
+    }
+  });
+}
+
+function sendHeartbeat() {
+  sendTunnelMessage({ kind: 'heartbeat' });
+}
+
+async function handleTransportPacket(line) {
+  try {
+    const packet = JSON.parse(line);
+    if (!tunnelCrypto) return;
+    const message = await tunnelCrypto.open(packet.payload);
+    handleTunnelMessage(message);
+  } catch (e) {
+    console.error('Tunnel decode error:', e);
+  }
+}
+
+function handleTunnelMessage(msg) {
+  switch (msg.kind) {
+    case 'snapshot':
+      if (msg.snapshot) applySnapshot(msg.snapshot);
+      break;
+    case 'response':
+      if (msg.response) {
+        state.latestResponse = msg.response.spokenText || '';
+        if (msg.response.snapshot) applySnapshot(msg.response.snapshot);
+      }
+      break;
+    case 'push':
+      // Push directive received
+      if (msg.push && msg.push.requiresSpeech) speak(msg.push.startupLine);
+      break;
+    case 'error':
+      state.diagnostics = msg.error || 'Unknown tunnel error.';
+      break;
+  }
+  render();
+}
+
+function applySnapshot(snap) {
+  state.snapshot = snap;
+  state.voiceGate = snap.voiceGate || null;
+  state.spatialHUD = snap.spatialHUD || [];
+  state.thoughts = snap.recentThoughts || [];
+  state.signals = snap.recentSignals || [];
+  render();
+}
+
+// ---- CONVEX SYNC (fallback / supplementary when tunnel not connected) ----
+async function convexFetch() {
+  const url = config.convexURL;
+  if (!url) return;
+  try {
+    const resp = await fetch(`${url}/api/query`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ path: 'jarvis:sharedMobileState', args: { limit: 8 } })
+    });
+    const envelope = await resp.json();
+    if (envelope.value) applySnapshot(envelope.value);
+  } catch (e) {
+    console.warn('Convex fetch failed:', e);
+  }
+}
+
+function startConvexPoll() {
+  stopConvexPoll();
+  if (!config.convexURL) return;
+  convexFetch();
+  convexTimer = setInterval(convexFetch, 30000);
+}
+
+function stopConvexPoll() {
+  if (convexTimer) { clearInterval(convexTimer); convexTimer = null; }
+}
+
+// ---- SPEECH (Web Speech API — CarPlay bonus) ----
+function speak(text) {
+  if (!text || !('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const utt = new SpeechSynthesisUtterance(text);
+  utt.rate = 1.0;
+  utt.pitch = 0.9;
+  utt.volume = 1.0;
+  // Pick a deeper voice if available (good for JARVIS)
+  const voices = speechSynthesis.getVoices();
+  const preferred = voices.find(v => /daniel|james|thomas|google uk english male/i.test(v.name));
+  if (preferred) utt.voice = preferred;
+  speechSynthesis.speak(utt);
+  state.voiceState = 'speaking';
+  utt.onend = () => { state.voiceState = 'ready'; render(); };
+  render();
+}
+
+// Pre-load voices
+if ('speechSynthesis' in window) {
+  speechSynthesis.getVoices();
+  speechSynthesis.onvoiceschanged = () => speechSynthesis.getVoices();
+}
+
+// ---- CONNECTION STATE ----
+function setConnectionState(s) {
+  connectionState = s;
+  const el = document.getElementById('conn-status');
+  el.textContent = s.toUpperCase();
+  el.className = 'nav-status ' + s;
+
+  if (s === 'online') {
+    startConvexPoll();
+  } else {
+    stopConvexPoll();
+  }
+}
+
+// ---- RENDER ----
+function render() {
+  renderStatus();
+  renderVoiceGate();
+  renderHUD();
+  renderBridge();
+  renderVault();
+  renderThoughts();
+  renderSignals();
+  renderAuth();
+  if (carplayMode) renderCarplay();
+}
+
+function lblRow(key, val, color) {
+  color = color || PALETTE.silver;
+  return `<div class="lbl-row"><span class="lbl-key">${key}:</span><span class="lbl-val" style="color:${color}">${esc(val)}</span></div>`;
+}
+
+function esc(s) {
+  if (s == null) return '';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function renderStatus() {
+  const el = document.getElementById('status-content');
+  const snap = state.snapshot;
+  if (!snap) { el.innerHTML = '<p class="empty-state">Awaiting host snapshot.</p>'; return; }
+  let h = lblRow('Status', snap.statusLine, PALETTE.silver);
+  h += '<hr style="border:none;border-top:1px solid rgba(0,168,107,0.3);margin:8px 0">';
+  h += lblRow('Tunnel', connectionState);
+  h += lblRow('Voice', state.voiceState);
+  if (state.latestResponse) h += lblRow('Response', state.latestResponse, PALETTE.emerald);
+  if (state.diagnostics) h += `<p style="font-size:10px;color:rgba(192,192,192,0.7);margin-top:6px">${esc(state.diagnostics)}</p>`;
+  el.innerHTML = h;
+}
+
+function renderVoiceGate() {
+  const el = document.getElementById('voice-content');
+  const gate = state.voiceGate;
+  const panel = document.getElementById('panel-voice');
+  if (gate) {
+    const c = STATE_COLORS[gate.state] || PALETTE.silver;
+    panel.style.borderColor = c.replace(')', ',0.4)').replace('#', ''); 
+    // simpler approach:
+    panel.style.borderColor = c + '66';
+    let h = lblRow('State', (gate.stateName || gate.state || '').toUpperCase(), c);
+    if (gate.composite) h += lblRow('Fingerprint', gate.composite.substring(0, 12) + '...');
+    if (gate.modelRepository) h += lblRow('Model', gate.modelRepository);
+    if (gate.personaFramingVersion) h += lblRow('Framing', gate.personaFramingVersion);
+    if (gate.approvedAtISO8601) h += lblRow('Approved', gate.approvedAtISO8601);
+    if (gate.operatorLabel) h += lblRow('Operator', gate.operatorLabel);
+    if (gate.notes) h += `<p style="font-size:10px;margin-top:4px">${esc(gate.notes)}</p>`;
+    el.innerHTML = h;
+    // panel head color
+    el.parentElement.querySelector('.panel-icon').style.color = c;
+    el.parentElement.querySelector('.panel-title').style.color = c;
+  } else {
+    el.innerHTML = lblRow('State', 'ABSENT', PALETTE.silver);
+  }
+}
+
+function renderHUD() {
+  const el = document.getElementById('hud-content');
+  const elements = state.spatialHUD;
+  if (!elements || elements.length === 0) {
+    el.innerHTML = '<p class="empty-state">NO ACTIVE HOLOGRAPHIC ELEMENTS</p>';
+    return;
+  }
+  let h = '';
+  for (const e of elements) {
+    const c = STATE_COLORS[e.state] || '#333';
+    h += `<div class="hud-row">
+      <span class="hud-dot" style="background:${c};box-shadow:0 0 6px ${c}"></span>
+      <div class="hud-label">
+        <div class="hud-label-main" style="color:${c}">${esc(e.label)}</div>
+        ${e.detail ? `<div class="hud-label-sub">${esc(e.detail)}</div>` : ''}
+      </div>
+      <span class="hud-anchor">${esc(e.anchor)}</span>
+    </div>`;
+  }
+  el.innerHTML = h;
+}
+
+function renderAuth() {
+  const el = document.getElementById('auth-content');
+  const bridge = state.snapshot?.homeKitBridge;
+  let h = '<p style="font-size:11px;color:rgba(192,192,192,0.7)">Command execution restricted to Obsidian Command Bar and terminal.</p>';
+  if (bridge) {
+    h += lblRow('Sources', bridge.authorizedCommandSources?.join(', ') || 'none');
+    h += lblRow('Regulation', `${bridge.regulationVisibility} / ${bridge.distressState}`);
+  }
+  el.innerHTML = h;
+}
+
+function renderBridge() {
+  const el = document.getElementById('bridge-content');
+  const bridge = state.snapshot?.homeKitBridge;
+  if (!bridge) { el.innerHTML = '<span style="color:var(--crimson)">OFFLINE</span>'; return; }
+  let h = lblRow('Bridge', bridge.bridgeName);
+  h += lblRow('Node', `${bridge.charlieAddress}:${bridge.homebridgePort}`);
+  h += lblRow('State', bridge.bridgeState);
+  h += lblRow('Intercom', bridge.voiceIntercomRoute);
+  el.innerHTML = h;
+}
+
+function renderVault() {
+  const el = document.getElementById('vault-content');
+  const vault = state.snapshot?.obsidianVault;
+  if (!vault) { el.innerHTML = '<span class="empty-state">NO SNAPSHOT</span>'; return; }
+  let h = lblRow('Vault', vault.databaseName);
+  h += lblRow('Docs', String(vault.docCount));
+  h += lblRow('Replication', vault.replicationObserved ? 'ONLINE' : 'PENDING',
+              vault.replicationObserved ? PALETTE.emerald : PALETTE.silver);
+  el.innerHTML = h;
+}
+
+function renderThoughts() {
+  const el = document.getElementById('thoughts-content');
+  const thoughts = state.thoughts;
+  if (!thoughts || thoughts.length === 0) { el.innerHTML = '<p class="empty-state">QUIET</p>'; return; }
+  let h = '';
+  for (const t of thoughts) {
+    h += `<div class="trace-item">
+      <div class="trace-path">${esc((t.trace || []).join(' > '))}</div>
+      <div class="trace-time">${esc(t.timestamp || '')}</div>
+    </div>`;
+  }
+  el.innerHTML = h;
+}
+
+function renderSignals() {
+  const el = document.getElementById('signals-content');
+  const signals = state.signals;
+  if (!signals || signals.length === 0) { el.innerHTML = '<p class="empty-state">NO TRAFFIC</p>'; return; }
+  let h = '';
+  for (const s of signals) {
+    const pher = (s.pheromone || 0).toFixed(2);
+    const ts = (s.timestamp || '').slice(-8);
+    h += `<div class="signal-item">
+      <div>
+        <div class="signal-route">${esc(s.nodeSource)} -> ${esc(s.nodeTarget)}</div>
+        <div class="signal-meta">&tau; ${s.ternaryValue} | &phi; ${pher}</div>
+      </div>
+      <span class="signal-time">${esc(ts)}</span>
+    </div>`;
+  }
+  el.innerHTML = h;
+}
+
+// ---- CARPLAY RENDER ----
+function renderCarplay() {
+  const heroStatus = document.getElementById('carplay-status');
+  const heroVoice = document.getElementById('carplay-voice');
+  const tunnelContent = document.getElementById('carplay-tunnel-content');
+  const vaultContent = document.getElementById('carplay-vault-content');
+  const bridgeContent = document.getElementById('carplay-bridge-content');
+  const gateContent = document.getElementById('carplay-gate-content');
+  const hudContent = document.getElementById('carplay-hud-content');
+
+  const snap = state.snapshot;
+  heroStatus.textContent = snap ? snap.statusLine?.toUpperCase() : 'STANDBY';
+  heroStatus.style.color = snap ? PALETTE.emerald : PALETTE.silver;
+  heroVoice.textContent = `Voice: ${state.voiceState}`;
+
+  tunnelContent.innerHTML = lblRow('Status', connectionState);
+
+  const vault = snap?.obsidianVault;
+  vaultContent.innerHTML = vault
+    ? lblRow('Docs', String(vault.docCount), vault.replicationObserved ? PALETTE.emerald : PALETTE.silver)
+    : '<span class="empty-state">NO SNAPSHOT</span>';
+
+  const bridge = snap?.homeKitBridge;
+  bridgeContent.innerHTML = bridge ? lblRow('State', bridge.bridgeState) : '<span style="color:var(--crimson)">OFFLINE</span>';
+
+  const gate = state.voiceGate;
+  if (gate) {
+    const c = STATE_COLORS[gate.state] || PALETTE.silver;
+    gateContent.innerHTML = lblRow('State', (gate.stateName || '').toUpperCase(), c);
+  } else {
+    gateContent.innerHTML = lblRow('State', 'ABSENT', PALETTE.silver);
+  }
+
+  const hud = state.spatialHUD;
+  if (hud && hud.length > 0) {
+    let h = '';
+    for (const e of hud) {
+      const c = STATE_COLORS[e.state] || '#333';
+      h += `<div style="display:flex;align-items:center;gap:8px;margin:4px 0">
+        <span style="width:10px;height:10px;border-radius:50%;background:${c}"></span>
+        <span style="font-size:14px;font-weight:600;color:${c}">${esc(e.label)}</span>
+      </div>`;
+    }
+    hudContent.innerHTML = h;
+  } else {
+    hudContent.innerHTML = '<span class="empty-state">INACTIVE</span>';
+  }
+}
+
+// ---- CARPLAY TOGGLE ----
+function toggleCarplay() {
+  carplayMode = !carplayMode;
+  const btn = document.getElementById('btn-carplay');
+  document.body.classList.toggle('carplay', carplayMode);
+  document.getElementById('cockpit').style.display = carplayMode ? 'none' : '';
+  document.getElementById('carplay-cockpit').style.display = carplayMode ? '' : 'none';
+  btn.classList.toggle('carplay-active', carplayMode);
+  btn.textContent = carplayMode ? 'EXIT CARPLAY' : 'CARPLAY';
+  if (carplayMode) renderCarplay();
+}
+
+// ---- SETTINGS MODAL ----
+function openSettings() {
+  document.getElementById('set-host').value = config.host;
+  document.getElementById('set-port').value = config.port;
+  document.getElementById('set-secret').value = config.secret;
+  document.getElementById('set-convex').value = config.convexURL;
+  document.getElementById('set-wsproxy').value = config.wsProxy;
+  document.getElementById('settings-modal').classList.add('open');
+}
+
+function closeSettings() {
+  document.getElementById('settings-modal').classList.remove('open');
+}
+
+function applySettings() {
+  config.host = document.getElementById('set-host').value || DEFAULT_CONFIG.host;
+  config.port = parseInt(document.getElementById('set-port').value) || DEFAULT_CONFIG.port;
+  config.secret = document.getElementById('set-secret').value;
+  config.convexURL = document.getElementById('set-convex').value || DEFAULT_CONFIG.convexURL;
+  config.wsProxy = document.getElementById('set-wsproxy').value || DEFAULT_CONFIG.wsProxy;
+  saveConfig(config);
+  closeSettings();
+  // Reconnect with new config
+  disconnectTunnel();
+  setTimeout(connectTunnel, 500);
+}
+
+// ---- CARPLAY BUTTONS ----
+document.getElementById('cp-refresh').addEventListener('click', () => {
+  convexFetch();
+  render();
+});
+document.getElementById('cp-reconnect').addEventListener('click', () => {
+  disconnectTunnel();
+  setTimeout(connectTunnel, 300);
+});
+document.getElementById('cp-speak').addEventListener('click', () => {
+  if (state.latestResponse) speak(state.latestResponse);
+  else if (state.snapshot?.statusLine) speak(state.snapshot.statusLine);
+});
+
+// ---- EVENT WIRING ----
+document.getElementById('btn-settings').addEventListener('click', openSettings);
+document.getElementById('btn-carplay').addEventListener('click', toggleCarplay);
+document.getElementById('settings-cancel').addEventListener('click', closeSettings);
+document.getElementById('settings-save').addEventListener('click', applySettings);
+document.getElementById('settings-modal').addEventListener('click', (e) => {
+  if (e.target === e.currentTarget) closeSettings();
+});
+
+// ---- SERVICE WORKER ----
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').catch(console.warn);
+}
+
+// ---- KEYBOARD SHORTCUT (CarPlay-friendly: spacebar speaks) ----
+document.addEventListener('keydown', (e) => {
+  if (e.target.tagName === 'INPUT') return;
+  if (e.code === 'Space' && carplayMode) {
+    e.preventDefault();
+    document.getElementById('cp-speak').click();
+  }
+});
+
+// ---- VISIBILITY (reconnect on return) ----
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden && (connectionState === 'disconnected' || connectionState === 'failed')) {
+    connectTunnel();
+  }
+});
+
+// ---- BOOT ----
+connectTunnel();
+startConvexPoll();
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "couchDB_URI" : "https:\/\/vault.grizzlymedicine.icu\/obsidian_vault",
+  "database" : "obsidian_vault",
+  "docCount" : 608,
+  "liveSync" : true,
+  "plugin" : "obsidian-livesync",
+  "replicationObserved" : true,
+  "reseedTriggered" : false,
+  "syncOnStart" : true
+}

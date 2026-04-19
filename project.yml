@@ -1,0 +1,226 @@
+name: Jarvis
+options:
+  minimumXcodeGenVersion: 2.45.3
+  bundleIdPrefix: ai.realjarvis
+settings:
+  base:
+    SWIFT_VERSION: 6.0
+    MACOSX_DEPLOYMENT_TARGET: 14.0
+    CODE_SIGNING_ALLOWED: NO
+    MARKETING_VERSION: 1.0
+    CURRENT_PROJECT_VERSION: 1
+packages:
+  MLXAudio:
+    path: vendor/mlx-audio-swift
+targets:
+  JarvisCore:
+    type: framework.static
+    platform: macOS
+    deploymentTarget: "14.0"
+    sources:
+      - path: Jarvis/Sources/JarvisCore
+      - path: Jarvis/Shared/Sources/JarvisShared
+    dependencies:
+      - sdk: AppKit.framework
+      - sdk: AVFoundation.framework
+      - sdk: Speech.framework
+      - sdk: CryptoKit.framework
+      - sdk: Network.framework
+    settings:
+      base:
+        DEFINES_MODULE: YES
+        PRODUCT_NAME: JarvisCore
+
+  JarvisCLI:
+    type: tool
+    platform: macOS
+    deploymentTarget: "14.0"
+    sources:
+      - path: Jarvis/App
+    dependencies:
+      - target: JarvisCore
+    settings:
+      base:
+        PRODUCT_NAME: Jarvis
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_NSMicrophoneUsageDescription: Real Jarvis uses the microphone for continuous voice interaction.
+        INFOPLIST_KEY_NSSpeechRecognitionUsageDescription: Real Jarvis transcribes spoken commands to operate hands-free.
+
+  JarvisCoreTests:
+    type: bundle.unit-test
+    platform: macOS
+    deploymentTarget: "14.0"
+    sources:
+      - path: Jarvis/Tests/JarvisCoreTests
+    dependencies:
+      - target: JarvisCore
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+
+  JarvisMobileCore:
+    type: framework
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: Jarvis/Mobile/Sources/JarvisMobileCore
+      - path: Jarvis/MobileShared/Sources/JarvisMobileShared
+      - path: Jarvis/Shared/Sources/JarvisShared
+      - path: Jarvis/Mobile/Resources
+        buildPhase: resources
+      - path: voice-samples
+        buildPhase: resources
+    dependencies:
+      - sdk: AVFoundation.framework
+      - sdk: BackgroundTasks.framework
+      - sdk: CryptoKit.framework
+      - sdk: Network.framework
+      - sdk: UserNotifications.framework
+      - sdk: AppIntents.framework
+      - package: MLXAudio
+        product: MLXAudioCore
+      - package: MLXAudio
+        product: MLXAudioTTS
+    settings:
+      base:
+        DEFINES_MODULE: YES
+        PRODUCT_NAME: JarvisMobileCore
+        GENERATE_INFOPLIST_FILE: YES
+
+  JarvisWatchCore:
+    type: framework
+    platform: watchOS
+    deploymentTarget: "10.0"
+    sources:
+      - path: Jarvis/Watch/Sources/JarvisWatchCore
+      - path: Jarvis/MobileShared/Sources/JarvisMobileShared
+      - path: Jarvis/Shared/Sources/JarvisShared
+    dependencies:
+      - sdk: CryptoKit.framework
+      - sdk: HealthKit.framework
+      - sdk: Network.framework
+    settings:
+      base:
+        DEFINES_MODULE: YES
+        PRODUCT_NAME: JarvisWatchCore
+        GENERATE_INFOPLIST_FILE: YES
+
+  JarvisPhone:
+    type: application
+    platform: iOS
+    deploymentTarget: "17.0"
+    bundleId: ai.realjarvis.phone
+    sources:
+      - path: Jarvis/Mobile/AppShared
+      - path: Jarvis/Mobile/AppiPhone
+    dependencies:
+      - target: JarvisMobileCore
+      - target: JarvisWatchApp
+    settings:
+      base:
+        PRODUCT_NAME: JarvisPhone
+        PRODUCT_BUNDLE_IDENTIFIER: ai.realjarvis.phone
+        GENERATE_INFOPLIST_FILE: YES
+        TARGETED_DEVICE_FAMILY: "1"
+        INFOPLIST_KEY_CFBundleDisplayName: Jarvis
+        INFOPLIST_KEY_JARVIS_HOST_ADDRESS: 127.0.0.1
+        INFOPLIST_KEY_JARVIS_HOST_PORT: "9443"
+        INFOPLIST_KEY_JARVIS_CONVEX_URL: https://enduring-starfish-794.convex.cloud
+        INFOPLIST_KEY_JARVIS_SHARED_SECRET: ""
+        INFOPLIST_KEY_NSMicrophoneUsageDescription: J.A.R.V.I.S. captures speech for cockpit voice startup and command handling.
+        INFOPLIST_KEY_NSUserNotificationsUsageDescription: J.A.R.V.I.S. triggers proactive interruptions when the host brain emits a push event.
+        INFOPLIST_KEY_UIBackgroundModes:
+          - audio
+          - fetch
+          - processing
+          - remote-notification
+        INFOPLIST_KEY_BGTaskSchedulerPermittedIdentifiers:
+          - ai.realjarvis.mobile.refresh
+
+  JarvisPad:
+    type: application
+    platform: iOS
+    deploymentTarget: "17.0"
+    bundleId: ai.realjarvis.pad
+    sources:
+      - path: Jarvis/Mobile/AppShared
+      - path: Jarvis/Mobile/AppiPad
+    dependencies:
+      - target: JarvisMobileCore
+    settings:
+      base:
+        PRODUCT_NAME: JarvisPad
+        PRODUCT_BUNDLE_IDENTIFIER: ai.realjarvis.pad
+        GENERATE_INFOPLIST_FILE: YES
+        TARGETED_DEVICE_FAMILY: "2"
+        INFOPLIST_KEY_CFBundleDisplayName: Jarvis Cockpit
+        INFOPLIST_KEY_JARVIS_HOST_ADDRESS: 127.0.0.1
+        INFOPLIST_KEY_JARVIS_HOST_PORT: "9443"
+        INFOPLIST_KEY_JARVIS_CONVEX_URL: https://enduring-starfish-794.convex.cloud
+        INFOPLIST_KEY_JARVIS_SHARED_SECRET: ""
+        INFOPLIST_KEY_NSMicrophoneUsageDescription: J.A.R.V.I.S. captures speech for cockpit voice startup and command handling.
+        INFOPLIST_KEY_NSUserNotificationsUsageDescription: J.A.R.V.I.S. triggers proactive interruptions when the host brain emits a push event.
+        INFOPLIST_KEY_UIBackgroundModes:
+          - audio
+          - fetch
+          - processing
+          - remote-notification
+        INFOPLIST_KEY_BGTaskSchedulerPermittedIdentifiers:
+          - ai.realjarvis.mobile.refresh
+
+  JarvisWatchApp:
+    type: application.watchapp2
+    platform: watchOS
+    deploymentTarget: "10.0"
+    bundleId: ai.realjarvis.phone.watchkitapp
+    dependencies:
+      - target: JarvisWatchExtension
+    settings:
+      base:
+        PRODUCT_NAME: JarvisWatch
+        PRODUCT_BUNDLE_IDENTIFIER: ai.realjarvis.phone.watchkitapp
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: Jarvis
+        INFOPLIST_KEY_WKCompanionAppBundleIdentifier: ai.realjarvis.phone
+
+  JarvisWatchExtension:
+    type: watchkit2-extension
+    platform: watchOS
+    deploymentTarget: "10.0"
+    bundleId: ai.realjarvis.phone.watchkitapp.watchkitextension
+    sources:
+      - path: Jarvis/Watch/Extension
+    dependencies:
+      - target: JarvisWatchCore
+    settings:
+      base:
+        PRODUCT_NAME: JarvisWatchExtension
+        PRODUCT_BUNDLE_IDENTIFIER: ai.realjarvis.phone.watchkitapp.watchkitextension
+        GENERATE_INFOPLIST_FILE: NO
+        INFOPLIST_FILE: Jarvis/Watch/Extension/Info.plist
+
+schemes:
+  Jarvis:
+    build:
+      targets:
+        JarvisCLI: all
+        JarvisCoreTests: [test]
+    test:
+      targets:
+        - JarvisCoreTests
+
+  JarvisPhone:
+    build:
+      targets:
+        JarvisPhone: all
+
+  JarvisPad:
+    build:
+      targets:
+        JarvisPad: all
+
+  JarvisWatch:
+    build:
+      targets:
+        JarvisWatchApp: all
+        JarvisWatchExtension: all

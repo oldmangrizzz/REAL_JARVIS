@@ -1,0 +1,3 @@
+{"agentId":"validator","nodeSource":"planning","nodeTarget":"implementation","pheromone":1.4399999995893902,"ternaryValue":1,"timestamp":"2026-04-16T20:16:53Z"}
+{"agentId":"sovereign-operator","nodeSource":"boot","nodeTarget":"control-plane","pheromone":1.3519999990675184,"ternaryValue":1,"timestamp":"2026-04-17T09:47:14Z"}
+{"agentId":"tier1-text-bridge","nodeSource":"obsidian-command-bar","nodeTarget":"vault-monitor","pheromone":1.4839999994011721,"ternaryValue":1,"timestamp":"2026-04-17T10:03:56Z"}

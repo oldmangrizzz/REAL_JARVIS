@@ -1,0 +1,35 @@
+{
+  "version": "1.0.0",
+  "ratified_utc": "2026-04-18T10:23:00Z",
+  "operator": {
+    "legal_name": "Robert Barclay Hanson",
+    "callsign": "Grizz",
+    "credentials": "EMT-P Ret., Founder GrizzlyMedicine Research Institute"
+  },
+  "canon": {
+    "REALIGNMENT_1218.md": "ccb43d8b62dabf57d978293ed85e7e7db34100ae60bc3486a071484fdc4007ad",
+    "MANIFEST.md":         "043561f3afa3cada4cda4390ac4f09f3a1223e7f430335aa5c755ca037a59bc0",
+    "PRINCIPLES.md":       "2f34d18ba38fb5eb45a61d15eaf82680c1419eac153dc6bb6145f9dbb4904063",
+    "SOUL_ANCHOR.md":      "62272f556009220e7163aa4e288bf677496a869cc1245b4ec2a3ea59de31021a"
+  },
+  "signing_packet_sha256": "069047b5c3260874921ff4eb83cc25d0ec4be3a3f911ccbd6be0ca593be77202",
+  "keys": {
+    "ed25519_cold_root": {
+      "pubkey_sha256_fingerprint": "7d620ee675e495435a02bd233df8d14897fd043b9bab6147c65757955754d2b0",
+      "private_location": "iPhone a-Shell sandbox, never exported",
+      "signature_file":   ".jarvis/soul_anchor/signatures/canon_genesis.ed25519.sig",
+      "signature_sha256": "e93fc25751d45ee82b84046f132e5479f9525ff4a41a362aea195114ecc9c7d7",
+      "signature_format": "SSHSIG / namespace jarvis-soul-anchor",
+      "verify_identity":  "grizz@gmri"
+    },
+    "p256_operational": {
+      "pubkey_sha256_fingerprint": "4ea31e6ac2d9abe106ff1f23291b517ca4374a923ee37990f6e297bda1b7a28e",
+      "private_location": "Mac Secure Enclave, nonexportable",
+      "handle_file":      ".jarvis/soul_anchor/se_handle/p256.handle",
+      "signature_file":   ".jarvis/soul_anchor/signatures/canon_genesis.p256.sig",
+      "signature_sha256": "796d2e430dc25dcbd3e58152248c34336ed460998d2e197b8435a4d61202ba82",
+      "signature_format": "ECDSA P-256 DER"
+    }
+  },
+  "status": "RATIFIED"
+}

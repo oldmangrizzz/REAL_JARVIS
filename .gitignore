@@ -1,0 +1,36 @@
+# Secrets — NEVER commit, NEVER transmit
+.secrets.env
+.env
+.env.*
+secrets/
+*.pem
+*.key
+*_private.*
+.jarvis/soul_anchor/private/
+.jarvis/soul_anchor/rotations.private.jsonl
+
+# System
+.DS_Store
+
+# Swift / Xcode
+/.build
+/Packages
+xcuserdata/
+DerivedData/
+.swiftpm/configuration/registries.json
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+
+# Auth
+.netrc
+
+# Large media / evidence (tracked outside git; archive separately)
+elijah_mcclain.mp4
+voice-samples/
+.jarvis/DerivedData/
+.jarvis/venv-vibevoice/
+.jarvis/voice/auditions/
+*.parquet
+*.metallib
+
+# Vendored third-party source (re-fetch via swift PM)
+vendor/

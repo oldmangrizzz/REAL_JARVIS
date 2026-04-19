@@ -1,0 +1,17 @@
+{
+  "authorizedSources" : [
+    "obsidian-command-bar",
+    "terminal"
+  ],
+  "blockedSources" : [
+    "app-intents",
+    "mobile-cockpit",
+    "watch-cockpit",
+    "siri"
+  ],
+  "convexDeployment" : "https:\/\/enduring-starfish-794.convex.cloud",
+  "lastSync" : "2026-04-17T11:42:31Z",
+  "obsidianCommandBarEnabled" : true,
+  "operatorState" : "operator-wait",
+  "terminalEnabled" : true
+}

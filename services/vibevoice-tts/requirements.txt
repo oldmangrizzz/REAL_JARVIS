@@ -1,0 +1,16 @@
+# Pinned for reproducible GCP T4 builds. CUDA 12.1 wheels.
+fastapi==0.115.5
+uvicorn[standard]==0.32.1
+pydantic==2.9.2
+python-multipart==0.0.17
+numpy==1.26.4
+soundfile==0.12.1
+librosa==0.10.2.post1
+torch==2.4.1
+torchaudio==2.4.1
+transformers==4.46.3
+accelerate==1.1.1
+huggingface-hub==0.26.2
+diffusers==0.31.0
+einops==0.8.0
+# VibeVoice itself (community fork, MIT) — installed from git in Dockerfile

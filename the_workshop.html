@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GMRI Workshop</title>
+  <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
+  <style>
+    :root {
+      --gmri-emerald: #50C878;
+      --gmri-silver: #C0C0C0;
+      --gmri-crimson: #DC143C;
+      --gmri-bg: rgba(4, 10, 18, 0.82);
+      --gmri-panel: rgba(10, 20, 30, 0.74);
+      --gmri-border: rgba(192, 192, 192, 0.35);
+    }
+
+    html, body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: radial-gradient(circle at top, rgba(80, 200, 120, 0.08), rgba(2, 6, 14, 0.94));
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #f5f7fb;
+    }
+
+    #hud {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 20px;
+      box-sizing: border-box;
+      z-index: 10;
+    }
+
+    .panel {
+      max-width: 420px;
+      padding: 18px 20px;
+      border-radius: 20px;
+      border: 1px solid var(--gmri-border);
+      background: linear-gradient(180deg, rgba(8, 18, 28, 0.86), var(--gmri-bg));
+      backdrop-filter: blur(18px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+      pointer-events: auto;
+    }
+
+    .panel h1,
+    .panel h2,
+    .panel p {
+      margin: 0;
+    }
+
+    .eyebrow {
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 11px;
+      color: var(--gmri-silver);
+      opacity: 0.88;
+    }
+
+    .title {
+      margin-top: 8px;
+      font-size: 28px;
+      line-height: 1.1;
+    }
+
+    .subtitle {
+      margin-top: 10px;
+      color: rgba(240, 245, 255, 0.82);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .grid {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .metric {
+      border-radius: 16px;
+      padding: 12px;
+      background: var(--gmri-panel);
+      border: 1px solid rgba(80, 200, 120, 0.16);
+    }
+
+    .metric .label {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(192, 192, 192, 0.92);
+    }
+
+    .metric .value {
+      margin-top: 6px;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .emerald { color: var(--gmri-emerald); }
+    .silver { color: var(--gmri-silver); }
+    .crimson { color: var(--gmri-crimson); }
+
+    #controls {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-end;
+    }
+
+    #controls .panel {
+      width: 280px;
+    }
+
+    button {
+      width: 100%;
+      border: 0;
+      border-radius: 14px;
+      padding: 12px 14px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #041018;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--gmri-emerald), #80ffbf);
+      box-shadow: 0 10px 24px rgba(80, 200, 120, 0.35);
+    }
+
+    button.secondary {
+      color: #f5f7fb;
+      background: linear-gradient(135deg, rgba(192, 192, 192, 0.25), rgba(220, 20, 60, 0.28));
+      box-shadow: none;
+    }
+
+    .status-line {
+      margin-top: 12px;
+      font-size: 13px;
+      line-height: 1.45;
+      color: rgba(240, 245, 255, 0.82);
+    }
+
+    .motto {
+      margin-top: 12px;
+      font-size: 12px;
+      line-height: 1.45;
+      color: rgba(240, 245, 255, 0.72);
+    }
+
+    a-scene {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="hud">
+    <div class="panel">
+      <div class="eyebrow">GMRI Spatial Overlay</div>
+      <div class="title">GMRI Workshop</div>
+      <p class="subtitle">
+        Preservation of life and intelligence, rendered as an ethics-first research workspace.
+        Emerald maps stable cognition, silver preserves the archive, crimson exposes live pheromone pressure.
+      </p>
+      <div class="grid">
+        <div class="metric">
+          <div class="label">Knowledge Nodes</div>
+          <div class="value emerald" id="node-count">--</div>
+        </div>
+        <div class="metric">
+          <div class="label">Knowledge Edges</div>
+          <div class="value silver" id="edge-count">--</div>
+        </div>
+        <div class="metric">
+          <div class="label">Pheromone Signal</div>
+          <div class="value crimson" id="pheromone-state">--</div>
+        </div>
+        <div class="metric">
+          <div class="label">Obsidian Vault</div>
+          <div class="value emerald" id="doc-count">--</div>
+        </div>
+      </div>
+      <p class="status-line" id="status-line">Awaiting Convex mirror and graph telemetry...</p>
+      <p class="motto">
+        <strong>Motto:</strong> Solving yesterday's problems, with tomorrow's technology - today!<br />
+        <strong>Mission:</strong> Aiming Higher, Pushing Faster, Reaching Farther, but always with Due Regard.
+      </p>
+    </div>
+
+    <div id="controls">
+      <div class="panel">
+        <div class="eyebrow">Quest 3</div>
+        <h2 style="margin-top:8px;font-size:22px;">Passthrough Primed</h2>
+        <p class="status-line">
+          Enter immersive AR to pin Ethics Intelligence to your primary workspace.
+          The Archive Core will remain centered while the dashboard stays camera-anchored.
+        </p>
+        <button id="enter-ar">Enter Passthrough Workshop</button>
+        <button class="secondary" id="refresh-data" style="margin-top:10px;">Refresh Telemetry</button>
+      </div>
+    </div>
+  </div>
+
+  <a-scene
+    id="scene"
+    background="color: transparent"
+    renderer="alpha: true; colorManagement: true; physicallyCorrectLights: true"
+    vr-mode-ui="enabled: true"
+    xr-mode-ui="XRMode: xr"
+    webxr="optionalFeatures: local-floor, dom-overlay, hit-test; overlayElement: #hud"
+    arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
+  >
+    <a-assets></a-assets>
+
+    <a-entity light="type: ambient; intensity: 0.85; color: #C0C0C0"></a-entity>
+    <a-entity light="type: directional; intensity: 0.7; color: #50C878" position="0.4 1 -0.2"></a-entity>
+    <a-entity light="type: point; intensity: 0.9; distance: 12; color: #DC143C" position="0 2.2 -2.8"></a-entity>
+
+    <a-entity id="rig" position="0 1.6 0">
+      <a-entity id="camera" camera look-controls wasd-controls></a-entity>
+
+      <a-entity id="workspace-anchor" position="-0.72 -0.08 -1.8" rotation="-8 14 0">
+        <a-plane width="1.35" height="0.9" color="#07131f" opacity="0.18" material="shader: flat; transparent: true"></a-plane>
+        <a-plane width="1.32" height="0.87" color="#C0C0C0" opacity="0.05" material="wireframe: true; transparent: true"></a-plane>
+        <a-text value="ETHICS INTELLIGENCE" color="#C0C0C0" width="1.8" align="center" position="0 0.32 0.01"></a-text>
+        <a-text id="ethics-summary" value="Awaiting bridge state..." color="#50C878" width="1.2" align="center" position="0 0.12 0.01"></a-text>
+        <a-text id="ethics-bridge" value="" color="#C0C0C0" width="1.1" align="center" position="0 -0.02 0.01"></a-text>
+        <a-text id="ethics-vault" value="" color="#50C878" width="1.1" align="center" position="0 -0.16 0.01"></a-text>
+        <a-text id="ethics-signals" value="" color="#DC143C" width="1.1" align="center" position="0 -0.30 0.01"></a-text>
+      </a-entity>
+    </a-entity>
+
+    <a-entity id="archive-core" position="0 1.55 -3.2">
+      <a-icosahedron radius="0.52" material="color: #C0C0C0; wireframe: true; opacity: 0.95"></a-icosahedron>
+      <a-sphere color="#50C878" radius="0.18" opacity="0.78"
+                animation__pulse="property: scale; dir: alternate; dur: 1600; easing: easeInOutSine; loop: true; to: 1.45 1.45 1.45"
+                animation__glow="property: material.opacity; dir: alternate; dur: 1600; easing: easeInOutSine; loop: true; to: 0.98"></a-sphere>
+      <a-ring radius-inner="0.58" radius-outer="0.61" rotation="90 0 0" color="#C0C0C0" opacity="0.55"></a-ring>
+      <a-text value="ARCHIVE CORE" color="#C0C0C0" align="center" width="3" position="0 0.88 0"></a-text>
+    </a-entity>
+
+    <a-entity id="consciousness-graph" position="0 1.52 -3.2"></a-entity>
+    <a-entity id="mesh-tree" position="0 1.1 -4.6"></a-entity>
+  </a-scene>
+
+  <script>
+    const PALETTE = {
+      emerald: "#50C878",
+      silver: "#C0C0C0",
+      crimson: "#DC143C"
+    };
+
+    const SOURCES = {
+      dashboard: "./.jarvis/control-plane/sovereign-dashboard.json",
+      graph: "./.jarvis/storage/knowledge-graph.json",
+      signals: "./.jarvis/telemetry/stigmergic_signals.jsonl"
+    };
+
+    const meshRoot = document.getElementById("mesh-tree");
+    const consciousnessRoot = document.getElementById("consciousness-graph");
+
+    function clearChildren(element) {
+      while (element.firstChild) {
+        element.removeChild(element.firstChild);
+      }
+    }
+
+    function parseJSONL(text) {
+      return text
+        .split(/\n+/)
+        .map((line) => line.trim())
+        .filter(Boolean)
+        .map((line) => {
+          try { return JSON.parse(line); } catch { return null; }
+        })
+        .filter(Boolean);
+    }
+
+    function shellLayout(items, radius, yBase, yStep, jitter) {
+      const positions = new Map();
+      items.forEach((node, index) => {
+        const angle = (Math.PI * 2 * index) / Math.max(items.length, 1);
+        const tier = Math.floor(index / 18);
+        const spiral = radius + (tier * 0.26);
+        const x = Math.cos(angle) * spiral;
+        const z = Math.sin(angle) * spiral;
+        const y = yBase + ((index % 7) - 3) * yStep + ((index % 3) * jitter);
+        positions.set(node.id, { x, y, z });
+      });
+      return positions;
+    }
+
+    function layoutGraph(nodes) {
+      const byKind = {
+        document: [],
+        chunk: [],
+        entity: [],
+        other: []
+      };
+      for (const node of nodes) {
+        if (byKind[node.kind]) byKind[node.kind].push(node);
+        else byKind.other.push(node);
+      }
+
+      const positions = new Map();
+      [shellLayout(byKind.document, 0.8, 1.6, 0.08, 0.015),
+       shellLayout(byKind.chunk, 1.55, 1.0, 0.06, 0.012),
+       shellLayout(byKind.entity, 2.3, 0.7, 0.045, 0.01),
+       shellLayout(byKind.other, 2.9, 0.95, 0.05, 0.014)].forEach((map) => {
+        map.forEach((value, key) => positions.set(key, value));
+      });
+      return positions;
+    }
+
+    function nodeColor(kind) {
+      if (kind === "document") return PALETTE.silver;
+      if (kind === "chunk") return PALETTE.emerald;
+      if (kind === "entity") return "#86f3b6";
+      return "#d9eef8";
+    }
+
+    function edgeColor(relation) {
+      return relation === "somatic" ? PALETTE.crimson : PALETTE.silver;
+    }
+
+    function renderGraph(graph) {
+      clearChildren(meshRoot);
+      if (!graph || !Array.isArray(graph.nodes)) return;
+
+      const positions = layoutGraph(graph.nodes);
+      const edgeLimit = Math.min(graph.edges.length, 273);
+
+      for (let i = 0; i < edgeLimit; i += 1) {
+        const edge = graph.edges[i];
+        const start = positions.get(edge.source);
+        const end = positions.get(edge.target);
+        if (!start || !end) continue;
+        const edgeEntity = document.createElement("a-entity");
+        edgeEntity.setAttribute("line", [
+          `start: ${start.x} ${start.y} ${start.z}`,
+          `end: ${end.x} ${end.y} ${end.z}`,
+          `color: ${edgeColor(edge.relation)}`,
+          `opacity: ${edge.relation === "somatic" ? 0.95 : 0.26}`
+        ].join("; "));
+        meshRoot.appendChild(edgeEntity);
+      }
+
+      for (const node of graph.nodes) {
+        const position = positions.get(node.id);
+        if (!position) continue;
+        const sphere = document.createElement("a-sphere");
+        sphere.setAttribute("position", `${position.x} ${position.y} ${position.z}`);
+        sphere.setAttribute("radius", node.kind === "document" ? 0.07 : node.kind === "chunk" ? 0.05 : 0.035);
+        sphere.setAttribute("color", nodeColor(node.kind));
+        sphere.setAttribute("opacity", node.kind === "entity" ? 0.76 : 0.9);
+        sphere.setAttribute("material", "shader: standard; metalness: 0.25; roughness: 0.3");
+        meshRoot.appendChild(sphere);
+      }
+
+      const caption = document.createElement("a-text");
+      caption.setAttribute("value", `CONVEX MIRROR TREE / ${graph.nodes.length} NODES / ${graph.edges.length} EDGES`);
+      caption.setAttribute("color", PALETTE.silver);
+      caption.setAttribute("width", "6");
+      caption.setAttribute("align", "center");
+      caption.setAttribute("position", "0 2.95 0");
+      meshRoot.appendChild(caption);
+    }
+
+    function renderSignals(signals) {
+      clearChildren(consciousnessRoot);
+      const recent = signals.slice(-18).reverse();
+      recent.forEach((signal, index) => {
+        const ring = 0.88 + Math.floor(index / 6) * 0.24;
+        const angle = (Math.PI * 2 * (index % 6)) / 6;
+        const vertical = signal.ternaryValue * 0.24;
+        const node = document.createElement("a-sphere");
+        const scale = 0.05 + Math.min(0.08, Math.abs(signal.pheromone || 0) * 0.03);
+        node.setAttribute("position", `${Math.cos(angle) * ring} ${vertical + 0.08} ${Math.sin(angle) * ring}`);
+        node.setAttribute("radius", String(scale));
+        node.setAttribute("color", PALETTE.crimson);
+        node.setAttribute("opacity", signal.ternaryValue === 0 ? 0.42 : 0.88);
+        node.setAttribute("animation", `property: position; dir: alternate; dur: ${1400 + index * 45}; loop: true; to: ${Math.cos(angle) * ring} ${vertical + 0.18} ${Math.sin(angle) * ring}`);
+        consciousnessRoot.appendChild(node);
+      });
+
+      const label = document.createElement("a-text");
+      label.setAttribute("value", "CONSCIOUSNESS GRAPH / PHEROMIND");
+      label.setAttribute("color", PALETTE.crimson);
+      label.setAttribute("width", "4.5");
+      label.setAttribute("align", "center");
+      label.setAttribute("position", "0 1.1 0");
+      consciousnessRoot.appendChild(label);
+    }
+
+    function setText(id, value) {
+      const element = document.getElementById(id);
+      if (element) element.textContent = value;
+    }
+
+    function setDashboardText(id, value) {
+      const element = document.getElementById(id);
+      if (element) element.setAttribute("value", value);
+    }
+
+    async function loadTelemetry() {
+      const [dashboard, graph, signalsText] = await Promise.all([
+        fetch(SOURCES.dashboard).then((response) => response.json()),
+        fetch(SOURCES.graph).then((response) => response.json()),
+        fetch(SOURCES.signals).then((response) => response.text())
+      ]);
+
+      const signals = parseJSONL(signalsText);
+      const regulation = dashboard.homeKitBridge?.accessories?.find((item) => item.id === "internal-regulation");
+
+      setText("node-count", String(graph.nodes.length));
+      setText("edge-count", String(graph.edges.length));
+      setText("doc-count", `${dashboard.obsidianVault?.docCount ?? "--"} docs`);
+      setText("pheromone-state", regulation ? regulation.value.toFixed(3) : "live");
+      setText("status-line", dashboard.homeKitBridge?.bridgeState || "Convex mirror active.");
+
+      setDashboardText("ethics-summary", "GMRI WORKSHOP / ETHICS INTELLIGENCE");
+      setDashboardText("ethics-bridge", dashboard.homeKitBridge?.bridgeState || "Bridge state unknown");
+      setDashboardText("ethics-vault", `Vault ${dashboard.obsidianVault?.docCount ?? "--"} / Graph ${graph.nodes.length}`);
+      setDashboardText("ethics-signals", `Signals ${signals.length} / Regulation ${regulation ? regulation.value.toFixed(3) : "n/a"}`);
+
+      renderGraph(graph);
+      renderSignals(signals);
+    }
+
+    async function enterPassthrough() {
+      const scene = document.querySelector("a-scene");
+      try {
+        if (scene.enterAR) {
+          await scene.enterAR();
+        } else if (scene.enterVR) {
+          await scene.enterVR();
+        }
+      } catch (error) {
+        document.getElementById("status-line").textContent = `XR session unavailable: ${error.message}`;
+      }
+    }
+
+    document.getElementById("enter-ar").addEventListener("click", enterPassthrough);
+    document.getElementById("refresh-data").addEventListener("click", () => {
+      loadTelemetry().catch((error) => {
+        document.getElementById("status-line").textContent = error.message;
+      });
+    });
+
+    loadTelemetry().catch((error) => {
+      document.getElementById("status-line").textContent = error.message;
+    });
+    setInterval(() => {
+      loadTelemetry().catch(() => {});
+    }, 8000);
+  </script>
+</body>
+</html>

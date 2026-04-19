@@ -1,0 +1,449 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test -workspace jarvis.xcworkspace -scheme Jarvis -destination platform=macOS,arch=arm64
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  swift-asn1: https://github.com/apple/swift-asn1.git @ 1.5.1
+  swift-collections: https://github.com/apple/swift-collections.git @ 1.3.0
+  swift-log: https://github.com/apple/swift-log.git @ 1.10.1
+  swift-algorithms: https://github.com/apple/swift-algorithms.git @ 1.2.1
+  swift-distributed-tracing: https://github.com/apple/swift-distributed-tracing.git @ 1.4.0
+  swift-certificates: https://github.com/apple/swift-certificates.git @ 1.18.0
+  mlx-swift-lm: https://github.com/ml-explore/mlx-swift-lm.git @ 2.30.6
+  swift-nio-extras: https://github.com/apple/swift-nio-extras.git @ 1.32.1
+  yyjson: https://github.com/ibireme/yyjson.git @ 0.12.0
+  swift-service-lifecycle: https://github.com/swift-server/swift-service-lifecycle @ 2.10.1
+  swift-nio: https://github.com/apple/swift-nio.git @ 2.95.0
+  mlx-swift: https://github.com/ml-explore/mlx-swift.git @ 0.30.6
+  MLXAudio: /Users/grizzmed/REAL_JARVIS/vendor/mlx-audio-swift
+  swift-nio-http2: https://github.com/apple/swift-nio-http2.git @ 1.40.0
+  swift-async-algorithms: https://github.com/apple/swift-async-algorithms.git @ 1.1.2
+  swift-transformers: https://github.com/huggingface/swift-transformers.git @ 1.1.9
+  swift-atomics: https://github.com/apple/swift-atomics.git @ 1.3.0
+  swift-huggingface: https://github.com/huggingface/swift-huggingface.git @ 0.8.1
+  Xet: https://github.com/mattt/swift-xet.git @ 0.2.3
+  swift-service-context: https://github.com/apple/swift-service-context.git @ 1.3.0
+  swift-http-structured-headers: https://github.com/apple/swift-http-structured-headers.git @ 1.6.0
+  swift-system: https://github.com/apple/swift-system.git @ 1.6.4
+  swift-http-types: https://github.com/apple/swift-http-types.git @ 1.5.1
+  swift-nio-transport-services: https://github.com/apple/swift-nio-transport-services.git @ 1.26.0
+  swift-nio-ssl: https://github.com/apple/swift-nio-ssl.git @ 2.36.0
+  swift-crypto: https://github.com/apple/swift-crypto.git @ 4.2.0
+  async-http-client: https://github.com/swift-server/async-http-client @ 1.32.0
+  swift-numerics: https://github.com/apple/swift-numerics @ 1.1.1
+  swift-configuration: https://github.com/apple/swift-configuration.git @ 1.1.0
+  EventSource: https://github.com/mattt/EventSource.git @ 1.2.0
+  Jinja: https://github.com/huggingface/swift-jinja.git @ 2.3.2
+
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (3 targets)
+    Target 'JarvisCoreTests' in project 'Jarvis'
+        ➜ Explicit dependency on target 'JarvisCore' in project 'Jarvis'
+    Target 'JarvisCLI' in project 'Jarvis'
+        ➜ Explicit dependency on target 'JarvisCore' in project 'Jarvis'
+    Target 'JarvisCore' in project 'Jarvis' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc --version
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.4.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.4.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool -V
+
+Build description signature: 4cae458b454956834f2c7f080a05bcfd
+Build description path: /Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Build/Intermediates.noindex/XCBuildData/4cae458b454956834f2c7f080a05bcfd.xcbuilddata
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.4.sdk /Users/grizzmed/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx26.4-25E236-688ef53f1462e2c8f657fdc38a81448f30f9ca8789b706f8bd3fc906a70d770f.sdkstatcache
+    cd /Users/grizzmed/REAL_JARVIS
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.4.sdk -o /Users/grizzmed/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx26.4-25E236-688ef53f1462e2c8f657fdc38a81448f30f9ca8789b706f8bd3fc906a70d770f.sdkstatcache
+
+Ld /Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Build/Products/Debug/JarvisCoreTests.xctest/Contents/MacOS/JarvisCoreTests normal (in target 'JarvisCoreTests' from project 'Jarvis')
+    cd /Users/grizzmed/REAL_JARVIS
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-macos14.0 -bundle -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.4.sdk -O0 -L/Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Build/Intermediates.noindex/EagerLinkingTBDs/Debug -L/Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Build/Products/Debug -L/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib -F/Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Build/Intermediates.noindex/EagerLinkingTBDs/Debug -F/Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Build/Products/Debug -iframework /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -filelist /Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Build/Intermediates.noindex/Jarvis.build/Debug/JarvisCoreTests.build/Objects-normal/arm64/JarvisCoreTests.LinkFileList -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker @loader_path/../Frameworks -Xlinker -rpath -Xlinker @executable_path/../Frameworks -Xlinker -object_path_lto -Xlinker /Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Build/Intermediates.noindex/Jarvis.build/Debug/JarvisCoreTests.build/Objects-normal/arm64/JarvisCoreTests_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -dependency_info -Xlinker /Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Build/Intermediates.noindex/Jarvis.build/Debug/JarvisCoreTests.build/Objects-normal/arm64/JarvisCoreTests_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Build/Intermediates.noindex/Jarvis.build/Debug/JarvisCoreTests.build/Objects-normal/arm64/JarvisCoreTests.swiftmodule @/Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Build/Intermediates.noindex/Jarvis.build/Debug/JarvisCoreTests.build/Objects-normal/arm64/JarvisCoreTests-linker-args.resp -Xlinker -needed_framework -Xlinker XCTest -framework XCTest -Xlinker -needed-lXCTestSwiftSupport -lXCTestSwiftSupport -framework JarvisCore -o /Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Build/Products/Debug/JarvisCoreTests.xctest/Contents/MacOS/JarvisCoreTests
+
+ProcessInfoPlistFile /Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Build/Products/Debug/JarvisCoreTests.xctest/Contents/Info.plist /Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Build/Intermediates.noindex/Jarvis.build/Debug/JarvisCoreTests.build/empty-JarvisCoreTests.plist (in target 'JarvisCoreTests' from project 'Jarvis')
+    cd /Users/grizzmed/REAL_JARVIS
+    builtin-infoPlistUtility /Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Build/Intermediates.noindex/Jarvis.build/Debug/JarvisCoreTests.build/empty-JarvisCoreTests.plist -producttype com.apple.product-type.bundle.unit-test -expandbuildsettings -platform macosx -o /Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Build/Products/Debug/JarvisCoreTests.xctest/Contents/Info.plist
+
+CopySwiftLibs /Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Build/Products/Debug/JarvisCoreTests.xctest (in target 'JarvisCoreTests' from project 'Jarvis')
+    cd /Users/grizzmed/REAL_JARVIS
+    builtin-swiftStdLibTool --copy --verbose --scan-executable /Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Build/Products/Debug/JarvisCoreTests.xctest/Contents/MacOS/JarvisCoreTests --scan-folder /Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Build/Products/Debug/JarvisCoreTests.xctest/Contents/Frameworks --scan-folder /Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Build/Products/Debug/JarvisCoreTests.xctest/Contents/PlugIns --scan-folder /Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Build/Products/Debug/JarvisCoreTests.xctest/Contents/Library/SystemExtensions --scan-folder /Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Build/Products/Debug/JarvisCoreTests.xctest/Contents/Extensions --scan-folder /Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Build/Products/Debug/JarvisCore.framework --platform macosx --toolchain /var/run/com.apple.security.cryptexd/mnt/com.apple.MobileAsset.MetalToolchain-v17.5.188.0.8ojRCR/Metal.xctoolchain --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Build/Products/Debug/JarvisCoreTests.xctest/Contents/Frameworks --strip-bitcode --scan-executable /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib/libXCTestSwiftSupport.dylib --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Build/Intermediates.noindex/Jarvis.build/Debug/JarvisCoreTests.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os --back-deploy-swift-span
+Ignoring --strip-bitcode because --sign was not passed
+
+ExtractAppIntentsMetadata (in target 'JarvisCoreTests' from project 'Jarvis')
+    cd /Users/grizzmed/REAL_JARVIS
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /var/run/com.apple.security.cryptexd/mnt/com.apple.MobileAsset.MetalToolchain-v17.5.188.0.8ojRCR/Metal.xctoolchain --module-name JarvisCoreTests --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.4.sdk --xcode-version 17E192 --platform-family macOS --deployment-target 14.0 --bundle-identifier ai.realjarvis.JarvisCoreTests --output /Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Build/Products/Debug/JarvisCoreTests.xctest/Contents/Resources --target-triple arm64-apple-macos14.0 --binary-file /Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Build/Products/Debug/JarvisCoreTests.xctest/Contents/MacOS/JarvisCoreTests --dependency-file /Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Build/Intermediates.noindex/Jarvis.build/Debug/JarvisCoreTests.build/Objects-normal/arm64/JarvisCoreTests_dependency_info.dat --stringsdata-file /Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Build/Intermediates.noindex/Jarvis.build/Debug/JarvisCoreTests.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Build/Intermediates.noindex/Jarvis.build/Debug/JarvisCoreTests.build/Objects-normal/arm64/JarvisCoreTests.SwiftFileList --metadata-file-list /Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Build/Intermediates.noindex/Jarvis.build/Debug/JarvisCoreTests.build/JarvisCoreTests.DependencyMetadataFileList --static-metadata-file-list /Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Build/Intermediates.noindex/Jarvis.build/Debug/JarvisCoreTests.build/JarvisCoreTests.DependencyStaticMetadataFileList --swift-const-vals-list /Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Build/Intermediates.noindex/Jarvis.build/Debug/JarvisCoreTests.build/Objects-normal/arm64/JarvisCoreTests.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --validate-assistant-intents --no-app-shortcuts-localization
+2026-04-19 16:04:21.385 appintentsmetadataprocessor[3851:2217636] Starting appintentsmetadataprocessor export
+2026-04-19 16:04:21.390 appintentsmetadataprocessor[3851:2217636] warning: Metadata extraction skipped. No AppIntents.framework dependency found.
+
+Test Suite 'All tests' started at 2026-04-19 16:04:23.044.
+Test Suite 'JarvisCoreTests.xctest' started at 2026-04-19 16:04:23.044.
+Test Suite 'AOxFourProbeTests' started at 2026-04-19 16:04:23.044.
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testEventIdle_whenNoTelemetry]' started.
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testEventIdle_whenNoTelemetry]' passed (0.011 seconds).
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testEventOriented_afterTelemetryWrite]' started.
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testEventOriented_afterTelemetryWrite]' passed (0.006 seconds).
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testPersonDegraded_whenStatusNotRatified]' started.
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testPersonDegraded_whenStatusNotRatified]' passed (0.007 seconds).
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testPersonOriented_whenRatifiedGenesisPresent]' started.
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testPersonOriented_whenRatifiedGenesisPresent]' passed (0.006 seconds).
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testPersonUnoriented_whenGenesisMissing]' started.
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testPersonUnoriented_whenGenesisMissing]' passed (0.005 seconds).
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testPlaceProducesStableFingerprint]' started.
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testPlaceProducesStableFingerprint]' passed (0.223 seconds).
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testRequireFullOrientationThrowsWhenDegraded]' started.
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testRequireFullOrientationThrowsWhenDegraded]' passed (0.075 seconds).
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testStatusCompositeMatchesOrientedAxes]' started.
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testStatusCompositeMatchesOrientedAxes]' passed (0.077 seconds).
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testStatusPersistsLatestFileForOutOfProcessGates]' started.
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testStatusPersistsLatestFileForOutOfProcessGates]' passed (0.076 seconds).
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testStatusRewritesLatestFileAtomically]' started.
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testStatusRewritesLatestFileAtomically]' passed (1.197 seconds).
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testTimeOrientedUnderNormalClock]' started.
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testTimeOrientedUnderNormalClock]' passed (0.036 seconds).
+Test Suite 'AOxFourProbeTests' passed at 2026-04-19 16:04:24.766.
+	 Executed 11 tests, with 0 failures (0 unexpected) in 1.718 (1.722) seconds
+Test Suite 'ARCGridAdapterTests' started at 2026-04-19 16:04:24.767.
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testEmptyGridHandling]' started.
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testEmptyGridHandling]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testGridParsing]' started.
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testGridParsing]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testGridSummary]' started.
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testGridSummary]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testGridToPhysics]' started.
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testGridToPhysics]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testLargeGridSummaryBounds]' started.
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testLargeGridSummaryBounds]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testTaskSummary]' started.
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testTaskSummary]' passed (0.001 seconds).
+Test Suite 'ARCGridAdapterTests' passed at 2026-04-19 16:04:24.774.
+	 Executed 6 tests, with 0 failures (0 unexpected) in 0.006 (0.007) seconds
+Test Suite 'ARCHarnessBridgeWebSocketTests' started at 2026-04-19 16:04:24.774.
+Test Case '-[JarvisCoreTests.ARCHarnessBridgeWebSocketTests testBridgeStopsCleanlyWithNoWebSocket]' started.
+Test Case '-[JarvisCoreTests.ARCHarnessBridgeWebSocketTests testBridgeStopsCleanlyWithNoWebSocket]' passed (0.005 seconds).
+Test Case '-[JarvisCoreTests.ARCHarnessBridgeWebSocketTests testEmitMethodsForwardCorrectTypes]' started.
+2026-04-19 16:04:24.816750-0500 xctest[3852:2217676] [connection] nw_socket_handle_socket_event [C1.1.1:2] Socket SO_ERROR [61: Connection refused]
+2026-04-19 16:04:24.817451-0500 xctest[3852:2217676] [connection] nw_endpoint_flow_failed_with_error [C1.1.1 ::1.18767 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: lo0)] already failing, returning
+2026-04-19 16:04:24.820386-0500 xctest[3852:2217676] [connection] nw_socket_handle_socket_event [C1.1.2:2] Socket SO_ERROR [61: Connection refused]
+2026-04-19 16:04:24.820423-0500 xctest[3852:2217676] [connection] nw_endpoint_flow_failed_with_error [C1.1.2 127.0.0.1:18767 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: lo0)] already failing, returning
+2026-04-19 16:04:24.820462-0500 xctest[3852:2217676] [connection] nw_endpoint_flow_failed_with_error [C1.1.2 127.0.0.1:18767 cancelled socket-flow ((null))] already failing, returning
+2026-04-19 16:04:24.820509-0500 xctest[3852:2217676] [Default] Connection 1: received failure notification
+2026-04-19 16:04:24.820912-0500 xctest[3852:2217676] [Default] Connection 1: failed to connect 1:61, reason -1
+2026-04-19 16:04:24.820919-0500 xctest[3852:2217676] [Default] Connection 1: encountered error(1:61)
+2026-04-19 16:04:24.821262-0500 xctest[3852:2217676] [Default] Task <6D495185-1D90-4DB1-A22F-57E898046B0B>.<1> HTTP load failed, 0/0 bytes (error code: -1004 [1:61])
+2026-04-19 16:04:24.823229-0500 xctest[3852:2217710] [Default] Task <6D495185-1D90-4DB1-A22F-57E898046B0B>.<1> finished with error [-1004] Error Domain=NSURLErrorDomain Code=-1004 "Could not connect to the server." UserInfo={NSErrorFailingURLStringKey=http://localhost:18767/, NSErrorFailingURLKey=http://localhost:18767/, _NSURLErrorRelatedURLSessionTaskErrorKey=(
+    "LocalWebSocketTask <6D495185-1D90-4DB1-A22F-57E898046B0B>.<1>"
+), _NSURLErrorFailingURLSessionTaskErrorKey=LocalWebSocketTask <6D495185-1D90-4DB1-A22F-57E898046B0B>.<1>, NSLocalizedDescription=Could not connect to the server.}
+2026-04-19 16:04:24.825530-0500 xctest[3852:2217646] [connection] nw_socket_handle_socket_event [C2.1.1:2] Socket SO_ERROR [61: Connection refused]
+2026-04-19 16:04:24.825560-0500 xctest[3852:2217646] [connection] nw_endpoint_flow_failed_with_error [C2.1.1 ::1.18767 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: lo0)] already failing, returning
+2026-04-19 16:04:24.825697-0500 xctest[3852:2217646] [connection] nw_socket_handle_socket_event [C2.1.2:2] Socket SO_ERROR [61: Connection refused]
+2026-04-19 16:04:24.825718-0500 xctest[3852:2217646] [connection] nw_endpoint_flow_failed_with_error [C2.1.2 127.0.0.1:18767 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: lo0)] already failing, returning
+2026-04-19 16:04:24.825756-0500 xctest[3852:2217646] [connection] nw_endpoint_flow_failed_with_error [C2.1.2 127.0.0.1:18767 cancelled socket-flow ((null))] already failing, returning
+2026-04-19 16:04:24.825782-0500 xctest[3852:2217646] [Default] Connection 2: received failure notification
+2026-04-19 16:04:24.825791-0500 xctest[3852:2217646] [Default] Connection 2: failed to connect 1:61, reason -1
+2026-04-19 16:04:24.825794-0500 xctest[3852:2217646] [Default] Connection 2: encountered error(1:61)
+2026-04-19 16:04:24.825863-0500 xctest[3852:2217676] [Default] Task <2C9191A9-4006-4F61-A451-8A0E8C8B8FA1>.<2> HTTP load failed, 0/0 bytes (error code: -1004 [1:61])
+2026-04-19 16:04:24.825937-0500 xctest[3852:2217646] [Default] Task <2C9191A9-4006-4F61-A451-8A0E8C8B8FA1>.<2> finished with error [-1004] Error Domain=NSURLErrorDomain Code=-1004 "Could not connect to the server." UserInfo={NSErrorFailingURLStringKey=http://localhost:18767/, NSErrorFailingURLKey=http://localhost:18767/, _NSURLErrorRelatedURLSessionTaskErrorKey=(
+    "LocalWebSocketTask <2C9191A9-4006-4F61-A451-8A0E8C8B8FA1>.<2>"
+), _NSURLErrorFailingURLSessionTaskErrorKey=LocalWebSocketTask <2C9191A9-4006-4F61-A451-8A0E8C8B8FA1>.<2>, NSLocalizedDescription=Could not connect to the server.}
+2026-04-19 16:04:24.826684-0500 xctest[3852:2217676] [connection] nw_socket_handle_socket_event [C3.1.1:2] Socket SO_ERROR [61: Connection refused]
+2026-04-19 16:04:24.826714-0500 xctest[3852:2217676] [connection] nw_endpoint_flow_failed_with_error [C3.1.1 ::1.18767 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: lo0)] already failing, returning
+2026-04-19 16:04:24.826828-0500 xctest[3852:2217676] [connection] nw_socket_handle_socket_event [C3.1.2:2] Socket SO_ERROR [61: Connection refused]
+2026-04-19 16:04:24.826846-0500 xctest[3852:2217676] [connection] nw_endpoint_flow_failed_with_error [C3.1.2 127.0.0.1:18767 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: lo0)] already failing, returning
+2026-04-19 16:04:24.826879-0500 xctest[3852:2217676] [connection] nw_endpoint_flow_failed_with_error [C3.1.2 127.0.0.1:18767 cancelled socket-flow ((null))] already failing, returning
+2026-04-19 16:04:24.826898-0500 xctest[3852:2217676] [Default] Connection 3: received failure notification
+2026-04-19 16:04:24.826905-0500 xctest[3852:2217676] [Default] Connection 3: failed to connect 1:61, reason -1
+2026-04-19 16:04:24.826908-0500 xctest[3852:2217676] [Default] Connection 3: encountered error(1:61)
+2026-04-19 16:04:24.826955-0500 xctest[3852:2217676] [Default] Task <5F8115E9-1A58-40AC-A8DD-3A9EB76DA4B6>.<3> HTTP load failed, 0/0 bytes (error code: -1004 [1:61])
+2026-04-19 16:04:24.827003-0500 xctest[3852:2217676] [Default] Task <5F8115E9-1A58-40AC-A8DD-3A9EB76DA4B6>.<3> finished with error [-1004] Error Domain=NSURLErrorDomain Code=-1004 "Could not connect to the server." UserInfo={NSErrorFailingURLStringKey=http://localhost:18767/, NSErrorFailingURLKey=http://localhost:18767/, _NSURLErrorRelatedURLSessionTaskErrorKey=(
+    "LocalWebSocketTask <5F8115E9-1A58-40AC-A8DD-3A9EB76DA4B6>.<3>"
+), _NSURLErrorFailingURLSessionTaskErrorKey=LocalWebSocketTask <5F8115E9-1A58-40AC-A8DD-3A9EB76DA4B6>.<3>, NSLocalizedDescription=Could not connect to the server.}
+2026-04-19 16:04:24.827701-0500 xctest[3852:2217711] [connection] nw_socket_handle_socket_event [C4.1.1:2] Socket SO_ERROR [61: Connection refused]
+2026-04-19 16:04:24.827731-0500 xctest[3852:2217711] [connection] nw_endpoint_flow_failed_with_error [C4.1.1 ::1.18767 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: lo0)] already failing, returning
+2026-04-19 16:04:24.827847-0500 xctest[3852:2217711] [connection] nw_socket_handle_socket_event [C4.1.2:2] Socket SO_ERROR [61: Connection refused]
+2026-04-19 16:04:24.827870-0500 xctest[3852:2217711] [connection] nw_endpoint_flow_failed_with_error [C4.1.2 127.0.0.1:18767 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: lo0)] already failing, returning
+2026-04-19 16:04:24.827907-0500 xctest[3852:2217711] [connection] nw_endpoint_flow_failed_with_error [C4.1.2 127.0.0.1:18767 cancelled socket-flow ((null))] already failing, returning
+2026-04-19 16:04:24.827926-0500 xctest[3852:2217711] [Default] Connection 4: received failure notification
+2026-04-19 16:04:24.827932-0500 xctest[3852:2217711] [Default] Connection 4: failed to connect 1:61, reason -1
+2026-04-19 16:04:24.827935-0500 xctest[3852:2217711] [Default] Connection 4: encountered error(1:61)
+2026-04-19 16:04:24.828012-0500 xctest[3852:2217710] [Default] Task <DD9C63F9-6DD0-42A3-B78E-3FA0E1B2CF37>.<4> HTTP load failed, 0/0 bytes (error code: -1004 [1:61])
+2026-04-19 16:04:24.828061-0500 xctest[3852:2217710] [Default] Task <DD9C63F9-6DD0-42A3-B78E-3FA0E1B2CF37>.<4> finished with error [-1004] Error Domain=NSURLErrorDomain Code=-1004 "Could not connect to the server." UserInfo={NSErrorFailingURLStringKey=http://localhost:18767/, NSErrorFailingURLKey=http://localhost:18767/, _NSURLErrorRelatedURLSessionTaskErrorKey=(
+    "LocalWebSocketTask <DD9C63F9-6DD0-42A3-B78E-3FA0E1B2CF37>.<4>"
+), _NSURLErrorFailingURLSessionTaskErrorKey=LocalWebSocketTask <DD9C63F9-6DD0-42A3-B78E-3FA0E1B2CF37>.<4>, NSLocalizedDescription=Could not connect to the server.}
+Test Case '-[JarvisCoreTests.ARCHarnessBridgeWebSocketTests testEmitMethodsForwardCorrectTypes]' passed (0.049 seconds).
+Test Case '-[JarvisCoreTests.ARCHarnessBridgeWebSocketTests testSendJSONCreatesWebSocketTaskViaTelemetry]' started.
+2026-04-19 16:04:24.836531-0500 xctest[3852:2217710] [connection] nw_socket_handle_socket_event [C5.1.1:2] Socket SO_ERROR [61: Connection refused]
+2026-04-19 16:04:24.836572-0500 xctest[3852:2217710] [connection] nw_endpoint_flow_failed_with_error [C5.1.1 ::1.18765 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: lo0)] already failing, returning
+2026-04-19 16:04:24.836920-0500 xctest[3852:2217710] [connection] nw_socket_handle_socket_event [C5.1.2:2] Socket SO_ERROR [61: Connection refused]
+2026-04-19 16:04:24.836955-0500 xctest[3852:2217710] [connection] nw_endpoint_flow_failed_with_error [C5.1.2 127.0.0.1:18765 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: lo0)] already failing, returning
+2026-04-19 16:04:24.837002-0500 xctest[3852:2217710] [connection] nw_endpoint_flow_failed_with_error [C5.1.2 127.0.0.1:18765 cancelled socket-flow ((null))] already failing, returning
+2026-04-19 16:04:24.837030-0500 xctest[3852:2217710] [Default] Connection 5: received failure notification
+2026-04-19 16:04:24.837043-0500 xctest[3852:2217710] [Default] Connection 5: failed to connect 1:61, reason -1
+2026-04-19 16:04:24.837046-0500 xctest[3852:2217710] [Default] Connection 5: encountered error(1:61)
+2026-04-19 16:04:24.837133-0500 xctest[3852:2217676] [Default] Task <6B7F4DC6-6666-40F9-ABB8-7ED7C7E4E8AA>.<5> HTTP load failed, 0/0 bytes (error code: -1004 [1:61])
+2026-04-19 16:04:24.837220-0500 xctest[3852:2217676] [Default] Task <6B7F4DC6-6666-40F9-ABB8-7ED7C7E4E8AA>.<5> finished with error [-1004] Error Domain=NSURLErrorDomain Code=-1004 "Could not connect to the server." UserInfo={NSErrorFailingURLStringKey=http://localhost:18765/, NSErrorFailingURLKey=http://localhost:18765/, _NSURLErrorRelatedURLSessionTaskErrorKey=(
+    "LocalWebSocketTask <6B7F4DC6-6666-40F9-ABB8-7ED7C7E4E8AA>.<5>"
+), _NSURLErrorFailingURLSessionTaskErrorKey=LocalWebSocketTask <6B7F4DC6-6666-40F9-ABB8-7ED7C7E4E8AA>.<5>, NSLocalizedDescription=Could not connect to the server.}
+Test Case '-[JarvisCoreTests.ARCHarnessBridgeWebSocketTests testSendJSONCreatesWebSocketTaskViaTelemetry]' passed (2.057 seconds).
+Test Case '-[JarvisCoreTests.ARCHarnessBridgeWebSocketTests testStopCancelsWebSocketViaTelemetry]' started.
+2026-04-19 16:04:26.905691-0500 xctest[3852:2217689] [connection] nw_socket_handle_socket_event [C6.1.1:2] Socket SO_ERROR [61: Connection refused]
+2026-04-19 16:04:26.905745-0500 xctest[3852:2217689] [connection] nw_endpoint_flow_failed_with_error [C6.1.1 ::1.18766 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: lo0)] already failing, returning
+2026-04-19 16:04:26.905991-0500 xctest[3852:2217689] [connection] nw_socket_handle_socket_event [C6.1.2:2] Socket SO_ERROR [61: Connection refused]
+2026-04-19 16:04:26.906030-0500 xctest[3852:2217689] [connection] nw_endpoint_flow_failed_with_error [C6.1.2 127.0.0.1:18766 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: lo0)] already failing, returning
+2026-04-19 16:04:26.906079-0500 xctest[3852:2217689] [connection] nw_endpoint_flow_failed_with_error [C6.1.2 127.0.0.1:18766 cancelled socket-flow ((null))] already failing, returning
+2026-04-19 16:04:26.906112-0500 xctest[3852:2217689] [Default] Connection 6: received failure notification
+2026-04-19 16:04:26.906124-0500 xctest[3852:2217689] [Default] Connection 6: failed to connect 1:61, reason -1
+2026-04-19 16:04:26.906128-0500 xctest[3852:2217689] [Default] Connection 6: encountered error(1:61)
+2026-04-19 16:04:26.906217-0500 xctest[3852:2217676] [Default] Task <E3BBD260-90DF-4E0C-A681-D4C86ECFA7E8>.<6> HTTP load failed, 0/0 bytes (error code: -1004 [1:61])
+2026-04-19 16:04:26.906331-0500 xctest[3852:2217676] [Default] Task <E3BBD260-90DF-4E0C-A681-D4C86ECFA7E8>.<6> finished with error [-1004] Error Domain=NSURLErrorDomain Code=-1004 "Could not connect to the server." UserInfo={NSErrorFailingURLStringKey=http://localhost:18766/, NSErrorFailingURLKey=http://localhost:18766/, _NSURLErrorRelatedURLSessionTaskErrorKey=(
+    "LocalWebSocketTask <E3BBD260-90DF-4E0C-A681-D4C86ECFA7E8>.<6>"
+), _NSURLErrorFailingURLSessionTaskErrorKey=LocalWebSocketTask <E3BBD260-90DF-4E0C-A681-D4C86ECFA7E8>.<6>, NSLocalizedDescription=Could not connect to the server.}
+2026-04-19 16:04:27.443841-0500 xctest[3852:2217677] [connection] nw_socket_handle_socket_event [C7.1.1:2] Socket SO_ERROR [61: Connection refused]
+2026-04-19 16:04:27.443962-0500 xctest[3852:2217677] [connection] nw_endpoint_flow_failed_with_error [C7.1.1 ::1.18766 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: lo0)] already failing, returning
+2026-04-19 16:04:27.444383-0500 xctest[3852:2217677] [connection] nw_socket_handle_socket_event [C7.1.2:2] Socket SO_ERROR [61: Connection refused]
+2026-04-19 16:04:27.444482-0500 xctest[3852:2217677] [connection] nw_endpoint_flow_failed_with_error [C7.1.2 127.0.0.1:18766 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: lo0)] already failing, returning
+2026-04-19 16:04:27.444600-0500 xctest[3852:2217677] [connection] nw_endpoint_flow_failed_with_error [C7.1.2 127.0.0.1:18766 cancelled socket-flow ((null))] already failing, returning
+2026-04-19 16:04:27.444669-0500 xctest[3852:2217677] [Default] Connection 7: received failure notification
+2026-04-19 16:04:27.444731-0500 xctest[3852:2217677] [Default] Connection 7: failed to connect 1:61, reason -1
+2026-04-19 16:04:27.444746-0500 xctest[3852:2217677] [Default] Connection 7: encountered error(1:61)
+2026-04-19 16:04:27.444957-0500 xctest[3852:2217677] [Default] Task <1B113283-F2DA-4B32-8EBE-A5ADA4CAD16E>.<7> HTTP load failed, 0/0 bytes (error code: -1004 [1:61])
+2026-04-19 16:04:27.445202-0500 xctest[3852:2217677] [Default] Task <1B113283-F2DA-4B32-8EBE-A5ADA4CAD16E>.<7> finished with error [-1004] Error Domain=NSURLErrorDomain Code=-1004 "Could not connect to the server." UserInfo={NSErrorFailingURLStringKey=http://localhost:18766/, NSErrorFailingURLKey=http://localhost:18766/, _NSURLErrorRelatedURLSessionTaskErrorKey=(
+    "LocalWebSocketTask <1B113283-F2DA-4B32-8EBE-A5ADA4CAD16E>.<7>"
+), _NSURLErrorFailingURLSessionTaskErrorKey=LocalWebSocketTask <1B113283-F2DA-4B32-8EBE-A5ADA4CAD16E>.<7>, NSLocalizedDescription=Could not connect to the server.}
+Test Case '-[JarvisCoreTests.ARCHarnessBridgeWebSocketTests testStopCancelsWebSocketViaTelemetry]' passed (2.586 seconds).
+Test Suite 'ARCHarnessBridgeWebSocketTests' passed at 2026-04-19 16:04:29.473.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 4.697 (4.699) seconds
+Test Suite 'CanonRegistryTests' started at 2026-04-19 16:04:29.473.
+Test Case '-[JarvisCoreTests.CanonRegistryTests testAllFilenamesAreUnique]' started.
+Test Case '-[JarvisCoreTests.CanonRegistryTests testAllFilenamesAreUnique]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CanonRegistryTests testAllHashesAreUnique]' started.
+Test Case '-[JarvisCoreTests.CanonRegistryTests testAllHashesAreUnique]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CanonRegistryTests testAllIdsAreUnique]' started.
+Test Case '-[JarvisCoreTests.CanonRegistryTests testAllIdsAreUnique]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CanonRegistryTests testLiveCorpusDirectoryExists]' started.
+Test Case '-[JarvisCoreTests.CanonRegistryTests testLiveCorpusDirectoryExists]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CanonRegistryTests testLiveCorpusHashesMatchRegistry]' started.
+Test Case '-[JarvisCoreTests.CanonRegistryTests testLiveCorpusHashesMatchRegistry]' passed (0.010 seconds).
+Test Case '-[JarvisCoreTests.CanonRegistryTests testLoadVerifiedReturnsMatchingDocument]' started.
+Test Case '-[JarvisCoreTests.CanonRegistryTests testLoadVerifiedReturnsMatchingDocument]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CanonRegistryTests testLookupById]' started.
+Test Case '-[JarvisCoreTests.CanonRegistryTests testLookupById]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CanonRegistryTests testLookupByRole]' started.
+Test Case '-[JarvisCoreTests.CanonRegistryTests testLookupByRole]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CanonRegistryTests testLookupByTag]' started.
+Test Case '-[JarvisCoreTests.CanonRegistryTests testLookupByTag]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CanonRegistryTests testRegistryIsNonEmptyAndWellFormed]' started.
+Test Case '-[JarvisCoreTests.CanonRegistryTests testRegistryIsNonEmptyAndWellFormed]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CanonRegistryTests testRequireCleanCorpusDoesNotThrow]' started.
+Test Case '-[JarvisCoreTests.CanonRegistryTests testRequireCleanCorpusDoesNotThrow]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.CanonRegistryTests testSha256OfKnownData]' started.
+Test Case '-[JarvisCoreTests.CanonRegistryTests testSha256OfKnownData]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CanonRegistryTests testVerifyCorpusDetectsDrift]' started.
+Test Case '-[JarvisCoreTests.CanonRegistryTests testVerifyCorpusDetectsDrift]' passed (0.008 seconds).
+Test Case '-[JarvisCoreTests.CanonRegistryTests testVerifyCorpusDetectsMissingFiles]' started.
+Test Case '-[JarvisCoreTests.CanonRegistryTests testVerifyCorpusDetectsMissingFiles]' passed (0.002 seconds).
+Test Case '-[JarvisCoreTests.CanonRegistryTests testVerifyCorpusThrowsWhenCorpusDirectoryMissing]' started.
+Test Case '-[JarvisCoreTests.CanonRegistryTests testVerifyCorpusThrowsWhenCorpusDirectoryMissing]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CanonRegistryTests testWellKnownIDsMatchRegistry]' started.
+Test Case '-[JarvisCoreTests.CanonRegistryTests testWellKnownIDsMatchRegistry]' passed (0.001 seconds).
+Test Suite 'CanonRegistryTests' passed at 2026-04-19 16:04:29.511.
+	 Executed 16 tests, with 0 failures (0 unexpected) in 0.033 (0.037) seconds
+Test Suite 'HarnessTests' started at 2026-04-19 16:04:29.511.
+Test Case '-[JarvisCoreTests.HarnessTests testMetaHarnessAddsValidationAndDiagnosisNodesWhenNeeded]' started.
+Test Case '-[JarvisCoreTests.HarnessTests testMetaHarnessAddsValidationAndDiagnosisNodesWhenNeeded]' passed (0.077 seconds).
+Test Suite 'HarnessTests' passed at 2026-04-19 16:04:29.588.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.077 (0.077) seconds
+Test Suite 'JarvisHostTunnelServerTests' started at 2026-04-19 16:04:29.588.
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testClientRegistrationRoundTrip]' started.
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testClientRegistrationRoundTrip]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testConnectionStateAllCasesDecode]' started.
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testConnectionStateAllCasesDecode]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testGMRIPaletteHexValues]' started.
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testGMRIPaletteHexValues]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testPushDirectiveRoundTrip]' started.
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testPushDirectiveRoundTrip]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testRemoteActionAllCasesDecode]' started.
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testRemoteActionAllCasesDecode]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testServerDoubleStartIsNoOp]' started.
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testServerDoubleStartIsNoOp]' passed (0.076 seconds).
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testServerGeneratesRandomSecretWhenNoneProvided]' started.
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testServerGeneratesRandomSecretWhenNoneProvided]' passed (0.079 seconds).
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testServerStartsAndStopsWithoutError]' started.
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testServerStartsAndStopsWithoutError]' passed (0.076 seconds).
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testServerStopCleansUp]' started.
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testServerStopCleansUp]' passed (0.077 seconds).
+2026-04-19 16:04:29.901685-0500 xctest[3852:2217698] [] nw_path_evaluator_evaluate NECP_CLIENT_ACTION_ADD error [48: Address already in use]
+2026-04-19 16:04:29.901874-0500 xctest[3852:2217698] [] nw_path_create_evaluator_for_listener nw_path_evaluator_evaluate failed
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testSpatialHUDElementRoundTrip]' started.
+2026-04-19 16:04:29.901895-0500 xctest[3852:2217698] [listener] nw_listener_start_on_queue [L5] nw_path_create_evaluator_for_listener failed
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testSpatialHUDElementRoundTrip]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testSpatialIndicatorStateMapsToPaletteColors]' started.
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testSpatialIndicatorStateMapsToPaletteColors]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testTransportPacketEncodesOriginAndTimestamp]' started.
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testTransportPacketEncodesOriginAndTimestamp]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testTunnelMessageKindAllCasesDecode]' started.
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testTunnelMessageKindAllCasesDecode]' passed (0.001 seconds).
+Test Suite 'JarvisHostTunnelServerTests' passed at 2026-04-19 16:04:29.905.
+	 Executed 13 tests, with 0 failures (0 unexpected) in 0.314 (0.317) seconds
+Test Suite 'MemoryEngineTests' started at 2026-04-19 16:04:29.906.
+Test Case '-[JarvisCoreTests.MemoryEngineTests testMemifyCreatesEpisodicMemoryAndPagesContext]' started.
+Test Case '-[JarvisCoreTests.MemoryEngineTests testMemifyCreatesEpisodicMemoryAndPagesContext]' passed (0.081 seconds).
+Test Suite 'MemoryEngineTests' passed at 2026-04-19 16:04:29.987.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.081 (0.081) seconds
+Test Suite 'OscillatorTests' started at 2026-04-19 16:04:29.987.
+Test Case '-[JarvisCoreTests.OscillatorTests testAllScoresAggregatesMultipleSubscribers]' started.
+Test Case '-[JarvisCoreTests.OscillatorTests testAllScoresAggregatesMultipleSubscribers]' passed (0.072 seconds).
+Test Case '-[JarvisCoreTests.OscillatorTests testBPMClampedWithinBand]' started.
+Test Case '-[JarvisCoreTests.OscillatorTests testBPMClampedWithinBand]' passed (0.079 seconds).
+Test Case '-[JarvisCoreTests.OscillatorTests testManualTickMonotonicSequence]' started.
+Test Case '-[JarvisCoreTests.OscillatorTests testManualTickMonotonicSequence]' passed (0.077 seconds).
+Test Case '-[JarvisCoreTests.OscillatorTests testPhaseLockReinforceOnSteadyInPhaseCompletion]' started.
+Test Case '-[JarvisCoreTests.OscillatorTests testPhaseLockReinforceOnSteadyInPhaseCompletion]' passed (0.076 seconds).
+Test Case '-[JarvisCoreTests.OscillatorTests testPhaseLockRepelOnCatastrophicDrift]' started.
+Test Case '-[JarvisCoreTests.OscillatorTests testPhaseLockRepelOnCatastrophicDrift]' passed (0.076 seconds).
+Test Case '-[JarvisCoreTests.OscillatorTests testUnsubscribeStopsDelivery]' started.
+Test Case '-[JarvisCoreTests.OscillatorTests testUnsubscribeStopsDelivery]' passed (0.072 seconds).
+Test Suite 'OscillatorTests' passed at 2026-04-19 16:04:30.440.
+	 Executed 6 tests, with 0 failures (0 unexpected) in 0.451 (0.453) seconds
+Test Suite 'PheromindTests' started at 2026-04-19 16:04:30.440.
+Test Case '-[JarvisCoreTests.PheromindTests testGlobalUpdateEquationAndTernaryController]' started.
+Test Case '-[JarvisCoreTests.PheromindTests testGlobalUpdateEquationAndTernaryController]' passed (0.076 seconds).
+Test Suite 'PheromindTests' passed at 2026-04-19 16:04:30.516.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.076 (0.076) seconds
+Test Suite 'PhysicsEngineTests' started at 2026-04-19 16:04:30.516.
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testAddRequiresMassForDynamic]' started.
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testAddRequiresMassForDynamic]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testBackendName]' started.
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testBackendName]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testGravityFreeFall]' started.
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testGravityFreeFall]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testGroundContactReportsContact]' started.
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testGroundContactReportsContact]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testHandleUniqueness]' started.
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testHandleUniqueness]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testImpulseChangesVelocity]' started.
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testImpulseChangesVelocity]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testRaycastHitsSphere]' started.
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testRaycastHitsSphere]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testRaycastMisses]' started.
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testRaycastMisses]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testRaycastZeroDirectionRejected]' started.
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testRaycastZeroDirectionRejected]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testRemoveBody]' started.
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testRemoveBody]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testResetRejectsBadConfig]' started.
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testResetRejectsBadConfig]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testStaticBodyIgnoresImpulse]' started.
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testStaticBodyIgnoresImpulse]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testStaticPlaneStopsFall]' started.
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testStaticPlaneStopsFall]' passed (0.005 seconds).
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testSummarizerFlagsMovingVsResting]' started.
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testSummarizerFlagsMovingVsResting]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testSummarizerProducesBoundedText]' started.
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testSummarizerProducesBoundedText]' passed (0.002 seconds).
+Test Suite 'PhysicsEngineTests' passed at 2026-04-19 16:04:30.536.
+	 Executed 15 tests, with 0 failures (0 unexpected) in 0.016 (0.020) seconds
+Test Suite 'PythonRLMBridgeTests' started at 2026-04-19 16:04:30.536.
+Test Case '-[JarvisCoreTests.PythonRLMBridgeTests testRecursivePromptQueryReturnsTrace]' started.
+Test Case '-[JarvisCoreTests.PythonRLMBridgeTests testRecursivePromptQueryReturnsTrace]' passed (0.210 seconds).
+Test Suite 'PythonRLMBridgeTests' passed at 2026-04-19 16:04:30.746.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.210 (0.210) seconds
+Test Suite 'SkillRegistryTests' started at 2026-04-19 16:04:30.747.
+Test Case '-[JarvisCoreTests.SkillRegistryTests testRegistryLoadsJarvisNativeSkillsAndExecutesOne]' started.
+Test Case '-[JarvisCoreTests.SkillRegistryTests testRegistryLoadsJarvisNativeSkillsAndExecutesOne]' passed (0.079 seconds).
+Test Suite 'SkillRegistryTests' passed at 2026-04-19 16:04:30.826.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.079 (0.079) seconds
+Test Suite 'TTSBackendDriftTests' started at 2026-04-19 16:04:30.826.
+Test Case '-[JarvisCoreTests.TTSBackendDriftTests testGateRevocationBlocksPipeline]' started.
+Test Case '-[JarvisCoreTests.TTSBackendDriftTests testGateRevocationBlocksPipeline]' passed (0.007 seconds).
+Test Case '-[JarvisCoreTests.TTSBackendDriftTests testPipelineDetectsDriftOnModelMismatch]' started.
+Test Case '-[JarvisCoreTests.TTSBackendDriftTests testPipelineDetectsDriftOnModelMismatch]' passed (0.007 seconds).
+Test Case '-[JarvisCoreTests.TTSBackendDriftTests testPipelineRefusesWhenGateIsAbsent]' started.
+Test Case '-[JarvisCoreTests.TTSBackendDriftTests testPipelineRefusesWhenGateIsAbsent]' passed (0.005 seconds).
+Test Suite 'TTSBackendDriftTests' passed at 2026-04-19 16:04:30.845.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.019 (0.020) seconds
+Test Suite 'TunnelCryptoTests' started at 2026-04-19 16:04:30.846.
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testDifferentSecretsProduceDifferentCiphertexts]' started.
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testDifferentSecretsProduceDifferentCiphertexts]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testOpenWithInvalidBase64Fails]' started.
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testOpenWithInvalidBase64Fails]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testOpenWithValidBase64ButGarbageFails]' started.
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testOpenWithValidBase64ButGarbageFails]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testOpenWithWrongKeyFails]' started.
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testOpenWithWrongKeyFails]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testSameSecretSamePayloadProducesDifferentCiphertexts]' started.
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testSameSecretSamePayloadProducesDifferentCiphertexts]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testSealAndOpenRoundTripsForMessage]' started.
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testSealAndOpenRoundTripsForMessage]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testSealAndOpenRoundTripsForRegistration]' started.
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testSealAndOpenRoundTripsForRegistration]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testSealAndOpenRoundTripsForSnapshot]' started.
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testSealAndOpenRoundTripsForSnapshot]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testTransportPacketRoundTrip]' started.
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testTransportPacketRoundTrip]' passed (0.001 seconds).
+Test Suite 'TunnelCryptoTests' passed at 2026-04-19 16:04:30.855.
+	 Executed 9 tests, with 0 failures (0 unexpected) in 0.008 (0.010) seconds
+Test Suite 'VoiceApprovalGateTests' started at 2026-04-19 16:04:30.856.
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testApproveThenRequireApprovedPasses]' started.
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testApproveThenRequireApprovedPasses]' passed (0.005 seconds).
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testDriftOnModelChangeInvalidatesApproval]' started.
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testDriftOnModelChangeInvalidatesApproval]' passed (0.009 seconds).
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testDriftOnPersonaFramingVersion]' started.
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testDriftOnPersonaFramingVersion]' passed (0.007 seconds).
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testDriftOnReferenceAudioContentInvalidatesApproval]' started.
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testDriftOnReferenceAudioContentInvalidatesApproval]' passed (0.005 seconds).
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testDriftOnTranscriptChangeInvalidatesApproval]' started.
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testDriftOnTranscriptChangeInvalidatesApproval]' passed (0.005 seconds).
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testGateFileWrittenWithRestrictivePermissions]' started.
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testGateFileWrittenWithRestrictivePermissions]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testMalformedGateFileIsRejected]' started.
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testMalformedGateFileIsRejected]' passed (0.007 seconds).
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testNotApprovedByDefault]' started.
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testNotApprovedByDefault]' passed (0.005 seconds).
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testRevokeClearsApproval]' started.
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testRevokeClearsApproval]' passed (0.005 seconds).
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testTelemetryFiresOnApproveRevokeAndDrift]' started.
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testTelemetryFiresOnApproveRevokeAndDrift]' passed (0.007 seconds).
+Test Suite 'VoiceApprovalGateTests' passed at 2026-04-19 16:04:30.919.
+	 Executed 10 tests, with 0 failures (0 unexpected) in 0.061 (0.063) seconds
+Test Suite 'VoiceCommandRouterTests' started at 2026-04-19 16:04:30.919.
+Test Case '-[JarvisCoreTests.VoiceCommandRouterTests testRouterHandlesStatusAndShutdownCommands]' started.
+Test Case '-[JarvisCoreTests.VoiceCommandRouterTests testRouterHandlesStatusAndShutdownCommands]' passed (0.075 seconds).
+Test Case '-[JarvisCoreTests.VoiceCommandRouterTests testStartupLineIncludesOperationalSummary]' started.
+Test Case '-[JarvisCoreTests.VoiceCommandRouterTests testStartupLineIncludesOperationalSummary]' passed (0.079 seconds).
+Test Suite 'VoiceCommandRouterTests' passed at 2026-04-19 16:04:31.074.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 0.154 (0.155) seconds
+Test Suite 'JarvisCoreTests.xctest' passed at 2026-04-19 16:04:31.074.
+	 Executed 100 tests, with 0 failures (0 unexpected) in 7.998 (8.030) seconds
+Test Suite 'All tests' passed at 2026-04-19 16:04:31.074.
+	 Executed 100 tests, with 0 failures (0 unexpected) in 7.998 (8.031) seconds
+2026-04-19 16:04:31.356 xcodebuild[3813:2217417] [MT] IDETestOperationsObserverDebug: 9.956 elapsed -- Testing started completed.
+2026-04-19 16:04:31.356 xcodebuild[3813:2217417] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-04-19 16:04:31.356 xcodebuild[3813:2217417] [MT] IDETestOperationsObserverDebug: 9.956 sec, +9.956 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Logs/Test/Test-Jarvis-2026.04.19_16-04-17--0500.xcresult
+
+** TEST SUCCEEDED **
+
+Testing started
+---TEST_EXIT: 0---

@@ -1,0 +1,50 @@
+{
+  "authorizedCommandSources" : [
+    "obsidian-command-bar",
+    "terminal"
+  ],
+  "commandRegistry" : "\/Users\/grizzmed\/REAL_JARVIS\/.jarvis\/control-plane\/command-registry.json",
+  "convexControlPlaneQuery" : "control_plane:sharedControlPlaneState",
+  "convexDeployment" : "https:\/\/enduring-starfish-794.convex.cloud",
+  "homeKitAudioOnly" : true,
+  "homeKitBridgeStatus" : "\/Users\/grizzmed\/REAL_JARVIS\/.jarvis\/control-plane\/homebridge\/status.json",
+  "listenForHomeKitTriggers" : false,
+  "listenForInternalRegulation" : true,
+  "operatorState" : "operator-wait",
+  "plugin" : "uatu-engine",
+  "queueGuiTargets" : [
+    "echo",
+    "alpha",
+    "beta",
+    "charlie",
+    "delta"
+  ],
+  "rustDeskRegistry" : [
+    {
+      "nodeName" : "echo",
+      "relayLocked" : true,
+      "rustDeskID" : "232611902"
+    },
+    {
+      "nodeName" : "alpha",
+      "relayLocked" : true,
+      "rustDeskID" : "293187511"
+    },
+    {
+      "nodeName" : "beta",
+      "relayLocked" : true,
+      "rustDeskID" : "286923437"
+    },
+    {
+      "nodeName" : "charlie",
+      "relayLocked" : true,
+      "rustDeskID" : "347700740"
+    },
+    {
+      "nodeName" : "delta",
+      "relayLocked" : true,
+      "rustDeskID" : "347824774"
+    }
+  ],
+  "voiceIntercomRoute" : "airplay2:\/\/192.168.4.151\/homepods\/jarvis-intercom"
+}

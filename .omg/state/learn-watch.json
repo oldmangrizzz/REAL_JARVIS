@@ -1,0 +1,11 @@
+{
+  "last_session_id": "4b6f7ef1-0bb0-4d1e-85e0-9c1fa72b0572",
+  "last_event_key": "4b6f7ef1-0bb0-4d1e-85e0-9c1fa72b0572:transcript:6d7e08fcdbd79093a0506d3cb97d5224ea1a236f940e577a8da36f688a7abab3",
+  "last_prompted_session_id": "",
+  "last_reason": "short-session",
+  "last_user_message_count": 2,
+  "last_actionable_message_count": 1,
+  "deep_interview_lock_active": false,
+  "deep_interview_lock_source": "/Users/grizzmed/REAL_JARVIS/.omg/state/deep-interview.json",
+  "updated_at": "2026-04-18T18:02:22.148Z"
+}

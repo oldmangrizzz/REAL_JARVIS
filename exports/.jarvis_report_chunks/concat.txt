@@ -1,0 +1,6 @@
+file 'chunk-01.wav'
+file 'chunk-02.wav'
+file 'chunk-03.wav'
+file 'chunk-04.wav'
+file 'chunk-05.wav'
+file 'chunk-06.wav'

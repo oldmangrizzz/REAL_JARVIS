@@ -1,0 +1,16 @@
+http:
+  routers:
+    jarvis-cockpit:
+      rule: Host(`jarvis.grizzlymedicine.icu`)
+      service: jarvis-cockpit
+      entryPoints:
+        - web
+        - websecure
+      tls:
+        certResolver: letsencrypt
+
+  services:
+    jarvis-cockpit:
+      loadBalancer:
+        servers:
+          - url: http://jarvis-cockpit:80

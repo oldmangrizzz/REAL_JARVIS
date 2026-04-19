@@ -1,0 +1,169 @@
+{
+  "guiIntents" : [
+
+  ],
+  "homeKitBridge" : {
+    "accessories" : [
+      {
+        "id" : "internal-regulation",
+        "kind" : "internal_regulation",
+        "lastUpdated" : "2026-04-17T11:42:31Z",
+        "name" : "J.A.R.V.I.S. Internal Regulation",
+        "room" : "Iron Silo",
+        "severity" : "warning",
+        "state" : "elevated",
+        "value" : 1.4839999994011721
+      },
+      {
+        "id" : "vagal-tone",
+        "kind" : "internal_metric",
+        "lastUpdated" : "2026-04-17T11:42:31Z",
+        "name" : "J.A.R.V.I.S. Vagal Tone",
+        "room" : "Iron Silo",
+        "severity" : "nominal",
+        "state" : "unknown"
+      },
+      {
+        "id" : "command-gate",
+        "kind" : "command_gate",
+        "lastUpdated" : "2026-04-17T11:42:31Z",
+        "name" : "J.A.R.V.I.S. Command Gate",
+        "room" : "Iron Silo",
+        "severity" : "nominal",
+        "state" : "obsidian-command-bar, terminal"
+      },
+      {
+        "id" : "voice-intercom",
+        "kind" : "doorbell_intercom",
+        "lastUpdated" : "2026-04-17T11:42:31Z",
+        "name" : "J.A.R.V.I.S. HomePod Intercom",
+        "room" : "Iron Silo",
+        "severity" : "nominal",
+        "state" : "route-ready"
+      }
+    ],
+    "authorizedCommandSources" : [
+      "obsidian-command-bar",
+      "terminal"
+    ],
+    "bridgeName" : "J.A.R.V.I.S. Iron Silo Matter Bridge",
+    "bridgeState" : "Charlie audio bridge reachable through LiveKit.",
+    "charlieAddress" : "192.168.4.151",
+    "distressState" : "elevated",
+    "homebridgePort" : 8581,
+    "lastSync" : "2026-04-17T11:42:31Z",
+    "matterEnabled" : true,
+    "reachable" : true,
+    "regulationVisibility" : "internal-only",
+    "voiceIntercomRoute" : "airplay2:\/\/192.168.4.151\/homepods\/jarvis-intercom"
+  },
+  "nodeRegistry" : [
+    {
+      "guiReachable" : false,
+      "id" : "echo",
+      "lastSeen" : "2026-04-17T11:42:31Z",
+      "nodeName" : "echo",
+      "rustDeskID" : "232611902",
+      "source" : "rustdesk",
+      "tunnelState" : "pending"
+    },
+    {
+      "guiReachable" : false,
+      "id" : "alpha",
+      "lastSeen" : "2026-04-17T11:42:31Z",
+      "nodeName" : "alpha",
+      "rustDeskID" : "293187511",
+      "source" : "rustdesk",
+      "tunnelState" : "pending"
+    },
+    {
+      "address" : "192.168.4.151:5984",
+      "guiReachable" : true,
+      "id" : "beta",
+      "lastSeen" : "2026-04-17T11:42:31Z",
+      "nodeName" : "beta",
+      "rustDeskID" : "286923437",
+      "source" : "rustdesk",
+      "tunnelState" : "online"
+    },
+    {
+      "address" : "192.168.4.151",
+      "guiReachable" : true,
+      "id" : "charlie",
+      "lastSeen" : "2026-04-17T11:42:31Z",
+      "nodeName" : "charlie",
+      "rustDeskID" : "347700740",
+      "source" : "homebridge",
+      "tunnelState" : "online"
+    },
+    {
+      "guiReachable" : false,
+      "id" : "delta",
+      "lastSeen" : "2026-04-17T11:42:31Z",
+      "nodeName" : "delta",
+      "rustDeskID" : "347824774",
+      "source" : "rustdesk",
+      "tunnelState" : "pending"
+    }
+  ],
+  "obsidianVault" : {
+    "betaCouchEndpoint" : "https:\/\/vault.grizzlymedicine.icu\/obsidian_vault",
+    "databaseName" : "obsidian_vault",
+    "docCount" : 608,
+    "lastSync" : "2026-04-17T11:42:31Z",
+    "pluginListening" : true,
+    "replicationConfigured" : true,
+    "replicationObserved" : true,
+    "reseedTriggered" : false,
+    "statusLine" : "Obsidian vault is replicating from Beta."
+  },
+  "rustDeskNodes" : [
+    {
+      "handoffURL" : "rustdesk:\/\/232611902",
+      "id" : "echo",
+      "lastSeen" : "2026-04-17T11:42:31Z",
+      "nodeName" : "echo",
+      "relayLocked" : true,
+      "rustDeskID" : "232611902",
+      "status" : "relay-locked"
+    },
+    {
+      "handoffURL" : "rustdesk:\/\/293187511",
+      "id" : "alpha",
+      "lastSeen" : "2026-04-17T11:42:31Z",
+      "nodeName" : "alpha",
+      "relayLocked" : true,
+      "rustDeskID" : "293187511",
+      "status" : "relay-locked"
+    },
+    {
+      "address" : "192.168.4.151:5984",
+      "handoffURL" : "rustdesk:\/\/286923437",
+      "id" : "beta",
+      "lastSeen" : "2026-04-17T11:42:31Z",
+      "nodeName" : "beta",
+      "relayLocked" : true,
+      "rustDeskID" : "286923437",
+      "status" : "relay-locked"
+    },
+    {
+      "address" : "192.168.4.151",
+      "handoffURL" : "rustdesk:\/\/347700740",
+      "id" : "charlie",
+      "lastSeen" : "2026-04-17T11:42:31Z",
+      "nodeName" : "charlie",
+      "relayLocked" : true,
+      "rustDeskID" : "347700740",
+      "status" : "relay-locked"
+    },
+    {
+      "handoffURL" : "rustdesk:\/\/347824774",
+      "id" : "delta",
+      "lastSeen" : "2026-04-17T11:42:31Z",
+      "nodeName" : "delta",
+      "relayLocked" : true,
+      "rustDeskID" : "347824774",
+      "status" : "relay-locked"
+    }
+  ]
+}

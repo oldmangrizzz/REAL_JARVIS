@@ -1,0 +1,19 @@
+name: jarvis-default
+version: 1
+nodes:
+  - id: planning
+    kind: planning
+    command: Analyze codebase and emit a deterministic build plan
+    depends_on: []
+  - id: implementation
+    kind: implementation
+    command: Generate code strictly from planning outputs
+    depends_on: [planning]
+  - id: validation
+    kind: validation
+    command: xcodebuild -project Jarvis.xcodeproj -scheme Jarvis build test
+    depends_on: [implementation]
+  - id: review
+    kind: review
+    command: Review changes against validation evidence and telemetry
+    depends_on: [validation]

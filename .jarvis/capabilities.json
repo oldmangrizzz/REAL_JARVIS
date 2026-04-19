@@ -1,0 +1,60 @@
+{
+  "displays": [
+    {
+      "id": "left-monitor",
+      "displayName": "Left Monitor",
+      "aliases": ["left", "monitor-1", "primary", "mon1"],
+      "type": "monitor",
+      "transport": "ddc-ci",
+      "address": null,
+      "capabilities": ["video", "telemetry", "hud", "dashboard"],
+      "room": "lab"
+    },
+    {
+      "id": "right-monitor",
+      "displayName": "Right Monitor",
+      "aliases": ["right", "monitor-2", "secondary", "mon2"],
+      "type": "monitor",
+      "transport": "ddc-ci",
+      "address": null,
+      "capabilities": ["video", "telemetry", "hud", "dashboard"],
+      "room": "lab"
+    },
+    {
+      "id": "lab-tv",
+      "displayName": "Lab TV",
+      "aliases": ["tv", "television", "big screen", "living room"],
+      "type": "tv",
+      "transport": "airplay",
+      "address": "192.168.4.151",
+      "capabilities": ["video", "dashboard"],
+      "room": "lab"
+    }
+  ],
+  "accessories": [
+    {
+      "id": "kitchen-lights",
+      "displayName": "Kitchen Lights",
+      "aliases": ["kitchen", "cooking"],
+      "homeKitAccessoryID": "HAP-0001",
+      "characteristics": ["on", "brightness"],
+      "room": "kitchen"
+    },
+    {
+      "id": "bedroom-lights",
+      "displayName": "Bedroom Lights",
+      "aliases": ["bedroom", "sleep", "nightlight"],
+      "homeKitAccessoryID": "HAP-0002",
+      "characteristics": ["on", "brightness"],
+      "room": "bedroom"
+    },
+    {
+      "id": "front-door-lock",
+      "displayName": "Front Door Lock",
+      "aliases": ["front door", "entry", "main door"],
+      "homeKitAccessoryID": "HAP-0003",
+      "characteristics": ["on", "lock"],
+      "room": "entry"
+    }
+  ]
+}

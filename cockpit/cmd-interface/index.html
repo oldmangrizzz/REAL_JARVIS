@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jarvis HomeKit Bridge Status</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0b1020; color: #e5eefc; margin: 0; padding: 24px; }
+    .panel { background: rgba(17, 24, 39, 0.9); border: 1px solid rgba(99, 102, 241, 0.35); border-radius: 18px; padding: 18px; max-width: 900px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 16px; }
+    .card { background: rgba(30, 41, 59, 0.9); border-radius: 14px; padding: 14px; }
+    .label { color: #93c5fd; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .value { font-size: 18px; margin-top: 4px; }
+    .distress { color: #f87171; }
+    .nominal { color: #86efac; }
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <h1>Jarvis HomeKit Bridge Status</h1>
+    <p id="summary">Loading bridge state…</p>
+    <div class="grid" id="cards"></div>
+  </div>
+  <script>
+    fetch("./homekit-bridge-status.json")
+      .then((response) => response.json())
+      .then((status) => {
+        document.getElementById("summary").textContent = status.bridgeState;
+        const cards = [
+          ["Charlie", status.charlieAddress + ":" + status.homebridgePort, status.reachable ? "nominal" : "distress"],
+          ["Intercom", status.voiceIntercomRoute, status.reachable ? "nominal" : "distress"],
+          ["Sources", status.authorizedCommandSources.join(", "), "nominal"],
+          ["Regulation", status.regulationVisibility + " / " + status.distressState, status.distressState === "elevated" ? "distress" : "nominal"]
+        ];
+        document.getElementById("cards").innerHTML = cards.map(([label, value, tone]) =>
+          `<div class="card"><div class="label">${label}</div><div class="value ${tone}">${value}</div></div>`
+        ).join("");
+      })
+      .catch((error) => {
+        document.getElementById("summary").textContent = error.message;
+      });
+  </script>
+</body>
+</html>
