@@ -116,4 +116,59 @@ final class OSINTSourceRegistryTests: XCTestCase {
         XCTAssertEqual(a, a.sorted())
         XCTAssertFalse(a.isEmpty)
     }
+
+    // MARK: - Recreation / overlanding expansion
+
+    func testCanonicalIncludesRecreationAndOverlandingSources() {
+        let r = OSINTSourceRegistry.canonical
+        let required = [
+            "recreation.gov", "nps.api", "blm.arcgis", "usfs.fsgeodata",
+            "osm.overpass", "osm.nominatim", "geonames", "usgs.gnis",
+            "epa.airnow", "noaa.tides", "wikipedia.rest",
+            "tpwd.texas", "wdpa.protectedplanet"
+        ]
+        for key in required {
+            XCTAssertNotNil(r.source(forKey: key), "missing public OSINT source: \(key)")
+        }
+    }
+
+    func testDeniedSourcesDocumentedWithReason() {
+        // The denylist is documentation, not enforcement — but every
+        // entry must carry a human-readable reason so a future
+        // maintainer understands WHY the source was rejected. This
+        // prevents someone silently re-adding roadsideamerica later.
+        XCTAssertFalse(OSINTSourceRegistry.deniedSources.isEmpty)
+        for (host, reason) in OSINTSourceRegistry.deniedSources {
+            XCTAssertFalse(host.isEmpty, "denied-source host empty")
+            XCTAssertGreaterThan(reason.count, 20, "\(host) denial reason too terse: \(reason)")
+        }
+    }
+
+    func testDeniedHostsAreNotSilentlyListedInCanonical() {
+        // Belt-and-suspenders: a denied host must not also appear as an
+        // accepted endpointHost. If this ever fails, someone added a
+        // source to the accept list without removing the denial.
+        let denied = Set(OSINTSourceRegistry.deniedSources.keys.map { $0.lowercased() })
+        for (_, src) in OSINTSourceRegistry.canonical.sources {
+            for host in src.endpointHosts {
+                XCTAssertFalse(
+                    denied.contains(host.lowercased()),
+                    "\(src.key) accepts \(host) but it's on the denylist"
+                )
+            }
+        }
+    }
+
+    func testCanonicalCoversOverlandingNeeds() {
+        // Sanity: overlanding requires federal public-land data +
+        // dispersed camping + MVUM + amenity lookup. Lock the category
+        // coverage so an accidental deletion surfaces loud.
+        let r = OSINTSourceRegistry.canonical
+        let categories = Set(r.sources.values.map(\.category))
+        XCTAssertTrue(categories.contains(.civic), "missing civic/recreation bucket")
+        XCTAssertTrue(categories.contains(.baseMap))
+        XCTAssertTrue(categories.contains(.traffic))
+        XCTAssertTrue(categories.contains(.weather))
+        XCTAssertTrue(categories.contains(.hazards))
+    }
 }

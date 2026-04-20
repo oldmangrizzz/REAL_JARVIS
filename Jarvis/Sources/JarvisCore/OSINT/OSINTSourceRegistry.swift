@@ -172,8 +172,167 @@ public struct OSINTSourceRegistry: Sendable {
             attribution: "Airspace: FAA",
             homepage: "https://tfr.faa.gov/",
             notes: "Temporary flight restrictions, NOTAMs."
+        ),
+
+        // MARK: Recreation / overlanding / dispersed camping / scenic
+        //
+        // Every entry below is a public API with published terms we can
+        // comply with. See `deniedSources` for explicitly-rejected feeds.
+        OSINTSource(
+            key: "recreation.gov",
+            name: "Recreation.gov (federal reservation system)",
+            category: .civic,
+            endpointHosts: ["ridb.recreation.gov"],
+            license: "Public Domain (US Gov)",
+            attribution: "Recreation data: Recreation.gov / RIDB",
+            homepage: "https://ridb.recreation.gov/docs",
+            rateLimitHint: "Free API key; be a good neighbor on volume.",
+            notes: "Campgrounds, permits, tours across USFS / BLM / NPS / USACE."
+        ),
+        OSINTSource(
+            key: "nps.api",
+            name: "National Park Service API",
+            category: .civic,
+            endpointHosts: ["developer.nps.gov"],
+            license: "Public Domain (US Gov)",
+            attribution: "Park data: US National Park Service",
+            homepage: "https://www.nps.gov/subjects/developer/api-documentation.htm",
+            rateLimitHint: "Free data.gov API key.",
+            notes: "Parks, visitor centers, alerts, activities."
+        ),
+        OSINTSource(
+            key: "blm.arcgis",
+            name: "Bureau of Land Management (ArcGIS REST)",
+            category: .civic,
+            endpointHosts: ["gis.blm.gov", "services.arcgis.com"],
+            license: "Public Domain (US Gov) via BLM open data",
+            attribution: "Public land: BLM",
+            homepage: "https://gis.blm.gov/",
+            notes: "Dispersed camping areas, surface management, LTVAs, public land boundaries. Note services.arcgis.com is multi-tenant; filter by layer."
+        ),
+        OSINTSource(
+            key: "usfs.fsgeodata",
+            name: "USFS FSGeodata Clearinghouse",
+            category: .civic,
+            endpointHosts: ["data.fs.usda.gov", "apps.fs.usda.gov"],
+            license: "Public Domain (US Gov)",
+            attribution: "Forest data: USDA Forest Service",
+            homepage: "https://data.fs.usda.gov/geodata/",
+            notes: "MVUMs (Motor Vehicle Use Maps), forest roads, dispersed camping corridors, trailheads."
+        ),
+        OSINTSource(
+            key: "osm.overpass",
+            name: "OpenStreetMap Overpass API",
+            category: .civic,
+            endpointHosts: ["overpass-api.de", "overpass.kumi.systems"],
+            license: "ODbL-1.0",
+            attribution: "© OpenStreetMap contributors",
+            homepage: "https://wiki.openstreetmap.org/wiki/Overpass_API",
+            rateLimitHint: "Expensive queries: keep bbox small, cache, respect timeout. Consider self-hosting for volume.",
+            notes: "Overland / scenic / amenity queries via tourism=*, natural=*, highway=track/unpaved, leisure=*, shop=*."
+        ),
+        OSINTSource(
+            key: "osm.nominatim",
+            name: "OSM Nominatim (geocoding)",
+            category: .civic,
+            endpointHosts: ["nominatim.openstreetmap.org"],
+            license: "ODbL-1.0",
+            attribution: "© OpenStreetMap contributors",
+            homepage: "https://operations.osmfoundation.org/policies/nominatim/",
+            rateLimitHint: "≤1 req/s, valid User-Agent with contact, no heavy use. Self-host for volume.",
+            notes: "Free-text → coordinate + reverse geocoding."
+        ),
+        OSINTSource(
+            key: "geonames",
+            name: "GeoNames",
+            category: .civic,
+            endpointHosts: ["api.geonames.org", "secure.geonames.org"],
+            license: "CC-BY-4.0",
+            attribution: "Place data: GeoNames (CC BY 4.0)",
+            homepage: "https://www.geonames.org/",
+            rateLimitHint: "Free tier: 20k credits/day with username registration.",
+            notes: "POIs, populated places, postal codes, nearby features."
+        ),
+        OSINTSource(
+            key: "usgs.gnis",
+            name: "USGS Geographic Names Information System",
+            category: .civic,
+            endpointHosts: ["edits.nationalmap.gov"],
+            license: "Public Domain (US Gov)",
+            attribution: "Place names: USGS GNIS",
+            homepage: "https://www.usgs.gov/us-board-on-geographic-names/domestic-names",
+            notes: "Official US place names, historical names, ghost towns."
+        ),
+        OSINTSource(
+            key: "epa.airnow",
+            name: "EPA AirNow",
+            category: .weather,
+            endpointHosts: ["www.airnowapi.org", "airnowapi.org"],
+            license: "Public Domain (US Gov) with attribution",
+            attribution: "Air quality: EPA AirNow",
+            homepage: "https://docs.airnowapi.org/",
+            rateLimitHint: "Free API key.",
+            notes: "Real-time AQI for route planning and respiratory-sensitive companions."
+        ),
+        OSINTSource(
+            key: "noaa.tides",
+            name: "NOAA Tides & Currents (CO-OPS)",
+            category: .weather,
+            endpointHosts: ["api.tidesandcurrents.noaa.gov"],
+            license: "Public Domain (US Gov)",
+            attribution: "Tides/currents: NOAA CO-OPS",
+            homepage: "https://api.tidesandcurrents.noaa.gov/api/prod/",
+            notes: "Coastal route timing, boat-ramp viability, tide windows."
+        ),
+        OSINTSource(
+            key: "wikipedia.rest",
+            name: "Wikipedia REST API",
+            category: .civic,
+            endpointHosts: ["en.wikipedia.org", "en.wikivoyage.org"],
+            license: "CC-BY-SA-4.0 (content) / GFDL (legacy)",
+            attribution: "Context: Wikipedia / Wikivoyage contributors (CC BY-SA 4.0)",
+            homepage: "https://en.wikipedia.org/api/rest_v1/",
+            rateLimitHint: "User-Agent with contact required; 200 req/s burst ceiling.",
+            notes: "POI context, historical marker narratives, scenic-route background."
+        ),
+        OSINTSource(
+            key: "tpwd.texas",
+            name: "Texas Parks & Wildlife Open Data",
+            category: .civic,
+            endpointHosts: ["tpwd.texas.gov", "gis-tpwd.opendata.arcgis.com"],
+            license: "Public (Texas Public Information Act)",
+            attribution: "Texas parks data: TPWD",
+            homepage: "https://tpwd.texas.gov/",
+            notes: "State parks, WMAs, boat ramps, public water access, hunting/fishing zones. Home-region priority."
+        ),
+        OSINTSource(
+            key: "wdpa.protectedplanet",
+            name: "Protected Planet (WDPA)",
+            category: .civic,
+            endpointHosts: ["api.protectedplanet.net"],
+            license: "CC-BY-4.0 (with registration)",
+            attribution: "Protected areas: UNEP-WCMC / IUCN via Protected Planet",
+            homepage: "https://www.protectedplanet.net/en/resources/wdpa-manual",
+            rateLimitHint: "Free API token; attribution mandatory.",
+            notes: "Global protected-area polygons for overland legality checks."
         )
     ])
+
+    // MARK: - Explicit denylist (documentation, not enforcement)
+    //
+    // Feeds the operator or a future agent might be tempted to add but
+    // which fail the gray-not-black test. Listed here so a human
+    // reviewing this file sees WHY they're absent. Do NOT add without
+    // a sanctioned API agreement or license change.
+    public static let deniedSources: [String: String] = [
+        "roadsideamerica.com": "No public API; scraping violates site TOS. Black, not gray.",
+        "ioverlander.com": "API access has been locked to sanctioned partners; wait for official agreement before adding.",
+        "campendium.com": "Commercial, no open API. Do not scrape.",
+        "thedyrt.com": "Commercial, no open API. Do not scrape.",
+        "alltrails.com": "Commercial, no open API. Use USFS trails + OSM Overpass natural=* for overland/trail data instead.",
+        "freecampsites.net": "No public API; content mostly already represented in BLM/USFS/Recreation.gov + OSM.",
+        "strava.com/heatmap": "Requires authenticated scraping beyond ToS. Use OSM Overpass for public trail data."
+    ]
 }
 
 /// Enforces the registry at the fetch boundary. Fail-closed.
