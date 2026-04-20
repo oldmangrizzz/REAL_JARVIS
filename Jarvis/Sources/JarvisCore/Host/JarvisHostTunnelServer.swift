@@ -15,6 +15,7 @@ public final class JarvisHostTunnelServer: @unchecked Sendable {
     private var buffers: [ObjectIdentifier: Data] = [:]
     private var clients: [ObjectIdentifier: NWConnection] = [:]
     private var clientSources: [ObjectIdentifier: String] = [:]  // CX-038: server-assigned source per connection
+    private let identityStore: TunnelIdentityStore  // SPEC-007: per-device role binding
 
     /// SPEC-011: active connection count (thread-safe via serial queue).
     public var activeConnectionCount: Int {
@@ -27,7 +28,7 @@ public final class JarvisHostTunnelServer: @unchecked Sendable {
     }
     private var _idleDisconnectCount: Int = 0
 
-    public init(runtime: JarvisRuntime, registry: JarvisSkillRegistry, port: UInt16 = 9443, sharedSecret: String? = nil, idleTimeout: TimeInterval = 60) {
+    public init(runtime: JarvisRuntime, registry: JarvisSkillRegistry, port: UInt16 = 9443, sharedSecret: String? = nil, idleTimeout: TimeInterval = 60, identityStore: TunnelIdentityStore? = nil) {
         self.runtime = runtime
         self.registry = registry
         self.port = port
@@ -42,6 +43,15 @@ public final class JarvisHostTunnelServer: @unchecked Sendable {
             seed = "jarvis-" + randomBytes.map { String(format: "%02x", $0) }.joined()
         }
         self.crypto = JarvisTunnelCrypto(sharedSecret: seed)
+        // SPEC-007: resolve identity store from disk if not injected.
+        if let provided = identityStore {
+            self.identityStore = provided
+        } else {
+            let url = URL(fileURLWithPath: ".jarvis/storage/tunnel/identities.json")
+            let store = TunnelIdentityStore(fileURL: url)
+            store.reload()
+            self.identityStore = store
+        }
     }
 
     public func start() throws {
@@ -203,13 +213,44 @@ public final class JarvisHostTunnelServer: @unchecked Sendable {
         }
     }
 
-    /// SPEC-007: resolve a registration role to an authorized server-assigned role.
+    /// SPEC-007: resolve a registration to an authorized server-assigned role.
     /// Returns (role: lowercased role string) on success, (error: reason) on rejection.
-    /// voice-operator is only granted when the host's voice approval gate is green.
-    internal func authorizeRegistrationRole(_ rawRole: String) -> (role: String?, error: String?) {
-        let role = rawRole.lowercased()
+    /// voice-operator is only granted when the host's voice approval gate is green,
+    /// and privileged roles must present a valid per-device identity proof.
+    internal func authorizeRegistration(_ registration: JarvisClientRegistration) -> (role: String?, error: String?) {
+        let role = registration.role.lowercased()
         guard authorizedSources.contains(role) else {
             return (nil, nil) // silent — unknown roles are dropped without response, matches prior behavior
+        }
+        // SPEC-007: verify per-device identity binding.
+        if let failure = identityStore.validate(registration) {
+            let reason: String
+            switch failure {
+            case .privilegedRoleRequiresIdentityProof:
+                reason = "Role \(role) requires a per-device identity proof."
+            case .nonceMissing:
+                reason = "Registration missing nonce."
+            case .nonceStale(let drift):
+                reason = "Registration nonce stale (drift \(drift)s)."
+            case .nonceReplay:
+                reason = "Registration nonce replay detected."
+            case .unknownDevice:
+                reason = "Device \(registration.deviceID) is not authorized for role \(role)."
+            case .roleNotAllowedForDevice:
+                reason = "Device \(registration.deviceID) is not permitted to claim role \(role)."
+            case .proofMismatch:
+                reason = "Registration identity proof failed verification."
+            case .malformedIdentityKey:
+                reason = "Server identity key for \(registration.deviceID) is malformed."
+            }
+            try? runtime.telemetry.logExecutionTrace(
+                workflowID: "host-tunnel",
+                stepID: "identity-reject",
+                inputContext: "\(registration.deviceID):\(role)",
+                outputResult: reason,
+                status: "failure"
+            )
+            return (nil, reason)
         }
         if role == "voice-operator" {
             let gate = runtime.voice.approval.snapshotForSpatialHUD()
@@ -220,13 +261,26 @@ public final class JarvisHostTunnelServer: @unchecked Sendable {
         return (role, nil)
     }
 
+    /// Backward-compatible shim used by tests that don't exercise identity binding.
+    @available(*, deprecated, message: "Use authorizeRegistration(_:) — SPEC-007")
+    internal func authorizeRegistrationRole(_ rawRole: String) -> (role: String?, error: String?) {
+        let reg = JarvisClientRegistration(
+            deviceID: "legacy-shim",
+            deviceName: "legacy",
+            platform: "legacy",
+            role: rawRole,
+            appVersion: "0.0.0"
+        )
+        return authorizeRegistration(reg)
+    }
+
     private func route(_ message: JarvisTunnelMessage, from connection: NWConnection) throws -> JarvisTunnelMessage {
         switch message.kind {
         case .register:
             // R06: assign source from client registration role
             if let registration = message.registration {
                 let identifier = ObjectIdentifier(connection)
-                let result = authorizeRegistrationRole(registration.role)
+                let result = authorizeRegistration(registration)
                 if let role = result.role {
                     clientSources[identifier] = role
                 } else if let err = result.error {

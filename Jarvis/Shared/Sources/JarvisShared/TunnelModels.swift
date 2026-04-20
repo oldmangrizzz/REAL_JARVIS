@@ -41,13 +41,33 @@ public struct JarvisClientRegistration: Codable, Sendable {
     public let platform: String
     public let role: String
     public let appVersion: String
+    /// SPEC-007: ISO-8601 nonce used in the identityProof. Must be within
+    /// the server's clock-skew window (±120s) or registration is rejected.
+    /// Optional for backward compatibility with clients registering in
+    /// non-privileged roles before identities.json is provisioned.
+    public let nonce: String?
+    /// SPEC-007: HMAC-SHA256 hex of `"\(deviceID):\(role):\(nonce)"` using
+    /// the per-device identity key listed in
+    /// `.jarvis/storage/tunnel/identities.json`. Required for roles in
+    /// TunnelIdentityStore.privilegedRoles.
+    public let identityProof: String?
 
-    public init(deviceID: String, deviceName: String, platform: String, role: String, appVersion: String) {
+    public init(
+        deviceID: String,
+        deviceName: String,
+        platform: String,
+        role: String,
+        appVersion: String,
+        nonce: String? = nil,
+        identityProof: String? = nil
+    ) {
         self.deviceID = deviceID
         self.deviceName = deviceName
         self.platform = platform
         self.role = role
         self.appVersion = appVersion
+        self.nonce = nonce
+        self.identityProof = identityProof
     }
 }
 

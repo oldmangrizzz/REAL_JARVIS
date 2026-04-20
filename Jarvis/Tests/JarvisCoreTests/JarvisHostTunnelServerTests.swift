@@ -189,9 +189,15 @@ final class JarvisHostTunnelServerTests: XCTestCase {
         let server = JarvisHostTunnelServer(runtime: runtime, registry: registry, port: 19470, sharedSecret: "spec-007-a")
 
         let result = server.authorizeRegistrationRole("voice-operator")
-        XCTAssertNil(result.role, "SPEC-007: voice-operator must not be granted when gate is not green")
+        XCTAssertNil(result.role, "SPEC-007: voice-operator must not be granted in bootstrap mode without identity proof")
         XCTAssertNotNil(result.error)
-        XCTAssertTrue(result.error?.contains("Voice gate is not green") ?? false)
+        // SPEC-007: in bootstrap mode (no identities.json) voice-operator is
+        // rejected for lack of identity proof before the voice-gate check.
+        XCTAssertTrue(
+            (result.error?.contains("identity proof") ?? false)
+                || (result.error?.contains("Voice gate is not green") ?? false),
+            "Expected rejection for identity proof or voice gate; got: \(result.error ?? "nil")"
+        )
     }
 
     func testMobileCockpitRegistrationAcceptedWithoutGateCheck() throws {
