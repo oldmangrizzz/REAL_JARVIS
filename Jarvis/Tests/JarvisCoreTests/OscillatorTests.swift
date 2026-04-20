@@ -80,6 +80,83 @@ final class OscillatorTests: XCTestCase {
         XCTAssertEqual(score.regulated, .repel)
     }
 
+    // MARK: - MasterOscillator direct-construction branches
+
+    func testConfigurationIntervalSeconds() {
+        XCTAssertEqual(MasterOscillator.Configuration(bpm: 60).intervalSeconds, 1.0, accuracy: 1e-9)
+        XCTAssertEqual(MasterOscillator.Configuration(bpm: 120).intervalSeconds, 0.5, accuracy: 1e-9)
+        XCTAssertEqual(MasterOscillator.Configuration(bpm: 30).intervalSeconds, 2.0, accuracy: 1e-9)
+    }
+
+    func testIsRunningTogglesWithStartStop() throws {
+        let paths = try makeTestWorkspace()
+        let tel = try TelemetryStore(paths: paths)
+        let osc = MasterOscillator(
+            telemetry: tel,
+            configuration: .init(bpm: 600, telemetryEvery: 1000)  // 100ms interval, rare telemetry
+        )
+        XCTAssertFalse(osc.isRunning)
+        osc.start()
+        XCTAssertTrue(osc.isRunning)
+        // Double-start is a no-op.
+        osc.start()
+        XCTAssertTrue(osc.isRunning)
+        osc.stop()
+        XCTAssertFalse(osc.isRunning)
+        osc.stop()  // double-stop no-op
+        XCTAssertFalse(osc.isRunning)
+    }
+
+    func testManualTickDriftAndInterval() throws {
+        let paths = try makeTestWorkspace()
+        let tel = try TelemetryStore(paths: paths)
+        let osc = MasterOscillator(telemetry: tel, configuration: .init(bpm: 60))  // 1s interval
+        let base = Date(timeIntervalSince1970: 10_000)
+        let t1 = osc.manualTick(at: base)
+        XCTAssertEqual(t1.sequence, 1)
+        XCTAssertEqual(t1.intervalMilliseconds, 1000, accuracy: 1e-6)
+        // First tick scheduled == emitted → drift 0.
+        XCTAssertEqual(t1.driftMilliseconds, 0, accuracy: 1e-6)
+
+        // Emit the next tick 1.25s later: scheduled = base+1.0, drift = +250ms.
+        let t2 = osc.manualTick(at: base.addingTimeInterval(1.25))
+        XCTAssertEqual(t2.sequence, 2)
+        XCTAssertEqual(t2.driftMilliseconds, 250, accuracy: 1e-6)
+    }
+
+    func testWeakSubscriberIsReleased() throws {
+        let paths = try makeTestWorkspace()
+        let tel = try TelemetryStore(paths: paths)
+        let osc = MasterOscillator(telemetry: tel)
+        let held = Recorder("sticky")
+        osc.subscribe(held)
+
+        // Scope an ephemeral subscriber so ARC releases it.
+        do {
+            let ephemeral = Recorder("ephemeral")
+            osc.subscribe(ephemeral)
+            osc.manualTick()
+            XCTAssertEqual(ephemeral.ticks.count, 1)
+        }
+
+        // Next tick must not crash and must still deliver to `held`.
+        let tick = osc.manualTick()
+        XCTAssertEqual(tick.sequence, 2)
+        XCTAssertEqual(held.ticks.count, 2)
+    }
+
+    func testSetBPMOutsideBandClampsWithoutDesync() throws {
+        let paths = try makeTestWorkspace()
+        let tel = try TelemetryStore(paths: paths)
+        let osc = MasterOscillator(telemetry: tel, configuration: .init(bpm: 60, minBPM: 40, maxBPM: 120))
+        osc.setBPM(10)
+        XCTAssertEqual(osc.currentBPM, 40)
+        osc.setBPM(9999)
+        XCTAssertEqual(osc.currentBPM, 120)
+        osc.setBPM(72)
+        XCTAssertEqual(osc.currentBPM, 72)
+    }
+
     func testAllScoresAggregatesMultipleSubscribers() throws {
         let paths = try makeTestWorkspace()
         let runtime = try JarvisRuntime(paths: paths)
