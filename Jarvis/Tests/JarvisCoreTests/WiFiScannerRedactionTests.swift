@@ -69,4 +69,59 @@ final class WiFiScannerRedactionTests: XCTestCase {
         // concern for this assertion.)
         XCTAssertEqual(legacy.channel, operatorSnap.channel)
     }
+
+    func testResponderTierIsRedacted() throws {
+        guard #available(macOS 12.0, *) else { throw XCTSkip("requires macOS 12+") }
+        let scanner = WiFiEnvironmentScanner()
+        let snap = scanner.currentSnapshot(for: .responder(role: .emt))
+        XCTAssertNil(snap.ssid, "Responder tier must never see raw SSID")
+        XCTAssertNil(snap.bssid, "Responder tier must never see raw BSSID")
+    }
+
+    func testScanForNetworksEmptyForResponder() throws {
+        guard #available(macOS 13.0, *) else { throw XCTSkip("requires macOS 13+") }
+        let scanner = WiFiEnvironmentScanner()
+        XCTAssertTrue(scanner.scanForNetworks(for: .responder(role: .emt)).isEmpty)
+    }
+
+    func testNoInterfaceShapeIsTierInvariant() throws {
+        // If the test host has no WLAN interface, every tier must receive
+        // the identical fail-closed envelope: no hash, zeros, .noInterface.
+        // If an interface IS available, this test is a no-op (the invariant
+        // asserted here is about the fail-closed branch only).
+        guard #available(macOS 12.0, *) else { throw XCTSkip("requires macOS 12+") }
+        let scanner = WiFiEnvironmentScanner()
+        let operatorSnap = scanner.currentSnapshot(for: .operatorTier)
+        guard operatorSnap.status == .noInterface else {
+            throw XCTSkip("WLAN interface available on host; fail-closed branch not exercised")
+        }
+        let principals: [Principal] = [
+            .operatorTier,
+            .companion(memberID: "fam-1"),
+            .guestTier,
+            .responder(role: .emt)
+        ]
+        for p in principals {
+            let snap = scanner.currentSnapshot(for: p)
+            XCTAssertEqual(snap.status, .noInterface)
+            XCTAssertNil(snap.ssid)
+            XCTAssertNil(snap.bssid)
+            XCTAssertNil(snap.bssidHash)
+            XCTAssertEqual(snap.rssi, 0)
+            XCTAssertEqual(snap.channel, 0)
+            XCTAssertEqual(snap.channelWidth, 0)
+            XCTAssertEqual(snap.phyMode, "unknown")
+            XCTAssertNil(snap.noise)
+        }
+    }
+
+    func testSnapshotTimestampIsISO8601Parseable() throws {
+        guard #available(macOS 12.0, *) else { throw XCTSkip("requires macOS 12+") }
+        let snap = WiFiEnvironmentScanner().currentSnapshot(for: .guestTier)
+        XCTAssertFalse(snap.timestamp.isEmpty)
+        XCTAssertNotNil(
+            ISO8601DateFormatter().date(from: snap.timestamp),
+            "timestamp must be ISO-8601 parseable for downstream telemetry"
+        )
+    }
 }
