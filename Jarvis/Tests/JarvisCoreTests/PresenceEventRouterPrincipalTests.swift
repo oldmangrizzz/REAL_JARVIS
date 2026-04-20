@@ -75,5 +75,70 @@ final class PresenceEventRouterPrincipalTests: XCTestCase {
         let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
         XCTAssertEqual(json?["presumedPrincipal"] as? String, "guest")
     }
+
+    func testPresenceEventCodableRoundTripsResponderRole() throws {
+        let event = JarvisPresenceEvent(
+            source: .iOSShortcut,
+            kind: .arrival,
+            observedAtISO8601: "2026-04-20T13:45:00Z",
+            presumedPrincipal: .responder(role: .emtp)
+        )
+        let data = try JSONEncoder().encode(event)
+        let decoded = try JSONDecoder().decode(JarvisPresenceEvent.self, from: data)
+        XCTAssertEqual(decoded.presumedPrincipal, .responder(role: .emtp))
+        let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
+        XCTAssertEqual(json?["presumedPrincipal"] as? String, "responder:emtp")
+    }
+
+    func testPrincipalBrandSubtitleCoversAllTiers() {
+        XCTAssertEqual(Principal.operatorTier.brandSubtitle, "powered by Grizz OS")
+        XCTAssertEqual(Principal.companion(memberID: "melissa").brandSubtitle, "powered by Companion OS")
+        XCTAssertEqual(Principal.guestTier.brandSubtitle, "powered by Companion OS (guest)")
+        XCTAssertEqual(Principal.responder(role: .emt).brandSubtitle, "powered by Responder OS")
+    }
+
+    func testFromTierTokenAcceptsOperatorSynonymAndCaseWhitespace() {
+        XCTAssertEqual(Principal.fromTierToken("operator"), .operatorTier)
+        XCTAssertEqual(Principal.fromTierToken("GRIZZ"), .operatorTier)
+        XCTAssertEqual(Principal.fromTierToken("  guest  "), .guestTier)
+        XCTAssertEqual(Principal.fromTierToken("Companion:Melissa"), .companion(memberID: "melissa"))
+        XCTAssertEqual(Principal.fromTierToken("RESPONDER:EMTP"), .responder(role: .emtp))
+    }
+
+    func testFromTierTokenRejectsMalformed() {
+        XCTAssertNil(Principal.fromTierToken(""))
+        XCTAssertNil(Principal.fromTierToken("admin"))
+        XCTAssertNil(Principal.fromTierToken("companion:"), "empty companion id must fail")
+        XCTAssertNil(Principal.fromTierToken("responder:"), "empty responder role must fail")
+        XCTAssertNil(Principal.fromTierToken("responder:paramedic-2"), "unknown role must fail")
+    }
+
+    func testUnknownPrincipalTokenFailsEventDecode() {
+        let bad = """
+        {
+          "id": "bad-1",
+          "source": "manual",
+          "kind": "arrival",
+          "subject": "operator",
+          "observedAtISO8601": "2026-04-20T13:45:00Z",
+          "presumedPrincipal": "admin"
+        }
+        """
+        XCTAssertThrowsError(try JSONDecoder().decode(JarvisPresenceEvent.self, from: Data(bad.utf8)))
+    }
+
+    func testEventIDIsPreservedThroughRoundTrip() throws {
+        let fixedID = "presence-2026-04-20-operator-arrival"
+        let event = JarvisPresenceEvent(
+            id: fixedID,
+            source: .homeKitGeofence,
+            kind: .arrival,
+            observedAtISO8601: "2026-04-20T13:45:00Z",
+            presumedPrincipal: .operatorTier
+        )
+        let data = try JSONEncoder().encode(event)
+        let decoded = try JSONDecoder().decode(JarvisPresenceEvent.self, from: data)
+        XCTAssertEqual(decoded.id, fixedID)
+    }
 }
 
