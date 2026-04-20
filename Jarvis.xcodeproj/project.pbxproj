@@ -484,6 +484,7 @@
 		8370F49B3B9B245AD695C406 /* 0261.wav in Resources */ = {isa = PBXBuildFile; fileRef = 187C05D1A00BF398553FACBB /* 0261.wav */; };
 		83AECED03D0C151725B03EF3 /* 0581.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0D59134ADAE69B202DE39596 /* 0581.wav */; };
 		842BB72DB6B0A56743837E7F /* 0431.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1EC5F432B71BE108489C6E6F /* 0431.wav */; };
+		845A195A0D8A4157E3BE732A /* OSINTSourceRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E63CCC155B2BC40690A7B2 /* OSINTSourceRegistry.swift */; };
 		84876BFC88655ECA42BDFE66 /* WiFiScannerRedactionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44248F278ED84D6F17D9E2D /* WiFiScannerRedactionTests.swift */; };
 		851CD7C6CB75B4EB20C0EB94 /* 0212.wav in Resources */ = {isa = PBXBuildFile; fileRef = 77AA97D49E37DB4469C8EF59 /* 0212.wav */; };
 		85388AFA3E65A0800EF24B05 /* 0157.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0855D74114E82C819B26E0AE /* 0157.wav */; };
@@ -953,6 +954,7 @@
 		FF4E3B2A871410CC733B582A /* 0448.wav in Resources */ = {isa = PBXBuildFile; fileRef = D82FFC063E1A04E107418734 /* 0448.wav */; };
 		FF5E31D8AB6A39AC703524A9 /* 0017.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E4DB0273E094799A0AEA43B /* 0017.wav */; };
 		FF63DF696F906C564261D0A7 /* 0622.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6B1A5F730F2B34AB02EEA7D0 /* 0622.wav */; };
+		FF8FE7FA4B80BE0BDACCA356 /* OSINTSourceRegistryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1314D648DB0F646F8AF96258 /* OSINTSourceRegistryTests.swift */; };
 		FFBC6E028D972D531B58C572 /* 0105.wav in Resources */ = {isa = PBXBuildFile; fileRef = 35ECDE7C12EFFE02CE6ABCBB /* 0105.wav */; };
 		FFFA0A8B74D0501B09134CDA /* HTTPDisplayBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4765490B98B619C5B16A02 /* HTTPDisplayBridge.swift */; };
 /* End PBXBuildFile section */
@@ -1127,6 +1129,7 @@
 		11017438689CF53872AC143A /* MemoryEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryEngine.swift; sourceTree = "<group>"; };
 		11172B1046E69BCEC5005F13 /* 0026.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0026.wav; sourceTree = "<group>"; };
 		1236BF1A11AFE23516A60E3D /* 0199.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0199.wav; sourceTree = "<group>"; };
+		1314D648DB0F646F8AF96258 /* OSINTSourceRegistryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSINTSourceRegistryTests.swift; sourceTree = "<group>"; };
 		141993BF6F8294621D677233 /* TelemetryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetryStore.swift; sourceTree = "<group>"; };
 		14419E6EBAC8DCD81311641E /* 0379.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0379.wav; sourceTree = "<group>"; };
 		144FD494CA1ADB9468846661 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -1221,6 +1224,7 @@
 		285AA88B7A56EF6656838B91 /* HTTPTTSBackend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTTSBackend.swift; sourceTree = "<group>"; };
 		28719A44DA9E84D2CD843CA0 /* 0548.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0548.wav; sourceTree = "<group>"; };
 		28F9E0B7763A663C750F8D86 /* TTSBackendDriftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSBackendDriftTests.swift; sourceTree = "<group>"; };
+		29E63CCC155B2BC40690A7B2 /* OSINTSourceRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSINTSourceRegistry.swift; sourceTree = "<group>"; };
 		29EFA77B344191CDC38EC79C /* DisplayCommandExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayCommandExecutor.swift; sourceTree = "<group>"; };
 		2A135E41CCFAD32EBF48778F /* ref4_cfg2.1_ddpm10_RENDER.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ref4_cfg2.1_ddpm10_RENDER.wav; sourceTree = "<group>"; };
 		2A2357C7C647984F40836E6E /* 0075.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0075.wav; sourceTree = "<group>"; };
@@ -3093,6 +3097,7 @@
 				9AEDBCDA565CECF9ACD3C474 /* Memory */,
 				DE3996B24D7B02D8AFE31EE8 /* Network */,
 				CB8BB474ADF7F3A494FA463D /* Oscillator */,
+				96DD722DB83C725262EC0523 /* OSINT */,
 				366D7031FCA7545737F3C47C /* Pheromind */,
 				718C3956C7E0B73754D12E47 /* Physics */,
 				A8FEB2C78380AF22D06FFF58 /* RLM */,
@@ -3113,6 +3118,14 @@
 				E7236ADF710D39EA17002FE2 /* ARCHarnessBridge.swift */,
 			);
 			path = ARC;
+			sourceTree = "<group>";
+		};
+		96DD722DB83C725262EC0523 /* OSINT */ = {
+			isa = PBXGroup;
+			children = (
+				29E63CCC155B2BC40690A7B2 /* OSINTSourceRegistry.swift */,
+			);
+			path = OSINT;
 			sourceTree = "<group>";
 		};
 		9AEDBCDA565CECF9ACD3C474 /* Memory */ = {
@@ -3304,6 +3317,7 @@
 				F389B6B3E20B86F1B807EA01 /* MapboxCredentialsTests.swift */,
 				ED39C97D28386B343B1D38A3 /* MemoryEngineTests.swift */,
 				1F75216FC40410C16F31CB87 /* OscillatorTests.swift */,
+				1314D648DB0F646F8AF96258 /* OSINTSourceRegistryTests.swift */,
 				D7940E6F024C1FBB984030CF /* PheromindTests.swift */,
 				016246E5624771252A76D3D3 /* PhysicsEngineTests.swift */,
 				49B9831E806B3F99EC6C37C3 /* PresenceEventRouterPrincipalTests.swift */,
@@ -4461,6 +4475,7 @@
 				9041B6CC39045BD12428E371 /* JarvisPaletteHexTests.swift in Sources */,
 				DA4F7CE0EA3B715BF3B97350 /* MapboxCredentialsTests.swift in Sources */,
 				50A19BE0C7F5D7C9183831BD /* MemoryEngineTests.swift in Sources */,
+				FF8FE7FA4B80BE0BDACCA356 /* OSINTSourceRegistryTests.swift in Sources */,
 				C148E0853A8463434F1D2B1C /* OscillatorTests.swift in Sources */,
 				987048F8213387AFB8623C32 /* PheromindTests.swift in Sources */,
 				0370836A9265CF694B5D3F56 /* PhysicsEngineTests.swift in Sources */,
@@ -4514,6 +4529,7 @@
 				6595F657D99CA64413C4782E /* MasterOscillator.swift in Sources */,
 				F7F045570123611BAC0FAA06 /* MemoryEngine.swift in Sources */,
 				EFCDB7DF49985D64A52F8C4E /* MyceliumControlPlane.swift in Sources */,
+				845A195A0D8A4157E3BE732A /* OSINTSourceRegistry.swift in Sources */,
 				B6F3896B85C34F2441F58499 /* PhaseLockMonitor.swift in Sources */,
 				1F0BBB340B1813F7CB59414B /* PheromoneEngine.swift in Sources */,
 				A4223514D339BF29829F2EBB /* PhysicsEngine.swift in Sources */,
