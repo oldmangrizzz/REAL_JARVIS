@@ -585,6 +585,7 @@
 		9E05633C5FBB04BD5196B9DA /* ref0_cfg1.3_ddpm15_RENDER.wav in Resources */ = {isa = PBXBuildFile; fileRef = C47D79665A4A0B552ED3A429 /* ref0_cfg1.3_ddpm15_RENDER.wav */; };
 		9E0FA0209EE4001EC841E602 /* 0082.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6F3AB81266C984AF66CCA91E /* 0082.wav */; };
 		9E1773E371B40A9B0714A747 /* 0597.wav in Resources */ = {isa = PBXBuildFile; fileRef = 887DAB63E3A0DDC5193BC60E /* 0597.wav */; };
+		9E6CB5DD641AD9341F1A7DCD /* PresenceEventRouterPrincipalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B9831E806B3F99EC6C37C3 /* PresenceEventRouterPrincipalTests.swift */; };
 		9EAF574F4B71362353E47B2B /* SystemCommandHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED099260A076385B24A1028 /* SystemCommandHandler.swift */; };
 		9EF745462191F3109338EB05 /* 0391.wav in Resources */ = {isa = PBXBuildFile; fileRef = 61A5A6D769B8EF30BB1DD576 /* 0391.wav */; };
 		9EF813DE7CF6A30BF157322E /* 0327.wav in Resources */ = {isa = PBXBuildFile; fileRef = 379353A7EFE5259F9AA47933 /* 0327.wav */; };
@@ -1320,6 +1321,7 @@
 		48FA74CD21803D7173520352 /* 0365.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0365.wav; sourceTree = "<group>"; };
 		4923A963633C8966BA38FC6E /* 0115.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0115.wav; sourceTree = "<group>"; };
 		49A1F6FE688ECF0CABC7AF53 /* 0136.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0136.wav; sourceTree = "<group>"; };
+		49B9831E806B3F99EC6C37C3 /* PresenceEventRouterPrincipalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenceEventRouterPrincipalTests.swift; sourceTree = "<group>"; };
 		49C630D5D8809EBCFA0935EA /* AirPlayBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPlayBridge.swift; sourceTree = "<group>"; };
 		4AB4D4646FDD74CDBA0A22FB /* 0446.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0446.wav; sourceTree = "<group>"; };
 		4B1D3E5097F5EC0A7B4D8C9E /* 0160.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0160.wav; sourceTree = "<group>"; };
@@ -3271,6 +3273,7 @@
 				1F75216FC40410C16F31CB87 /* OscillatorTests.swift */,
 				D7940E6F024C1FBB984030CF /* PheromindTests.swift */,
 				016246E5624771252A76D3D3 /* PhysicsEngineTests.swift */,
+				49B9831E806B3F99EC6C37C3 /* PresenceEventRouterPrincipalTests.swift */,
 				C1DA4E43E2DE88017EA554D4 /* PythonRLMBridgeTests.swift */,
 				F648510AF16F4F7D481784BE /* SkillRegistryTests.swift */,
 				67721193D44FC2992E8B07CA /* SoulAnchorTests.swift */,
@@ -4421,6 +4424,7 @@
 				C148E0853A8463434F1D2B1C /* OscillatorTests.swift in Sources */,
 				987048F8213387AFB8623C32 /* PheromindTests.swift in Sources */,
 				0370836A9265CF694B5D3F56 /* PhysicsEngineTests.swift in Sources */,
+				9E6CB5DD641AD9341F1A7DCD /* PresenceEventRouterPrincipalTests.swift in Sources */,
 				E689EC0EBF5246E1457CB2D9 /* PythonRLMBridgeTests.swift in Sources */,
 				9101B5449C6FE17521E79C16 /* SkillRegistryTests.swift in Sources */,
 				5866029B39D01C72AD5AE15F /* SoulAnchorTests.swift in Sources */,

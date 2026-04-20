@@ -18,7 +18,7 @@ import Foundation
 ///   when it puts on a uniform and realizes, oh, I got to go to work
 ///   and be a good boy today, because we got to keep food on the table."
 ///   Jarvis clocked-in.
-public enum Principal: Equatable, Sendable, Hashable {
+public enum Principal: Equatable, Sendable, Hashable, Codable {
     /// Grizz: unlimited scope, biometric-bound on his devices. Only one.
     case operatorTier
     /// Family member with scoped access (wife, daughter, etc.). The
@@ -59,5 +59,28 @@ public enum Principal: Equatable, Sendable, Hashable {
             return .companion(memberID: id)
         }
         return nil
+    }
+
+    // MARK: - Codable
+    //
+    // Serialize as the tierToken string so on-disk form matches
+    // identities.json and telemetry rows exactly. No client can encode a
+    // malformed principal; unknown tokens fail to decode.
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        let token = try container.decode(String.self)
+        guard let resolved = Principal.fromTierToken(token) else {
+            throw DecodingError.dataCorruptedError(
+                in: container,
+                debugDescription: "Unknown Principal tier token: \(token)"
+            )
+        }
+        self = resolved
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        try container.encode(tierToken)
     }
 }

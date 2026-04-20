@@ -46,6 +46,13 @@ public struct JarvisPresenceEvent: Codable, Sendable, Identifiable {
     public let observedAtISO8601: String
     /// Free-form notes (e.g. which door, signal strength, etc.).
     public let notes: String?
+    /// SPEC-009: server-presumed principal for this presence event. Only
+    /// set when the ingress source is trustworthy enough to bind identity
+    /// (HomeKit geofence on operator's phone, iOS Shortcut from operator's
+    /// device, manual `jarvis greet me`). Bare CSI / sensor presence
+    /// leaves this nil because they can detect a body without knowing
+    /// whose body. Threaded into telemetry for evidence-corpus witness.
+    public let presumedPrincipal: Principal?
 
     public init(
         id: String = UUID().uuidString,
@@ -55,7 +62,8 @@ public struct JarvisPresenceEvent: Codable, Sendable, Identifiable {
         originator: String? = nil,
         confidence: Double? = nil,
         observedAtISO8601: String,
-        notes: String? = nil
+        notes: String? = nil,
+        presumedPrincipal: Principal? = nil
     ) {
         self.id = id
         self.source = source
@@ -65,5 +73,6 @@ public struct JarvisPresenceEvent: Codable, Sendable, Identifiable {
         self.confidence = confidence
         self.observedAtISO8601 = observedAtISO8601
         self.notes = notes
+        self.presumedPrincipal = presumedPrincipal
     }
 }

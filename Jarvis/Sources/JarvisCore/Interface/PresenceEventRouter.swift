@@ -93,7 +93,8 @@ public final class PresenceEventRouter: @unchecked Sendable {
     // MARK: - Telemetry
 
     private func logPresence(event: JarvisPresenceEvent, plan: JarvisGreetingPlan) throws {
-        let context = "source=\(event.source.rawValue);kind=\(event.kind.rawValue);subject=\(event.subject);originator=\(event.originator ?? "n/a");confidence=\(event.confidence.map { String($0) } ?? "n/a")"
+        let principalSegment = event.presumedPrincipal.map { ";principal=\($0.tierToken)" } ?? ""
+        let context = "source=\(event.source.rawValue);kind=\(event.kind.rawValue);subject=\(event.subject);originator=\(event.originator ?? "n/a");confidence=\(event.confidence.map { String($0) } ?? "n/a")\(principalSegment)"
         let outcome: String
         if plan.suppressed {
             outcome = "suppressed:\(plan.suppressionReason ?? "unspecified")"
@@ -105,7 +106,8 @@ public final class PresenceEventRouter: @unchecked Sendable {
             stepID: event.id,
             inputContext: context,
             outputResult: outcome,
-            status: plan.suppressed ? "noop" : "success"
+            status: plan.suppressed ? "noop" : "success",
+            principal: event.presumedPrincipal
         )
     }
 
@@ -123,7 +125,8 @@ public final class PresenceEventRouter: @unchecked Sendable {
                         stepID: "\(event.id):homepod",
                         inputContext: plan.line,
                         outputResult: "delegated-to-homekit-bridge",
-                        status: "success"
+                        status: "success",
+                        principal: event.presumedPrincipal
                     )
                 case .labTV, .echoShowKitchen, .appleTVLivingRoom, .fireTV:
                     try telemetry.logExecutionTrace(
@@ -131,7 +134,8 @@ public final class PresenceEventRouter: @unchecked Sendable {
                         stepID: "\(event.id):\(surface.rawValue)",
                         inputContext: plan.line,
                         outputResult: "queued-for-display-bridge",
-                        status: "success"
+                        status: "success",
+                        principal: event.presumedPrincipal
                     )
                 }
             } catch {
