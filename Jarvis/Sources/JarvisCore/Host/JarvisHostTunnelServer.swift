@@ -9,16 +9,29 @@ public final class JarvisHostTunnelServer: @unchecked Sendable {
     private let crypto: JarvisTunnelCrypto
     private let authorizedSources = Set(["obsidian-command-bar", "terminal"])
     private let port: UInt16
+    private let idleTimeout: TimeInterval  // SPEC-011: disconnect unauthenticated clients after this interval
     private let isoFormatter = ISO8601DateFormatter()
     private var listener: NWListener?
     private var buffers: [ObjectIdentifier: Data] = [:]
     private var clients: [ObjectIdentifier: NWConnection] = [:]
     private var clientSources: [ObjectIdentifier: String] = [:]  // CX-038: server-assigned source per connection
 
-    public init(runtime: JarvisRuntime, registry: JarvisSkillRegistry, port: UInt16 = 9443, sharedSecret: String? = nil) {
+    /// SPEC-011: active connection count (thread-safe via serial queue).
+    public var activeConnectionCount: Int {
+        queue.sync { clients.count }
+    }
+
+    /// SPEC-011: number of unauthenticated clients kicked by the idle timer (thread-safe).
+    public var idleDisconnectCount: Int {
+        queue.sync { _idleDisconnectCount }
+    }
+    private var _idleDisconnectCount: Int = 0
+
+    public init(runtime: JarvisRuntime, registry: JarvisSkillRegistry, port: UInt16 = 9443, sharedSecret: String? = nil, idleTimeout: TimeInterval = 60) {
         self.runtime = runtime
         self.registry = registry
         self.port = port
+        self.idleTimeout = max(0.1, idleTimeout)  // SPEC-011: clamp to avoid zero/negative
         // CX-044: generate random secret if none provided
         let seed: String
         if let provided = sharedSecret {
@@ -87,6 +100,24 @@ public final class JarvisHostTunnelServer: @unchecked Sendable {
         buffers[identifier] = Data()
         clientSources[identifier] = "unauthenticated"  // R06: default unauthenticated — must register to get authorized source
 
+        // SPEC-011: kick unauthenticated clients after idleTimeout to defend against slow-loris / RAM exhaustion.
+        queue.asyncAfter(deadline: .now() + idleTimeout) { [weak self, weak connection] in
+            guard let self = self, let connection = connection else { return }
+            let id = ObjectIdentifier(connection)
+            // Only fire if the connection is still tracked AND still unauthenticated.
+            guard self.clients[id] != nil, self.clientSources[id] == "unauthenticated" else { return }
+            self._idleDisconnectCount += 1
+            try? self.runtime.telemetry.logExecutionTrace(
+                workflowID: "host-tunnel",
+                stepID: "idle-disconnect",
+                inputContext: "timeout:\(self.idleTimeout)s",
+                outputResult: "unauthenticated-client-closed",
+                status: "success"
+            )
+            self.disconnect(connection, reason: "idle-timer")
+            connection.cancel()
+        }
+
         connection.stateUpdateHandler = { [weak self] state in
             switch state {
             case .ready:
@@ -95,7 +126,7 @@ public final class JarvisHostTunnelServer: @unchecked Sendable {
                     try? self?.send(JarvisTunnelMessage(kind: .snapshot, snapshot: snapshot), on: connection)
                 }
             case .failed(let error):
-                self?.disconnect(connection)
+                self?.disconnect(connection, reason: "state-cb")
                 try? self?.runtime.telemetry.logExecutionTrace(
                     workflowID: "host-tunnel",
                     stepID: "connection",
@@ -104,7 +135,7 @@ public final class JarvisHostTunnelServer: @unchecked Sendable {
                     status: "failure"
                 )
             case .cancelled:
-                self?.disconnect(connection)
+                self?.disconnect(connection, reason: "state-cb")
             default:
                 break
             }
@@ -113,7 +144,7 @@ public final class JarvisHostTunnelServer: @unchecked Sendable {
         connection.start(queue: queue)
     }
 
-    private func disconnect(_ connection: NWConnection) {
+    private func disconnect(_ connection: NWConnection, reason: String = "unknown") {
         let identifier = ObjectIdentifier(connection)
         clients.removeValue(forKey: identifier)
         clientSources.removeValue(forKey: identifier)  // CX-038: cleanup
@@ -127,7 +158,7 @@ public final class JarvisHostTunnelServer: @unchecked Sendable {
                 self.handle(data: data, on: connection)
             }
             if isComplete || error != nil {
-                self.disconnect(connection)
+                self.disconnect(connection, reason: "receive-complete")
                 connection.cancel()
                 return
             }
@@ -145,7 +176,7 @@ public final class JarvisHostTunnelServer: @unchecked Sendable {
         // CX-004: disconnect clients that send >1MB without a newline
         if buffer.count > maxBufferBytes {
             buffers.removeValue(forKey: identifier)
-            disconnect(connection)
+            disconnect(connection, reason: "legacy")
             return
         }
 

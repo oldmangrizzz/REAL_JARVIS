@@ -1,4 +1,5 @@
 import XCTest
+import Network
 @testable import JarvisCore
 
 final class JarvisHostTunnelServerTests: XCTestCase {
@@ -72,6 +73,109 @@ final class JarvisHostTunnelServerTests: XCTestCase {
         server.stop()
 
         // After stop, should be able to start again on same port
+        XCTAssertNoThrow(try server.start())
+        server.stop()
+    }
+
+    // MARK: - SPEC-011: unauthenticated idle timeout
+
+    func testUnauthenticatedClientIsDisconnectedAfterIdleTimeout() throws {
+        let paths = try makeTestWorkspace()
+        let runtime = try JarvisRuntime(paths: paths)
+        let registry = try JarvisSkillRegistry(paths: paths)
+
+        let server = JarvisHostTunnelServer(
+            runtime: runtime,
+            registry: registry,
+            port: 19450,
+            sharedSecret: "test-idle-timeout",
+            idleTimeout: 0.75
+        )
+        try server.start()
+        defer { server.stop() }
+
+        // Slow-loris client: open TCP, never send registration bytes.
+        let endpoint = NWEndpoint.hostPort(host: "127.0.0.1", port: NWEndpoint.Port(rawValue: 19450)!)
+        let client = NWConnection(to: endpoint, using: .tcp)
+        let readyExp = expectation(description: "client-ready")
+        client.stateUpdateHandler = { state in
+            if case .ready = state { readyExp.fulfill() }
+        }
+        client.start(queue: .global())
+        wait(for: [readyExp], timeout: 5.0)
+
+        // Wait past idle timeout + jitter; server must fire the idle kick.
+        let kickDeadline = Date().addingTimeInterval(5.0)
+        while server.idleDisconnectCount < 1 && Date() < kickDeadline {
+            Thread.sleep(forTimeInterval: 0.1)
+        }
+
+        XCTAssertGreaterThanOrEqual(server.idleDisconnectCount, 1, "SPEC-011: unauthenticated client was not kicked by idle timer")
+        XCTAssertEqual(server.activeConnectionCount, 0, "SPEC-011: server should have no active clients after idle kick")
+
+        client.cancel()
+    }
+
+    func testAuthenticatedClientSurvivesIdleTimeout() throws {
+        // SPEC-011: idle timer must NOT fire for clients that registered with an authorized source.
+        let paths = try makeTestWorkspace()
+        let runtime = try JarvisRuntime(paths: paths)
+        let registry = try JarvisSkillRegistry(paths: paths)
+
+        let server = JarvisHostTunnelServer(
+            runtime: runtime,
+            registry: registry,
+            port: 19452,
+            sharedSecret: "test-idle-auth-survives",
+            idleTimeout: 0.5
+        )
+        try server.start()
+        defer { server.stop() }
+
+        let crypto = JarvisTunnelCrypto(sharedSecret: "test-idle-auth-survives")
+        let endpoint = NWEndpoint.hostPort(host: "127.0.0.1", port: NWEndpoint.Port(rawValue: 19452)!)
+        let client = NWConnection(to: endpoint, using: .tcp)
+        let readyExp = expectation(description: "client-ready")
+        client.stateUpdateHandler = { state in
+            if case .ready = state { readyExp.fulfill() }
+        }
+        client.start(queue: .global())
+        wait(for: [readyExp], timeout: 5.0)
+
+        // Register as an authorized source BEFORE idle timeout fires.
+        let registration = JarvisClientRegistration(
+            deviceID: "dev-1",
+            deviceName: "Test",
+            platform: "macOS",
+            role: "terminal",
+            appVersion: "test"
+        )
+        let message = JarvisTunnelMessage(kind: .register, registration: registration)
+        let sealed = try crypto.seal(message)
+        let packet = JarvisTransportPacket(origin: "test-client", timestamp: ISO8601DateFormatter().string(from: Date()), payload: sealed)
+        let line = try JSONEncoder().encode(packet) + Data([0x0A])
+        client.send(content: line, completion: .contentProcessed { _ in })
+
+        // Wait past idle timeout — registered clients must NOT be kicked.
+        Thread.sleep(forTimeInterval: 1.5)
+        XCTAssertEqual(server.idleDisconnectCount, 0, "SPEC-011: registered client must not be kicked by idle timer")
+
+        client.cancel()
+    }
+
+    func testIdleTimeoutIsClampedAboveZero() throws {
+        let paths = try makeTestWorkspace()
+        let runtime = try JarvisRuntime(paths: paths)
+        let registry = try JarvisSkillRegistry(paths: paths)
+
+        // Passing zero or negative must not crash nor fire the timer instantly on a background queue.
+        let server = JarvisHostTunnelServer(
+            runtime: runtime,
+            registry: registry,
+            port: 19451,
+            sharedSecret: "test-idle-clamp",
+            idleTimeout: -5.0
+        )
         XCTAssertNoThrow(try server.start())
         server.stop()
     }
