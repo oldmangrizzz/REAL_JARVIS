@@ -339,6 +339,7 @@
 		5D393BDF2B3D00B716A57BFB /* 0298.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6D7C8B475506921BB8A63668 /* 0298.wav */; };
 		5D3A6CD3936D410D3C37F688 /* 0058.wav in Resources */ = {isa = PBXBuildFile; fileRef = 69198018B530C81F067B3C5D /* 0058.wav */; };
 		5D56271A526F88285B7DE154 /* 0329.wav in Resources */ = {isa = PBXBuildFile; fileRef = 519774C5B37021DB5C206D0F /* 0329.wav */; };
+		5D99A49E0DA5B4F721ED6F94 /* WorkspacePathsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D1961F9E93BF78BB4A7DFC /* WorkspacePathsTests.swift */; };
 		5DD3905B9B86AF328E6DC180 /* 0593.wav in Resources */ = {isa = PBXBuildFile; fileRef = 88756B84A908885601BE43B4 /* 0593.wav */; };
 		5E390B35C96F6497DD7C3AE0 /* ref3_cfg1.3_ddpm10_RENDER.wav in Resources */ = {isa = PBXBuildFile; fileRef = 88763A0FAFBA8716F550326E /* ref3_cfg1.3_ddpm10_RENDER.wav */; };
 		5E658492A79C591E0ACB01E3 /* 0239.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4D2F12DAF1F845C106512699 /* 0239.wav */; };
@@ -1305,6 +1306,7 @@
 		38EE301ED8B1397E7101135A /* 0024.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0024.wav; sourceTree = "<group>"; };
 		398848D3472499D1EB37ECE9 /* 0307.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0307.wav; sourceTree = "<group>"; };
 		39C3AA9F3F53725418DA530B /* 0289.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0289.wav; sourceTree = "<group>"; };
+		39D1961F9E93BF78BB4A7DFC /* WorkspacePathsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspacePathsTests.swift; sourceTree = "<group>"; };
 		39E9B117B2A71ABFA2CA34F1 /* 0452.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0452.wav; sourceTree = "<group>"; };
 		39FFE015B3D8EE1EA5C07983 /* 0056.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0056.wav; sourceTree = "<group>"; };
 		3A446970D091559EDBCC27E8 /* JarvisPaletteHexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarvisPaletteHexTests.swift; sourceTree = "<group>"; };
@@ -3372,6 +3374,7 @@
 				7DEC9E2FF5734DD56045A19B /* VoiceCommandRouterTests.swift */,
 				32E95BAAC419B139C0DEF000 /* WebContentFetchPolicyTests.swift */,
 				F44248F278ED84D6F17D9E2D /* WiFiScannerRedactionTests.swift */,
+				39D1961F9E93BF78BB4A7DFC /* WorkspacePathsTests.swift */,
 			);
 			name = JarvisCoreTests;
 			path = Jarvis/Tests/JarvisCoreTests;
@@ -4514,6 +4517,7 @@
 				0A4E0963BAF30EF8109D4BBE /* VoiceCommandRouterTests.swift in Sources */,
 				2830B0548A03CCCA6CAB4082 /* WebContentFetchPolicyTests.swift in Sources */,
 				84876BFC88655ECA42BDFE66 /* WiFiScannerRedactionTests.swift in Sources */,
+				5D99A49E0DA5B4F721ED6F94 /* WorkspacePathsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
