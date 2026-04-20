@@ -68,4 +68,94 @@ final class GreetingOrchestratorTests: XCTestCase {
         XCTAssertTrue(evening.contains("evening"))
         XCTAssertTrue(night.contains("night"))
     }
+
+    // MARK: - Additional coverage
+
+    func test_afternoon_hour_uses_afternoon_word() {
+        let line = JarvisGreetingOrchestrator.greetingLine(operator: "Grizz", at: context(hour: 14).now, source: .manual)
+        XCTAssertTrue(line.contains("afternoon"))
+        XCTAssertFalse(line.contains("morning"))
+        XCTAssertFalse(line.contains("evening"))
+    }
+
+    func test_cooldown_boundary_is_strict_less_than() {
+        // cooldownSeconds = 300. 299 should suppress, 300 should pass.
+        let justUnder = JarvisGreetingOrchestrator.plan(
+            for: event(),
+            context: context(timeSince: JarvisGreetingOrchestrator.cooldownSeconds - 1)
+        )
+        let exact = JarvisGreetingOrchestrator.plan(
+            for: event(),
+            context: context(timeSince: JarvisGreetingOrchestrator.cooldownSeconds)
+        )
+        XCTAssertTrue(justUnder.suppressed)
+        XCTAssertFalse(exact.suppressed)
+    }
+
+    func test_csi_confidence_exactly_at_threshold_passes() {
+        // Guard is `c < 0.6` (strict). 0.6 should pass.
+        let plan = JarvisGreetingOrchestrator.plan(
+            for: event(source: .wifiCSI, confidence: 0.6),
+            context: context()
+        )
+        XCTAssertFalse(plan.suppressed)
+        XCTAssertTrue(plan.line.contains("Wi-Fi CSI"))
+    }
+
+    func test_csi_with_nil_confidence_passes() {
+        // No confidence reported → cannot suppress on low-confidence.
+        let plan = JarvisGreetingOrchestrator.plan(
+            for: event(source: .wifiCSI, confidence: nil),
+            context: context()
+        )
+        XCTAssertFalse(plan.suppressed)
+    }
+
+    func test_source_tag_is_emitted_for_each_non_mock_source() {
+        let homeKit = JarvisGreetingOrchestrator.greetingLine(operator: "Grizz", at: context().now, source: .homeKitGeofence)
+        let shortcut = JarvisGreetingOrchestrator.greetingLine(operator: "Grizz", at: context().now, source: .iOSShortcut)
+        let manual = JarvisGreetingOrchestrator.greetingLine(operator: "Grizz", at: context().now, source: .manual)
+        let csi = JarvisGreetingOrchestrator.greetingLine(operator: "Grizz", at: context().now, source: .wifiCSI)
+        XCTAssertTrue(homeKit.contains("via HomeKit arrival"))
+        XCTAssertTrue(shortcut.contains("via your Shortcut"))
+        XCTAssertTrue(manual.contains("on manual cue"))
+        XCTAssertTrue(csi.contains("via Wi-Fi CSI"))
+    }
+
+    func test_operator_label_is_never_hardcoded() {
+        let ctx = JarvisGreetingContext(
+            timeSinceLastGreeting: nil,
+            now: context().now,
+            operatorLabel: "Tony"
+        )
+        let plan = JarvisGreetingOrchestrator.plan(for: event(), context: ctx)
+        XCTAssertFalse(plan.suppressed)
+        XCTAssertTrue(plan.line.contains("Tony"), "line should address custom operator label: \(plan.line)")
+        XCTAssertFalse(plan.line.contains("Grizz"))
+    }
+
+    func test_suppress_factory_invariants() {
+        let sup = JarvisGreetingPlan.suppress("test-reason")
+        XCTAssertTrue(sup.suppressed)
+        XCTAssertEqual(sup.suppressionReason, "test-reason")
+        XCTAssertEqual(sup.line, "")
+        XCTAssertEqual(sup.surfaces, [])
+    }
+
+    func test_plan_is_equatable() {
+        let a = JarvisGreetingOrchestrator.plan(for: event(), context: context())
+        let b = JarvisGreetingOrchestrator.plan(for: event(), context: context())
+        let differentCtx = JarvisGreetingOrchestrator.plan(for: event(), context: context(hour: 8))
+        XCTAssertEqual(a, b)
+        XCTAssertNotEqual(a, differentCtx)
+    }
+
+    func test_presence_kind_presence_and_absence_are_both_suppressed() {
+        let presence = JarvisGreetingOrchestrator.plan(for: event(kind: .presence), context: context())
+        let absence = JarvisGreetingOrchestrator.plan(for: event(kind: .absence), context: context())
+        XCTAssertTrue(presence.suppressed)
+        XCTAssertEqual(presence.suppressionReason, "event-kind:presence")
+        XCTAssertTrue(absence.suppressed)
+        XCTAssertEqual(absence.suppressionReason, "event-kind:absence")
+    }
 }
