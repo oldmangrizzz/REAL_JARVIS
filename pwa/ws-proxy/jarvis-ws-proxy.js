@@ -1,16 +1,37 @@
 #!/usr/bin/env node
 // jarvis-ws-proxy.js — zero-dependency WebSocket-to-TCP proxy
 // Uses Node.js built-in crypto for the WS handshake, no external deps.
+// AUTH: Challenge-response using shared secret. Client must send the
+//       secret within 5 seconds or the connection is dropped.
 const net = require('net');
 const http = require('http');
 const crypto = require('crypto');
 
-const TUNNEL_HOST = process.env.TUNNEL_HOST || '192.168.4.151';
+// --- Configuration -----------------------------------------------------------
+const SHARED_SECRET = process.env.SHARED_SECRET || 'changeme-jarvis-secret-2024';
+const AUTH_TIMEOUT_MS = 5000; // 5 seconds to authenticate
+const TUNNEL_HOST = process.env.TUNNEL_HOST || 'charlie.grizzlymedicine.icu';
 const TUNNEL_PORT = parseInt(process.env.TUNNEL_PORT || '9443');
 const WS_PORT = parseInt(process.env.WS_PORT || '9444');
 
 const WS_MAGIC = '258EAFA5-E914-47DA-95CA-C5AB0DC85B11';
 
+// --- Timing-safe string comparison ------------------------------------------
+function timingSafeEqual(a, b) {
+  // Convert both to same-length buffers so comparison is constant-time.
+  // If lengths differ, we still compare to avoid leaking length info.
+  const bufA = Buffer.from(String(a), 'utf-8');
+  const bufB = Buffer.from(String(b), 'utf-8');
+  if (bufA.length !== bufB.length) {
+    // Still do a full comparison against itself to burn the same time,
+    // then return false.
+    crypto.timingSafeEqual(bufA, bufA);
+    return false;
+  }
+  return crypto.timingSafeEqual(bufA, bufB);
+}
+
+// --- WS frame helpers -------------------------------------------------------
 function hashKey(key) {
   return crypto.createHash('sha1').update(key + WS_MAGIC).digest('base64');
 }
@@ -71,70 +92,124 @@ httpServer.on('upgrade', (req, socket) => {
     `Sec-WebSocket-Accept: ${hashKey(key)}\r\n\r\n`);
 
   const clientIP = req.socket.remoteAddress;
-  console.log(`[+] WS client from ${clientIP} (total: ${clients.size + 1})`);
-  clients.add(socket);
+  console.log(`[+] WS client from ${clientIP} — awaiting auth (total: ${clients.size + 1})`);
 
-  let tcpBuffer = Buffer.alloc(0);
+  // --- Authentication state machine ------------------------------------------
+  let authenticated = false;
   let wsBuffer = Buffer.alloc(0);
+  let authTimer = setTimeout(() => {
+    console.log(`[!] Auth timeout for ${clientIP} — closing`);
+    try { socket.write(encodeFrame(JSON.stringify({ type: 'auth', status: 'timeout' }))); } catch {}
+    socket.destroy();
+  }, AUTH_TIMEOUT_MS);
 
-  const tcp = net.createConnection({ host: TUNNEL_HOST, port: TUNNEL_PORT });
+  // Send auth challenge: client must respond with the shared secret
+  try {
+    socket.write(encodeFrame(JSON.stringify({ type: 'auth_challenge', message: 'Send shared secret to authenticate' })));
+  } catch (e) {
+    console.error(`[!] Failed to send auth challenge: ${e.message}`);
+    socket.destroy();
+    clearTimeout(authTimer);
+    return;
+  }
 
-  tcp.on('connect', () => console.log(`[+] TCP tunnel connected for ${clientIP}`));
+  // --- TCP connection (only opened after auth) -------------------------------
+  let tcp = null;
+  let tcpBuffer = Buffer.alloc(0);
 
-  tcp.on('data', (chunk) => {
-    tcpBuffer = Buffer.concat([tcpBuffer, chunk]);
-    while (true) {
-      const idx = tcpBuffer.indexOf(0x0A);
-      if (idx === -1) break;
-      const line = tcpBuffer.slice(0, idx).toString('utf-8');
-      tcpBuffer = tcpBuffer.slice(idx + 1);
-      if (line.trim() && !socket.destroyed) {
-        socket.write(encodeFrame(line));
+  function openTunnel() {
+    tcp = net.createConnection({ host: TUNNEL_HOST, port: TUNNEL_PORT });
+    tcp.on('connect', () => console.log(`[+] TCP tunnel connected for ${clientIP}`));
+    tcp.on('data', (chunk) => {
+      tcpBuffer = Buffer.concat([tcpBuffer, chunk]);
+      while (true) {
+        const idx = tcpBuffer.indexOf(0x0A);
+        if (idx === -1) break;
+        const line = tcpBuffer.slice(0, idx).toString('utf-8');
+        tcpBuffer = tcpBuffer.slice(idx + 1);
+        if (line.trim() && !socket.destroyed) {
+          socket.write(encodeFrame(line));
+        }
       }
-    }
-  });
+    });
+    tcp.on('close', () => {
+      console.log(`[-] TCP closed for ${clientIP}`);
+      if (!socket.destroyed) socket.end();
+    });
+    tcp.on('error', (err) => {
+      console.error(`[!] TCP error: ${err.message}`);
+      if (!socket.destroyed) socket.end();
+    });
+  }
 
-  tcp.on('close', () => {
-    console.log(`[-] TCP closed for ${clientIP}`);
-    if (!socket.destroyed) socket.end();
-  });
-
-  tcp.on('error', (err) => {
-    console.error(`[!] TCP error: ${err.message}`);
-    if (!socket.destroyed) socket.end();
-  });
-
+  // --- Handle WS frames -----------------------------------------------------
   socket.on('data', (chunk) => {
     wsBuffer = Buffer.concat([wsBuffer, chunk]);
     while (wsBuffer.length > 0) {
       const frame = decodeFrame(wsBuffer);
       if (!frame) break;
       wsBuffer = wsBuffer.slice(frame.totalLen);
+
       if (frame.opcode === 8) { // close
-        if (!tcp.destroyed) tcp.destroy();
+        clearTimeout(authTimer);
+        if (!authenticated) return;
+        if (tcp && !tcp.destroyed) tcp.destroy();
         return;
       }
-      if (frame.opcode === 1 && frame.data.length > 0) { // text
-        const msg = frame.data.toString('utf-8').replace(/\n+$/, '') + '\n';
-        if (!tcp.destroyed) tcp.write(msg);
+
+      if (frame.opcode !== 1 || frame.data.length === 0) continue; // only text frames
+
+      const msg = frame.data.toString('utf-8');
+
+      // --- Pre-auth: check for secret ----------------------------------------
+      if (!authenticated) {
+        let parsed;
+        try { parsed = JSON.parse(msg); } catch { parsed = null; }
+
+        // Accept both raw secret string and { type: 'auth', secret: '...' }
+        const candidate = parsed && parsed.type === 'auth' ? parsed.secret : msg;
+        if (timingSafeEqual(candidate, SHARED_SECRET)) {
+          authenticated = true;
+          clearTimeout(authTimer);
+          console.log(`[+] Auth succeeded for ${clientIP}`);
+          socket.write(encodeFrame(JSON.stringify({ type: 'auth', status: 'ok' })));
+          // Now open the TCP tunnel
+          openTunnel();
+        } else {
+          clearTimeout(authTimer);
+          console.log(`[!] Auth FAILED for ${clientIP} — closing`);
+          socket.write(encodeFrame(JSON.stringify({ type: 'auth', status: 'denied' })));
+          socket.destroy();
+          return;
+        }
+        continue;
       }
+
+      // --- Post-auth: forward to TCP ----------------------------------------
+      const line = msg.replace(/\n+$/, '') + '\n';
+      if (tcp && !tcp.destroyed) tcp.write(line);
     }
   });
 
   socket.on('close', () => {
+    clearTimeout(authTimer);
     console.log(`[-] WS client ${clientIP} disconnected (total: ${clients.size - 1})`);
     clients.delete(socket);
-    if (!tcp.destroyed) tcp.destroy();
+    if (tcp && !tcp.destroyed) tcp.destroy();
   });
 
   socket.on('error', (err) => {
+    clearTimeout(authTimer);
     console.error(`[!] WS error: ${err.message}`);
     clients.delete(socket);
-    if (!tcp.destroyed) tcp.destroy();
+    if (tcp && !tcp.destroyed) tcp.destroy();
   });
+
+  clients.add(socket);
 });
 
 httpServer.listen(WS_PORT, '0.0.0.0', () => {
   console.log(`JARVIS WS Proxy 0.0.0.0:${WS_PORT} → TCP ${TUNNEL_HOST}:${TUNNEL_PORT}`);
+  console.log(`  Auth: shared-secret required (timeout ${AUTH_TIMEOUT_MS}ms)`);
   console.log(`Health: http://localhost:${WS_PORT}/health`);
 });

@@ -168,7 +168,7 @@ public final class JarvisVoiceHTTPBridge: @unchecked Sendable {
         // behavior we could add a dedicated synthesize-only method later.
         let outURL = runtime.paths.voiceCacheDirectory.appendingPathComponent("obsidian-\(UUID().uuidString).wav")
         do {
-            _ = try runtime.voice.speak(text: trimmed, persistAs: outURL, workflowID: "obsidian-voice-bridge")
+            _ = try runtime.voice.renderApproved(text: trimmed, persistAs: outURL, workflowID: "obsidian-voice-bridge")
         } catch {
             respond(status: "503 Service Unavailable", body: Data("voice gate: \(error.localizedDescription)".utf8), contentType: "text/plain", on: connection, extraHeaders: corsHeaders())
             return

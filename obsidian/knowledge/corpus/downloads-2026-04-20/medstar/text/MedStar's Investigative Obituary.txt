@@ -1,0 +1,331 @@
+The Autopsy of an Anomaly: A Forensic
+History of MedStar Mobile Healthcare
+(1986–2024)
+Introduction: The Death of the Public Utility Model
+The formal dissolution of the Metropolitan Area EMS Authority—better known to the world as
+MedStar Mobile Healthcare—and its subsequent absorption into the Fort Worth Fire Department
+is not merely a change in municipal stationery. It is the violent closing of a chapter in American
+medical history. For thirty-eight years, Fort Worth, Texas, served as the primary laboratory for
+one of the most contentious, efficient, and clinically innovative experiments in prehospital care:
+the Public Utility Model (PUM).
+While the victors—the proponents of the fire-based EMS delivery model—will undoubtedly
+frame this transition as a consolidation of public safety resources, a forensic examination of the
+agency’s history reveals a far more complex narrative. MedStar was an entity born from the
+catastrophic failure of the free market in the 1980s, raised on the ruthless economic theories of
+Jack Stout, and forced by near-bankruptcy in 2009 to invent a new sector of healthcare that the
+world now calls Mobile Integrated Healthcare (MIH).
+This report serves as the unvarnished obituary of that experiment. It rejects the sanitized press
+releases of the transition in favor of a deep-dive investigation into the structural DNA of the
+agency. We will dissect the "reliability crisis" that birthed it, the "system status management" that
+defined it, the financial desperation that drove its greatest innovations, and the political gravity
+that ultimately killed it. This is the story of how a system designed to treat emergency medicine
+as a utility—cold, calculated, and efficient—inadvertently discovered the human side of
+healthcare, only to be dismantled by the city that built it.
+
+Part I: The Origin Story (The Chaos of the 1980s)
+1.1 The Market Failure and the "Wild West"
+To understand the creation of MedStar in 1986, one must first exhume the corpse of the system
+that preceded it. In the late 1970s and early 1980s, American EMS was largely an unregulated
+frontier. Following the federal impetus of the 1966 "White Paper" (Accidental Death and
+Disability), money flowed into the sector, but operational control in many cities, including Fort
+Worth, was left to private enterprise.
+The prevailing economic theory of the time was that competition would drive quality. If multiple
+private ambulance companies competed for calls, response times would theoretically drop, and
+patient care would improve. The reality in Fort Worth, however, was a "reliability crisis" of
+catastrophic proportions. The private market operated on a mercantile imperative: profit is
+derived solely from transport. This created a perverse incentive structure known in the industry
+as "claim jumping" or "call jumping."
+Ambulance purveyors, fighting for market share, would race to the scene of high-probability
+payment calls—motor vehicle accidents in affluent districts or transfers from wealthy
+hospitals—while systematically ignoring calls from indigent neighborhoods or during low-volume
+hours. The "invisible hand" of the market was not catching the falling patient; it was picking the
+pockets of the profitable ones.
+By the mid-1980s, the City of Fort Worth faced a grim reality: the private companies were
+volatile. When profit margins thinned due to rising fuel costs or changes in Medicare
+reimbursement, these companies would threaten to pull out of the city entirely, leaving the
+municipality with zero emergency transport capacity overnight. The private market had failed to
+provide a safety net. The ambulance was not treated as a public utility, like water or electricity,
+but as a commodity, and the citizens were suffering the consequences of this volatility.
+
+1.2 The Jack Stout Philosophy
+The City Council, backed into a corner by the unreliability of the private sector and unwilling to
+absorb the massive pension liabilities of expanding the Fire Department to cover transport,
+turned to a radical economic framework proposed by economist Jack Stout.
+Stout was the intellectual father of the Public Utility Model (PUM). His theory was a direct
+rejection of both the Fire Department model (which he viewed as bloated and inefficient due to
+static deployment) and the unregulated private model (which was predatory and unreliable).
+Stout proposed a "Third Way":
+   1.​ Separation of Powers: The City would create a quasi-governmental authority (MAEMSA)
+       to hold the monopoly license and billing rights. This authority would be the "Regulator."
+   2.​ The Contractor: The Authority would not employ the paramedics. Instead, it would bid
+       out the operations to a private contractor (over the years, companies like AMR or
+       MedStar’s specific operational arm). This contractor would provide the labor and
+       management.
+   3.​ Performance-Based Contracting: The defining feature of the PUM was the ruthlessness
+       of the contract. The contractor was paid based on performance. If an ambulance was late,
+       the contractor was fined. If they hit their metrics, they earned profit.
+In 1986, Fort Worth adopted this model, passing the "MAEMSA creation ordinance" and forming
+an interlocal agreement with surrounding suburbs (including Haltom City, White Settlement, and
+others). This moment was the "Big Bang" for MedStar. It was created not as a public safety
+agency, but as an administrative tool to enforce market discipline on a chaotic industry.
+
+Part II: The Structure (The "Public Utility Model"
+Anomaly)
+2.1 The Mechanism of Control: System Status Management
+The most distinct operational characteristic of the MedStar era (1986–2024)—and the source of
+decades of friction—was its reliance on System Status Management (SSM).
+In a traditional Fire Department model, resources are "static." Ambulances and fire trucks are
+parked in brick-and-mortar stations. These stations are located based on neighborhood
+geography, political districts, and fire risk. They are not necessarily located where medical
+emergencies occur. A fire station remains in the same place at 2:00 AM as it is at 2:00 PM,
+regardless of where the population has moved.
+MedStar, operating under the PUM, rejected the station. Under the guidance of Stout’s theories,
+MedStar implemented a "fluid" deployment model.
+  ●​ The Data Engine: MedStar analyzed historical data to predict exactly where 911 calls
+      would occur at any given hour of the day.
+  ●​ The Street Corner Post: Ambulances did not have homes. They were deployed to
+      "posting corners"—street intersections that geographically optimized their reach. If the
+      data showed a high probability of cardiac arrests in the cultural district at 6:00 PM, an
+      ambulance was moved to that specific intersection at 5:45 PM.
+  ●​ Unit Hour Utilization (UHU): This is the holy grail metric of the PUM. It measures the
+      efficiency of the asset. A UHU of 0.45 means the ambulance is actively working (running a
+      call) for 45 minutes of every hour.
+Table 1: The Structural Divergence
+Operational Pillar                MedStar (Public Utility Model) Traditional Fire-Based EMS
+Primary Objective                 Economic Efficiency (Cost per Capacity & Readiness (Public
+                                  Transport)                      Safety)
+Deployment Logic                  Dynamic / Fluid (System Status Static / Fixed (Station-Based)
+                                  Management)
+Resource Location                 Street Corners (Based on        Fire Stations (Based on
+                                  Predictive Demand)              Neighborhoods)
+Workforce Status                  Private Employees (at-will or   Civil Service / Sworn
+                                  contract)                       (Unionized)
+Funding Mechanism                 User Fees / Enterprise Fund     General Tax Fund / Municipal
+                                  (Subsidy Averse)                Budget
+2.2 The Friction: Efficiency vs. Reliability
+This structural anomaly created a perpetual state of cold war between MedStar and the Fort
+Worth Fire Department (FWFD). To the Fire Department, MedStar’s SSM model was
+dangerous. They argued that "posting" exhausted crews, who spent 12 hours in a vehicle
+without a station to rest, cook, or decompress. They argued that the PUM’s obsession with UHU
+meant there was no "surge capacity"—if a mass casualty event occurred, the system was too
+lean to absorb the blow.
+Conversely, MedStar proponents argued that the Fire model was fiscally irresponsible. Why pay
+a crew to sleep in a station for 24 hours when they only run two calls? The PUM was designed
+to squeeze every ounce of productivity out of the labor hour.
+This tension manifested in the debate over "First Responder Fees." Since Fire Department
+units (engines and trucks) often arrived on the scene of medical calls first (due to the density of
+stations) but could not transport, the Fire Department historically viewed MedStar as profiting off
+their labor. MedStar collected the transport fee (often $1,500+), while the Fire Department,
+funded by taxes, received nothing from the billing cycle. This resentment—the feeling that the
+PUM was a parasite on the public safety infrastructure—simmered for decades and would
+eventually fuel the political arguments for dissolution in 2024.
+
+Part III: The Crucible of Innovation (2009–2014)
+3.1 The "Burning Platform"
+The historical narrative often romanticizes innovation as the product of genius. In MedStar’s
+case, innovation was the product of panic. The narrative that MedStar invented Mobile
+Integrated Healthcare (MIH) because they were altruistic visionaries is a fabrication. They
+invented it because they were bleeding cash.
+In 2008 and 2009, the global financial crisis coincided with a spike in urban 911 utilization.
+MedStar’s leadership, specifically Medical Director Dr. Jeff Beeson and operations staff, looked
+at the upcoming summer of 2009 with dread. The system was strained to the breaking point.
+The "You Call, We Haul" model—the standard since 1966—was failing.
+The Audit: To find efficiencies, MedStar conducted a forensic audit of their 911 data. They were
+hunting for the "Pareto distribution"—the small number of users causing the most strain. The
+results were shocking.
+   ●​ The Statistic: The data identified 21 individual patients who had generated nearly 800
+       ambulance transports in a single 12-month period.
+   ●​ The Financial Hemorrhage: These 800 transports resulted in approximately $1 million
+       in billed charges.
+   ●​ The Reality: The vast majority of this $1 million was uncollectible bad debt. These
+       patients were uninsured, homeless, or suffering from untreated mental illness.
+Every time MedStar transported one of these 21 patients, they lost money (fuel, labor, wear and
+tear) and removed an ambulance from the system that could have been serving a paying
+customer. The realization that 21 people could drive $1 million in distinct costs created the
+"burning platform" necessary for radical change.
+
+3.2 The "Light Duty" Hack
+The genesis of the solution was serendipitous. MedStar did not have a budget to hire social
+workers or case managers. However, they had a "sunk cost": paramedics who were injured and
+on "light duty" status. These employees, unable to lift a stretcher due to back injuries or
+surgeries, were traditionally relegated to filing papers in the office.
+In July 2009, MedStar leadership made a decision that would change global EMS: they sent the
+light-duty paramedics to the homes of the 21 super-utilizers.
+   ●​ The Logic: "You can't lift a patient, but you can drive a sedan. Go to their house. Sit in
+       their living room. Find out why they keep calling 911."
+   ●​ The Protocol Drift: This was the birth of the Community Paramedic. It was an
+       operational hack. Paramedics, trained to work in 15-minute bursts of adrenaline, were
+       suddenly asked to perform forensic social work. They checked pill bottles for interactions.
+       They looked for trip hazards (loose rugs). They opened empty fridges.
+
+3.3 The Outcomes and the Skepticism
+The results of this "light duty" pilot were statistically impossible to ignore. Among that cohort of
+21 patients, 911 utilization dropped by approximately 77%.
+  ●​ The Insight: MedStar proved that the "medical emergency" was almost always a "social
+      emergency" in disguise. A patient calling 911 for "weakness" was actually calling because
+      they hadn't eaten in three days. Once the paramedic fixed the food insecurity, the 911
+      calls stopped.
+The Pushback: This innovation was not met with universal applause.
+  ●​ Regulatory Hurdles: The State of Texas, like most states, defined EMS strictly by
+      transport. There was no reimbursement code for "talking to a patient."
+  ●​ Scope of Practice Wars: Nurses unions and Home Health agencies initially viewed this as
+      "scope creep." They argued that paramedics were not trained in chronic disease
+      management. MedStar had to navigate a minefield of regulatory skepticism, arguing that
+      they were not replacing home health, but filling the acute gap that occurred at 2:00 AM
+      when home health agencies were closed. They had to prove they were "navigators," not
+      "practitioners" of primary care.
+
+Part IV: The Business of Saving Money (The
+Economics)
+4.1 The Economic Inversion
+The most difficult hurdle for MedStar was the "Reimbursement Cliff." In 2009-2012, Medicare
+and private insurance operated on a fee-for-service model that only paid for transport. If a
+MedStar paramedic treated a diabetic at home and didn't take them to the ER, MedStar
+generated $0 revenue.
+MedStar’s leadership, including CEO Doug Hooten and Chief Transformation Officer Matt
+Zavadsky, had to invent a new economic model. They had to convince payers to pay for
+non-transport. This was the "Holy Grail" of EMS.
+
+4.2 The CHF Readmission Contracts (JPS Health Network)
+The breakthrough arrived via the Affordable Care Act (ACA). The ACA introduced the Hospital
+Readmissions Reduction Program (HRRP), which penalized hospitals for excessive
+readmissions of patients with Congestive Heart Failure (CHF).
+  ●​ The Pitch: MedStar approached JPS Health Network (the county hospital) and Texas
+      Health Resources with a proposition: "You are about to lose millions in federal penalties
+      because your CHF patients keep bouncing back to the ER. Pay us a flat rate per patient
+      to visit them at home, ensure they take their Lasix, weigh them, and keep them out of
+      your hospital."
+  ●​ The Contract: This was the turning point. MedStar secured contracts where they were
+      paid to prevent hospital revenue. For the first time, an EMS agency was financially
+      aligned with patient health outcomes rather than transport volume.
+
+4.3 The High Utilizer Group (HUG)
+The "21 patients" pilot evolved into the formal High Utilizer Group (HUG) program.
+  ●​ Target Demographic: Patients utilizing 911 15 or more times in 90 days.
+  ●​ The "Loyalty" Program: Internally, staff referred to this tongue-in-cheek as the "EMS
+      Loyalty Program." These patients were "loyal" to the 911 system because every other
+      system had failed them.
+  ●​ The Human Stories: The program revealed the depth of the cracks in the US healthcare
+      system. Patients included the elderly who were simply lonely, the illiterate who couldn't
+      read their discharge instructions, and the impoverished who used the ER as a primary
+      care clinic. The HUG program provided them with a specific phone number to call instead
+      of 911—a direct line to a community paramedic who knew their history.
+4.4 The Commercial Payer Breakthrough
+MedStar eventually cracked the commercial insurance market (Blue Cross, Aetna, etc.) by
+presenting the "Triple Aim" data.
+  ●​ The Math: An ambulance transport and ER workup cost the insurer approx. $2,500 -
+      $4,000. A community paramedic visit cost approx. $300.
+  ●​ The Nurse Triage (ECNS): MedStar implemented the Emergency Communication Nurse
+      System, placing RNs in the 911 dispatch center. Low-acuity callers (toothaches, stubbed
+      toes) were transferred to the nurse, who could book them a Lyft or Uber to a clinic. This
+      saved the insurer the cost of an ambulance and saved the system the capacity of a unit.
+Table 2: The Economic Evolution of MedStar
+Era                      Revenue Model          Incentive Structure     Clinical Focus
+1986–2009                Fee-for-Service        Volume (More            Stabilization & Speed
+                         (Transport Only)       Transports = More
+                                                Money)
+2009–2012                Cost Avoidance         Efficiency (Reduce      Social Determinants /
+                         (Internal Savings)     Unpaid Transports)      Frequent Flyers
+2012–2024                Value-Based Contracts Outcomes (Prevent        Chronic Disease Mgmt
+                         & Shared Savings       Readmissions / ER       / Navigation
+                                                Visits)
+Part V: The End of an Era (The 2023-2024 Transition)
+5.1 The Dissolution Vote
+In May 2024, the Fort Worth City Council voted to dissolve the MAEMSA structure and transition
+EMS operations to the Fort Worth Fire Department. This decision marked the death of the
+Public Utility Model in Fort Worth and the end of MedStar as an independent entity.
+
+5.2 Why Did the PUM Die? (The Forensic Analysis)
+Why would a city dissolve an agency that was a "national model" for innovation? The answer
+lies in the convergence of post-pandemic economics and long-standing political friction.
+   1.​ Response Time Degradation (Post-COVID): The Achilles heel of the PUM is its reliance
+        on a tight labor market. As a private contractor environment, MedStar struggled to recruit
+        and retain paramedics during the nationwide labor shortage of 2021-2023. Unlike the Fire
+        Department, which offers municipal pensions and civil service protections, MedStar
+        offered 401(k)s and high-stress "system status" working conditions. Response times
+        slipped, and the "reliability" argument—the very thing that created MedStar in 1986—was
+        flipped against it.
+   2.​ The Ad Hoc Committee Findings: The City formed an Ad Hoc Committee on
+        Emergency Medical Response in 2023. The committee's investigation revealed that the
+        subsidy required to keep the PUM floating was increasing. If the city had to subsidize the
+        private model heavily, the argument for keeping it independent lost weight.
+   3.​ The Political Gravity of Fire: The Fire Association had spent decades arguing that EMS
+        is a core public safety function, not a business. With response times suffering, the Fire
+        Department presented a plan that offered "stability." They argued that cross-training
+      firefighters as paramedics (the firefighter/medic model) provided a depth of resources that
+      a private contractor could never match. The political will shifted from "efficiency"
+      (MedStar) to "capacity" (Fire).
+
+5.3 The Cost of Transition
+The transition is not cheap. The move to a Fire-based model typically involves significantly
+higher personnel costs due to civil service pay scales and pension obligations. However, the
+City Council viewed this as the price of stability. The PUM, for all its economic brilliance, was
+deemed too fragile for the post-pandemic world.
+
+Part VI: Timeline of the Experiment (1986–2025)
+  ●​ 1986: The Big Bang. The City of Fort Worth and member cities sign the interlocal
+     agreement creating MAEMSA (MedStar) to solve the "reliability crisis" of the private
+     ambulance market. Adoption of Jack Stout’s Public Utility Model.
+  ●​ 1990s: The Efficiency Era. Implementation of System Status Management (SSM).
+     MedStar becomes known for high Unit Hour Utilization (UHU) and low municipal subsidy.
+  ●​ 2008: The Crash. Economic downturn puts pressure on municipal budgets. Uninsured
+     911 calls spike.
+  ●​ July 2009: The Innovation. MedStar launches the "Light Duty" Community Paramedic
+     pilot using injured staff to visit 21 super-utilizers.
+  ●​ 2010: The Proof. 911 usage among the target group drops 77%. The High Utilizer Group
+     (HUG) is formalized.
+  ●​ 2012: The Revenue. MedStar signs landmark contracts with JPS Health and Texas
+     Health Resources to reduce CHF readmissions, monetizing "non-transport".
+  ●​ 2013: The Rebrand. MAEMSA officially changes its trade name to "MedStar Mobile
+     Healthcare," signaling a strategic pivot away from pure emergency response.
+  ●​ 2014: The Textbook. CEO Doug Hooten and Matt Zavadsky publish Mobile Integrated
+     Healthcare - Approach to Implementation, codifying the MedStar model for the world.
+  ●​ 2017: The Science. The American Journal of Emergency Medicine publishes
+     peer-reviewed outcomes of MedStar’s program, validating the clinical model.
+  ●​ 2020-2022: The Strain. The COVID-19 pandemic breaks the labor market. MedStar
+     response times suffer due to staffing shortages.
+  ●​ 2023: The Audit. The City forms the Ad Hoc Committee on Emergency Medical
+     Response to evaluate the future of EMS delivery.
+  ●​ May 2024: The Verdict. Fort Worth City Council votes to dissolve the MedStar structure
+     and transition operations to the Fort Worth Fire Department.
+  ●​ 2025: The Absorption. MedStar operations are fully integrated. The "Teal" ambulances
+     are retired. The PUM era concludes.
+
+Part VII: The "Lost" Details (Obituary Notes)
+As the Fire Department rewrites the history of EMS in Fort Worth, the following operational
+facts—central to the MedStar identity—are at risk of being expunged from the record:
+   1.​ The StarSaver Membership: MedStar operated a direct-to-consumer subscription
+       program. For a small annual fee ($50-$100), residents were covered for all out-of-pocket
+      costs for ambulance transport. This created a direct financial link between the "utility" and
+      the "ratepayer," a relationship that does not exist in a tax-funded Fire model. It was a
+      vestige of the PUM’s attempt to be a true utility.
+  2.​ The "Hope Squad" Culture: MedStar’s shift to MIH required a massive cultural
+      re-engineering. Paramedics had to unlearn the "load and go" mentality and learn empathy
+      and patience. The "Hope Squad" was an internal peer-support structure created to
+      manage the mental health of providers undergoing this high-stress transition. It
+      represented the humanization of the workforce.
+  3.​ The Granularity of the "21 Patients": The fact that MedStar knew exactly that 21 people
+      cost $1 million is a testament to the data-centric nature of the PUM. Most Fire
+      Departments, which track "response times" and "fire loss," historically lacked the granular
+      billing analytics to even see such a pattern, let alone solve it. This specific data point is
+      the tombstone of the agency's analytical capability.
+  4.​ The "Teal" Brand: The visual identity of MedStar—the teal and white ambulances—was
+      a deliberate choice to distinguish it from "red" (Fire) and "blue" (Police). It signified
+      "Healthcare" rather than "Public Safety." The erasure of this livery is the final symbolic act
+      of the transition.
+
+Conclusion: The Legacy of a Useful Mutation
+The story of MedStar Mobile Healthcare is the story of a "useful mutation" in the evolution of
+American medicine. It evolved in the harsh, competitive environment of the 1980s ambulance
+wars, developed thick armor in the form of the Public Utility Model, and grew a new
+brain—Mobile Integrated Healthcare—during the resource drought of 2009.
+MedStar proved that paramedics are not just "ambulance drivers" or "technicians." It proved,
+with hard economic data, that they are the mobile eyes and ears of the healthcare system,
+capable of solving complex social and medical problems in the living room that hospitals cannot
+solve in the ER.
+Its dissolution does not negate its success; rather, it highlights the fragility of innovation in the
+public sector. The "business of saving money" eventually lost the war to the "politics of public
+safety." But for fifteen years, a small administrative agency in Fort Worth, Texas, taught the
+world that the best way to save a life is often to sit down at the kitchen table and listen.
+Report Filed By: Archive Division, Special Investigations Unit Date: November 29, 2025
+

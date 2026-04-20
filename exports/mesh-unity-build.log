@@ -1,0 +1,58 @@
+[21:56:17] == 1/7 wait for alpha downloads ==
+1168113664 /workshop/shared/unity-dl/Unity-2022.3.62f1.tar.xz
+563721332 /workshop/shared/unity-dl/UnitySetup-WebGL-Support.tar.xz
+1489567744 /workshop/shared/unity-dl/Unity-2022.3.62f1.tar.xz
+563721332 /workshop/shared/unity-dl/UnitySetup-WebGL-Support.tar.xz
+1809833984 /workshop/shared/unity-dl/Unity-2022.3.62f1.tar.xz
+563721332 /workshop/shared/unity-dl/UnitySetup-WebGL-Support.tar.xz
+2133811200 /workshop/shared/unity-dl/Unity-2022.3.62f1.tar.xz
+563721332 /workshop/shared/unity-dl/UnitySetup-WebGL-Support.tar.xz
+2453839872 /workshop/shared/unity-dl/Unity-2022.3.62f1.tar.xz
+563721332 /workshop/shared/unity-dl/UnitySetup-WebGL-Support.tar.xz
+2770329600 /workshop/shared/unity-dl/Unity-2022.3.62f1.tar.xz
+563721332 /workshop/shared/unity-dl/UnitySetup-WebGL-Support.tar.xz
+3070222336 /workshop/shared/unity-dl/Unity-2022.3.62f1.tar.xz
+563721332 /workshop/shared/unity-dl/UnitySetup-WebGL-Support.tar.xz
+3351248896 /workshop/shared/unity-dl/Unity-2022.3.62f1.tar.xz
+563721332 /workshop/shared/unity-dl/UnitySetup-WebGL-Support.tar.xz
+3676307456 /workshop/shared/unity-dl/Unity-2022.3.62f1.tar.xz
+563721332 /workshop/shared/unity-dl/UnitySetup-WebGL-Support.tar.xz
+3999260672 /workshop/shared/unity-dl/Unity-2022.3.62f1.tar.xz
+563721332 /workshop/shared/unity-dl/UnitySetup-WebGL-Support.tar.xz
+[22:01:22] downloads complete
+[22:01:22] == 2/7 extract Unity on alpha NFS ==
+Editor
+[22:03:26] == 3/7 rsync project echo→alpha via beta NFS ==
+[22:03:29] == 4/7 ensure beta has build deps ==
+W: (pve-apt-hook) If you are unsure why 'proxmox-ve' would be removed, please verify
+W: (pve-apt-hook) 	- your APT repository settings
+W: (pve-apt-hook) 	- that you are using 'apt full-upgrade' to upgrade your system
+E: Sub-process /usr/share/proxmox-ve/pve-apt-hook returned an error code (1)
+E: Failure running script /usr/share/proxmox-ve/pve-apt-hook
+[22:03:39] == 5/7 run headless WebGL build on beta ==
+=== tail build.log ===
+bash: line 1: xvfb-run: command not found
+tail: cannot open '/mnt/shared/unity-logs/build.log' for reading: No such file or directory
+[22:06:40] == 5/7 run headless WebGL build on beta (retry) ==
+[22:06:40] == 5/7 run headless WebGL build on beta (retry) ==
+[beta] Unity=/mnt/shared/unity/2022.3.62f1/Editor/Unity
+[beta] starting xvfb-run at Sun Apr 19 10:06:41 PM CDT 2026
+[22:06:45] build exit rc=0
+[22:06:45] build exit rc=0
+[22:06:45] == 6/7 rsync WebGL output beta→echo ==
+[22:06:45] == 6/7 rsync WebGL output beta→echo ==
+rsync: [sender] change_dir "/mnt/shared/unity-build/Build" failed: No such file or directory (2)
+rsync error: some files/attrs were not transferred (see previous errors) (code 23) at main.c(1872) [Receiver=3.4.1]
+rsync: [Receiver] write error: Broken pipe (32)
+[22:06:45] == 7/7 verify ==
+[22:06:45] == 7/7 verify ==
+total 0
+drwxr-xr-x   3 grizzmed  staff   96 Apr 19 21:45 .
+drwxr-xr-x  15 grizzmed  staff  480 Apr 19 21:45 ..
+-rw-r--r--   1 grizzmed  staff    0 Apr 19 21:45 .gitkeep
+total 0
+drwxr-xr-x   3 grizzmed  staff   96 Apr 19 21:45 .
+drwxr-xr-x  15 grizzmed  staff  480 Apr 19 21:45 ..
+-rw-r--r--   1 grizzmed  staff    0 Apr 19 21:45 .gitkeep
+[22:06:45] == DONE ==
+[22:06:45] == DONE ==

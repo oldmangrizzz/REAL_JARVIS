@@ -32,18 +32,26 @@ public final class MyceliumControlPlane {
         let docCount: Int
     }
 
-    private enum Constants {
-        static let charlieAddress = "192.168.4.151"
-        static let homebridgePort = 8581
-        static let liveKitURL = "https://livekit.grizzlymedicine.icu"
-        static let couchPort = 5984
-        static let obsidianDatabase = "obsidian_vault"
-        static let bridgeName = "J.A.R.V.I.S. Iron Silo Matter Bridge"
-        static let voiceIntercomRoute = "airplay2://192.168.4.151/homepods/jarvis-intercom"
-        static let convexDeploymentURL = "https://enduring-starfish-794.convex.cloud"
-        static let guiNodes = ["echo", "alpha", "beta", "charlie", "delta"]
-        static let authorizedCommandSources = ["obsidian-command-bar", "terminal"]
-        static let regulationVisibility = "internal-only"
+    public enum Constants {
+        public static let charlieAddress: String = ProcessInfo.processInfo.environment["JARVIS_CONTROL_HOST"] ?? "192.168.4.151"
+        public static let homebridgePort: Int = {
+            if let portStr = ProcessInfo.processInfo.environment["JARVIS_HOMEBRIDGE_PORT"],
+               let port = Int(portStr) { return port }
+            return 8581
+        }()
+        public static let liveKitURL = "https://livekit.grizzlymedicine.icu"
+        public static let couchPort: Int = {
+            if let portStr = ProcessInfo.processInfo.environment["JARVIS_COUCH_PORT"],
+               let port = Int(portStr) { return port }
+            return 5984
+        }()
+        public static let obsidianDatabase = "obsidian_vault"
+        public static let bridgeName = "J.A.R.V.I.S. Iron Silo Matter Bridge"
+        public static var voiceIntercomRoute: String { "airplay2://\(charlieAddress)/homepods/jarvis-intercom" }
+        public static let convexDeploymentURL: String = ProcessInfo.processInfo.environment["JARVIS_CONVEX_URL"] ?? "https://enduring-starfish-794.convex.cloud"
+        public static let guiNodes = ["echo", "alpha", "beta", "charlie", "delta"]
+        public static let authorizedCommandSources = ["obsidian-command-bar", "terminal"]
+        public static let regulationVisibility = "internal-only"
     }
 
     private static let encoder: JSONEncoder = {
@@ -57,20 +65,22 @@ public final class MyceliumControlPlane {
     private let paths: WorkspacePaths
     private let telemetry: TelemetryStore
     private let formatter = ISO8601DateFormatter()
-    private let fallbackNodes: [SiloNodeDefinition] = [
-        SiloNodeDefinition(name: "echo", address: nil, rustDeskID: "IRONSILO-ECHO"),
-        SiloNodeDefinition(name: "alpha", address: nil, rustDeskID: "IRONSILO-ALPHA"),
-        SiloNodeDefinition(name: "beta", address: "192.168.4.151:5984", rustDeskID: "IRONSILO-BETA"),
-        SiloNodeDefinition(name: "charlie", address: "192.168.4.151", rustDeskID: "IRONSILO-CHARLIE"),
-        SiloNodeDefinition(name: "delta", address: nil, rustDeskID: "IRONSILO-DELTA")
-    ]
+    private var fallbackNodes: [SiloNodeDefinition] {
+        [
+            SiloNodeDefinition(name: "echo", address: nil, rustDeskID: "IRONSILO-ECHO"),
+            SiloNodeDefinition(name: "alpha", address: nil, rustDeskID: "IRONSILO-ALPHA"),
+            SiloNodeDefinition(name: "beta", address: "\(Constants.charlieAddress):\(Constants.couchPort)", rustDeskID: "IRONSILO-BETA"),
+            SiloNodeDefinition(name: "charlie", address: Constants.charlieAddress, rustDeskID: "IRONSILO-CHARLIE"),
+            SiloNodeDefinition(name: "delta", address: nil, rustDeskID: "IRONSILO-DELTA")
+        ]
+    }
 
     private let charlieAddress: String  // CX-028: configurable instead of hardcoded
     private let homebridgePort: Int
 
     public init(paths: WorkspacePaths, telemetry: TelemetryStore,
-                charlieAddress: String = "192.168.4.151",
-                homebridgePort: Int = 8581) throws {  // CX-028
+                charlieAddress: String = Constants.charlieAddress,
+                homebridgePort: Int = Constants.homebridgePort) throws {  // CX-028
         self.paths = paths
         self.telemetry = telemetry
         self.charlieAddress = charlieAddress

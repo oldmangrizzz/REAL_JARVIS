@@ -1,0 +1,355 @@
+The Star That Went Dark: The Political
+Assassination of MedStar and the High
+Cost of Fort Worth’s "Modernization"
+By Lois Lane Special Investigative Report
+
+Chapter I: The Crisis Under Our Feet
+It was not a death in the night. It was not a sudden cardiac arrest that stopped the heart of
+Tarrant County’s emergency medical system. It was a slow, calculated strangulation, performed
+in the fluorescent glare of city council chambers and buried under mountains of consulting
+reports.
+For thirty-eight years, the Metropolitan Area Emergency Medical Services Authority—known to
+the people of Fort Worth simply as MedStar—was the thin blue and white line between life and
+death for over a million people. It was a system that, by every objective metric of the industry,
+worked. It was "World Class". It was the lowest-cost provider in the state of Texas for a decade.
+It was an agency that pioneered the very concept of Mobile Integrated Healthcare, saving the
+healthcare system millions by treating the sick in their living rooms instead of hauling them to
+overcrowded emergency departments.
+And on July 1, 2025, it was erased.
+The ambulances were repainted. The "Star of Life" that had adorned the fleet for nearly four
+decades was stripped away, replaced by the branding of the Fort Worth Fire Department
+(FWFD). The workforce—a dedicated cadre of over 600 paramedics, EMTs, and
+dispatchers—was absorbed into the paramilitary structure of the fire service, their unique
+cultural identity dissolved into the red-brick tradition of the firehouse.
+To the public, this was sold as a rescue mission. City Hall and Fire Command spun a narrative
+of "sustainability," "stabilization," and "modernization". They told you the system was broken.
+They told you the finances were dire. They told you that the only way to save EMS in Fort Worth
+was to hand the keys to the Fire Department.
+They lied.
+What happened in Fort Worth was not a medical necessity; it was a political acquisition. It is a
+story of a city that starved a high-performing agency of necessary funds for over a decade, only
+to declare it "unsustainable" when the inevitable malnutrition set in. It is the story of a transition
+plan that replaces a lean, data-driven deployment model with a bloated, station-based
+architecture projected to cost taxpayers tens of millions more annually while relying on a foreign
+private contractor to handle the "boring" work.
+This is not just a change in logo. It is a fundamental restructuring of the social contract between
+the city and its sickest citizens. It is a shift from healthcare to public safety, from efficiency to
+bureaucracy, and from a public utility to a political asset.
+We are standing on the grave of one of the most efficient EMS systems in America, and we are
+paying $85 million a year for the shovel.
+Chapter II: The Structural Origin Sin
+To understand how we arrived at this autopsy, one must first understand the anatomy of the
+victim. MedStar was born from the chaos of the "ambulance wars" of the 1980s, established as
+a Public Utility Model (PUM). This structure was a stroke of civic genius: a quasi-governmental
+authority designed to strip the profit motive from emergency medicine while insulating it from the
+lethargy of municipal bureaucracy.
+For decades, the deal was simple: MedStar provided elite-level care, and in return, it asked for
+nothing from the city's general fund.
+
+The Zero-Subsidy Miracle
+In an era where police and fire departments consumed nearly half of municipal budgets,
+MedStar was a unicorn. For over ten years prior to the crisis of 2023, MedStar required zero
+public subsidy from the City of Fort Worth. It operated entirely on a "user fee" model, funding
+its operations through insurance reimbursements and collections.
+It subsidized the city’s safety net by existing. Every heart attack treated, every car crash
+managed, every stroke reversed—MedStar paid for it with its own revenue.
+Table 1: The Fiscal Reality Gap
+Metric                    MedStar (Historical)      FWFD EMS (Projected The "Efficiency" Shift
+                                                    2025+)
+Annual Operating          ~$50M - $60M              $85M                     +$25M - $35M Cost
+Budget                                                                       Increase
+Direct City Subsidy $0 (until 2024)                 ~$20M (Structural        From Self-Sustaining
+                                                    Deficit)                 to Tax Burden
+Cost Efficiency           Lowest in Texas           Unproven / High          Loss of Lean
+                          (2012-2022)               Overhead                 Operations
+Deployment Model          System Status             Station-Based            Resource Heavy vs.
+                          Management                                         Data Driven
+Sources:
+The "Structural Origin Sin" was not that MedStar was flawed, but that it was too efficient for its
+own good. By asking for nothing, it allowed City Hall to become complacent. The city grew used
+to getting premium EMS for free. So when the economic tectonic plates shifted post-2020, the
+city wasn't ready to pay the bill that every other municipality in America had been paying for
+years.
+
+Chapter III: The Long, Quiet Decline
+The rot didn't start in the ambulance bays; it started in the ledger. The post-pandemic economy
+was a perfect storm for EMS agencies nationwide, and MedStar was standing in the rain without
+an umbrella.
+
+The Economic suffocation
+Inflation drove up the cost of diesel, medical supplies, and ambulances. Supply chain shortages
+meant that ordering a new rig took two years instead of six months. But the real killer was labor.
+To retain paramedics in a burning labor market—where nurses were getting $100/hour travel
+contracts—MedStar had to increase wages by nearly 58% over eighteen months just to keep
+the ambulances staffed.
+Simultaneously, the revenue side collapsed. Commercial insurance reimbursements stagnated.
+Federal payments from Medicare and Medicaid were slashed. The "uncompensated care"
+burden—the cost of treating the uninsured and the homeless—skyrocketed. Council member
+Carlos Flores noted that for many, MedStar had become a "default health care plan," a dynamic
+that was financially unsustainable for a fee-for-service model.
+In 2023, MedStar finally broke the silence. They approached the City of Fort Worth—their
+primary stakeholder—and asked for help. They requested a subsidy of approximately $6 million
+to stabilize the ship.
+To put this in perspective: $6 million is a rounding error in the City of Fort Worth’s budget. It is a
+fraction of what is spent on economic incentives for corporate relocations. It is pennies on the
+dollar compared to the police budget.
+But the City’s response was not to bolster its partner. It was to interrogate them.
+
+The "Bailout" Narrative
+The request for funding was met with political hostility. Council Member Jared Williams went on
+record stating, "I do not support footing the whole bill for a temporary bailout".
+"Bailout."
+The word was a weapon. It framed MedStar not as a critical public service akin to the water
+department or the police, but as a failing business looking for a handout. It fundamentally
+misrepresented the nature of EMS economics. Police and Fire departments are 100%
+subsidized by the taxpayer; they do not generate revenue to cover their costs. They are cost
+centers. Yet when the ambulance service, which had subsidized the city for years by not taking
+tax dollars, finally asked for parity, it was treated as a failure of management.
+The City Council approved a "transitional" stopgap of $4.2 million for FY2024, but it came with a
+poison pill: a comprehensive third-party study to evaluate "solutions". This was the beginning of
+the end. By refusing to commit to long-term reliable funding, the City ensured that MedStar’s
+reserves would continue to dwindle, forcing the very "instability" that the Ad Hoc Committee was
+formed to "solve".
+It was a classic hostile takeover tactic: devalue the asset, declare it distressed, starve it of cash,
+and then acquire it for parts.
+
+Chapter IV: The Consultants and the Predetermined
+Verdict
+Enter Fitch & Associates.
+In October 2023, the city engaged this consulting firm to conduct an "EMS Comprehensive
+Study". In the world of municipal consulting, the phrasing of the question often dictates the
+answer. The mandate was to find a model that ensured "long-term viability" and "stability."
+Fitch presented four models to the Ad Hoc Committee.
+   1.​ Retain and Fund MedStar: This model would have cost the city an estimated $3.2
+       million annually in subsidy.
+   2.​ Fire-Based EMS: This model was estimated to cost significantly more—initial estimates
+       ranged widely but settled on a massive budget expansion.
+The data was clear: MedStar was the most economically efficient option. The Fitch report itself
+acknowledged that MedStar had been the lowest-cost provider in Texas for a decade.
+Yet, the Ad Hoc Committee, heavily lobbied by the Fort Worth Professional Firefighters
+Association (IAFF Local 440), leaned into the narrative that a "unified" command would be
+superior. The Fitch report noted potential "higher potential costs due to use of sworn personnel"
+, but this warning was drowned out by the seductive promise of "sustainability."
+The fix was in. The decision to dissolve MedStar and hand the keys to the FWFD was ratified in
+May 2024. The rationale was that a fire-based system would be "financially sustainable."
+Let us look at that "sustainability." The projected budget for the new FWFD EMS division is $85
+million. Projected revenue is $65 million. That leaves a $20 million annual deficit to be
+covered by the General Fund.
+The city refused to give MedStar $6 million to stay independent and world-class, but it happily
+signed a check for $20 million a year to the Fire Department for the same service. This is not
+fiscal responsibility. It is political patronage.
+
+Chapter V: The Human Ledger
+While the politicians debated budgets, the people on the streets were paying the price.
+To understand what was lost, you have to look past the spreadsheets and into the "human
+ledger." The men and women of MedStar were not just employees; they were a tribe. They
+worked in a "Third Service" culture—a distinct identity that was neither police nor fire. They were
+clinicians first. They didn't have the downtime of firefighters. They didn't have the station
+recliners. They lived their lives in the "box" (the ambulance), posted on street corners, eating
+cold food, waiting for the radio to crackle.
+The toll of this life is etched in the names of those who didn't make it to the pension.
+The transition process itself was a trauma. For over a year, 600 employees lived in limbo, not
+knowing if they would have jobs, if their seniority would count, or if their culture would survive.
+When the deal was finally cut, it was a "merger" in name only. The Fort Worth Firefighters
+Association (Local 440) negotiated a deal to bring the MedStar employees in, but they were
+brought in as "single-role" providers.
+This created a caste system.
+   ●​ Dual-Role: The traditional firefighters. They ride the big red trucks. They fight fires. They
+        have the heritage.
+   ●​ Single-Role: The former MedStar crews. They ride the ambulances. They handle the
+        "medical" calls (which are 80% of the volume). They are civil servants, but they are
+        distinct.
+The friction was immediate. During the transition, a bitter dispute flared over the dispatchers.
+The union fought to have them classified as "sworn" personnel, while the city wanted them as
+"civilians". This wasn't just about titles; it was about power, benefits, and the expansion of the
+union's dues-paying base.
+The "erasure" is visual. The MedStar uniforms—symbols of a specific kind of expertise—are
+gone. They have been replaced by FWFD-branded "redesigned hoodies" and polos. It seems
+like a small thing, but in the uniformed services, the patch on your shoulder is your identity. The
+message was clear: You are no longer MedStar. You are ours now.
+
+Chapter VI: The Corners Where the Truth Hid
+One of the most critical casualties of this transition is the deployment model itself—a technical
+detail with life-or-death consequences.
+MedStar operated on System Status Management (SSM). In plain English: ambulances don't
+sit in stations. They move. They are "posted" at street corners based on predictive data. If the
+computer says there’s a high probability of a cardiac arrest in zip code 76104 at 5:00 PM on a
+Friday, an ambulance is sitting there at 4:55 PM.
+SSM is brutal on crews. It is uncomfortable. It is exhausting. But it is efficient. It shaves minutes
+off response times because the ambulance is already halfway to the call before it comes in.
+The FWFD model is Station-Based. Ambulances will largely operate out of fire stations.
+   ●​ The Pro: Crews get access to dorms, kitchens, and bathrooms. Quality of life improves
+        significantly.
+   ●​ The Con: Fire stations are immobile. They were built decades ago based on the risk of
+        structure fires, not the modern heat map of 911 medical calls.
+An ambulance sitting in a fire station is often minutes further away from the patient than an
+ambulance posted at a busy intersection. To achieve the same response time standards (8
+minutes, 90% of the time) with a station-based model, you need significantly more ambulances
+and more staff.
+This is the hidden driver of the cost explosion. The city is trading efficiency for comfort. The
+Fitch report recommended a ".50 Unit Hour Utilization" (UHU)—meaning crews should only be
+busy 50% of the time. This is a luxury standard compared to the high-utilization model of
+MedStar. It sounds humane, and perhaps it is, but the taxpayers are paying a premium for it,
+and the response time reliability of the station-based model in a sprawling city like Fort Worth
+remains a gamble.
+The IAFF Local 440 produced its own GIS study to justify the station placements. But when the
+entity advocating for more jobs conducts the study, the results rarely recommend doing more
+with less. The shift to station-based deployment is a labor-friendly move that structurally inflates
+the budget.
+
+Chapter VII: The Trojan Horse of Privatization
+If the Fire Department takeover was the headline, the arrival of Falck was the fine print that
+should have terrified everyone.
+While the city was celebrating the "public" takeover of EMS, it quietly opened the back door to a
+private corporation. The City Council voted to privatize Interfacility Transports (IFTs) and "low
+acuity" 911 calls.
+Previously, MedStar handled everything. The revenue from lucrative IFTs (moving stable
+patients between hospitals) helped cross-subsidize the money-losing 911 operations. This is
+standard EMS economics: the profitable transfers pay for the unprofitable heart attacks.
+By stripping IFTs out of the system, the city removed a critical revenue stream, guaranteeing
+that the FWFD EMS division would run at a deficit forever.
+Table 2: The Two-Tiered System
+Call Type                 The Responder           The Funding               The Implication
+Life-Threatening 911 FWFD (Sworn Civil            Taxpayer Funded           High cost, high quality,
+                          Servants)               ($85M Budget)             "Hero" calls.
+Low-Acuity / Transfer Falck (Private              User Fees / Private       Privatized profit,
+                          Contractor)             Profit                    potentially lower
+                                                                            standards.
+Sources:
+
+The Outsider Entry
+Who is Falck? Falck Mobile Health Corp is a Danish multinational giant. They began operations
+in Fort Worth on June 17, 2025. Their mandate is to handle the non-emergency transfer work
+and provide "911 backup."
+The choice of Falck is alarming given their recent rap sheet in American cities.
+   ●​ San Diego, CA: Falck was fined over $3 million for failing to meet response time targets
+       and staffing requirements. The failure was so acute that the fire chief there requested the
+       ability to subcontract to competitors just to get ambulances on the street.
+   ●​ Alameda County, CA: Falck faced similar fines and was cited for "unacceptable" delays.
+This is the partner Fort Worth has chosen to "alleviate" pressure on the system. The introduction
+of a private contractor introduces the volatility of the free market into the safety net. Private EMS
+companies are notorious for "abandoning" contracts when they become unprofitable. If Falck
+decides Fort Worth isn't yielding the desired margin, they can pull out, leaving the city with a
+massive gap in service coverage.
+Furthermore, the new "permitting" system for IFTs effectively deregulates the market. It allows
+private providers to scavenge for profitable transfers while avoiding the burden of emergency
+readiness. This cannibalizes the system's ability to fund itself, transferring the entire financial
+load of 911 readiness onto the taxpayer.
+
+Chapter VIII: The National Mirror
+Fort Worth is not unique. It is merely the latest domino in a national trend where fire
+departments, faced with a decades-long decline in structural fires, absorb EMS systems to
+justify their budgets and staffing levels.
+In New York City, the FDNY takeover of NYC EMS in 1996 serves as a grim warning. Decades
+later, FDNY EMS personnel are still fighting for pay parity, still treated as "second-class citizens"
+in their own department, and still facing massive attrition issues. The culture war there never
+ended; it just became a cold war.
+The "Fire-Based" model is sold as efficiency—"one call, one team." But the reality is often a
+bloat of resources. Fire departments are built for surge capacity (the big fire that happens once
+a year). EMS is built for constant capacity (the steady drumbeat of sick people every hour).
+Merging them often results in using expensive resources (fire engines) for low-acuity problems
+(toothaches).
+The adoption of the FWFD model in Fort Worth mirrors this pattern. It is an expansion of the fire
+service's domain, fueled by the political power of the IAFF, rather than a data-driven decision
+about patient care. The "efficiency" is a myth; the cost data proves it. We have replaced a $50
+million problem with an $85 million solution.
+
+Chapter IX: "Modernization" vs. Reality
+Let us strip away the euphemisms.
+"Modernization" meant deleting a data-driven deployment model (SSM) that was years ahead
+of its time and replacing it with a station-based model that was obsolete in the 1990s.
+"Sustainability" meant refusing to give a public utility $6 million and instead giving a city
+department $20 million.
+"Integration" meant dissolving the unique culture of a specialized medical service and forcing
+its members into a hierarchy where they will arguably always be secondary to the "real"
+firefighters.
+The transition was executed with administrative competence—deadlines were hit, uniforms were
+issued, radios were tuned. But operational competence does not excuse strategic malpractice.
+The ship didn't sink during the handover, but it is now sailing on a course that is fundamentally
+more expensive and arguably less effective than the one it replaced.
+The Mobile Integrated Healthcare (MIH) program, once the envy of the nation, is promised to
+continue. But MIH requires a mindset of prevention, of slow medicine, of social work. This is
+antithetical to the "response" DNA of a fire department. It remains to be seen if the FWFD can
+nurture a program that requires keeping people out of the system, when the fire service model is
+built on responding to the system.
+
+Chapter X: Closing Indictment
+The collapse of MedStar was a choice.
+It was a choice made by a City Council that preferred the political optics of a "unified" fire
+department over the fiscal reality of a public utility. It was a choice to ignore the data that proved
+MedStar was efficient. It was a choice to betray a workforce that had served consistently for 38
+years, forcing them to trade their identity for their pensions.
+And it was a choice to bring a private contractor with a history of failure into the heart of the
+city's safety net, privatizing the profits while socializing the risks.
+As the citizens of Fort Worth watch the newly branded red ambulances roll by, they should know
+what they are looking at. They are not looking at "modernization." They are looking at a hostile
+takeover. They are looking at the death of a star, and the rising cost of the fire that consumed it.
+The ground is not level. The price has gone up. And the truth, as always, is buried in the budget
+lines that nobody reads until the ambulance doesn't show up on time.
+End of Report
+
+Works cited
+
+1. MedStar Mobile Healthcare, https://www.medstar911.org/ 2. EMS - the City of Fort Worth,
+https://www.fortworthtexas.gov/departments/city-manager/ems 3. Fort Worth City Council
+prepares for ambulance usage change after EMS transfer,
+https://communityimpact.com/dallas-fort-worth/keller-roanoke-northeast-fort-worth/health-care/2
+025/06/04/fort-worth-city-council-prepares-for-ambulance-usage-change-after-ems-transfer/ 4.
+Ordinance Designates City of Fort Worth EMS Provider for Member Cities (as of 2/25),
+https://www.medstar911.org/2025/03/02/ordinance-designates-city-of-fort-worth-ems-provider-fo
+r-member-cities-as-of-2-25/ 5. Fort Worth launches EMS within fire department, meets July 1
+deadline | KERA News,
+https://www.keranews.org/government/2025-07-01/fort-worth-launches-ems-within-fire-departme
+nt-meets-july-1-deadline 6. City of Fort Worth MedStar/EMS Transition At-A-Glance,
+https://www.fortworthtexas.gov/files/assets/public/v/1/communications/documents/engagement/
+newsletters/sp.ed-ems.pdf 7. To the Mayor and Members of the City Council August 24, 2023
+Page 1 of 2 SUBJECT: Medstar Transitional Funding and Plan to Determine Best EMS System
+Structure for Fort Worth,
+https://www.fortworthtexas.gov/files/assets/public/planning-data-analytics/documents/budget-an
+alysis/fy2024-budget/responses/br-24-005-medstar-transitional-funding-for-fy24.pdf 8. EMS Ad
+Hoc Committee Recommendations for City Council,
+https://www.fortworthtexas.gov/files/assets/public/v/2/communications/documents/city-council-pr
+esentations/2024/05-07-2024/ems-ad-hoc-committee-recommendations.pdf 9. Texas council
+considers $4.2M for MedStar shortfall - EMS1,
+https://www.ems1.com/legislation-funding/articles/texas-council-considers-42m-for-medstar-shor
+tfall-z0kEddVfuMsupEEn/ 10. Fort Worth to absorb more than 650 MedStar employees in EMS
+transition this summer,
+https://www.keranews.org/government/2025-04-17/fort-worth-to-absorb-more-than-650-medstar-
+employees-in-ems-transition-this-summer 11. city of fort worth, texas fiscal year 2024-2025
+annual budget - Tarrant County,
+https://www.tarrantcountytx.gov/content/dam/main/county-clerk/CityofFortWorthFY25AnnualBud
+get.pdf 12. Fort Worth budget includes transitional funding for MedStar ambulance service,
+https://communityimpact.com/dallas-fort-worth/keller-roanoke-northeast-fort-worth/health-care/2
+023/10/05/fort-worth-budget-includes-transitional-funding-for-medstar-ambulance-service/ 13. In
+the News: Fort Worth Star-Telegram Explains the Fitch EMS System Report | MedStar911,
+https://www.medstar911.org/2024/03/19/in-the-news-fort-worth-star-telegram-explains-the-fitch-
+ems-system-report/ 14. Proposed framework would ease EMS transition from MedStar to City |
+MedStar911,
+https://www.medstar911.org/2025/03/02/proposed-framework-would-ease-ems-transition-from-
+medstar-to-city/ 15. Should MedStar dispatchers have fire union representation? Fort ...,
+https://www.keranews.org/government/2024-10-02/should-medstar-dispatchers-have-fire-union-
+representation-fort-worth-union-debate 16. Fort Worth Fire Department Store,
+https://fwfdstore.bigcartel.com/ 17. Fort Worth/Tarrant County (Texas) EMS Agency May End
+After 38 Years - Reddit,
+https://www.reddit.com/r/ems/comments/1cevie8/fort_worthtarrant_county_texas_ems_agency_
+may_end/ 18. IAFF, Fort Worth, TX Local 440 support plan for fire-based EMS model,
+https://www.iaff.org/news/iaff-fort-worth-tx-local-440-support-plan-for-fire-based-ems-model/ 19.
+Private company Falck starts EMS services in Fort Worth, plans to expand in DFW,
+https://communityimpact.com/dallas-fort-worth/keller-roanoke-northeast-fort-worth/health-care/2
+025/08/25/private-company-falck-starts-ems-services-in-fort-worth-plans-to-expand-in-dfw/ 20.
+Falck Launches Emergency Medical Services in Dallas/Fort Worth Metroplex - PR Newswire,
+https://www.prnewswire.com/news-releases/falck-launches-emergency-medical-services-in-dall
+asfort-worth-metroplex-302483155.html 21. 331 ç-16-3 - docs - City of San Diego,
+https://docs.sandiego.gov/council_reso_ordinance/rao2023/R-314909.pdf 22. New emergency
+medical services deal could mean more ambulances for San Diego - KPBS,
+https://www.kpbs.org/news/local/2023/04/21/new-emergency-medical-services-deal-could-mean
+-more-ambulances-for-san-diego 23. Calif. county's ambulance response times delaying FFs on
+scene up to 25 minutes - EMS1,
+https://www.ems1.com/response-times/calif-countys-ambulance-response-times-delaying-ffs-on-
+scene-up-to-25-minutes 24. Fort Worth Fire Department - MedStar Mobile Healthcare,
+https://www.medstar911.org/wp-content/uploads/2025/02/S6927-NEW-Interfacility-Transportato
+n-Permitting-SOP.pdf 25. 'See us not as a fire department add-on': FDNY EMS lieutenant calls
+for a stand-alone third service - FireRescue1,
+https://www.firerescue1.com/fire-based-ems/see-us-not-as-a-fire-department-add-on-fdny-ems-li
+eutenant-calls-for-a-stand-alone-third-service
+

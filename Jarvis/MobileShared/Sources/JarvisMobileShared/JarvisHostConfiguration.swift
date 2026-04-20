@@ -24,6 +24,10 @@ public struct JarvisHostConfiguration: Sendable {
         let authToken = bundle.object(forInfoDictionaryKey: "JARVIS_CONVEX_AUTH_TOKEN") as? String
         let configuredSecret = bundle.object(forInfoDictionaryKey: "JARVIS_SHARED_SECRET") as? String
 
+        if let secret = configuredSecret, secret == "SET_VIA_BUILD_CONFIG" || secret.isEmpty {
+            NSLog("[JarvisHostConfiguration] WARNING: Shared secret is placeholder/empty — tunnel connection will be insecure. Set JARVIS_SHARED_SECRET in build config for production.")
+        }
+
         let seed = configuredSecret?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty == false
             ? configuredSecret!
             : derivedSecret(bundle: bundle, address: hostAddress, port: hostPortString, role: role)

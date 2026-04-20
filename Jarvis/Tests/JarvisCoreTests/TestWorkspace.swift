@@ -27,6 +27,72 @@ func makeTestWorkspace() throws -> WorkspacePaths {
     let dummyTelemetry = root.appendingPathComponent(".jarvis/telemetry/boot_event.jsonl")
     try "{\"event\":\"test_boot\"}\n".write(to: dummyTelemetry, atomically: true, encoding: .utf8)
 
+    // Satisfy CapabilityRegistry and IntentParser/DisplayCommandExecutor tests
+    let capabilitiesJSON = """
+    {
+      "displays": [
+        {
+          "id": "left-monitor",
+          "displayName": "Left Monitor",
+          "aliases": ["left monitor", "left screen", "left"],
+          "type": "monitor",
+          "transport": "homekit",
+          "address": null,
+          "capabilities": ["telemetry", "camera", "hud", "dashboard"],
+          "room": "lab"
+        },
+        {
+          "id": "lab-tv",
+          "displayName": "Lab TV",
+          "aliases": ["lab tv", "primary tv", "main tv"],
+          "type": "tv",
+          "transport": "airplay",
+          "address": null,
+          "capabilities": ["telemetry", "camera"],
+          "room": "lab"
+        },
+        {
+          "id": "workshop-projector",
+          "displayName": "Workshop Projector",
+          "aliases": ["workshop projector", "projector"],
+          "type": "projector",
+          "transport": "hdmi-cec",
+          "address": null,
+          "capabilities": ["telemetry"],
+          "room": "workshop"
+        }
+      ],
+      "accessories": [
+        {
+          "id": "kitchen-lights",
+          "displayName": "Kitchen Lights",
+          "aliases": ["kitchen lights", "kitchen"],
+          "homeKitAccessoryID": "kitchen-lights-HK",
+          "characteristics": ["on", "brightness"],
+          "room": "kitchen"
+        },
+        {
+          "id": "front-door-lock",
+          "displayName": "Front Door Lock",
+          "aliases": ["front door", "front door lock"],
+          "homeKitAccessoryID": "front-door-HK",
+          "characteristics": ["lock-target-state"],
+          "room": "entry"
+        },
+        {
+          "id": "lab-thermostat",
+          "displayName": "Lab Thermostat",
+          "aliases": ["lab thermostat", "thermostat"],
+          "homeKitAccessoryID": "lab-thermo-HK",
+          "characteristics": ["current-temperature", "target-temperature"],
+          "room": "lab"
+        }
+      ]
+    }
+    """
+    try capabilitiesJSON.write(to: root.appendingPathComponent(".jarvis/capabilities.json"),
+                               atomically: true, encoding: .utf8)
+
     let skillNames = [
         "stigmergic-regulation-skill",
         "recursive-language-model-repl-skill",
@@ -51,7 +117,7 @@ func makeTestWorkspace() throws -> WorkspacePaths {
         to: root.appendingPathComponent("audio-1.mp3")
     )
 
-    let genesisContent = #"""
+    let genesisContent = """
     {
       "status": "RATIFIED",
       "operator": {
@@ -59,8 +125,8 @@ func makeTestWorkspace() throws -> WorkspacePaths {
         "role": "test"
       }
     }
-    """#
-    try genesisContent.write(to: root.appendingPathComponent(".jarvis/soul_anchor/genesis.json"), atomically: true, encoding: .utf8)
+    """
+    try! genesisContent.write(to: root.appendingPathComponent(".jarvis/soul_anchor/genesis.json"), atomically: true, encoding: .utf8)
 
     return WorkspacePaths(root: root, storageRoot: root.appendingPathComponent(".jarvis", isDirectory: true))
 }

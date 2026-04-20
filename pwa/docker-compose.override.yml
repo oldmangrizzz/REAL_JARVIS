@@ -1,0 +1,20 @@
+services:
+  jarvis-cockpit:
+    ports:
+      - "8088:80"
+    volumes:
+      - ./:/usr/share/nginx/html:ro
+      - ./nginx.local.conf:/etc/nginx/conf.d/default.conf:ro
+    labels: []
+
+  jarvis-ws-proxy:
+    ports:
+      - "9444:9444"
+    labels: []
+    environment:
+      - TUNNEL_HOST=host.docker.internal
+      - TUNNEL_PORT=9443
+      - WS_PORT=9444
+      - SHARED_SECRET=${SHARED_SECRET:-changeme-jarvis-secret-2024}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

@@ -126,7 +126,7 @@ targets:
         INFOPLIST_KEY_JARVIS_HOST_ADDRESS: 127.0.0.1
         INFOPLIST_KEY_JARVIS_HOST_PORT: "9443"
         INFOPLIST_KEY_JARVIS_CONVEX_URL: https://enduring-starfish-794.convex.cloud
-        INFOPLIST_KEY_JARVIS_SHARED_SECRET: ""
+        INFOPLIST_KEY_JARVIS_SHARED_SECRET: "SET_VIA_BUILD_CONFIG"
         INFOPLIST_KEY_NSMicrophoneUsageDescription: J.A.R.V.I.S. captures speech for cockpit voice startup and command handling.
         INFOPLIST_KEY_NSUserNotificationsUsageDescription: J.A.R.V.I.S. triggers proactive interruptions when the host brain emits a push event.
         INFOPLIST_KEY_UIBackgroundModes:
@@ -157,7 +157,7 @@ targets:
         INFOPLIST_KEY_JARVIS_HOST_ADDRESS: 127.0.0.1
         INFOPLIST_KEY_JARVIS_HOST_PORT: "9443"
         INFOPLIST_KEY_JARVIS_CONVEX_URL: https://enduring-starfish-794.convex.cloud
-        INFOPLIST_KEY_JARVIS_SHARED_SECRET: ""
+        INFOPLIST_KEY_JARVIS_SHARED_SECRET: "SET_VIA_BUILD_CONFIG"
         INFOPLIST_KEY_NSMicrophoneUsageDescription: J.A.R.V.I.S. captures speech for cockpit voice startup and command handling.
         INFOPLIST_KEY_NSUserNotificationsUsageDescription: J.A.R.V.I.S. triggers proactive interruptions when the host brain emits a push event.
         INFOPLIST_KEY_UIBackgroundModes:

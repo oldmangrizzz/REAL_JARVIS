@@ -1,0 +1,604 @@
+Systemic Fracture: A Comprehensive
+Analysis of the Structural Failure,
+Identity Crisis, and Militarization of
+United States Emergency Medical
+Services
+Executive Summary
+The United States Emergency Medical Services (EMS) system currently exists in a state of
+profound structural dissonance, a condition exacerbated by sixty years of misclassification,
+bureaucratic neglect, and internecine labor conflicts. Unlike its public safety
+counterparts—law enforcement and fire suppression—EMS possesses no unified federal
+home, no guaranteed tax base in many jurisdictions, and no distinct professional identity
+recognized uniformly by the Bureau of Labor Statistics. It is a profession stranded between
+the clinical demands of healthcare and the logistical framework of transportation.
+This report serves as a "Deep Dive" into the systemic failures that have brought US EMS to the
+brink of collapse in 2025. It traces the lineage of dysfunction from the "Original Sin" of the
+1966 Accidental Death and Disability White Paper, which tethered EMS to the Department of
+Transportation (DOT), to the modern dissolution of high-performance Public Utility Models
+(PUM) like Fort Worth’s MedStar in favor of fire-based hegemony.
+Furthermore, this analysis interrogates the active legislative battles of the 119th
+Congress—specifically H.R. 3791, H.R. 3443, and H.R. 2220—which seek to rectify decades of
+data suppression and reimbursement misalignment. These bureaucratic struggles are
+juxtaposed against a rapidly militarizing domestic landscape: the 2025 executive designation
+of Fentanyl as a Weapon of Mass Destruction (WMD), the renaming of the Department of
+Defense to the "Department of War," and the imposition of draconian digital surveillance laws
+in states like Wisconsin and Michigan that threaten the encrypted communications
+infrastructure vital to modern telemedicine.
+The findings suggest that without a radical federal reclassification of EMS as an essential
+healthcare service—decoupled from transportation metrics and shielded from the labor
+monopolization of fire unions—the system faces a catastrophic "exodus" of clinical talent to
+the nursing sector and a collapse of prehospital care capacity in rural and urban centers alike.
+
+
+
+Section I: The Anatomy of the Original Sin — 1966 and
+the Department of Transportation
+The structural incoherence of modern American EMS is not an accident of evolution but the
+direct result of a specific policy decision made in the mid-20th century. To understand why a
+paramedic in 2025 cannot bill for treating a diabetic patient on-scene without transport, one
+must return to the geopolitical and industrial context of 1966.
+1.1 The Neglected Disease of Modern Society
+
+In 1966, the National Academy of Sciences/National Research Council (NAS/NRC) published
+the seminal white paper, Accidental Death and Disability: The Neglected Disease of Modern
+Society.1 This document is widely revered as the birth certificate of modern EMS, yet it
+contains the genetic code for the system’s current dysfunction.
+The authors of the White Paper were motivated by a stark statistical reality: in 1965, 52 million
+accidental injuries killed 107,000 Americans, causing a societal cost of approximately $18
+billion (roughly $129.4 billion in adjusted dollars).3 Motor vehicle crashes accounted for nearly
+half of those deaths. The disparity between military and civilian survival rates was glaring; a
+soldier wounded in the jungles of Vietnam had a higher statistical probability of survival than a
+motorist injured on a California freeway.2 The military possessed a vertically integrated system
+of rapid evacuation, field stabilization, and definitive care; the civilian world relied on a
+patchwork of funeral home hearses, volunteer rescue squads, and law enforcement wagons
+with no medical equipment.2
+The White Paper identified five pillars for trauma reduction, modeled on the Haddon Matrix:
+safer people, safer roads, safer vehicles, safer speeds, and post-crash care.1 It was this final
+pillar—post-crash care—that necessitated the creation of a formal EMS system. However, the
+framing of the problem largely determined the solution. Because the primary vector of trauma
+was the automobile, the legislative response—the National Highway Safety Act of
+1966—placed the nascent EMS apparatus under the jurisdiction of the Department of
+Transportation (DOT), specifically the National Highway Traffic Safety Administration
+(NHTSA).1
+1.2 The "Cargo" Paradigm vs. Clinical Care
+
+The placement of EMS within the DOT established a "transportation-centric" identity that
+persists to this day. Under the DOT model, the ambulance is viewed legally and financially as a
+vehicle of transport—a specialized form of shipping—rather than a mobile clinical unit.
+The Reimbursement Trap:
+This classification rippled into the reimbursement structures established by the nascent
+Medicare and Medicaid programs. Because EMS was housed under DOT, the Centers for
+Medicare & Medicaid Services (CMS) codified payment based on the transport of a patient to
+a hospital. The "service" rendered was defined as the movement of the patient, not the
+medical assessment or intervention provided.1
+  ●​ The "You Call, We Haul" Incentive: This funding mechanism created a perverse
+      incentive known as the "load and go" model. It financially discouraged on-scene
+      stabilization, treat-and-release protocols, or transport to alternative destinations (such
+      as urgent care or mental health facilities). If the wheels of the ambulance did not turn,
+      no revenue was generated.5
+   ●​ Cost of Readiness Ignored: Unlike fire departments or police forces, which are funded
+      to be ready regardless of call volume, EMS reimbursement only covered the active
+      transport phase. This left the "cost of readiness"—the expense of having a fully staffed,
+      equipped ICU on wheels waiting for a call—unfunded by federal insurance programs.5
+This misalignment has created a catastrophic bottleneck in modern healthcare. As noted in
+current analyses, the inability to bill for non-transport services forces EMS agencies to
+transport non-emergent patients to already overcrowded Emergency Departments (EDs). This
+contributes to "wall time"—the period where an ambulance crew is stuck at the hospital
+waiting to offload a patient—which strips communities of ambulance coverage and increases
+burnout among crews.5
+1.3 The Lost Opportunity of HEW/HHS
+
+The structural flaw was identified almost immediately. In 1972, a follow-up NAS/NRC report,
+Roles and Resources of Federal Agencies in Support of Comprehensive Emergency Medical
+Services, explicitly criticized the federal fragmentation. It urged the integration of all EMS
+efforts into the Department of Health, Education, and Welfare (DHEW), the precursor to the
+Department of Health and Human Services (HHS).7
+The report argued that EMS was fundamentally a medical practice, not a highway safety
+measure. While the EMS Systems Act of 1973 briefly created a categorical grant program
+within DHEW to foster regional systems, this was dismantled by the Omnibus Budget
+Reconciliation Act of 1981, which converted EMS funding into block grants.7 This devolution
+allowed states to deprioritize EMS, cementing the DOT as the only federal agency with a
+consistent, albeit limited, mandate (highway safety standards) for EMS.
+Consequently, EMS lacks a Cabinet-level advocate for its clinical mission. While police have
+the Department of Justice and fire services have the U.S. Fire Administration (under
+FEMA/DHS), EMS remains a stepchild of the highway administration, fighting for scraps of
+funding tied to asphalt rather than patient outcomes.4
+
+
+Section II: The "Neither/Nor" Identity Crisis — Fire vs.
+Third Service vs. Private
+The regulatory vacuum left by the federal government allowed three distinct models of EMS
+delivery to emerge, creating a fractured labor market and intense inter-agency rivalry. The
+primary conflict today exists between the Fire-based EMS model (supported by the
+International Association of Fire Fighters - IAFF) and the "Third Service" or Public Utility Model
+(PUM).
+2.1 The Rise of Fire-Based EMS Hegemony
+As structural fires in the United States declined precipitously due to improved building codes
+and fire prevention materials, municipal fire departments faced a crisis of relevance and
+budget justification.9 To preserve staffing levels and funding, fire departments aggressively
+expanded into EMS.
+  ●​ The "Dual Role" Model: In this system, personnel are cross-trained as
+      firefighter/paramedics. The argument is one of efficiency: a standing army of firefighters
+      can be utilized for medical calls.10
+  ●​ The "Cash Cow" Critique: Critics, including independent EMS advocates and labor
+      analysts, argue that EMS has become the "cash cow" for fire departments, justifying
+      multi-million dollar budgets and heavy apparatus for calls that are 90% medical.9
+  ●​ The FLSA "80/20" Battle: A critical, often overlooked aspect of this history involves the
+      Fair Labor Standards Act (FLSA). Firefighters enjoy a partial exemption from overtime
+      rules (Section 7(k)), allowing for longer shifts without immediate overtime pay. In the
+      1990s, legal battles (e.g., West v. Anne Arundel County, Alex v. City of Chicago)
+      challenged whether cross-trained paramedics doing mostly medical work qualified for
+      this exemption. The Department of Labor eventually ruled that as long as they are
+      trained in fire suppression and have the legal authority to fight fires, they qualify,
+      regardless of how much time is spent on EMS.11 This solidified the financial viability of
+      the fire-based model by keeping labor costs artificially lower than if they were subject
+      to standard 40-hour workweeks.
+2.2 Case Study: The Fall of MedStar and the Fire Takeover
+
+The most significant recent battle in this structural war occurred in Fort Worth, Texas, with the
+2024-2025 dissolution of MedStar Mobile Healthcare in favor of a fire-based system. This
+case serves as a bellwether for the future of the Public Utility Model.
+The Rise of MedStar:
+MedStar was a classic Public Utility Model (PUM) or "Third Service" agency. It operated
+independently of the police and fire departments, solely focused on clinical care and
+transport. For decades, it was regarded as a high-performance system, utilizing data to
+deploy ambulances dynamically (System Status Management) rather than tethering them to
+static fire stations.12
+The Collapse (2024-2025):
+In May 2024, the Fort Worth City Council voted to dissolve MedStar and transfer EMS
+responsibilities to the Fort Worth Fire Department (FWFD).12
+   ●​ Financial Unsustainability: MedStar operated on a fee-for-service model. With
+       declining reimbursement rates from Medicare/Medicaid and a rise in uninsured patients,
+       the independent model became financially precarious. The city refused to subsidize the
+       independent authority but was willing to inject tax dollars into its own fire department to
+       take over the service.12
+   ●​ Union Strategy (Local 440): The transition was heavily championed by IAFF Local 440.
+       The union argued that integrating EMS into the fire department would provide civil
+       service protection and better benefits for paramedics, who would transition from
+      private/quasi-public employment to sworn city positions.14 The union utilized GIS studies
+      to argue that fire station placement offered better coverage, despite the static nature of
+      stations versus dynamic posting.14
+  ●​ The "Single Role" Compromise: Unlike many fire systems that require all staff to fight
+      fires, the Fort Worth model created a "single role" civilian EMS classification within the
+      fire department. However, friction immediately arose regarding dispatchers. The union
+      pushed for dispatchers to be sworn firefighters, arguing they are better equipped for
+      stress, while the city aimed for civilian dispatchers to save costs. This highlights the
+      continuous struggle for union expansion into all facets of emergency response.16
+Operational Consequences:
+The transition, officially completed in July 2025, came with a $10 million price tag and
+immediate operational degradation.
+  ●​ Response Time Lag: Post-transition data from late 2025 indicates that the fire-based
+      system is hitting its 90% response time target at 11 minutes and 9 seconds,
+      significantly slower than the 8-minute goal and 30 seconds slower than MedStar’s
+      performance the previous year.17 Fire officials attribute this to "growing pains" and new
+      systems, but it underscores the loss of the PUM's specialized focus on deployment
+      logistics.
+  ●​ Cultural Absorption: Over 600 MedStar employees were absorbed into the fire
+      department. While this preserved jobs, it effectively eliminated an independent,
+      medically-focused voice in the region, subsuming EMS culture into the paramilitary
+      culture of the fire service.18
+2.3 The Private Sector and "High Performance" Reality
+
+While the fire service consolidates power, the private sector (represented by companies like
+AMR/GMR) continues to operate largely in the "safety net" or interfacility transport space.
+  ●​ The Profit Motive: Private EMS is driven by contract compliance and profit margins.
+      This often leads to lower wages for providers compared to fire or third-service
+      agencies, fueling high turnover.20
+  ●​ Agility vs. Stability: Private companies offer municipalities the ability to outsource risk
+      (liability, billing, staffing) but at the cost of control. When a private provider fails or goes
+      bankrupt, the municipality is left scrambling, often leading to a revert-to-fire scenario.21
+Table 1: Comparative Analysis of EMS Delivery Models
+Feature                      Fire-Based EMS           Third Service (Public Private Contract
+                                                      Utility)
+Primary Focus                Fire Suppression &       Clinical Medicine &     Profit & Contract
+                             Rescue                   Transport               Compliance
+Staffing Model               Dual-Role (FF/Medic) Single Role (Medic          Single Role (Medic
+                             or Single                only)                   only)
+Union Representation High (IAFF)                      Moderate                Low / Fragmented
+                                                      (AFSCME/Teamsters)
+Funding Source               Tax Base + Billing       Billing +/ Tax Subsidy Billing (User Fee)
+Political Clout         Very High               Low                     Low (Lobbying via
+                                                                        AAA)
+Cost to Municipality High                   Moderate                    Low (often zero
+                     (Personnel/Pensions)                               subsidy)
+Response Logic       Static (Station-based) Dynamic                     Dynamic
+                                            (SSM/Posting)               (Profit-driven)
+
+
+
+Section III: Current Legislative Battles — The Fight for
+Recognition and Data
+The federal neglect of EMS has spawned a flurry of legislative attempts to fix the "Original
+Sin" through piecemeal bills. These bills, active in the 119th Congress (2025-2026), highlight
+the desperate need for data parity and reimbursement reform.
+3.1 H.R. 3791: The EMS Counts Act
+
+Objective: To require the Secretary of Labor to revise the Standard Occupational
+Classification (SOC) System to accurately count EMS practitioners.22
+The Problem: Currently, the Bureau of Labor Statistics (BLS) misclassifies thousands of EMS
+providers. A firefighter who is cross-trained as a paramedic is often counted solely as a
+firefighter. This results in a "chronic undercount" of the EMS workforce, masking the severity
+of the shortage and skewing federal grant allocations.24
+  ●​ Sponsors: Rep. Glenn Thompson (R-PA) and Rep. John Mannion (D-NY).22
+  ●​ The Coalition: The bill has rare bipartisan support and is endorsed by both NAEMT
+     (National Association of Emergency Medical Technicians) and IAFF. For the IAFF, this bill
+     is strategic: it ensures their members (dual-role providers) are recognized for their
+     medical contributions without stripping them of their firefighter status, which is crucial
+     for their retirement and benefit structures (often more generous than civilian EMS).24
+3.2 H.R. 3443: Modernizing EMS Delivery Act (The "MEDS" Bill)
+
+Objective: To amend the Social Security Act to create a model for Medicare reimbursement
+that includes "Treatment in Place" (TIP) and accounts for the cost of readiness.27
+The Transformation: This bill attacks the DOT legacy of "transport-only" reimbursement. It
+proposes:
+  1.​ Lump Sum Payments: Moving away from fee-for-service toward monthly/quarterly
+       payments to maintain readiness. This acknowledges that the value of EMS is availability,
+       not just the ride. It specifically includes costs for maintaining supplies of blood
+       products and essential medications, which are often in shortage.27
+  2.​ Treatment in Place (TIP): Allowing reimbursement for care provided on-scene without
+       transport to a hospital. This is critical for reducing ED overcrowding ("wall time") and
+       utilizing community paramedicine to treat chronic conditions or minor injuries at home.27
+  3.​ Medical Direction: It specifically mandates a study on the value of EMS physician
+      oversight. The National Association of EMS Physicians (NAEMSP) strongly supports this,
+      arguing that physician oversight is the only way to ensure quality in a modernized,
+      clinically focused system.29
+3.3 H.R. 2220: The PARA-EMT Act
+
+Objective: To address the workforce shortage by streamlining the transition of military
+medics into civilian EMS roles.30
+Context: With a 20-30% annual turnover rate in civilian EMS, this bill seeks to utilize veterans
+to plug the gap. It provides grants to states to expedite licensure for veterans with military
+medical training, bypassing redundant training requirements.30 This aligns with the 2025
+geopolitical context of an increasingly militarized domestic preparedness stance, creating a
+pipeline from the "Department of War" to civilian streets.
+3.4 The Lobbying Ecosystem
+
+The lobbying landscape is a triad of competing interests:
+  ●​ IAFF (Fire): The dominant force. They focus on protecting the fire-based model,
+      securing SAFER grants (Staffing for Adequate Fire and Emergency Response), and
+      ensuring dual-role benefits. They spend significantly on lobbying to ensure EMS remains
+      integrated with fire suppression, viewing independent EMS as a threat to their staffing
+      models.32
+  ●​ NAEMT (Practitioners): Represents the clinical workforce. Their primary push is for the
+      "EMS Counts Act" and workforce retention, arguing that EMS is a distinct profession,
+      not a subset of fire or a stepping stone to nursing.33
+  ●​ AAA (Ambulance Association): Represents private ambulance companies. They lobby
+      heavily for reimbursement reform (H.R. 3443) because their profit margins are
+      decimated by the current Medicare rate structure, which often pays below the cost of
+      service.34
+
+
+Section IV: The "Nuclear" Threat — Fentanyl, WMDs,
+and the Department of War
+The legislative and structural battles described above are taking place against a backdrop of
+radical geopolitical shifts in 2025. The reclassification of the drug war into a literal war has
+profound implications for EMS operational doctrine and liability.
+4.1 The Designation of Fentanyl as a WMD
+
+On December 15, 2025, President Donald Trump signed an Executive Order designating illicit
+fentanyl and its core precursor chemicals as Weapons of Mass Destruction (WMD).35
+  ●​ Rationale: The order argues that fentanyl is "closer to a chemical weapon than a
+      narcotic," citing its lethality in trace amounts (2mg) and its potential for weaponization
+     by terrorists.35 The definition includes "core precursor chemicals" such as Piperidone,
+     broadening the scope of interdiction.
+  ●​ Operational Shift: This moves the fentanyl crisis from a Public Health Emergency
+     (HHS/CDC domain) to a National Security Threat (DHS/DOD domain). For EMS, this
+     changes the Rules of Engagement. An overdose call is no longer just a medical
+     emergency; it is potentially a HazMat/WMD scene requiring higher levels of Personal
+     Protective Equipment (PPE), decontamination protocols, and coordination with
+     specialized threat assessment units.35
+4.2 The "Department of War"
+
+In a parallel move, the Department of Defense was renamed the Department of War (DOW)
+via Executive Order on September 5, 2025.38 While largely symbolic in title, the rhetoric of
+"readiness and resolve" and "maximum lethality" signals a shift in domestic posture.
+   ●​ Secretary Pete Hegseth: The new Secretary of War, Pete Hegseth, has emphasized a
+      culture shift away from "tepid legality" toward "violent effect".39 This aggressive stance
+      has already manifested in reports of "kill everyone" orders and "double tap" strikes on
+      drug boats in the Caribbean and Eastern Pacific, blurring the lines between military
+      action and law enforcement.40
+   ●​ Militarization of EMS: With the domestic drug war now framed as a WMD conflict,
+      civilian EMS may find itself increasingly integrated into quasi-military operations. The
+      NAEMSP and other medical direction bodies will face pressure to align protocols with
+      TCCC (Tactical Combat Casualty Care) standards not just for SWAT, but for routine drug
+      interdiction responses.
+   ●​ Funding Implications: If fentanyl is a WMD, EMS agencies may be able to access
+      Department of War or Homeland Security funding streams previously reserved for
+      anti-terrorism, bypassing the stagnant DOT block grants. However, this comes with the
+      condition of militarized training and compliance.37
+4.3 The Legal Quagmire
+
+The designation of fentanyl as a WMD raises immense legal questions for EMS. If a paramedic
+enters a "WMD scene" (a fentanyl lab or overdose site) without WMD-level protection, is the
+agency liable? Furthermore, the aggressive posture against "narco-terrorists" implies a
+battlefield operational environment. The Washington Post has reported on potential war
+crimes allegations involving the Secretary of War's directives, suggesting that domestic
+support operations could carry significant legal exposure for participating agencies.41
+
+
+Section V: The Exodus and the Digital Enclosure
+The structural failures (DOT), labor conflicts (Fire vs. Private), and escalation of risks (WMD)
+have culminated in a massive workforce exodus, complicated by a new layer of digital
+restrictions.
+5.1 The Great Resignation and the Nurse Pipeline
+
+The EMS workforce is hemorrhaging talent at an unsustainable rate.
+  ●​ Turnover Rates: The 2024 Ambulance Employee Workforce Turnover Study found that
+     annual turnover for EMTs and paramedics ranges from 20-30%, meaning an agency
+     effectively replaces its entire workforce every 3-4 years.42 In New York State, the number
+     of active EMS responders declined by 17.5% between 2019 and 2022.43
+  ●​ The Wage Gap: The primary driver is economic. In 2025, the median salary for a
+     paramedic is approximately $58,410, while a Registered Nurse (RN) earns $93,600—a
+     gap of over $35,000 annually.44
+  ●​ The "Bridge" Phenomenon: EMS is increasingly viewed not as a career but as a
+     stepping stone. Paramedic-to-RN "bridge" programs are proliferating, allowing medics
+     to leverage their experience for expedited nursing degrees. Medics are leaving the
+     streets for the hospital, where they earn significantly more for safer working conditions,
+     better hours, and professional respect.44
+  ●​ Burnout: 73% of EMS providers report experiencing burnout or compassion fatigue,
+     driven by forced overtime, sleep deprivation, and the moral injury of a failing system.43
+5.2 The Digital Enclosure: VPN Bans and App Store Laws
+
+Just as the physical environment for EMS becomes more dangerous (WMDs), the digital
+environment is becoming more restrictive, impacting the ability of independent EMS to
+operate efficiently.
+The VPN Bans (Wisconsin AB 105 / Michigan HB 4938):
+Proposed legislation in Wisconsin and Michigan seeks to ban or heavily restrict the use of
+VPNs to prevent minors from bypassing age verification on adult sites.45
+   ●​ Technical Impact: These bills would force ISPs to block "encrypted tunnels" or require
+      websites to block traffic from known VPN IP ranges. For EMS, this is catastrophic.
+      Modern EMS relies on SASE (Secure Access Service Edge) and corporate VPNs to
+      transmit HIPAA-compliant patient data (EKGs, stroke scales, patient history) from the
+      ambulance to the hospital.
+   ●​ The Telehealth Threat: Rural EMS relies on telemedicine to connect paramedics with
+      doctors for "Treatment in Place." If VPN technologies are criminalized or technically
+      obstructed by state firewalls, the secure data pipeline required for these advanced
+      consults collapses.46
+The Texas App Store Accountability Act (SB 2420):
+Effective January 1, 2026, this law requires strict age verification and parental consent for
+every app download by a minor, and imposes strict liability on "developers".48
+   ●​ Operational Friction: While aimed at social media, the broad definition of "developer"
+      and the requirement for "commercial reasonable methods" of age verification creates
+      hurdles for EMS agencies using "Bring Your Own Device" (BYOD) policies. If a young
+      EMT (under 18) needs to download a protocol app or scheduling tool, the friction of
+      parental consent and verification creates administrative chaos.
+  ●​ The "Permissioned" Internet: This law represents a shift toward a digital environment
+     where anonymity is erased. For EMS, which deals with sensitive patient data, the forced
+     collection of ID data by third-party app stores introduces new vector for data
+     breaches.50
+
+
+Section VI: Future Forecast — Best and Worst Case
+Scenarios
+The convergence of the 1966 structural flaw, the 2025 militarization, and the workforce
+collapse points to a bifurcation of futures.
+6.1 Worst Case Scenario: The Militarized Collapse
+
+  ●​ Fragmentation: H.R. 3443 (MEDS Act) fails to pass due to budget hawkishness.
+     Reimbursement remains tied to transport.
+  ●​ Ambulance Deserts: Independent and private EMS agencies go bankrupt. Rural
+     America becomes a vast "ambulance desert" where response times exceed 45
+     minutes.31
+  ●​ Total Fire Takeover: In urban centers, Fire-based EMS (empowered by IAFF) absorbs
+     all remaining third services (like MedStar). Costs skyrocket due to pension obligations,
+     but clinical innovation stagnates under the "single role" civilian model which treats
+     medics as second-class citizens within the fire house.
+  ●​ WMD Liability: A fentanyl mass-casualty event occurs. EMS providers, lacking
+     military-grade WMD training, refuse to enter the "hot zone" or suffer casualties. The
+     "Department of War" deploys National Guard medical units to police domestic streets,
+     effectively militarizing prehospital care permanently.
+  ●​ Digital Dark Age: VPN bans in key states force EMS agencies to revert to radio and
+     paper charting to avoid liability, slowing down care and increasing medical errors.
+6.2 Best Case Scenario: The Healthcare Integration
+
+  ●​ Legislative Victory: H.R. 3791 passes, finally counting EMS providers accurately. This
+     data forces Congress to pass H.R. 3443, decoupling payment from transport.
+  ●​ The Federal Shift: Recognizing the WMD threat, the Executive Branch moves the
+     medical oversight of EMS from DOT to a new joint office between HHS and the
+     Department of War (for threat defense). This unlocks healthcare dollars for "Treatment
+     in Place."
+  ●​ Professionalization: Wages rise to match nursing parity due to increased
+     reimbursement. The "Para-EMT Act" successfully pipes veterans into the system,
+     stabilizing the workforce.
+  ●​ Exemptions: Legislators in TX, WI, and MI carve out broad exemptions for healthcare
+     and public safety in digital ID/VPN laws, allowing secure EMS data networks to flourish.
+6.3 Correlating the Forecast
+
+The trajectory will likely be determined by the tension between the "Department of War"
+mindset (centralized, tactical, force-oriented) and the "Digital Enclosure" laws (state-level,
+restrictive, privacy-eroding).
+  ●​ If the Federal Government (Department of War) asserts dominance, it may override
+       state VPN bans for national security personnel (including EMS), creating a two-tier
+       internet where first responders have access that civilians do not.
+  ●​ The Texas ID/App Store laws serve as a harbinger of a "permission-based" internet.
+       For EMS, this means the end of "bring your own device" (BYOD) policies. Agencies will
+       be forced to issue government-controlled hardware to bypass age-verification/VPN
+       blocks, further centralizing control and increasing costs.
+Conclusion
+The US EMS system is suffering from a congenital defect—its 1966 placement in the
+Department of Transportation—which has metastasized into a systemic failure. Treated as a
+shipping industry by the federal government, a revenue stream by fire departments, and a
+tactical unit by the new Department of War, EMS has lost its core identity as a healthcare
+practice. Without immediate legislative correction (H.R. 3443) and a unified federal home that
+prioritizes patient care over tire rotation, the system will not survive the twin pressures of the
+fentanyl WMD crisis and the great workforce exodus.
+
+Report by: Dr. Alistair Vance, Senior Policy Analyst
+Date: December 17, 2025
+
+Works cited
+
+  1.​ accidental death and disability - International Journal of Paramedicine, accessed
+      December 17, 2025,
+      https://internationaljournalofparamedicine.com/index.php/ijop/article/download/2
+      521/2238/7342
+  2.​ Forty years ago, men and women of conviction, courage, and determination
+      harnessed the national vision set forth in the White Pa - NWCEMSS, accessed
+      December 17, 2025,
+      https://www.nwcemss.org/assets/1/illinois_ems_education_committee/Testimony_
+      for_IDPH_12-11.pdf
+  3.​ The White Paper and the Future: Where to Now? - HMP Global Learning Network,
+      accessed December 17, 2025,
+      https://www.hmpgloballearningnetwork.com/site/emsworld/article/12239745/the-
+      white-paper-and-the-future-where-to-now
+  4.​ Why is EMS a part of the DOT? A look at The White Paper | Lucky Sci, accessed
+      December 17, 2025,
+      https://www.luckysci.com/2012/12/why-is-ems-a-part-of-the-dot-a-look-at-the-
+     white-paper/
+5.​ Non-Emergency Utilization of EMS: Contributing Factors and Strategies to
+     Promote Effective Care with Appropriate Resources - DigitalCommons@UNMC,
+     accessed December 17, 2025,
+     https://digitalcommons.unmc.edu/cgi/viewcontent.cgi?article=1127&context=cop
+     h_slce
+6.​ Facilitating EMS Turnaround Intervals at Hospitals in the Face of Receiving Facility
+     Overcrowding - NAEMSP, accessed December 17, 2025,
+     https://naemsp.org/wp-content/uploads/2023/10/PEC-EMS-Turnaround.pdf
+7.​ Chapter: 2 History and Current State of EMS, accessed December 17, 2025,
+     https://www.nationalacademies.org/read/11629/chapter/4
+8.​ A National Strategy to Promote Prehospital Evidence-Based Guideline
+     Development, Implementation, and Evaluation, accessed December 17, 2025,
+     https://prehospitalguidelines.org/wp-content/uploads/2018/01/National-Strategy-
+     to-Promote-Prehospital-EBGs.pdf
+9.​ Was the creation and legalization of firefighter paramedic programs inevitable
+     despite parts of the medical society having objections to letting firefighters do
+     medical stuff and lobbying against them? - Reddit, accessed December 17, 2025,
+     https://www.reddit.com/r/ems/comments/1b0oxfl/was_the_creation_and_legalizat
+     ion_of_firefighter/
+10.​The New EMS Imperative: Demonstrating Value - Fitch and Associates, accessed
+     December 17, 2025,
+     https://fitchassoc.com/wp-content/uploads/2017/06/ICMA-InFocus-Report-The-
+     New-EMS-Imperative.pdf
+11.​ THE "80/20" ISSUE: AN UPDATE - Fire Engineering, accessed December 17, 2025,
+     https://www.fireengineering.com/firefighting/the-80-20-issue-an-update/
+12.​Fort Worth EMS – Welcome to the City of Fort Worth, accessed December 17,
+     2025, https://www.fortworthtexas.gov/departments/fire/services/ems
+13.​Fort Worth Fire Department to take over EMS services from MedStar on July 1 -
+     YouTube, accessed December 17, 2025,
+     https://www.youtube.com/watch?v=UdFHo_B867Y
+14.​IAFF, Fort Worth, TX Local 440 support plan for fire-based EMS model, accessed
+     December 17, 2025,
+     https://www.iaff.org/news/iaff-fort-worth-tx-local-440-support-plan-for-fire-bas
+     ed-ems-model/
+15.​Proposed framework would ease EMS transition from MedStar to City |
+     MedStar911, accessed December 17, 2025,
+     https://www.medstar911.org/2025/03/02/proposed-framework-would-ease-ems
+     -transition-from-medstar-to-city/
+16.​Should MedStar dispatchers have fire union representation? Fort Worth, union
+     debate, accessed December 17, 2025,
+     https://www.keranews.org/government/2024-10-02/should-medstar-dispatchers
+     -have-fire-union-representation-fort-worth-union-debate
+17.​Texas city's EMS response times scrutinized months after fire department
+     takeover - EMS1, accessed December 17, 2025,
+    https://www.ems1.com/fire-ems/texas-citys-ems-response-times-scrutinized-m
+    onths-after-fire-department-takeover
+18.​Fort Worth to Launch Fire-Based EMS July 1: Saginaw Set to Join the Transition,
+    accessed December 17, 2025, https://saginawtx.org/_T6_R197.php
+19.​Fort Worth Fire Department will soon take over EMS services as Medstar
+    dissolves - WFAA, accessed December 17, 2025,
+    https://www.wfaa.com/article/news/local/fort-worth-fire-department-will-take-o
+    ver-ems-services-as-medstar-dissolves/287-df748cf2-2a21-4285-a2e2-b6607d8
+    aaa89
+20.​What are the differences between public and private EMS and ambulance
+    services? - EMS1, accessed December 17, 2025,
+    https://www.ems1.com/private-public-dispute/articles/private-vs-public-ambulan
+    ce-services-whats-the-difference-WTgJNJgR4KlljlV9/
+21.​Santa Clara County Emergency Medical Services Agency Financial Analysis,
+    accessed December 17, 2025,
+    https://files.santaclaracounty.gov/exjcpb1541/migrated/SCC%20EMS%20%20Eme
+    rgency%20Ambulance%20System%20Fin%20Analysis%20Report-Sep%202022.
+    pdf?VersionId=FEALeTu40y7H35tDuBPxp3IPOybZTU6p
+22.​US HB3791 | 2025-2026 | 119th Congress | LegiScan, accessed December 17, 2025,
+    https://legiscan.com/US/bill/HB3791/2025
+23.​Text - H.R.3791 - 119th Congress (2025-2026): EMS Counts Act | Congress.gov,
+    accessed December 17, 2025,
+    https://www.congress.gov/bill/119th-congress/house-bill/3791/text
+24.​'EMS Counts Act' introduced in Congress - EMS1, accessed December 17, 2025,
+    https://www.ems1.com/legislation-funding/articles/ems-counts-act-introduced-in
+    -congress-R4C0U3MRR4iyTPEa/
+25.​Bill would add cross-trained EMTs, paramedics to federal classification system -
+    EMS1, accessed December 17, 2025,
+    https://www.ems1.com/labor-issues/bill-would-add-cross-trained-emts-paramed
+    ics-to-federal-classification-system
+26.​Cosponsors - H.R.3791 - 119th Congress (2025-2026): EMS Counts Act, accessed
+    December 17, 2025,
+    https://www.congress.gov/bill/119th-congress/house-bill/3791/cosponsors
+27.​H. R. 3443 - Congress.gov, accessed December 17, 2025,
+    https://www.congress.gov/119/bills/hr3443/BILLS-119hr3443ih.pdf
+28.​Bill tracking in US - HR 3443 (119 legislative session) - FastDemocracy, accessed
+    December 17, 2025,
+    https://fastdemocracy.com/bill-search/us/119/bills/USB00095399/
+29.​H.R. 3443 - Modernizing EMS Delivery and Sustainability (MEDS) Bill - NAEMSP,
+    accessed December 17, 2025,
+    https://naemsp.org/news/h-r-3443-modernizing-ems-delivery-and-sustainability
+    -meds-bill/
+30.​Text - H.R.2220 - 119th Congress (2025-2026): PARA–EMT Act of 2025 |
+    Congress.gov, accessed December 17, 2025,
+    https://www.congress.gov/bill/119th-congress/house-bill/2220/text
+31.​Rural EMS - National Rural Health Association, accessed December 17, 2025,
+    https://www.ruralhealth.us/nationalruralhealth/media/documents/advocacy/2025/r
+    ural-ems-7-15-25.pdf
+32.​LD-2 Disclosure Form, accessed December 17, 2025,
+    https://lda.senate.gov/filings/public/filing/e9b98c33-b1ee-4c8a-8ed0-57873aa1f1e
+    e/print/
+33.​Advancing EMS For Our Workforce and Communities - NAEMT's, accessed
+    December 17, 2025,
+    https://www.naemt.org/docs/default-source/2017-publication-docs/naemt-annua
+    l-report-2022-04-25-2023.pdf?sfvrsn=40ddf493_4
+34.​Online Legislative Service - NAEMT's, accessed December 17, 2025,
+    https://www.naemt.org/advocacy/online-legislative-service
+35.​DESIGNATING FENTANYL AS A WEAPON OF MASS ..., accessed December 17,
+    2025,
+    https://www.whitehouse.gov/presidential-actions/2025/12/designating-fentanyl-a
+    s-a-weapon-of-mass-destruction/
+36.​Fact Sheet: President Donald J. Trump Designates Fentanyl as a Weapon of Mass
+    Destruction - The White House, accessed December 17, 2025,
+    https://www.whitehouse.gov/fact-sheets/2025/12/fact-sheet-president-donald-j-
+    trump-designates-fentanyl-as-a-weapon-of-mass-destruction/
+37.​Congresswoman Lauren Boebert Reintroduces Legislation to Protect our
+    Children by Classifying Fentanyl as a Weapon of Mass Destruction, accessed
+    December 17, 2025, https://boebert.house.gov/FentanylWMDAct
+38.​Fact Sheet: President Donald J. Trump Restores the United States Department of
+    War, accessed December 17, 2025,
+    https://www.whitehouse.gov/fact-sheets/2025/09/fact-sheet-president-donald-j-
+    trump-restores-the-united-states-department-of-war/
+39.​Trump Renames DOD to Department of War, accessed December 17, 2025,
+    https://www.war.gov/News/News-Stories/Article/Article/4295826/trump-renames
+    -dod-to-department-of-war/
+40.​The Fill from the Hill: Department of War and potential crimes - University Times,
+    accessed December 17, 2025,
+    https://csulauniversitytimes.com/the-fill-from-the-hill-department-of-war-and-p
+    otential-crimes/
+41.​Littwin: Defense Secretary Pete Hegseth, an unserious man, is accused of serious
+    war crimes. Or worse. - The Colorado Sun, accessed December 17, 2025,
+    https://coloradosun.com/2025/12/03/hegseth-trump-crimes-opinion-littwin/
+42.​Please Support EMS Workforce Development - naemt, accessed December 17,
+    2025,
+    https://naemt.org/docs/default-source/emshd-2025/emshd-2025-workforce---p
+    ara-emt-act.pdf?sfvrsn=3010ff93_2
+43.​New York data supports sounding the alarm on the EMS workforce crisis |
+    NYSenate.gov, accessed December 17, 2025,
+    https://www.nysenate.gov/newsroom/in-the-news/2025/shelley-b-mayer/new-yo
+    rk-data-supports-sounding-alarm-ems-workforce
+44.​Registered Nurse Vs. Paramedic: What's The Difference? | NurseJournal.org,
+    accessed December 17, 2025,
+    https://nursejournal.org/resources/rn-vs-paramedic/
+45.​They’re Coming for Your VPN: Michigan’s Insane Anti-Cloud Law, accessed
+    December 17, 2025, https://www.youtube.com/watch?v=ljPV_vO6fvs
+46.​Michigan's Shocking VPN Ban Explained, accessed December 17, 2025,
+    https://www.youtube.com/watch?v=q9j-T9mQmiw
+47.​Proposed Age Verification Bills and the Impact on VPNs and SASE: What You
+    Need to Know, accessed December 17, 2025,
+    https://www.todyl.com/blog/proposed-age-verification-bills-and-the-impact-on-
+    vpns-and-sase
+48.​Texas' Expanding Digital Compliance Frontier: Taking Aim at Your Websites & Your
+    Personal Identity - KJK, accessed December 17, 2025,
+    https://kjk.com/2025/11/05/texas-expanding-digital-compliance-frontier/
+49.​App Store Age Verification Laws: Your Questions, Answered. | Privacy World,
+    accessed December 17, 2025,
+    https://www.privacyworld.blog/2025/10/app-store-age-verification-laws-your-qu
+    estions-answered/
+50.​Davis Wright Tremaine LLP Files First Amendment Challenge to Texas App Store
+    Law, accessed December 17, 2025,
+    https://www.dwt.com/about/news/2025/10/dwt-files-1a-challenge-to-texas-app-
+    store-law
+

@@ -18,7 +18,7 @@ public final class HDMICECBridge {
         return ExecutionResult(
             success: process.terminationStatus == 0,
             spokenText: process.terminationStatus == 0 ? "Switched HDMI input." : "HDMI-CEC switch failed.",
-            details: ["port": outputPort]
+            details: ["port": String(outputPort)]
         )
     }
 }

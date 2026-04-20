@@ -1,0 +1,25 @@
+[Unit]
+Description=JARVIS Linux Mesh Node (tunnel client to echo host)
+Documentation=file:///opt/jarvis-node/README.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+EnvironmentFile=/etc/jarvis/node.env
+ExecStart=/usr/bin/python3 /opt/jarvis-node/jarvis_node.py
+Restart=always
+RestartSec=3
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=jarvis-node
+# Hardening — adjust if node.py grows write needs.
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/log/jarvis /var/lib/jarvis
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

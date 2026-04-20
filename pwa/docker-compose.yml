@@ -22,9 +22,10 @@ services:
       - ./ws-proxy:/app
     command: node jarvis-ws-proxy.js
     environment:
-      - TUNNEL_HOST=192.168.4.151
+      - TUNNEL_HOST=charlie.grizzlymedicine.icu
       - TUNNEL_PORT=9443
       - WS_PORT=9444
+      - SHARED_SECRET=${SHARED_SECRET:-changeme-jarvis-secret-2024}
     labels:
       - traefik.enable=true
       - traefik.http.routers.jarvis-ws.rule=Host(`jarvis.grizzlymedicine.icu`) && PathPrefix(`/ws`)

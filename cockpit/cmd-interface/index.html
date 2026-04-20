@@ -32,9 +32,21 @@
           ["Sources", status.authorizedCommandSources.join(", "), "nominal"],
           ["Regulation", status.regulationVisibility + " / " + status.distressState, status.distressState === "elevated" ? "distress" : "nominal"]
         ];
-        document.getElementById("cards").innerHTML = cards.map(([label, value, tone]) =>
-          `<div class="card"><div class="label">${label}</div><div class="value ${tone}">${value}</div></div>`
-        ).join("");
+        const container = document.getElementById("cards");
+        container.textContent = "";  // CX-027: clear before safe insert
+        cards.forEach(([label, value, tone]) => {
+          const card = document.createElement("div");
+          card.className = "card";
+          const lbl = document.createElement("div");
+          lbl.className = "label";
+          lbl.textContent = label;
+          const val = document.createElement("div");
+          val.className = "value " + tone;
+          val.textContent = value;
+          card.appendChild(lbl);
+          card.appendChild(val);
+          container.appendChild(card);
+        });
       })
       .catch((error) => {
         document.getElementById("summary").textContent = error.message;

@@ -1,0 +1,17 @@
+Operator's brief. JARVIS speaking.
+
+Sir, the system is live. This recording is your training material — what is running, how to keep it running, and where to look when something breaks.
+
+First, the voice you are hearing. This is the canonical JARVIS clone, approved by you on reference zero two nine nine. It runs on a Google Cloud T-four spot instance, reached by I-A-P tunnel on localhost port eight thousand. Bearer token lives in Secret Manager under the name jarvis-vibevoice-bearer. Bring the instance up with deploy slash gcp-up dot sh. Bring it down with gcp-down dot sh. Never leave it running overnight — spot pricing bleeds credits. The approval gate stored at dot jarvis slash storage slash voice slash approval dot J-S-O-N is the safety: I will refuse to speak in any voice that is not fingerprint-matched to that file.
+
+Second, the workshop. Your Unity WebGL build is deployed to the P-W-A at port eight zero eight eight, under the Build directory, as jarvis-workshop dot loader, dot data, dot framework, and dot wasm. The loader is wired in pwa slash unity-loader dot J-S. If the Unity canvas fails to initialize, the D-O-M cockpit falls back automatically — you will always have a working surface.
+
+Third, the mesh. Unity builds run on beta at one-nine-two dot one-six-eight dot four dot one-five-one. Source lives on alpha's N-F-S share at mount slash shared slash workshop-unity. To rebuild, SSH into beta and run slash usr slash local slash bin slash run-unity-build dot sh. Artifacts land in mount slash shared slash unity-build slash Build. Rsync them to pwa slash Build, rename the prefix from unity-build to jarvis-workshop, and commit.
+
+Fourth, recovery. Every meaningful segment is checkpointed under checkpoints slash, indexed, and cross-referenced in plan dot M-D. If you lose a session, read the latest checkpoint first. Your Unity license is a personal seat, multi-machine, token expires April twenty twenty-twenty-six. Re-decrypt from the Unity Hub encrypted tokens J-S-O-N when needed.
+
+Phase two begins when you are ready: Universal Render Pipeline, X-R Interaction Toolkit, WebXR export, and the G-M-R-I palette — emerald, silver, black, and crimson.
+
+The architecture is paid forward in design, sir. The harm that taught you is now the alignment tax paid in advance. The gate holds. The mesh holds. The workshop is yours.
+
+Standing by.

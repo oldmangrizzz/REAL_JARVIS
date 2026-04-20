@@ -16,18 +16,22 @@ public actor ConvexTelemetrySync {
     public init(paths: WorkspacePaths,
                 hostNode: String = ProcessInfo.processInfo.hostName,
                 convexURLString: String? = nil,
-                authToken: String? = nil) throws {
+                authToken: String? = ProcessInfo.processInfo.environment["JARVIS_CONVEX_AUTH_TOKEN"]) throws {
         self.paths = paths
         self.hostNode = hostNode
         // R11: allow environment variable override for Convex URL
         let resolvedURLString = convexURLString
             ?? ProcessInfo.processInfo.environment["CONVEX_URL"]
+            ?? ProcessInfo.processInfo.environment["JARVIS_CONVEX_URL"]
             ?? "https://enduring-starfish-794.convex.cloud/api/mutation"
         guard let url = URL(string: resolvedURLString) else {
             throw JarvisError.processFailure("Invalid Convex URL: \(resolvedURLString)")
         }
         self.convexURL = url
         self.authToken = authToken
+        if authToken == nil {
+            NSLog("[ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production")
+        }
     }
 
     public func start() {

@@ -1,0 +1,475 @@
+The Architectural Evolution of
+Prehospital Medicine: MedStar Mobile
+Healthcare and the Genesis of Mobile
+Integrated Healthcare
+1. Introduction
+The transformation of Emergency Medical Services (EMS) from a logistical transport
+mechanism into a clinically integrated component of the healthcare value chain represents a
+seminal shift in modern medical history. This evolution, now codified as Mobile Integrated
+Healthcare (MIH), fundamentally challenges the operational and economic dogmas that
+governed prehospital care for the latter half of the 20th century. While the intellectual lineage of
+community-based paramedicine is geographically distributed—with notable contemporaneous
+developments in North Carolina and Colorado—the specific economic and operational
+architecture of the urban MIH model is inextricably linked to MedStar Mobile Healthcare in Fort
+Worth, Texas.
+This report provides an exhaustive historical and structural analysis of MedStar’s role in
+pioneering MIH. It validates the assertion that MedStar served as the primary incubator for the
+model’s transition from a clinical experiment to a sustainable business strategy. By examining
+the convergence of the Public Utility Model (PUM), the rise of value-based care, and the specific
+innovations of MedStar’s leadership between 2009 and 2013, we establish a definitive timeline
+of how "you call, we haul" was replaced by patient-centered navigation. The analysis draws
+upon historical data, operational protocols, and peer-reviewed outcomes to reconstruct the
+emergence of a system that has since been replicated globally.
+
+2. The Structural Preconditions: The Crisis of the
+Traditional Model
+To understand the radical nature of MedStar’s innovation, one must first dissect the structural
+dysfunction of the American EMS landscape prior to 2009. The industry was—and in many
+jurisdictions remains—trapped in a fee-for-service reimbursement cycle that incentivized volume
+over value.
+
+2.1 The Economic Perversity of "You Call, We Haul"
+Since the release of the landmark 1966 white paper Accidental Death and Disability: The
+Neglected Disease of Modern Society, EMS systems were engineered for speed and
+stabilization. This engineering was reinforced by federal payment policies, specifically Medicare,
+which reimbursed agencies only when a patient was physically transported to a hospital
+emergency department (ED). This created a binary economic reality: transport generated
+revenue; non-transport (treatment on scene, referral, or refusal) generated a loss.
+Consequently, EMS agencies were financially motivated to transport every 911 caller, regardless
+of clinical acuity. This model functioned adequately for trauma and cardiac arrest but failed
+catastrophically when applied to the rising tide of chronic disease and social dysfunction that
+began to overwhelm urban centers in the early 2000s. By the late 2000s, opposing
+trends—increasing ED utilization and decreasing hospital capacity—created a bottleneck that
+threatened the viability of emergency systems.
+
+2.2 The Public Utility Model (PUM) Advantage
+MedStar’s ability to deviate from this entrenched model was largely due to its unique
+organizational structure. Established in 1986 through an interlocal agreement between Fort
+Worth and surrounding cities, MedStar was formed as the Metropolitan Area EMS Authority
+(MAEMSA). This creation was a direct response to a crisis of reliability among private providers
+in the mid-1980s.
+Crucially, MedStar adopted the Public Utility Model (PUM), a theoretical framework developed
+by economist Jack Stout in the early 1980s. Stout’s model treated EMS not as a public safety
+arm (like police or fire) but as a utility, governed by strict performance contracts and economic
+efficiency. The PUM philosophy emphasized "System Status Management"—the dynamic
+deployment of resources based on predictive demand analysis.
+This structural DNA is vital to the MIH story. Because MedStar was a PUM, it possessed two
+attributes that fire-based or purely private systems often lacked:
+   1.​ Data-Centric Culture: The PUM relies on granular data to minimize response times and
+       maximize unit hour utilization (UHU). MedStar had the analytical infrastructure to see
+       patterns in patient utilization that others missed.
+   2.​ Agility: As an administrative governmental agency managed by a board of directors from
+       member cities, MedStar had the autonomy to experiment with deployment models without
+       the bureaucratic rigidity of a municipal fire department or the profit-margin shackles of a
+       publicly traded corporation.
+
+2.3 The Discovery of the "Frequent Flier"
+The catalyst for MedStar’s pivot occurred in preparation for the summer of 2009. Facing the
+prospect of high call volumes due to Texas heat, the medical director and operations staff
+initiated an audit of their 911 usage data to identify strain points. The analysis revealed a
+shocking Pareto distribution: a microscopic cohort of patients was consuming a massive
+proportion of resources.
+Specifically, the data identified 21 individual patients who had generated nearly 800 ambulance
+transports in a single 12-month period. These transports resulted in approximately $1 million in
+billed charges, the vast majority of which was uncollectible due to the patients’ lack of insurance
+or inability to pay.
+This finding was the "smoking gun." It demonstrated that the traditional EMS model was not only
+clinically ineffective for these patients—who were clearly not getting better despite hundreds of
+ED visits—but was also a financial hemorrhage for the system and the community. The
+realization that 21 people could drive $1 million in cost created the political and economic capital
+necessary to attempt a radical experiment.
+3. The Genesis of Intervention (2009–2011)
+The transition from identifying the problem to operationalizing a solution marked the true
+beginning of the MIH era at MedStar. Unlike later programs that would launch with federal
+grants or hospital contracts, MedStar’s initiative began as an internal operational fix using
+"found" resources.
+
+3.1 The "Light Duty" Experiment
+In July 2009, MedStar launched what would later be recognized as its first Community
+Paramedicine pilot. Lacking a budget for new staff, the agency utilized a sunk cost: paramedics
+who were on "light duty" status due to workplace injuries. These providers, unable to lift
+stretchers or work 12-hour ambulance shifts, were traditionally relegated to administrative tasks.
+MedStar leadership, including the Medical Director, repurposed these paramedics to conduct
+proactive home visits to the identified super-utilizers. The hypothesis was straightforward: if a
+paramedic could visit a "frequent flier" at home, assess their needs, and address social or
+medical gaps, they might prevent the next 911 call.
+The protocol was unprecedented. Paramedics, trained to work in 15-minute intervals of
+high-adrenaline crisis, were now asked to sit in living rooms for an hour, reviewing medications
+and discussing diet. The "light duty" medics brought a unique skill set—clinical knowledge
+combined with the street-level problem-solving inherent to EMS. They acted not just as
+clinicians but as forensic social workers, uncovering the root causes of 911 use: loneliness,
+confusion over prescriptions, lack of transportation to primary care, or food insecurity.
+
+3.2 Outcomes and Validation
+The results of the light duty pilot were immediate. Among the target cohort, 911 utilization
+dropped by approximately 77%. This reduction did not just save ambulance fuel; it liberated
+ambulance capacity for true emergencies and reduced the burden on local emergency
+departments.
+This success validated two critical concepts:
+  1.​ Paramedic as Navigator: It proved that paramedics could function effectively in a
+      preventative role, leveraging the trust they already held in the community.
+  2.​ Economic ROI: It demonstrated that avoiding a transport was financially superior to
+      performing an unreimbursed transport.
+
+3.3 The Broader Landscape: Wake County and Eagle County
+To rigorously validate the claim of MedStar’s primacy, one must contextualize it against
+contemporaneous developments. The year 2009 was a watershed moment for paramedicine,
+with three distinct models emerging simultaneously:
+   ●​ Wake County EMS (North Carolina): In January 2009, six months prior to MedStar’s
+       pilot, Wake County launched its "Advanced Practice Paramedic" (APP) program. The
+       APP model was designed primarily to support high-acuity calls (cardiac arrests) and
+       secondarily to divert mental health and chronic crisis patients from EDs. While pioneering,
+       the APP model was a clinical escalation—using higher-credentialed medics to provide
+       more advanced care. MedStar acknowledged the Wake County model as a reference
+     point but sought a different operational focus.
+  ●​ Eagle County (Colorado): In 2010, the Western Eagle County Ambulance District
+     (WECAD) launched the first rural Community Paramedic program. Their model was
+     driven by access—filling the void of primary care in remote mountain communities. They
+     became the first agency to license as a home health agency, focusing on rural healthcare
+     delivery.
+  ●​ MedStar (Texas): MedStar’s unique contribution was the system integration model.
+     Unlike Wake (clinical support) or Eagle (rural access), MedStar focused on urban demand
+     management and economic sustainability through payer partnerships. This distinction is
+     vital: MedStar’s model was designed to solve the financial crisis of urban healthcare
+     utilization, making it the blueprint for the "Mobile Integrated Healthcare" concept that
+     would appeal to insurers and hospitals nationwide.
+
+Table 1: Comparative Genesis of Early MIH Programs (2009-2010)
+Feature                 MedStar Mobile           Wake County EMS          Eagle County
+                        Healthcare (TX)          (NC)                     Paramedics (CO)
+Launch Date             July 2009 (Pilot)        January 2009             2010
+Primary Driver          High Utilizer/Economic Clinical                   Rural Access/Primary
+                        Loss                     Support/Workforce        Care Gap
+                                                 Exp.
+Operational Model       Dedicated "Light Duty" / Advanced Practice        Rural Community
+                        HUG                      Paramedics (APP)         Paramedics
+Key Innovation          Payer Partnerships / Advanced Clinical            Home Health
+                        Utilization Mgmt         Intervention             Licensing / Rural Care
+Target Population       Urban "Frequent Fliers" High Acuity / Mental      Underserved Rural
+                        / Uninsured              Health                   Residents
+4. The Architects of Transformation
+The evolution of MedStar’s program from an ad-hoc pilot to a globally recognized system was
+not an accident of history but the result of deliberate leadership. A core team of executives and
+clinicians coalesced around the vision of transforming the agency.
+
+4.1 Matt Zavadsky, MS-HSA: The Evangelist
+Matt Zavadsky, serving as the Chief Transformation Officer (and initially Director of Public
+Affairs), became the public face of the MedStar model. Zavadsky’s contribution was strategic
+communication. He possessed the ability to translate clinical outcomes into the language of
+health economics. He championed the idea that EMS should not be paid for "driving," but for
+"outcomes".
+Zavadsky served as the Chair of the NAEMT Mobile Integrated Healthcare Committee, a
+position that allowed him to export MedStar’s lessons to the national stage. He was instrumental
+in distinguishing "Mobile Integrated Healthcare" from "Community Paramedicine," arguing that
+the former represented a broader system change involving data and payer integration.
+
+4.2 Doug Hooten, MBA: The Executive Sponsor
+As CEO, Doug Hooten provided the organizational cover necessary for innovation. In a
+risk-averse industry, Hooten sanctioned the use of agency resources for
+non-revenue-generating activities (initially) in the belief that the long-term ROI would validate
+the strategy. Hooten’s background in business administration, rather than purely clinical EMS,
+allowed him to view MedStar as a healthcare enterprise. Together with Zavadsky, he
+co-authored Mobile Integrated Healthcare – Approach to Implementation, which became the
+definitive textbook for agencies attempting to replicate the model.
+
+4.3 The Clinical Vanguard: Dr. Jeff Beeson and Dr. Neal Richmond
+The regulatory barrier to MIH was significant: paramedics are licensed to treat emergencies.
+Performing scheduled home visits required a reimagining of medical direction. MedStar’s
+Medical Directors, Dr. Jeff Beeson and later Dr. Neal Richmond, were pivotal in writing the
+protocols that legalized these interactions.
+Dr. Beeson, in particular, provided the foundation upon which the MIH protocols were built,
+allowing paramedics to assess, treat, and refer patients without transport—a deviation from
+standard "treat and transport" guidelines that required immense clinical trust. Dr. Richmond
+continued this work, emphasizing the "Triple Aim" and ensuring the clinical rigor of the
+interventions.
+
+4.4 Operational Pioneers: Desiree Partain, Brandon Pate, and John
+Farris
+The theoretical model was operationalized by a cadre of field staff who invented the practice of
+urban community paramedicine in real-time.
+  ●​ Desiree Partain: Starting as a paramedic in 2009, Partain rose to become the Mobile
+      Integrated Healthcare Manager. She was the operational architect, translating the
+      high-level strategy into daily workflows. She managed the complex logistics of
+      coordinating with hospital case managers, securing patient appointments, and overseeing
+      the "light duty" staff. Her tenure represents the professionalization of the MIH manager
+      role.
+  ●​ Brandon Pate: As a Critical Care Paramedic and later Assistant Operations Manager,
+      Pate pioneered the integration of geriatric care principles into the MIH model. He
+      developed fall prevention screenings and collaborated with academic partners at UNT
+      Health Science Center to bring rigorous quality improvement methodologies to the
+      program.
+  ●​ John Farris: One of the earliest community paramedics, Farris exemplified the shift in
+      provider mentality. His work with high utilizers—often involving "tough love" and
+      accountability—demonstrated that the "soft skills" of communication and empathy were as
+      critical as clinical acumen in reducing 911 dependence.
+
+5. Defining "Mobile Integrated Healthcare": The 2013
+Pivot
+A critical juncture in this history is the deliberate rebranding and semantic shift that occurred
+around 2013. This was not merely a marketing exercise but a strategic reorientation of the
+agency’s identity.
+
+5.1 From "EMS" to "Mobile Healthcare"
+In 2013, the Metropolitan Area EMS Authority officially changed its trade name from "MedStar
+EMS" to "MedStar Mobile Healthcare". This change was driven by the realization that "EMS"
+implied a limitation: Emergency. By adopting "Mobile Healthcare," MedStar signaled to payers,
+hospitals, and the public that their scope of practice had expanded to include unscheduled and
+scheduled primary care, chronic disease management, and navigation.
+This rebranding coincided with a broader industry push, led by MedStar and NAEMT, to adopt
+the term Mobile Integrated Healthcare (MIH) over "Community Paramedicine." The distinction
+was nuanced but important: "Community Paramedicine" described a provider type; "Mobile
+Integrated Healthcare" described a system of care that integrated EMS resources with the
+broader healthcare grid.
+
+5.2 The High Utilizer Group (HUG) and "EMS Loyalty"
+The flagship of this new identity was the "EMS Loyalty Program," later formalized as the High
+Utilizer Group (HUG). The term "Loyalty Program" was a tongue-in-cheek internal reference to
+the PUM’s customer-service orientation—these patients were "loyal" to 911, and MedStar
+sought to reward that loyalty with a better service than a lights-and-sirens ride.
+The HUG program targeted patients calling 911 fifteen or more times in 90 days. The
+intervention was high-touch and low-tech: regular home visits to teach patients how to manage
+their conditions and navigate the healthcare system. The success of HUG—often reducing
+utilization by over 80%—became the proof-of-concept that attracted external funding.
+
+5.3 The CHF Readmission Avoidance Program
+In 2012, the Affordable Care Act (ACA) introduced the Hospital Readmissions Reduction
+Program (HRRP), penalizing hospitals for excessive readmissions of patients with Congestive
+Heart Failure (CHF), pneumonia, and AMI. This policy change created a market opportunity for
+MedStar.
+MedStar approached local hospitals (such as JPS Health Network) with a proposition: pay
+MedStar to visit discharged CHF patients at home to prevent readmission. This was a radical
+departure from the status quo. Instead of being paid to transport a patient to the hospital,
+MedStar was now being paid to keep them out. This program was the first major instance of an
+EMS agency securing a contract to reduce hospital revenue (by preventing admissions) in
+exchange for shared savings, effectively aligning EMS incentives with healthcare reform goals.
+
+5.4 Nurse Triage and Upstream Intervention
+Recognizing that many 911 calls were low-acuity (e.g., toothaches, minor abrasions), MedStar
+integrated Registered Nurses (RNs) into the 911 communications center. Using the Emergency
+Communication Nurse System (ECNS), MedStar began diverting eligible calls to nurse triage.
+These nurses could offer self-care advice or arrange alternative transport (like Lyft/Uber
+partnerships) to clinics, preserving ambulance resources for life-threatening emergencies. This
+"911 Nurse Triage" became another pillar of the MIH ecosystem, further validating the "Mobile
+Healthcare" moniker.
+
+6. The Economic Architecture: The "Triple Aim"
+The sustainability of MedStar’s model rested on its ability to articulate value. The traditional
+EMS model is a negative-margin business for non-transport activities; a paramedic visit without
+a ride to the hospital generates zero revenue under standard Medicare Part B rules.
+
+6.1 Operationalizing the Triple Aim
+MedStar leadership adopted the Institute for Healthcare Improvement’s (IHI) Triple
+Aim—improving the patient experience, improving population health, and reducing per capita
+costs—as their strategic North Star. By framing their services within this construct, they were
+able to speak the language of hospital CFOs and insurance executives.
+MedStar demonstrated that a $300 community paramedic visit was a rational investment if it
+prevented a $10,000 hospital admission. This economic logic allowed them to secure contracts
+with commercial payers and hospital systems, creating a diversified revenue stream that
+insulated the MIH program from the vagaries of grant funding.
+
+6.2 The StarSaver Membership
+An often-overlooked component of MedStar’s financial integration was the StarSaver
+membership program. While primarily an ambulance subscription service to cover out-of-pocket
+costs for transport, the existence of such a membership base provided a stable relationship with
+the community. In 2024, the City of Fort Worth transitioned this program, but for decades, it
+represented a direct financial link between MedStar and the residents it served, reinforcing the
+"utility" aspect of the model.
+
+7. Barriers and Breakthroughs
+The path to establishing MIH was fraught with obstacles that MedStar had to systematically
+dismantle.
+
+7.1 The Reimbursement Cliff
+The most significant barrier was the lack of reimbursement codes for MIH services. In the early
+years (2009-2012), MedStar relied entirely on internal savings. By reducing the call volume from
+super-utilizers, they reduced the operational tempo, saving fuel and wear-and-tear on the fleet.
+This "cost avoidance" strategy was the bridge that allowed them to survive until external payer
+contracts could be negotiated. This bootstrapping approach proved that MIH could be viable
+even without immediate fee-for-service revenue, a critical lesson for other agencies.
+
+7.2 "Scope of Practice" vs. "Scope of Employment"
+Critics often argued that community paramedicine exceeded the EMS scope of practice.
+MedStar navigated this by clarifying that the clinical skills (assessment, vital signs, history
+taking) were well within a paramedic's scope; it was the context (home visit vs. roadside) and
+the goal (management vs. transport) that had changed. By working strictly under the delegated
+authority of the Medical Director, MedStar avoided regulatory pitfalls that doomed other
+programs.
+
+7.3 Cultural Resistance
+Internally, shifting the culture of a high-volume urban EMS system was challenging. Paramedics
+are culturally conditioned to value high-acuity interventions—intubations, cardiac arrests,
+trauma. The "slow medicine" of MIH—spending an hour discussing diet—was initially viewed
+with skepticism. MedStar addressed this by selecting "light duty" staff who had no choice but to
+participate, and then letting their success stories (like the transformation of Antoine Hall) convert
+the skeptics. Over time, the "Hope Squad" and other internal initiatives helped integrate the
+mental health and wellness of the providers into the broader culture of care.
+
+8. Validation and Legacy
+The validation of MedStar’s model came through data. A 2017 peer-reviewed study in the
+American Journal of Emergency Medicine, co-authored by MedStar staff and academic
+researchers, provided the empirical proof the industry needed. The study showed that patients
+in the MIH program experienced significant improvements in quality of life (mobility, self-care)
+and drastic reductions in ED utilization.
+The Agency for Healthcare Research and Quality (AHRQ) profiled MedStar’s program multiple
+times, citing it as a model for the nation. The Centers for Medicare & Medicaid Services (CMS)
+eventually used lessons from MedStar (and others) to design the ET3 (Emergency Triage,
+Treat, and Transport) model, a federal pilot aimed at reimbursing EMS for non-transport
+interventions—a direct policy descendant of the work begun in Fort Worth.
+
+9. Conclusion
+The investigation decisively confirms that while the concept of paramedicine beyond the
+ambulance was emerging globally, MedStar Mobile Healthcare in Fort Worth, Texas, is the
+originator of the Mobile Integrated Healthcare business model.
+MedStar did not merely implement a clinical program; they engineered a new sector of the
+healthcare economy. By leveraging the data-rich environment of the Public Utility Model, the
+leadership of visionaries like Matt Zavadsky and Doug Hooten, and the operational agility of
+their staff, MedStar transformed a local "frequent flier" problem into a national solution for
+healthcare value. They coined the terminology, wrote the textbooks, established the payer
+contracts, and provided the data that allowed MIH to transition from a fringe experiment to a
+standard of care. The history of MedStar’s program is the history of EMS claiming its seat at the
+table of modern medicine.
+
+Table 2: The Core Architects of the MedStar MIH Model
+Name                     Role                     Strategic Contribution    Key Source
+Matt Zavadsky            Chief Transformation     National advocacy;
+                         Officer                  NAEMT Chair; Payor
+                                                  contract negotiation;
+Name                     Role                Strategic Contribution Key Source
+                                             defined economic value
+                                             proposition.
+Doug Hooten              CEO                 Executive sponsorship;
+                                             navigated PUM
+                                             governance;
+                                             co-authored
+                                             implementation guide.
+Dr. Jeff Beeson          Medical Director    Clinical architect;
+                                             authored protocols for
+                                             non-transport and
+                                             treat-on-scene
+                                             interventions.
+Desiree Partain          MIH Manager         Operational leader;
+                                             managed transition
+                                             from "light duty" pilot to
+                                             formalized department.
+John Farris              Community Paramedic Field pioneer;
+                                             established the
+                                             patient-provider
+                                             relational model in the
+                                             home setting.
+Brandon Pate             Asst. Ops Manager   Developed geriatric/fall
+                                             prevention protocols;
+                                             integrated academic
+                                             quality improvement.
+Table 3: Timeline of Critical Milestones
+| Year | Milestone | Significance | Source | | :--- | :--- | :--- | :--- | | 1986 | Founding of MedStar
+(MAEMSA) | Establishment of Public Utility Model (PUM) enabling data-driven management. | | |
+July 2009 | "Light Duty" Pilot | Operational launch of home visits for 21 super-utilizers using
+injured staff. | | | 2012 | CHF Readmission Program | Launch of first hospital-funded partnership
+to address ACA readmission penalties. | | | 2013 | Rebranding to Mobile Healthcare | Official
+name change from "MedStar EMS" to signal broader healthcare role. | | | 2014 | MIH
+Implementation Book | Publication of Hooten & Zavadsky's guide, codifying the model for the
+industry. | | | 2017 | AJEM Study Publication | Peer-reviewed validation of clinical and economic
+outcomes. | |
+
+Works cited
+
+1. Timeline of Modern American EMS - HMP Global Learning Network,
+https://www.hmpgloballearningnetwork.com/site/emsworld/article/219388/timeline-modern-ameri
+can-ems 2. History of Community Paramedicine - JEMS,
+https://www.jems.com/mobile-integrated-health-and-community-paramedicine/history-communit
+y-paramedicine/ 3. MedStar Mobile Healthcare, https://www.medstar911.org/ 4. MedStar Mobile
+Healthcare is the trade name for the Metropolitan Area EMS Authority (MAEMSA). The
+MAEMSA is a governmental administrative agency established through the adoption of a
+uniform EMS ordinance and interlocal cooperative agreement between municipalities under the
+provisions of Section 773.051 of the Texas Health and Safety Code and the provisions of
+Chapter 791.001 of the Texas Government Code (the “Interlocal Cooperation Act”), which
+provides that combinations of governmental units may contract for the provision of
+governmental services. The MAEMSA/MedStar Mobile Healthcare is not a subsidiary of any
+other agency or corporation, nor does it have any financial interest in any other agency or
+corporation., https://www.medstar911.org/about-us/ 5. Every aspect of the system has exceeded
+anything we could have imagined 30 years ago. - MedStar Mobile Healthcare,
+https://www.medstar911.org/wp-content/uploads/2019/10/MedStar_2016_-_30_Years_LR.pdf 6.
+Public utility model - Wikipedia, https://en.wikipedia.org/wiki/Public_utility_model 7. EMS Myth
+#8: Public Utility Models are the most efficient model for providing prehospital care - HMP
+Global Learning Network,
+https://www.hmpgloballearningnetwork.com/site/emsworld/article/10325080/ems-myth-8-public-
+utility-models-are-most-efficient-model-providing-prehospital-care 8. Remembering Jack Stout,
+the economist who transformed EMS deployment - EMS1,
+https://www.ems1.com/ems-pioneers/articles/remembering-jack-stout-the-economist-who-transf
+ormed-ems-deployment-rxPmo0aCk6Urjn9b/ 9. Medic gives glimpse into typical day as
+community paramedic - EMS1,
+https://www.ems1.com/community-paramedicine/articles/medic-gives-glimpse-into-typical-day-a
+s-community-paramedic-Ls6CcGc0DtRQTTtl/ 10. Trained Paramedics Provide Ongoing Support
+to Frequent 911 Callers, Reducing Use of Ambulance and Emergency Department Services -
+MedStar Mobile Healthcare,
+https://www.medstar911.org/wp-content/uploads/2019/10/MedStar-AHRQ-Profile-2016.pdf 11.
+How 4 cities are making community paramedicine work for them - EMS1,
+https://www.ems1.com/community-paramedicine/articles/how-4-cities-are-making-community-pa
+ramedicine-work-for-them-c137SL4ukvszFexd/ 12. Advanced Practice Paramedics - Wake
+County Government,
+https://www.wake.gov/departments-government/emergency-medical-services-ems/careers/adva
+nced-practice-paramedics 13. N.C. advanced practice paramedic program marks anniversary -
+EMS1,
+https://www.ems1.com/community-paramedicine/articles/nc-advanced-practice-paramedic-progr
+am-marks-anniversary-hc1466aLomzz4LF0/ 14. BLUEPRINT FOR COMMUNITY
+PARAMEDICINE PROGRAMS especially for south carolina ems agencies - National
+Organization of State Offices of Rural Health (NOSORH),
+https://nosorh.org/wp-content/uploads/2014/08/SC-Community-Paramedicine-Blueprint_V1-Meli
+nda-Merrill-and-Michele-Staneck.pdf 15. Western Eagle County Ambulance District (WECAD)
+History,
+https://www.eaglecountyparamedics.com/western-eagle-county-ambulance-district-wecad-histor
+y 16. Eagle County Community Paramedic program marks 10 years of service, celebrates
+ever-expanding reach | VailDaily.com,
+https://www.vaildaily.com/news/eagle-county-community-paramedic-program-marks-10-years-of
+-service-celebrates-ever-expanding-reach/ 17. Matt Zavadsky, MS-HSA, EMT - EMS1,
+https://www.ems1.com/matt-zavadsky/ 18. Working Together for Our Community - MedStar
+Mobile Healthcare,
+https://www.medstar911.org/wp-content/uploads/2020/03/Low-Res-under-2MG-2020-MedStar-V
+er26.pdf 19. Mobile Integrated Healthcare and - naemt,
+https://www.naemt.org/docs/default-source/community-paramedicine/naemt-mih-cp-report.pdf
+20. MedStar Mobile Healthcare | Texas EMS Alliance,
+https://txemsa.com/medstar-mobile-healthcare/ 21. MedStar (TX) CEO Doug Hooten Retires -
+JEMS, https://www.jems.com/ems-management/medstar-tx-ceo-doug-hooten-retires/ 22. Mobile
+Healthcare Programs | MedStar911, https://www.medstar911.org/mobile-healthcare-programs/
+23. A Novel Idea - JEMS, https://www.jems.com/ems-management/a-novel-idea/ 24. May 8,
+2016 - MedStar Mobile Healthcare,
+https://www.medstar911.org/wp-content/uploads/2019/10/2016_EPAB-OMD_Clinical_Protocols_
+-_Final.pdf 25. Desiree Partain, MHA - Transformation Manager at MedStar Mobile Healthcare |
+The Org, https://theorg.com/org/medstar-mobile-healthcare/org-chart/desiree-partain-mha 26.
+Mobile Integrated Healthcare Part 8: Provider Selection and Training for MIH-CP Programs,
+https://www.hmpgloballearningnetwork.com/site/emsworld/article/12090212/mih-cp-provider-sel
+ection-and-training 27. Age-Friendly EMS - HMP Global Learning Network,
+https://www.hmpgloballearningnetwork.com/site/emsworld/original-contribution/age-friendly-ems
+28. Integrating fall prevention strategies into EMS | CIA - Dove Medical Press,
+https://www.dovepress.com/integrating-fall-prevention-strategies-into-ems-services-to-reduce-fal
+-peer-reviewed-fulltext-article-CIA 29. Meet A Paramedic Who Makes House Calls To Keep
+Patients Out Of The ER,
+https://www.texasstandard.org/stories/meet-a-paramedic-who-makes-house-calls-to-keep-patien
+ts-out-of-the-er/ 30. SCEMS Strategic Plan.indd - Sedgwick County,
+https://www.sedgwickcounty.org/media/28705/scems-strategic-plan.pdf 31. MIH-CP - NAEMT's,
+https://www.naemt.org/resources/mih-cp 32. Florida Mobile Integrated Healthcare Community
+Paramedicine Program Guidebook,
+https://www.floridahealth.gov/provider-and-partner-resources/advisory-councils-stakeholder-gro
+ups/ems-advisory-council/_documents/florida-mihcp-guidebook.pdf 33. Mobile Integrated Health
+Care and Community Paramedicine: An Emerging Emergency Medical Services Concept -
+UCLA Center for Prehospital Care,
+https://www.cpc.mednet.ucla.edu/uploads/mih/library/44%20Mobile%20Integrated%20Health%2
+0Care%20and%20Community%20Paramedicine%20An%20Emerging%20Emergency%20Medi
+cal%20Services%20Concept.pdf 34. The community 911 system: Sources of strain and relief,
+https://commons.lib.jmu.edu/context/honors201019/article/1384/viewcontent/full_pdf.pdf 35.
+Can Paramedics Help Achieve the Triple Aim? | What Matters,
+https://investinresults.org/story/can-paramedics-help-achieve-triple-aim.html 36. StarSaver
+Membership – Welcome to the City of Fort Worth,
+https://www.fortworthtexas.gov/departments/fire/services/membership 37. 2024 MEDSTAR
+CAREHOLDERS' REPORT,
+https://www.medstar911.org/wp-content/uploads/2024/05/2024-MedStar-Careholders-Report-Fi
+nal.pdf 38. State Legislation Supporting Mobile Integrated Healthcare - JEMS,
+https://www.jems.com/mobile-integrated-health-and-community-paramedicine/state-legislation-s
+upporting-mobile-integrated-healthcare/ 39. How MedStar's Mobile Integrated Healthcare
+Program Restored Patient's Hope - JEMS,
+https://www.jems.com/mobile-integrated-health-and-community-paramedicine/how-medstar-s-m
+obile-integrated-healthca/ 40. A pilot mobile integrated healthcare program for frequent utilizers
+of emergency department services,
+https://www.medstar911.org/wp-content/uploads/2019/10/MedStar_MIH_Study_in_American_Jo
+urnal_of_Emergency_Medicine_-_2017.pdf
+

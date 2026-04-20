@@ -1,0 +1,580 @@
+Forensic Analysis of the MedStar to Fort
+Worth Fire Department Emergency
+Medical Services Transition
+Executive Summary
+The dissolution of the Area Metropolitan Ambulance Authority, operating as MedStar Mobile
+Healthcare, and its subsequent absorption into the Fort Worth Fire Department, represents a
+fundamental paradigm shift in municipal emergency medical services. Executed in July 2025,
+this operational transfer dismantled a decades-old Public Utility Model in favor of a traditional,
+monolithic fire-based delivery system. This forensic intelligence report provides an exhaustive,
+longitudinal analysis of this transition, tracing the deep-rooted systemic variables that
+precipitated the shift and the subsequent operational fallout.
+By examining the historical operational baseline spanning from 1986 to 2009, the administrative
+mechanics that forced the transition between 2020 and 2025, and the immediate post-transition
+performance audit through March 2026, a clear and highly concerning trajectory emerges. The
+empirical data indicates that the shift has resulted in severe systemic friction across virtually
+every operational and clinical metric. This friction is evidenced by a highly accelerated
+personnel attrition rate, critical physical infrastructure shortages, significantly degraded
+response time compliance, and a massive transfer of financial burden onto the municipal
+taxpayer.
+The ensuing comprehensive study isolates the specific variables, political mechanics, and
+logistical realities driving the current operational degradation. It evaluates the transition not
+merely as a change in municipal letterhead, but as a profound structural alteration to the way
+pre-hospital clinical medicine is delivered, managed, and financed across a
+four-hundred-and-thirty-six square mile jurisdiction. The findings synthesize historical precedent
+with current administrative realities to provide a definitive audit of an emergency medical system
+in acute distress.
+
+Part I: Historical Operational Baseline (1986–2009)
+The Public Utility Model Architecture and Pre-2006 Efficiency
+To accurately measure the magnitude and the consequences of the 2025 transition, it is
+absolutely imperative to establish a rigorous historical baseline of the system that preceded it. In
+1986, the City of Fort Worth, functioning in collaboration with surrounding municipalities,
+established the Area Metropolitan Ambulance Authority to oversee MedStar. This system was
+meticulously engineered utilizing the Public Utility Model, a highly specialized framework
+conceptualized in the early 1980s by emergency medical services economist Jack Stout.
+Under the Public Utility Model, the local government acts as an exclusive purchaser of services,
+while a private or quasi-governmental entity manages the daily operations, logistics, and
+personnel. The fundamental philosophical premise of the Public Utility Model is the strict
+separation of clinical oversight, asset ownership, and labor management to maximize economic
+efficiency and protect patient care. Within this architecture, MedStar operated as a failsafe
+franchise. The system was deliberately designed to insulate clinical medical delivery from the
+political, union, and financial pressures that are typically inherent in direct municipal department
+management. The independent Office of the Medical Director maintained strict, uncompromising
+clinical control, while the operational contractor was held to severe, contractually binding
+performance metrics. Failure to meet specific response time fractiles resulted in substantial
+financial penalties, ensuring that system efficiency was inexorably linked to operational survival.
+When evaluating the efficiency of the quasi-governmental and contractor-led architecture used
+prior to 2006, the financial data reveals a system operating at peak economic optimization.
+During its early and middle operational eras, MedStar received minor, highly regulated subsidies
+from Fort Worth and its participating member cities. However, these subsidies were a fraction of
+the cost required to operate a fully municipalized service. Through aggressive optimization of
+the medical billing cycle, maximization of commercial insurance and Medicare reimbursements,
+and the implementation of advanced operational protocols, the system's reliance on municipal
+taxpayer subsidies was steadily engineered out of existence.
+The contrast between the taxpayer subsidy requirements of this early era and the 2026
+fire-based budget is staggering. By 2010, MedStar had achieved complete financial
+independence, operating without any direct public subsidy from the City of Fort Worth or its
+member cities for over a decade. A third-party cost reporting firm validated that MedStar
+operated as the lowest-cost provider in the State of Texas between 2012 and 2022. In 2024, the
+expense per transport for MedStar was calculated at four hundred and ninety-six dollars. This
+stood in profound contrast to the state average for fire-based ambulance systems, which
+operated at a massively inflated cost of two thousand, three hundred and sixty-four dollars per
+transport. The historical baseline dictates that prior to the post-pandemic inflationary crisis, the
+Public Utility Model operated with maximal financial efficiency, effectively shielding the municipal
+general fund from the volatile, high-risk economics of healthcare logistics. In direct contrast, the
+2026 fire-based budget assumes an immediate operating cost of 89.2 million dollars, introducing
+a severe permanent liability to the municipal ledger.
+
+Self-Governance Evolution (2006–2009) and System Status
+Management
+As the Public Utility Model matured, MedStar underwent a significant evolution toward a
+self-governed Area Metropolitan Ambulance Authority model between 2006 and 2009. This
+transition marked a critical shift in how emergency medical services were deployed across the
+region. Recognizing that efficiency relied on economies of scale, the system heavily invested in
+the optimization of dynamic resource allocation. The clinical and operational efficiency of the
+self-governed MedStar era was largely driven by the aggressive implementation of System
+Status Management.
+To understand the profound operational shift that occurred during this period, one must contrast
+System Status Management with legacy deployment methodologies. Traditional fire department
+operations rely entirely on a static deployment model. In a static model, resources are housed in
+fixed geographic locations—specifically, expensive brick-and-mortar fire stations—where crews
+wait passively for emergency calls to be dispatched. System Status Management, conversely, is
+a purely dynamic deployment strategy. It utilizes highly granular, historical computer-aided
+dispatch data to predict the temporal and geographic probability of emergency calls before they
+even happen.
+Under the rules of System Status Management, ambulances do not sit idle in fixed stations.
+Instead, they are continuously routed and posted at strategic street-corner locations,
+commercial parking lots, or high-traffic arterial corridors based on real-time system demand. As
+call volume fluctuates throughout the day, and as units are committed to hospital transports, the
+remaining available ambulances are dynamically and continuously repositioned to maintain an
+optimal geographic net of coverage over the city.
+This methodology fundamentally altered MedStar's infrastructure requirements and represents
+the peak clinical era of the system's history. Because ambulances were constantly in motion or
+posted in dynamic, data-driven locations, the necessity for fixed ambulance stations was
+effectively eliminated. This shift in operational philosophy culminated in the permanent closure
+of fixed physical assets, most notably the shuttering of Station 33 around 2009.
+The closure of Station 33 was not a failure of the system, nor was it a symptom of financial
+distress; rather, it was a calculated, highly intelligent logistical optimization. Capital that would
+have been wasted on real estate maintenance, facility overhead, and static operational drag
+was instead redirected directly into frontline clinical assets, advanced fleet maintenance, and
+the development of mobile integrated healthcare programs. The closure of Station 33
+symbolized the complete maturation of MedStar into a fully dynamic, high-performance
+emergency medical service. The system proved that superior clinical response times could be
+achieved not by building more stations, but by utilizing predictive algorithms to place
+ambulances exactly where they were statistically most likely to be needed. The abandonment of
+this philosophy in 2025 serves as the root cause for the operational paralysis currently plaguing
+the Fort Worth Fire Department.
+
+Part II: The "Manufactured Crisis" & Transition
+(2020–July 2025)
+The Fitch & Associates Critique and the Financial Disparity
+The financial stability of the MedStar Public Utility Model began to erode significantly in the
+wake of the global macroeconomic disruptions caused by the COVID-19 pandemic.
+Skyrocketing personnel costs, severe supply chain inflation, and entirely stagnant
+reimbursement rates from commercial insurance, Medicare, and Medicaid created an
+unavoidable structural deficit. While operational costs surged, the revenue generated per
+transport remained artificially suppressed by federal healthcare policy. By 2023, MedStar
+required transitional funding to maintain its high-performance operations, approaching the city
+with a request for approximately four million to six million dollars in municipal subsidies.
+In response to this request, the Fort Worth City Council characterized the situation as an
+existential crisis and commissioned Fitch & Associates, an independent consulting firm, to
+conduct an exhaustive assessment of the emergency medical services system to propose
+alternative future models. A deep dive into the April 2024 Fitch report reveals the specific data
+that challenges the narrative of a necessary transition.
+The Fitch analysis provided four distinct operational pathways. The financial disparity between
+these pathways is the most critical data point in understanding the political nature of the ensuing
+transition. The consultant's objective analysis concluded that retaining the MedStar
+system—updating the governance structure to grant more direct control to the Fort Worth City
+Council while maintaining the independent operational architecture—would require an estimated
+taxpayer subsidy of merely 3.2 million dollars for the first year of public funding. Fitch explicitly
+noted that this retention model would be the easiest to implement, as it maintained the greatest
+degree of the status quo and preserved the highly optimized System Status Management
+deployment.
+Conversely, the Fitch report provided explicit cautions regarding the exorbitant costs associated
+with abandoning the Public Utility Model in favor of a municipal fire-based model. The report
+projected that transitioning the ambulance service entirely into the Fort Worth Fire Department
+would cost between 10.5 million and 63 million dollars in direct implementation costs and initial
+subsidies, depending heavily on how MedStar's physical assets were absorbed and whether the
+city utilized civilian single-role personnel or sworn dual-role firefighters.
+Despite this massive, documented financial disparity—and despite Fitch warning that a
+transition of this magnitude would carry significant, unpredictable clinical and operational
+implications—the Fort Worth City Council voted unanimously in May 2024 to dissolve MedStar
+and absorb its operations into the fire department. The administrative decision bypassed a
+highly economical, clinically proven 3.2 million dollar retention option in favor of a system that
+would ultimately require an annual municipal operating budget of 89.2 million dollars. While
+projected billing revenues were estimated to offset roughly 65 million dollars of this cost, the
+new model immediately shackled the city with a structural deficit vastly larger than the minor 4
+million dollar subsidy MedStar initially requested to survive the post-pandemic inflation. This
+sequence of events strongly supports the analytical conclusion that the financial distress of
+MedStar was leveraged as a "manufactured crisis," utilized to justify a predetermined political
+objective to municipalize the service regardless of the fiscal logic.
+
+Union & Administrative Mechanics: The Role of Local 440
+The dissolution of the Area Metropolitan Ambulance Authority cannot be analyzed purely
+through an economic or clinical lens; it was heavily driven by internal administrative mechanics
+and sophisticated labor union strategy. The International Association of Fire Fighters (IAFF)
+Local 440, which represents the Fort Worth Professional Firefighters Association, aggressively
+supported and lobbied for the transition to a fire-based emergency medical services model.
+Local 440 played a paramount role in shaping the transition's framework. The union actively
+negotiated the Memorandums of Understanding and the collective bargaining agreements that
+would define how the absorbed MedStar paramedics, emergency medical technicians, and
+telecommunicators would be classified within the city's civil service structure. By bringing over
+six hundred private-sector healthcare workers into the municipal union fold, Local 440
+significantly expanded its membership base, dues revenue, and political leverage within the city.
+The transition framework required the creation of single-role civil service positions within the fire
+department, ensuring these new employees received municipal pensions and benefits aligned
+with the fire collective bargaining agreement.
+However, the rapid integration of over six hundred former MedStar employees into a traditional,
+insular firehouse culture immediately generated profound institutional friction. This cultural and
+operational fracture culminated in a dramatic administrative collapse: the abrupt resignation of
+Fort Worth Fire Chief Jim Davis.
+
+The Timeline of Chief Jim Davis's Resignation
+Chief Jim Davis, who had successfully led the Fort Worth Fire Department since October 2018,
+was initially tasked with overseeing the execution of the MedStar merger. The official transition
+date when MedStar employees became city personnel was July 1, 2025. Almost immediately
+following this integration, severe operational tensions arose regarding medic training, transition
+speed, and safety protocols.
+In late August 2025, just weeks after the merger, Chief Davis issued an operational mandate
+requiring all legacy firefighters to undergo driver training to operate the newly acquired
+ambulance fleet. This directive was rooted in the operational necessity of managing the massive
+influx of medical volume; the new medical division was fielding between five hundred and six
+hundred calls per day, and cross-training was essential to maintain system fluidity. However,
+Local 440 leadership pushed back aggressively. Members of the association had long
+advocated for keeping their traditional firefighting duties strictly separate from the grueling,
+high-volume reality of emergency medical transport. Outside experts warned that assigning
+legacy firefighters to ambulance duty would greatly increase their workload, leading to severe
+union pushback against Davis's administration.
+Simultaneously, Davis documented grave concerns regarding departmental safety standards.
+Following a severe incident where a firefighter was nearly killed by a collapsing roof, Chief Davis
+pushed for the National Institute for Occupational Safety and Health (NIOSH) to launch an
+external, independent investigation into the department's safety practices. The Fort Worth
+Professional Firefighters Association firmly opposed this external review, creating an
+insurmountable rift between the Fire Chief and the union leadership.
+The timeline accelerated rapidly. On September 17, 2025, yielding to mounting pressure from
+the union, the City of Fort Worth quietly placed Chief Davis on paid administrative leave. As
+Davis languished on leave, Local 440 finalized preparations for a formal vote of no-confidence
+against his leadership. Recognizing that his position had become untenable due to union
+interference regarding his medic training mandates and safety audits, Chief Davis negotiated a
+separation agreement. He formally tendered his resignation on October 17, 2025, with an
+effective departure date of October 31, 2025. The city paid Davis a ninety-nine thousand dollar
+settlement to drop his complaints. This administrative decapitation removed the primary
+architect of the transition precisely as the operational complexities and clinical failures of the
+merger began to manifest in the field.
+
+Part III: Post-Transition Performance & "Systemic
+Abuse" Audit (July 2025–March 2026)
+The Raymond Hill Briefing: A System in Distress
+Following the forced resignation of Chief Davis, Assistant Chief Raymond Hill was elevated to
+the position of Interim Fire Chief. The operational reality of the absorbed emergency medical
+services division was starkly detailed during a pivotal briefing delivered by Interim Chief Hill to
+the Fort Worth City Council Public Safety Committee on March 3, 2026. This testimony serves
+as a definitive, on-the-record audit of the post-transition system. The data presented by Hill
+reveals an organization suffering from a rapid loss of personnel, systemic fatigue, and collapsing
+clinical metrics.
+
+Unit Hour Utilization (UHU) and the 24-Hour Shift
+A core component of the operational crisis revolves around Unit Hour Utilization (UHU). UHU is
+the standard, objective metric used globally to gauge the workload and fatigue levels of
+emergency medical crews. It is calculated by dividing the time an ambulance spends actively
+engaged on emergency tasks by the total hours the unit is staffed. During the transition
+planning, the EMS Ad Hoc Committee established an assumption that the system would
+operate at a 0.50 Unit Hour Utilization target.
+Operating at a 0.50 UHU implies that a paramedic is actively engaged in high-stress,
+critical-task emergency response for 50 percent of their scheduled shift. The Fitch & Associates
+report explicitly cautioned against this, stating that an upper unit utilization threshold of
+approximately 0.30 to 0.40 is considered best practice to prevent clinical errors and provider
+burnout.
+To mitigate severe staffing shortages, the department announced during the March 2026
+briefing that it was implementing a pilot program to change the EMS deployment from dynamic
+twelve-hour shifts to static twenty-four-hour shifts (specifically, a twenty-four hours on, forty-eight
+hours off model) starting March 7, 2026. Applying a 0.50 UHU target to a twenty-four-hour shift
+is clinically catastrophic. It dictates that medical providers are expected to perform twelve hours
+of active, adrenaline-driven task time within a single continuous operational period. There is a
+direct, thoroughly documented clinical correlation between a 0.50 UHU on a twenty-four-hour
+shift and severe provider fatigue, degraded cognitive function, medication calculation errors, and
+an exponentially higher risk of vehicular accidents. This shift structure represents systemic
+abuse of the workforce, prioritizing geographical coverage optics over the physiological limits of
+the human medical providers.
+
+Dynamic Hybrid Deployment: The Worst of Both Worlds
+The transition forced the Fort Worth Fire Department to attempt to merge two fundamentally
+incompatible operational philosophies: the dynamic System Status Management of MedStar
+and the static, brick-and-mortar reality of the fire department. The result is a highly inefficient
+"Dynamic Hybrid Deployment" model.
+In this reality, single-role medics are assigned to a specific fire station where they must
+physically clock in. However, because call volume demands dynamic coverage, these crews are
+frequently not allowed to remain at the station. Instead, they experience the "Station
+Clock-in/Street Posting" reality, where they report to a static facility only to be immediately
+deployed to sit in an ambulance at a street corner or parking lot to await calls, mimicking the old
+System Status Management framework but introducing massive operational drag. This hybrid
+model strips the medics of the amenities of the fire station while forcing them into a perpetual
+state of transit, severely degrading morale and delaying mobilization times as crews must
+constantly commute from peripheral stations inward to dynamic high-demand posts.
+
+Staffing Attrition Analysis: The Death Spiral Markers
+The systemic friction of the transition, combined with severe fatigue and cultural alienation, has
+triggered a severe staffing crisis. Interim Chief Hill's March 2026 testimony confirmed that the
+emergency medical services branch is currently trapped in an accelerated attrition cycle. The
+division is losing an average of seven staff members every single month, resulting in a shocking
+16 percent attrition rate. This figure represents a "death spiral" marker, especially when
+contrasted against the historical 5 percent attrition rate typically observed within the broader
+Fort Worth Fire Department.
+The staffing mathematics presented during the briefing expose the depth of the crisis. The
+emergency medical services division was designed with a target staffing matrix of four hundred
+and forty-nine personnel. As of March 2026, the department possessed only three hundred and
+sixty active personnel on the roster. Critically, of those three hundred and sixty individuals,
+seventy-four were either locked in academy training or were recent graduates unqualified for
+immediate street deployment. This leaves the system with a staggering eighty-nine critical
+vacancies on the front lines. Interim Chief Hill explicitly noted that the majority of departing
+single-role medical providers are abandoning the Fort Worth system to seek dual-role positions
+in competing agencies, indicating a widespread rejection of the newly formed organizational
+culture.
+To keep ambulances on the street despite these eighty-nine vacancies, the department has
+resorted to chronic, systemic mandated overtime. A department spokesperson admitted to the
+Public Safety Committee that leadership is currently executing "force-hires" of approximately ten
+individuals every single day. Under the previous schedule, medics were subjected to relentless
+mandatory holdovers, resulting in a baseline requirement of at least four hours of mandatory
+overtime per person, per cycle. This frequency of force-hire overtime is the primary catalyst
+driving the 16 percent attrition rate, creating a self-perpetuating cycle where fatigue causes
+resignations, which in turn causes more forced overtime for the remaining staff.
+
+Performance Metrics: The Degradation of Response Times
+The inevitable, clinical consequence of high attrition, forced overtime, and inefficient hybrid
+deployment is the severe degradation of response times to the public. During the Public Utility
+Model era, MedStar was contractually bound to aggressive, fractile response metrics,
+historically achieving a 90 percent compliance rate for high-priority, life-threatening emergency
+calls within an eight-minute benchmark. The primary political justification presented by city
+leadership for dismantling MedStar was the promise that a fire-based department could improve
+upon these metrics.
+Empirical data from early 2026 confirms that the fire-based system is comprehensively failing to
+meet this objective. Records indicate that the new emergency medical services division is hitting
+the 90 percent threshold at eleven minutes and nine seconds, missing the vital eight-minute
+goal by over three full minutes. The mathematical distribution of these figures suggests that at
+the strict eight-minute mark, the operational compliance rate has plummeted to roughly 64
+percent. By the city's own internal estimates, the combined response times of the fire-based
+system are performing thirty seconds slower on average than the times recorded by MedStar in
+the year preceding the municipal takeover. This performance degradation nullifies the primary
+administrative argument that transitioning away from System Status Management would yield
+faster clinical interventions.
+
+Part IV: Infrastructure & Culture Integrity
+Logistical Readiness: The "Bed Shortage" Admission
+The most glaring manifestation of poor transition planning is found in the physical infrastructure
+of the fire department. The sudden shift to the twenty-four-hour shift model in March 2026
+required hundreds of former MedStar employees to live, eat, and sleep inside municipal fire
+stations. Because MedStar utilized System Status Management and posted ambulances
+dynamically on street corners, it did not possess residential stations with sleeping quarters.
+Therefore, the fire department was forced to absorb these massive crews into legacy firehouses
+that were never architecturally designed for such a population density.
+During his March 2026 testimony, Interim Chief Hill made a stunning admission regarding
+logistical readiness: the department did not possess enough beds for its absorbed medical
+workforce. Despite having two months to prepare for the 24/48 shift pilot program, the
+administration failed to procure adequate sleeping quarters. Hill confirmed on the public record
+that frontline paramedics and emergency medical technicians would be forced to sleep on
+temporary cots for at least the first two months of the new shift cycle while permanent beds
+remained back-ordered.
+Furthermore, the department failed to secure and install adequate privacy partitions in the
+stations. This logistical failure represents a severe cultural oversight, particularly given that the
+single-role emergency medical services demographic contains a significantly higher percentage
+of female providers than the legacy, male-dominated dual-role firefighting staff. Forcing
+exhausted, force-hired medical professionals to sleep on temporary cots in open, unpartitioned
+bays fundamentally destroys cultural integrity, strips the workforce of basic dignity, and directly
+accelerates the 16 percent attrition rate.
+
+The Service Area Disparity: The Impossibility of Static Deployment
+Beyond the internal station logistics, the integration of MedStar into the Fort Worth Fire
+Department created an unsolvable geometric paradox regarding the service area. Historically,
+the Fort Worth Fire Department provided first-responder and suppression services strictly within
+the city limits of Fort Worth, covering a geographic footprint of roughly three hundred and fifty to
+three hundred and fifty-nine square miles. Their fire stations are distributed specifically to cover
+this defined municipal geometry.
+However, the interlocal agreements executed during the MedStar dissolution mandate that the
+Fort Worth Fire Department must serve as the primary transport agency not just for Fort Worth,
+but for fourteen additional member cities. This expands the total mandatory service area to four
+hundred and thirty-six square miles.
+Attempting to cover four hundred and thirty-six square miles using a static, station-based
+deployment model designed for three hundred and fifty square miles is a literal physical
+impossibility without drastically expanding the fleet and constructing dozens of new stations in
+the member cities. MedStar covered this vast, four-hundred-and-thirty-six square mile
+geographic footprint efficiently precisely because it did not rely on fixed stations; utilizing System
+Status Management, ambulances were fluidly relocated across inter-jurisdictional borders as
+demand shifted. By eliminating pure System Status Management and forcing ambulances to
+base out of Fort Worth's legacy fire stations, the department has created massive geographical
+blind spots in the outer member cities. This service area disparity guarantees that units must
+travel farther distances from fixed points to reach the periphery, mathematically cementing the
+eleven-minute and nine-second delayed response times.
+
+Part V: Intelligence Synthesis Requirements
+Confidence Level Assignment
+To provide a rigorous forensic baseline for this intelligence briefing, the metrics utilized in this
+report have been subjected to a strict confidence matrix. This matrix assigns a validity score
+(Low, Medium, High) based on the provenance of the source vector, operational
+cross-referencing, and chronological proximity to the transition events.
+Intelligence Metric Data Value         Source Vector       Confidence Level Analytical
+                                                                            Justification
+Personnel           16% (7 staff per City Council Public High               Direct verbal
+Attrition Rate      month)             Safety Committee                     admission by
+                                       Testimony                            Interim Chief
+                                                                            Raymond Hill on
+                                                                            public record on
+                                                                            March 3, 2026,
+                                                                            corroborated by
+                                                                            departmental
+                                                                            spokespersons.
+Operational         89 Active          City Council Public High             Derived from
+Vacancies           Vacancies          Safety Committee                     mathematically
+                                       Testimony                            verifiable target
+                                                                            staffing goals
+                                                                            (449) versus
+                                                                            deployable roster
+                                                                            numbers (360
+                                                                            minus 74 trainees)
+                                                                            stated by
+                                                                            command staff.
+Response Time 90% fractile at          Municipal           High             Data extracted
+Degradation         11:09 (~64% at 8 Performance                            directly from city
+                    min)               Records / Local                      estimates and
+                                       Reporting                            verified against the
+                                                                            mandated
+                                                                            8-minute
+                                                                            threshold; widely
+                                                                            reported in
+                                                                            municipal audits.
+Financial Burden $89.2M Operating Fort Worth               High             Officially published
+Shift               Cost               FY2026                               municipal ledger
+                                       Recommended                          projecting gross
+                                       Budget Book                          expenditures for
+                                                                            the newly formed
+                                                                            internal EMS
+                                                                            division.
+Logistical          Acute Bed / Cot    Public Safety       High             Unsolicited
+Infrastructure      Shortage           Committee                            admission of
+Failure                                Testimony                            logistical failure by
+                                                                            executive fire staff
+                                                                            on public record,
+                                                                            specifically citing a
+                                                                            two-month delay in
+                                                                            procuring beds.
+Intelligence Metric Data Value         Source Vector      Confidence Level Analytical
+                                                                           Justification
+Union              Resistance to       Internal Sources / Medium           Statements
+Interference       NIOSH / Driver      Legal                               provided via legal
+Mechanics          Training            Representation                      counsel for former
+                                                                           Chief Jim Davis;
+                                                                           heavily
+                                                                           corroborated by
+                                                                           subsequent union
+                                                                           no-confidence
+                                                                           maneuvers, but
+                                                                           subject to legal
+                                                                           posturing and
+                                                                           union
+                                                                           non-comment.
+Financial Per Annum Burden: Orders of Magnitude Calculation
+The economic transition from the self-sustaining Area Metropolitan Ambulance Authority to the
+Fort Worth Fire Department represents an exponential, entirely voluntary transfer of debt onto
+the municipal taxpayer. To calculate the true magnitude of this financial burden, the historical
+pre-2024 baseline must be directly contrasted with the FY2026 operational reality.
+Between 2010 and 2022, the Public Utility Model utilized by MedStar required an effective per
+annum taxpayer subsidy of zero dollars. The system was a self-contained economic engine,
+funded entirely through fee-for-service revenue mechanisms. When post-pandemic inflation and
+stagnant Medicaid rates finally destabilized this model in 2023, MedStar projected a
+requirement of approximately 3.2 million to 4.2 million dollars in annual municipal subsidies to
+remain solvent and continue providing world-class response times.
+The political decision to reject this subsidy and municipalize the service completely eliminated
+the quasi-governmental financial buffer. According to the FY2026 municipal budget, the Fort
+Worth Fire Department emergency medical services branch now operates with an immense
+annual operating cost of 89.2 million dollars. While the city anticipates recovering roughly 65
+million dollars through medical billing and an additional 1.7 million dollars through service
+contracts with the fourteen surrounding member cities, the system yields an immediate,
+unavoidable structural operating deficit of approximately 22.5 million dollars per annum.
+This 22.5 million dollar annual deficit is now entirely the responsibility of the Fort Worth
+municipal general fund. When compared to the 3.2 million dollar subsidy originally requested to
+salvage the highly efficient MedStar system, the city has deliberately taken on a per annum
+financial burden that is an order of magnitude—specifically, a 700 percent increase—larger than
+the pre-2024 retention model. Furthermore, this calculation only represents the baseline
+operating deficit. It does not account for the massive capital expenditure debt required to
+replace an estimated nine frontline ambulances annually, nor does it factor in the millions of
+dollars in unfunded, long-term pension liabilities the city absorbed by bringing over six hundred
+private contractors into the municipal civil service retirement umbrella.
+
+Concluding Intelligence Assessment
+The forensic data explicitly demonstrates that the dissolution of MedStar and the creation of a
+fire-based emergency medical system in Fort Worth was driven by administrative ambition and
+aggressive labor union mechanics, rather than by clinical necessity or sound economic theory.
+By abandoning a highly optimized, dynamically deployed Public Utility Model, the municipality
+triggered a cascading, predictable operational failure.
+The immediate indicators of systemic collapse are irrefutable. The department is suffering from
+an unsustainable 16 percent attrition rate fueled by daily mandated force-hiring. It is failing to
+meet critical eight-minute clinical response benchmarks, directly endangering the public. It is
+experiencing a logistical failure so profound that frontline medical professionals are forced to
+sleep on cots in unpartitioned bays. Furthermore, the geographic reality of attempting to service
+a four-hundred-and-thirty-six square mile radius utilizing a rigid, three-hundred-and-fifty square
+mile fire station methodology guarantees that geographic efficiency will continue to degrade.
+Ultimately, the city manufactured an operational crisis to solve a minor 3.2 million dollar financial
+gap, resulting in a system that is demonstrably slower, chronically understaffed, massively more
+expensive to the taxpayer, and functionally hostile to the medical personnel attempting to
+sustain it.
+
+Works cited
+
+1. Every aspect of the system has exceeded anything we could have imagined 30 years ago. -
+MedStar Mobile Healthcare,
+https://www.medstar911.org/wp-content/uploads/2019/10/MedStar_2016_-_30_Years_LR.pdf 2.
+Service Area | MedStar911, https://www.medstar911.org/service-area/ 3. Public utility model -
+Wikipedia, https://en.wikipedia.org/wiki/Public_utility_model 4. Public Utility Model EMS - HMP
+Global Learning Network,
+https://www.hmpgloballearningnetwork.com/site/emsworld/article/10324844/public-utility-model-
+ems 5. EMS Myth #8: Public Utility Models are the most efficient model for providing prehospital
+care - HMP Global,
+https://www.hmpgloballearningnetwork.com/site/emsworld/article/10325080/ems-myth-8-public-
+utility-models-are-most-efficient-model-providing-prehospital-care 6. The EMS Subsidy/Price
+Tradeoff,
+https://emsmuseum.org/wp-content/uploads/2021/03/The-EMS-Subsidy-Price-Tradeoff_1988-A
+ugust-JEMS.pdf 7. In the News: Fort Worth Star-Telegram Explains the Fitch EMS System
+Report | MedStar911,
+https://www.medstar911.org/2024/03/19/in-the-news-fort-worth-star-telegram-explains-the-fitch-
+ems-system-report/ 8. Texas council considers $4.2M for MedStar shortfall - EMS1,
+https://www.ems1.com/legislation-funding/articles/texas-council-considers-42m-for-medstar-shor
+tfall-z0kEddVfuMsupEEn/ 9. City of Fort Worth MedStar/EMS Transition At-A-Glance,
+https://www.fortworthtexas.gov/files/assets/public/v/1/communications/documents/engagement/
+newsletters/sp.ed-ems.pdf 10. Fun Fact: MedStar is the Most Cost-Effective Public Ambulance
+Agency in the State of Texas!,
+https://www.medstar911.org/2024/03/18/fun-fact-medstar-is-the-lowest-cost-public-ambulance-a
+gency-in-the-state-of-texas/ 11. Texas city's EMS response times scrutinized months after fire
+department takeover - EMS1,
+https://www.ems1.com/fire-ems/texas-citys-ems-response-times-scrutinized-months-after-fire-de
+partment-takeover 12. EMS Law - Amazon S3 - AWS,
+https://s3.amazonaws.com/HMP/hmp_ln/imported/2020-07/EMS_Law_-_3rd_Edition%281%29.
+pdf 13. What JEMS has meant to EMS by A.J. Heightman - National EMS Museum,
+https://emsmuseum.org/emshistorian/what-jems-has-meant-to-ems/ 14. Review of the
+Operations of Ground EMS in Alberta - Final Report,
+https://hqa.ca/wp-content/uploads/2021/12/Review_of_the_Operations_of_Ground_EMS_in_Alb
+erta_Final_Report.pdf 15. emergency ambulance staff: Topics by Science.gov,
+https://www.science.gov/topicpages/e/emergency+ambulance+staff 16. Handbook for EMS
+Medical Directors - USFA.FEMA.gov,
+https://www.usfa.fema.gov/downloads/pdf/publications/handbook_for_ems_medical_directors.p
+df 17. EMS Structured for Quality: Best Practices in Designing, Managing and Contracting for
+Emergency Ambulance Service,
+https://ambulance.org/wp-content/uploads/2020/11/EMS-Structured-for-Quality_0308_FINAL.pdf
+18. Notice of a Regular Meeting of the Board of Directors - Montgomery County Hospital District,
+https://www.mchd-tx.org/wp-content/uploads/2024/06/06.25.2024-June-Boardbook.pdf 19. EMS
+Update - Fort Worth, https://www.fortworthtexas.gov/files/assets/public/v/1/8.-ems-update.pdf
+20. Fort Worth EMS – Welcome to the City of Fort Worth,
+https://www.fortworthtexas.gov/departments/fire/services/ems 21. Fort Worth is considering four
+potential EMS models. Here's what they'd do | KERA News,
+https://www.keranews.org/government/2024-02-21/fort-worth-is-considering-four-potential-ems-
+models-heres-what-theyd-do 22. City of Fort Worth closer to deciding future for its EMS system
+- CBS News,
+https://www.cbsnews.com/texas/news/city-of-fort-worth-closer-to-deciding-future-for-its-ems-syst
+em/ 23. Fort Worth to absorb more than 650 MedStar employees in EMS transition this summer,
+https://www.keranews.org/government/2025-04-17/fort-worth-to-absorb-more-than-650-medstar-
+employees-in-ems-transition-this-summer 24. IAFF, Fort Worth, TX Local 440 support plan for
+fire-based EMS model,
+https://www.iaff.org/news/iaff-fort-worth-tx-local-440-support-plan-for-fire-based-ems-model/ 25.
+Fort Worth to transition EMS services to fire department - Fire & Safety Journal Americas,
+https://fireandsafetyjournalamericas.com/fort-worth-to-transition-ems-services-to-fire-department
+/ 26. Proposed framework would ease EMS transition from MedStar to City | MedStar911,
+https://www.medstar911.org/2025/03/02/proposed-framework-would-ease-ems-transition-from-
+medstar-to-city/ 27. Fort Worth, fire union open bargaining over how to merge MedStar and fire
+department,
+https://www.keranews.org/government/2024-07-16/fort-worth-fire-union-open-bargaining-over-h
+ow-to-merge-medstar-and-fire-department 28. EMS agreement between City, Firefighters
+Association approved | MedStar911,
+https://www.medstar911.org/2025/03/02/ems-agreement-between-city-firefighters-association-a
+pproved/ 29. Fort Worth Fire Department will soon take over EMS services as Medstar dissolves
+- WFAA,
+https://www.wfaa.com/article/news/local/fort-worth-fire-department-will-take-over-ems-services-a
+s-medstar-dissolves/287-df748cf2-2a21-4285-a2e2-b6607d8aaa89 30. Fire Department EMS
+Collective Bargaining MOU - the City of Fort Worth,
+https://www.fortworthtexas.gov/files/assets/public/v/1/ems-collective-barganing-update.pdf 31.
+Fort Worth fire chief resigns after complaints from firefighters association - CBS News,
+https://www.cbsnews.com/texas/news/fort-worth-fire-chief-resigns-firefighters-association-compl
+aints/ 32. Fort Worth fire chief resigns after 7 years, city confirms - WFAA,
+https://www.wfaa.com/article/news/local/tarrant-county/fort-worth-fire-chief-resigns-after-7-years/
+287-fcb27b28-8e0f-47dd-811f-52cbf038d5e3 33. Texas fire chief resigns after union dispute,
+EMS merger controversy - EMS1,
+https://www.ems1.com/fire-ems/texas-fire-chief-resigns-after-union-dispute-ems-merger-controv
+ersy 34. Fire Chief resigned over safety disputes with Fort Worth's firefighters union, attorney
+says,
+https://www.keranews.org/government/2025-10-27/fire-chief-resigned-over-safety-disputes-with-
+fort-worths-firefighters-union-attorney-says 35. Fort Worth Fire Chief resigns after being placed
+on leave - KERA News,
+https://www.keranews.org/government/2025-10-17/fort-worth-fire-chief-resigns-after-being-place
+d-on-leave 36. Attorney for outgoing Fort Worth fire chief accuses association of retaliation,
+unsafe practices,
+https://www.cbsnews.com/texas/news/attorney-for-ex-fort-worth-fire-chief-accuses-association-o
+f-retaliation-unsafe-practices/ 37. Outgoing Fort Worth fire chief raised repeated safety
+concerns, records show - CBS News,
+https://www.cbsnews.com/texas/news/outgoing-fort-worth-fire-chief-raised-repeated-safety-conc
+erns-records-show/ 38. Texas city to pay outgoing fire chief $99K to drop complaints -
+FireRescue1,
+https://www.firerescue1.com/legal/texas-city-to-pay-outgoing-fire-chief-99k-to-drop-complaints
+39. Ahead of major policy change, Fort Worth short dozens of EMS staff, fire chief says,
+https://www.cbsnews.com/texas/news/ahead-of-major-policy-change-fort-worth-short-dozens-of-
+ems-workers-fire-chief-says/ 40. DRAFT DATA ANALYSIS REPORT CITY of FORT WORTH -
+MedStar,
+https://www.fortworthtexas.gov/files/assets/public/v/2/city-manager/documents/medstar/fitch-ass
+ociates-appendices-and-supporting-documents-4-30-2024.pdf 41. Submitted January 31, 2025 -
+Montgomery County, Pennsylvania,
+https://engage.montgomerycountypa.gov/uploads/b16d023e-6d6a-492c-af8c-a1f22f6598d2/files
+/file/content/78ea79c3-a084-4a09-aea2-49012d95f41e/Strategic_EMS_Assessment_Combined
+_Final_Report_2025.pdf?Expires=1773936093&Signature=blpGUW~aLL55d27EViAk9XFC2SB
+pZhqUtohA9McpHszUvc9r0mbtjpoXHTg2QGG4G4aw8wCmH83hI0v83yfaVoloF-Dpra8CfSr08S
+miLRcKm78o-6OX10lGWwDO7eIc8rKp17Ju-XXZFBVVxK3WGeystkUxD0AkQUsLjVNytriouoJu
+BGvbBPWZhco0I62uKaHbcglCzYudSUryaFg2f38RZpvFhyccPS6kLdpgwCeuyEgPIaerdQ~bjvz
+z57w4tElMVOPZ9dparg1EsCD6ZFN15zdNl0-tfDKpqhGGwbGG0lrvEbutXflgKvpmq~WsC12AZ
+ZrhHFHkJPqhZg-IRA__&Key-Pair-Id=K27P69DITNG5X 42. AGENDA ______ June 17, 2025 -
+Alameda County,
+https://www.acgov.org/board/bos_calendar/documents/DocsAgendaReg_06_17_25/HEALTH%2
+0CARE%20SERVICES/Set%20Matter%20Calendar/HCSA_388852.pdf 43. Performance Audit
+of Emergency Medical Services Resources at the San Francisco Fire Department - Board of
+Supervisors |, https://sfbos.org/Modules/ShowDocument.aspx?documentid=49337 44.
+CHAPTER 17 FIRE & EMERGENCY SERVICES - the City of Fort Worth,
+https://www.fortworthtexas.gov/files/assets/public/v/1/city-manager/documents/planning/compre
+hensive-planning/adopted/17-fire-emergency-services-final-2023.pdf 45. FW Service Area –
+Welcome to the City of Fort Worth,
+https://www.fortworthtexas.gov/departments/fire/fire-about/service-area
+

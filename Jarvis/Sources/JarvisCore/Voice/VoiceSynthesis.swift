@@ -297,6 +297,35 @@ public final class JarvisVoicePipeline {
         )
     }
 
+    /// Same gate semantics as `speak`, but renders to disk only and
+    /// never calls local playback. Used by JarvisVoiceHTTPBridge so
+    /// remote clients (Obsidian, etc.) get the WAV without the host Mac
+    /// also echoing the audio out its speakers.
+    @discardableResult
+    public func renderApproved(text: String, configuration: VoiceSessionConfiguration? = nil, persistAs outputURL: URL? = nil, workflowID: String = "voice-interface") throws -> VoiceSynthesisResult {
+        let session = try configuration ?? prepareSession()
+        try approvalGate.requireApproved(
+            for: session,
+            personaFramingVersion: Self.personaFramingVersion
+        )
+        let targetURL = outputURL ?? paths.storageDirectory.appendingPathComponent("spoken-\(Int(Date().timeIntervalSince1970)).wav")
+        let result = try synthesize(text: text, outputURL: targetURL, configuration: session)
+        try telemetry.logExecutionTrace(
+            workflowID: workflowID,
+            stepID: "mlx-spoken-response-silent",
+            inputContext: text,
+            outputResult: targetURL.path,
+            status: "success"
+        )
+        return VoiceSynthesisResult(
+            outputPath: result.outputPath,
+            selectedVoice: session.selectedVoice,
+            rate: session.rate,
+            sampleCount: session.profile.sampleCount,
+            profile: session.profile
+        )
+    }
+
     /// Render an audition clip to disk WITHOUT playing it. Grizz opens
     /// the file himself, on his terms, and decides whether to approve
     /// the voice identity. This is the only legitimate way to introduce

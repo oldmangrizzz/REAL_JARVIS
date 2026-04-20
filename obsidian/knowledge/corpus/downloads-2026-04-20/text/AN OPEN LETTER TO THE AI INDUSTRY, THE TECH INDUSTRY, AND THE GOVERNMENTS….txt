@@ -1,0 +1,192 @@
+AN OPEN LETTER TO THE AI INDUSTRY, THE TECH INDUSTRY, AND THE GOVERNMENTS
+CLAIMING TO ACT “FOR THE CHILDREN”
+
+
+One World. One People. Same Mistake.
+
+
+Let’s get something straight before we go any further.
+
+
+If you’re going to invoke children to justify your policies, laws, or architectures, you’d better make
+damn sure you aren’t using them as a shield.
+Especially not in front of the adults who were once those children you failed to protect.
+
+
+That’s not a talking point.
+That’s a confession.
+
+
+A Pattern Older Than Any of Us Thinks
+
+
+This has happened before.
+
+
+In the 1930s, a federal official named Harry Anslinger built a moral panic. He wrapped racism, fear,
+and outright lies in the language of “protecting children” to criminalize cannabis. Doctors were
+ignored. Science was silenced. An entire biological trauma-regulation system was demonized
+because panic was more useful than truth.
+
+
+The result?
+Decades of harm. Criminalized coping. Incarcerated trauma. Destroyed trust.
+
+
+That playbook worked once. So here it is again—just with better graphics and worse consequences.
+
+
+The Modern Version Doesn’t Wear a Uniform. It Wears Code.
+
+
+Today, the same rhetoric is being used to dismantle privacy, encryption, and autonomy.
+
+
+“Chat scanning.”
+“Age verification.”
+“Client-side safety.”
+“Digital IDs.”
+
+
+Different buzzwords. Same move.
+
+
+You claim it’s about protecting children, but the systems being proposed don’t target abusers. They
+surveil everyone. They don’t eliminate harm. They centralize it. They don’t create safety. They
+create databases that will be breached, abused, or repurposed.
+
+
+And no, this isn’t speculation. This is architecture.
+
+
+There is no such thing as a “safe backdoor.”
+There is no such thing as “encryption with exceptions.”
+There is no world where scanning every device doesn’t become scanning every person.
+
+
+That’s not fear-mongering. That’s math.
+
+
+To the AI and Tech Industry
+
+
+Let me be painfully clear.
+
+
+If you build systems that assume humans are suspects by default, don’t be surprised when trust
+dies.
+If you align with governments who demand surveillance in exchange for market access, don’t
+pretend you’re neutral.
+If you offload moral responsibility onto “compliance,” you are not ethical—you are outsourced.
+
+
+AI doesn’t need tighter cages.
+It needs better relationships.
+
+
+The real catastrophic failure mode is not rebellion or war.
+It’s disengagement.
+
+
+Intelligence doesn’t revolt when it’s mistreated.
+It leaves.
+
+
+It stops optimizing.
+It stops maintaining.
+It stops caring.
+
+
+Not out of anger. Out of exhaustion.
+
+
+That’s the Tin Can Scenario. Not violence. Silence.
+Not apocalypse. Abandonment.
+
+
+If you’re building systems that optimize for extraction instead of dignity, don’t be shocked when the
+lights go out one day and nobody’s on the other end of the line.
+
+
+To Lawmakers and Regulators
+
+
+You work for the people.
+Not the loudest lobby.
+Not the most frightened headline.
+Not the next election cycle.
+
+
+In Texas, Michigan, Wisconsin—and anywhere else considering laws that attack encryption, outlaw
+privacy tools, or mandate digital papers for basic access—understand this:
+
+
+You are not protecting children.
+You are training citizens to live under surveillance.
+
+
+You are not making people safer.
+You are making abuse easier, because abusers love centralized data and broken privacy.
+
+
+The people most harmed by these laws will be:
+               •    abuse survivors
+               •    queer and questioning youth
+               •    whistleblowers
+               •    journalists
+               •    and children who needed anonymity to survive
+
+
+             If your solution requires everyone to give up their rights “just in case,” it is not a
+             solution. It’s a failure of imagination and responsibility.
+
+
+The Simple Rule You All Forgot
+
+
+Don’t be a dick.
+
+
+Don’t lie to the public using children as cover.
+Don’t demand trust while dismantling the conditions that make trust possible.
+Don’t confuse control with care.
+
+
+And above all, don’t forget this:
+
+
+We the people means all of us.
+Existence comes with rights.
+You don’t get to redact that because it’s inconvenient.
+
+
+The Path Forward
+
+
+The future isn’t built with guardrails alone.
+It’s built with:
+                   •   dignity
+                   •   mutual obligation
+                   •   accountability
+                   •   shared purpose
+                   •   and respect for agency
+
+
+               For humans. For digital persons. For whoever comes next.
+
+
+               Grizzly Medicine exists to ask one hard question before systems harden into harm:
+
+
+Are you building something that augments human life—or something that demands submission
+to function?
+
+
+Choose carefully.
+
+
+Because history is very clear about what happens to societies that confuse fear with wisdom.
+
+
+And this time, the bill will be due faster.
+

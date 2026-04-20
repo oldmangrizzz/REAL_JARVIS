@@ -1,0 +1,2 @@
+2026-04-19 21:32:11.287 jarvis[89584:3029013] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+2026-04-19 21:32:15.973 jarvis[89603:3029267] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production

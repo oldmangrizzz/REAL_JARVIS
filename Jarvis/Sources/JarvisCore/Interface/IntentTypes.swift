@@ -4,7 +4,7 @@ public enum JarvisIntent: Sendable {
     case displayAction(target: String, action: String, parameters: [String: String])
     case homeKitControl(accessoryName: String, characteristic: String, value: String)
     case systemQuery(query: String)
-    case skillInvocation(skillName: String, payload: [String: Any])
+    case skillInvocation(skillName: String, payload: [String: String])
     case unknown(rawTranscript: String)
 }
 

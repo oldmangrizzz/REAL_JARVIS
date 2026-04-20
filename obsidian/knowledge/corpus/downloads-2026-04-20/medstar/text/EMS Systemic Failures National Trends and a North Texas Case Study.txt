@@ -1,0 +1,347 @@
+EMS Systemic Failures: National Trends and a North Texas Case Study
+
+
+A. Evidence Compendium
+
+
+National EMS Systemic Failures
+             •    Workplace Violence: EMS personnel face extremely high assault rates. In a
+           2019 national survey, 67% of EMS responders reported at least one physical assault
+           on the job and 91% reported verbal assaults . This far exceeds typical workplace
+           violence rates. Studies and OSHA data confirm EMS workers are assaulted thousands
+           of times per year, yet many jurisdictions lack parity in legal protections or penalties
+           compared to police or firefighters.
+             •    Mental Health & Suicide: EMS providers suffer very high rates of PTSD,
+           depression, burnout, and suicide. One recent review found 37% of EMS meet clinical
+           criteria for PTSD (vs ~6% in the general population) and rates of depression/anxiety
+           5–10 times higher than other professions . EMS personnel are 1.39 times more likely
+           to die by suicide than the general population . First-responder suicide studies (NVDRS
+           data) show EMS account for a disproportionate share of job-related suicides. These
+           data indicate a severe occupational mental-health crisis in EMS.
+             •    Injury and Disability: EMS have far higher injury rates than even police or
+           firefighters. Bureau of Labor statistics (cited by EMS leaders) show EMS on-the-job
+           injury/illness rates around 4.5% per year, versus 1.1% for firefighters and 3.2% for
+           police . Line-of-duty deaths and disability retirements reflect this risk disparity. EMS
+           careers commonly end in chronic musculoskeletal injuries or PTSD, yet historically they
+           have had weaker disability retirement benefits and fewer death benefits.
+             •    PSOB Gaps: Federal Public Safety Officers’ Benefits (PSOB) provide death/
+           disability benefits to firefighters, police, and government-paid EMS, but exclude most
+           private and some volunteer EMS personnel . Under current DOJ interpretation, for-
+           profit EMS workers (e.g. AMR employees) are often ineligible for PSOB survivor or
+           disability benefits . Unions have noted this creates an inequity: EMS victims are
+           “overlooked and undervalued” relative to other first responders .
+             •    Chronic Underfunding and Low Pay: Multiple studies document EMS funding
+           shortfalls. A CDC case study notes low average salaries (∼$34,000 nationally for
+           EMTs), high turnover, and absurd anecdotes like ambulances “held together with
+           duct tape” or local EMS resorting to bake sales to buy fuel . Many EMS agencies rely
+           almost entirely on fee-for-service billing. In North Texas, the Fort Worth report found
+           MedStar’s expenses exceeding revenues – “MedStar crews are overworked” and
+           response times were far above goal . These trends reflect nationwide wage
+           suppression and shortages of qualified staff.
+             •    Private/Contract EMS Risks: The rise of for-profit ambulance companies has
+           sometimes degraded service. For example, San Diego’s new private provider Falck
+            chronically understaffed its ambulances, failing to meet minimum staffing hours in
+            the city’s 9-1-1 contract . The city opened an investigation and pursued fines for
+            “unacceptable performance.” Across the country, there are reports of private EMS
+            firms cutting corners to save costs, resulting in slower responses, reduced coverage
+            and morale issues.
+              •    Retaliation & “Culture of Silence”: Whistleblowers in EMS frequently face
+            retaliation. In one recent case, a private ambulance supervisor who reported lax
+            narcotics controls, expired medications, and other patient-safety violations was
+            terminated and filed suit alleging retaliation . Likewise, EMS professionals fear
+            reporting errors or unsafe conditions due to punitive responses. A pervasive “silence”
+            culture around mental health and safety complaints further compounds the issue .
+
+
+DFW / North Texas EMS Ecosystem
+
+
+In the Dallas–Fort Worth area, all major EMS models coexist:
+              •    Public-Utility (Third-Service) – MedStar Mobile Healthcare (Fort Worth and
+            partner cities). A government-created interlocal agency (founded 1986) serving Fort
+            Worth plus 13 member cities, funded by municipal contributions and ambulance fees.
+            MedStar is highly accredited and award-winning: e.g. “Paid EMS System of the Year”
+            (NAEMT/EMS World, 2013) and Texas EMS System of the Year (2010) . It fields ~75
+            ambulances over 436 sq mi, serving ~1.1 million people (≈190,000 calls/year) . Staffing
+            is civilian EMTs/paramedics overseen by MedStar board (with city-appointed
+            members) . Historically, MedStar met response-time and clinical benchmarks, with
+            intensive quality improvement and mobile integrated health programs .
+              •    Fire-Based EMS – Municipal fire departments with integrated EMS. Dallas Fire-
+            Rescue and similar city fire departments run all-EMS and fire response. Dallas FD, for
+            example, staffs fire-engine crews who also provide 9-1-1 EMS (many are dual-trained
+            EMTs/paramedics) and operate fire department ambulances. Funding and oversight
+            come from the city budget and fire chief. Fire-based EMS often has broad training and
+            equipment, but can suffer from role conflicts (fire vs. EMS) and slower ambulance
+            availability. (Dallas FD leadership has at times added peak-time ambulances to meet
+            demand.) Dallas published a staffing study recommending dozens of additional
+            paramedic units due to rising call volume; the city’s performance measures aim for 85–
+            90% of responses within 9 minutes .
+              •    Private/Contract EMS – Competitive-contract ambulance services. Several
+            North Texas cities contract out 9-1-1 coverage to for-profit firms. For example,
+            Arlington has used American Medical Response (AMR) since 2008 under a competitive
+            bid . In this model, the company is paid per-call (or salary/hour), and funds itself by
+            billing insurance/Medicare. In practice, such firms have faced performance issues: e.g.
+            the San Diego Falck case shows private contractors sometimes fail to staff to contract
+           levels . In Dallas–Fort Worth, AMR and other companies (Rural/Metro, CareFlite, etc.)
+           also dominate interfacility and 9-1-1 transports. Worker conditions (pay, long shifts)
+           are documented as worse in the private sector.
+             •    Municipal / Hybrid EMS – City or regional public EMS agencies. Some North
+           Texas cities use fire/EMS hybrids or authority-run systems. (Fort Worth itself was a
+           “municipal third-service” via MedStar.) There are smaller examples (notably, in
+           suburban Dallas, e.g. TriStar in Bedford–Euless–Hurst, Garland’s FD, etc.). These are
+           funded by city taxes and user fees, with mixed leadership structures. Performance
+           varies; no comprehensive data publicly available, but these systems often struggle with
+           limited budgets compared to full utilities like MedStar.
+             •    Volunteer/Combination Departments – Rural/exurban areas with volunteer
+           EMS. Outside the urban core, many counties rely on volunteer or mixed volunteer/paid
+           EMS. Funding comes from local Emergency Service District taxes. Such squads face
+           chronic staff shortages, training gaps, and aging equipment. In Texas (and
+           nationwide), volunteer ambulance providers frequently operate at the margin: for
+           instance, a Texas JEMS report noted a rural volunteer corps under state audit risked
+           license revocation, which would have left area residents without any local EMS and
+           greatly increased response times . This illustrates how fragile volunteer EMS can be.
+
+
+MedStar Mobile Healthcare – Benchmark Profile
+             •    Public Utility Model: Founded 1986, MedStar Mobile Healthcare is an interlocal
+           government EMS agency. It is governed by a board with member-city appointees,
+           served Fort Worth and 13 surrounding cities . All funding came through city subsidies
+           (until ~2010) and billing revenue .
+             •    Scale and Awards: MedStar covers 436 sq mi for ~1.1 million people, with 75
+           ALS ambulances and ~190,000 911 calls per year . It has won numerous awards: EMS
+           World/NAEMT 2013 Paid EMS System of the Year and Texas DSHS 2010 EMS System
+           of the Year . Its leadership earned “EMS Innovator” accolades. MedStar is accredited
+           by the Commission on Accreditation of Ambulance Services (CAAS) and its dispatch
+           center is IAED-accredited.
+             •    Clinical Performance: While internal data are not public, MedStar has
+           emphasized high-quality care. Its communications cite metrics like “Utstein survival”
+           for cardiac arrest. The agency contributed to multi-center research (e.g. airway
+           management in cardiac arrest) . In its own reports, MedStar notes decreasing
+           response times and improving clinical metrics after internal reforms . Surveyed patient
+           ratings for timeliness and care have been very high.
+             •    Innovation and MIH: MedStar pioneered Mobile Integrated Healthcare (MIH)
+           programs. Examples include a “super-utilizer” program to reduce hospital
+           readmissions, partnerships with home health agencies, and community paramedicine
+           initiatives . It authored a textbook on MIH implementation and received grants for
+             novel EMS deployments. These efforts demonstrate its advanced operational model.
+               •    Efficiency: MedStar consistently touted “high-value” care. One independent
+             study (Fitch analysis) found MedStar’s overall unit-hour cost lower than many national
+             systems. MedStar’s board-managed structure was designed for efficiency, avoiding
+             fire-department overhead. (However, recent financial analyses showed revenues
+             lagging call volume, leading to subsidy needs .)
+
+
+B. DFW EMS Model Comparison Matrix
+
+
+Model Type     Example (DFW)        Governance & Funding Staffing Known Issues Performance
+Indicators
+Public Utility (3rd-Service) MedStar (Fort Worth + 13 cities)      Interlocal government agency.
+Funded by member-city subsidies and ambulance billing. Board of directors (city officials +
+stakeholders). Civilian EMS professionals (EMTs/paramedics). Non-profit agency with unionized
+staff.    Rising costs vs reimbursements (Fitch found over 5 years MedStar spending > revenue) .
+Complex governance by 14 cities. Historically met targets: e.g. Dallas 9-min goal; recently Fitch
+study found average travel ~13.5 min (goal 8) . Clinical outcomes accredited.
+Fire-Based (City EMS) Dallas Fire-Rescue (Dallas), FWFD (post-2025)           Municipal fire department
+budget. EMS integrated into fire suppression department. Funded by city tax revenue.         Sworn
+firefighters (all EMTs, some paramedics) plus civilian medics in some agencies. Role conflict (fire vs
+EMS duties); “box time” concerns. Union culture may resist integrating EMS functions . Dallas DFR
+aims for 85–90% responses within 9 min (NFPA). A 2024 Dallas study recommended adding 30
+peak ambulances due to growth.
+Private/Contractor Arlington (AMR contract) , Euless/Hurst/Bedford (TriStar consortium), etc. For-
+profit companies under city/hospital contract or per-call billing. No guaranteed budget – income =
+patient transport fees.   Company-employed EMTs/paramedics (often non-union). Overtime and
+turnover are high. Incentive to maximize transports (possible overuse) or minimize costs (staffing
+issues). Numerous cases of contract non-compliance (e.g. San Diego Falck under-staffing) . Mixed
+performance. City audits sometimes find missed benchmarks. Workforce churn is very high: EMS
+turnover up 20–30% nationally. Regulatory fines occur when standards slip .
+Volunteer/Combination Rural ESDs around DFW (e.g. Parker Co., etc.)           Emergency Services
+Districts or small cities providing tax funding. High reliance on volunteer labor. Primarily volunteer
+EMTs/paramedics with a few paid staff. Staffing often insufficient for all hours. Chronic staff
+shortages; training/certification issues. Underfunded maintenance/equipment. Safety incidents:
+Texas officials have investigated volunteer corps for compliance problems .        Response times are
+highly variable. No formal benchmarks. Gaps in coverage common – e.g. a volunteer corps
+licensing crisis would “greatly increase response times” if shut down .
+
+
+Narrative Summary: MedStar’s public-utility model stands apart by collective governance and
+stable funding by cities, yielding high certification and innovation . In contrast, Dallas’s fire-based
+EMS is embedded in a large municipal bureaucracy, with firefighters doubling as paramedics; this
+provides broad coverage but has faced staffing strain as call volume grows. Private models
+(Arlington/AMR) live and die by billing revenue; they can be efficient in good times but are
+vulnerable to market fluctuations and have been cited for underperformance . Volunteer squads
+outside metro DFW fill gaps but often operate at the margin – e.g. Texas regulators almost shut
+down one rural volunteer service, which “would greatly increase response times” for that region .
+Overall, the same area (North Texas) contains all these EMS variants, allowing a real-time
+comparison: MedStar is widely seen as high-performing by internal metrics , whereas others show
+variability and strain.
+
+
+C. Fort Worth / MedStar Case Study
+                •    Background (Pre-2023): MedStar had long provided EMS to Fort Worth as a
+              public utility (since 1986). In the early 2020s, city audits found MedStar’s costs rising
+              faster than revenue. In 2023 Fort Worth officials “began an examination into
+              solutions” for EMS viability . Mayor Parker’s administration convened an EMS Ad Hoc
+              Committee and hired consultants (Fitch & Associates) to study the system. Fitch’s
+              analysis (completed April 2024) documented that “current EMS system did not
+              deploy sufficient resources”: average 911 travel time was ~13.5 minutes vs an 8-
+              minute goal, calling the system “under-resourced” .
+                •    Decision to Integrate (2024): In May 2024, the City Council voted to move
+              EMS under the Fire Department’s control . This entailed dissolving MedStar as an
+              independent authority. The council simultaneously authorized forming an EMS
+              Advisory Board and Medical Control Board to oversee quality . These actions officially
+              designated Fort Worth Fire Dept as the EMS provider for all member cities.
+                •    Labor Agreements: The transition required negotiating with IAFF Local 440
+              (firefighters’ union). In late 2024, the City and Local 440 reached a Memorandum of
+              Understanding (MOU) amending the city’s Fire CBA. Key terms: former MedStar
+              EMTs/paramedics would join the Fire Dept as civil-service personnel, with full
+              firefighter benefits . The union membership ratified the MOU in December 2024 .
+              (Local 440 had earlier advocated for a fire-based EMS model , and ultimately secured
+              role definitions for the incoming EMS ranks.)
+                •    Implementation and Outcome (2025): On July 1, 2025, MedStar formally
+              ceased independent operation. Approximately 700 MedStar employees were brought
+              into Fort Worth Fire/EMS under the new system . Fort Worth’s EMS dispatch and
+              ambulances became part of the Fire Department. Media and council reports indicate
+              initial performance shortfalls: for example, city sources later noted that fire-based
+              EMS was reaching 90% of calls in ~11 minutes, short of the 8-minute target (data
+              reported at city hearings).
+                •    Institutional Dynamics: The case saw clear institutional roles: the City
+              (Council/Manager) initiated and approved the change; FWFD leadership had mixed
+             positions (chief Jim Davis implemented training requirements for firefighters on
+             ambulances ); MedStar Board (of elected city/EMS officials) was effectively dissolved
+             by the interlocal; IAFF Local 440 lobbied aggressively. In late 2025, after months of
+             tension over how the merger proceeded, FW Fire Chief Jim Davis resigned amid a union
+             no-confidence campaign . The council and fire union publicly commented only on
+             process and workload, emphasizing that no personal misconduct was cited.
+               •    Before/After Performance: Before the transition, MedStar’s own reports
+             boasted high reliability and outcomes. Fitch’s pre-merger study noted many staffed
+             ambulances but also recommended additional units to hit goals . After integration, Fort
+             Worth’s fire-based EMS has reported longer response times and staffing strain
+             (reflecting the same resource gaps Fitch identified). For example, Fitch projected that
+             adding resources could improve average response by ~5.5 minutes . (Ultimately, Fort
+             Worth allocated a temporary $4.2M subsidy in 2024 to keep MedStar solvent, but
+             much of that was replaced by new JPS reimbursement agreements .)
+
+
+Key Points: This case shows how a high-performing third-service (MedStar) was dismantled by
+city policy. Actions by City officials (Council ordinances, budget decisions) overrode MedStar’s
+independent structure . The union (Local 440) was a powerful force, pushing for firefighters to run
+EMS. The fire department institution took on ambulance responsibilities. Post-transition, publicly-
+reported response metrics have deteriorated relative to MedStar’s era (e.g. numerous missed 8-
+minute benchmarks), indicating real service impact. Throughout, institutions framed decisions as
+fiscal necessity, but critics note MedStar’s strong track record.
+
+
+D. National Patterns (DFW as Microcosm)
+
+
+Across the U.S., the Fort Worth experience mirrors wider trends:
+               •    3rd-Service Undermined: Other regions with high-functioning third-service
+             EMS have seen pressure to absorb into fire or privatize. For example, communities like
+             Austin (Austin-Travis EMS) remain third-service, but even there advocates note the
+             benefits of independent EMS management . By contrast, smaller metros have rolled
+             back third services. (In New York City, an FDNY EMS lieutenant and union leader
+             explicitly called for spinning off EMS from the fire department to restore pay parity and
+             autonomy .)
+               •    Fire EMS Struggles Post-Takeover: Cities that folded EMS into fire have
+             encountered problems. New York’s FDNY EMS personnel report low pay and high
+             turnover under fire control , echoing Fort Worth’s firefighter union objections.
+             Nationwide, union and professional groups warn that treating EMS as a fire “add-on”
+             often leads to EMS being undervalued or understaffed.
+               •    Contract Ambulance Issues: Many U.S. cities have experienced the downsides
+             of contracting out EMS. In San Diego, the switch to private provider Falck led almost
+            immediately to staffing shortfalls and fines . Similarly, other regions (e.g. San
+            Bernardino County, CA) have seen protests or legal action over AMR performance.
+            These cases show that profit-driven EMS can fail to meet community needs when cost-
+            cutting interferes with coverage.
+              •    Volunteer System Collapse: Rural America is seeing widespread collapse of
+            volunteer EMS. As a recent Texas example shows , some volunteer ambulance corps
+            have been shut down or threatened due to mismanagement, creating so-called
+            “ambulance deserts.” This mirrors national reports of volunteer EMS closures leaving
+            rural areas without prompt 911 service.
+              •    Persistent Underfunding: In multiple states, studies and audits have chronicled
+            EMS underfunding. For instance, a CDC report noted that “limited EMS support”
+            statewide leads to staffing and training problems . In Oklahoma, state intervention in
+            EMS was needed when regional systems ran deficits. Thus, North Texas dynamics
+            (budget shortfalls, heavy provider subsidies) are echoed in many regions.
+
+
+E. Indictment-Ready Pattern Summary
+
+
+From these data emerge clear institutional patterns of neglect and abuse of EMS professionals:
+              •    Tolerance of Violence and Inadequate Protection: EMS workers routinely face
+            assault and abuse with little institutional remedy. Despite “2 in 3” reporting on-the-job
+            assaults , many EMS protocols and laws treat such incidents as mere hazards rather
+            than crimes. The failure of employers or governments to demand stricter penalties
+            effectively normalizes violence against EMS, which could be seen as systemic
+            negligence.
+              •    Abandonment After Injury: EMS injured on duty are often left without support.
+            Because many EMS (especially private or volunteer) are excluded from the PSOB
+            program, survivors of fallen EMS or catastrophically injured workers have been denied
+            benefits . This institutional gap – a direct policy choice – means EMS personnel are
+            treated as expendable relative to other first responders.
+              •    Chronic Underfunding & Exploitation: Government and contractor systems
+            have persistently starved EMS of resources. National reports document “limited EMS
+            funding” leading to low pay and equipment shortages . In Fort Worth, the city
+            admitted MedStar was “under-resourced” . Locking EMS funding to transport fees or
+            limited subsidies institutionalizes exploitation: paramedics work long hours and
+            multiple jobs to compensate, while budgets remain flat or cut. This systemic under-
+            resourcing is a pattern of negligence.
+              •    Retaliation and Suppression: Whistleblowers and critics within EMS face
+            punishment. The cited lawsuit (Action Ambulance) shows an employer eliminating a
+            whistleblower who reported safety violations . More broadly, EMS cultures often
+            stigmatize complaints about conditions or leadership. This creates a “culture of
+            silence” protecting institutional failings.
+              •    Hostility to EMS Professionalism: EMS is treated as a second-class public
+            service. Examples include lower pay/benefits for EMS vs. other first responders , and
+            active resistance from firefighters’ unions to any model that elevates EMS autonomy .
+            In Fort Worth, despite MedStar’s success, political forces favored integration into fire
+            (against the advice of some EMS stakeholders). Such structural choices – fusing EMS
+            into fire or outsourcing it – undermine EMS professional status and equity.
+
+
+            These patterns are documented by multiple sources. They suggest a systemic
+            institutional attitude that undervalues EMS safety and equality. Where paramedics
+            have sought parity (in legal benefits, pay, or governance), they have often been
+            blocked by policy or union action . The cumulative evidence points to deliberate
+            policy omissions (PSOB gaps, funding formulas) and organizational practices
+            (retaliation, forced integration) that could form the basis of federal scrutiny of EMS
+            agencies or contractors.
+
+
+F. Gaps & Next Steps
+
+
+Despite extensive data, significant gaps remain:
+              •    FOIA Opportunities: Many relevant records are not public. Recommend FOIA
+            requests for: Fort Worth EMS Ad Hoc Committee minutes, Fitch & Associates reports,
+            city council deliberations on EMS; MedStar board meeting minutes and financials
+            (expense reports, staffing ratios); IAFF Local 440 correspondence about EMS; contract
+            compliance reports for any private EMS providers; OSHA/OSHA 300 logs of EMS
+            injuries in Texas and other states.
+              •    Agencies & Cases: Investigations could target: city and state EMS agencies
+            (TX DSHS, NCTTRAC, Tarrant County), labor boards (for whistleblower complaints),
+            courts (for lawsuit records like the Action Ambulance case). Also review Grand Jury
+            transcripts if any into EMS incidents. Collect regulatory audits on EMS ambulance
+            response from county medical examiners or EMS oversight bodies.
+              •    Data Needed: Crucial missing data include actual response-time distributions
+            (beyond 90% measures) for DFW agencies; comparative injury/disability data for EMS
+            vs. other responders in Texas; claims of retaliation or harassment in personnel files;
+            details of any settlements related to EMS care. Also, national EMS workforce surveys
+            (injury, mental health) should be gathered for pattern confirmation.
+              •    Local Priorities: For Texas specifically, examine: financial audits of MedStar
+            (2018–2023); any union contract negotiation notes; volunteer EMS district budgets and
+            service gaps (blanco-like cases). Elsewhere, similar digs: e.g. municipal EMS
+            dissolution files (Philadelphia 2006), private EMS contract litigation (California,
+            Arizona), volunteer EMS collapse (Louisiana hurricane response).
+             Filling these gaps will solidify the evidentiary record, quantify the harms (response
+             delays, lost earnings, etc.), and prepare a thorough institutional indictment. The
+             existing data already paint a compelling picture of systemic EMS neglect; targeted
+             records could confirm intent and expand the scope to other regions.
+
+
+Sources: This compendium draws on official reports, peer-reviewed studies, union and government
+publications, and investigative journalism        , among others. Each finding above is directly
+cited.
+

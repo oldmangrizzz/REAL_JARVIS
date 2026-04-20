@@ -1,0 +1,513 @@
+The Rise, Evolution, and Dissolution of
+the Public Utility Model: An Exhaustive
+History of MedStar Mobile Healthcare in
+Fort Worth (1986–2025)
+Abstract
+This report provides a comprehensive historical and economic analysis of the Metropolitan Area
+EMS Authority (MAEMSA), operating as MedStar Mobile Healthcare, from its inception in the
+regulatory vacuum of the 1980s to its dissolution and absorption into the Fort Worth Fire
+Department (FWFD) in 2025. This document serves as a case study in the lifecycle of the
+"Public Utility Model" (PUM) of Emergency Medical Services (EMS). It examines the transition
+from unregulated competition to a high-performance regulated monopoly, the pioneering of
+Mobile Integrated Healthcare (MIH), and the eventual collapse of the fee-for-service funding
+structure under the weight of post-pandemic macroeconomic pressures. Through a detailed
+review of municipal ordinances, financial audits, and strategic reports, this analysis elucidates
+the tension between clinical innovation, economic sustainability, and political governance in the
+provision of prehospital care.
+
+Part I: The Genesis of Order – The Pre-MedStar Era
+and the Theoretical Framework (1978–1986)
+1.1 The Market Failure of the "Ambulance Wars"
+To comprehend the structural necessity of MedStar’s creation, one must first dissect the chaotic
+ecosystem of prehospital care that characterized Fort Worth, Texas, in the late 1970s and early
+1980s. During this period, the prevailing economic philosophy regarding ambulance service was
+one of deregulated free-market competition. Municipal leaders operated under the assumption
+that open competition among private ambulance providers—such as Gold Cross, various
+funeral home-based services, and smaller independent operators—would naturally drive down
+costs for patients while incentivizing rapid response times.
+However, the application of standard market dynamics to emergency medicine proved
+disastrously flawed. The ambulance market of the early 1980s suffered from a profound
+disconnect between service demand and revenue potential. In a free market, private entities are
+naturally incentivized to pursue profit. In the context of EMS, this manifested as "cream
+skimming"—a practice where competing agencies aggressively targeted lucrative calls, such as
+scheduled inter-facility transfers (IFTs) or emergencies involving insured patients in affluent
+neighborhoods, while actively avoiding or delaying responses to indigent populations or
+geographically isolated areas.
+The "Ambulance Wars" were not merely a metaphor; they were operational realities. Without a
+central authority or unified dispatch system, private companies monitored police scanners,
+racing each other to accident scenes to "jump" calls and claim the billing rights for the patient.
+This led to dangerous driving behaviors, physical altercations between rival crews at scenes,
+and, most critically, a fragmentation of care. The system lacked accountability; no single entity
+was responsible for the city-wide standard of care. If a patient in a low-income bracket called for
+help, response times were often erratic, as private providers had no contractual obligation or
+financial incentive to prioritize non-paying customers.
+By 1985, the situation in Fort Worth had reached a crisis point. The incumbent providers were
+deemed "extremely unreliable," with the media documenting instances of prolonged wait times
+and operational failures. The City Council faced a stark realization: the free market could not
+guarantee the universal safety net required for public health. Emergency medical care was a
+natural monopoly, not a commodity to be traded on the open market.
+
+1.2 The Jack Stout Philosophy: Architecting the Public Utility Model
+Enter Jack Stout, an economist from the University of Oklahoma who would fundamentally
+reshape the global landscape of EMS system design. Stout, observing the failures of both the
+chaotic private market and the inefficient, tax-heavy municipal models of the era, proposed a
+"Third Way": The Public Utility Model (PUM).
+Stout’s theory was rooted in the economic concept of the "natural monopoly." He argued that
+because the demand for emergency service is inelastic (a cardiac arrest patient cannot shop for
+a better price) and the readiness costs are fixed (an ambulance must be staffed and fueled
+regardless of whether it runs a call), competition in the market was destructive. It diluted call
+volume across too many providers, preventing any single agency from achieving the economies
+of scale necessary to afford advanced clinical equipment and high wages.
+Instead, Stout advocated for competition for the market. Under the PUM, a local government
+would create a public authority to hold the exclusive market rights. This authority would then
+contract with a private company to operate the system. The contractor would be selected
+through a rigorous bidding process, winning the monopoly for a fixed term (usually 5 years).
+This structure combined the efficiency and expertise of the private sector with the accountability
+and equity of the public sector.
+The Pillars of the Stout Model:
+   1.​ Sole Provider Status: The authority must control 100% of the market volume, bundling
+       profitable transfers with unprofitable 911 calls. This cross-subsidization was the economic
+       engine that allowed the system to operate with low or zero tax subsidy.
+   2.​ Performance-Based Contracting: The private contractor was paid based on
+       performance, not effort. If an ambulance was late, the contractor was fined. This aligned
+       the profit motive with public safety goals.
+   3.​ System Status Management (SSM): Stout introduced the concept of fluid deployment.
+       Rather than stationing ambulances at fixed fire stations (which he viewed as inefficient
+       "static" deployment), PUM systems used historical data to predict where calls would occur
+       and positioned units at street corners or "posting" locations. This allowed fewer
+       ambulances to cover a larger area, maximizing "Unit Hour Utilization" (UHU)—a measure
+       of productivity.
+
+1.3 The 1986 Ordinance and the Birth of MAEMSA
+In December 1985, the Fort Worth City Council adopted Stout’s blueprint, passing an ordinance
+that created the Fort Worth Ambulance Authority (later the Metropolitan Area EMS Authority, or
+MAEMSA). The ordinance was a radical departure from the status quo. It legally designated the
+Authority as the exclusive provider of all emergency and non-emergency ambulance transport
+within the city limits, effectively outlawing the private competition that had fueled the ambulance
+wars.
+This legal exclusivity was immediately challenged. Displaced private companies filed antitrust
+lawsuits, arguing that the city was creating an illegal monopoly. However, the federal courts
+sided with Fort Worth. In a landmark decision, the courts invoked the "state action doctrine,"
+ruling that municipalities had the right to displace competition with regulation if it served the
+public interest of ensuring reliable emergency care.
+On April 1, 1986, the new system, trading as "MedStar," commenced operations. It began with a
+modest volume of 39,000 calls in its first year, but the structure was set. The Authority owned
+the license and the billing revenue; a private contractor managed the paramedics and the fleet.
+The "Ambulance Wars" were over; the era of the Public Utility Model had begun.
+
+Part II: The High-Performance Era – Operational
+Maturation (1986–2008)
+2.1 Regional Expansion and the "Area Metropolitan" Shift
+The success of the MedStar model in Fort Worth quickly garnered attention from surrounding
+municipalities in Tarrant County. These smaller suburbs faced the same dilemmas of scale: they
+were too small to support their own independent full-time ambulance services but too large to
+rely solely on volunteers. The PUM offered an elegant solution: by joining the Authority, they
+could tap into a region-wide high-performance system without incurring the massive capital
+costs of purchasing fleets or building stations.
+Haltom City became the first suburban partner to join in 1988, followed by a wave of others
+including Saginaw, White Settlement, Lake Worth, and Blue Mound. This expansion
+necessitated the renaming of the entity from the Fort Worth Ambulance Authority to the
+Metropolitan Area EMS Authority (MAEMSA). This regionalization was a validation of Stout’s
+economic theories—aggregating the call volume of 15 jurisdictions created a massive,
+contiguous service area of 436 square miles and over 1 million residents. This scale allowed for
+greater efficiency; an ambulance clearing a call in North Fort Worth could immediately respond
+to a call in neighboring Saginaw, erasing the artificial political boundaries that previously
+delayed care.
+
+2.2 The Contractor Years (1986–2005)
+For the first two decades, MedStar operated under the "Contracted PUM" structure. The
+Authority (the government board) set the standards, while private corporations (such as
+Rural/Metro or AMR predecessors) bid for the contract to staff and run the ambulances. This
+period was characterized by high operational efficiency but underlying friction.
+The inherent conflict in the contracted PUM was between the profit motive of the vendor and the
+quality demands of the Authority. The contractor was incentivized to run the system as "lean" as
+possible—using the fewest number of unit hours necessary to barely meet the 90% on-time
+requirement. Every extra ambulance hour ate into their profit margin. Conversely, the Authority
+demanded higher service levels and clinical excellence. This tension often resulted in
+"contractor fatigue," where vendors would burn out their workforce to meet performance metrics,
+leading to high turnover among paramedics and EMTs.
+
+2.3 The 2005 Transition: Taking Operations In-House
+In 2005, the MAEMSA Board of Directors made a strategic pivot that would define the agency's
+"Golden Era." After nearly twenty years of contracting, the Board voted to dissolve the
+relationship with the private vendor and assume direct operational control. This shifted MedStar
+from a "Contracted PUM" to a "Governmental PUM".
+The Strategic Rationale:
+   1.​ Economic Retention: The profit margin that was previously siphoned off by the private
+       contractor (often 7–10% of gross revenue) could now be retained and reinvested into the
+       system. This capital would fund better equipment, higher wages, and safety innovations.
+   2.​ Cultural Alignment: By employing the workforce directly, the Authority could build a
+       unified culture focused on patient care rather than corporate shareholder returns. The
+       Medical Director could implement clinical protocols directly without negotiating through a
+       third-party management layer.
+   3.​ Workforce Stability: The Authority could offer better benefits and retirement packages
+       (though not yet Civil Service) than the private contractors, helping to stem the attrition
+       rate.
+This transition laid the groundwork for MedStar to evolve from a transportation utility into a
+healthcare provider. It gave the leadership team—including CEO Doug Hooten and later Matt
+Zavadsky—the autonomy to innovate without the constraints of a rigid vendor contract.
+
+Part III: The Innovation Engine – Pioneering Mobile
+Integrated Healthcare (2009–2019)
+3.1 The "Triple Aim" and the Shift to Value-Based Care
+By 2009, the broader US healthcare landscape was undergoing a seismic shift. The Affordable
+Care Act (ACA) and the Institute for Healthcare Improvement (IHI) were pushing the industry
+toward the "Triple Aim": improving the patient experience, improving population health, and
+reducing per-capita costs.
+MedStar recognized that the traditional EMS model—"you call, we haul"—was antithetical to
+these goals for a large subset of patients. Data analysis revealed that a significant percentage
+of 911 callers did not require an emergency room. These "low-acuity" patients needed primary
+care, mental health support, or social services. Transporting them to the ER was clinically
+inappropriate and economically wasteful, costing the healthcare system thousands of dollars for
+visits that could be handled for a fraction of the cost in a clinic or at home.
+
+3.2 The High Utilizer Group (HUG) Program
+In July 2009, MedStar launched the Mobile Integrated Healthcare (MIH) program, later
+branded as "Mobile Healthcare." The flagship initiative was the High Utilizer Group (HUG)
+program. MedStar identified "super-users"—individuals who called 911 dozens, sometimes
+hundreds, of times a year. These patients were often suffering from complex chronic conditions
+exacerbated by social determinants of health (e.g., lack of transport to a pharmacy, inability to
+afford healthy food, loneliness).
+Instead of dispatching an ambulance to transport these patients to the ER repeatedly, MedStar
+sent specially trained Community Paramedics (CPs) to their homes. These CPs functioned as
+patient navigators. They performed medical assessments, reconciled medications, identified fall
+hazards, and connected patients with primary care providers and social resources.
+Program Impact (2013–2021 Data): The results were staggering and garnered national
+attention:
+   ●​ Transport Reduction: Among 820 enrolled patients, 911 ambulance transports to the ED
+       decreased by 48.4%.
+   ●​ ER Avoidance: The program prevented an estimated 5,545 ED visits.
+   ●​ Economic Impact: The reduction in unnecessary utilization saved the healthcare system
+       approximately $15 million, averaging $18,297 in savings per enrolled patient.
+
+3.3 Readmission Avoidance & The Economics of Prevention
+Building on the HUG success, MedStar partnered with major hospital systems like JPS Health
+Network and Texas Health Resources to address "30-day readmissions." Under the ACA,
+hospitals faced severe financial penalties if patients with certain conditions (like heart failure or
+pneumonia) returned to the hospital within 30 days of discharge.
+MedStar proposed a radical solution: hospitals would pay MedStar a service fee to visit these
+high-risk patients at home, ensure they were taking their diuretics and antibiotics, and catch
+complications before they required re-hospitalization.
+   ●​ Success Rate: Patients enrolled in the program demonstrated a 49.2% readmission
+       rate compared to an expected 100% rate for their risk profile.
+   ●​ Strategic Significance: This created a new revenue stream decoupled from transport.
+       MedStar was effectively being paid not to transport patients. This was the "Holy Grail" of
+       EMS economics—transitioning from a transportation company to a healthcare service.
+
+3.4 The "StarSaver" Membership
+To further insulate the community from the high costs of emergency care, MedStar popularized
+the "StarSaver" membership program. For a nominal annual fee, households could subscribe to
+the service. If a member needed an ambulance, MedStar would bill their insurance but waive
+any out-of-pocket co-pays or deductibles. This program served a dual purpose: it provided a
+steady stream of upfront cash liquidity for the Authority and fostered immense community
+goodwill, effectively acting as a micro-insurance policy for residents.
+
+Part IV: The Economic Mirage – The "Zero Subsidy"
+Paradox (2010–2020)
+4.1 The Myth of Free EMS
+For nearly a decade, MedStar was celebrated by city managers and fiscal conservatives as the
+ideal model of government efficiency. From 2010 to roughly 2023, the system required $0 in tax
+subsidy from the City of Fort Worth or its member cities. While police and fire departments
+consumed hundreds of millions in General Fund tax revenue, MedStar was entirely self-funding.
+However, this "free" service was an economic illusion rooted in cost-shifting. The system relied
+entirely on fee-for-service billing. The cost of readiness—staffing ambulances 24/7/365—was
+borne exclusively by the patients who used the system and their insurers.
+  ●​ Cross-Subsidization: The model worked only because MedStar held the exclusive right
+       to high-reimbursement Inter-Facility Transfers (IFTs). A patient moving from a hospital to a
+       skilled nursing facility typically had private insurance or Medicare, which paid reliably. The
+       profit from these transfers subsidized the 911 calls for uninsured or Medicaid patients,
+       which often resulted in a net loss.
+
+4.2 The "Payer Mix" Vulnerability
+The Achilles' heel of this model was its sensitivity to the "Payer Mix"—the ratio of commercially
+insured patients to government-insured or uninsured patients.
+   ●​ Commercial Insurance: reimbursed at 150-200% of cost.
+   ●​ Medicare/Medicaid: reimbursed at fixed rates, often 30-60% of the actual cost of
+       transport.
+   ●​ Uninsured: reimbursed at near 0%.
+As the decade progressed, the payer mix in Fort Worth began to deteriorate. An aging
+population meant more Medicare patients. Economic shifts meant fewer commercially insured
+patients. Furthermore, commercial insurers began aggressively denying claims or lowering
+reimbursement rates. MedStar was trapped in a pincer movement: the cost of providing service
+(labor, fuel, ambulances) was rising with inflation, while the revenue per transport was stagnant
+or declining.
+
+4.3 The Innovation Penalty
+Crucially, the success of the MIH programs paradoxically hurt the system’s bottom line. By
+successfully reducing 911 calls from high utilizers and preventing readmissions, MedStar was
+actively destroying its primary revenue source. The "savings" of $15 million accrued to the
+hospitals and insurers, not to MedStar. While hospitals paid fees for the MIH visits, these fees
+rarely covered the full overhead of the high-level paramedics required to perform them. MedStar
+had effectively innovated itself out of its own business model.
+
+Part V: The Collapse – The Perfect Storm (2020–2024)
+5.1 The Pandemic Catalyst
+The COVID-19 pandemic acted as an accelerant for the structural weaknesses in MedStar's
+model. In 2020 and 2021, call volumes fluctuated wildly. Initially, volume dropped as people
+feared hospitals, decimating revenue. Then, waves of infection spiked costs due to PPE
+requirements, decontamination protocols, and overtime for sick crews.
+
+5.2 The Inflation and Supply Chain Shock
+Post-pandemic inflation dealt the fatal blow. The cost of operations skyrocketed:
+  ●​ Ambulance Fleets: MedStar had committed to a fleet modernization in 2019, purchasing
+     60 new Type I ambulances on truck chassis for $13.5 million to improve safety and
+     comfort. By 2022, the cost of replacement parts, fuel, and new chassis had surged due to
+     global supply chain disruptions.
+  ●​ The Labor War: The "Great Resignation" hit EMS hard. To retain paramedics who were
+     leaving for nursing or higher-paying fire department jobs, MedStar was forced to
+     implement massive wage increases. Unlike the Fire Department, which could ask the City
+     Council for a budget increase funded by property taxes (which were rising with home
+     values), MedStar had no tax lever. It had to fund these raises from a shrinking operational
+     margin.
+
+5.3 The 2023 Solvency Crisis
+By 2023, the "Zero Subsidy" era was demonstrably over. The system was burning through cash
+reserves at a rate of $350,000 per month. With reserves critically low, MedStar leadership
+approached the Fort Worth City Council with a stark request: they needed $4.2 million in
+"transitional funding" (a bailout) to survive the fiscal year.
+This request broke the compact of the 1986 ordinance. City leaders, long accustomed to EMS
+being a "free" service, were shocked. The realization that the PUM was no longer self-sustaining
+triggered an immediate political reaction: the formation of an Ad Hoc Committee to re-evaluate
+the entire delivery of EMS in Fort Worth.
+
+Part VI: The Autopsy – The Fitch Report and Political
+Maneuvering (2023–2024)
+6.1 The Fitch & Associates Analysis
+The City commissioned Fitch & Associates, a preeminent public safety consulting firm, to
+conduct a forensic analysis of the system. The "EMS System Comprehensive Study," presented
+in early 2024, provided the data that would seal MedStar's fate.
+Key Findings:
+   ●​ Operational Strain: MedStar was operating at unsafe utilization levels. To meet the
+       target response times (8 minutes, 90% of the time) and reduce paramedic burnout (Unit
+       Hour Utilization of 0.50), the system needed significantly more ambulances and staff.
+   ●​ The Cost of Status Quo: The report concluded that maintaining MedStar as an
+       independent PUM was no longer possible without subsidy. To fix the response times and
+       stabilize the workforce would require a permanent annual subsidy of $10 million+. The
+       "Zero Subsidy" days were mathematically impossible to return to.
+   ●​ The IFT Decoupling: Fitch recommended removing the exclusive right to Inter-Facility
+       Transfers from the 911 provider. This was the final nail in the PUM coffin. If the 911
+       provider lost the profitable transfer volume, the cross-subsidization model would collapse
+       entirely, necessitating a 100% tax-subsidized model.
+
+6.2 The Union's Role (IAFF Local 440)
+While the consultants crunched numbers, the political ground was shifting. The Fort Worth
+Professional Firefighters Association (IAFF Local 440) launched a sophisticated campaign
+advocating for a "Fire-Based EMS" model. The union argued that the "third service" experiment
+had failed and that consolidating EMS into the Fire Department would provide:
+  1.​ Better Response Times: Leveraging the existing footprint of 45+ fire stations rather than
+      MedStar’s dynamic street-corner posting.
+  2.​ Unified Command: Eliminating the friction between Fire First Responders and MedStar
+      Transport units.
+  3.​ Career Stability: Offering paramedics civil service protection and state pension benefits,
+      ending the high turnover cycle.
+The union's GIS analysis suggested that placing ambulances at fire stations would optimize
+deployment. Politically, the union mobilized to convince the Council that the MedStar brand was
+damaged beyond repair and that the Fire Department was the only agency capable of
+guaranteeing stability.
+
+6.3 The Four Options
+The Ad Hoc Committee considered four models:
+   1.​ Retain MedStar (PUM): Required high subsidy, board governance issues remained.
+   2.​ Private Contractor: Reverting to the pre-2005 model. Rejected as a step backward.
+   3.​ Third Service: A city department separate from Police/Fire. Deemed too expensive to
+       build administrative infrastructure from scratch.
+   4.​ Fire-Based EMS: Integrating into FWFD. This option leveraged existing infrastructure
+       (stations, dispatch, HR) and offered the political stability of the General Fund.
+In May 2024, the City Council voted unanimously to adopt the Fire-Based EMS model, initiating
+the dissolution of MedStar.
+
+Part VII: The Transition – Integrating Cultures and
+Assets (2024–2025)
+7.1 The Mechanics of Dissolution
+The transition, scheduled for completion on July 1, 2025, involved the complex dismantling of a
+$50 million corporation.
+  ●​ Legal Dissolution: The Interlocal Agreement (ILA) forming MAEMSA was revoked. Fort
+      Worth, as the majority owner, took possession of the assets. Smaller member cities
+      (Haltom, Saginaw, etc.) had to sign new service agreements with the City of Fort Worth or
+      find their own providers.
+  ●​ Asset Transfer: MedStar’s headquarters on Alta Mere Drive, its communication center,
+      and its fleet of 60+ Type I ambulances were transferred to the FWFD.
+
+7.2 The "Single Role" vs. "Dual Role" Cultural Challenge
+The most delicate aspect of the transition was the human capital. Fire departments typically
+operate with "Dual Role" personnel—firefighters who are also paramedics. MedStar’s workforce
+consisted of "Single Role" civilians—paramedics who had no interest in fighting fires.
+To integrate them, the City and Local 440 negotiated a groundbreaking amendment to the
+Collective Bargaining Agreement (CBA):
+   ●​ Civil Service Mapping: In a rare move, the existing MedStar workforce was "mapped
+       over" into the Fire Department as Civil Service employees. This granted them the same
+       protections (termination for cause only, due process) as firefighters, a massive upgrade in
+       job security.
+   ●​ The "Single Role" Division: A new division was created within FWFD for EMS-only
+       personnel. They would work 12-hour shifts (unlike the Fire 24/48 schedule) and staff the
+       ambulances.
+   ●​ Pay Parity: The agreement included an average 10% pay increase to align MedStar
+       salaries with the fire market, directly addressing the retention crisis.
+The "Stepchild" Fear: Despite these protections, significant cultural anxiety remains. In many
+fire departments, Single Role paramedics are viewed as "second-class citizens" or
+"stepchildren" compared to the "heroic" firefighters. They often have limited promotional
+pathways and different station privileges. Assistant City Manager Valerie Washington and Fire
+Chief Jim Davis publicly emphasized their commitment to cultural integration, stating, "We did
+everything we could to prevent... making them feel less than". However, the history of such
+mergers (e.g., FDNY/EMS) suggests that cultural friction often persists for a generation.
+
+7.3 Financial Implications
+The new model abandons the "Zero Subsidy" pretension. The projected budget for the new
+EMS division involves a mix of billing revenue and significant General Fund tax support. The
+Fitch report estimated the net cost (Expense minus Revenue) for the Single Role model to be
+approximately $10.8 million annually. The City accepted this cost as the price of stability and
+control.
+
+Part VIII: Conclusion – The Legacy of the Fort Worth
+Experiment
+8.1 The End of an Ideology
+The dissolution of MedStar represents more than just a change in vendor; it marks the end of a
+specific economic ideology in American EMS. For 38 years, Fort Worth was the
+proof-of-concept for Jack Stout’s vision that emergency medicine could be a self-sustaining
+utility. The PUM demonstrated that rigorous data analysis, system status management, and
+clinical innovation could produce world-class outcomes.
+
+8.2 Why It Failed
+Ultimately, the MedStar model did not fail because of clinical incompetence—its MIH programs
+were globally celebrated. It failed because it was an economic anomaly. It attempted to operate
+a critical public safety net using a volatile commercial revenue model. When the
+macro-economic tide turned—inflation, supply chain collapse, and payer mix shifts—the
+"business" of EMS could no longer support the "mission" of EMS.
+
+8.3 The Future
+As the Fort Worth Fire Department takes command in July 2025, the city enters a new era. The
+challenges of the "Ambulance Wars" are gone, replaced by the challenges of municipal
+bureaucracy and cultural integration. The FWFD inherits a high-performing asset but also the
+heavy responsibility of maintaining the clinical innovations that made MedStar famous. Whether
+the fire service can nurture the delicate, preventative work of Mobile Integrated Healthcare
+within a paramilitary suppression culture remains the defining question of the next decade.
+
+Appendix: Data Tables
+Table 1: Comparative Analysis of Governance Models
+Feature                        Public Utility Model (MedStar) Fire-Based EMS (FWFD)
+Primary Goal                   Economic Efficiency & Clinical Operational Stability & Unified
+                               Performance                    Command
+Funding Source                 100% User Fees (Billing        User Fees + Tax Subsidy
+                               Revenue)                       (General Fund)
+Workforce                      Civilian, At-Will Employees    Civil Service, Unionized (Local
+                                                              440)
+Deployment                     Dynamic (Street Corner         Static (Fire Station Based)
+                               Posting)
+Oversight                      Appointed Authority Board      City Council & Fire Chief
+                               (MAEMSA)
+Cost to Taxpayer               $0 (2010–2023)                 ~$10.8M Annual Deficit
+                                                              (Projected)
+Table 2: Mobile Integrated Healthcare (MIH) Impact Data (2013-2021)
+Program Metric                 Statistic                       Implication
+HUG Enrollment                 820 Patients                    High utilizers diverted from
+                                                               911/ER.
+Transport Reduction            -48.4%                          Massive drop in unnecessary
+                                                               ambulance use.
+ER Visits Prevented            5,545                           Reduced overcrowding in local
+                                                               ERs.
+Readmission Rate               49.2%                           vs. 100% expected for risk
+                                                               group.
+Total Cost Savings             ~$15,000,000                    Savings accrued to
+                                                               payers/hospitals.
+Savings Per Patient            $18,297                         Demonstrates high ROI of
+                                                               prevention.
+*Source: MedStar Mobile
+Healthcare Outcome Reports *
+Table 3: Evolution of MedStar Governance
+Era                    Years                   Operational Model       Key Characteristic
+Pre-History            Pre-1986                Free Market             Unregulated,
+                                                                       "Ambulance Wars,"
+Era                     Years                    Operational Model     Key Characteristic
+                                                                       Cream Skimming.
+Phase I                  1986–2005                Contracted PUM       Authority holds license;
+                                                                       Private Contractor
+                                                                       (e.g., AMR) runs ops.
+Phase II                 2005–2024                Governmental PUM Authority takes ops
+                                                                       in-house; "Zero
+                                                                       Subsidy" & MIH era.
+Phase III                2024–2025                Dissolution          Transition period; Asset
+                                                                       transfer to City.
+Future                   July 2025+               Fire-Based EMS       Integrated division of
+                                                                       FWFD; Civil Service
+                                                                       staff.
+This report was compiled using exhaustive analysis of public records, municipal ordinances,
+financial audits, and industry reports from the period 1980–2025.
+
+Works cited
+
+1. It's Time to Resurrect the Public Utility Model Concept–But This Time for Healthcare - JEMS,
+https://www.jems.com/patient-care/it-s-time-to-resurrect-the-public-utility-model-concept-but-also
+-for-healthcare-this-time/ 2. Spotlight Archives - American Ambulance Association,
+https://ambulance.org/category/spotlight/ 3. Every aspect of the system has exceeded anything
+we could have imagined 30 years ago. - MedStar Mobile Healthcare,
+https://www.medstar911.org/wp-content/uploads/2019/10/MedStar_2016_-_30_Years_LR.pdf 4.
+[News Clip: Ambulance] - The Portal to Texas History,
+https://texashistory.unt.edu/ark:/67531/metadc905433/ 5. Jack Stout - National EMS Museum,
+https://emsmuseum.org/collections/archives/people/jack_stout/ 6. Measuring Your System -
+National EMS Museum,
+https://emsmuseum.org/wp-content/uploads/2021/05/10-Standards-of-Excellence-Measuring-yo
+ur-System-84-91-1983-01-JEMS.pdf 7. Who Was Jack Stout and Why Do His Ideas Still
+Resonate? - FirstWatch.net,
+https://firstwatch.net/event/who-was-jack-stout-and-why-do-his-ideas-still-resonate/ 8. What you
+can learn from Jack Stout's legendary career - EMS1,
+https://www.ems1.com/ems-management/articles/what-you-can-learn-from-jack-stouts-legendar
+y-career-XjHLtFEe3n6T3Ok9/ 9. MedStar's 38th Birthday! | MedStar911,
+https://www.medstar911.org/2024/04/01/medstars-38th-birthday/ 10. MedStar Mobile Healthcare
+is the trade name for the Metropolitan Area EMS Authority (MAEMSA). The MAEMSA is a
+governmental administrative agency established through the adoption of a uniform EMS
+ordinance and interlocal cooperative agreement between municipalities under the provisions of
+Section 773.051 of the Texas Health and Safety Code and the provisions of Chapter 791.001 of
+the Texas Government Code (the “Interlocal Cooperation Act”), which provides that
+combinations of governmental units may contract for the provision of governmental services.
+The MAEMSA/MedStar Mobile Healthcare is not a subsidiary of any other agency or
+corporation, nor does it have any financial interest in any other agency or corporation.,
+https://www.medstar911.org/about-us/ 11. MedStar Mobile Healthcare | Texas EMS Alliance,
+https://txemsa.com/medstar-mobile-healthcare/ 12. Mobile Healthcare Programs | MedStar911,
+https://www.medstar911.org/mobile-healthcare-programs/ 13. MedStar Health Home Care
+Reduces Hospital Readmission Rate to 60% of the National Average with HRS,
+https://www.medstarhealth.org/news-and-publications/news/medstar-health-home-care-reduces-
+hospital-readmission-rate-to-60-of-the-national-average-with-hrs 14. Emergency Medical
+Services | Lake Worth, Texas,
+https://www.lakeworthtx.org/fire-department/pages/emergency-medical-services 15. StarSaver
+Membership – Welcome to the City of Fort Worth,
+https://www.fortworthtexas.gov/departments/fire/services/membership 16. City of Fort Worth
+MedStar/EMS Transition At-A-Glance,
+https://www.fortworthtexas.gov/files/assets/public/v/1/communications/documents/engagement/
+newsletters/sp.ed-ems.pdf 17. August 14, 2023 - Matter 1 - Consider the recommendation from
+Consultant Review Committee to award the Ci - City of Novi,
+https://cityofnovi.org/media/3rmjan32/8142023_matter1.pdf 18. Working Together for Our
+Community - MedStar Mobile Healthcare,
+https://www.medstar911.org/wp-content/uploads/2020/03/Low-Res-under-2MG-2020-MedStar-V
+er26.pdf 19. Connecting Care Across the Continuum - MedStar Mobile Healthcare,
+https://www.medstar911.org/wp-content/uploads/2020/03/MedStar-2019-AR-small.pdf 20. Payer
+Relationships in Texas: An Interview With Matt Zavadsky,
+https://txemsa.com/payer-relationships-in-texas-an-interview-with-matt-zavadsky/ 21. THE
+AMBULANCE SHORTAGE—PROBLEMS AND SOLUTIONS - Cloudfront.net,
+https://d148x66490prkv.cloudfront.net/hmp_ln/2023-01/The%20Ambulance%20Shortage%20Pr
+oblems%20and%20Solutions.pdf 22. Without Fort Worth funding, MedStar CEO anticipates
+selling north deployment center,
+https://www.keranews.org/government/2023-09-01/without-fort-worth-funding-medstar-ceo-antici
+pates-selling-north-deployment-center 23. To the Mayor and Members of the City Council
+August 24, 2023 Page 1 of 2 SUBJECT: Medstar Transitional Funding and Plan to Determine
+Best EMS System Structure for Fort Worth,
+https://www.fortworthtexas.gov/files/assets/public/planning-data-analytics/documents/budget-an
+alysis/fy2024-budget/responses/br-24-005-medstar-transitional-funding-for-fy24.pdf 24. Texas
+council considers $4.2M for MedStar shortfall - EMS1,
+https://www.ems1.com/legislation-funding/articles/texas-council-considers-42m-for-medstar-shor
+tfall-z0kEddVfuMsupEEn/ 25. EMS Ad Hoc Committee Recommendations for City Council,
+https://www.fortworthtexas.gov/files/assets/public/v/2/communications/documents/city-council-pr
+esentations/2024/05-07-2024/ems-ad-hoc-committee-recommendations.pdf 26. DRAFT DATA
+ANALYSIS REPORT CITY of FORT WORTH - MedStar,
+https://www.fortworthtexas.gov/files/assets/public/v/2/city-manager/documents/medstar/fitch-ass
+ociates-appendices-and-supporting-documents-4-30-2024.pdf 27. EMS Update - the City of Fort
+Worth, https://www.fortworthtexas.gov/files/assets/public/v/1/8.-ems-update.pdf 28. IAFF, Fort
+Worth, TX Local 440 support plan for fire-based EMS model,
+https://www.iaff.org/news/iaff-fort-worth-tx-local-440-support-plan-for-fire-based-ems-model/ 29.
+EMS - the City of Fort Worth, https://www.fortworthtexas.gov/departments/city-manager/ems 30.
+Proposed framework would ease EMS transition from MedStar to City | MedStar911,
+https://www.medstar911.org/2025/03/02/proposed-framework-would-ease-ems-transition-from-
+medstar-to-city/ 31. Fort Worth prepares to welcome MedStar workforce into fire department,
+union | KERA News,
+https://www.keranews.org/government/2025-01-17/fort-worth-prepares-to-welcome-medstar-wor
+kforce-into-fire-department-union
+
