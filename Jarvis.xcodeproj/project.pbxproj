@@ -483,6 +483,7 @@
 		8370F49B3B9B245AD695C406 /* 0261.wav in Resources */ = {isa = PBXBuildFile; fileRef = 187C05D1A00BF398553FACBB /* 0261.wav */; };
 		83AECED03D0C151725B03EF3 /* 0581.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0D59134ADAE69B202DE39596 /* 0581.wav */; };
 		842BB72DB6B0A56743837E7F /* 0431.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1EC5F432B71BE108489C6E6F /* 0431.wav */; };
+		84876BFC88655ECA42BDFE66 /* WiFiScannerRedactionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44248F278ED84D6F17D9E2D /* WiFiScannerRedactionTests.swift */; };
 		851CD7C6CB75B4EB20C0EB94 /* 0212.wav in Resources */ = {isa = PBXBuildFile; fileRef = 77AA97D49E37DB4469C8EF59 /* 0212.wav */; };
 		85388AFA3E65A0800EF24B05 /* 0157.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0855D74114E82C819B26E0AE /* 0157.wav */; };
 		8550A277223FEDC26AB629BA /* 0026.wav in Resources */ = {isa = PBXBuildFile; fileRef = 11172B1046E69BCEC5005F13 /* 0026.wav */; };
@@ -1933,6 +1934,7 @@
 		F3B558EEDAB28C6526D575D8 /* 0018.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0018.wav; sourceTree = "<group>"; };
 		F413B091E126896D0DF561FB /* 0382.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0382.wav; sourceTree = "<group>"; };
 		F419555668214B279A618E1E /* 0618.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0618.wav; sourceTree = "<group>"; };
+		F44248F278ED84D6F17D9E2D /* WiFiScannerRedactionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiScannerRedactionTests.swift; sourceTree = "<group>"; };
 		F48786A711DCF654A776B13C /* audio-1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "audio-1.mp3"; sourceTree = "<group>"; };
 		F50FDA98D044F073787DB55B /* 0103.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0103.wav; sourceTree = "<group>"; };
 		F5184CD9287F63DB5A59180A /* 0594.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0594.wav; sourceTree = "<group>"; };
@@ -3295,6 +3297,7 @@
 				BDB2F390848B714BE4947AB2 /* TunnelIdentityStoreTests.swift */,
 				274783B53F6FAEA3990D20EE /* VoiceApprovalGateTests.swift */,
 				7DEC9E2FF5734DD56045A19B /* VoiceCommandRouterTests.swift */,
+				F44248F278ED84D6F17D9E2D /* WiFiScannerRedactionTests.swift */,
 			);
 			name = JarvisCoreTests;
 			path = Jarvis/Tests/JarvisCoreTests;
@@ -4449,6 +4452,7 @@
 				0B982F5A52CC7BA756A5C280 /* TunnelIdentityStoreTests.swift in Sources */,
 				39E9D54C5B6E14B16505F8D9 /* VoiceApprovalGateTests.swift in Sources */,
 				0A4E0963BAF30EF8109D4BBE /* VoiceCommandRouterTests.swift in Sources */,
+				84876BFC88655ECA42BDFE66 /* WiFiScannerRedactionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
