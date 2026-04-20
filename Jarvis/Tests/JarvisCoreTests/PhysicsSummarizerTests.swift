@@ -138,4 +138,75 @@ final class PhysicsSummarizerTests: XCTestCase {
         XCTAssertEqual(sum.movingCount, 1)
         XCTAssertEqual(sum.restingCount, 2)
     }
+
+    // MARK: - Additional coverage
+
+    func testMaxBodiesOneShowsSingleBodyAndOmitsRest() {
+        let s = PhysicsSummarizer(maxBodies: 1)
+        let bs: [BodyState] = (0..<3).map { body("b\($0)", id: UInt64($0)) }
+        let sum = s.summarize(snapshot: bs, lastReport: nil)
+        XCTAssertEqual(sum.bodyCount, 3)
+        XCTAssertTrue(sum.text.contains("- b0 at "), "first body must appear: \(sum.text)")
+        XCTAssertFalse(sum.text.contains("- b1 at "))
+        XCTAssertTrue(sum.text.contains("(2 more bodies omitted)"))
+    }
+
+    func testNegativeVelocityComponentsContributeToMagnitude() {
+        // Velocity magnitude must be computed via length(), so a body with purely
+        // negative components still counts as moving when |v| >= threshold.
+        let s = PhysicsSummarizer(movingSpeedThreshold: 0.1)
+        let b = body("back", vel: Vec3(-0.3, 0, -0.4), id: 1) // |v| = 0.5
+        let sum = s.summarize(snapshot: [b], lastReport: nil)
+        XCTAssertEqual(sum.movingCount, 1)
+        XCTAssertEqual(sum.restingCount, 0)
+        XCTAssertTrue(sum.text.contains("speed 0.50m/s"))
+        XCTAssertTrue(sum.text.contains("moving"))
+    }
+
+    func testHeaderIsFirstLineAndBodyLinesFollow() {
+        let s = PhysicsSummarizer(maxBodies: 2)
+        let bs = [body("a", id: 1), body("b", id: 2)]
+        let sum = s.summarize(snapshot: bs, lastReport: nil)
+        let lines = sum.text.split(separator: "\n")
+        XCTAssertEqual(lines.count, 3)
+        XCTAssertTrue(lines[0].hasPrefix("Physics state at t="))
+        XCTAssertTrue(lines[1].hasPrefix("- a at "))
+        XCTAssertTrue(lines[2].hasPrefix("- b at "))
+    }
+
+    func testReportWithZeroContactsRendersLiteralZero() {
+        let s = PhysicsSummarizer()
+        let sum = s.summarize(snapshot: [body("x")], lastReport: report(t: 0.25, contacts: 0))
+        XCTAssertEqual(sum.recentContactCount, 0)
+        XCTAssertTrue(sum.text.contains("0 recent contacts"))
+        XCTAssertTrue(sum.text.contains("t=0.250s"))
+    }
+
+    func testSingleContactIsNotGrammaticallyPluralised() {
+        // Regression lock: the summarizer does not attempt plural/singular forms,
+        // so "1 recent contacts" is the expected literal output.
+        let s = PhysicsSummarizer()
+        let sum = s.summarize(snapshot: [body("x")], lastReport: report(t: 1, contacts: 1))
+        XCTAssertTrue(sum.text.contains("1 recent contacts"))
+    }
+
+    func testPhysicsSummaryEquatable() {
+        let a = PhysicsSummary(text: "hello", simulatedTime: 1, bodyCount: 2,
+                               restingCount: 1, movingCount: 1, recentContactCount: 3)
+        let b = PhysicsSummary(text: "hello", simulatedTime: 1, bodyCount: 2,
+                               restingCount: 1, movingCount: 1, recentContactCount: 3)
+        let c = PhysicsSummary(text: "hello", simulatedTime: 1, bodyCount: 2,
+                               restingCount: 1, movingCount: 1, recentContactCount: 99)
+        XCTAssertEqual(a, b)
+        XCTAssertNotEqual(a, c)
+    }
+
+    func testPhysicsSummaryCodableRoundTrip() throws {
+        let original = PhysicsSummary(text: "line1\nline2", simulatedTime: 2.75,
+                                      bodyCount: 4, restingCount: 1, movingCount: 3,
+                                      recentContactCount: 2)
+        let data = try JSONEncoder().encode(original)
+        let decoded = try JSONDecoder().decode(PhysicsSummary.self, from: data)
+        XCTAssertEqual(decoded, original)
+    }
 }
