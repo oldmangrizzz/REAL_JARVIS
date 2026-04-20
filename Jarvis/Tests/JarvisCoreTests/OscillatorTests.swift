@@ -170,4 +170,96 @@ final class OscillatorTests: XCTestCase {
         let scores = runtime.phaseLock.allScores()
         XCTAssertEqual(scores.map(\.subscriberID), ["alpha", "bravo"])
     }
+
+    // MARK: - Additional coverage
+
+    func testOscillatorTickEquatableAndCodableRoundTrip() throws {
+        let base = Date(timeIntervalSince1970: 20_000)
+        let a = OscillatorTick(sequence: 7, scheduled: base,
+                               emitted: base.addingTimeInterval(0.01),
+                               driftMilliseconds: 10, intervalMilliseconds: 1000)
+        let b = OscillatorTick(sequence: 7, scheduled: base,
+                               emitted: base.addingTimeInterval(0.01),
+                               driftMilliseconds: 10, intervalMilliseconds: 1000)
+        let c = OscillatorTick(sequence: 8, scheduled: base,
+                               emitted: base, driftMilliseconds: 0, intervalMilliseconds: 1000)
+        XCTAssertEqual(a, b)
+        XCTAssertNotEqual(a, c)
+
+        let enc = JSONEncoder(); enc.dateEncodingStrategy = .secondsSince1970
+        let dec = JSONDecoder(); dec.dateDecodingStrategy = .secondsSince1970
+        let roundTripped = try dec.decode(OscillatorTick.self, from: enc.encode(a))
+        XCTAssertEqual(roundTripped, a)
+    }
+
+    func testConfigurationDefaultsMatchContract() {
+        let cfg = MasterOscillator.Configuration()
+        XCTAssertEqual(cfg.bpm, 60, accuracy: 1e-9)
+        XCTAssertEqual(cfg.minBPM, 30, accuracy: 1e-9)
+        XCTAssertEqual(cfg.maxBPM, 180, accuracy: 1e-9)
+        XCTAssertEqual(cfg.telemetryEvery, 30)
+        XCTAssertEqual(cfg.intervalSeconds, 1.0, accuracy: 1e-9)
+    }
+
+    func testMultipleLiveSubscribersAllReceiveSameTick() throws {
+        let paths = try makeTestWorkspace()
+        let tel = try TelemetryStore(paths: paths)
+        let osc = MasterOscillator(telemetry: tel)
+        let a = Recorder("a"), b = Recorder("b"), c = Recorder("c")
+        osc.subscribe(a); osc.subscribe(b); osc.subscribe(c)
+        let tick = osc.manualTick()
+        XCTAssertEqual(a.ticks.map(\.sequence), [tick.sequence])
+        XCTAssertEqual(b.ticks.map(\.sequence), [tick.sequence])
+        XCTAssertEqual(c.ticks.map(\.sequence), [tick.sequence])
+    }
+
+    func testResubscribeWithSameIDReplacesPriorEntry() throws {
+        let paths = try makeTestWorkspace()
+        let tel = try TelemetryStore(paths: paths)
+        let osc = MasterOscillator(telemetry: tel)
+        let first = Recorder("dup")
+        let second = Recorder("dup")
+        osc.subscribe(first)
+        osc.subscribe(second) // same subscriberID — replaces first
+        osc.manualTick()
+        XCTAssertEqual(first.ticks.count, 0, "first recorder must be dropped by re-subscribe")
+        XCTAssertEqual(second.ticks.count, 1)
+    }
+
+    func testStopWithoutStartIsNoOp() throws {
+        let paths = try makeTestWorkspace()
+        let tel = try TelemetryStore(paths: paths)
+        let osc = MasterOscillator(telemetry: tel)
+        XCTAssertFalse(osc.isRunning)
+        osc.stop() // must not crash or change state
+        XCTAssertFalse(osc.isRunning)
+    }
+
+    func testSetBPMToCurrentValueIsStable() throws {
+        let paths = try makeTestWorkspace()
+        let tel = try TelemetryStore(paths: paths)
+        let osc = MasterOscillator(telemetry: tel, configuration: .init(bpm: 72))
+        osc.setBPM(72)
+        XCTAssertEqual(osc.currentBPM, 72, accuracy: 1e-9)
+        XCTAssertFalse(osc.isRunning, "setBPM with no change must not trigger a restart into running state")
+    }
+
+    func testManualTickWithNoSubscribersDoesNotCrash() throws {
+        let paths = try makeTestWorkspace()
+        let tel = try TelemetryStore(paths: paths)
+        let osc = MasterOscillator(telemetry: tel)
+        let tick = osc.manualTick()
+        XCTAssertEqual(tick.sequence, 1)
+        XCTAssertEqual(tick.driftMilliseconds, 0, accuracy: 1e-6)
+    }
+
+    func testFirstTickHasZeroDriftRegardlessOfEmitTime() throws {
+        let paths = try makeTestWorkspace()
+        let tel = try TelemetryStore(paths: paths)
+        let osc = MasterOscillator(telemetry: tel, configuration: .init(bpm: 60))
+        // Emitting far from any hypothetical schedule: lastEmitted is nil → scheduled=emitted → drift=0.
+        let t = osc.manualTick(at: Date(timeIntervalSince1970: 99_999_999))
+        XCTAssertEqual(t.driftMilliseconds, 0, accuracy: 1e-6)
+        XCTAssertEqual(t.scheduled, t.emitted)
+    }
 }
