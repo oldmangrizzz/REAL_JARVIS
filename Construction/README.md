@@ -8,6 +8,7 @@ Two sub-teams working in parallel on the Real Jarvis navigation arc while the co
 |---|---|---|---|
 | **GLM** | Navigation engine (tiles, routing, OSINT adapters, pre-search) | `GLM/spec/NAV-001-universal-navigation-engine.md` | `GLM/response/NAV-001-response.md` |
 | **Qwen** | UI/UX surfaces (iOS map, CarPlay HUD, PWA, Unity, briefing) | `Qwen/spec/UX-001-navigation-surfaces.md` | `Qwen/response/UX-001-response.md` |
+| **DeepSeek** | Voice pipeline (F5-TTS swap, server deploy, re-audition workflow) | `DeepSeek/spec/VOICE-001-f5-tts-swap.md` | `DeepSeek/response/VOICE-001-response.md` |
 
 ## Rules of engagement
 
