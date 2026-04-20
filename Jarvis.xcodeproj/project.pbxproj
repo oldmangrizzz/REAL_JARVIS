@@ -319,6 +319,7 @@
 		57885DF9256180456C189A7E /* 0470.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5C1FA80211E8CC21E0049138 /* 0470.wav */; };
 		57A8B7F5A3A94BF65D8F90A1 /* 0085.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B5E4A4D1A99AF41AD3AB8D2 /* 0085.wav */; };
 		5866029B39D01C72AD5AE15F /* SoulAnchorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67721193D44FC2992E8B07CA /* SoulAnchorTests.swift */; };
+		58A36698033D9EBCCF4B4A83 /* PhysicsSummarizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34FA854956BFDA3FC8550CB /* PhysicsSummarizerTests.swift */; };
 		58B0E1E2EF5ED90150D84906 /* 0693.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8F034F84FA8A5B4A2EB2CCF9 /* 0693.wav */; };
 		58DF3AB282B47D6D1B49BAC4 /* ed25519.fingerprint in Resources */ = {isa = PBXBuildFile; fileRef = 3567F60FD21EC49853B9A14E /* ed25519.fingerprint */; };
 		594E14B904708822A925BEE4 /* ref0_cfg1.3_ddpm10_RENDER.wav in Resources */ = {isa = PBXBuildFile; fileRef = 51E40F8D1F8A9D03E1F3BAA6 /* ref0_cfg1.3_ddpm10_RENDER.wav */; };
@@ -1720,6 +1721,7 @@
 		B1C426F4DDE3D30D296B1DBB /* 0148.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0148.wav; sourceTree = "<group>"; };
 		B1EBB26654ABA51FE8B92A55 /* 0455.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0455.wav; sourceTree = "<group>"; };
 		B267B604A33491695BF18BB5 /* 0306.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0306.wav; sourceTree = "<group>"; };
+		B34FA854956BFDA3FC8550CB /* PhysicsSummarizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsSummarizerTests.swift; sourceTree = "<group>"; };
 		B3763C91621E834AA01F671A /* 0345.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0345.wav; sourceTree = "<group>"; };
 		B39E8EC3ACE6F2B8BA6D1CC4 /* RealJarvisPadApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealJarvisPadApp.swift; sourceTree = "<group>"; };
 		B3A496ACE4BB3BAB23FBAB9E /* 0243.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0243.wav; sourceTree = "<group>"; };
@@ -3353,6 +3355,7 @@
 				95BCBEA2AE274469D94C31B4 /* PhaseLockMonitorTests.swift */,
 				D7940E6F024C1FBB984030CF /* PheromindTests.swift */,
 				016246E5624771252A76D3D3 /* PhysicsEngineTests.swift */,
+				B34FA854956BFDA3FC8550CB /* PhysicsSummarizerTests.swift */,
 				49B9831E806B3F99EC6C37C3 /* PresenceEventRouterPrincipalTests.swift */,
 				C1DA4E43E2DE88017EA554D4 /* PythonRLMBridgeTests.swift */,
 				9BCC0E9AA2A7873655FD9D10 /* ResponderCapabilityPolicyTests.swift */,
@@ -4494,6 +4497,7 @@
 				A4B5663D3AB9DC570994D476 /* PhaseLockMonitorTests.swift in Sources */,
 				987048F8213387AFB8623C32 /* PheromindTests.swift in Sources */,
 				0370836A9265CF694B5D3F56 /* PhysicsEngineTests.swift in Sources */,
+				58A36698033D9EBCCF4B4A83 /* PhysicsSummarizerTests.swift in Sources */,
 				9E6CB5DD641AD9341F1A7DCD /* PresenceEventRouterPrincipalTests.swift in Sources */,
 				E689EC0EBF5246E1457CB2D9 /* PythonRLMBridgeTests.swift in Sources */,
 				DADD8B1B0FC600275C3ABAF5 /* ResponderCapabilityPolicyTests.swift in Sources */,
