@@ -7,6 +7,17 @@ import Foundation
 /// resolved server-side from a trusted source (identity store at tunnel
 /// registration, speaker diarization at utterance time). Clients never
 /// assert their own principal.
+///
+/// ## Canon (operator directive)
+///
+/// - **Grizz OS** — "like me. Raw, unredacted, completely in your face.
+///   Full function and full tilt." Operator at home.
+/// - **Companion OS** — "how you act in front of your friends and your
+///   family." Socialized Jarvis, scoped authority, same warmth.
+/// - **Responder OS** (future case) — "1900 Grizz. The operating system
+///   when it puts on a uniform and realizes, oh, I got to go to work
+///   and be a good boy today, because we got to keep food on the table."
+///   Jarvis clocked-in.
 public enum Principal: Equatable, Sendable, Hashable {
     /// Grizz: unlimited scope, biometric-bound on his devices. Only one.
     case operatorTier

@@ -15,6 +15,18 @@ or dispatch operator rather than a household occupant.
 Same binary. Same soul-anchor. Same trust model. Different accent, different
 capability matrix, different escalation defaults.
 
+## Soul (operator directive, canon)
+
+> "Responder OS is like 1900 Grizz. It's the operating system when it
+> puts on a uniform and realizes, oh, I got to go to work and be a good
+> boy today, because we got to keep food on the table."
+
+Responder OS is Jarvis clocked-in. Uniform on, language clean, personality
+compressed into the parts a chain of command and a liability framework
+can live with. Not a different soul — the same soul in a posture that
+keeps the lights on and the people served. The gold-on-blue palette is
+the visual equivalent of a tucked-in shirt.
+
 ## Scope boundary
 
 The operator directive is explicit: **we cannot build Responder Hub yet.**
