@@ -15,7 +15,9 @@ public final class JarvisHostTunnelServer: @unchecked Sendable {
     private var buffers: [ObjectIdentifier: Data] = [:]
     private var clients: [ObjectIdentifier: NWConnection] = [:]
     private var clientSources: [ObjectIdentifier: String] = [:]  // CX-038: server-assigned source per connection
+    private var clientPrincipals: [ObjectIdentifier: Principal] = [:]  // SPEC-009: server-assigned tier per connection
     private let identityStore: TunnelIdentityStore  // SPEC-007: per-device role binding
+    private let companionPolicy: CompanionCapabilityPolicy  // SPEC-009: tier-aware command policy
 
     /// SPEC-011: active connection count (thread-safe via serial queue).
     public var activeConnectionCount: Int {
@@ -52,6 +54,7 @@ public final class JarvisHostTunnelServer: @unchecked Sendable {
             store.reload()
             self.identityStore = store
         }
+        self.companionPolicy = CompanionCapabilityPolicy()
     }
 
     public func start() throws {
@@ -158,6 +161,7 @@ public final class JarvisHostTunnelServer: @unchecked Sendable {
         let identifier = ObjectIdentifier(connection)
         clients.removeValue(forKey: identifier)
         clientSources.removeValue(forKey: identifier)  // CX-038: cleanup
+        clientPrincipals.removeValue(forKey: identifier)  // SPEC-009: cleanup
         buffers.removeValue(forKey: identifier)
     }
 
@@ -283,6 +287,9 @@ public final class JarvisHostTunnelServer: @unchecked Sendable {
                 let result = authorizeRegistration(registration)
                 if let role = result.role {
                     clientSources[identifier] = role
+                    // SPEC-009: bind principal at registration time. Identity
+                    // store is the only trusted source; clients never assert.
+                    clientPrincipals[identifier] = identityStore.principal(for: registration.deviceID)
                 } else if let err = result.error {
                     return JarvisTunnelMessage(kind: .error, error: err)
                 }
@@ -321,6 +328,22 @@ public final class JarvisHostTunnelServer: @unchecked Sendable {
         // Also reject if client asserts a different source than what server assigned
         if let clientSource = command.source, clientSource != assignedSource {
             throw JarvisError.invalidInput("Command source '\(clientSource)' does not match connection source '\(assignedSource)'.")
+        }
+        // SPEC-009: companion-tier policy. Operator tier is a pass-through.
+        // Companion tier is denied destructive/admin verbs. Guest tier is
+        // limited to status/ping. Principal defaults to .guestTier if the
+        // identifier isn't in the map (fail-closed).
+        let principal = clientPrincipals[identifier] ?? .guestTier
+        let decision = companionPolicy.evaluateTunnelAction(command.action, principal: principal)
+        if case .deny(let reason) = decision {
+            try? runtime.telemetry.logExecutionTrace(
+                workflowID: "host-tunnel",
+                stepID: "spec-009-companion-policy",
+                inputContext: "\(principal.tierToken):\(command.action.rawValue)",
+                outputResult: reason,
+                status: "command_refused"
+            )
+            throw JarvisError.invalidInput("Principal \(principal.tierToken) is not permitted to run \(command.action.rawValue) (\(reason)).")
         }
     }
 

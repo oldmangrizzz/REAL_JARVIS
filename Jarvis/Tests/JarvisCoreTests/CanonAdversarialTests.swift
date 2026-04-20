@@ -202,4 +202,44 @@ final class CanonAdversarialTests: XCTestCase {
             )
         }
     }
+
+    // MARK: - SPEC-009 Companion OS tier
+
+    func testCompanionTierCannotIssueDestructiveVoiceIntent() {
+        // CANON: family members on Companion OS cannot run destructive verbs
+        // even if they reach the voice router. A regression here breaks the
+        // trust boundary that keeps the operator as the single privileged
+        // principal.
+        let policy = CompanionCapabilityPolicy()
+        let shutdownIntent = ParsedIntent(
+            intent: .systemQuery(query: "jarvis shutdown"),
+            confidence: 0.9,
+            rawTranscript: "jarvis shutdown",
+            timestamp: ""
+        )
+        let decision = policy.evaluateVoiceIntent(
+            shutdownIntent,
+            command: "jarvis shutdown",
+            principal: .companion(memberID: "melissa")
+        )
+        guard case .deny = decision else {
+            XCTFail("CANON: companion must be denied shutdown, got \(decision)")
+            return
+        }
+    }
+
+    func testGuestTierCannotIssueTunnelCommandsBeyondStatus() {
+        // CANON: an unregistered (guest) tunnel peer must be unable to
+        // invoke anything beyond status/ping. A regression here means an
+        // unknown device that squeezes past identity binding can still
+        // drive the host.
+        let policy = CompanionCapabilityPolicy()
+        let denied: [JarvisRemoteAction] = [.selfHeal, .reseedObsidian, .shutdown, .runSkill, .homeKitStatus]
+        for action in denied {
+            let decision = policy.evaluateTunnelAction(action, principal: .guestTier)
+            if case .allow = decision {
+                XCTFail("CANON: guest tier must not be allowed \(action.rawValue)")
+            }
+        }
+    }
 }

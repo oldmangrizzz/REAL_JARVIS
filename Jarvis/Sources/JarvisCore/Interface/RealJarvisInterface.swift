@@ -31,6 +31,7 @@ public final class VoiceCommandRouter {
     private let systemHandler: SystemCommandHandler
     private let rateLimiter: CommandRateLimiter
     private let destructiveGuard: DestructiveIntentGuard
+    private let companionPolicy: CompanionCapabilityPolicy
 
     public init(runtime: JarvisRuntime, registry: JarvisSkillRegistry) {
         self.runtime = runtime
@@ -41,6 +42,7 @@ public final class VoiceCommandRouter {
         self.systemHandler = SystemCommandHandler(runtime: runtime, skillRegistry: registry)
         self.rateLimiter = CommandRateLimiter()
         self.destructiveGuard = DestructiveIntentGuard()
+        self.companionPolicy = CompanionCapabilityPolicy()
     }
 
     public init(
@@ -50,7 +52,8 @@ public final class VoiceCommandRouter {
         displayExecutor: DisplayCommandExecutor,
         capabilityRegistry: CapabilityRegistry,
         rateLimiter: CommandRateLimiter = CommandRateLimiter(),
-        destructiveGuard: DestructiveIntentGuard = DestructiveIntentGuard()
+        destructiveGuard: DestructiveIntentGuard = DestructiveIntentGuard(),
+        companionPolicy: CompanionCapabilityPolicy = CompanionCapabilityPolicy()
     ) {
         self.runtime = runtime
         self.registry = registry
@@ -60,9 +63,15 @@ public final class VoiceCommandRouter {
         self.systemHandler = SystemCommandHandler(runtime: runtime, skillRegistry: registry)
         self.rateLimiter = rateLimiter
         self.destructiveGuard = destructiveGuard
+        self.companionPolicy = companionPolicy
     }
 
-    public func route(transcript: String) throws -> VoiceCommandResponse? {
+    /// SPEC-009: `principal` is required — the router refuses to guess. Call
+    /// sites that historically had no principal awareness should pass the
+    /// principal resolved from the connected session (tunnel registration)
+    /// or from SpeakerIdentifier for local-mic audio. Use `.guestTier` if
+    /// the principal cannot be resolved (fail-closed).
+    public func route(transcript: String, principal: Principal) throws -> VoiceCommandResponse? {
         guard let command = extractCommand(from: transcript) else { return nil }
 
         if command.isEmpty {
@@ -101,6 +110,9 @@ public final class VoiceCommandRouter {
 
             switch parsed.intent {
             case .displayAction, .homeKitControl:
+                if let refusal = companionRefusalIfNeeded(parsed: parsed, command: command, principal: principal) {
+                    return refusal
+                }
                 if let response = try dispatchThroughExecutor(
                     parsed: parsed,
                     command: command,
@@ -110,6 +122,9 @@ public final class VoiceCommandRouter {
                     return response
                 }
             case .systemQuery, .skillInvocation:
+                if let refusal = companionRefusalIfNeeded(parsed: parsed, command: command, principal: principal) {
+                    return refusal
+                }
                 if let refusal = destructiveRefusalIfNeeded(parsed: parsed, command: command) {
                     return refusal
                 }
@@ -129,6 +144,9 @@ public final class VoiceCommandRouter {
                 rawTranscript: command,
                 timestamp: ""
             )
+            if let refusal = companionRefusalIfNeeded(parsed: parsed, command: command, principal: principal) {
+                return refusal
+            }
             if let refusal = destructiveRefusalIfNeeded(parsed: parsed, command: command) {
                 return refusal
             }
@@ -140,6 +158,38 @@ public final class VoiceCommandRouter {
         return VoiceCommandResponse(
             spokenText: "I heard \(command), but that does not yet map to a sanctioned interface command. Say status, list skills, self heal, run skill, or shutdown.",
             details: ["command": "unmatched", "transcript": command],
+            shouldShutdown: false
+        )
+    }
+
+    /// SPEC-009: consult the companion capability policy before anything
+    /// else fires. Operator tier falls through (returns nil). Companion
+    /// and guest tiers get a spoken refusal + telemetry when the parsed
+    /// command isn't in their allowed surface.
+    private func companionRefusalIfNeeded(parsed: ParsedIntent, command: String, principal: Principal) -> VoiceCommandResponse? {
+        let decision = companionPolicy.evaluateVoiceIntent(parsed, command: command, principal: principal)
+        guard case .deny(let reason) = decision else { return nil }
+        let spoken: String = {
+            switch principal {
+            case .guestTier: return CompanionCapabilityPolicy.guestDenialLine
+            default: return CompanionCapabilityPolicy.companionDenialLine
+            }
+        }()
+        try? runtime.telemetry.logExecutionTrace(
+            workflowID: "voice-command-router",
+            stepID: "spec-009-companion-policy",
+            inputContext: command,
+            outputResult: "\(principal.tierToken):\(reason)",
+            status: "command_refused"
+        )
+        return VoiceCommandResponse(
+            spokenText: spoken,
+            details: [
+                "command": "policy-denied-companion",
+                "reason": reason,
+                "principal": principal.tierToken,
+                "transcript": command
+            ],
             shouldShutdown: false
         )
     }
@@ -463,7 +513,12 @@ public final class RealJarvisInterface: NSObject {
 
         do {
             try appendLog("heard \(normalized)")
-            guard let commandRouter, let response = try commandRouter.route(transcript: normalized) else { return }
+            // SPEC-009: local-mic utterances originate at the Mac console.
+            // Until SpeakerIdentifier diarization is wired in (todo:
+            // speaker-id), treat the console mic as operator tier — that
+            // is where Grizz sits. This is an explicit, auditable choice
+            // rather than an implicit default in the router.
+            guard let commandRouter, let response = try commandRouter.route(transcript: normalized, principal: .operatorTier) else { return }
             try runtime.telemetry.logRecursiveThought(
                 sessionID: "voice-interface-\(UUID().uuidString)",
                 trace: ["transcript=\(normalized)", "spoken=\(response.spokenText)"],

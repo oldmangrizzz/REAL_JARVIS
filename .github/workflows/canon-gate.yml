@@ -42,13 +42,14 @@ jobs:
             test 2>&1 | tee xcodebuild.log
       - name: Enforce canon floor
         run: |
-          # Floor: at least 165 tests must execute (SPEC-004/007/008 +
-          # destructive-intent guard + tunnel identity + adversarial canon).
-          # Floor rises as new canon work lands. Never decrease.
+          # Floor: at least 177 tests must execute (SPEC-004/007/008/009 +
+          # destructive-intent guard + tunnel identity + companion tier +
+          # adversarial canon). Floor rises as new canon work lands. Never
+          # decrease.
           EXECUTED=$(grep -Eo 'Executed [0-9]+ tests, with 0 failures' xcodebuild.log | tail -1 | grep -Eo '[0-9]+' | head -1)
           echo "Executed tests: $EXECUTED"
-          if [ -z "$EXECUTED" ] || [ "$EXECUTED" -lt 165 ]; then
-            echo "::error::Canon floor violated. Expected >= 165 tests, got $EXECUTED."
+          if [ -z "$EXECUTED" ] || [ "$EXECUTED" -lt 177 ]; then
+            echo "::error::Canon floor violated. Expected >= 177 tests, got $EXECUTED."
             exit 1
           fi
           echo "Canon floor upheld."
@@ -66,14 +67,16 @@ jobs:
             exit 1
           fi
           echo "Canon adversarial suite passed."
-      - name: Require SPEC-007 / SPEC-008 canon tests
+      - name: Require SPEC-007 / SPEC-008 / SPEC-009 canon tests
         run: |
-          # SPEC-007 identity binding + SPEC-008 destructive guard must
-          # both have dedicated canon regressions.
+          # SPEC-007 identity binding + SPEC-008 destructive guard + SPEC-009
+          # companion tier policy must all have dedicated canon regressions.
           REQUIRED=(
             "testBootstrapModeRefusesVoiceOperatorWithoutIdentityProof"
             "testDestructiveGuardRefusesBurstShutdownSequence"
             "testARCBridgeRefusesEmptyGridDump"
+            "testCompanionTierCannotIssueDestructiveVoiceIntent"
+            "testGuestTierCannotIssueTunnelCommandsBeyondStatus"
           )
           MISSING=0
           for t in "${REQUIRED[@]}"; do

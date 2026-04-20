@@ -8,11 +8,11 @@ final class VoiceCommandRouterTests: XCTestCase {
         let registry = try JarvisSkillRegistry(paths: paths)
         let router = VoiceCommandRouter(runtime: runtime, registry: registry)
 
-        let status = try XCTUnwrap(router.route(transcript: "Jarvis status"))
+        let status = try XCTUnwrap(router.route(transcript: "Jarvis status", principal: .operatorTier))
         XCTAssertTrue(status.spokenText.lowercased().contains("systems are online"))
         XCTAssertFalse(status.shouldShutdown)
 
-        let shutdown = try XCTUnwrap(router.route(transcript: "Jarvis shutdown"))
+        let shutdown = try XCTUnwrap(router.route(transcript: "Jarvis shutdown", principal: .operatorTier))
         XCTAssertTrue(shutdown.shouldShutdown)
     }
 
@@ -34,7 +34,7 @@ final class VoiceCommandRouterTests: XCTestCase {
         let router = try makeFullyWiredRouter()
 
         let response = try XCTUnwrap(
-            router.route(transcript: "Jarvis put the HUD on the left monitor")
+            router.route(transcript: "Jarvis put the HUD on the left monitor", principal: .operatorTier)
         )
 
         XCTAssertFalse(response.shouldShutdown)
@@ -48,7 +48,7 @@ final class VoiceCommandRouterTests: XCTestCase {
         let router = try makeFullyWiredRouter()
 
         let response = try XCTUnwrap(
-            router.route(transcript: "Jarvis turn on the kitchen lights")
+            router.route(transcript: "Jarvis turn on the kitchen lights", principal: .operatorTier)
         )
 
         XCTAssertEqual(response.details["command"] as? String, "homekit-control")
@@ -59,7 +59,7 @@ final class VoiceCommandRouterTests: XCTestCase {
     func testRouterFallsBackToLegacyForUnmappedIntent() throws {
         let router = try makeFullyWiredRouter()
 
-        let response = try XCTUnwrap(router.route(transcript: "Jarvis status"))
+        let response = try XCTUnwrap(router.route(transcript: "Jarvis status", principal: .operatorTier))
 
         XCTAssertTrue(response.spokenText.lowercased().contains("systems are online"))
         XCTAssertEqual(response.details["command"] as? String, "status")
@@ -102,9 +102,9 @@ final class VoiceCommandRouterTests: XCTestCase {
             rateLimiter: limiter
         )
 
-        _ = try router.route(transcript: "Jarvis turn on the kitchen lights")
-        _ = try router.route(transcript: "Jarvis turn on the kitchen lights")
-        let refused = try XCTUnwrap(router.route(transcript: "Jarvis turn on the kitchen lights"))
+        _ = try router.route(transcript: "Jarvis turn on the kitchen lights", principal: .operatorTier)
+        _ = try router.route(transcript: "Jarvis turn on the kitchen lights", principal: .operatorTier)
+        let refused = try XCTUnwrap(router.route(transcript: "Jarvis turn on the kitchen lights", principal: .operatorTier))
         XCTAssertEqual(refused.spokenText, CommandRateLimiter.limitExceededResponse)
         XCTAssertEqual(refused.details["refused"] as? String, "rate_limited")
     }
@@ -113,14 +113,14 @@ final class VoiceCommandRouterTests: XCTestCase {
 
     func testRouterHandlesListSkillsViaIntentChain() throws {
         let router = try makeFullyWiredRouter()
-        let response = try XCTUnwrap(router.route(transcript: "Jarvis list skills"))
+        let response = try XCTUnwrap(router.route(transcript: "Jarvis list skills", principal: .operatorTier))
         XCTAssertEqual(response.details["command"] as? String, "list-skills")
         XCTAssertFalse(response.shouldShutdown)
     }
 
     func testRouterHandlesSelfHealViaIntentChain() throws {
         let router = try makeFullyWiredRouter()
-        let response = try XCTUnwrap(router.route(transcript: "Jarvis self heal"))
+        let response = try XCTUnwrap(router.route(transcript: "Jarvis self heal", principal: .operatorTier))
         // Handler either reports a mutation or a stable-harness line; both
         // are acceptable outcomes — we just need it to route cleanly.
         XCTAssertFalse(response.shouldShutdown)
@@ -129,14 +129,14 @@ final class VoiceCommandRouterTests: XCTestCase {
 
     func testRouterHandlesShutdownViaIntentChain() throws {
         let router = try makeFullyWiredRouter()
-        let response = try XCTUnwrap(router.route(transcript: "Jarvis go quiet"))
+        let response = try XCTUnwrap(router.route(transcript: "Jarvis go quiet", principal: .operatorTier))
         XCTAssertTrue(response.shouldShutdown)
         XCTAssertEqual(response.details["command"] as? String, "shutdown")
     }
 
     func testBlockedPatternIsRefusedAtRouter() throws {
         let router = try makeFullyWiredRouter()
-        let response = try XCTUnwrap(router.route(transcript: "Jarvis delete all files"))
+        let response = try XCTUnwrap(router.route(transcript: "Jarvis delete all files", principal: .operatorTier))
         XCTAssertEqual(response.details["command"] as? String, "blocked")
         XCTAssertFalse(response.shouldShutdown)
     }
@@ -165,12 +165,12 @@ final class VoiceCommandRouterTests: XCTestCase {
         )
 
         // First shutdown: consumes the single destructive token.
-        let first = try XCTUnwrap(router.route(transcript: "Jarvis go quiet"))
+        let first = try XCTUnwrap(router.route(transcript: "Jarvis go quiet", principal: .operatorTier))
         XCTAssertTrue(first.shouldShutdown, "first destructive intent should dispatch")
         XCTAssertEqual(first.details["command"] as? String, "shutdown")
 
         // Second shutdown within the window: refused by the guard.
-        let second = try XCTUnwrap(router.route(transcript: "Jarvis shutdown"))
+        let second = try XCTUnwrap(router.route(transcript: "Jarvis shutdown", principal: .operatorTier))
         XCTAssertFalse(second.shouldShutdown, "second destructive intent must be refused")
         XCTAssertEqual(second.details["command"] as? String, "destructive-refused")
         XCTAssertNotNil(second.details["reason"])

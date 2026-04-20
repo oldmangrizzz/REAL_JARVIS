@@ -25,6 +25,19 @@ public final class TunnelIdentityStore: @unchecked Sendable {
         public let allowedRoles: [String]
         /// Identity key, 32 bytes encoded as lowercase hex.
         public let identityKeyHex: String
+        /// Companion-tier binding. Optional for backward compatibility
+        /// with pre-companion identities.json files: a missing value means
+        /// the device was vetted under the single-principal world and is
+        /// treated as operator tier. New entries written by the onboarding
+        /// flow always set this explicitly.
+        public let principal: String?
+
+        public init(deviceID: String, allowedRoles: [String], identityKeyHex: String, principal: String? = nil) {
+            self.deviceID = deviceID
+            self.allowedRoles = allowedRoles
+            self.identityKeyHex = identityKeyHex
+            self.principal = principal
+        }
     }
 
     public struct Document: Codable, Sendable {
@@ -168,6 +181,34 @@ public final class TunnelIdentityStore: @unchecked Sendable {
         lock.unlock()
 
         return nil
+    }
+
+    /// Companion-tier principal resolution. Returns the principal bound to
+    /// this device in identities.json. Clients never assert principal; this
+    /// is the only trusted source.
+    ///
+    /// Backward compat rules:
+    ///  * Bootstrap mode (no identities.json) → `.guestTier` for everyone.
+    ///    The operator must re-register themselves through the onboarding
+    ///    flow to get operator tier.
+    ///  * Identities file present, device known, `principal` field set →
+    ///    parsed value (operator / companion / guest).
+    ///  * Identities file present, device known, `principal` field MISSING
+    ///    → `.operatorTier`. Pre-companion identities.json entries were
+    ///    all vetted manually by Grizz under single-principal semantics.
+    ///  * Identities file present, device unknown → `.guestTier`.
+    public func principal(for deviceID: String) -> Principal {
+        lock.lock()
+        let doc = document
+        lock.unlock()
+        guard let doc else { return .guestTier }
+        guard let entry = doc.identities.first(where: { $0.deviceID == deviceID }) else {
+            return .guestTier
+        }
+        if let token = entry.principal, let parsed = Principal.fromTierToken(token) {
+            return parsed
+        }
+        return .operatorTier
     }
 
     private func pruneExpiredNoncesLocked(reference: Date) {
