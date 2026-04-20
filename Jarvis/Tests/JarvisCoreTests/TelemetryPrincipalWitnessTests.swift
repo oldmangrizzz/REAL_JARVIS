@@ -1,4 +1,5 @@
 import XCTest
+import CryptoKit
 @testable import JarvisCore
 
 /// SPEC-009 evidence-corpus hardening: every telemetry row gets witnessed
@@ -148,5 +149,169 @@ final class TelemetryPrincipalWitnessTests: XCTestCase {
         XCTAssertEqual(rows[2]["prevRowHash"] as? String, rows[1]["rowHash"] as? String,
                        "second store must resume chain from tail, not reset to genesis")
         XCTAssertNil(try store2.verifyChain(table: "resume_test").brokenAt)
+    }
+
+    // MARK: - Additional coverage
+
+    func testFirstRowPrevHashIsGenesisSentinel() throws {
+        // The genesis marker is a concrete non-empty string; a silent change
+        // to it would break verifyChain's starting state and every stored
+        // chain globally, so lock the sentinel value down.
+        let (store, _) = try makeStore()
+        try store.append(record: ["first": true], to: "genesis_test", principal: .operatorTier)
+        let rows = try readLines(store.tableURL("genesis_test"))
+        XCTAssertEqual(rows[0]["prevRowHash"] as? String, "GENESIS",
+                       "first row must link to the 'GENESIS' sentinel")
+    }
+
+    func testVerifyChainOnMissingTableReturnsEmptyIntactReport() throws {
+        let (store, _) = try makeStore()
+        let report = try store.verifyChain(table: "never_written")
+        XCTAssertEqual(report.totalRows, 0)
+        XCTAssertEqual(report.hashedRows, 0)
+        XCTAssertEqual(report.legacyRows, 0)
+        XCTAssertNil(report.brokenAt)
+        XCTAssertTrue(report.isIntact, "an absent table must report intact, not throw")
+        XCTAssertEqual(report.table, "never_written")
+    }
+
+    func testVerifyChainDetectsTamperedPrincipalMidFile() throws {
+        // Any edit to a committed row (including a silent principal swap)
+        // must break the chain at that row. Write three rows, then flip
+        // the principal on row 2 from "grizz" to "guest" on disk. verifyChain
+        // must report brokenAt = 2.
+        let (store, _) = try makeStore()
+        try store.append(record: ["n": 1], to: "tamper_test", principal: .operatorTier)
+        try store.append(record: ["n": 2], to: "tamper_test", principal: .operatorTier)
+        try store.append(record: ["n": 3], to: "tamper_test", principal: .operatorTier)
+
+        let url = store.tableURL("tamper_test")
+        var text = try String(contentsOf: url, encoding: .utf8)
+        let lines = text.split(separator: "\n", omittingEmptySubsequences: true).map(String.init)
+        XCTAssertEqual(lines.count, 3)
+        // Flip the principal field in row 2; leave the rowHash untouched
+        // so the mismatch is the tamper signal, not a shape error.
+        let tamperedLine2 = lines[1].replacingOccurrences(of: "\"principal\":\"grizz\"", with: "\"principal\":\"guest\"")
+        XCTAssertNotEqual(tamperedLine2, lines[1], "sanity: tamper must actually change the line")
+        text = ([lines[0], tamperedLine2, lines[2]].joined(separator: "\n")) + "\n"
+        try text.write(to: url, atomically: true, encoding: .utf8)
+
+        let report = try store.verifyChain(table: "tamper_test")
+        XCTAssertEqual(report.brokenAt, 2, "chain break must point at the tampered line")
+        XCTAssertFalse(report.isIntact)
+    }
+
+    func testVerifyChainDetectsBrokenPrevRowHashLink() throws {
+        // Even if the row's own rowHash is internally consistent, a bad
+        // prevRowHash must fail the chain — otherwise an attacker who
+        // controlled row insertion could splice in forged history.
+        let (store, _) = try makeStore()
+        try store.append(record: ["n": 1], to: "link_test", principal: .operatorTier)
+        try store.append(record: ["n": 2], to: "link_test", principal: .operatorTier)
+
+        let url = store.tableURL("link_test")
+        var rows = try readLines(url)
+        // Corrupt prevRowHash on row 2 with a plausible-looking sha256 value
+        // and recompute the row's own rowHash so row-internal validation
+        // would pass — the only remaining break signal is the link.
+        rows[1]["prevRowHash"] = String(repeating: "a", count: 64)
+        var body = rows[1]
+        body.removeValue(forKey: "rowHash")
+        let bodyData = try JSONSerialization.data(withJSONObject: body, options: [.sortedKeys])
+        let newHash = bodyData.sha256HexForTest()
+        rows[1]["rowHash"] = newHash
+
+        let line0 = try JSONSerialization.data(withJSONObject: rows[0], options: [.sortedKeys])
+        let line1 = try JSONSerialization.data(withJSONObject: rows[1], options: [.sortedKeys])
+        let rebuilt = String(data: line0, encoding: .utf8)! + "\n" + String(data: line1, encoding: .utf8)! + "\n"
+        try rebuilt.write(to: url, atomically: true, encoding: .utf8)
+
+        let report = try store.verifyChain(table: "link_test")
+        XCTAssertEqual(report.brokenAt, 2,
+                       "forged prevRowHash must fail the chain even if row's own hash is self-consistent")
+    }
+
+    func testVerifyChainCountsLegacyRowsAndResumesOnNextHashed() throws {
+        // A legacy row (no rowHash field) resets the chain to genesis; the
+        // next hashed row MUST carry prevRowHash == "GENESIS" for the chain
+        // to re-seal. Simulate a migration gap: one legacy row at line 1,
+        // two fresh hashed rows after.
+        let (store, _) = try makeStore()
+        let url = store.tableURL("mixed_test")
+        try FileManager.default.createDirectory(
+            at: url.deletingLastPathComponent(),
+            withIntermediateDirectories: true
+        )
+        // Write one legacy row directly (no rowHash, no prevRowHash).
+        let legacy = #"{"kind":"legacy","note":"pre-spec-009"}"# + "\n"
+        try legacy.write(to: url, atomically: true, encoding: .utf8)
+
+        // Now use the store API to append two fresh rows. Because the
+        // existing tail row has no rowHash, tailRowHashUnlocked returns nil,
+        // and the store primes the chain from genesis — exactly the
+        // post-migration behavior we need to lock in.
+        try store.append(record: ["n": 1], to: "mixed_test", principal: .operatorTier)
+        try store.append(record: ["n": 2], to: "mixed_test", principal: .operatorTier)
+
+        let report = try store.verifyChain(table: "mixed_test")
+        XCTAssertEqual(report.totalRows, 3)
+        XCTAssertEqual(report.legacyRows, 1, "the single pre-hash row must count as legacy")
+        XCTAssertEqual(report.hashedRows, 2, "both new rows must validate")
+        XCTAssertNil(report.brokenAt, "legacy → hashed transition must not break the chain")
+    }
+
+    func testLogExecutionTraceWithoutPrincipalOmitsField() throws {
+        // Principal is optional on logExecutionTrace; when absent, the row
+        // must NOT invent a tier token — legacy / system-source traces
+        // stay principal-less rather than impersonating operator.
+        let (store, _) = try makeStore()
+        try store.logExecutionTrace(
+            workflowID: "watchdog",
+            stepID: "heartbeat",
+            inputContext: "tick",
+            outputResult: "ok",
+            status: "success"
+        )
+        let rows = try readLines(store.tableURL("execution_traces"))
+        XCTAssertNil(rows[0]["principal"],
+                     "system-source traces must not invent a principal tag")
+        XCTAssertEqual(rows[0]["workflowId"] as? String, "watchdog")
+    }
+
+    func testAppendWithNestedDictAndArrayRoundTrips() throws {
+        // Telemetry rows sometimes carry structured payloads (e.g. intent
+        // parse trees, capability sets). Canonical JSON with sortedKeys
+        // must preserve nested objects and arrays through the append +
+        // read-back path, and the chain must still seal.
+        let (store, _) = try makeStore()
+        let nested: [String: Any] = [
+            "intent": "status",
+            "context": [
+                "location": "kitchen",
+                "devices": ["lights", "speaker"]
+            ]
+        ]
+        try store.append(record: nested, to: "nested_test", principal: .operatorTier)
+        let rows = try readLines(store.tableURL("nested_test"))
+        let ctx = try XCTUnwrap(rows[0]["context"] as? [String: Any])
+        XCTAssertEqual(ctx["location"] as? String, "kitchen")
+        XCTAssertEqual(ctx["devices"] as? [String], ["lights", "speaker"])
+        XCTAssertNil(try store.verifyChain(table: "nested_test").brokenAt)
+    }
+
+    func testChainReportIsIntactReflectsBrokenAt() {
+        let clean = TelemetryChainReport(table: "t", totalRows: 3, hashedRows: 3, legacyRows: 0, brokenAt: nil)
+        let broken = TelemetryChainReport(table: "t", totalRows: 3, hashedRows: 2, legacyRows: 0, brokenAt: 2)
+        XCTAssertTrue(clean.isIntact)
+        XCTAssertFalse(broken.isIntact)
+        XCTAssertNotEqual(clean, broken, "report must be Equatable on brokenAt")
+    }
+}
+
+// Test-local sha256 helper so the tamper fixture can rebuild a legitimate
+// row hash without exposing the store's private hasher.
+private extension Data {
+    func sha256HexForTest() -> String {
+        SHA256.hash(data: self).map { String(format: "%02x", $0) }.joined()
     }
 }
