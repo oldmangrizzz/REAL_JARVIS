@@ -94,6 +94,7 @@
 		17418692972F0E0B325D396F /* 0274.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5A5D3E59602E0EF388521177 /* 0274.wav */; };
 		17843706F618DD4DC16C73C8 /* 0237.wav in Resources */ = {isa = PBXBuildFile; fileRef = 55BFA2D2D1F8FAE4CD870D4F /* 0237.wav */; };
 		17885E945688E820FD6F71CE /* 0307.wav in Resources */ = {isa = PBXBuildFile; fileRef = 398848D3472499D1EB37ECE9 /* 0307.wav */; };
+		17E16E6AC9CFF8BAAFCBE8B8 /* DestructiveIntentGuardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBF8FFF163D34CA204C1A61 /* DestructiveIntentGuardTests.swift */; };
 		187BF1946F324DE9A8C1C017 /* 0534.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0C8D0C4305F8E76BD6758D9A /* 0534.wav */; };
 		18A9549824E72D516CE32C78 /* 0229.wav in Resources */ = {isa = PBXBuildFile; fileRef = A5C36E821CF2B5BC8291A772 /* 0229.wav */; };
 		18B2502EDACDDE2C1CB8B266 /* 0021.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5E2BAFE18671D63D0526C42A /* 0021.wav */; };
@@ -285,6 +286,7 @@
 		4CCD0AC77881A8593CA2572C /* 0076.wav in Resources */ = {isa = PBXBuildFile; fileRef = D90A10B4F7547752A0F5A75B /* 0076.wav */; };
 		4D12FB06FFAA10BA3AE5EB76 /* 0205.wav in Resources */ = {isa = PBXBuildFile; fileRef = 98AE05D1F0A0094E3A8A7DF9 /* 0205.wav */; };
 		4D15B2A70558B56D73A21E09 /* 0487.wav in Resources */ = {isa = PBXBuildFile; fileRef = E6009C7721C2302E9694D4D2 /* 0487.wav */; };
+		4D2E0B93A382A6FF37472684 /* USGSEarthquakeAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F9BC7DB6BBA575A801CE5B /* USGSEarthquakeAdapter.swift */; };
 		4E2F9C6D99F8464DC24704E3 /* JarvisMobileSystemHooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEF63D9A45962B7778FAE8D /* JarvisMobileSystemHooks.swift */; };
 		4E392E0D854A23A22FB9C701 /* 0579.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5DC6A22C49D592F397619E67 /* 0579.wav */; };
 		4E8D65E7FDB04011E00D147F /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA5031EC30F0803807A53342 /* Network.framework */; };
@@ -327,6 +329,7 @@
 		5AA582D8EE2961A42D78404F /* 0226.wav in Resources */ = {isa = PBXBuildFile; fileRef = A3EF5628DF53FFE236F40D44 /* 0226.wav */; };
 		5ABFC1D3FC5C8E8A1FC4E1E1 /* 0086.wav in Resources */ = {isa = PBXBuildFile; fileRef = B8589BBB175C9C4C06E75382 /* 0086.wav */; };
 		5B6F1550CC4D70B4129F4261 /* ed25519.pub in Resources */ = {isa = PBXBuildFile; fileRef = 1F37D460C2997593509526AF /* ed25519.pub */; };
+		5BFAC8B0CAB9A3EE20AC5645 /* SceneBriefing.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB819FFD85D23225DC6E47E /* SceneBriefing.swift */; };
 		5C24A197BBC8C891A2BFBEBD /* JarvisMobileVoiceCloneEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D4A4A6B4450B283997B334 /* JarvisMobileVoiceCloneEngine.swift */; };
 		5C2EB7FD7E50840DFED4BD9C /* 0402.wav in Resources */ = {isa = PBXBuildFile; fileRef = 98A860756AA1EC22AA40D534 /* 0402.wav */; };
 		5C6ACB2BF6C3DB32E13C7318 /* 0387.wav in Resources */ = {isa = PBXBuildFile; fileRef = 794266861411E5A06B163E34 /* 0387.wav */; };
@@ -351,7 +354,9 @@
 		60112A4ED4BBC8F569093478 /* 0601.wav in Resources */ = {isa = PBXBuildFile; fileRef = DE1B2AE22BBF382BC6CFFE52 /* 0601.wav */; };
 		60369086E707375B5A758D7A /* 0472.wav in Resources */ = {isa = PBXBuildFile; fileRef = 14BB1C46E91D0972CC706C70 /* 0472.wav */; };
 		61300F14952ABE37B3DF7094 /* 0712.wav in Resources */ = {isa = PBXBuildFile; fileRef = 06464C1251FAD2CA3A1C708A /* 0712.wav */; };
+		614EC500F0FDB4B864E70728 /* HazardCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13ED134B0A0152649E8C06F /* HazardCache.swift */; };
 		615F227C2AA5D1F2F397CAA7 /* 0543.wav in Resources */ = {isa = PBXBuildFile; fileRef = F17B4302B6F95213534D0678 /* 0543.wav */; };
+		62B421017ECB3809592A7041 /* NOAAWeatherAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D7C450FCFD0E357C01C853 /* NOAAWeatherAdapter.swift */; };
 		62DDAC7A45B11B89F6E64AAE /* CapabilityRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9F1F38089144C38CC3D846 /* CapabilityRegistry.swift */; };
 		637831742615227830BD1A48 /* 0284.wav in Resources */ = {isa = PBXBuildFile; fileRef = 20C7851CB9E92EF9B53339CA /* 0284.wav */; };
 		63BD007D5502A14D60A309D8 /* 0238.wav in Resources */ = {isa = PBXBuildFile; fileRef = 370D89B85832F68263506F32 /* 0238.wav */; };
@@ -619,6 +624,7 @@
 		A5AAD51D666624173630D102 /* 0691.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6C2E70A0EEF0F485C007EC6D /* 0691.wav */; };
 		A5CC241AAAB07F691453152B /* 0343.wav in Resources */ = {isa = PBXBuildFile; fileRef = A9AC347871E682D3FC798685 /* 0343.wav */; };
 		A5F38E9D9A03998039F58776 /* 0545.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6742A4B5DFA58852D16EF668 /* 0545.wav */; };
+		A616CFCB4E0594D47FBFA380 /* HazardAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DA0874BA63C854DEBB950E /* HazardAdapter.swift */; };
 		A662D283E98E125DDBEBD9A1 /* FishAudioMLXBackend.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB7F66C2EB17CAD874E2A8D /* FishAudioMLXBackend.swift */; };
 		A6D983EF7C6A3C3BA40E9485 /* 0163.wav in Resources */ = {isa = PBXBuildFile; fileRef = 48AA9857743B38C302DC0883 /* 0163.wav */; };
 		A6E59A3C16AB9040DFD17F12 /* 0490.wav in Resources */ = {isa = PBXBuildFile; fileRef = 20E9EA9128A2203FD3C8AA39 /* 0490.wav */; };
@@ -765,11 +771,13 @@
 		CADFC7698ED761533D7F64C1 /* 0198.wav in Resources */ = {isa = PBXBuildFile; fileRef = 264AC3268FBC47BF95E466FF /* 0198.wav */; };
 		CAE43C999D57D39299C84F25 /* 0605.wav in Resources */ = {isa = PBXBuildFile; fileRef = C676D4340113A44F483660F8 /* 0605.wav */; };
 		CB21EA0ACC43056D49A05635 /* 0508.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7208D4894A959A70FDEAB0E3 /* 0508.wav */; };
+		CB3C90D4EA46EC9F5A32D20C /* OSINTAdapterError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7609D5F8C5D5317B5E7D38 /* OSINTAdapterError.swift */; };
 		CB48BEAE8DB911E73983FE06 /* 0548.wav in Resources */ = {isa = PBXBuildFile; fileRef = 28719A44DA9E84D2CD843CA0 /* 0548.wav */; };
 		CB50DA91C5A9A41E746F79DB /* 0112.wav in Resources */ = {isa = PBXBuildFile; fileRef = D089D2646DA9B91B614056FF /* 0112.wav */; };
 		CB940ED0108454E7811CB261 /* 0121.wav in Resources */ = {isa = PBXBuildFile; fileRef = FDF67A85E1613917AA7BDC80 /* 0121.wav */; };
 		CBE5A654B750C77FC744AFB3 /* 0011.wav in Resources */ = {isa = PBXBuildFile; fileRef = BA22F6D679BBF0599926B57B /* 0011.wav */; };
 		CC0D5B8E4CC276FF721F5EFC /* 0515.wav in Resources */ = {isa = PBXBuildFile; fileRef = 14D077ABB23A407E4201F7A9 /* 0515.wav */; };
+		CC1433AACE33666A200CC346 /* TxDOTDriveTexasAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCB316643DE84046A8FC313 /* TxDOTDriveTexasAdapter.swift */; };
 		CC701D35D5850568496A91FF /* 0078.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1C8D7DCC986072392E04ED51 /* 0078.wav */; };
 		CD4116B2816E547EB118B055 /* 0681.wav in Resources */ = {isa = PBXBuildFile; fileRef = 68876C0D4C7F1C59AFA452CB /* 0681.wav */; };
 		CD6A33CAF4B475B3AC892457 /* ARCHarnessBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7236ADF710D39EA17002FE2 /* ARCHarnessBridge.swift */; };
@@ -909,6 +917,7 @@
 		F610EDB910396E628CAB73C2 /* 0171.wav in Resources */ = {isa = PBXBuildFile; fileRef = ECDD1862C83013EEA2E650B5 /* 0171.wav */; };
 		F649AD02B02B2D89E757A2E4 /* 0474.wav in Resources */ = {isa = PBXBuildFile; fileRef = AE30E25724168D591AE2E442 /* 0474.wav */; };
 		F6516899ECC6D6FD65D960B9 /* 0384.wav in Resources */ = {isa = PBXBuildFile; fileRef = 306DBD1E27F7B22082176D68 /* 0384.wav */; };
+		F6AF19AE449FAEC5F625E96E /* ScenePreSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDE2CB475BBC1052510C388 /* ScenePreSearch.swift */; };
 		F6DA5053E7924AD6BDD10E80 /* ScenicProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A7F2018A5D78BEB5DC5CF3 /* ScenicProfile.swift */; };
 		F72623A748A788475DC3666F /* 0564.wav in Resources */ = {isa = PBXBuildFile; fileRef = 880DB2A38DB738F34F175A56 /* 0564.wav */; };
 		F7A4F80E0D049AF0BAE386BB /* 0676.wav in Resources */ = {isa = PBXBuildFile; fileRef = 64FA6E288CF29B8905086E27 /* 0676.wav */; };
@@ -937,6 +946,7 @@
 		FCE9C6D15E2CB85F7292D928 /* 0413.wav in Resources */ = {isa = PBXBuildFile; fileRef = AA62B4AD6E19C7CBB8A75C81 /* 0413.wav */; };
 		FD2B6F7E5E2BDA3497A82624 /* JarvisWatchExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = C71591A898FDAAD434A5165E /* JarvisWatchExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FD57638D22C984B9E737690E /* 0309.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9341A29A5BC4E218E187315 /* 0309.wav */; };
+		FDE5A5F5F8B67FF6D8AE7E83 /* NASAFIRMSAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF4CAE32C2685876052F384 /* NASAFIRMSAdapter.swift */; };
 		FDFED21C13A9E8771A93DEF0 /* JarvisHostConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8261C2420FC47F2E30C298 /* JarvisHostConfiguration.swift */; };
 		FE1F402A322EDCC8B9E2057C /* 0546.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6974EB86CE1073BB7F979A89 /* 0546.wav */; };
 		FE29165CC5870A310AEE47D8 /* 0114.wav in Resources */ = {isa = PBXBuildFile; fileRef = F27F3BC62DEAA5C6A20FC50F /* 0114.wav */; };
@@ -1095,6 +1105,7 @@
 		090450EAA48EE8A9E8D60315 /* 0248.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0248.wav; sourceTree = "<group>"; };
 		091EB45BF3FC5670AF6CB217 /* 0707.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0707.wav; sourceTree = "<group>"; };
 		0923356DD4DD4053C3DAE5D6 /* SoulAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoulAnchor.swift; sourceTree = "<group>"; };
+		09D7C450FCFD0E357C01C853 /* NOAAWeatherAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NOAAWeatherAdapter.swift; sourceTree = "<group>"; };
 		0A39EAFD94573B700256764E /* 0053.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0053.wav; sourceTree = "<group>"; };
 		0A4242276D18819DBA5307DA /* 0670.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0670.wav; sourceTree = "<group>"; };
 		0AEC52A08FC421AEFC8895C1 /* JarvisPendingActionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarvisPendingActionStore.swift; sourceTree = "<group>"; };
@@ -1145,6 +1156,7 @@
 		160367015EA806653C38799C /* JarvisTunnelClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarvisTunnelClient.swift; sourceTree = "<group>"; };
 		166625F3321874D811A7F613 /* 0376.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0376.wav; sourceTree = "<group>"; };
 		166BA944A154DC21D58D7D14 /* 0244.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0244.wav; sourceTree = "<group>"; };
+		16F9BC7DB6BBA575A801CE5B /* USGSEarthquakeAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USGSEarthquakeAdapter.swift; sourceTree = "<group>"; };
 		172FD6238E4F47BB97E9E2D7 /* 0625.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0625.wav; sourceTree = "<group>"; };
 		1766E25EE9212A27C25E52F2 /* 0627.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0627.wav; sourceTree = "<group>"; };
 		1781CFB53D93911EFD9AD833 /* 0367.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0367.wav; sourceTree = "<group>"; };
@@ -1249,6 +1261,7 @@
 		2EB94946EA482F308D7E8BE7 /* 0638.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0638.wav; sourceTree = "<group>"; };
 		2F457973B4E612EFCF54A63D /* 0635.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0635.wav; sourceTree = "<group>"; };
 		2F557688391D0400B704F10F /* TTSBackend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSBackend.swift; sourceTree = "<group>"; };
+		2FCB316643DE84046A8FC313 /* TxDOTDriveTexasAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxDOTDriveTexasAdapter.swift; sourceTree = "<group>"; };
 		3023171E541AC7660B29D0EA /* 0235.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0235.wav; sourceTree = "<group>"; };
 		306DBD1E27F7B22082176D68 /* 0384.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0384.wav; sourceTree = "<group>"; };
 		3090924CB0861F59C669DB53 /* PresenceModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenceModels.swift; sourceTree = "<group>"; };
@@ -1303,6 +1316,7 @@
 		3C859CB1737015B8CEA62C60 /* HDMICECBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDMICECBridge.swift; sourceTree = "<group>"; };
 		3C96704647B67673CD1ECDD8 /* DestructiveIntentGuard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestructiveIntentGuard.swift; sourceTree = "<group>"; };
 		3C97C6CA3A273991452F29C4 /* 0542.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0542.wav; sourceTree = "<group>"; };
+		3CBF8FFF163D34CA204C1A61 /* DestructiveIntentGuardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestructiveIntentGuardTests.swift; sourceTree = "<group>"; };
 		3D5E9A3FAD21273D932DDD39 /* 0489.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0489.wav; sourceTree = "<group>"; };
 		3DAE39F20626E9CE033EAA5E /* 0423.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0423.wav; sourceTree = "<group>"; };
 		3E30FEAECC82ABBB7CE74FF3 /* 0036.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0036.wav; sourceTree = "<group>"; };
@@ -1364,6 +1378,7 @@
 		4EECDCD2A2953386524D46E7 /* 0200.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0200.wav; sourceTree = "<group>"; };
 		4EF9ACE09F7421EEB4A8E031 /* 0207.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0207.wav; sourceTree = "<group>"; };
 		4F7D527D647D5E8D798FD5D6 /* 0254.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0254.wav; sourceTree = "<group>"; };
+		4FDE2CB475BBC1052510C388 /* ScenePreSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenePreSearch.swift; sourceTree = "<group>"; };
 		4FF98A2F645575B7A43C3CE1 /* ref1_cfg2.1_ddpm10_RENDER.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ref1_cfg2.1_ddpm10_RENDER.wav; sourceTree = "<group>"; };
 		5039DC1486B204C8CB4815DE /* 0444.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0444.wav; sourceTree = "<group>"; };
 		50AE475760DE698A14FCDA7B /* HazardOverlayFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HazardOverlayFeature.swift; sourceTree = "<group>"; };
@@ -1744,6 +1759,7 @@
 		BD22AACDA2A1A74647A3122D /* 0273.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0273.wav; sourceTree = "<group>"; };
 		BD5E3D16487FD55F5DEDC16C /* 0668.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0668.wav; sourceTree = "<group>"; };
 		BDB2F390848B714BE4947AB2 /* TunnelIdentityStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunnelIdentityStoreTests.swift; sourceTree = "<group>"; };
+		BDB819FFD85D23225DC6E47E /* SceneBriefing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneBriefing.swift; sourceTree = "<group>"; };
 		BE39575B35FC08D9C3B4B501 /* 0688.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0688.wav; sourceTree = "<group>"; };
 		BE9D0F76759AD1010628CF6A /* 0135.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0135.wav; sourceTree = "<group>"; };
 		BEBBE39C4DC182260C4032BE /* 0460.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0460.wav; sourceTree = "<group>"; };
@@ -1884,6 +1900,7 @@
 		E53BDD44A3B5B41E2E7D5BE2 /* 0687.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0687.wav; sourceTree = "<group>"; };
 		E58C3B8570A5C8D81713F053 /* 0033.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0033.wav; sourceTree = "<group>"; };
 		E58F9F7F9A104D765F1A938D /* 0437.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0437.wav; sourceTree = "<group>"; };
+		E5DA0874BA63C854DEBB950E /* HazardAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HazardAdapter.swift; sourceTree = "<group>"; };
 		E5E96FEBD9E6F51FEC9D6940 /* 0318.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0318.wav; sourceTree = "<group>"; };
 		E6009C7721C2302E9694D4D2 /* 0487.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0487.wav; sourceTree = "<group>"; };
 		E7236ADF710D39EA17002FE2 /* ARCHarnessBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCHarnessBridge.swift; sourceTree = "<group>"; };
@@ -1907,6 +1924,7 @@
 		ECE624A2379218247C8436E1 /* 0213.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0213.wav; sourceTree = "<group>"; };
 		ED23ACEA8E4E10F3BF908D5E /* 0398.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0398.wav; sourceTree = "<group>"; };
 		ED39C97D28386B343B1D38A3 /* MemoryEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryEngineTests.swift; sourceTree = "<group>"; };
+		ED7609D5F8C5D5317B5E7D38 /* OSINTAdapterError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSINTAdapterError.swift; sourceTree = "<group>"; };
 		ED9DB5D0178F206658890619 /* 0611.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0611.wav; sourceTree = "<group>"; };
 		EDB29EE18A457F4A761093C7 /* 0344.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0344.wav; sourceTree = "<group>"; };
 		EDBF9C07B788852C6161DBF9 /* 0433.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0433.wav; sourceTree = "<group>"; };
@@ -1927,6 +1945,7 @@
 		F0EA156FB84D49637482F6F8 /* 0417.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0417.wav; sourceTree = "<group>"; };
 		F0FE5D7736C1F4CBD50FE522 /* 0509.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0509.wav; sourceTree = "<group>"; };
 		F12482E1901A266526C04ECA /* 0399.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0399.wav; sourceTree = "<group>"; };
+		F13ED134B0A0152649E8C06F /* HazardCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HazardCache.swift; sourceTree = "<group>"; };
 		F1519EB3E1B7E68D17CAE3DB /* 0319.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0319.wav; sourceTree = "<group>"; };
 		F17B0EF8043865179BA68B43 /* 0354.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0354.wav; sourceTree = "<group>"; };
 		F17B4302B6F95213534D0678 /* 0543.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0543.wav; sourceTree = "<group>"; };
@@ -1970,6 +1989,7 @@
 		FD89BF687F9AFE4752402AF2 /* 0556.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0556.wav; sourceTree = "<group>"; };
 		FD979E6CDE2D12624FA41ED4 /* 0705.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0705.wav; sourceTree = "<group>"; };
 		FDDC15503518F385235540B4 /* 0132.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0132.wav; sourceTree = "<group>"; };
+		FDF4CAE32C2685876052F384 /* NASAFIRMSAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASAFIRMSAdapter.swift; sourceTree = "<group>"; };
 		FDF67A85E1613917AA7BDC80 /* 0121.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0121.wav; sourceTree = "<group>"; };
 		FE46F8B274EE365577088690 /* 0559.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0559.wav; sourceTree = "<group>"; };
 		FE671F3FE814AD9EB8EE9C1F /* ARCGridAdapterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCGridAdapterTests.swift; sourceTree = "<group>"; };
@@ -2979,7 +2999,14 @@
 		5A8C976AECC664D3A54A8B20 /* OSINT */ = {
 			isa = PBXGroup;
 			children = (
+				E5DA0874BA63C854DEBB950E /* HazardAdapter.swift */,
+				F13ED134B0A0152649E8C06F /* HazardCache.swift */,
 				50AE475760DE698A14FCDA7B /* HazardOverlayFeature.swift */,
+				FDF4CAE32C2685876052F384 /* NASAFIRMSAdapter.swift */,
+				09D7C450FCFD0E357C01C853 /* NOAAWeatherAdapter.swift */,
+				ED7609D5F8C5D5317B5E7D38 /* OSINTAdapterError.swift */,
+				2FCB316643DE84046A8FC313 /* TxDOTDriveTexasAdapter.swift */,
+				16F9BC7DB6BBA575A801CE5B /* USGSEarthquakeAdapter.swift */,
 			);
 			path = OSINT;
 			sourceTree = "<group>";
@@ -3101,6 +3128,8 @@
 				B14A9C1B069AD1E7F6571877 /* MapTileProvider.swift */,
 				B98B7F5FBB3BBAE08EFEDA0D /* RoadGraph.swift */,
 				9D9FE2510C39B93E3E97670F /* RoutingProfile.swift */,
+				BDB819FFD85D23225DC6E47E /* SceneBriefing.swift */,
+				4FDE2CB475BBC1052510C388 /* ScenePreSearch.swift */,
 				CC101C3FD471047FA975D3FB /* TileProviderOrchestrator.swift */,
 				C4FF4B2D0D087682C3BD2D83 /* UniversalRouter.swift */,
 				5A8C976AECC664D3A54A8B20 /* OSINT */,
@@ -3310,6 +3339,7 @@
 				B7B2452B4A40A4F23B4F58DA /* CapabilityRegistryTests.swift */,
 				A49A0760E0A4EF86EAA6BD22 /* CompanionCapabilityPolicyTests.swift */,
 				128E49CB0BCB059D8E3CF2A8 /* ContextualRetrievalBridgeTests.swift */,
+				3CBF8FFF163D34CA204C1A61 /* DestructiveIntentGuardTests.swift */,
 				8B8E0004911391BA41A7F9DD /* DisplayCommandExecutorTests.swift */,
 				F9C3B736D3B654245A75B347 /* GreetingOrchestratorTests.swift */,
 				B5E64937FC5B93F705FC3097 /* HarnessTests.swift */,
@@ -4450,6 +4480,7 @@
 				8ABA6C03B299E32A5CD297A6 /* CapabilityRegistryTests.swift in Sources */,
 				2785C20E53CD1231FE67F5BB /* CompanionCapabilityPolicyTests.swift in Sources */,
 				8DBD199D2871EAECACB237ED /* ContextualRetrievalBridgeTests.swift in Sources */,
+				17E16E6AC9CFF8BAAFCBE8B8 /* DestructiveIntentGuardTests.swift in Sources */,
 				F45B41FF18F2B6B295144702 /* DisplayCommandExecutorTests.swift in Sources */,
 				7F97E234DA2F0F06C6731D61 /* GreetingOrchestratorTests.swift in Sources */,
 				32CE17E0F06A30FCC95E2041 /* HarnessTests.swift in Sources */,
@@ -4508,6 +4539,8 @@
 				AF8C10568016756985953738 /* HDMICECBridge.swift in Sources */,
 				FFFA0A8B74D0501B09134CDA /* HTTPDisplayBridge.swift in Sources */,
 				859541A4D63955A1C1F43394 /* HTTPTTSBackend.swift in Sources */,
+				A616CFCB4E0594D47FBFA380 /* HazardAdapter.swift in Sources */,
+				614EC500F0FDB4B864E70728 /* HazardCache.swift in Sources */,
 				AE16BEEDA228A86985B967FE /* HazardOverlayFeature.swift in Sources */,
 				BC12CB6DADDA26433DD9AF04 /* IntentParser.swift in Sources */,
 				B1EF3FC00D178F151E549460 /* IntentTypes.swift in Sources */,
@@ -4523,6 +4556,9 @@
 				6595F657D99CA64413C4782E /* MasterOscillator.swift in Sources */,
 				F7F045570123611BAC0FAA06 /* MemoryEngine.swift in Sources */,
 				EFCDB7DF49985D64A52F8C4E /* MyceliumControlPlane.swift in Sources */,
+				FDE5A5F5F8B67FF6D8AE7E83 /* NASAFIRMSAdapter.swift in Sources */,
+				62B421017ECB3809592A7041 /* NOAAWeatherAdapter.swift in Sources */,
+				CB3C90D4EA46EC9F5A32D20C /* OSINTAdapterError.swift in Sources */,
 				845A195A0D8A4157E3BE732A /* OSINTSourceRegistry.swift in Sources */,
 				B6F3896B85C34F2441F58499 /* PhaseLockMonitor.swift in Sources */,
 				1F0BBB340B1813F7CB59414B /* PheromoneEngine.swift in Sources */,
@@ -4536,6 +4572,8 @@
 				531B82B7186463F4CD0BB8F3 /* RealJarvisInterface.swift in Sources */,
 				3BFCB8660CBA65CCDB63F588 /* RoadGraph.swift in Sources */,
 				10CAE8F6338AEF35BFBEE33D /* RoutingProfile.swift in Sources */,
+				5BFAC8B0CAB9A3EE20AC5645 /* SceneBriefing.swift in Sources */,
+				F6AF19AE449FAEC5F625E96E /* ScenePreSearch.swift in Sources */,
 				F6DA5053E7924AD6BDD10E80 /* ScenicProfile.swift in Sources */,
 				9A949ED5B171B224C07A2C4C /* SkillSystem.swift in Sources */,
 				B929A8EABD7BDB28344C7546 /* SoulAnchor.swift in Sources */,
@@ -4549,6 +4587,8 @@
 				142D3118384E8E618E19CCA5 /* TunnelCrypto.swift in Sources */,
 				0462DE1469F341AAAE2824AF /* TunnelIdentityStore.swift in Sources */,
 				6D89A2A703227C272B9686A4 /* TunnelModels.swift in Sources */,
+				CC1433AACE33666A200CC346 /* TxDOTDriveTexasAdapter.swift in Sources */,
+				4D2E0B93A382A6FF37472684 /* USGSEarthquakeAdapter.swift in Sources */,
 				FCCACC0E43C1A9F84E604AB0 /* UniversalRouter.swift in Sources */,
 				95A8056907E491790395831A /* VoiceApprovalGate.swift in Sources */,
 				C5F5E091DC9C9ADD3AA65754 /* VoiceGateTelemetryRecording.swift in Sources */,
