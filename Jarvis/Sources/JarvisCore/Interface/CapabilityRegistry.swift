@@ -9,16 +9,30 @@ public struct DisplayEndpoint: Codable, Sendable, Identifiable {
     public let address: String?
     public let capabilities: [String]
     public let room: String?
+    /// Authority level this endpoint is granted to Jarvis. Unknown/missing defaults to `.standard`.
+    /// `.fullControl` = full display/voice/control authority (echo, alpha, beta, foxtrot).
+    /// `.fullAccessAndControl` = full read + write authority including HomeKit bridge / public edge (charlie, delta).
+    public let authority: Authority
 
     public enum DisplayType: String, Codable, Sendable {
         case monitor, tv, projector, tablet, watch
+        case host          // echo (local Mac host)
+        case meshNode = "mesh-node"  // alpha/beta/foxtrot/charlie/delta
     }
 
     public enum DisplayTransport: String, Codable, Sendable {
         case airplay, ddcCI = "ddc-ci", http, hdmiCEC = "hdmi-cec", matter, homeKit = "homekit"
+        case local
+        case jarvisTunnel = "jarvis-tunnel"
     }
 
-    public init(id: String, displayName: String, aliases: [String], type: DisplayType, transport: DisplayTransport, address: String?, capabilities: [String], room: String?) {
+    public enum Authority: String, Codable, Sendable {
+        case standard
+        case fullControl = "full-control"
+        case fullAccessAndControl = "full-access-and-control"
+    }
+
+    public init(id: String, displayName: String, aliases: [String], type: DisplayType, transport: DisplayTransport, address: String?, capabilities: [String], room: String?, authority: Authority = .standard) {
         self.id = id
         self.displayName = displayName
         self.aliases = aliases
@@ -27,6 +41,24 @@ public struct DisplayEndpoint: Codable, Sendable, Identifiable {
         self.address = address
         self.capabilities = capabilities
         self.room = room
+        self.authority = authority
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case id, displayName, aliases, type, transport, address, capabilities, room, authority
+    }
+
+    public init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try c.decode(String.self, forKey: .id)
+        self.displayName = try c.decode(String.self, forKey: .displayName)
+        self.aliases = try c.decode([String].self, forKey: .aliases)
+        self.type = try c.decode(DisplayType.self, forKey: .type)
+        self.transport = try c.decode(DisplayTransport.self, forKey: .transport)
+        self.address = try c.decodeIfPresent(String.self, forKey: .address)
+        self.capabilities = try c.decode([String].self, forKey: .capabilities)
+        self.room = try c.decodeIfPresent(String.self, forKey: .room)
+        self.authority = try c.decodeIfPresent(Authority.self, forKey: .authority) ?? .standard
     }
 }
 
@@ -58,7 +90,7 @@ public struct CapabilityConfig: Codable, Sendable {
     }
 }
 
-public final class CapabilityRegistry {
+public final class CapabilityRegistry: @unchecked Sendable {
     private var displays: [DisplayEndpoint]
     private var accessories: [AccessoryEndpoint]
 

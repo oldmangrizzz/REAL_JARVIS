@@ -49,6 +49,7 @@
 		0A275FA115F37C24EF25E8E2 /* 0495.wav in Resources */ = {isa = PBXBuildFile; fileRef = 99B6786CADCC6B9DDFA464BB /* 0495.wav */; };
 		0A42B6CF369D5127D50D7715 /* 0583.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6E4E6A192374614D51C27FAC /* 0583.wav */; };
 		0A4E0963BAF30EF8109D4BBE /* VoiceCommandRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEC9E2FF5734DD56045A19B /* VoiceCommandRouterTests.swift */; };
+		029CB37E593448908DB8BF0B /* CanonAdversarialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC24B464FE54DEB81D7B5C2 /* CanonAdversarialTests.swift */; };
 		0A7F5A978652167AAB2D7387 /* audio-8.wav in Resources */ = {isa = PBXBuildFile; fileRef = 95DC6CDD30CBBD7664983035 /* audio-8.wav */; };
 		0B62349C8C00C653E432299D /* 0322.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9152181040540A111CD2A071 /* 0322.wav */; };
 		0B66D3FEA591F8FE7C33C9E1 /* 0442.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3097D210E2852DE893AF7F22 /* 0442.wav */; };
@@ -1480,6 +1481,7 @@
 		7C1CAC6150F3AF9786EF89E4 /* 0041.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0041.wav; sourceTree = "<group>"; };
 		7C604A58A2C60361663C05D3 /* 0008.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0008.wav; sourceTree = "<group>"; };
 		7DEC9E2FF5734DD56045A19B /* VoiceCommandRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceCommandRouterTests.swift; sourceTree = "<group>"; };
+		BEC24B464FE54DEB81D7B5C2 /* CanonAdversarialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanonAdversarialTests.swift; sourceTree = "<group>"; };
 		7EBBE906D36F099E9117618F /* 0608.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0608.wav; sourceTree = "<group>"; };
 		7EF86AA0F67B9FF916140F5E /* 0260.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0260.wav; sourceTree = "<group>"; };
 		7F168B26E81E520E5F5498D4 /* 0425.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0425.wav; sourceTree = "<group>"; };
@@ -3233,6 +3235,7 @@
 				B8DE6C44DBB197C64FB86D8E /* TunnelCryptoTests.swift */,
 				274783B53F6FAEA3990D20EE /* VoiceApprovalGateTests.swift */,
 				7DEC9E2FF5734DD56045A19B /* VoiceCommandRouterTests.swift */,
+				BEC24B464FE54DEB81D7B5C2 /* CanonAdversarialTests.swift */,
 			);
 			name = JarvisCoreTests;
 			path = Jarvis/Tests/JarvisCoreTests;
@@ -4375,6 +4378,7 @@
 				9D36C8DC4BFD4FE3413B3580 /* TunnelCryptoTests.swift in Sources */,
 				39E9D54C5B6E14B16505F8D9 /* VoiceApprovalGateTests.swift in Sources */,
 				0A4E0963BAF30EF8109D4BBE /* VoiceCommandRouterTests.swift in Sources */,
+				029CB37E593448908DB8BF0B /* CanonAdversarialTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

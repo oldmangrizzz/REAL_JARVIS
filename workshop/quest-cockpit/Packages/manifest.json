@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "com.unity.xr.openxr": "1.10.0",
+    "com.unity.xr.interaction.toolkit": "2.5.4",
+    "com.unity.xr.management": "4.4.0",
+    "com.meta.xr.sdk.core": "65.0.0",
+    "com.unity.textmeshpro": "3.0.6",
+    "com.unity.ide.visualstudio": "2.0.22",
+    "com.unity.modules.androidjni": "1.0.0",
+    "com.unity.modules.unitywebrequest": "1.0.0"
+  }
+}

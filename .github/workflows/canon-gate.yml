@@ -1,0 +1,53 @@
+name: canon-gate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  non-dom-invariant:
+    name: Non-DOM invariant
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Forbid WebView / DOM shims in platform apps
+        run: |
+          set -e
+          BANNED='WKWebView|UIWebView|loadHTMLString|innerHTML|document\.createElement|WebKitView'
+          HITS=$(grep -REn --include='*.swift' "$BANNED" Jarvis/Mac Jarvis/Mobile Jarvis/Watch Jarvis/TV Jarvis/Shared 2>/dev/null || true)
+          if [ -n "$HITS" ]; then
+            echo "::error::Non-DOM invariant violated. DOM/WebView APIs are banned from Jarvis platform apps."
+            echo "$HITS"
+            exit 1
+          fi
+          echo "Non-DOM invariant upheld."
+
+  canon-tests:
+    name: JarvisCore canon tests (xcodebuild)
+    runs-on: macos-14
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+      - name: Run JarvisCore test suite
+        run: |
+          set -o pipefail
+          xcodebuild \
+            -workspace jarvis.xcworkspace \
+            -scheme Jarvis \
+            -destination 'platform=macOS' \
+            test 2>&1 | tee xcodebuild.log
+      - name: Enforce canon floor
+        run: |
+          # Floor: at least 138 tests must execute (SPEC-004/007/008 + adversarial canon).
+          # Floor rises as new canon work lands. Never decrease.
+          EXECUTED=$(grep -Eo 'Executed [0-9]+ tests, with 0 failures' xcodebuild.log | tail -1 | grep -Eo '[0-9]+' | head -1)
+          echo "Executed tests: $EXECUTED"
+          if [ -z "$EXECUTED" ] || [ "$EXECUTED" -lt 138 ]; then
+            echo "::error::Canon floor violated. Expected >= 138 tests, got $EXECUTED."
+            exit 1
+          fi
+          echo "Canon floor upheld."

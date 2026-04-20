@@ -29,6 +29,72 @@
       "address": "192.168.4.151",
       "capabilities": ["video", "dashboard"],
       "room": "lab"
+    },
+    {
+      "id": "echo",
+      "displayName": "Echo (Host Mac)",
+      "aliases": ["host", "mac", "echo host", "primary host"],
+      "type": "host",
+      "transport": "local",
+      "address": "127.0.0.1",
+      "capabilities": ["video", "telemetry", "hud", "dashboard", "control"],
+      "room": "workshop",
+      "authority": "full-control"
+    },
+    {
+      "id": "alpha",
+      "displayName": "Alpha (Proxmox mesh node)",
+      "aliases": ["alpha node", "pve1", "mesh-1"],
+      "type": "mesh-node",
+      "transport": "jarvis-tunnel",
+      "address": "alpha.grizzlymedicine.icu",
+      "capabilities": ["video", "telemetry", "dashboard", "control", "display"],
+      "room": "workshop",
+      "authority": "full-control"
+    },
+    {
+      "id": "beta",
+      "displayName": "Beta (headless build host)",
+      "aliases": ["beta node", "pve2", "build host"],
+      "type": "mesh-node",
+      "transport": "jarvis-tunnel",
+      "address": "192.168.4.151",
+      "capabilities": ["video", "telemetry", "dashboard", "control", "display"],
+      "room": "workshop",
+      "authority": "full-control"
+    },
+    {
+      "id": "foxtrot",
+      "displayName": "Foxtrot (Proxmox node)",
+      "aliases": ["foxtrot node", "pve3", "mesh-3"],
+      "type": "mesh-node",
+      "transport": "jarvis-tunnel",
+      "address": "foxtrot.grizzlymedicine.icu",
+      "capabilities": ["video", "telemetry", "dashboard", "control", "display"],
+      "room": "workshop",
+      "authority": "full-control"
+    },
+    {
+      "id": "charlie",
+      "displayName": "Charlie (HomeKit bridge / public edge)",
+      "aliases": ["charlie node", "homekit bridge", "public edge"],
+      "type": "mesh-node",
+      "transport": "jarvis-tunnel",
+      "address": "charlie.grizzlymedicine.icu",
+      "capabilities": ["telemetry", "dashboard", "control", "homekit-bridge"],
+      "room": "workshop",
+      "authority": "full-access-and-control"
+    },
+    {
+      "id": "delta",
+      "displayName": "Delta (srv1462918)",
+      "aliases": ["delta node", "srv1462918"],
+      "type": "mesh-node",
+      "transport": "jarvis-tunnel",
+      "address": "delta.grizzlymedicine.icu",
+      "capabilities": ["telemetry", "dashboard", "control"],
+      "room": "workshop",
+      "authority": "full-access-and-control"
     }
   ],
   "accessories": [

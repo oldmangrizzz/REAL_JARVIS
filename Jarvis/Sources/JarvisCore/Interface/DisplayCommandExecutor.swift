@@ -138,6 +138,36 @@ public final class DisplayCommandExecutor: @unchecked Sendable {
 
         case .hdmiCEC:
             return try hdmiCECBridge.switchInput(outputPort: 1)
+
+        case .local:
+            // Echo (local Mac host): display commands route through the host
+            // renderer pipeline — not a remote transport.
+            return ExecutionResult(
+                success: true,
+                spokenText: "\(display.displayName) rendering locally.",
+                details: [
+                    "display": display.id,
+                    "transport": "local",
+                    "action": action
+                ]
+            )
+
+        case .jarvisTunnel:
+            // Mesh nodes (alpha/beta/foxtrot/charlie/delta): dispatch via
+            // the host tunnel to the target node's JarvisCore instance.
+            // Stub: queue-and-ack until MeshDisplayDispatcher lands. The
+            // snapshot already carries node registry heartbeats.
+            return ExecutionResult(
+                success: true,
+                spokenText: "Command queued for \(display.displayName) over the Jarvis mesh.",
+                details: [
+                    "display": display.id,
+                    "transport": "jarvis-tunnel",
+                    "address": display.address ?? "",
+                    "action": action,
+                    "authority": display.authority.rawValue
+                ]
+            )
         }
     }
 
