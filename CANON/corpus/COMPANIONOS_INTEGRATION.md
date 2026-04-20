@@ -355,3 +355,178 @@ HughMK1/
 **Potential Impact:** Game-changing if it works, valuable data if it doesn't  
 
 *"Shock 'em more than once."*
+
+---
+
+# Appendix A — SPEC-009 Implementation Canon (2026-04-20)
+
+This appendix is the engineering-side canon attachment to the manifesto
+above. Everything in this appendix is **implemented and under the
+canon-gate test floor**. Changes here require a canon-gate bump and a
+passing test run.
+
+## A.1 Three-tier soul
+
+The Jarvis runtime carries three principal tiers. The operator named them
+with voice-first canon in the [[Grizz-OS]] / [[Companion-OS]] /
+[[Responder-OS]] wiki pages. Paraphrased:
+
+- **Grizz OS** — raw, unredacted, full tilt. The operator at home. No
+  filters beyond the canon-gate.
+- **Companion OS** — how you act in front of friends and family. Warm,
+  protective, not servile; same soul, scoped permissions.
+- **Responder OS** — 1900 Grizz, clocked in, uniform on. The operating
+  system "when it puts on a uniform." Duty mode.
+
+These strings appear verbatim in `Principal.swift` doc-comment and in
+each tier's canon wiki page. Cosmetic renderers MUST read the soul
+statement from those sources; do not paraphrase in UI copy.
+
+## A.2 Principal model
+
+`Principal` (Jarvis/Shared/Sources/JarvisShared/Principal.swift) is a
+Codable enum:
+
+- `.operatorTier` — tierToken `"grizz"`.
+- `.companion(memberID: String)` — tierToken `"companion:<member-id>"`.
+- `.guestTier` — tierToken `"guest"`.
+
+The tier token is the canonical on-disk / on-wire form. Single-value
+codable container so identities.json and telemetry JSONL share
+representation. Unknown tokens throw `DecodingError.dataCorruptedError`
+at decode time — there is no silent downgrade.
+
+Responder-tier identities are reserved for a future
+`TierCapabilityPolicy` generalization once the operator specifies the
+responder role taxonomy (medic / fire / law / dispatch / other).
+
+## A.3 Capability policy
+
+`CompanionCapabilityPolicy` (Jarvis/Sources/JarvisCore/Interface/
+CompanionCapabilityPolicy.swift) enforces SPEC-009. Two entry points:
+
+- `evaluateVoiceIntent(principal:, intent:) -> .allow / .deny(reason:)`
+- `evaluateTunnelAction(principal:, verb:) -> .allow / .deny(reason:)`
+
+Additive extension points:
+
+- `operatorOnlyFragments` — phrase fragments that ONLY the operator may
+  utter (`destructive`, `wipe memory`, `self destruct`, etc.).
+- `guestAllowedQueryFragments` — the short whitelist of harmless asks
+  the guest tier may issue.
+
+`RealJarvisInterface.companionRefusalIfNeeded` runs BEFORE the
+destructive-guard on ALL branches (~line 169 in RealJarvisInterface.swift)
+and the host tunnel calls `ensureAuthorized` on every client action
+(~line 321 in JarvisHostTunnelServer.swift). Defense in depth — both
+layers evaluate independently.
+
+## A.4 Brand palette
+
+`JarvisBrandPalette` (Jarvis/Shared/Sources/JarvisShared/
+JarvisBrandPalette.swift) vends four tier-scoped palettes:
+
+| Tier | Canvas | Chrome | Alert | Accent | Accent Glow |
+| --- | --- | --- | --- | --- | --- |
+| Grizz OS | `#05070C` | `#C7CBD1` | `#C8102E` | `#00A878` (emerald) | `#2FE0A6` |
+| Companion OS | `#0B0F16` | `#C7CBD1` | `#C8102E` | `#00B8C4` (teal) | `#4DE3EF` |
+| Companion (guest) | `#0B0F16` | `#6C7079` | `#C8102E` | `#5F6370` | `#8A8D93` |
+| Responder OS | `#05070C` | `#F4F6FA` | `#C8102E` | `#0B5FFF` (duty blue) | `#F2B707` (duty gold) |
+
+Crimson `#C8102E` is the cross-tier safety invariant. It is the only
+palette token reused byte-for-byte across every tier — a refusal or
+red-zone render MUST read the same colour no matter who is bound.
+
+Resolution: `JarvisBrandPalette.palette(for: principal)`. SwiftUI
+surfaces receive the palette via `@Environment(\.jarvisPalette)`;
+non-SwiftUI targets (Unity, AppKit, CLI) resolve hex via
+`JarvisPaletteHex`. See SPEC-009 SwiftUI bridge file for details.
+
+The institute brand `JarvisGMRIPalette` (TunnelModels.swift:482) is
+intentionally separate — that is the GrizzlyMedicine Research Institute
+identity, which does not change by tier.
+
+## A.5 Evidence corpus integrity
+
+Every `TelemetryStore.append` row carries:
+
+- `principal` — tier token of the bound principal when the row was
+  emitted. Explicit `principal:` param always wins over any
+  caller-supplied key, so clients cannot self-assert identity.
+- `prevRowHash` — rowHash of the prior row in the same telemetry table
+  (sentinel `"GENESIS"` for first row / first row after rotation /
+  first row after a pre-chain legacy segment).
+- `rowHash` — SHA-256 over the canonical-JSON body of the row
+  (including prevRowHash). Caller-supplied `rowHash` / `prevRowHash`
+  fields are stripped before the store computes its own.
+
+`TelemetryStore.verifyChain(table:)` replays the file and returns a
+`TelemetryChainReport` with either `isIntact == true` or the 1-indexed
+line number of the first broken row. A silent edit to a single
+principal tag invalidates every subsequent hash — the evidence corpus
+cannot be tampered with without leaving a signature.
+
+## A.6 Environmental sensors
+
+`WiFiEnvironmentScanner.currentSnapshot(for: principal)` is the 2026
+fail-closed WLAN surface:
+
+- Operator tier: raw SSID + raw BSSID + rssi + channel.
+- Companion / guest: SSID nil, raw BSSID nil. A stable
+  SHA-256 `bssidHash` remains so `PresenceDetector` can still cluster
+  rooms without knowing the actual network identity.
+- No CoreWLAN interface → snapshot status `.noInterface`, all
+  identifiers nil, rssi 0. Callers that don't inspect status see
+  "nobody home" rather than a plausibly zeroed snapshot.
+- `scanForNetworks(for:)` returns the empty set for any non-operator
+  principal. Raw AP scan lists are location-leak material we never
+  hand to family-tier or guest-tier code.
+
+`JarvisPresenceEvent.presumedPrincipal` is optional. It is set only
+when the ingress source can cryptographically bind identity (HomeKit
+geofence on operator phone, iOS Shortcut from operator device, manual
+override by operator). A bare CSI presence detection carries
+`presumedPrincipal = nil` — the evidence corpus must never forge
+identity. Absence is honest.
+
+## A.7 Implementation status matrix
+
+| Ticket | State | Notes |
+| --- | --- | --- |
+| `principal-tier` | Done | Principal enum + Codable |
+| `capability-policy` | Done | SPEC-009 matrix, two-layer enforcement |
+| `tier-ui` | Done | Brand palette + SwiftUI environment bridge |
+| `telemetry-principal-tag` | Done | Every row witnessed by tier |
+| `presence-principal-tag` | Done | Optional presumedPrincipal on events |
+| `cockpit-palette-wiring` | Done | Palette hex parser + env key |
+| `soul-anchor-tier-witness` | Done | Hash-chained telemetry |
+| `wifi-scanner-fail-closed` | Done | Tier redaction + no-interface path |
+| `tier-policy-generalize` | Pending | Blocked on responder role taxonomy |
+| `voice-approval-responder` | Pending | Depends on tier-policy-generalize |
+| `biometric-binding` | Pending | Needs operator-home Keychain tests |
+| `onboarding-flow` | Pending | "Add Companion" enrollment code UI |
+| `voice-enrollment` | Pending | Mic-capture + embedding storage |
+| `speaker-id` | Pending | Diarization tag before VoiceCommandRouter |
+| `testflight-lane` | Pending | Needs ASC API key + family Apple IDs |
+
+## A.8 Operator-owned follow-ups
+
+These are blocked on the operator being physically home with hardware
+in hand, and cannot be completed autonomously:
+
+- App Store Connect API key (for `testflight-lane`).
+- Family Apple IDs added to the internal tester group.
+- Mapbox private token rotation (`sk.eyJ1Ijoib2xkbWFuZ3Jpenp6…`) — the
+  token redacted in the corpus is still live upstream at Mapbox.
+
+## A.9 Canon-gate coupling
+
+Every SPEC-009 ticket above that lands code also:
+
+1. Bumps the executed-test floor in
+   `.github/workflows/canon-gate.yml` to match the new count.
+2. Pins any new SPEC test name into the canon-gate pinned-name list so
+   a future refactor can't accidentally delete it without CI screaming.
+
+Current floor: 204.
+
