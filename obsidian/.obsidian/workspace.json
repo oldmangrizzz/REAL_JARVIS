@@ -25,12 +25,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "knowledge/canon/Companion-OS.md",
+                "file": "knowledge/canon/README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Companion-OS"
+              "title": "README"
             }
           }
         ],
@@ -184,7 +184,7 @@
             "state": {
               "type": "footnotes",
               "state": {
-                "file": "knowledge/canon/Companion-OS.md"
+                "file": "knowledge/canon/README.md"
               },
               "icon": "lucide-file-signature",
               "title": "Footnotes"
@@ -217,6 +217,8 @@
   },
   "active": "69ddc1c2c86a4143",
   "lastOpenFiles": [
+    "knowledge/canon/PRINCIPLES.md",
+    "knowledge/canon/Companion-OS.md",
     "knowledge/canon/Grizz-OS.md",
     "knowledge/canon/ADVERSARIAL_TESTS.md",
     "knowledge/architecture/VOICE_TO_DISPLAY_PIPELINE.md",
@@ -229,7 +231,6 @@
     "flag_rebuild.md",
     " A Lois Lane Indictment.txt",
     " A Lois Lane Indictment.pdf",
-    "knowledge/canon/Companion-OS.md",
     "knowledge/canon/Responder-OS.md",
     "knowledge/research/early-drafts/_source-README.md",
     "knowledge/characters/dc/jason-todd.md",
@@ -244,7 +245,6 @@
     "knowledge/research/README.md",
     "knowledge/research/operator-mind/Untitled 2.md",
     "knowledge/research/operator-mind/Spectrum script.md",
-    "knowledge/research/operator-mind/Spectrum love note context.md",
     "knowledge/characters/marvel",
     "knowledge/characters/dc",
     "knowledge/characters",

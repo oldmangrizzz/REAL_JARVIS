@@ -35,6 +35,12 @@ See [[concepts/Oscillator-Biomimicry]] for the doctrine.
 Fed into [[codebase/modules/Pheromind]] `TernarySignal` semantics and
 consumed by [[codebase/modules/ControlPlane]].
 
+## Tests
+- `OscillatorTests` — master tick emission + subscriber plumbing.
+- `PhaseLockMonitorTests` (8) — cadence gating, reinforce/neutral/repel
+  banding, flatline penalty, window eviction, `allScores` ordering, reset,
+  and `oscillator_plv` telemetry append.
+
 ## Related
 - [[concepts/Oscillator-Biomimicry]]
 - [[codebase/modules/Pheromind]]
