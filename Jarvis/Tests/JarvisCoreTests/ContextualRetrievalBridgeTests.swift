@@ -6,6 +6,37 @@ final class ContextualRetrievalBridgeTests: XCTestCase {
         ContextualRetrievalBridge(memory: runtime.memory, pheromind: runtime.pheromind)
     }
 
+    func testRuntimeExposesSharedBridge() throws {
+        let paths = try makeTestWorkspace()
+        let runtime = try JarvisRuntime(paths: paths)
+        let url = paths.traceDirectory.appendingPathComponent("wired.log")
+        try "Runtime wires retrieval across memory and pheromone.".write(to: url, atomically: true, encoding: .utf8)
+        _ = try runtime.memory.memify(logFileURLs: [url])
+
+        let ctx = runtime.retrievalBridge.retrieve(query: "retrieval memory pheromone", limit: 3)
+        XCTAssertFalse(ctx.semanticMatches.isEmpty)
+    }
+
+    func testQueryWithContextEnrichesPromptViaBridge() throws {
+        let paths = try makeTestWorkspace()
+        let runtime = try JarvisRuntime(paths: paths)
+        let url = paths.traceDirectory.appendingPathComponent("enrich.log")
+        try """
+        Planning phase defines the architecture.
+        Validation phase proves the build is sound.
+        """.write(to: url, atomically: true, encoding: .utf8)
+        _ = try runtime.memory.memify(logFileURLs: [url])
+
+        let result = try runtime.pythonRLM.queryWithContext(
+            basePrompt: "Select the phase that proves build soundness.",
+            query: "validation phase",
+            retrieval: runtime.retrievalBridge,
+            limit: 3
+        )
+        XCTAssertFalse(result.trace.isEmpty)
+        XCTAssertFalse(result.response.isEmpty)
+    }
+
     private func memifyFixture(_ runtime: JarvisRuntime, paths: WorkspacePaths, name: String, content: String) throws {
         let url = paths.traceDirectory.appendingPathComponent(name)
         try content.write(to: url, atomically: true, encoding: .utf8)

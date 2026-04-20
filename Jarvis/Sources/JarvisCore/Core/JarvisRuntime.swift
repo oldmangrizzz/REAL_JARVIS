@@ -6,6 +6,7 @@ public final class JarvisRuntime {
     public let pheromind: PheromindEngine
     public let memory: MemoryEngine
     public let pythonRLM: PythonRLMBridge
+    public let retrievalBridge: ContextualRetrievalBridge
     public let voice: JarvisVoicePipeline
     public let metaHarness: MetaHarness
     public let controlPlane: MyceliumControlPlane
@@ -26,6 +27,7 @@ public final class JarvisRuntime {
         self.pheromind = PheromindEngine(telemetry: telemetry)
         self.memory = try MemoryEngine(paths: paths, telemetry: telemetry)
         self.pythonRLM = PythonRLMBridge(paths: paths, telemetry: telemetry)
+        self.retrievalBridge = ContextualRetrievalBridge(memory: memory, pheromind: pheromind)
         self.voice = JarvisVoicePipeline(paths: paths, telemetry: telemetry)
         self.metaHarness = MetaHarness(paths: paths, telemetry: telemetry)
         self.controlPlane = try MyceliumControlPlane(paths: paths, telemetry: telemetry)

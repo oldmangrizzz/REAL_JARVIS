@@ -53,6 +53,19 @@ public final class PythonRLMBridge {
         return RLMQueryResult(response: response, symbols: symbols, trace: trace, topMatches: topMatches)
     }
 
+    /// Convenience: enriches the base prompt with semantic + pheromone
+    /// context from `retrieval` before invoking the Python REPL. When
+    /// retrieval is cold, behavior is byte-identical to `query(prompt:query:)`.
+    public func queryWithContext(
+        basePrompt: String,
+        query: String,
+        retrieval: ContextualRetrievalBridge,
+        limit: Int = 4
+    ) throws -> RLMQueryResult {
+        let enriched = retrieval.enrichedPrompt(basePrompt: basePrompt, query: query, limit: limit)
+        return try self.query(prompt: enriched, query: query)
+    }
+
     public func startREPL(prompt: String) throws {
         let promptURL = try writePrompt(prompt)
         try runPython(arguments: [
