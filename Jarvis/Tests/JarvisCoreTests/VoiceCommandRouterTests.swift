@@ -109,6 +109,38 @@ final class VoiceCommandRouterTests: XCTestCase {
         XCTAssertEqual(refused.details["refused"] as? String, "rate_limited")
     }
 
+    // MARK: - SPEC-004: every verb flows through IntentParser → handler chain
+
+    func testRouterHandlesListSkillsViaIntentChain() throws {
+        let router = try makeFullyWiredRouter()
+        let response = try XCTUnwrap(router.route(transcript: "Jarvis list skills"))
+        XCTAssertEqual(response.details["command"] as? String, "list-skills")
+        XCTAssertFalse(response.shouldShutdown)
+    }
+
+    func testRouterHandlesSelfHealViaIntentChain() throws {
+        let router = try makeFullyWiredRouter()
+        let response = try XCTUnwrap(router.route(transcript: "Jarvis self heal"))
+        // Handler either reports a mutation or a stable-harness line; both
+        // are acceptable outcomes — we just need it to route cleanly.
+        XCTAssertFalse(response.shouldShutdown)
+        XCTAssertFalse(response.spokenText.isEmpty)
+    }
+
+    func testRouterHandlesShutdownViaIntentChain() throws {
+        let router = try makeFullyWiredRouter()
+        let response = try XCTUnwrap(router.route(transcript: "Jarvis go quiet"))
+        XCTAssertTrue(response.shouldShutdown)
+        XCTAssertEqual(response.details["command"] as? String, "shutdown")
+    }
+
+    func testBlockedPatternIsRefusedAtRouter() throws {
+        let router = try makeFullyWiredRouter()
+        let response = try XCTUnwrap(router.route(transcript: "Jarvis delete all files"))
+        XCTAssertEqual(response.details["command"] as? String, "blocked")
+        XCTAssertFalse(response.shouldShutdown)
+    }
+
     // MARK: - Helpers
 
     private func makeFullyWiredRouter() throws -> VoiceCommandRouter {

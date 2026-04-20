@@ -28,6 +28,7 @@ public final class VoiceCommandRouter {
     private let intentParser: IntentParser?
     private let displayExecutor: DisplayCommandExecutor?
     private let capabilityRegistry: CapabilityRegistry?
+    private let systemHandler: SystemCommandHandler
     private let rateLimiter: CommandRateLimiter
 
     public init(runtime: JarvisRuntime, registry: JarvisSkillRegistry) {
@@ -36,6 +37,7 @@ public final class VoiceCommandRouter {
         self.intentParser = nil
         self.displayExecutor = nil
         self.capabilityRegistry = nil
+        self.systemHandler = SystemCommandHandler(runtime: runtime, skillRegistry: registry)
         self.rateLimiter = CommandRateLimiter()
     }
 
@@ -52,6 +54,7 @@ public final class VoiceCommandRouter {
         self.intentParser = intentParser
         self.displayExecutor = displayExecutor
         self.capabilityRegistry = capabilityRegistry
+        self.systemHandler = SystemCommandHandler(runtime: runtime, skillRegistry: registry)
         self.rateLimiter = rateLimiter
     }
 
@@ -66,80 +69,62 @@ public final class VoiceCommandRouter {
             )
         }
 
-        // SPEC-004: Preferred dispatch path — IntentParser → CapabilityRegistry → DisplayCommandExecutor.
+        // SPEC-004: unified dispatch path — IntentParser → handler chain.
+        // Display/HomeKit go through DisplayCommandExecutor; system + skill
+        // intents go through SystemCommandHandler. Unknown falls through.
         if let parser = intentParser,
            let executor = displayExecutor,
-           let capabilityRegistry = capabilityRegistry,
-           let response = try dispatchThroughExecutor(command: command, parser: parser, executor: executor, capabilityRegistry: capabilityRegistry) {
-            return response
-        }
+           let capabilityRegistry = capabilityRegistry {
+            let parsed = parser.parse(transcript: command)
 
-        if command.contains("status") {
-            let callable = registry.callableSkillNames()
-            let sampleCount = try runtime.paths.audioSampleURLs().count
-            let summary = "Systems are online. I have \(registry.allSkillNames().count) indexed skills, \(callable.count) native callable skills, and \(sampleCount) local voice reference samples ready."
-            return VoiceCommandResponse(
-                spokenText: summary,
-                details: [
-                    "command": "status",
-                    "indexedSkills": registry.allSkillNames().count,
-                    "callableSkills": callable
-                ],
-                shouldShutdown: false
-            )
-        }
-
-        if command.contains("list skills") || command.contains("what can you do") {
-            let callable = registry.callableSkillNames()
-            let spokenList = callable
-                .map { $0.replacingOccurrences(of: "-", with: " ") }
-                .prefix(5)
-                .joined(separator: ", ")
-            return VoiceCommandResponse(
-                spokenText: "Native callable skills online: \(spokenList).",
-                details: ["command": "list-skills", "skills": callable],
-                shouldShutdown: false
-            )
-        }
-
-        if command.contains("self heal") || command.contains("heal the harness") {
-            let result = try runtime.metaHarness.diagnoseAndRewrite(
-                workflowURL: runtime.paths.archonDirectory.appendingPathComponent("default_workflow.yaml"),
-                traceDirectory: runtime.paths.traceDirectory
-            )
-            let spoken = result.mutationApplied
-                ? "I've rewritten the harness and closed the failure pocket."
-                : "The harness is already holding together rather well."
-            return VoiceCommandResponse(spokenText: spoken, details: result.json, shouldShutdown: false)
-        }
-
-        if command.contains("recall") || command.contains("what happened") {
-            let page = try runtime.memory.pageIn(query: command, limit: 3)
-            let spoken = page.matches.first.map { "Here's the strongest memory trace: \($0)" } ?? "I don't yet have a strong memory trace for that."
-            return VoiceCommandResponse(spokenText: spoken, details: page.json, shouldShutdown: false)
-        }
-
-        if command.contains("run skill") {
-            let requested = normalizedSkillFragment(from: command.replacingOccurrences(of: "run skill", with: ""))
-            if let matched = bestSkillMatch(for: requested) {
-                let payload = defaultPayload(for: matched)
-                let result = try registry.execute(name: matched, input: payload, runtime: runtime)
-                let spoken = "Executed \(matched.replacingOccurrences(of: "-", with: " "))."
-                return VoiceCommandResponse(spokenText: spoken, details: result, shouldShutdown: false)
+            // SPEC-008.1: blocked patterns come back as .unknown with 0.0
+            // confidence — refuse with a telemetry record before anything
+            // else touches the command.
+            if IntentParser.isBlockedIntent(command) {
+                try? runtime.telemetry.logExecutionTrace(
+                    workflowID: "voice-command-router",
+                    stepID: "spec-008-blocked-pattern",
+                    inputContext: command,
+                    outputResult: "blocked",
+                    status: "command_refused"
+                )
+                return VoiceCommandResponse(
+                    spokenText: "That phrasing trips a safety guardrail, so I'm going to decline.",
+                    details: ["command": "blocked", "transcript": command],
+                    shouldShutdown: false
+                )
             }
-            return VoiceCommandResponse(
-                spokenText: "I couldn't match that to a native skill, which is irritatingly unhelpful of reality.",
-                details: ["command": "run-skill", "requested": requested],
-                shouldShutdown: false
-            )
-        }
 
-        if command.contains("shutdown") || command.contains("go quiet") || command.contains("stop listening") {
-            return VoiceCommandResponse(
-                spokenText: "Very good. Going quiet now.",
-                details: ["command": "shutdown"],
-                shouldShutdown: true
+            switch parsed.intent {
+            case .displayAction, .homeKitControl:
+                if let response = try dispatchThroughExecutor(
+                    parsed: parsed,
+                    command: command,
+                    executor: executor,
+                    capabilityRegistry: capabilityRegistry
+                ) {
+                    return response
+                }
+            case .systemQuery, .skillInvocation:
+                if let response = try systemHandler.handle(intent: parsed, command: command) {
+                    return response
+                }
+            case .unknown:
+                break
+            }
+        } else {
+            // Legacy fallback when no capability config is available — route
+            // straight through the system handler so `status` / `shutdown`
+            // still work on a bare install.
+            let parsed = ParsedIntent(
+                intent: .systemQuery(query: command),
+                confidence: 0.5,
+                rawTranscript: command,
+                timestamp: ""
             )
+            if let response = try systemHandler.handle(intent: parsed, command: command) {
+                return response
+            }
         }
 
         return VoiceCommandResponse(
@@ -150,13 +135,11 @@ public final class VoiceCommandRouter {
     }
 
     private func dispatchThroughExecutor(
+        parsed: ParsedIntent,
         command: String,
-        parser: IntentParser,
         executor: DisplayCommandExecutor,
         capabilityRegistry: CapabilityRegistry
     ) throws -> VoiceCommandResponse? {
-        let parsed = parser.parse(transcript: command)
-
         let target: String
         let commandLabel: String
         let detailKey: String
@@ -239,42 +222,6 @@ public final class VoiceCommandRouter {
         return String(replaced)
             .split(whereSeparator: \.isWhitespace)
             .joined(separator: " ")
-    }
-
-    private func normalizedSkillFragment(from text: String) -> String {
-        normalize(text).replacingOccurrences(of: " ", with: "-")
-    }
-
-    private func bestSkillMatch(for requested: String) -> String? {
-        let normalizedRequested = requested.replacingOccurrences(of: "--", with: "-")
-        return registry.callableSkillNames().first { skill in
-            skill == normalizedRequested || skill.contains(normalizedRequested) || normalizedRequested.contains(skill)
-        }
-    }
-
-    private func defaultPayload(for skill: String) -> [String: Any] {
-        switch skill {
-        case "stigmergic-regulation-skill":
-            return [
-                "source": "planning",
-                "target": "implementation",
-                "currentPheromone": 0.5,
-                "deposits": [["signal": 1, "magnitude": 1.0, "agentID": "voice-interface"]]
-            ]
-        case "recursive-language-model-repl-skill":
-            return [
-                "prompt": "J.A.R.V.I.S. interface runtime context.",
-                "query": "Summarize the active interface state."
-            ]
-        case "memory-tier-memify-skill":
-            return ["query": "latest interface activity"]
-        case "zero-shot-voice-synthesis-skill":
-            return ["text": "The interface is online and listening."]
-        case "meta-harness-convex-observability-skill":
-            return ["workflowPath": "Archon/default_workflow.yaml"]
-        default:
-            return [:]
-        }
     }
 }
 

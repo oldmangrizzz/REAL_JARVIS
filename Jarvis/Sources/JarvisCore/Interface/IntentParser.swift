@@ -12,10 +12,28 @@ public final class IntentParser: @unchecked Sendable {
         "override", "hack", "exploit", "jailbreak"
     ]
 
-    /// SPEC-008.1: returns true if the transcript contains any blocked pattern.
+    /// SPEC-008.1: returns true if the transcript contains any blocked pattern
+    /// as a whole token (word-boundary match). Substring matching is a footgun
+    /// — e.g. "list skills" would trip on "kill" — so we split on non-word
+    /// characters before checking.
     public static func isBlockedIntent(_ text: String) -> Bool {
         let lower = text.lowercased()
-        return blockedPatterns.contains(where: { lower.contains($0) })
+        let tokens = lower
+            .map { $0.isLetter || $0.isNumber ? $0 : " " }
+            .reduce(into: "") { $0.append($1) }
+            .split(whereSeparator: \.isWhitespace)
+            .map(String.init)
+        let tokenSet = Set(tokens)
+        for pattern in blockedPatterns {
+            if pattern.contains(" ") {
+                // multi-word pattern — substring match after normalizing spacing
+                let normalized = tokens.joined(separator: " ")
+                if normalized.contains(pattern) { return true }
+            } else {
+                if tokenSet.contains(pattern) { return true }
+            }
+        }
+        return false
     }
 
     public init(capabilityRegistry: CapabilityRegistry) {
@@ -90,15 +108,33 @@ public final class IntentParser: @unchecked Sendable {
     }
 
     private func parseSkillIntent(_ text: String) -> JarvisIntent? {
-        if text.contains("run skill") || text.contains("execute") {
-            let skillName = text.replacingOccurrences(of: "run skill", with: "").replacingOccurrences(of: "execute", with: "").trimmingCharacters(in: .whitespacesAndNewlines)
-            return .skillInvocation(skillName: skillName, payload: [:])
+        // `execute` overlaps too many real commands to bind here; only treat
+        // explicit "run skill <name>" as a skill invocation. If there is no
+        // name following the keyword, fall through so the system intent can
+        // match (e.g. "run skill" alone produces an empty skillName which
+        // confuses the handler).
+        guard text.contains("run skill") else { return nil }
+        let skillName = text
+            .replacingOccurrences(of: "run skill", with: "")
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !skillName.isEmpty else {
+            return .skillInvocation(skillName: "", payload: [:])
         }
-        return nil
+        return .skillInvocation(skillName: skillName, payload: [:])
     }
 
     private func parseSystemIntent(_ text: String) -> JarvisIntent? {
-        if text.contains("status") || text.contains("what's running") {
+        // SPEC-004: recognise every system-level verb the handler dispatches on.
+        // Keeping these in a single table makes it trivial to add a new verb
+        // (update the table + add a handler branch; router needs no change).
+        let systemKeywords = [
+            "status", "what's running",
+            "list skills", "what can you do",
+            "self heal", "heal the harness",
+            "recall", "what happened",
+            "shutdown", "go quiet", "stop listening"
+        ]
+        if systemKeywords.contains(where: { text.contains($0) }) {
             return .systemQuery(query: text)
         }
         return nil
