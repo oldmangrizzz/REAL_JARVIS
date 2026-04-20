@@ -74,7 +74,7 @@
 
 ### Research (verbatim ingest of operator's early drafts)
 - [[research/README|Research MOC]] — 51 source documents under
-  `research/early-drafts/`, `research/identities/`, `research/operator-mind/`.
+`research/early-drafts/`, `research/identities/`, `research/operator-mind/`.
 - Foundational: [[research/early-drafts/operator class - Digital person]] · [[research/early-drafts/Lazarus_Report]] · [[research/early-drafts/HUGH_Whitepaper_Preamble]] · [[research/early-drafts/OPERATOR-CLASS AI DEPLOYMENT GUIDE]] · [[research/early-drafts/tonyai-project-overview]]
 
 ### Characters (biographical-mass corpus)

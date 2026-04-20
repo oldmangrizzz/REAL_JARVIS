@@ -25,12 +25,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "knowledge/README.md",
+                "file": "knowledge/canon/Companion-OS.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "Companion-OS"
             }
           }
         ],
@@ -91,8 +91,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "8f28cf76900ac9a6",
@@ -178,6 +177,18 @@
               "icon": "lucide-list",
               "title": "Outline of GLOSSARY"
             }
+          },
+          {
+            "id": "619ca3851171cf49",
+            "type": "leaf",
+            "state": {
+              "type": "footnotes",
+              "state": {
+                "file": "knowledge/canon/Companion-OS.md"
+              },
+              "icon": "lucide-file-signature",
+              "title": "Footnotes"
+            }
           }
         ]
       }
@@ -199,17 +210,26 @@
       "obsidian-livesync:P2P Replicator": false,
       "obsidian-livesync:Replicate": false,
       "obsidian-livesync:Show Log": false,
-      "obsidian-livesync:Show Customization sync": false
+      "obsidian-livesync:Show Customization sync": false,
+      "audio-recorder:Start/stop recording": false,
+      "markdown-importer:Open format converter": false
     }
   },
   "active": "69ddc1c2c86a4143",
   "lastOpenFiles": [
+    "knowledge/canon/Grizz-OS.md",
+    "knowledge/canon/ADVERSARIAL_TESTS.md",
+    "knowledge/architecture/VOICE_TO_DISPLAY_PIPELINE.md",
+    "knowledge/architecture/TRUST_BOUNDARIES.md",
+    "knowledge/architecture/SOUL_ANCHOR_DEEP_DIVE.md",
+    "knowledge/codebase/modules/OSINT.md",
+    "knowledge/codebase/modules/Credentials.md",
+    "knowledge/architecture/OVERVIEW.md",
+    "knowledge/README.md",
     "flag_rebuild.md",
     " A Lois Lane Indictment.txt",
     " A Lois Lane Indictment.pdf",
-    "knowledge/README.md",
     "knowledge/canon/Companion-OS.md",
-    "knowledge/canon/Grizz-OS.md",
     "knowledge/canon/Responder-OS.md",
     "knowledge/research/early-drafts/_source-README.md",
     "knowledge/characters/dc/jason-todd.md",
@@ -225,12 +245,6 @@
     "knowledge/research/operator-mind/Untitled 2.md",
     "knowledge/research/operator-mind/Spectrum script.md",
     "knowledge/research/operator-mind/Spectrum love note context.md",
-    "knowledge/research/operator-mind/Spectrum love note 03312025.md",
-    "knowledge/research/operator-mind/Red button review 03282027.md",
-    "knowledge/research/operator-mind/Operator-Class Deployment Visibility Protocol.md",
-    "knowledge/research/operator-mind/NA_Romanova_1218_FullSystemPrompt.md",
-    "knowledge/research/operator-mind/Memo-deep research for equitable partnerships-responderOS.md",
-    "knowledge/research/operator-mind/LOVE NOTE PROTOCOL — SNAPSHOT “THE TRANSFER”.md",
     "knowledge/characters/marvel",
     "knowledge/characters/dc",
     "knowledge/characters",

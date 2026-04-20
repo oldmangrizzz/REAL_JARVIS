@@ -5,6 +5,7 @@
 - `JarvisHostTunnelServer.swift` — tunnel transport (accept + relay)
 - `TunnelIdentityStore.swift` — server-side per-device key registry + HMAC validation
 - `BiometricIdentityVault.swift` — client-side biometric-bound mirror (added SPEC-007-BIO)
+- `BiometricTunnelRegistrar.swift` — composes vault → signed `JarvisClientRegistration`
 
 ## Purpose
 The **host-side tunnel server** plus its paired identity primitives.
@@ -61,6 +62,7 @@ Neither side ever transmits the raw key after provisioning.
 - `JarvisHostTunnelServerTests` — transport + framing.
 - `TunnelIdentityStoreTests` — registration validate happy path + reject paths.
 - `BiometricIdentityVaultTests` (11 tests) — provisioning, re-provision
+- `BiometricTunnelRegistrarTests` (7 tests) — round-trip through `TunnelIdentityStore.validate`, role lowercasing, ISO-8601 nonce format, injected-clock uniqueness, staleness, replay, proof-mismatch
   rejection, HMAC shape match, determinism, biometry-deny propagation,
   malformed-nonce rejection, independent HMAC cross-check.
 
