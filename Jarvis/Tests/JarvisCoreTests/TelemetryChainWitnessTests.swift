@@ -109,4 +109,72 @@ final class TelemetryChainWitnessTests: XCTestCase {
         XCTAssertTrue(try store.verifyChain(table: "table_x").isIntact)
         XCTAssertTrue(try store.verifyChain(table: "table_y").isIntact)
     }
+
+    // MARK: - Additional coverage
+
+    func testVerifyChainOnMissingTableReportsZeroRows() throws {
+        let report = try store.verifyChain(table: "never_written")
+        XCTAssertEqual(report.totalRows, 0)
+        XCTAssertEqual(report.hashedRows, 0)
+        XCTAssertEqual(report.legacyRows, 0)
+        XCTAssertNil(report.brokenAt)
+        XCTAssertTrue(report.isIntact)
+    }
+
+    func testAppendAutoAssignsTimestampWhenAbsent() throws {
+        try store.append(record: ["k": "no-ts"], to: "ts_test", principal: nil)
+        let url = store.tableURL("ts_test")
+        let line = try XCTUnwrap(try String(contentsOf: url).split(separator: "\n").first.map(String.init))
+        let obj = try XCTUnwrap(try JSONSerialization.jsonObject(with: Data(line.utf8)) as? [String: Any])
+        let ts = try XCTUnwrap(obj["timestamp"] as? String)
+        // ISO-8601: "YYYY-MM-DDThh:mm:ssZ"
+        XCTAssertTrue(ts.contains("T") && ts.hasSuffix("Z"), ts)
+    }
+
+    func testReorderedRowsBreakChain() throws {
+        try store.append(record: ["k": "1"], to: "reorder", principal: .operatorTier)
+        try store.append(record: ["k": "2"], to: "reorder", principal: .operatorTier)
+        try store.append(record: ["k": "3"], to: "reorder", principal: .operatorTier)
+
+        let url = store.tableURL("reorder")
+        var lines = (try String(contentsOf: url)).split(separator: "\n", omittingEmptySubsequences: true).map(String.init)
+        XCTAssertEqual(lines.count, 3)
+        lines.swapAt(1, 2)
+        try (lines.joined(separator: "\n") + "\n").write(to: url, atomically: true, encoding: .utf8)
+
+        let report = try store.verifyChain(table: "reorder")
+        XCTAssertFalse(report.isIntact)
+        XCTAssertNotNil(report.brokenAt)
+    }
+
+    func testExplicitPrincipalOverridesCallerSuppliedPrincipalKey() throws {
+        // A caller-self-asserted "principal" in the payload must lose to the
+        // explicit `principal:` argument — that is the whole point of binding
+        // tier attestation server-side rather than trusting the client.
+        try store.append(
+            record: ["k": "v", "principal": "grizz"],  // client says operator
+            to: "bind_test",
+            principal: .guestTier                        // binding says guest
+        )
+        let url = store.tableURL("bind_test")
+        let line = try XCTUnwrap(try String(contentsOf: url).split(separator: "\n").first.map(String.init))
+        let obj = try XCTUnwrap(JSONSerialization.jsonObject(with: Data(line.utf8)) as? [String: Any])
+        XCTAssertEqual(obj["principal"] as? String, "guest")
+        XCTAssertTrue(try store.verifyChain(table: "bind_test").isIntact)
+    }
+
+    func testChainResumesFromFileTailOnFreshStoreInstance() throws {
+        try store.append(record: ["k": "a"], to: "resume_test", principal: .operatorTier)
+        try store.append(record: ["k": "b"], to: "resume_test", principal: .operatorTier)
+
+        // New store instance on same paths must prime chain state from the
+        // existing file's tail and produce a valid chain on append.
+        let second = try TelemetryStore(paths: workspace)
+        try second.append(record: ["k": "c"], to: "resume_test", principal: .operatorTier)
+
+        let report = try store.verifyChain(table: "resume_test")
+        XCTAssertTrue(report.isIntact, "chain must survive store re-instantiation: \(report)")
+        XCTAssertEqual(report.totalRows, 3)
+    }
 }
+
