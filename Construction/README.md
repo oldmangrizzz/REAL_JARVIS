@@ -8,7 +8,8 @@ Two sub-teams working in parallel on the Real Jarvis navigation arc while the co
 |---|---|---|---|
 | **GLM** | Navigation engine (tiles, routing, OSINT adapters, pre-search) | Design: `GLM/spec/NAV-001-universal-navigation-engine.md`<br>Active PR: `GLM/spec/NAV-001-EXECUTE-PR1.md` | Plan: `GLM/response/NAV-001-response.md` ✅<br>PR1 code: `GLM/response/NAV-001-EXECUTE-PR1.md` ⏳ |
 | **Qwen** | UI/UX surfaces (iOS map, CarPlay HUD, PWA, Unity, briefing) | `Qwen/spec/UX-001-navigation-surfaces.md` | `Qwen/response/UX-001-response.md` ⏳ |
-| **Gemini** | Voice pipeline — realtime speech-to-speech (F5-TTS baseline, bidirectional conversational loop) | `Gemini/spec/VOICE-001-f5-tts-swap.md` (baseline, ✅ complete), `Gemini/spec/VOICE-002-realtime-speech-to-speech.md` (endgame) | `Gemini/response/VOICE-001-response.md` ✅ |
+| **Gemini** | Voice pipeline — realtime speech-to-speech (F5-TTS baseline, bidirectional conversational loop) | `Gemini/spec/VOICE-001-f5-tts-swap.md` (baseline, ✅ complete), `Gemini/spec/VOICE-002-realtime-speech-to-speech.md` (endgame, ⚠️ design accepted, compile broken) | `Gemini/response/VOICE-001-response.md` ✅, `Gemini/response/VOICE-002-response.md` ⚠️ |
+| **Nemotron** | Surgical Swift patches — compile-break remediation, Sendable audits, cross-lane contract cleanup | `Nemotron/spec/VOICE-002-FIX-01-remediation.md` | `Nemotron/response/VOICE-002-FIX-01-response.md` ⏳ |
 
 ## Rules of engagement
 
