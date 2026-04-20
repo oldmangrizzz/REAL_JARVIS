@@ -523,6 +523,7 @@
 		8DB014FB515F9C783179912E /* 0067.wav in Resources */ = {isa = PBXBuildFile; fileRef = 902BF719FBC3FE8AF4284F61 /* 0067.wav */; };
 		8DF3700BBAE1A1218BF7B5DB /* 0232.wav in Resources */ = {isa = PBXBuildFile; fileRef = F64DF879918BC0443559E80E /* 0232.wav */; };
 		8DFC27E75A1FDFAA78698F9A /* 0390.wav in Resources */ = {isa = PBXBuildFile; fileRef = EE4A357100CC1666BE8AE8A2 /* 0390.wav */; };
+		8E65D09238496648F8CF2247 /* SpeakerIdentifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268A33FCDD3826A48B570D1F /* SpeakerIdentifierTests.swift */; };
 		8E9095EDA2BFF3C6F1864A77 /* 0659.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1EEF18B6C452386E8EE76805 /* 0659.wav */; };
 		8EAF652E2C849A935A2CCB4E /* 0455.wav in Resources */ = {isa = PBXBuildFile; fileRef = B1EBB26654ABA51FE8B92A55 /* 0455.wav */; };
 		8EBFD5858EF55E69FBF5E3EC /* 0677.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4B5ADF8DBB45437A54FE79F5 /* 0677.wav */; };
@@ -701,6 +702,7 @@
 		BA3C8999DD887D2305D0B76E /* 0192.wav in Resources */ = {isa = PBXBuildFile; fileRef = 24A155835C7EF5343D34AA0B /* 0192.wav */; };
 		BA5D271DD06F3CBC9C747560 /* audio-5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C89CB55010E5A85846C3F86 /* audio-5.mp3 */; };
 		BAB59ADD1EA0F5BC404724A2 /* 0589.wav in Resources */ = {isa = PBXBuildFile; fileRef = 27296DFCFE4485B4EED01B71 /* 0589.wav */; };
+		BAF1B5B62315E899C328ADA3 /* SpeakerIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB34CFDD6ADC1DB07A5E2B5 /* SpeakerIdentifier.swift */; };
 		BAFB8B72CFFB5C7B92B33D39 /* 0077.wav in Resources */ = {isa = PBXBuildFile; fileRef = 030988441E2082B890B5C846 /* 0077.wav */; };
 		BAFF71018953C7267D8C6B51 /* 0401.wav in Resources */ = {isa = PBXBuildFile; fileRef = A987AFA5DAE041923CD1A9C1 /* 0401.wav */; };
 		BB3C1C1C76BBEC1AF7CB9BEC /* JarvisBrandPaletteSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7B8031AD4F864649FC862C /* JarvisBrandPaletteSwiftUI.swift */; };
@@ -1203,6 +1205,7 @@
 		261289BA9380AD032FB54A3F /* 0518.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0518.wav; sourceTree = "<group>"; };
 		263880185AD45809A23BD453 /* PhaseLockMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhaseLockMonitor.swift; sourceTree = "<group>"; };
 		264AC3268FBC47BF95E466FF /* 0198.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0198.wav; sourceTree = "<group>"; };
+		268A33FCDD3826A48B570D1F /* SpeakerIdentifierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerIdentifierTests.swift; sourceTree = "<group>"; };
 		26BA84A83298A58604CA333D /* ARCGridAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCGridAdapter.swift; sourceTree = "<group>"; };
 		26D4A4A6B4450B283997B334 /* JarvisMobileVoiceCloneEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarvisMobileVoiceCloneEngine.swift; sourceTree = "<group>"; };
 		2724515C298BCB13E056EDFB /* 0231.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0231.wav; sourceTree = "<group>"; };
@@ -1298,6 +1301,7 @@
 		3DAE39F20626E9CE033EAA5E /* 0423.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0423.wav; sourceTree = "<group>"; };
 		3E30FEAECC82ABBB7CE74FF3 /* 0036.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0036.wav; sourceTree = "<group>"; };
 		3E3FDC0BA72D1FEB153F3BA7 /* 0303.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0303.wav; sourceTree = "<group>"; };
+		3EB34CFDD6ADC1DB07A5E2B5 /* SpeakerIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerIdentifier.swift; sourceTree = "<group>"; };
 		3F07FCD64DC1C89C963EE6B5 /* 0089.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0089.wav; sourceTree = "<group>"; };
 		3FA1F2E9C5B20501CE768EA9 /* 0302.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0302.wav; sourceTree = "<group>"; };
 		3FB82FDE2CEB9857B7CE7973 /* 0680.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0680.wav; sourceTree = "<group>"; };
@@ -2128,6 +2132,7 @@
 				DDB7F66C2EB17CAD874E2A8D /* FishAudioMLXBackend.swift */,
 				285AA88B7A56EF6656838B91 /* HTTPTTSBackend.swift */,
 				1BBB1C1331A734312C859971 /* JarvisVoiceHTTPBridge.swift */,
+				3EB34CFDD6ADC1DB07A5E2B5 /* SpeakerIdentifier.swift */,
 				2F557688391D0400B704F10F /* TTSBackend.swift */,
 				9AA6EFDB3F7353BD2CF07C90 /* VoiceApprovalGate.swift */,
 				1FB9D855233D5CDB85E4BAC6 /* VoiceGateTelemetryRecording.swift */,
@@ -3289,6 +3294,7 @@
 				C1DA4E43E2DE88017EA554D4 /* PythonRLMBridgeTests.swift */,
 				F648510AF16F4F7D481784BE /* SkillRegistryTests.swift */,
 				67721193D44FC2992E8B07CA /* SoulAnchorTests.swift */,
+				268A33FCDD3826A48B570D1F /* SpeakerIdentifierTests.swift */,
 				F02EBCA0029B73475CF2CF9C /* TelemetryChainWitnessTests.swift */,
 				5273378EA7D1A7D5026D7D6B /* TelemetryPrincipalWitnessTests.swift */,
 				C5E69D17F9781B0F392FAB94 /* TestWorkspace.swift */,
@@ -4444,6 +4450,7 @@
 				E689EC0EBF5246E1457CB2D9 /* PythonRLMBridgeTests.swift in Sources */,
 				9101B5449C6FE17521E79C16 /* SkillRegistryTests.swift in Sources */,
 				5866029B39D01C72AD5AE15F /* SoulAnchorTests.swift in Sources */,
+				8E65D09238496648F8CF2247 /* SpeakerIdentifierTests.swift in Sources */,
 				9D53C24887CA308C0BF3C1E2 /* TTSBackendDriftTests.swift in Sources */,
 				C6FCDAD88E11EA5A9A8F8F0A /* TelemetryChainWitnessTests.swift in Sources */,
 				9DB147011D6E7882AEA80A6D /* TelemetryPrincipalWitnessTests.swift in Sources */,
@@ -4499,6 +4506,7 @@
 				531B82B7186463F4CD0BB8F3 /* RealJarvisInterface.swift in Sources */,
 				9A949ED5B171B224C07A2C4C /* SkillSystem.swift in Sources */,
 				B929A8EABD7BDB28344C7546 /* SoulAnchor.swift in Sources */,
+				BAF1B5B62315E899C328ADA3 /* SpeakerIdentifier.swift in Sources */,
 				9565B30F0F907F8B51541C21 /* StubPhysicsEngine.swift in Sources */,
 				9EAF574F4B71362353E47B2B /* SystemCommandHandler.swift in Sources */,
 				D8271BEA49D82F59116DB526 /* TTSBackend.swift in Sources */,

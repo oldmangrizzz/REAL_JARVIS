@@ -217,8 +217,8 @@ public struct CanonRegistry: Sendable {
             version: "1.0",
             role: .architectureSpec,
             tags: ["companionos", "hugh", "triple-soul-anchor", "risk-zone", "do-know-harm", "watch-first", "convex-schema", "apple-ecosystem"],
-            expectedSha256: "2cc44d89f04c18681dbfaf825ce66951553651cadc28879912500a0ee9dd5d55",
-            summary: "Integration architecture for CompanionOS (iOS/watchOS/CarPlay body) with H.U.G.H. (brain). Introduces the triple soul anchor (GrizzlyMedicine + EMS + Clan Munro), the Green/Yellow/Red/Black risk-zone decision framework, and the 'Do KNOW harm' principle."
+            expectedSha256: "eb7b5bcc582c5eecb89535cf1bc75a018513e860a7c0f0596a7a2b46e6119ad4",
+            summary: "Integration architecture for CompanionOS (iOS/watchOS/CarPlay body) with H.U.G.H. (brain). Introduces the triple soul anchor (GrizzlyMedicine + EMS + Clan Munro), the Green/Yellow/Red/Black risk-zone decision framework, and the 'Do KNOW harm' principle. Appendix A (2026-04-20) attaches the SPEC-009 engineering canon: three-tier soul, principal model, capability policy, brand palette, evidence-corpus hash chain, WiFi fail-closed redaction."
         ),
         CanonDocument(
             id: "murdock-brief",
