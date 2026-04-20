@@ -50,16 +50,16 @@ public struct CommandAuthorization: Sendable {
 public struct ExecutionResult: Sendable {
     public let success: Bool
     public let spokenText: String
-    public let details: [String: Any]
+    public let details: [String: String]
 
-    public init(success: Bool, spokenText: String, details: [String: Any]) {
+    public init(success: Bool, spokenText: String, details: [String: String]) {
         self.success = success
         self.spokenText = spokenText
         self.details = details
     }
 }
 
-public final class DisplayCommandExecutor {
+public final class DisplayCommandExecutor: @unchecked Sendable {
     private let registry: CapabilityRegistry
     private let controlPlane: MyceliumControlPlane
     private let telemetry: TelemetryStore
@@ -74,9 +74,9 @@ public final class DisplayCommandExecutor {
         self.telemetry = telemetry
         let paths: WorkspacePaths
         do {
-            paths = try WorkspacePaths.rootDirectory()
+            paths = try WorkspacePaths.discover()
         } catch {
-            paths = WorkspacePaths(root: URL(fileURLWithPath: "/Users/grizzmed/REAL_JARVIS/Jarvis"), agentSkillsRoot: URL(fileURLWithPath: "/Users/grizzmed/real_agent_skills"), skillDirectory: URL(fileURLWithPath: "/Users/grizzmed/REAL_JARVIS/Skills"), archonDirectory: URL(fileURLWithPath: "/Users/grizzmed/REAL_JARVIS/Archon"), convexDirectory: URL(fileURLWithPath: "/Users/grizzmed/REAL_JARVIS/Convex"), vendorDirectory: URL(fileURLWithPath: "/Users/grizzmed/REAL_JARVIS/vendor"))
+            paths = WorkspacePaths(root: URL(fileURLWithPath: "/Users/grizzmed/REAL_JARVIS/Jarvis"))
         }
         self.airPlayBridge = AirPlayBridge(paths: paths)
         self.httpBridge = HTTPDisplayBridge()

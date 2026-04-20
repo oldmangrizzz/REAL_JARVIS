@@ -8,13 +8,47 @@ public struct VoiceCommandResponse {
     public let shouldShutdown: Bool
 }
 
+private final class AwaitSyncBox<T>: @unchecked Sendable {
+    private let lock = NSLock()
+    private var success: T?
+    private var failure: Error?
+    func setSuccess(_ value: T) { lock.lock(); success = value; lock.unlock() }
+    func setFailure(_ error: Error) { lock.lock(); failure = error; lock.unlock() }
+    func result() throws -> T {
+        lock.lock(); defer { lock.unlock() }
+        if let failure { throw failure }
+        guard let success else { fatalError("AwaitSyncBox resolved without value") }
+        return success
+    }
+}
+
 public final class VoiceCommandRouter {
     private let runtime: JarvisRuntime
     private let registry: JarvisSkillRegistry
+    private let intentParser: IntentParser?
+    private let displayExecutor: DisplayCommandExecutor?
+    private let capabilityRegistry: CapabilityRegistry?
 
     public init(runtime: JarvisRuntime, registry: JarvisSkillRegistry) {
         self.runtime = runtime
         self.registry = registry
+        self.intentParser = nil
+        self.displayExecutor = nil
+        self.capabilityRegistry = nil
+    }
+
+    public init(
+        runtime: JarvisRuntime,
+        registry: JarvisSkillRegistry,
+        intentParser: IntentParser,
+        displayExecutor: DisplayCommandExecutor,
+        capabilityRegistry: CapabilityRegistry
+    ) {
+        self.runtime = runtime
+        self.registry = registry
+        self.intentParser = intentParser
+        self.displayExecutor = displayExecutor
+        self.capabilityRegistry = capabilityRegistry
     }
 
     public func route(transcript: String) throws -> VoiceCommandResponse? {
@@ -26,6 +60,14 @@ public final class VoiceCommandRouter {
                 details: ["command": "wake"],
                 shouldShutdown: false
             )
+        }
+
+        // SPEC-004: Preferred dispatch path — IntentParser → CapabilityRegistry → DisplayCommandExecutor.
+        if let parser = intentParser,
+           let executor = displayExecutor,
+           let capabilityRegistry = capabilityRegistry,
+           let response = try dispatchThroughExecutor(command: command, parser: parser, executor: executor, capabilityRegistry: capabilityRegistry) {
+            return response
         }
 
         if command.contains("status") {
@@ -103,6 +145,63 @@ public final class VoiceCommandRouter {
         )
     }
 
+    private func dispatchThroughExecutor(
+        command: String,
+        parser: IntentParser,
+        executor: DisplayCommandExecutor,
+        capabilityRegistry: CapabilityRegistry
+    ) throws -> VoiceCommandResponse? {
+        let parsed = parser.parse(transcript: command)
+
+        let target: String
+        let commandLabel: String
+        let detailKey: String
+        let action: String?
+        switch parsed.intent {
+        case .displayAction(let t, let a, _):
+            guard t != "unknown" else { return nil }
+            target = t; commandLabel = "display-action"; detailKey = "display"; action = a
+        case .homeKitControl(let t, _, _):
+            guard t != "unknown" else { return nil }
+            target = t; commandLabel = "homekit-control"; detailKey = "accessory"; action = nil
+        case .systemQuery, .skillInvocation, .unknown:
+            return nil
+        }
+
+        let auth = CommandAuthorization.voiceOperator(registry: capabilityRegistry)
+        let result = try awaitSync { try await executor.execute(intent: parsed, authorization: auth) }
+
+        var details: [String: Any] = [
+            "command": commandLabel,
+            detailKey: target,
+            "success": result.success
+        ]
+        if let action { details["action"] = action }
+        for (key, value) in result.details { details[key] = value }
+        return VoiceCommandResponse(
+            spokenText: result.spokenText,
+            details: details,
+            shouldShutdown: false
+        )
+    }
+
+    // Bridge an async throwing operation to the synchronous route() pipeline.
+    private func awaitSync<T: Sendable>(_ operation: @Sendable @escaping () async throws -> T) throws -> T {
+        let semaphore = DispatchSemaphore(value: 0)
+        let boxed = AwaitSyncBox<T>()
+        Task {
+            do {
+                let value = try await operation()
+                boxed.setSuccess(value)
+            } catch {
+                boxed.setFailure(error)
+            }
+            semaphore.signal()
+        }
+        semaphore.wait()
+        return try boxed.result()
+    }
+
     private func extractCommand(from transcript: String) -> String? {
         let normalized = normalize(transcript)
         guard let range = normalized.range(of: "jarvis") else { return nil }
@@ -177,7 +276,7 @@ public final class RealJarvisInterface: NSObject {
 
     public func start(registry: JarvisSkillRegistry) throws {
         activeRegistry = registry
-        commandRouter = VoiceCommandRouter(runtime: runtime, registry: registry)
+        commandRouter = Self.makeCommandRouter(runtime: runtime, registry: registry)
         speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-GB")) ?? SFSpeechRecognizer(locale: Locale(identifier: "en-US"))
         guard speechRecognizer != nil else {
             throw JarvisError.processFailure("Speech recognizer could not be initialized for the J.A.R.V.I.S. interface.")
@@ -376,6 +475,28 @@ public final class RealJarvisInterface: NSObject {
         } catch {
             try? appendLog("command-error \(error)")
         }
+    }
+
+    private static func makeCommandRouter(runtime: JarvisRuntime, registry: JarvisSkillRegistry) -> VoiceCommandRouter {
+        // Wire SPEC-004 pipeline if a capability config is present; otherwise fall back to legacy keyword router.
+        let configURL = runtime.paths.capabilityConfigURL
+        guard FileManager.default.fileExists(atPath: configURL.path),
+              let capabilityRegistry = try? CapabilityRegistry(configURL: configURL) else {
+            return VoiceCommandRouter(runtime: runtime, registry: registry)
+        }
+        let intentParser = IntentParser(capabilityRegistry: capabilityRegistry)
+        let executor = DisplayCommandExecutor(
+            registry: capabilityRegistry,
+            controlPlane: runtime.controlPlane,
+            telemetry: runtime.telemetry
+        )
+        return VoiceCommandRouter(
+            runtime: runtime,
+            registry: registry,
+            intentParser: intentParser,
+            displayExecutor: executor,
+            capabilityRegistry: capabilityRegistry
+        )
     }
 
     private func scheduleAutonomousPulse() {

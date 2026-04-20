@@ -58,6 +58,7 @@ public struct WorkspacePaths: Sendable {
     public let interfaceLogURL: URL
     public let interfacePIDURL: URL
     public let rlmScriptURL: URL
+    public let capabilityConfigURL: URL
 
     public init(root: URL, storageRoot: URL? = nil) {
         self.root = root
@@ -109,6 +110,7 @@ public struct WorkspacePaths: Sendable {
             .appendingPathComponent("JarvisCore", isDirectory: true)
             .appendingPathComponent("RLM", isDirectory: true)
             .appendingPathComponent("rlm_repl.py")
+        self.capabilityConfigURL = self.storageRoot.appendingPathComponent("capabilities.json")
     }
 
     public static func discover(from startURL: URL = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)) throws -> WorkspacePaths {
