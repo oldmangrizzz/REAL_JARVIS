@@ -135,4 +135,99 @@ final class WebContentFetchPolicyTests: XCTestCase {
         XCTAssertNil(r.source(forKey: "search.brave"))
         XCTAssertNil(r.source(forKey: "search.google-cse"))
     }
+
+    // MARK: - Additional edge coverage
+
+    func testInvalidURLMissingSchemeDenied() {
+        // URLComponents-constructed url with no scheme → invalidURL.
+        let policy = WebContentFetchPolicy(registry: .canonicalWithSearch)
+        let url = URL(string: "example.com/page")!  // no scheme
+        let r = policy.authorize(url: url, provenance: provenance(), principal: .operatorTier)
+        guard case .failure(let denial) = r else {
+            return XCTFail("expected denial; got \(r)")
+        }
+        // URL("example.com/page") often has no scheme AND no host — either
+        // .invalidURL (no scheme) or .nonHTTPScheme("") is acceptable; the
+        // gate must refuse.
+        switch denial {
+        case .invalidURL, .nonHTTPScheme:
+            break
+        default:
+            XCTFail("expected invalidURL or nonHTTPScheme; got \(denial)")
+        }
+    }
+
+    func testHTTPSSchemeUppercaseNormalizedAndAllowed() {
+        let policy = WebContentFetchPolicy(registry: .canonicalWithSearch)
+        let url = URL(string: "HTTPS://example.com/page")!
+        let r = policy.authorize(url: url, provenance: provenance(), principal: .operatorTier)
+        if case .success = r { /* ok */ } else {
+            XCTFail("uppercase HTTPS must be accepted; got \(r)")
+        }
+    }
+
+    func testNonOperatorGatedProviderAllowsCompanion() {
+        // DuckDuckGo IA has no operatorGated flag → any principal can cite it.
+        let policy = WebContentFetchPolicy(registry: .canonicalWithSearch)
+        let prov = SearchProvenance(
+            providerSourceKey: "search.duckduckgo-ia",
+            query: "ems station fleet",
+            surfacedAt: "2026-04-20T14:00:00Z"
+        )
+        let url = URL(string: "https://en.wikipedia.org/wiki/EMS")!
+        let r = policy.authorize(url: url, provenance: prov, principal: .companion(memberID: "melissa"))
+        if case .success(let permit) = r {
+            XCTAssertEqual(permit.provider.key, "search.duckduckgo-ia")
+        } else {
+            XCTFail("non-operator-gated provider should allow companion; got \(r)")
+        }
+    }
+
+    func testNonOperatorGatedProviderAllowsResponderAndGuest() {
+        let policy = WebContentFetchPolicy(registry: .canonicalWithSearch)
+        let prov = SearchProvenance(
+            providerSourceKey: "search.duckduckgo-ia",
+            query: "x", surfacedAt: "2026-04-20T14:00:00Z"
+        )
+        let url = URL(string: "https://example.org/page")!
+        for principal in [Principal.responder(role: .emt), .guestTier] {
+            let r = policy.authorize(url: url, provenance: prov, principal: principal)
+            if case .success = r { /* ok */ } else {
+                XCTFail("principal \(principal) should be allowed; got \(r)")
+            }
+        }
+    }
+
+    func testWebContentDenialDescriptionsSurfaceContext() {
+        XCTAssertTrue(WebContentDenial.missingProvenance.description.contains("no SearchProvenance"))
+        XCTAssertTrue(WebContentDenial.unknownProvider(key: "x").description.contains("'x'"))
+        XCTAssertTrue(WebContentDenial.invalidURL.description.contains("invalid URL"))
+        XCTAssertTrue(WebContentDenial.nonHTTPScheme("ftp").description.contains("'ftp'"))
+        XCTAssertTrue(WebContentDenial.operatorOnlyProvider(key: "search.brave").description.contains("'search.brave'"))
+    }
+
+    func testSearchProvenanceCodableRoundTrip() throws {
+        let p = SearchProvenance(
+            providerSourceKey: "search.brave",
+            query: "houston fd stations",
+            surfacedAt: "2026-04-20T14:00:00Z"
+        )
+        let data = try JSONEncoder().encode(p)
+        let decoded = try JSONDecoder().decode(SearchProvenance.self, from: data)
+        XCTAssertEqual(decoded, p)
+    }
+
+    func testDefaultPolicyRegistryIsCanonicalWithoutSearch() {
+        // Default init uses .canonical which does NOT include search providers.
+        // A missing-provider key check confirms the distinction.
+        let policy = WebContentFetchPolicy()
+        let url = URL(string: "https://example.com/page")!
+        let r = policy.authorize(url: url, provenance: provenance(), principal: .operatorTier)
+        if case .failure(.unknownProvider(let k)) = r {
+            XCTAssertEqual(k, "search.brave")
+        } else {
+            XCTFail("default registry should not know search providers; got \(r)")
+        }
+    }
 }
+
