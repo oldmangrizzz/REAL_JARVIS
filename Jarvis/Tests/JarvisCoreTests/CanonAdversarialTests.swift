@@ -143,4 +143,63 @@ final class CanonAdversarialTests: XCTestCase {
             XCTAssertNil(result.role, "CANON: role '\(role)' must not be authorized")
         }
     }
+
+    // MARK: - SPEC-007: tunnel cross-trust escalation refused
+
+    func testBootstrapModeRefusesVoiceOperatorWithoutIdentityProof() throws {
+        // CANON: an attacker who holds the tunnel shared secret but no
+        // per-device identity key must NOT be able to claim a privileged
+        // role in bootstrap mode.
+        let store = TunnelIdentityStore(
+            fileURL: URL(fileURLWithPath: "/tmp/does-not-exist-\(UUID().uuidString).json")
+        )
+        store.reload()
+        XCTAssertTrue(store.isBootstrapMode, "precondition: bootstrap mode")
+
+        let attacker = JarvisClientRegistration(
+            deviceID: "attacker",
+            deviceName: "who",
+            platform: "iOS",
+            role: "voice-operator",
+            appVersion: "1.0.0"
+        )
+        XCTAssertEqual(store.validate(attacker), .privilegedRoleRequiresIdentityProof,
+                       "CANON: bootstrap mode must never grant voice-operator without identity proof")
+    }
+
+    // MARK: - SPEC-008: destructive-intent bucket
+
+    func testDestructiveGuardRefusesBurstShutdownSequence() {
+        // CANON: repeated destructive commands within the strict window
+        // must be refused even if each phrasing individually parses.
+        let guardBucket = DestructiveIntentGuard(capacity: 1, window: 300)
+        let shutdown = ParsedIntent(
+            intent: .systemQuery(query: "shutdown"),
+            confidence: 1.0,
+            rawTranscript: "jarvis shutdown",
+            timestamp: ""
+        )
+
+        XCTAssertTrue(guardBucket.classify(intent: shutdown, command: "jarvis shutdown").isDestructive,
+                      "CANON: shutdown must classify as destructive")
+        XCTAssertTrue(guardBucket.allow(), "first destructive token available")
+        XCTAssertFalse(guardBucket.allow(), "CANON: second destructive dispatch within window must be refused")
+    }
+
+    // MARK: - ARC-AGI cell-dump refused
+
+    func testARCBridgeRefusesEmptyGridDump() throws {
+        // CANON: an empty ARC grid must not silently wipe the physics
+        // world. A cell-dump attack (0-row or 0-col task) has to be
+        // rejected at the bridge boundary.
+        let engine = StubPhysicsEngine()
+        let bridge = ARCPhysicsBridge(engine: engine)
+        let empty = ARCGrid(cells: [])
+        XCTAssertThrowsError(try bridge.loadGrid(empty)) { error in
+            XCTAssertTrue(
+                "\(error)".lowercased().contains("empty"),
+                "CANON: empty grid must throw an explicit 'empty' error, got \(error)"
+            )
+        }
+    }
 }
