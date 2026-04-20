@@ -89,6 +89,7 @@ public struct JarvisBrandPalette: Sendable, Equatable {
         case .operatorTier: return .grizzOS
         case .companion: return .companionOS
         case .guestTier: return .companionGuest
+        case .responder: return .responderOS
         }
     }
 }

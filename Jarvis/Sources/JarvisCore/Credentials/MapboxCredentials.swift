@@ -28,7 +28,7 @@ public struct MapboxCredentials: Sendable {
     public func secretToken(for principal: Principal) -> String? {
         switch principal {
         case .operatorTier: return secretTokenValue
-        case .companion, .guestTier: return nil
+        case .companion, .guestTier, .responder: return nil
         }
     }
 

@@ -1,5 +1,38 @@
 import Foundation
 
+/// Responder certification level. Strict escalation EMR < EMT < AEMT < EMTP.
+///
+/// Jarvis in Responder OS tier is an **advocacy + situational awareness**
+/// layer, not a clinician. Role level gates the *depth* of protocol and
+/// documentation surfaces he can offer, never what clinical act gets
+/// performed. Mission: empowerment, not replacement.
+///
+/// - Emergency Medical Responder (EMR) — basic life support, bleeding
+///   control, CPR, AED. Level 1.
+/// - Emergency Medical Technician (EMT) — BLS + basic airway, glucose,
+///   epi auto-injector, albuterol. Level 2.
+/// - Advanced EMT (AEMT) — EMT + IV/IO access, limited medications,
+///   supraglottic airway. Level 3.
+/// - Paramedic (EMTP) — ALS, advanced airway, cardiac monitoring,
+///   full formulary. Level 4.
+public enum ResponderRole: String, Equatable, Sendable, Hashable, Codable {
+    case emr
+    case emt
+    case aemt
+    case emtp
+
+    /// Ordinal 1…4. Used for capability escalation comparisons so an
+    /// EMTP can reference anything an EMR can, and strictly more.
+    public var certLevel: Int {
+        switch self {
+        case .emr: return 1
+        case .emt: return 2
+        case .aemt: return 3
+        case .emtp: return 4
+        }
+    }
+}
+
 /// The human principal associated with a connected device or voice utterance.
 ///
 /// Brand surfaces as "Jarvis — powered by Grizz OS" (operator) versus
@@ -27,14 +60,20 @@ public enum Principal: Equatable, Sendable, Hashable, Codable {
     /// Unknown speaker / unregistered device. Fail-closed default. Gets
     /// the narrowest read-only surface.
     case guestTier
+    /// On-duty first responder (EMR/EMT/AEMT/EMTP). "Clocked-in Jarvis."
+    /// Advocacy + situational awareness role — never clinical. Role level
+    /// modulates protocol-lookup depth; no level grants clinical-execution
+    /// authority. Mission: empowerment, not replacement.
+    case responder(role: ResponderRole)
 
     /// Cockpit subtitle: "powered by Grizz OS" / "powered by Companion OS"
-    /// / "powered by Companion OS (guest)".
+    /// / "powered by Companion OS (guest)" / "powered by Responder OS".
     public var brandSubtitle: String {
         switch self {
         case .operatorTier: return "powered by Grizz OS"
         case .companion: return "powered by Companion OS"
         case .guestTier: return "powered by Companion OS (guest)"
+        case .responder: return "powered by Responder OS"
         }
     }
 
@@ -44,6 +83,7 @@ public enum Principal: Equatable, Sendable, Hashable, Codable {
         case .operatorTier: return "grizz"
         case .companion(let id): return "companion:\(id)"
         case .guestTier: return "guest"
+        case .responder(let role): return "responder:\(role.rawValue)"
         }
     }
 
@@ -57,6 +97,11 @@ public enum Principal: Equatable, Sendable, Hashable, Codable {
             let id = String(trimmed.dropFirst("companion:".count))
             guard !id.isEmpty else { return nil }
             return .companion(memberID: id)
+        }
+        if trimmed.hasPrefix("responder:") {
+            let raw = String(trimmed.dropFirst("responder:".count))
+            guard let role = ResponderRole(rawValue: raw) else { return nil }
+            return .responder(role: role)
         }
         return nil
     }

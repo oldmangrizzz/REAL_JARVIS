@@ -80,7 +80,7 @@ public final class WiFiEnvironmentScanner {
         let isOperator: Bool
         switch principal {
         case .operatorTier: isOperator = true
-        case .companion, .guestTier: isOperator = false
+        case .companion, .guestTier, .responder: isOperator = false
         }
         return WiFiSnapshot(
             ssid: isOperator ? rawSSID : nil,
@@ -106,7 +106,7 @@ public final class WiFiEnvironmentScanner {
         case .operatorTier:
             guard let iface = client?.interface() else { return [] }
             return (try? iface.scanForNetworks(withSSID: nil)) ?? []
-        case .companion, .guestTier:
+        case .companion, .guestTier, .responder:
             return []
         }
     }
