@@ -76,6 +76,7 @@
 		114D39B2E362F5213383AFC7 /* SceneBriefingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B596E04765D76E0C28FEE22 /* SceneBriefingView.swift */; };
 		122E96A8EE734F526319D913 /* 0156.wav in Resources */ = {isa = PBXBuildFile; fileRef = E962243CDE698AEB528C6727 /* 0156.wav */; };
 		12BF92F8CD37D8E5B2C1C75B /* 0184.wav in Resources */ = {isa = PBXBuildFile; fileRef = F8CE44E579C4A6E1844BF58C /* 0184.wav */; };
+		130FE4A033BAB1321E016CDA /* BiometricIdentityVault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4523EB3458EDE080514EE5D7 /* BiometricIdentityVault.swift */; };
 		13D07BD836C193D83FA8479C /* GreetingOrchestrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BAC99F36117CEB3BC9EAE9 /* GreetingOrchestrator.swift */; };
 		13D34BE80993FAB62200F9AF /* 0214.wav in Resources */ = {isa = PBXBuildFile; fileRef = 416985459A950C7EF2EE75F7 /* 0214.wav */; };
 		13E3C5017876B17A7AEBE1B6 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = DF72D6B8A84D7A8B8097043E /* README.txt */; };
@@ -87,6 +88,7 @@
 		152F3A4F4BC8290C10ED737D /* TunnelCrypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253BAC4EBBE2419D0D5261E9 /* TunnelCrypto.swift */; };
 		1591A7B8B814505959D643C2 /* CryptoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA714B63A799ADD5014DCF72 /* CryptoKit.framework */; };
 		1615687BB1110A5E7F1D2511 /* 0054.wav in Resources */ = {isa = PBXBuildFile; fileRef = D5A3C4E7B45EBD658CA7305F /* 0054.wav */; };
+		1648296D14CAB19C02E3C8CE /* BiometricIdentityVaultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D45BF09287AF9535B75A4F /* BiometricIdentityVaultTests.swift */; };
 		16B028171E35D0CCCCFAE805 /* 0689.wav in Resources */ = {isa = PBXBuildFile; fileRef = 98EB5CFAB04C806784D80119 /* 0689.wav */; };
 		17418692972F0E0B325D396F /* 0274.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5A5D3E59602E0EF388521177 /* 0274.wav */; };
 		17843706F618DD4DC16C73C8 /* 0237.wav in Resources */ = {isa = PBXBuildFile; fileRef = 55BFA2D2D1F8FAE4CD870D4F /* 0237.wav */; };
@@ -1304,6 +1306,7 @@
 		442E0037D391EEA2DAA72193 /* JarvisMobileCockpitStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarvisMobileCockpitStore.swift; sourceTree = "<group>"; };
 		4447A53A105F31DB222975A9 /* 0164.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0164.wav; sourceTree = "<group>"; };
 		45172E6BDA3120DAD3426DF0 /* 0706.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0706.wav; sourceTree = "<group>"; };
+		4523EB3458EDE080514EE5D7 /* BiometricIdentityVault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricIdentityVault.swift; sourceTree = "<group>"; };
 		45D278EEE427607AE7606793 /* 0701.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0701.wav; sourceTree = "<group>"; };
 		4626149EA3B8CCB804685E11 /* 0355.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0355.wav; sourceTree = "<group>"; };
 		46399B6674022C8E3084ED53 /* 0363.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0363.wav; sourceTree = "<group>"; };
@@ -1575,6 +1578,7 @@
 		9620E8D5ADC56FE1A19FFE12 /* 0603.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0603.wav; sourceTree = "<group>"; };
 		96AD0E11C5E9EE12CA294F18 /* 0324.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0324.wav; sourceTree = "<group>"; };
 		96B83C1BBB643C7993414067 /* 0275.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0275.wav; sourceTree = "<group>"; };
+		96D45BF09287AF9535B75A4F /* BiometricIdentityVaultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricIdentityVaultTests.swift; sourceTree = "<group>"; };
 		970E7126C316FA2545173028 /* 0709.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0709.wav; sourceTree = "<group>"; };
 		9753D7F15E5064AAF20DA489 /* 0120.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0120.wav; sourceTree = "<group>"; };
 		9788798FE06E15BFE9EF16A5 /* 0530.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0530.wav; sourceTree = "<group>"; };
@@ -3158,6 +3162,7 @@
 		C60F7A1917A118665C8CE834 /* Host */ = {
 			isa = PBXGroup;
 			children = (
+				4523EB3458EDE080514EE5D7 /* BiometricIdentityVault.swift */,
 				F69F0FA79AF7572EF2B95086 /* JarvisHostTunnelServer.swift */,
 				8B891972B1880E2986D8EC67 /* TunnelIdentityStore.swift */,
 			);
@@ -3231,6 +3236,7 @@
 				00E14E823571138F1920AE70 /* AOxFourProbeTests.swift */,
 				FE671F3FE814AD9EB8EE9C1F /* ARCGridAdapterTests.swift */,
 				47DF5DE4663E279ADC8F7192 /* ARCHarnessBridgeWebSocketTests.swift */,
+				96D45BF09287AF9535B75A4F /* BiometricIdentityVaultTests.swift */,
 				B0A0B30BF8C47EE036E9F210 /* CanonAdversarialTests.swift */,
 				F34B4A9F7DC6EFD348ABF1CA /* CanonRegistryTests.swift */,
 				B7B2452B4A40A4F23B4F58DA /* CapabilityRegistryTests.swift */,
@@ -4368,6 +4374,7 @@
 				253EAC97E05D50EC74FD3A79 /* AOxFourProbeTests.swift in Sources */,
 				6D1321F660766E0A11B75C62 /* ARCGridAdapterTests.swift in Sources */,
 				E1BB2547BA4E9FB3F903A083 /* ARCHarnessBridgeWebSocketTests.swift in Sources */,
+				1648296D14CAB19C02E3C8CE /* BiometricIdentityVaultTests.swift in Sources */,
 				A95B88684A48A02F523CA13C /* CanonAdversarialTests.swift in Sources */,
 				1BC81C1C0AFB547946545058 /* CanonRegistryTests.swift in Sources */,
 				8ABA6C03B299E32A5CD297A6 /* CapabilityRegistryTests.swift in Sources */,
@@ -4413,6 +4420,7 @@
 				CD6A33CAF4B475B3AC892457 /* ARCHarnessBridge.swift in Sources */,
 				85E567B7BE897B39254D0C7E /* AirPlayBridge.swift in Sources */,
 				9DCB414A010D3E4665F55EE5 /* ArchonHarness.swift in Sources */,
+				130FE4A033BAB1321E016CDA /* BiometricIdentityVault.swift in Sources */,
 				D623DB87827F616FABF619A6 /* CanonRegistry.swift in Sources */,
 				62DDAC7A45B11B89F6E64AAE /* CapabilityRegistry.swift in Sources */,
 				7B60D15711F7A7F88826020C /* CommandRateLimiter.swift in Sources */,
