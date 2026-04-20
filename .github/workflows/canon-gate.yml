@@ -42,12 +42,45 @@ jobs:
             test 2>&1 | tee xcodebuild.log
       - name: Enforce canon floor
         run: |
-          # Floor: at least 138 tests must execute (SPEC-004/007/008 + adversarial canon).
+          # Floor: at least 165 tests must execute (SPEC-004/007/008 +
+          # destructive-intent guard + tunnel identity + adversarial canon).
           # Floor rises as new canon work lands. Never decrease.
           EXECUTED=$(grep -Eo 'Executed [0-9]+ tests, with 0 failures' xcodebuild.log | tail -1 | grep -Eo '[0-9]+' | head -1)
           echo "Executed tests: $EXECUTED"
-          if [ -z "$EXECUTED" ] || [ "$EXECUTED" -lt 138 ]; then
-            echo "::error::Canon floor violated. Expected >= 138 tests, got $EXECUTED."
+          if [ -z "$EXECUTED" ] || [ "$EXECUTED" -lt 165 ]; then
+            echo "::error::Canon floor violated. Expected >= 165 tests, got $EXECUTED."
             exit 1
           fi
           echo "Canon floor upheld."
+      - name: Require canon adversarial suite ran
+        run: |
+          # The CanonAdversarialTests suite must have executed. If it
+          # didn't run, the canon gate is effectively off regardless of
+          # total test count.
+          if ! grep -q "Test Suite 'CanonAdversarialTests'" xcodebuild.log; then
+            echo "::error::CanonAdversarialTests suite did not run."
+            exit 1
+          fi
+          if ! grep -q "Test Suite 'CanonAdversarialTests' passed" xcodebuild.log; then
+            echo "::error::CanonAdversarialTests suite did not pass."
+            exit 1
+          fi
+          echo "Canon adversarial suite passed."
+      - name: Require SPEC-007 / SPEC-008 canon tests
+        run: |
+          # SPEC-007 identity binding + SPEC-008 destructive guard must
+          # both have dedicated canon regressions.
+          REQUIRED=(
+            "testBootstrapModeRefusesVoiceOperatorWithoutIdentityProof"
+            "testDestructiveGuardRefusesBurstShutdownSequence"
+            "testARCBridgeRefusesEmptyGridDump"
+          )
+          MISSING=0
+          for t in "${REQUIRED[@]}"; do
+            if ! grep -q "$t" xcodebuild.log; then
+              echo "::error::Missing canon test: $t"
+              MISSING=1
+            fi
+          done
+          [ "$MISSING" -eq 0 ] || exit 1
+          echo "Required canon tests present."
