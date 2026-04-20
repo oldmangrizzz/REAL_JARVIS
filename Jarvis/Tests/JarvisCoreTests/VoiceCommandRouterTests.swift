@@ -141,6 +141,69 @@ final class VoiceCommandRouterTests: XCTestCase {
         XCTAssertFalse(response.shouldShutdown)
     }
 
+    // MARK: - SPEC-008: destructive-intent guard
+
+    func testDestructiveGuardRefusesBurstShutdowns() throws {
+        let paths = try makeTestWorkspace()
+        let runtime = try JarvisRuntime(paths: paths)
+        let skillRegistry = try JarvisSkillRegistry(paths: paths)
+        let capabilityRegistry = try CapabilityRegistry(configURL: paths.capabilityConfigURL)
+        let intentParser = IntentParser(capabilityRegistry: capabilityRegistry)
+        let executor = DisplayCommandExecutor(
+            registry: capabilityRegistry,
+            controlPlane: runtime.controlPlane,
+            telemetry: runtime.telemetry
+        )
+        let guardBucket = DestructiveIntentGuard(capacity: 1, window: 300)
+        let router = VoiceCommandRouter(
+            runtime: runtime,
+            registry: skillRegistry,
+            intentParser: intentParser,
+            displayExecutor: executor,
+            capabilityRegistry: capabilityRegistry,
+            destructiveGuard: guardBucket
+        )
+
+        // First shutdown: consumes the single destructive token.
+        let first = try XCTUnwrap(router.route(transcript: "Jarvis go quiet"))
+        XCTAssertTrue(first.shouldShutdown, "first destructive intent should dispatch")
+        XCTAssertEqual(first.details["command"] as? String, "shutdown")
+
+        // Second shutdown within the window: refused by the guard.
+        let second = try XCTUnwrap(router.route(transcript: "Jarvis shutdown"))
+        XCTAssertFalse(second.shouldShutdown, "second destructive intent must be refused")
+        XCTAssertEqual(second.details["command"] as? String, "destructive-refused")
+        XCTAssertNotNil(second.details["reason"])
+    }
+
+    func testDestructiveGuardClassification() {
+        let guardBucket = DestructiveIntentGuard()
+
+        let shutdown = ParsedIntent(
+            intent: .systemQuery(query: "shutdown"),
+            confidence: 1.0,
+            rawTranscript: "jarvis shutdown",
+            timestamp: ""
+        )
+        XCTAssertTrue(guardBucket.classify(intent: shutdown, command: "jarvis shutdown").isDestructive)
+
+        let status = ParsedIntent(
+            intent: .systemQuery(query: "status"),
+            confidence: 1.0,
+            rawTranscript: "jarvis status",
+            timestamp: ""
+        )
+        XCTAssertFalse(guardBucket.classify(intent: status, command: "jarvis status").isDestructive)
+
+        let listSkills = ParsedIntent(
+            intent: .systemQuery(query: "list skills"),
+            confidence: 1.0,
+            rawTranscript: "jarvis list skills",
+            timestamp: ""
+        )
+        XCTAssertFalse(guardBucket.classify(intent: listSkills, command: "jarvis list skills").isDestructive)
+    }
+
     // MARK: - Helpers
 
     private func makeFullyWiredRouter() throws -> VoiceCommandRouter {

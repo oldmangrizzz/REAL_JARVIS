@@ -30,6 +30,7 @@ public final class VoiceCommandRouter {
     private let capabilityRegistry: CapabilityRegistry?
     private let systemHandler: SystemCommandHandler
     private let rateLimiter: CommandRateLimiter
+    private let destructiveGuard: DestructiveIntentGuard
 
     public init(runtime: JarvisRuntime, registry: JarvisSkillRegistry) {
         self.runtime = runtime
@@ -39,6 +40,7 @@ public final class VoiceCommandRouter {
         self.capabilityRegistry = nil
         self.systemHandler = SystemCommandHandler(runtime: runtime, skillRegistry: registry)
         self.rateLimiter = CommandRateLimiter()
+        self.destructiveGuard = DestructiveIntentGuard()
     }
 
     public init(
@@ -47,7 +49,8 @@ public final class VoiceCommandRouter {
         intentParser: IntentParser,
         displayExecutor: DisplayCommandExecutor,
         capabilityRegistry: CapabilityRegistry,
-        rateLimiter: CommandRateLimiter = CommandRateLimiter()
+        rateLimiter: CommandRateLimiter = CommandRateLimiter(),
+        destructiveGuard: DestructiveIntentGuard = DestructiveIntentGuard()
     ) {
         self.runtime = runtime
         self.registry = registry
@@ -56,6 +59,7 @@ public final class VoiceCommandRouter {
         self.capabilityRegistry = capabilityRegistry
         self.systemHandler = SystemCommandHandler(runtime: runtime, skillRegistry: registry)
         self.rateLimiter = rateLimiter
+        self.destructiveGuard = destructiveGuard
     }
 
     public func route(transcript: String) throws -> VoiceCommandResponse? {
@@ -106,6 +110,9 @@ public final class VoiceCommandRouter {
                     return response
                 }
             case .systemQuery, .skillInvocation:
+                if let refusal = destructiveRefusalIfNeeded(parsed: parsed, command: command) {
+                    return refusal
+                }
                 if let response = try systemHandler.handle(intent: parsed, command: command) {
                     return response
                 }
@@ -122,6 +129,9 @@ public final class VoiceCommandRouter {
                 rawTranscript: command,
                 timestamp: ""
             )
+            if let refusal = destructiveRefusalIfNeeded(parsed: parsed, command: command) {
+                return refusal
+            }
             if let response = try systemHandler.handle(intent: parsed, command: command) {
                 return response
             }
@@ -130,6 +140,33 @@ public final class VoiceCommandRouter {
         return VoiceCommandResponse(
             spokenText: "I heard \(command), but that does not yet map to a sanctioned interface command. Say status, list skills, self heal, run skill, or shutdown.",
             details: ["command": "unmatched", "transcript": command],
+            shouldShutdown: false
+        )
+    }
+
+    /// SPEC-008: consult the destructive-intent guard before handing the
+    /// parsed intent to SystemCommandHandler. Non-destructive intents
+    /// fall through (returns nil) and dispatch normally. Destructive
+    /// intents consume a token from the stricter bucket; over-capacity
+    /// returns a spoken refusal + `command_refused` telemetry.
+    private func destructiveRefusalIfNeeded(parsed: ParsedIntent, command: String) -> VoiceCommandResponse? {
+        let classification = destructiveGuard.classify(intent: parsed, command: command)
+        guard case .destructive(let reason) = classification else { return nil }
+        if destructiveGuard.allow() { return nil }
+        try? runtime.telemetry.logExecutionTrace(
+            workflowID: "voice-command-router",
+            stepID: "spec-008-destructive-rate-limit",
+            inputContext: command,
+            outputResult: "destructive:\(reason)",
+            status: "command_refused"
+        )
+        return VoiceCommandResponse(
+            spokenText: DestructiveIntentGuard.refusalResponse,
+            details: [
+                "command": "destructive-refused",
+                "reason": reason,
+                "transcript": command
+            ],
             shouldShutdown: false
         )
     }
