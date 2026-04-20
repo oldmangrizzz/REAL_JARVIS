@@ -144,4 +144,154 @@ final class TunnelCryptoTests: XCTestCase {
         XCTAssertEqual(opened.response?.action, .status)
         XCTAssertEqual(opened.response?.spokenText, "JARVIS online.")
     }
+
+    // MARK: - signRegistration: deterministic with fixed nonce
+
+    func testSignRegistrationIsDeterministicWithFixedNonce() {
+        let key = String(repeating: "ab", count: 32) // 32-byte hex
+        let a = JarvisTunnelCrypto.signRegistration(
+            deviceID: "device-xyz",
+            role: "terminal",
+            identityKeyHex: key,
+            nonce: "2026-04-20T12:00:00Z"
+        )
+        let b = JarvisTunnelCrypto.signRegistration(
+            deviceID: "device-xyz",
+            role: "terminal",
+            identityKeyHex: key,
+            nonce: "2026-04-20T12:00:00Z"
+        )
+        XCTAssertNotNil(a)
+        XCTAssertNotNil(b)
+        XCTAssertEqual(a?.nonce, "2026-04-20T12:00:00Z")
+        XCTAssertEqual(a?.proof, b?.proof)
+        // HMAC-SHA256 hex length is 64
+        XCTAssertEqual(a?.proof.count, 64)
+    }
+
+    // MARK: - signRegistration: role is normalized case-insensitively
+
+    func testSignRegistrationRoleIsCaseInsensitive() {
+        let key = String(repeating: "cd", count: 32)
+        let lower = JarvisTunnelCrypto.signRegistration(
+            deviceID: "d1",
+            role: "terminal",
+            identityKeyHex: key,
+            nonce: "fixed-nonce"
+        )
+        let mixed = JarvisTunnelCrypto.signRegistration(
+            deviceID: "d1",
+            role: "Terminal",
+            identityKeyHex: key,
+            nonce: "fixed-nonce"
+        )
+        let upper = JarvisTunnelCrypto.signRegistration(
+            deviceID: "d1",
+            role: "TERMINAL",
+            identityKeyHex: key,
+            nonce: "fixed-nonce"
+        )
+        XCTAssertEqual(lower?.proof, mixed?.proof)
+        XCTAssertEqual(lower?.proof, upper?.proof)
+    }
+
+    // MARK: - signRegistration: rejects invalid hex
+
+    func testSignRegistrationRejectsInvalidHex() {
+        // Odd length hex string
+        XCTAssertNil(JarvisTunnelCrypto.signRegistration(
+            deviceID: "d1",
+            role: "terminal",
+            identityKeyHex: "abc",
+            nonce: "n"
+        ))
+        // Non-hex characters
+        XCTAssertNil(JarvisTunnelCrypto.signRegistration(
+            deviceID: "d1",
+            role: "terminal",
+            identityKeyHex: "zzzzzzzz",
+            nonce: "n"
+        ))
+    }
+
+    // MARK: - signRegistration: different deviceIDs produce different proofs
+
+    func testSignRegistrationVariesByDeviceID() {
+        let key = String(repeating: "ef", count: 32)
+        let a = JarvisTunnelCrypto.signRegistration(
+            deviceID: "device-A",
+            role: "terminal",
+            identityKeyHex: key,
+            nonce: "same-nonce"
+        )
+        let b = JarvisTunnelCrypto.signRegistration(
+            deviceID: "device-B",
+            role: "terminal",
+            identityKeyHex: key,
+            nonce: "same-nonce"
+        )
+        XCTAssertNotNil(a)
+        XCTAssertNotNil(b)
+        XCTAssertNotEqual(a?.proof, b?.proof)
+    }
+
+    // MARK: - signRegistration: different nonces produce different proofs
+
+    func testSignRegistrationVariesByNonce() {
+        let key = String(repeating: "12", count: 32)
+        let a = JarvisTunnelCrypto.signRegistration(
+            deviceID: "d1",
+            role: "terminal",
+            identityKeyHex: key,
+            nonce: "nonce-alpha"
+        )
+        let b = JarvisTunnelCrypto.signRegistration(
+            deviceID: "d1",
+            role: "terminal",
+            identityKeyHex: key,
+            nonce: "nonce-beta"
+        )
+        XCTAssertNotEqual(a?.proof, b?.proof)
+    }
+
+    // MARK: - signRegistration: auto-generated nonce is ISO-8601
+
+    func testSignRegistrationAutoGeneratesISO8601Nonce() throws {
+        let key = String(repeating: "34", count: 32)
+        let result = JarvisTunnelCrypto.signRegistration(
+            deviceID: "d1",
+            role: "terminal",
+            identityKeyHex: key
+        )
+        let nonce = try XCTUnwrap(result?.nonce)
+        let formatter = ISO8601DateFormatter()
+        XCTAssertNotNil(formatter.date(from: nonce), "nonce \(nonce) should parse as ISO-8601")
+    }
+
+    // MARK: - Error descriptions are user-facing
+
+    func testCryptoErrorDescriptionsAreNonEmpty() {
+        let invalid = JarvisTunnelCryptoError.invalidPayload
+        let sealing = JarvisTunnelCryptoError.sealingFailed
+        XCTAssertEqual(invalid.errorDescription, "Tunnel payload is not valid base64.")
+        XCTAssertEqual(sealing.errorDescription, "Unable to seal tunnel payload.")
+    }
+
+    // MARK: - Open throws typed invalidPayload for non-base64 input
+
+    func testOpenThrowsInvalidPayloadErrorForNonBase64() {
+        let crypto = JarvisTunnelCrypto(sharedSecret: "err-typed")
+        XCTAssertThrowsError(try crypto.open(JarvisTunnelMessage.self, from: "!!!not-base64!!!")) { error in
+            guard let typed = error as? JarvisTunnelCryptoError else {
+                XCTFail("expected JarvisTunnelCryptoError, got \(error)")
+                return
+            }
+            switch typed {
+            case .invalidPayload:
+                break
+            case .sealingFailed:
+                XCTFail("expected .invalidPayload, got .sealingFailed")
+            }
+        }
+    }
 }
