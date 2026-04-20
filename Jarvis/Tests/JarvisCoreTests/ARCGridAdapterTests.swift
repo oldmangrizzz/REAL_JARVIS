@@ -120,4 +120,82 @@ final class ARCGridAdapterTests: XCTestCase {
         XCTAssertFalse(summary.contains("Layout (row-major):"))
         XCTAssertFalse(summary.contains("R0:"))
     }
+
+    // MARK: - Additional coverage
+
+    func testZeroRowGridInit() {
+        // Empty cells array is permitted by init (no precondition fires).
+        let grid = ARCGrid(cells: [])
+        XCTAssertEqual(grid.rows, 0)
+        XCTAssertEqual(grid.cols, 0)
+    }
+
+    func testLoadGridZeroDimensionsThrows() {
+        let engine = StubPhysicsEngine()
+        let bridge = ARCPhysicsBridge(engine: engine)
+
+        XCTAssertThrowsError(try bridge.loadGrid(ARCGrid(cells: []))) { err in
+            guard case PhysicsError.invalidConfiguration = err else {
+                return XCTFail("expected .invalidConfiguration, got \(err)")
+            }
+        }
+    }
+
+    func testQuadrantDetectionPlacesColorsInCorrectRegion() {
+        // 4x4 grid with distinct markers in each quadrant.
+        // upper-left=blue(1), upper-right=red(2), lower-left=green(3), lower-right=yellow(4).
+        let grid = ARCGrid(cells: [
+            [1, 0, 0, 2],
+            [0, 0, 0, 0],
+            [0, 0, 0, 0],
+            [3, 0, 0, 4]
+        ])
+        let s = ARCGridSummarizer.summarize(grid)
+        XCTAssertTrue(s.contains("upper-left: blue"), s)
+        XCTAssertTrue(s.contains("upper-right: red"), s)
+        XCTAssertTrue(s.contains("lower-left: green"), s)
+        XCTAssertTrue(s.contains("lower-right: yellow"), s)
+    }
+
+    func testAllBackgroundGridReportsAllBlackSpatial() {
+        let grid = ARCGrid(cells: [
+            [0, 0],
+            [0, 0]
+        ])
+        let s = ARCGridSummarizer.summarize(grid)
+        XCTAssertTrue(s.contains("Spatial: all cells are background (black)."), s)
+        // "Non-background colors: ." (empty list) should be present too.
+        XCTAssertTrue(s.contains("Non-background colors: ."), s)
+    }
+
+    func testColorNameMapCoversAllTenCanonColors() {
+        XCTAssertEqual(ARCGridSummarizer.colorNames[0], "black")
+        XCTAssertEqual(ARCGridSummarizer.colorNames[1], "blue")
+        XCTAssertEqual(ARCGridSummarizer.colorNames[2], "red")
+        XCTAssertEqual(ARCGridSummarizer.colorNames[3], "green")
+        XCTAssertEqual(ARCGridSummarizer.colorNames[4], "yellow")
+        XCTAssertEqual(ARCGridSummarizer.colorNames[5], "grey")
+        XCTAssertEqual(ARCGridSummarizer.colorNames[6], "magenta")
+        XCTAssertEqual(ARCGridSummarizer.colorNames[7], "orange")
+        XCTAssertEqual(ARCGridSummarizer.colorNames[8], "cyan")
+        XCTAssertEqual(ARCGridSummarizer.colorNames[9], "maroon")
+    }
+
+    func testColorCountsSortedDescending() {
+        // 2 ones, 1 two, 1 three → "blue: 2" appears before "red: 1" / "green: 1" in Colors line.
+        let grid = ARCGrid(cells: [[1, 1], [2, 3]])
+        let s = ARCGridSummarizer.summarize(grid)
+        let colorsLine = s.split(separator: "\n").first(where: { $0.hasPrefix("Colors:") }).map(String.init) ?? ""
+        let blueIdx = colorsLine.range(of: "blue: 2")?.lowerBound
+        XCTAssertNotNil(blueIdx, "expected 'blue: 2' in: \(colorsLine)")
+        XCTAssertTrue(colorsLine.contains("(total 4 cells)"), colorsLine)
+    }
+
+    func testARCGridCodableRoundTrip() throws {
+        let original = ARCGrid(cells: [[1, 2, 3], [4, 5, 6]])
+        let data = try JSONEncoder().encode(original)
+        let decoded = try JSONDecoder().decode(ARCGrid.self, from: data)
+        XCTAssertEqual(decoded, original)
+    }
 }
+
