@@ -148,11 +148,11 @@ Currently phone-centric host type. Extend:
 Do **not** modify synthesis (that's Gemini's lane) or recognition model
 selection (also Gemini). Only:
 
-- Accept a new audio framing source type `AmbientAudioFrame` with fields
-  `{sampleRate, pcmData, captureTimestamp, routeHint: AmbientGatewayRoute}`.
-- The existing ingest point in `Voice/` gains an overload accepting
-  `AmbientAudioFrame` that canonicalizes to the current internal frame
-  type. No behavior change for non-ambient callers.
+- Accept a new audio framing source type `AmbientAudioFrame` (see §4.5
+  for canonical schema). The existing ingest point in `Voice/` gains an
+  overload accepting `AmbientAudioFrame` that canonicalizes to the
+  current internal frame type. No behavior change for non-ambient
+  callers.
 
 ### 4.4 · Brand-tier doc
 
@@ -160,6 +160,98 @@ selection (also Gemini). Only:
 "Responder-OS primary surface is the watch when the operator is on shift.
 The phone is a compute slab, not a gateway. This is a canon
 update, not a preference." Cross-link AMBIENT-001 response + this spec.
+
+### 4.5 · Shared audio contract (consumed by VOICE-002)
+
+AMBIENT-002 owns the edge-side audio plane. VOICE-002 (realtime
+speech-to-speech) depends on three contracts this spec defines:
+
+**A. `AmbientAudioFrame` — canonical schema.**
+
+```swift
+public struct AmbientAudioFrame: Sendable, Equatable {
+    public let sampleRate: Int            // 16000 or 24000 Hz, Phase 1
+    public let channelCount: Int          // 1 (mono) Phase 1
+    public let pcmData: Data              // signed int16 LE, little-endian
+    public let captureTimestamp: Date     // host-local clock at capture
+    public let sequenceNumber: UInt64     // monotonic per-session, gap-detectable
+    public let routeHint: AmbientGatewayRoute
+    public let wristAttached: Bool
+}
+```
+
+VOICE-002 consumes this. Do NOT add fields inline; coordinate back if
+VOICE-002 needs richer framing.
+
+**B. Full-duplex audio is in scope; multipoint is not.**
+
+- Multipoint = two sources (watch + phone) to one sink
+  (headphones) simultaneously. **NOT supported.** Stays out of scope.
+- Full-duplex = one peer (watch), simultaneous mic capture + speaker
+  playback on the same BT link. **IS supported in Phase 1** — it is
+  the normal mode for a conversation. Clarified here so the non-goal
+  "no multipoint" doesn't accidentally forbid realtime S2S.
+
+**C. Edge-hop latency contract (what VOICE-002 can count on).**
+
+| Hop | p50 | p95 | Ceiling |
+|-----|-----|-----|---------|
+| mic capture → `AmbientAudioFrame` ingest | 40ms | 80ms | 120ms |
+| tunnel TX (frame → host receipt) | 60ms | 120ms | 200ms |
+| host TX (audio chunk → speaker emit) | 80ms | 150ms | 250ms |
+| barge-in signal → control-channel delivery | 30ms | 60ms | 100ms |
+| off-wrist detected → `offWrist` telemetry row emitted | 150ms | 250ms | 400ms |
+
+Missing these ceilings emits a `latency_sla_miss` row in
+`ambient_audio_gateway_latency` (new subtable). VOICE-002 reads those
+rows to compute its route-aware SLA multiplier.
+
+**D. Output path — TTS audio chunks back to the operator.**
+
+The gateway owns speaker-emit. VOICE-002 streams opus-encoded TTS
+chunks over the tunnel; `AmbientAudioGateway` has a new method:
+
+```swift
+func emit(audioChunk: Data, format: AmbientAudioFormat) throws
+```
+
+where `AmbientAudioFormat` names the codec (opus Phase 1) + sample rate.
+Called only when `currentState.route` is `.watchHosted`,
+`.phoneFallback`, or `.cellularTether`. Throws
+`JarvisError.processFailure` if route is `.offWrist`, `.unpaired`, or
+`.degraded`.
+
+**E. DuplexVADGate lives here (edge device), not in VOICE-002.**
+
+The local VAD that fires `barge_in` is on-device audio processing —
+that's this lane, not the voice lane. AMBIENT-002 delivers:
+
+```swift
+public protocol DuplexVADGate: Sendable {
+    var bargeInSignal: AsyncStream<BargeInEvent> { get }
+    func configure(stopWords: [String])
+}
+
+public struct BargeInEvent: Sendable, Equatable {
+    public let at: Date
+    public let reason: BargeInReason   // .vadTrigger | .stopWord | .explicit
+    public let confidence: Double      // 0.0–1.0
+}
+```
+
+VOICE-002's `ConversationEngine` subscribes to `bargeInSignal` over
+the tunnel control channel. VOICE-002 must NOT run its own on-device
+VAD; the one in AMBIENT-002 is authoritative.
+
+**F. Off-wrist cancels the active conversation.**
+
+When the gateway transitions to `.offWrist`, it emits the standard
+`ambient_audio_gateway` row (principal-witnessed). VOICE-002's
+`ConversationEngine` listens for that transition via the existing
+observer contract (§3 `observe`) and cancels the active session
+within 150ms. AMBIENT-002 guarantees the transition row lands before
+the cancel fires; VOICE-002 does not have to poll.
+
 
 ---
 

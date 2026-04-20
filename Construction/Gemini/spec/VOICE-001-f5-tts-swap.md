@@ -1,6 +1,9 @@
 # VOICE-001 — Swap VibeVoice-1.5B → F5-TTS
 
-**Issued to:** DeepSeek v3.1 (Ollama cloud)
+**Issued to:** Gemini (voice lane)
+**Status:** ✅ Complete — shipped 2026-04-20. See `Gemini/response/VOICE-001-COMPLETION-REPORT.md`.
+**Successor:** `Gemini/spec/VOICE-002-realtime-speech-to-speech.md` — the endgame realtime S2S loop built on this F5-TTS baseline.
+**Original issue:**
 **Track:** Voice pipeline
 **Canon sensitivity:** HIGH — touches `VoiceApprovalGate`, `SOUL_ANCHOR`, operator-only approval ritual.
 **Priority:** P0. Current VibeVoice output is unusable (slow, drift, out-of-language blurts). Operator has rejected VibeVoice.
@@ -86,7 +89,7 @@ Also preserve: `GET /healthz`, `GET /readyz`, `GET /stats`, idle-shutdown thread
 
 ## Deliverables (response shape)
 
-Write `DeepSeek/response/VOICE-001-response.md` with these sections, in order:
+Write `Gemini/response/VOICE-001-response.md` with these sections, in order:
 
 1. **Summary** — one paragraph of what landed and how to prove it works.
 2. **File manifest** — every path you created or modified, with LOC and purpose.

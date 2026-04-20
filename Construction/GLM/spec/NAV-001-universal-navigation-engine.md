@@ -1,7 +1,7 @@
 # NAV-001 — Universal Navigation Engine (Unified Execution Spec)
 
 **Target model:** GLM (z.ai / glm-5.1 or sibling, one fresh session)
-**Parallel specs:** `Construction/Qwen/spec/UX-001-navigation-surfaces.md` (surfaces consume this engine; see §9), `Construction/DeepSeek/spec/VOICE-001-f5-tts-swap.md` (unrelated)
+**Parallel specs:** `Construction/Qwen/spec/UX-001-navigation-surfaces.md` (surfaces consume this engine; see §9), `Construction/Gemini/spec/VOICE-001-f5-tts-swap.md` (unrelated)
 **Response path:** `Construction/GLM/response/NAV-001-response.md` — **one file, full source inline, no abbreviations**
 
 ---
@@ -361,7 +361,7 @@ Write `Construction/GLM/response/NAV-001-response.md` with exactly these section
 - No `JarvisRuntime` wiring — engine is standalone this PR.
 - No Pheromind / oscillator integration — separate cross-cutting PR later.
 - No CarPlay, no AR, no SwiftUI surfaces — Qwen's track.
-- No voice I/O — DeepSeek's track.
+- No voice I/O — Gemini's track.
 - No persistence of taught parameters — in-memory `[String: Double]` only for EMS profile, `// CANON: operator-teachable; persistence ticket pending`.
 - No production road graph — ship `RoadGraph` protocol + tiny in-memory test impl only. Real graph is a downstream ticket.
 
@@ -381,8 +381,8 @@ Write `Construction/GLM/response/NAV-001-response.md` with exactly these section
 
 ## 9. Parallel tracks (do not touch their files)
 
-- **Qwen — `UX-001`** owns all navigation surfaces (`NavigationCockpitView`, `CarPlayNavigationScene`, PWA, Unity). Qwen consumes `MapTileProvider`, `HazardOverlayFeature`, `SceneBriefing`, `RoutingProfile` as opaque protocol/struct types. Keep those shapes **frozen** once this ships. Qwen UX-001-A1 (design tokens) already merged.
-- **DeepSeek — `VOICE-001`** owns F5-TTS swap (`services/f5-tts/`). Unrelated; ignore.
+- **Qwen — `UX-001` + `AMBIENT-002`** owns all navigation surfaces (`NavigationCockpitView`, `CarPlayNavigationScene`, PWA, Unity) **and** the edge audio plane (`AmbientAudioGateway`). Qwen consumes `MapTileProvider`, `HazardOverlayFeature`, `SceneBriefing`, `RoutingProfile` as opaque protocol/struct types. Keep those shapes **frozen** once this ships. Qwen UX-001-A1 (design tokens) already merged. AMBIENT-002 owns the audio output path nav utterances will eventually flow through — see §11.
+- **Gemini — `VOICE-001/002`** owns voice pipeline: F5-TTS swap (`services/f5-tts/`) shipped, realtime speech-to-speech loop (`VOICE-002`) in flight. **This is no longer unrelated to nav.** Nav utterances are voice output; they traverse the `ConversationEngine` → `AmbientAudioGateway` → speaker path. See §11 for the forward-looking contract. Engine-core this PR stays voice-free; §11 defines what you expose so VOICE-002 + AMBIENT-002 can consume.
 
 If you need to change a contract that Qwen consumes, surface it in **§12 Open questions**, do not silently alter it.
 
@@ -393,3 +393,160 @@ If you need to change a contract that Qwen consumes, surface it in **§12 Open q
 Ship Phases A–E inline in one response. One merge. Engine-core complete. Qwen surfaces unblock on merge.
 
 *Spec authored 2026-04-20. Archived predecessors at `Construction/GLM/archive/`.*
+
+---
+
+## 11. Forward-looking integration (VOICE-002 + AMBIENT-002)
+
+**Read this, don't implement it yet.** Engine-core this PR stays
+voice-free per §7. But the realtime speech-to-speech work (Gemini
+VOICE-002) and the watch audio gateway (Qwen AMBIENT-002) will
+consume nav output, and nav needs to consume conversation context.
+Lock these contracts into your type surface now so the downstream
+integration ticket is a wiring job, not a redesign.
+
+### 11.1 · Nav utterances are voice output — they're not optional
+
+When VOICE-002 lands, "turn left in 500 feet" stops being a
+hypothetical future feature and becomes the default surface alongside
+the visual cockpit. Your engine MUST emit utterance events the
+conversation engine can pull. In-engine this PR: define the type,
+emit the events to a local queue, no TTS call. Wiring to
+`ConversationEngine` is the downstream ticket.
+
+```swift
+public struct NavUtterance: Codable, Sendable, Equatable {
+    public let id: UUID
+    public let text: String                        // "Turn left in 500 feet."
+    public let priority: NavUtterancePriority      // see §11.2
+    public let issuedAt: Date
+    public let routeStepID: String?                // nil for hazard alerts
+    public let ttlSeconds: Double                  // drop if not spoken within TTL
+}
+
+public enum NavUtterancePriority: String, Codable, Sendable, Comparable {
+    case advisory      // "in 2 miles, exit 47" — cancelable, drops on barge-in
+    case turnByTurn    // "turn left in 500 feet" — cancelable but retried once
+    case hazard        // "debris ahead, slow down" — uncancelable, preempts speech
+    case emergency     // responder-only: "scene collapse, reroute now" — preempts everything
+    // Comparable: advisory < turnByTurn < hazard < emergency
+}
+```
+
+### 11.2 · Priority + barge-in policy (canon)
+
+The conversation engine (VOICE-002) decides who speaks when. Nav
+publishes utterances with priority; VOICE-002 obeys this table:
+
+| Priority | Preempts speaking LLM turn? | User can barge-in? | Retried on cancel? |
+|----------|-----------------------------|--------------------|---------------------|
+| `.advisory` | No — queues behind current turn | Yes | No, dropped |
+| `.turnByTurn` | Yes, if >1s of LLM speech left | Yes | Once, with updated distance |
+| `.hazard` | Yes, immediately | No — safety override | No, it either fires or it's gone |
+| `.emergency` | Yes, cancels current turn + suppresses conversation for ttl | No | Yes, until acknowledged |
+
+Responder-tier sessions are the only ones that see `.emergency`. All
+four tiers see `.hazard`.
+
+### 11.3 · Audio route — goes through `AmbientAudioGateway`
+
+Do NOT spin up a parallel audio-out path. When VOICE-002 + AMBIENT-002
+are live, nav utterances traverse:
+
+```
+RoutingEngine ──► NavUtterance queue ──► ConversationEngine ──► F5-TTS stream ──► AmbientAudioGateway.emit ──► speaker
+```
+
+If `AmbientAudioGateway.currentState.route` is `.offWrist`,
+`.unpaired`, or `.degraded`, utterances queue until route recovers
+(subject to each utterance's `ttlSeconds`). Off-wrist does **NOT**
+cancel nav the way it cancels conversation — nav continues on
+phone/CarPlay if the phone is still in the mesh (see §11.5).
+
+### 11.4 · `NavContextSnapshot` — conversation can query live route
+
+The conversation engine needs read access to nav state so the operator
+can say "how far to next turn" and get a grounded answer. Expose a
+read-only snapshot:
+
+```swift
+public struct NavContextSnapshot: Sendable, Equatable {
+    public let activeRouteID: String?
+    public let currentStep: RouteStepSummary?       // distance, bearing, instruction
+    public let nextStep: RouteStepSummary?
+    public let etaSecondsRemaining: Double?
+    public let distanceMetersRemaining: Double?
+    public let currentHazards: [HazardSummary]      // already filtered to principal tier
+    public let capturedAt: Date
+}
+
+public protocol NavContextProvider: Sendable {
+    func snapshot() -> NavContextSnapshot
+}
+```
+
+The routing engine already owns this data — expose it through a
+provider the conversation engine can hold. Pure read, no mutation,
+always safe to call. Stale snapshots are fine; the caller checks
+`capturedAt`.
+
+### 11.5 · Off-wrist vs nav — the exception
+
+Canon ruling: **off-wrist cancels conversation but does NOT cancel
+nav.** An EMT whose watch is off-wrist because they've parked and
+need hands in the patient compartment still needs nav running on the
+phone in the truck. Specifically:
+
+- `AmbientGatewayRoute.offWrist` → `ConversationEngine` cancels active
+  turn (AMBIENT-002 §4.5.F).
+- Same transition → `RoutingEngine` holds the route, keeps emitting
+  `NavUtterance`s, but marks them `.queuedRouteUnavailable` in the
+  local queue. If `AmbientGatewayRoute.phoneFallback` or a CarPlay
+  surface is active, utterances drain to that path instead.
+- On wrist-reattach + biometric pass, queued utterances are
+  audit-filtered by `ttlSeconds` (drop stale) and drain.
+
+This asymmetry is intentional. Conversation is cooperative; nav is a
+safety surface. Do not unify their cancel policy.
+
+### 11.6 · Telemetry
+
+Add to `nav_telemetry` (or whatever your existing nav table is named
+in §3):
+
+- `utterance_issued` — one row per `NavUtterance` emission, includes
+  `priority`, `routeStepID`, principal. Ties into SPEC-009 chain.
+- `utterance_preempted` — when a higher-priority utterance bumps a
+  lower one. Tracks the bump policy is working.
+- `context_snapshot_requested` — coarse counter (once per minute max)
+  so we can see conversation-engine traffic against nav without
+  leaking user transcripts.
+
+### 11.7 · What NOT to build this PR
+
+- Do **not** import anything from `Voice/`. No F5-TTS calls.
+- Do **not** import `AmbientAudioGateway` from the AMBIENT-002 work.
+- Do **not** wire `ConversationEngine`. VOICE-002 is in flight; that
+  wiring happens in a follow-up ticket after both land.
+- **Do** define the types in §11.1 and §11.4 inside the nav module so
+  the wiring ticket is a tiny PR. Ship them as public types with
+  `// CANON: downstream wiring in NAV-003` comments.
+
+### 11.8 · Open-question hooks
+
+If any of the following are ambiguous when you hit them, surface them
+in your §12 open-questions (NAV-001 §6 response) and we'll rule:
+
+- Should `.hazard` preempt across tier boundaries (responder hazard
+  barges into a guest conversation on a shared device)? Our current
+  answer is yes; confirm your tier-scoping supports it.
+- Utterance deduplication — if routing re-emits the same turn-by-turn
+  inside the TTL, is that a drop or a retry? Lean drop; confirm.
+- `NavContextSnapshot` refresh rate cap — we said "always safe to
+  call." If that's O(n) on route length, cap the caller to 1Hz.
+
+---
+
+*Section 11 authored by Copilot, operator-approved 2026-04-20, after
+AMBIENT-001 correction + VOICE-002 S2S scope lock. Additive only;
+does not change §1–§10 or the Phase A–E manifest.*

@@ -121,7 +121,7 @@ Put all of these into `Construction/Qwen/response/AMBIENT-001-response.md`:
 
 ## 5 · Coordination notes
 
-- GLM owns navigation (NAV-001). DeepSeek owns voice synthesis (F5-TTS). You are **adjacent but non-overlapping**: your output influences the voice pipeline's audio framing assumptions but doesn't collide with synthesis itself.
+- GLM owns navigation (NAV-001). Gemini owns voice (realtime speech-to-speech, VOICE-001/002). You are **adjacent but non-overlapping**: your output influences the voice pipeline's audio framing assumptions but doesn't collide with synthesis or the S2S loop itself.
 - If in doubt: **ambient > aesthetic**. The goal is that Jarvis is always there, as loud or as quiet as the operator wants, without the phone being the reason the link breaks.
 - File-discipline: drop your response in `Construction/Qwen/response/AMBIENT-001-response.md`. Do NOT modify JarvisCore source yet — that's a follow-up spec after operator reviews your proposal.
 

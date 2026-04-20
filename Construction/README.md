@@ -8,7 +8,7 @@ Two sub-teams working in parallel on the Real Jarvis navigation arc while the co
 |---|---|---|---|
 | **GLM** | Navigation engine (tiles, routing, OSINT adapters, pre-search) | Design: `GLM/spec/NAV-001-universal-navigation-engine.md`<br>Active PR: `GLM/spec/NAV-001-EXECUTE-PR1.md` | Plan: `GLM/response/NAV-001-response.md` ✅<br>PR1 code: `GLM/response/NAV-001-EXECUTE-PR1.md` ⏳ |
 | **Qwen** | UI/UX surfaces (iOS map, CarPlay HUD, PWA, Unity, briefing) | `Qwen/spec/UX-001-navigation-surfaces.md` | `Qwen/response/UX-001-response.md` ⏳ |
-| **DeepSeek** | Voice pipeline (F5-TTS swap, server deploy, re-audition workflow) | `DeepSeek/spec/VOICE-001-f5-tts-swap.md` | `DeepSeek/response/VOICE-001-response.md` ⏳ |
+| **Gemini** | Voice pipeline — realtime speech-to-speech (F5-TTS baseline, bidirectional conversational loop) | `Gemini/spec/VOICE-001-f5-tts-swap.md` (baseline, ✅ complete), `Gemini/spec/VOICE-002-realtime-speech-to-speech.md` (endgame) | `Gemini/response/VOICE-001-response.md` ✅ |
 
 ## Rules of engagement
 
@@ -34,7 +34,7 @@ Two sub-teams working in parallel on the Real Jarvis navigation arc while the co
 - GLM NAV-001 plan: **accepted** (507-line design, 6-PR sequence)
 - GLM NAV-001-EXECUTE-PR1: _pending execution_ (OQ rulings answered, ships `MapTileProvider` + `TileProviderOrchestrator` + 9 tests)
 - Qwen UX-001 response: _pending_ — Phase A (tokens) unblocked, Phase B+ waits on GLM PR1 type freeze
-- DeepSeek VOICE-001 response: _pending_ (F5-TTS server deploy + re-audition)
+- Gemini VOICE-001 response: ✅ complete (F5-TTS server deploy + re-audition gate reset). Endgame VOICE-002 (realtime speech-to-speech) spec pending.
 - Third track (operator + primary agent): logic/policy/cognition, continues in `Jarvis/Sources/**`
 
 ## Dependency map
@@ -45,5 +45,5 @@ GLM PR2 (RoutingProfile)  ──► Qwen Phase B routing UI
 GLM PR4 (HazardOverlay)   ──► Qwen Phase B hazard layers
 GLM PR5 (SceneBriefing)   ──► Qwen Phase E briefing card
 Qwen Phase A (tokens)     ──► independent, ships anytime
-DeepSeek VOICE-001        ──► independent, ships anytime
+Gemini VOICE-001        ──► ✅ F5-TTS baseline shipped; VOICE-002 realtime S2S next
 ```
