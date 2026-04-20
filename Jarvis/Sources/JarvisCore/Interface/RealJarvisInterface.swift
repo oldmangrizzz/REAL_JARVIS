@@ -180,7 +180,8 @@ public final class VoiceCommandRouter {
             stepID: "spec-009-companion-policy",
             inputContext: command,
             outputResult: "\(principal.tierToken):\(reason)",
-            status: "command_refused"
+            status: "command_refused",
+            principal: principal
         )
         return VoiceCommandResponse(
             spokenText: spoken,

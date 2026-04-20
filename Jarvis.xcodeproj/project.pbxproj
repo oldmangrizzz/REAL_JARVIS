@@ -580,6 +580,7 @@
 		9D33B81E09DBD483B6EA7B39 /* 0093.wav in Resources */ = {isa = PBXBuildFile; fileRef = 900D2E61A51ABBF8CD100AA3 /* 0093.wav */; };
 		9D36C8DC4BFD4FE3413B3580 /* TunnelCryptoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DE6C44DBB197C64FB86D8E /* TunnelCryptoTests.swift */; };
 		9D53C24887CA308C0BF3C1E2 /* TTSBackendDriftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F9E0B7763A663C750F8D86 /* TTSBackendDriftTests.swift */; };
+		9DB147011D6E7882AEA80A6D /* TelemetryPrincipalWitnessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5273378EA7D1A7D5026D7D6B /* TelemetryPrincipalWitnessTests.swift */; };
 		9DCB414A010D3E4665F55EE5 /* ArchonHarness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6051D300B9787C98BF61C0B4 /* ArchonHarness.swift */; };
 		9E05633C5FBB04BD5196B9DA /* ref0_cfg1.3_ddpm15_RENDER.wav in Resources */ = {isa = PBXBuildFile; fileRef = C47D79665A4A0B552ED3A429 /* ref0_cfg1.3_ddpm15_RENDER.wav */; };
 		9E0FA0209EE4001EC841E602 /* 0082.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6F3AB81266C984AF66CCA91E /* 0082.wav */; };
@@ -1354,6 +1355,7 @@
 		519774C5B37021DB5C206D0F /* 0329.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0329.wav; sourceTree = "<group>"; };
 		51E40F8D1F8A9D03E1F3BAA6 /* ref0_cfg1.3_ddpm10_RENDER.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ref0_cfg1.3_ddpm10_RENDER.wav; sourceTree = "<group>"; };
 		52081413388C3744FE219274 /* 0100.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0100.wav; sourceTree = "<group>"; };
+		5273378EA7D1A7D5026D7D6B /* TelemetryPrincipalWitnessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetryPrincipalWitnessTests.swift; sourceTree = "<group>"; };
 		529CE2135F646F6933E096DE /* 0473.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0473.wav; sourceTree = "<group>"; };
 		52B5535484BF423680EA4117 /* 0190.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0190.wav; sourceTree = "<group>"; };
 		5376AED41DC2C9ABEF16A2A8 /* 0165.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0165.wav; sourceTree = "<group>"; };
@@ -3272,6 +3274,7 @@
 				C1DA4E43E2DE88017EA554D4 /* PythonRLMBridgeTests.swift */,
 				F648510AF16F4F7D481784BE /* SkillRegistryTests.swift */,
 				67721193D44FC2992E8B07CA /* SoulAnchorTests.swift */,
+				5273378EA7D1A7D5026D7D6B /* TelemetryPrincipalWitnessTests.swift */,
 				C5E69D17F9781B0F392FAB94 /* TestWorkspace.swift */,
 				28F9E0B7763A663C750F8D86 /* TTSBackendDriftTests.swift */,
 				B8DE6C44DBB197C64FB86D8E /* TunnelCryptoTests.swift */,
@@ -4422,6 +4425,7 @@
 				9101B5449C6FE17521E79C16 /* SkillRegistryTests.swift in Sources */,
 				5866029B39D01C72AD5AE15F /* SoulAnchorTests.swift in Sources */,
 				9D53C24887CA308C0BF3C1E2 /* TTSBackendDriftTests.swift in Sources */,
+				9DB147011D6E7882AEA80A6D /* TelemetryPrincipalWitnessTests.swift in Sources */,
 				AF607D4F0E7FD9D285AFA2CC /* TestWorkspace.swift in Sources */,
 				9D36C8DC4BFD4FE3413B3580 /* TunnelCryptoTests.swift in Sources */,
 				0B982F5A52CC7BA756A5C280 /* TunnelIdentityStoreTests.swift in Sources */,

@@ -15,11 +15,20 @@ public final class TelemetryStore: @unchecked Sendable {
         paths.telemetryDirectory.appendingPathComponent("\(name).jsonl")
     }
 
-    public func append(record: [String: Any], to table: String) throws {
+    public func append(record: [String: Any], to table: String, principal: Principal? = nil) throws {
         let url = tableURL(table)
         var payload = record
         if payload["timestamp"] == nil {
             payload["timestamp"] = encoder.string(from: Date())
+        }
+        // SPEC-009 evidence corpus: every row is witnessed by the bound
+        // principal's tier token so the chain of custody can answer
+        // "who was Jarvis serving when this was emitted." Explicit param
+        // wins over any caller-supplied "principal" key to avoid client
+        // self-assertion. Nil principal leaves the field absent for
+        // legacy / pre-principal rows.
+        if let principal {
+            payload["principal"] = principal.tierToken
         }
         // CX-036: serialize outside lock to reduce contention
         let data = try JSONSerialization.data(withJSONObject: payload, options: [.sortedKeys])
@@ -67,14 +76,14 @@ public final class TelemetryStore: @unchecked Sendable {
         }
     }
 
-    public func logExecutionTrace(workflowID: String, stepID: String, inputContext: String, outputResult: String, status: String) throws {
+    public func logExecutionTrace(workflowID: String, stepID: String, inputContext: String, outputResult: String, status: String, principal: Principal? = nil) throws {
         try append(record: [
             "workflowId": workflowID,
             "stepId": stepID,
             "inputContext": inputContext,
             "outputResult": outputResult,
             "status": status
-        ], to: "execution_traces")
+        ], to: "execution_traces", principal: principal)
     }
 
     public func logStigmergicSignal(edge: EdgeKey, signal: TernarySignal, agentID: String, pheromone: Double) throws {

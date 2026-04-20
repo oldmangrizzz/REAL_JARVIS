@@ -341,7 +341,8 @@ public final class JarvisHostTunnelServer: @unchecked Sendable {
                 stepID: "spec-009-companion-policy",
                 inputContext: "\(principal.tierToken):\(command.action.rawValue)",
                 outputResult: reason,
-                status: "command_refused"
+                status: "command_refused",
+                principal: principal
             )
             throw JarvisError.invalidInput("Principal \(principal.tierToken) is not permitted to run \(command.action.rawValue) (\(reason)).")
         }
