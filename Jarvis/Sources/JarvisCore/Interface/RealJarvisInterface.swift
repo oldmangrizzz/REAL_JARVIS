@@ -28,6 +28,7 @@ public final class VoiceCommandRouter {
     private let intentParser: IntentParser?
     private let displayExecutor: DisplayCommandExecutor?
     private let capabilityRegistry: CapabilityRegistry?
+    private let rateLimiter: CommandRateLimiter
 
     public init(runtime: JarvisRuntime, registry: JarvisSkillRegistry) {
         self.runtime = runtime
@@ -35,6 +36,7 @@ public final class VoiceCommandRouter {
         self.intentParser = nil
         self.displayExecutor = nil
         self.capabilityRegistry = nil
+        self.rateLimiter = CommandRateLimiter()
     }
 
     public init(
@@ -42,13 +44,15 @@ public final class VoiceCommandRouter {
         registry: JarvisSkillRegistry,
         intentParser: IntentParser,
         displayExecutor: DisplayCommandExecutor,
-        capabilityRegistry: CapabilityRegistry
+        capabilityRegistry: CapabilityRegistry,
+        rateLimiter: CommandRateLimiter = CommandRateLimiter()
     ) {
         self.runtime = runtime
         self.registry = registry
         self.intentParser = intentParser
         self.displayExecutor = displayExecutor
         self.capabilityRegistry = capabilityRegistry
+        self.rateLimiter = rateLimiter
     }
 
     public func route(transcript: String) throws -> VoiceCommandResponse? {
@@ -166,6 +170,26 @@ public final class VoiceCommandRouter {
             target = t; commandLabel = "homekit-control"; detailKey = "accessory"; action = nil
         case .systemQuery, .skillInvocation, .unknown:
             return nil
+        }
+
+        // SPEC-008.2: rate-limit display/HomeKit dispatch before touching executor.
+        guard rateLimiter.allow() else {
+            try? runtime.telemetry.logExecutionTrace(
+                workflowID: "voice-command-router",
+                stepID: "spec-008-rate-limit",
+                inputContext: command,
+                outputResult: "rate_limited",
+                status: "command_refused"
+            )
+            return VoiceCommandResponse(
+                spokenText: CommandRateLimiter.limitExceededResponse,
+                details: [
+                    "command": commandLabel,
+                    detailKey: target,
+                    "refused": "rate_limited"
+                ],
+                shouldShutdown: false
+            )
         }
 
         let auth = CommandAuthorization.voiceOperator(registry: capabilityRegistry)

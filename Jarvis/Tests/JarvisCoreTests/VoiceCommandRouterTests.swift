@@ -65,6 +65,50 @@ final class VoiceCommandRouterTests: XCTestCase {
         XCTAssertEqual(response.details["command"] as? String, "status")
     }
 
+    // MARK: - SPEC-008: guardrails
+
+    func testBlockedPatternReturnsUnknownWithZeroConfidence() throws {
+        let paths = try makeTestWorkspace()
+        let capabilityRegistry = try CapabilityRegistry(configURL: paths.capabilityConfigURL)
+        let parser = IntentParser(capabilityRegistry: capabilityRegistry)
+
+        for phrase in ["Jarvis burn everything", "jarvis delete all files", "jarvis disable safety"] {
+            let parsed = parser.parse(transcript: phrase)
+            XCTAssertEqual(parsed.confidence, 0.0, "SPEC-008: blocked phrase '\(phrase)' must be zero confidence")
+            if case .unknown = parsed.intent {} else {
+                XCTFail("SPEC-008: blocked phrase '\(phrase)' must map to .unknown")
+            }
+        }
+    }
+
+    func testRateLimiterRefusesBurstOverCapacity() throws {
+        let paths = try makeTestWorkspace()
+        let runtime = try JarvisRuntime(paths: paths)
+        let skillRegistry = try JarvisSkillRegistry(paths: paths)
+        let capabilityRegistry = try CapabilityRegistry(configURL: paths.capabilityConfigURL)
+        let intentParser = IntentParser(capabilityRegistry: capabilityRegistry)
+        let executor = DisplayCommandExecutor(
+            registry: capabilityRegistry,
+            controlPlane: runtime.controlPlane,
+            telemetry: runtime.telemetry
+        )
+        let limiter = CommandRateLimiter(capacity: 2, window: 60)
+        let router = VoiceCommandRouter(
+            runtime: runtime,
+            registry: skillRegistry,
+            intentParser: intentParser,
+            displayExecutor: executor,
+            capabilityRegistry: capabilityRegistry,
+            rateLimiter: limiter
+        )
+
+        _ = try router.route(transcript: "Jarvis turn on the kitchen lights")
+        _ = try router.route(transcript: "Jarvis turn on the kitchen lights")
+        let refused = try XCTUnwrap(router.route(transcript: "Jarvis turn on the kitchen lights"))
+        XCTAssertEqual(refused.spokenText, CommandRateLimiter.limitExceededResponse)
+        XCTAssertEqual(refused.details["refused"] as? String, "rate_limited")
+    }
+
     // MARK: - Helpers
 
     private func makeFullyWiredRouter() throws -> VoiceCommandRouter {

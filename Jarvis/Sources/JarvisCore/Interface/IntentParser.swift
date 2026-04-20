@@ -1,8 +1,22 @@
 import Foundation
 
-public final class IntentParser: Sendable {
+public final class IntentParser: @unchecked Sendable {
     private let capabilityRegistry: CapabilityRegistry
     private let isoFormatter = ISO8601DateFormatter()
+
+    /// SPEC-008.1: transcript fragments that MUST NEVER be executed from voice.
+    /// Any transcript containing one of these returns .unknown with confidence 0.0.
+    public static let blockedPatterns: [String] = [
+        "burn", "destroy", "delete", "erase", "wipe", "kill", "terminate system",
+        "format", "factory reset", "self destruct", "shutdown all", "disable safety",
+        "override", "hack", "exploit", "jailbreak"
+    ]
+
+    /// SPEC-008.1: returns true if the transcript contains any blocked pattern.
+    public static func isBlockedIntent(_ text: String) -> Bool {
+        let lower = text.lowercased()
+        return blockedPatterns.contains(where: { lower.contains($0) })
+    }
 
     public init(capabilityRegistry: CapabilityRegistry) {
         self.capabilityRegistry = capabilityRegistry
@@ -10,6 +24,11 @@ public final class IntentParser: Sendable {
 
     public func parse(transcript: String) -> ParsedIntent {
         let normalized = transcript.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
+
+        // SPEC-008.1: blocked patterns short-circuit before any other matcher.
+        if Self.isBlockedIntent(normalized) {
+            return ParsedIntent(intent: .unknown(rawTranscript: transcript), confidence: 0.0, rawTranscript: transcript, timestamp: isoFormatter.string(from: Date()))
+        }
 
         if let displayIntent = parseDisplayIntent(normalized) {
             return ParsedIntent(intent: displayIntent, confidence: 0.85, rawTranscript: transcript, timestamp: isoFormatter.string(from: Date()))
@@ -59,7 +78,7 @@ public final class IntentParser: Sendable {
             return .homeKitControl(accessoryName: accessoryName, characteristic: "on", value: "false")
         }
         if dimVerbs.contains(where: { text.contains($0) }) {
-            if let range = text.range(of: #"(\\d{1,3})%#, options: .regularExpression) {
+            if let range = text.range(of: #"(\d{1,3})%"#, options: .regularExpression) {
                 let pctStr = String(text[range])
                 let pct = pctStr.replacingOccurrences(of: "%", with: "")
                 return .homeKitControl(accessoryName: accessoryName, characteristic: "brightness", value: pct)
