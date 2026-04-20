@@ -180,6 +180,42 @@ final class JarvisHostTunnelServerTests: XCTestCase {
         server.stop()
     }
 
+    // MARK: - SPEC-007: voice-operator requires green voice gate
+
+    func testVoiceOperatorRegistrationRejectedWhenGateNotGreen() throws {
+        let paths = try makeTestWorkspace()
+        let runtime = try JarvisRuntime(paths: paths)
+        let registry = try JarvisSkillRegistry(paths: paths)
+        let server = JarvisHostTunnelServer(runtime: runtime, registry: registry, port: 19470, sharedSecret: "spec-007-a")
+
+        let result = server.authorizeRegistrationRole("voice-operator")
+        XCTAssertNil(result.role, "SPEC-007: voice-operator must not be granted when gate is not green")
+        XCTAssertNotNil(result.error)
+        XCTAssertTrue(result.error?.contains("Voice gate is not green") ?? false)
+    }
+
+    func testMobileCockpitRegistrationAcceptedWithoutGateCheck() throws {
+        let paths = try makeTestWorkspace()
+        let runtime = try JarvisRuntime(paths: paths)
+        let registry = try JarvisSkillRegistry(paths: paths)
+        let server = JarvisHostTunnelServer(runtime: runtime, registry: registry, port: 19471, sharedSecret: "spec-007-b")
+
+        let result = server.authorizeRegistrationRole("mobile-cockpit")
+        XCTAssertEqual(result.role, "mobile-cockpit")
+        XCTAssertNil(result.error)
+    }
+
+    func testUnknownRoleSilentlyDropped() throws {
+        let paths = try makeTestWorkspace()
+        let runtime = try JarvisRuntime(paths: paths)
+        let registry = try JarvisSkillRegistry(paths: paths)
+        let server = JarvisHostTunnelServer(runtime: runtime, registry: registry, port: 19472, sharedSecret: "spec-007-c")
+
+        let result = server.authorizeRegistrationRole("rogue-role")
+        XCTAssertNil(result.role)
+        XCTAssertNil(result.error, "Unknown roles drop silently without error response")
+    }
+
     // MARK: - Transport packet encoding
 
     func testTransportPacketEncodesOriginAndTimestamp() throws {

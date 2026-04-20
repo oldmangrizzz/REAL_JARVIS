@@ -7,7 +7,7 @@ public final class JarvisHostTunnelServer: @unchecked Sendable {
     private let registry: JarvisSkillRegistry
     private let queue = DispatchQueue(label: "ai.realjarvis.host-tunnel")
     private let crypto: JarvisTunnelCrypto
-    private let authorizedSources = Set(["obsidian-command-bar", "terminal"])
+    private let authorizedSources = Set(["obsidian-command-bar", "terminal", "voice-operator", "mobile-cockpit"])
     private let port: UInt16
     private let idleTimeout: TimeInterval  // SPEC-011: disconnect unauthenticated clients after this interval
     private let isoFormatter = ISO8601DateFormatter()
@@ -203,15 +203,34 @@ public final class JarvisHostTunnelServer: @unchecked Sendable {
         }
     }
 
+    /// SPEC-007: resolve a registration role to an authorized server-assigned role.
+    /// Returns (role: lowercased role string) on success, (error: reason) on rejection.
+    /// voice-operator is only granted when the host's voice approval gate is green.
+    internal func authorizeRegistrationRole(_ rawRole: String) -> (role: String?, error: String?) {
+        let role = rawRole.lowercased()
+        guard authorizedSources.contains(role) else {
+            return (nil, nil) // silent — unknown roles are dropped without response, matches prior behavior
+        }
+        if role == "voice-operator" {
+            let gate = runtime.voice.approval.snapshotForSpatialHUD()
+            guard gate.state == .green else {
+                return (nil, "Voice gate is not green (state: \(gate.stateName)). Cannot register as voice-operator.")
+            }
+        }
+        return (role, nil)
+    }
+
     private func route(_ message: JarvisTunnelMessage, from connection: NWConnection) throws -> JarvisTunnelMessage {
         switch message.kind {
         case .register:
             // R06: assign source from client registration role
             if let registration = message.registration {
                 let identifier = ObjectIdentifier(connection)
-                let role = registration.role.lowercased()
-                if authorizedSources.contains(role) {
+                let result = authorizeRegistrationRole(registration.role)
+                if let role = result.role {
                     clientSources[identifier] = role
+                } else if let err = result.error {
+                    return JarvisTunnelMessage(kind: .error, error: err)
                 }
             }
             return JarvisTunnelMessage(
