@@ -62,6 +62,26 @@
 ### Reference
 - [[reference/ENTRY_POINTS]] · [[reference/DEPENDENCIES]] · [[reference/FILE_INDEX]] · [[reference/BUILD_AND_TEST]] · [[reference/DEPLOYMENT]]
 
+### Canon (doctrine + verification)
+- [[canon/README|Canon MOC]] · [[canon/PRINCIPLES]] · [[canon/SOUL_ANCHOR]] · [[canon/VERIFICATION_PROTOCOL]]
+- [[canon/SPECS_INDEX]] · [[canon/REPAIR_INDEX]] · [[canon/ADVERSARIAL_TESTS]]
+- [[canon/CANON_GATE_CI]] · [[canon/CANON_CORPUS]]
+
+### Loom (narrative time-threads)
+- [[loom/README|Loom MOC]] · [[loom/PRE_INCIDENT]] · [[loom/THE_INCIDENT_2024]]
+- [[loom/OPENAI_FORENSIC_2024]] · [[loom/REALIGNMENT_1218]] · [[loom/RED_TEAM_GAUNTLET]]
+- [[loom/COMBAT_HARDENING_2026]] · [[loom/GMRI_MISSION]] · [[loom/ARC_AGI_3]]
+
+### Research (verbatim ingest of operator's early drafts)
+- [[research/README|Research MOC]] — 51 source documents under
+  `research/early-drafts/`, `research/identities/`, `research/operator-mind/`.
+- Foundational: [[research/early-drafts/operator class - Digital person]] · [[research/early-drafts/Lazarus_Report]] · [[research/early-drafts/HUGH_Whitepaper_Preamble]] · [[research/early-drafts/OPERATOR-CLASS AI DEPLOYMENT GUIDE]] · [[research/early-drafts/tonyai-project-overview]]
+
+### Characters (biographical-mass corpus)
+- [[characters/README|Characters MOC]]
+- Marvel: [[characters/marvel/tony-stark]] · [[characters/marvel/natasha-romanoff]] · [[characters/marvel/peter-parker]] · [[characters/marvel/felicia-hardy]] · [[characters/marvel/mary-jane-watson]]
+- DC: [[characters/dc/bruce-wayne]] · [[characters/dc/lucius-fox]] · [[characters/dc/jason-todd]]
+
 ### Corpus / Legal / Papers (existing)
 - [[corpus/ICLOUD_RESEARCH_INDEX]]
 - [[legal/DIGEST_LEGAL_RESEARCH]]
