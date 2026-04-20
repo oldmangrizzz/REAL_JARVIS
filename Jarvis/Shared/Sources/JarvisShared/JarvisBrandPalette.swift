@@ -65,6 +65,24 @@ public struct JarvisBrandPalette: Sendable, Equatable {
         tierLabel: "powered by Companion OS (guest)"
     )
 
+    /// Responder OS — first-responder / field-integration tier. Separate
+    /// visual identity so a medic / firefighter / officer glancing at a
+    /// screen never mistakes it for the domestic Grizz OS or Companion OS
+    /// surface. Blue / white / gold / black per operator direction.
+    ///
+    /// Canvas stays black for night-shift legibility. Chrome is white
+    /// (sterile, high-contrast) rather than silver. Alert stays crimson-
+    /// adjacent but leans into the gold channel for "attention, not panic"
+    /// on a duty device. Accent is duty-blue.
+    public static let responderOS = JarvisBrandPalette(
+        canvasBlackHex: "#05070C",
+        chromeSilverHex: "#F4F6FA",  // sterile white
+        alertCrimsonHex: "#C8102E",  // crimson alert stays constant
+        accentHex: "#0B5FFF",        // duty blue
+        accentGlowHex: "#F2B707",    // gold focus / priority state
+        tierLabel: "powered by Responder OS"
+    )
+
     /// Resolve the right palette for a principal.
     public static func palette(for principal: Principal) -> JarvisBrandPalette {
         switch principal {
