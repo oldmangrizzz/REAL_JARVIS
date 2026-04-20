@@ -50,7 +50,7 @@ jobs:
           EXECUTED=$(grep -Eo 'Executed [0-9]+ tests, with 0 failures' xcodebuild.log | tail -1 | grep -Eo '[0-9]+' | head -1)
           echo "Executed tests: $EXECUTED"
           if [ -z "$EXECUTED" ] || [ "$EXECUTED" -lt 250 ]; then
-            echo "::error::Canon floor violated. Expected >= 213 tests, got $EXECUTED."
+            echo "::error::Canon floor violated. Expected >= 250 tests, got $EXECUTED."
             exit 1
           fi
           echo "Canon floor upheld."
