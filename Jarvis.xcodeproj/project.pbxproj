@@ -151,6 +151,7 @@
 		248F1C134FE002559FDF8828 /* 0186.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9CA6249B3F9541D4C924EF0B /* 0186.wav */; };
 		24AB7D4028127844F96CA6BE /* PresenceDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84CFEAABA97513544491E45 /* PresenceDetector.swift */; };
 		253EAC97E05D50EC74FD3A79 /* AOxFourProbeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E14E823571138F1920AE70 /* AOxFourProbeTests.swift */; };
+		2563C60286EF0CE35BB55C5B /* ContextualRetrievalBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3CD13A0EAB5032437641BE /* ContextualRetrievalBridge.swift */; };
 		258DE4D11095954D09058765 /* BackgroundTasks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 722C8D1473B86AE70B7DD124 /* BackgroundTasks.framework */; };
 		266F5D004B4D69841D69395C /* 0242.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9AFA73CF2F19F42445AC2AE0 /* 0242.wav */; };
 		273B00D4BBCFC88A86BD3E76 /* 0462.wav in Resources */ = {isa = PBXBuildFile; fileRef = 759786BC0BC4A9BD451736DC /* 0462.wav */; };
@@ -512,6 +513,7 @@
 		8D2BC4D27B13A4BDA0E63E26 /* 0370.wav in Resources */ = {isa = PBXBuildFile; fileRef = D6465313AAA6431558726D58 /* 0370.wav */; };
 		8D3B7487D51E8A51439F472D /* JarvisWatchCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA082397C453EDA8A91013FF /* JarvisWatchCore.framework */; };
 		8DB014FB515F9C783179912E /* 0067.wav in Resources */ = {isa = PBXBuildFile; fileRef = 902BF719FBC3FE8AF4284F61 /* 0067.wav */; };
+		8DBD199D2871EAECACB237ED /* ContextualRetrievalBridgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128E49CB0BCB059D8E3CF2A8 /* ContextualRetrievalBridgeTests.swift */; };
 		8DED048214D9F01E88655E4B /* NavigationContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9159012141A35CD3EA053CEE /* NavigationContracts.swift */; };
 		8DF3700BBAE1A1218BF7B5DB /* 0232.wav in Resources */ = {isa = PBXBuildFile; fileRef = F64DF879918BC0443559E80E /* 0232.wav */; };
 		8DFC27E75A1FDFAA78698F9A /* 0390.wav in Resources */ = {isa = PBXBuildFile; fileRef = EE4A357100CC1666BE8AE8A2 /* 0390.wav */; };
@@ -1107,6 +1109,7 @@
 		11172B1046E69BCEC5005F13 /* 0026.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0026.wav; sourceTree = "<group>"; };
 		11AB56A27259406FB56E9054 /* NavigationDesignTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDesignTokens.swift; sourceTree = "<group>"; };
 		1236BF1A11AFE23516A60E3D /* 0199.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0199.wav; sourceTree = "<group>"; };
+		128E49CB0BCB059D8E3CF2A8 /* ContextualRetrievalBridgeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextualRetrievalBridgeTests.swift; sourceTree = "<group>"; };
 		1314D648DB0F646F8AF96258 /* OSINTSourceRegistryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSINTSourceRegistryTests.swift; sourceTree = "<group>"; };
 		141993BF6F8294621D677233 /* TelemetryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetryStore.swift; sourceTree = "<group>"; };
 		14419E6EBAC8DCD81311641E /* 0379.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0379.wav; sourceTree = "<group>"; };
@@ -1481,6 +1484,7 @@
 		794266861411E5A06B163E34 /* 0387.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0387.wav; sourceTree = "<group>"; };
 		7975911DB29BCC3772537501 /* 0582.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0582.wav; sourceTree = "<group>"; };
 		7A2DACD25F1A3FA9E62D3F14 /* 0551.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0551.wav; sourceTree = "<group>"; };
+		7A3CD13A0EAB5032437641BE /* ContextualRetrievalBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextualRetrievalBridge.swift; sourceTree = "<group>"; };
 		7A4971CA5F002920C944BBB7 /* MANIFEST.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MANIFEST.json; sourceTree = "<group>"; };
 		7A5CAE83AB61E06381D954F8 /* 0004.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0004.wav; sourceTree = "<group>"; };
 		7A78875DA495D407D9F5CE34 /* 0337.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0337.wav; sourceTree = "<group>"; };
@@ -3080,6 +3084,7 @@
 		A8FEB2C78380AF22D06FFF58 /* RLM */ = {
 			isa = PBXGroup;
 			children = (
+				7A3CD13A0EAB5032437641BE /* ContextualRetrievalBridge.swift */,
 				AFCCDA87F93B96F821A2B695 /* PythonRLMBridge.swift */,
 				C25989923090F44E3B7B0700 /* rlm_repl.py */,
 			);
@@ -3230,6 +3235,7 @@
 				F34B4A9F7DC6EFD348ABF1CA /* CanonRegistryTests.swift */,
 				B7B2452B4A40A4F23B4F58DA /* CapabilityRegistryTests.swift */,
 				A49A0760E0A4EF86EAA6BD22 /* CompanionCapabilityPolicyTests.swift */,
+				128E49CB0BCB059D8E3CF2A8 /* ContextualRetrievalBridgeTests.swift */,
 				8B8E0004911391BA41A7F9DD /* DisplayCommandExecutorTests.swift */,
 				F9C3B736D3B654245A75B347 /* GreetingOrchestratorTests.swift */,
 				B5E64937FC5B93F705FC3097 /* HarnessTests.swift */,
@@ -4366,6 +4372,7 @@
 				1BC81C1C0AFB547946545058 /* CanonRegistryTests.swift in Sources */,
 				8ABA6C03B299E32A5CD297A6 /* CapabilityRegistryTests.swift in Sources */,
 				2785C20E53CD1231FE67F5BB /* CompanionCapabilityPolicyTests.swift in Sources */,
+				8DBD199D2871EAECACB237ED /* ContextualRetrievalBridgeTests.swift in Sources */,
 				F45B41FF18F2B6B295144702 /* DisplayCommandExecutorTests.swift in Sources */,
 				7F97E234DA2F0F06C6731D61 /* GreetingOrchestratorTests.swift in Sources */,
 				32CE17E0F06A30FCC95E2041 /* HarnessTests.swift in Sources */,
@@ -4410,6 +4417,7 @@
 				62DDAC7A45B11B89F6E64AAE /* CapabilityRegistry.swift in Sources */,
 				7B60D15711F7A7F88826020C /* CommandRateLimiter.swift in Sources */,
 				6F15F639857F2EF099A950CA /* CompanionCapabilityPolicy.swift in Sources */,
+				2563C60286EF0CE35BB55C5B /* ContextualRetrievalBridge.swift in Sources */,
 				FC20A1FB851BEC545B1CC099 /* ConvexTelemetrySync.swift in Sources */,
 				2C75631FB4AE19E08416EA87 /* DestructiveIntentGuard.swift in Sources */,
 				DA190EF5F6C5ABCA5999EADD /* DisplayCommandExecutor.swift in Sources */,

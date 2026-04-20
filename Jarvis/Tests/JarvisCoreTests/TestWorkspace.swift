@@ -112,10 +112,16 @@ func makeTestWorkspace() throws -> WorkspacePaths {
         at: repoRoot.appendingPathComponent("Jarvis/Sources/JarvisCore/RLM/rlm_repl.py"),
         to: root.appendingPathComponent("Jarvis/Sources/JarvisCore/RLM/rlm_repl.py")
     )
-    try FileManager.default.copyItem(
-        at: repoRoot.appendingPathComponent("voice-samples/_originals_dirty/audio-1.mp3"),
-        to: root.appendingPathComponent("audio-1.mp3")
-    )
+    // Optional voice-sample fixture: only copy if the source exists. The
+    // file is not referenced by any test, so a missing source must not fail
+    // workspace setup (voice-samples/_originals_dirty/ is not tracked).
+    let audioSource = repoRoot.appendingPathComponent("voice-samples/_originals_dirty/audio-1.mp3")
+    if FileManager.default.fileExists(atPath: audioSource.path) {
+        try FileManager.default.copyItem(
+            at: audioSource,
+            to: root.appendingPathComponent("audio-1.mp3")
+        )
+    }
 
     let genesisContent = """
     {

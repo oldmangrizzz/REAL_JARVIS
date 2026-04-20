@@ -216,6 +216,21 @@ public final class MemoryEngine {
         )
     }
 
+    /// Pure-read ranked retrieval used by ContextualRetrievalBridge.
+    /// No persistence, no telemetry, no fifo mutation — safe for hot-path retrieval
+    /// before RLM invocation. Returns (node, cosineScore) sorted high→low.
+    public func retrieveRanked(query: String, limit: Int) -> [(node: KnowledgeNode, score: Double)] {
+        lock.lock(); defer { lock.unlock() }
+        guard limit > 0 else { return [] }
+        let queryVector = embed(query)
+        return graph.nodes
+            .map { ($0, cosineSimilarity(lhs: queryVector, rhs: $0.embedding)) }
+            .filter { $0.1 > 0.0 }
+            .sorted { $0.1 > $1.1 }
+            .prefix(limit)
+            .map { (node: $0.0, score: $0.1) }
+    }
+
     public func recordSomaticPath(edge: EdgeKey, weight: Double) throws {
         lock.lock(); defer { lock.unlock() }
         upsert(edge: KnowledgeEdge(
