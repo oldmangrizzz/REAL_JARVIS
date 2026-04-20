@@ -19,10 +19,16 @@ Doctrine: [[concepts/Pheromind]].
 - [[codebase/modules/Oscillator]] — PLV bands → ternary signal.
 - [[codebase/modules/Interface]] — operator intents can deposit.
 - [[codebase/modules/Memory]] — knowledge-graph traversal cost.
+- [[codebase/modules/RLM]] — `ContextualRetrievalBridge.recordOutcome`
+  turns retrieval outcomes into `PheromoneDeposit`s per retrieved path,
+  then delegates to `applyGlobalUpdate` so telemetry is unified (no
+  parallel log path). Closes the retrieval feedback loop: *edges that
+  led to useful memories get reinforced, dead-end edges decay.*
 
 ## Consumers
 - [[codebase/modules/ControlPlane]] — routes workload based on deposits.
 - [[codebase/modules/Harness]] — Archon uses deposits as soft priors.
+- [[codebase/modules/RLM]] — reads current gradient to bias retrieval.
 
 ## Invariants
 - No unbounded growth: deposits decay, edges expire.
