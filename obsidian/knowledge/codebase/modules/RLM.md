@@ -18,6 +18,9 @@ before the Python call.
   - `query(prompt:query:)` — raw pass-through to Python REPL.
   - `queryWithContext(basePrompt:query:retrieval:limit:)` — convenience that runs the bridge's `enrichedPrompt` first, then delegates to `query`. Cold-memory callers get byte-identical behavior.
 - `ContextualRetrievalBridge` — composes `MemoryEngine.retrieveRanked` (pure-read, no side effects) with `PheromindEngine.chooseNextEdge` so recalled memories seed pheromone-favored follow-up edges.
+  - `retrieve(query:limit:)` — pure-read, fuses semantic + stigmergic signals.
+  - `enrichedPrompt(basePrompt:query:limit:)` — formatted prompt header with retrieval context; cold-memory callers get the base prompt unchanged.
+  - `recordOutcome(context:signal:magnitude:agentID:)` — closes the loop. After the RLM observes whether a recalled path helped, the orchestrator deposits pheromone onto every `PheromonePath` in the context (`reinforce` on success, `repel` on failure, `neutral` for pure evaporation). Idempotent w.r.t. the retrieval that produced it — no stale re-amplification. Callers dampen low-confidence signals with a smaller `magnitude`.
 - `RetrievalContext` / `RetrievedMemory` / `PheromonePath` — the structured result.
 
 ## Invariants
@@ -26,7 +29,8 @@ before the Python call.
   cannot initiate calls back into the process.
 - Python side is expected to be a sandboxed child process or
   a network endpoint. Never `eval`.
-- `ContextualRetrievalBridge` performs **no persistence, no telemetry, no FIFO mutation** — it's a pure read fusion across two engines, safe for hot-path RLM invocation.
+- `ContextualRetrievalBridge` performs **no persistence, no telemetry, no FIFO mutation** on `retrieve` / `enrichedPrompt` — pure read fusion across two engines, safe for hot-path RLM invocation.
+- `recordOutcome` is the **only** write surface the bridge exposes; it funnels into `PheromindEngine.applyGlobalUpdate` which already owns telemetry logging (`logStigmergicSignal`) — the bridge adds no parallel telemetry path.
 - `enrichedPrompt()` on cold memory returns the base prompt unchanged, so adding the bridge never changes RLM behavior for callers with empty graphs.
 
 ## NLB relevance

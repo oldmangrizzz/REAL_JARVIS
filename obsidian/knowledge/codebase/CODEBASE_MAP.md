@@ -135,11 +135,11 @@
 |--------|-------|--------------|---------|
 | **Canon** | CanonRegistry.swift | `CanonRegistry` | Index into CANON/ corpus; content-addressed MCU records |
 
-### Host Networking (1 file)
+### Host Networking (3 files)
 
 | Module | Files | Public Types | Purpose |
 |--------|-------|--------------|---------|
-| **Host** | JarvisHostTunnelServer.swift | `JarvisHostTunnelServer` | [[concepts/TinCan-Firewall|TinCan Firewall]] tunnel endpoint; gRPC/protobuf encapsulation (post-CX-006 default auth fix) |
+| **Host** | JarvisHostTunnelServer.swift, TunnelIdentityStore.swift, BiometricIdentityVault.swift | `JarvisHostTunnelServer`, `TunnelIdentityStore`, `BiometricIdentityVault`, `BiometricAuthenticator`, `IdentityKeyStore`, `BiometricVaultError` | [[concepts/TinCan-Firewall\|TinCan Firewall]] tunnel endpoint; server-side `TunnelIdentityStore` holds per-device HMAC keys + privileged-role registry; client-side [[codebase/modules/Host\|BiometricIdentityVault]] mirrors with LAContext-gated Keychain storage (`.biometryCurrentSet` ACL — fresh enrollment invalidates key) and HMAC-SHA256 registration signing matching `TunnelIdentityStore.validate` |
 
 ### Credentials (1 file)
 

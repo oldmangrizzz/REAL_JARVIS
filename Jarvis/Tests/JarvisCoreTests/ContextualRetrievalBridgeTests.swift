@@ -199,4 +199,121 @@ final class ContextualRetrievalBridgeTests: XCTestCase {
         XCTAssertEqual(runtime.memory.mainContext.fifoQueue, baselineFIFO)
         XCTAssertNil(runtime.memory.mainContext.workingContext["lastPagedQuery"])
     }
+
+    // MARK: - recordOutcome feedback loop
+
+    private func seedPheromoneEdges(_ runtime: JarvisRuntime, edges: [(String, String)]) {
+        for (src, dst) in edges {
+            runtime.pheromind.register(edge: EdgeKey(source: src, target: dst))
+        }
+    }
+
+    func testRecordOutcomeReinforceBumpsPheromone() throws {
+        let paths = try makeTestWorkspace()
+        let runtime = try JarvisRuntime(paths: paths)
+        let bridge = makeBridge(runtime)
+
+        let context = RetrievalContext(
+            query: "deploy",
+            semanticMatches: [],
+            pheromonePaths: [
+                PheromonePath(source: "plan", target: "deploy", pheromone: 0.0, somaticWeight: 0.0),
+                PheromonePath(source: "deploy", target: "verify", pheromone: 0.0, somaticWeight: 0.0)
+            ]
+        )
+
+        let deposited = try bridge.recordOutcome(
+            context: context, signal: .reinforce,
+            magnitude: 1.0, agentID: "rlm-test"
+        )
+        XCTAssertEqual(deposited, 2)
+
+        let plan = runtime.pheromind.state(for: EdgeKey(source: "plan", target: "deploy"))
+        let deploy = runtime.pheromind.state(for: EdgeKey(source: "deploy", target: "verify"))
+        XCTAssertNotNil(plan)
+        XCTAssertNotNil(deploy)
+        XCTAssertGreaterThan(plan!.pheromone, 0.0)
+        XCTAssertGreaterThan(deploy!.pheromone, 0.0)
+        XCTAssertEqual(plan!.successCount, 1)
+        XCTAssertEqual(deploy!.successCount, 1)
+    }
+
+    func testRecordOutcomeRepelRaisesFailureCount() throws {
+        let paths = try makeTestWorkspace()
+        let runtime = try JarvisRuntime(paths: paths)
+        let bridge = makeBridge(runtime)
+
+        let context = RetrievalContext(
+            query: "q",
+            semanticMatches: [],
+            pheromonePaths: [
+                PheromonePath(source: "a", target: "b", pheromone: 0.5, somaticWeight: 0.0)
+            ]
+        )
+
+        _ = try bridge.recordOutcome(
+            context: context, signal: .repel,
+            magnitude: 1.0, agentID: "rlm-test"
+        )
+
+        let state = runtime.pheromind.state(for: EdgeKey(source: "a", target: "b"))
+        XCTAssertNotNil(state)
+        XCTAssertEqual(state!.failureCount, 1)
+        XCTAssertEqual(state!.successCount, 0)
+    }
+
+    func testRecordOutcomeOnEmptyContextReturnsZero() throws {
+        let paths = try makeTestWorkspace()
+        let runtime = try JarvisRuntime(paths: paths)
+        let bridge = makeBridge(runtime)
+
+        let empty = RetrievalContext(query: "q", semanticMatches: [], pheromonePaths: [])
+        let count = try bridge.recordOutcome(
+            context: empty, signal: .reinforce,
+            magnitude: 1.0, agentID: "rlm-test"
+        )
+        XCTAssertEqual(count, 0)
+    }
+
+    func testRecordOutcomeZeroMagnitudeIsNoop() throws {
+        let paths = try makeTestWorkspace()
+        let runtime = try JarvisRuntime(paths: paths)
+        let bridge = makeBridge(runtime)
+
+        let context = RetrievalContext(
+            query: "q",
+            semanticMatches: [],
+            pheromonePaths: [
+                PheromonePath(source: "a", target: "b", pheromone: 0.0, somaticWeight: 0.0)
+            ]
+        )
+        let count = try bridge.recordOutcome(
+            context: context, signal: .reinforce,
+            magnitude: 0.0, agentID: "rlm-test"
+        )
+        XCTAssertEqual(count, 0)
+        XCTAssertNil(runtime.pheromind.state(for: EdgeKey(source: "a", target: "b")))
+    }
+
+    func testRecordOutcomeMagnitudeScalesDeposit() throws {
+        let paths = try makeTestWorkspace()
+        let runtime = try JarvisRuntime(paths: paths)
+        let bridge = makeBridge(runtime)
+
+        let ctxA = RetrievalContext(query: "q",
+            semanticMatches: [],
+            pheromonePaths: [PheromonePath(source: "a", target: "b", pheromone: 0.0, somaticWeight: 0.0)]
+        )
+        let ctxB = RetrievalContext(query: "q",
+            semanticMatches: [],
+            pheromonePaths: [PheromonePath(source: "c", target: "d", pheromone: 0.0, somaticWeight: 0.0)]
+        )
+
+        _ = try bridge.recordOutcome(context: ctxA, signal: .reinforce, magnitude: 0.25, agentID: "t")
+        _ = try bridge.recordOutcome(context: ctxB, signal: .reinforce, magnitude: 1.0, agentID: "t")
+
+        let small = runtime.pheromind.state(for: EdgeKey(source: "a", target: "b"))!
+        let large = runtime.pheromind.state(for: EdgeKey(source: "c", target: "d"))!
+        XCTAssertGreaterThan(large.pheromone, small.pheromone)
+    }
 }

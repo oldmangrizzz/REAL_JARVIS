@@ -143,4 +143,40 @@ public final class ContextualRetrievalBridge {
         lines.append(basePrompt)
         return lines.joined(separator: "\n")
     }
+
+    /// Close the loop: deposit pheromone on every edge surfaced in the
+    /// supplied `RetrievalContext`. Called by an RLM orchestrator after it
+    /// observes whether a recalled path helped the answer. `signal` is the
+    /// outcome classifier (reinforce on success, repel on failure,
+    /// neutral to apply passive evaporation only). `magnitude` defaults to
+    /// 1.0; callers can dampen low-confidence signals by passing a smaller
+    /// value.
+    ///
+    /// Returns the number of edges actually deposited on. Edges are looked
+    /// up by the exact `(source, target)` pair reported in the context;
+    /// this makes the call idempotent with respect to the retrieval that
+    /// produced it — no stale-path re-amplification.
+    @discardableResult
+    public func recordOutcome(
+        context: RetrievalContext,
+        signal: TernarySignal,
+        magnitude: Double = 1.0,
+        agentID: String,
+        now: Date = Date()
+    ) throws -> Int {
+        guard !context.pheromonePaths.isEmpty else { return 0 }
+        guard magnitude > 0.0 else { return 0 }
+
+        let deposits = context.pheromonePaths.map { path in
+            PheromoneDeposit(
+                edge: EdgeKey(source: path.source, target: path.target),
+                signal: signal,
+                magnitude: magnitude,
+                agentID: agentID,
+                timestamp: now
+            )
+        }
+        _ = try pheromind.applyGlobalUpdate(deposits: deposits, now: now)
+        return deposits.count
+    }
 }
