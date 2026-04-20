@@ -80,4 +80,73 @@ final class TelemetryPrincipalWitnessTests: XCTestCase {
         XCTAssertEqual(rows[0]["principal"] as? String, "companion:melissa")
         XCTAssertEqual(rows[0]["stepId"] as? String, "spec-009-companion-policy")
     }
+
+    func testAppendWithResponderPrincipalWritesRoleScopedToken() throws {
+        let (store, _) = try makeStore()
+        try store.append(record: ["kind": "event"], to: "witness_test", principal: .responder(role: .emt))
+        let rows = try readLines(store.tableURL("witness_test"))
+        XCTAssertEqual(rows[0]["principal"] as? String, "responder:emt")
+    }
+
+    func testAppendWithGuestPrincipalWritesGuestToken() throws {
+        let (store, _) = try makeStore()
+        try store.append(record: ["kind": "event"], to: "witness_test", principal: .guestTier)
+        let rows = try readLines(store.tableURL("witness_test"))
+        XCTAssertEqual(rows[0]["principal"] as? String, "guest")
+    }
+
+    func testRowHashChainLinksAcrossAppends() throws {
+        let (store, _) = try makeStore()
+        try store.append(record: ["n": 1], to: "chain_test", principal: .operatorTier)
+        try store.append(record: ["n": 2], to: "chain_test", principal: .operatorTier)
+        try store.append(record: ["n": 3], to: "chain_test", principal: .operatorTier)
+        let rows = try readLines(store.tableURL("chain_test"))
+        XCTAssertEqual(rows.count, 3)
+        // Every row has both rowHash and prevRowHash fields.
+        for row in rows {
+            XCTAssertNotNil(row["rowHash"] as? String)
+            XCTAssertNotNil(row["prevRowHash"] as? String)
+        }
+        // row[n].prevRowHash == row[n-1].rowHash forms the chain.
+        XCTAssertEqual(rows[1]["prevRowHash"] as? String, rows[0]["rowHash"] as? String)
+        XCTAssertEqual(rows[2]["prevRowHash"] as? String, rows[1]["rowHash"] as? String)
+        // Chain is tamper-evident: verify returns no break.
+        let report = try store.verifyChain(table: "chain_test")
+        XCTAssertEqual(report.totalRows, 3)
+        XCTAssertEqual(report.hashedRows, 3)
+        XCTAssertNil(report.brokenAt)
+    }
+
+    func testCallerSuppliedRowHashIsStripped() throws {
+        let (store, _) = try makeStore()
+        // Caller attempts to pre-assert hash chain values. Store must
+        // strip them and compute its own, otherwise an attacker could
+        // forge continuity.
+        try store.append(
+            record: ["kind": "event", "rowHash": "DEADBEEF", "prevRowHash": "DEADBEEF"],
+            to: "witness_test",
+            principal: .operatorTier
+        )
+        let rows = try readLines(store.tableURL("witness_test"))
+        XCTAssertNotEqual(rows[0]["rowHash"] as? String, "DEADBEEF")
+        XCTAssertNotEqual(rows[0]["prevRowHash"] as? String, "DEADBEEF")
+        XCTAssertEqual((rows[0]["rowHash"] as? String)?.count, 64)
+    }
+
+    func testSecondStoreInstanceResumesChainFromTail() throws {
+        let (store1, paths) = try makeStore()
+        try store1.append(record: ["n": 1], to: "resume_test", principal: .operatorTier)
+        try store1.append(record: ["n": 2], to: "resume_test", principal: .operatorTier)
+
+        // New store instance on same paths must pick the chain back up
+        // from the tail rowHash rather than restarting at genesis.
+        let store2 = try TelemetryStore(paths: paths)
+        try store2.append(record: ["n": 3], to: "resume_test", principal: .operatorTier)
+
+        let rows = try readLines(store2.tableURL("resume_test"))
+        XCTAssertEqual(rows.count, 3)
+        XCTAssertEqual(rows[2]["prevRowHash"] as? String, rows[1]["rowHash"] as? String,
+                       "second store must resume chain from tail, not reset to genesis")
+        XCTAssertNil(try store2.verifyChain(table: "resume_test").brokenAt)
+    }
 }
