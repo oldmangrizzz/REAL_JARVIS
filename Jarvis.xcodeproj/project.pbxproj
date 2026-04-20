@@ -262,6 +262,7 @@
 		4A119EE2549ABF7132A3C047 /* 0166.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0ECE6BC42A938718D1FEF04C /* 0166.wav */; };
 		4A2C2FBE5C435A356E3F36F0 /* 0227.wav in Resources */ = {isa = PBXBuildFile; fileRef = 006462205776CF6696466DE2 /* 0227.wav */; };
 		4A5613B33F2326A08AB04783 /* VoiceSynthesis.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0A43D1EFAC02D0BD3039FC /* VoiceSynthesis.swift */; };
+		54CDD16E57AF468BA819BBBB /* JarvisVoiceHTTPBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843CCAE6F7C04D2BAEEE2661 /* JarvisVoiceHTTPBridge.swift */; };
 		4A84FCC32BB9CA7519EC80B4 /* 0257.wav in Resources */ = {isa = PBXBuildFile; fileRef = 57FEA32936E8B60ED8B088AC /* 0257.wav */; };
 		4AB9EA535D6080913676374B /* 0179.wav in Resources */ = {isa = PBXBuildFile; fileRef = C0EC927260F2F73318937D5E /* 0179.wav */; };
 		4AD301A0A470A335F2F887F1 /* 0088.wav in Resources */ = {isa = PBXBuildFile; fileRef = A028F582FA0E7CF04D23FBB5 /* 0088.wav */; };
@@ -1647,6 +1648,7 @@
 		ADEAB007E23E34FE5761E432 /* 0064.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0064.wav; sourceTree = "<group>"; };
 		ADF89C2C3C9216B63F3624C3 /* 0113.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0113.wav; sourceTree = "<group>"; };
 		AE0A43D1EFAC02D0BD3039FC /* VoiceSynthesis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceSynthesis.swift; sourceTree = "<group>"; };
+		843CCAE6F7C04D2BAEEE2661 /* JarvisVoiceHTTPBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarvisVoiceHTTPBridge.swift; sourceTree = "<group>"; };
 		AE30E25724168D591AE2E442 /* 0474.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0474.wav; sourceTree = "<group>"; };
 		AF331C558FD49907AD2CAFE2 /* audio-9.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "audio-9.wav"; sourceTree = "<group>"; };
 		AFCCDA87F93B96F821A2B695 /* PythonRLMBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PythonRLMBridge.swift; sourceTree = "<group>"; };
@@ -2083,6 +2085,7 @@
 				9AA6EFDB3F7353BD2CF07C90 /* VoiceApprovalGate.swift */,
 				1FB9D855233D5CDB85E4BAC6 /* VoiceGateTelemetryRecording.swift */,
 				AE0A43D1EFAC02D0BD3039FC /* VoiceSynthesis.swift */,
+				843CCAE6F7C04D2BAEEE2661 /* JarvisVoiceHTTPBridge.swift */,
 			);
 			path = Voice;
 			sourceTree = "<group>";
@@ -4417,6 +4420,7 @@
 				95A8056907E491790395831A /* VoiceApprovalGate.swift in Sources */,
 				C5F5E091DC9C9ADD3AA65754 /* VoiceGateTelemetryRecording.swift in Sources */,
 				4A5613B33F2326A08AB04783 /* VoiceSynthesis.swift in Sources */,
+				54CDD16E57AF468BA819BBBB /* JarvisVoiceHTTPBridge.swift in Sources */,
 				90383BBDE30FC7EABD4C0B68 /* WiFiEnvironmentScanner.swift in Sources */,
 				A74D86A5371C569656281A1D /* WorkspacePaths.swift in Sources */,
 			);

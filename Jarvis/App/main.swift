@@ -1,5 +1,6 @@
 import Foundation
 import JarvisCore
+import Security
 
 struct JarvisCLI {
     static func main() {
@@ -27,8 +28,18 @@ struct JarvisCLI {
                 let interface = RealJarvisInterface(runtime: runtime)
                 try interface.start(registry: registry)
             case "start-host-tunnel", "host-tunnel":
-                let server = JarvisHostTunnelServer(runtime: runtime, registry: registry)
+                let secret = try resolveTunnelSecret(paths: paths)
+                let server = JarvisHostTunnelServer(runtime: runtime, registry: registry, sharedSecret: secret)
                 try server.run()
+            case "start-voice-bridge", "voice-bridge":
+                // Lightweight HTTP front for the approved voice pipeline so
+                // Obsidian (desktop + iOS/iPadOS) can read notes aloud in
+                // the Jarvis-ratified voice.
+                let portOverride = arguments.dropFirst().first.flatMap { UInt16($0) }
+                let bridge = JarvisVoiceHTTPBridge(runtime: runtime, port: portOverride ?? 8787)
+                try bridge.start()
+                FileHandle.standardError.write(Data("[voice-bridge] listening on :\(portOverride ?? 8787) — bearer=\(bridge.bearerToken)\n".utf8))
+                RunLoop.current.run()
             case "sync-control-plane", "control-plane":
                 try printJSON(runtime.controlPlane.dashboardJSON())
             case "reseed-obsidian":
@@ -80,6 +91,28 @@ struct JarvisCLI {
         }
     }
 
+    private static func resolveTunnelSecret(paths: WorkspacePaths) throws -> String {
+        if let env = ProcessInfo.processInfo.environment["JARVIS_TUNNEL_SECRET"],
+           !env.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            return env.trimmingCharacters(in: .whitespacesAndNewlines)
+        }
+        let fm = FileManager.default
+        let dir = paths.storageRoot.appendingPathComponent("storage/tunnel", isDirectory: true)
+        try fm.createDirectory(at: dir, withIntermediateDirectories: true, attributes: [.posixPermissions: 0o700])
+        let file = dir.appendingPathComponent("secret")
+        if fm.fileExists(atPath: file.path),
+           let raw = try? String(contentsOf: file, encoding: .utf8) {
+            let trimmed = raw.trimmingCharacters(in: .whitespacesAndNewlines)
+            if !trimmed.isEmpty { return trimmed }
+        }
+        var bytes = [UInt8](repeating: 0, count: 32)
+        _ = bytes.withUnsafeMutableBytes { SecRandomCopyBytes(kSecRandomDefault, $0.count, $0.baseAddress!) }
+        let secret = "jarvis-" + bytes.map { String(format: "%02x", $0) }.joined()
+        try secret.write(to: file, atomically: true, encoding: .utf8)
+        try fm.setAttributes([.posixPermissions: 0o600], ofItemAtPath: file.path)
+        return secret
+    }
+
     private static func resolvePromptText(arguments: [String]) throws -> String {
         guard arguments.count >= 2 else {
             throw JarvisError.invalidInput("Usage: Jarvis repl <prompt-text|prompt-file>")
@@ -120,6 +153,7 @@ struct JarvisCLI {
           Jarvis repl <prompt-text|prompt-file>
           Jarvis start-interface
           Jarvis start-host-tunnel
+          Jarvis start-voice-bridge [port]
           Jarvis sync-control-plane
           Jarvis reseed-obsidian
           Jarvis self-heal

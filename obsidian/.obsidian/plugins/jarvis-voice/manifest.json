@@ -1,0 +1,10 @@
+{
+  "id": "jarvis-voice",
+  "name": "Jarvis Voice",
+  "version": "0.1.0",
+  "minAppVersion": "1.4.0",
+  "description": "Read notes aloud through the Jarvis-ratified voice (SOUL_ANCHOR). Requires a running Jarvis voice bridge (jarvis start-voice-bridge). Works on desktop and mobile.",
+  "author": "GMRI / GrizzlyMedicine Research Institute",
+  "authorUrl": "https://github.com/oldmangrizzz/REAL_JARVIS",
+  "isDesktopOnly": false
+}
