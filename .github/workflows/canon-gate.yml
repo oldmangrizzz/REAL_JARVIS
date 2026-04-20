@@ -42,14 +42,14 @@ jobs:
             test 2>&1 | tee xcodebuild.log
       - name: Enforce canon floor
         run: |
-          # Floor: at least 213 tests must execute (SPEC-004/007/008/009 +
+          # Floor: at least 218 tests must execute (SPEC-004/007/008/009 +
           # destructive-intent guard + tunnel identity + companion tier +
           # principal-witnessed telemetry + presence-principal model +
           # adversarial canon). Floor rises as new canon work lands. Never
           # decrease.
           EXECUTED=$(grep -Eo 'Executed [0-9]+ tests, with 0 failures' xcodebuild.log | tail -1 | grep -Eo '[0-9]+' | head -1)
           echo "Executed tests: $EXECUTED"
-          if [ -z "$EXECUTED" ] || [ "$EXECUTED" -lt 213 ]; then
+          if [ -z "$EXECUTED" ] || [ "$EXECUTED" -lt 218 ]; then
             echo "::error::Canon floor violated. Expected >= 213 tests, got $EXECUTED."
             exit 1
           fi

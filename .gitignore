@@ -8,6 +8,7 @@ secrets/
 *_private.*
 .jarvis/soul_anchor/private/
 .jarvis/soul_anchor/rotations.private.jsonl
+.jarvis/secrets/
 
 # System
 .DS_Store
