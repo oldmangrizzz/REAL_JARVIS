@@ -6,9 +6,9 @@ Two sub-teams working in parallel on the Real Jarvis navigation arc while the co
 
 | Model | Scope | Spec | Response |
 |---|---|---|---|
-| **GLM** | Navigation engine (tiles, routing, OSINT adapters, pre-search) | `GLM/spec/NAV-001-universal-navigation-engine.md` | `GLM/response/NAV-001-response.md` |
-| **Qwen** | UI/UX surfaces (iOS map, CarPlay HUD, PWA, Unity, briefing) | `Qwen/spec/UX-001-navigation-surfaces.md` | `Qwen/response/UX-001-response.md` |
-| **DeepSeek** | Voice pipeline (F5-TTS swap, server deploy, re-audition workflow) | `DeepSeek/spec/VOICE-001-f5-tts-swap.md` | `DeepSeek/response/VOICE-001-response.md` |
+| **GLM** | Navigation engine (tiles, routing, OSINT adapters, pre-search) | Design: `GLM/spec/NAV-001-universal-navigation-engine.md`<br>Active PR: `GLM/spec/NAV-001-EXECUTE-PR1.md` | Plan: `GLM/response/NAV-001-response.md` ✅<br>PR1 code: `GLM/response/NAV-001-EXECUTE-PR1.md` ⏳ |
+| **Qwen** | UI/UX surfaces (iOS map, CarPlay HUD, PWA, Unity, briefing) | `Qwen/spec/UX-001-navigation-surfaces.md` | `Qwen/response/UX-001-response.md` ⏳ |
+| **DeepSeek** | Voice pipeline (F5-TTS swap, server deploy, re-audition workflow) | `DeepSeek/spec/VOICE-001-f5-tts-swap.md` | `DeepSeek/response/VOICE-001-response.md` ⏳ |
 
 ## Rules of engagement
 
@@ -31,6 +31,19 @@ Two sub-teams working in parallel on the Real Jarvis navigation arc while the co
 ## Status
 
 - Specs landed: 2026-04-20
-- GLM response: _pending_
-- Qwen response: _pending_
+- GLM NAV-001 plan: **accepted** (507-line design, 6-PR sequence)
+- GLM NAV-001-EXECUTE-PR1: _pending execution_ (OQ rulings answered, ships `MapTileProvider` + `TileProviderOrchestrator` + 9 tests)
+- Qwen UX-001 response: _pending_ — Phase A (tokens) unblocked, Phase B+ waits on GLM PR1 type freeze
+- DeepSeek VOICE-001 response: _pending_ (F5-TTS server deploy + re-audition)
 - Third track (operator + primary agent): logic/policy/cognition, continues in `Jarvis/Sources/**`
+
+## Dependency map
+
+```
+GLM PR1 (MapTileProvider) ──► Qwen Phase B (NavigationMapView)
+GLM PR2 (RoutingProfile)  ──► Qwen Phase B routing UI
+GLM PR4 (HazardOverlay)   ──► Qwen Phase B hazard layers
+GLM PR5 (SceneBriefing)   ──► Qwen Phase E briefing card
+Qwen Phase A (tokens)     ──► independent, ships anytime
+DeepSeek VOICE-001        ──► independent, ships anytime
+```

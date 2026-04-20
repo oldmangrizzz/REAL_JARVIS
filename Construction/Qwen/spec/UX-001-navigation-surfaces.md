@@ -4,7 +4,18 @@
 **Scope owner:** Real Jarvis / Jarvis iOS+CarPlay+PWA+Unity
 **Response path:** `Construction/Qwen/response/UX-001-response.md`
 **Parallel spec:** `Construction/GLM/spec/NAV-001-universal-navigation-engine.md` (engine — do not overlap)
-**Canon floor:** 250 tests, Swift 5.9+, SwiftPM + Xcode workspace
+**GLM active PR:** `Construction/GLM/spec/NAV-001-EXECUTE-PR1.md` — GLM is shipping `MapTileProvider` + `TileProviderOrchestrator` now. Your Phase B surfaces consume that protocol.
+**Canon floor:** 250 tests, Swift 6 strict concurrency, SwiftPM + Xcode workspace
+
+## Coordination with GLM (read first)
+
+- **Contract boundary:** GLM defines `MapTileProvider`, `HazardOverlayFeature`, `SceneBriefing`, `RoutingProfile`. You consume them. You do NOT redeclare these types.
+- **GLM PR schedule:** PR1 (tiles) → PR2 (router core) → PR3 (profiles) → PR4 (OSINT adapters + `HazardOverlayFeature`) → PR5 (`SceneBriefing`) → PR6 (pheromind).
+- **Qwen unblocked NOW:** Phase A (design tokens) has zero GLM dependency. Ship Phase A first — it's what GLM's tile providers need for styling anyway.
+- **Phase B (Map surface) is GLM-PR1-dependent.** You can design the SwiftUI view hierarchy and component boundaries in parallel, but the `MapTileProvider` protocol shape is authoritative from GLM's PR1. Do not guess the protocol; wait for GLM's `NAV-001-EXECUTE-PR1` response to freeze the types.
+- **Phases C–E (HUD, PWA, Unity, Briefing):** design work only for now. No implementation until GLM PR2/PR4/PR5 lands the types you consume.
+
+---
 
 ---
 
