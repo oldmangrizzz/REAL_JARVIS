@@ -35,3 +35,4 @@ voice-samples/
 
 # Vendored third-party source (re-fetch via swift PM)
 vendor/
+.jarvis/voice-bridge.env
