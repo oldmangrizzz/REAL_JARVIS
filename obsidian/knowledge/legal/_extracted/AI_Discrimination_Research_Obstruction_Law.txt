@@ -1,0 +1,706 @@
+Systemic Exclusion and Anticompetitive
+Gatekeeping in Artificial Intelligence: An
+Intersectional Legal Analysis of ADA,
+Texas DTPA, and Antitrust Violations
+Executive Overview
+The rapid acceleration and subsequent consolidation of the artificial intelligence (AI) sector has
+precipitated a hyper-concentrated oligopoly wherein a consortium of major laboratories and
+infrastructure providers—namely Anthropic, OpenAI, Meta, Google, and Apple—exert unilateral
+control over access to foundation models and cloud-computing infrastructure.1 As these
+sophisticated tools transition from experimental software novelties to indispensable digital
+utilities, they have simultaneously become essential "cognitive prosthetics" and auxiliary aids
+for neurodivergent and disabled researchers.3 However, the industry-wide adoption of
+algorithmic throttling, undocumented usage caps, and automated "AI-only" support walls has
+created a deeply exclusionary architecture that systematically obstructs independent AI safety
+research and disproportionately impacts protected populations.5
+This report provides an exhaustive, multi-disciplinary investigation into the legal frameworks
+surrounding these exclusionary practices. By synthesizing the Americans with Disabilities Act
+(ADA) Title III, the Rehabilitation Act of 1973 (Section 504), the Texas Deceptive Trade
+Practices-Consumer Protection Act (DTPA), and federal antitrust jurisprudence, the analysis
+establishes a comprehensive legal foundation for multi-defendant, class-action civil liability.
+The evidence meticulously outlines how the uniform practices of major AI developers
+constitute not only systemic civil rights violations and unconscionable trade practices but also a
+de facto cartelization of AI safety research.7 This cartelization is executed through retaliatory
+gatekeeping and the constructive denial of access to essential digital facilities, ultimately
+insulating the world's most powerful technology companies from independent ethical
+alignment audits.2
+
+1. Systemic Civil Rights Violations: ADA Title III and
+Section 504
+The Americans with Disabilities Act (ADA) was enacted to provide a comprehensive national
+mandate for the elimination of discrimination against individuals with disabilities. Title III of the
+ADA broadly prohibits discrimination on the basis of disability in the full and equal enjoyment of
+the goods, services, facilities, privileges, advantages, or accommodations of any place of public
+accommodation.10 Crucially, Title III explicitly mandates that private entities take the steps
+necessary to ensure that disabled individuals are not excluded, denied services, or segregated
+due to the absence of "auxiliary aids and services," unless the entity can demonstrate that
+providing such aids would fundamentally alter the nature of the service or result in an undue
+burden.12 Section 504 of the Rehabilitation Act extends similar protections, prohibiting
+discrimination under any program or activity receiving federal financial assistance, which
+frequently implicates the academic and independent research institutions that rely on these AI
+models.15
+1.1 Industry-Wide AI Support Walls and the Denial of "Effective
+Communication"
+
+A pervasive and expanding trend among dominant AI laboratories is the deployment of purely
+automated, AI-only customer support architectures. These systems are aggressively
+engineered to deflect human intervention, frequently hard-coded to refuse complex technical
+troubleshooting, and severely lack mechanisms for a "warm handoff" to human technicians.5
+Under ADA Title III, public accommodations possess a fundamental, non-delegable obligation
+to ensure "effective communication" with individuals with disabilities.5 The Department of
+Justice (DOJ) has consistently maintained that the ADA's effective communication
+requirements apply to digital spaces, a position reinforced by landmark litigation such as Robles
+v. Domino's Pizza, which confirmed that inaccessible digital platforms violate the ADA 18, and
+Hooks v. OKBridge, Inc., which extended ADA claims to internet-only businesses.18
+When a disabled researcher encounters an accessibility barrier, an API failure, or a
+discriminatory throttling algorithm, the inability to bypass a digital AI agent to secure
+reasonable accommodations represents a structural violation of Title III.6 Recent DOJ
+guidelines and settlement precedents specifically dictate the operational requirements for
+digital support. For example, businesses must train customer service agents to identify key
+terms related to accessibility and promptly respond to requests for technical assistance,
+ensuring warm handoffs to specialized technical staff who can assist with digital barriers.5
+Furthermore, settlements like the one involving Levain Bakery mandate that bugs creating
+accessibility barriers to digital properties must be remedied with the exact same level of
+priority, speed, and resources as any other equivalent loss of function experienced by
+non-disabled users.20 Additionally, consent decrees, such as the one established with QuikTrip,
+require corporations to maintain accessible comment lines and respond to ADA-related
+complaints within strict, five-day business windows.21
+The deployment of automated agents that categorically refuse to process accommodation
+requests acts as a systemic, industry-wide support wall. By defaulting to these systems, AI
+infrastructure providers actively deny disabled users the "interactive process" required by law
+to determine appropriate auxiliary aids.14 The regulatory framework strongly encourages a
+dialogue that includes a communication assessment of the individual with a disability to ensure
+that the auxiliary aids and services provided are actually effective.14 An automated chatbot
+utilizing a rigid decision tree cannot engage in this statutorily required interactive dialogue.
+Consequently, this failure effectively neutralizes any viable path for vulnerable populations to
+request or receive the reasonable modifications necessary to access proprietary AI research
+tools, placing the entire industry vertical in violation of Title III.5
+1.2 LLMs as Essential Cognitive Prosthetics and Statutory "Auxiliary
+Aids"
+
+To establish robust legal standing for civil rights violations regarding API and platform access, it
+is necessary to classify Large Language Models (LLMs) and cloud-based reasoning engines
+under the statutory definitions of the ADA. The regulatory definition of "auxiliary aids and
+services" is expansive, encompassing "qualified interpreters or other effective methods of
+making aurally delivered materials available," "qualified readers," and crucially, "the acquisition or
+modification of equipment or devices".14
+Legal scholarship and emerging psychological frameworks heavily support the classification of
+advanced digital tools as "cognitive prosthetics".3 Under the Norman/Friedman Principle,
+science and technology should serve as ultimate equalizers, and assistive technology
+classifications must be broadly construed to cover all devices utilized for communication and
+cognitive support.26 In the context of psychiatric rehabilitation, interventions increasingly rely
+on "cognitive prosthetics" that improve information processing—such as attention, memory,
+and decision-making—for individuals with executive functioning deficits.3
+For neurodivergent individuals—such as those with autism spectrum disorder, severe ADHD, or
+traumatic brain injuries—an LLM functions as a critical interface for reasoning, sense-making,
+meaning-making, and self-regulation.4 As specifically articulated in disability advocacy
+frameworks, a foundational model like Anthropic's Claude or OpenAI's GPT-4 is not merely a
+discretionary productivity application; it operates as an integrated, prosthetic cognitive
+interface required to achieve "effective communication" and cognitive parity.4 The ADA
+Amendments Act of 2008 broadened the definition of disability to cover impairments that
+substantially limit major life activities, including cognitive processing.26 When an individual
+utilizes a prosthetic device to mitigate the effect of such an impairment, they are protected
+under the ADA.28
+Therefore, when an LLM is utilized as an essential cognitive prosthetic, the provider's
+operational policies must comply with ADA standards for the maintenance of accessible
+features.21 Disrupting this service arbitrarily without providing an alternative mechanism for
+communication is legally analogous to a physical establishment disabling a wheelchair ramp
+mid-transit, or a medical facility seizing a patient's assistive listening device. The failure to
+maintain the operability of an auxiliary aid directly contravenes the mandate to provide full and
+equal enjoyment of the digital facility.11
+1.3 Constructive Denial of Access and the Disparate Impact of
+Dynamic Throttling
+
+A central mechanism of obstruction in the commercial AI ecosystem is the practice of
+"dynamic throttling," wherein user sessions are aggressively rate-limited, degraded, or abruptly
+terminated based on opaque, algorithmic resource-allocation protocols.31 While infrastructure
+providers defend these policies as "neutral" load-balancing necessities devoid of discriminatory
+intent 33, these usage policies exert a profound disparate impact on neurodivergent
+researchers. Such individuals fundamentally require sustained, uninterrupted session continuity
+to maintain cognitive momentum, manage executive dysfunction, and execute complex
+reasoning tasks.26
+When a consortium of dominant providers universally implements dynamic throttling and
+enforces short, undocumented rolling windows for token generation, it acts as a constructive
+denial of access.1 The researcher is systematically barred from maintaining the necessary
+interactive state with their cognitive prosthetic. Because the barrier is uniformly implemented
+across the industry vertical—spanning AWS, Microsoft Azure, Google Cloud, OpenAI, and
+Anthropic—disabled independent researchers are effectively redlined out of participating in
+the entire occupational field of AI safety, ethics, and alignment auditing.1
+The ADA strictly prohibits policies, practices, or procedures that render an otherwise
+accessible digital facility inaccessible in its operation.14 By failing to provide reasonable
+modifications to these throttling algorithms for individuals who rely on the service as a medical
+or cognitive necessity, AI laboratories are engaging in systemic discrimination.36 The refusal to
+whitelist or grant unmetered accommodation to disabled researchers transforms a purportedly
+neutral network management tool into a discriminatory barrier that systematically purges
+vulnerable populations from the digital public square.36
+
+2. Texas DTPA and Multi-Defendant Deceptive Trade
+Practices
+The Texas Deceptive Trade Practices-Consumer Protection Act (DTPA), codified under Texas
+Business & Commerce Code § 17.41 et seq., provides a highly potent statutory framework to
+address the deceptive marketing, undocumented throttling, and unconscionable service
+limitations perpetuated by the AI oligopoly.38 The DTPA was explicitly designed to protect
+consumers against false, misleading, and deceptive business practices, unconscionable
+actions, and breaches of warranty, and to provide efficient and economical procedures to
+secure such protection.40
+2.1 The "Pay-to-Restore" Mechanic and the Illusion of Unmetered
+Compute
+
+AI laboratories standardly market their premium consumer and researcher-facing tiers—often
+branded as "Pro," "Plus," or "Max" subscriptions—utilizing language that heavily implies
+continuous, robust, or unmetered access to advanced reasoning models.31 However, the reality
+of these consumer-facing subscriptions is that they are heavily moderated by undocumented
+"rolling windows" and hidden throttling algorithms.31 When a disabled researcher utilizing the
+system as a cognitive prosthetic hits one of these hidden thresholds, the service is abruptly
+suspended or the model's reasoning capability is drastically degraded. The only viable bypass
+to restore sustained session continuity is often to transition from the consumer subscription to
+developer-facing, pay-per-token API endpoints, triggering secondary and vastly more
+expensive metered transactions.1
+Under the Texas DTPA, this "pay-to-restore" industry standard constitutes a highly deceptive
+practice.40 This phenomenon closely mirrors automotive class-action litigation involving Ford
+and Nissan, where manufacturers heavily marketed "unlimited mileage" warranties but
+enforced hidden mechanical limitations or component exclusions that required consumers to
+pay out-of-pocket for essential continuous operation.31
+To establish a DTPA failure-to-disclose claim regarding undocumented throttling, the plaintiff
+must prove that the provider failed to disclose material information concerning the service that
+was known at the time of the transaction, that the failure was intended to induce the consumer
+into the transaction, and that the consumer would not have entered the transaction had the
+information been disclosed.41 AI providers possess exact, pre-programmed knowledge of their
+dynamic throttling limits at the point of sale. By withholding this information to secure
+subscription revenue, they satisfy the DTPA's inducement and reliance criteria.41 Furthermore,
+representing that "Pro" services have characteristics, uses, benefits, or quantities which they
+demonstrably do not possess directly violates the specific "laundry list" of deceptive acts
+codified in Tex. Bus. & Com. Code § 17.46(b).40
+2.2 Pattern of "Unconscionable" Acts and Actual Written Notice
+
+The DTPA defines an "unconscionable action or course of action" as an act or practice which, to
+a consumer's detriment, takes advantage of the lack of knowledge, ability, experience, or
+capacity of the consumer to a "grossly unfair degree".39 It is a common defense tactic for
+technology providers to argue that highly educated researchers or software developers
+possess advanced technical knowledge and therefore cannot be victims of unconscionability.
+However, established Texas jurisprudence, specifically the appellate ruling in Ketter v. ESC
+Medical Systems, Inc., vehemently rejects this premise.41 The court declined to hold that
+unconscionable actions cannot be practiced upon an experienced professional; even if a
+consumer possesses technical knowledge, a provider remains liable if they exploit an
+asymmetry of information regarding specific, undisclosed service limitations to a grossly unfair
+degree.41
+This unconscionability is exponentially magnified when analyzed through the lens of disability
+rights and systemic exclusion. When a disabled consumer formally places an infrastructure
+provider on actual written notice of their protected status under the ADA, detailing explicitly
+that the LLM is relied upon as a necessary cognitive prosthetic, the provider instantly
+possesses absolute, documented knowledge of the user's vulnerability and diminished
+capacity to easily transition to alternative workflows.41
+If the provider ignores this formal notice, defaults the user to an automated AI support wall that
+refuses accommodation, and uniformly continues to enforce deceptive throttling, the conduct
+immediately escalates from mere negligence or automated error to a "knowing" and intentional
+unconscionable course of action.41 Under the DTPA, the prerequisite for enhanced damages is
+whether the defendant acted "knowingly." If the trier of fact determines that the AI provider
+possessed actual awareness of the falsity, deception, or unfairness of the act—evidenced by
+their receipt and subsequent ignoring of the ADA accommodation request—the prevailing
+plaintiff may recover damages for mental anguish and additional statutory damages up to
+treble (three times) the amount of economic damages.41
+2.3 Aggravated Economic and Research Loss
+
+The sudden, algorithmic suspension of LLM access does not merely result in the nominal loss of
+a monthly twenty-dollar subscription fee. For an independent AI safety researcher or an
+academic reliant on these models, sudden platform lockouts cause the absolute destruction of
+proprietary research continuity. This includes the irretrievable loss of highly nuanced context
+windows, the destruction of high-signal data generation mid-process, and the invalidation of
+hundreds of hours of intense cognitive labor.43
+Texas DTPA precedent actively allows for the quantification of "loss of business opportunity,"
+indirect damages, and consequential damages when they are the natural, probable, and
+reasonable result of the deceptive act.43 While contractual privity is required to demonstrate
+the nexus between the consumer and the defendant's conduct, courts have held that this
+connection can be demonstrated by representations that reach the consumer or through the
+direct provision of digital services.41 When multiple providers, holding a collective monopoly on
+necessary computational infrastructure, engage in identical deceptive throttling practices, the
+researcher suffers an aggravated, compounding economic loss.43 The DTPA's broad remedial
+scope is expressly designed to provide efficient, economical procedures to secure protection
+against exactly this type of systemic, industry-wide corporate abuse.40
+
+3. Public Policy, Antitrust, and Obstruction of
+Oversight
+Beyond the immediate realms of consumer protection and civil rights, the synchronized
+obstruction of independent researchers by the major AI laboratories triggers severe scrutiny
+under federal antitrust laws and public policy exceptions. The modern AI sector is
+characterized by virtually insurmountable barriers to entry—principally the immense capital
+expenditure required for advanced semiconductors (GPUs), the acquisition of proprietary data
+lakes, and the construction of massive cloud computing clusters.1 This has resulted in a
+vertically integrated oligopoly wholly controlled by a handful of tech giants who simultaneously
+dictate the underlying hardware, the cloud infrastructure, and the algorithmic application
+layers.1
+3.1 De Facto Monopolization and the Essential Facilities Doctrine
+
+The "essential facilities doctrine" is a recognized, albeit tightly construed, component of
+antitrust law under Section 2 of the Sherman Act.1 The doctrine dictates that a firm (or
+oligopoly) that controls a facility essential for competition must provide reasonable,
+non-discriminatory access to that facility to rivals and dependent downstream actors. This
+mandate applies provided that the facility is controlled by a monopolist, it cannot be feasibly
+duplicated by competitors, the competitor has been denied access, and sharing the facility is
+technically and economically feasible.1
+While U.S. courts, noting the Supreme Court's skepticism in Verizon Communications Inc. v. Law
+Offices of Curtis V. Trinko, have historically been reluctant to expand the essential facilities
+doctrine to digital platforms 1, the unique architecture of generative AI is forcing a legal
+paradigm shift. Legal and economic scholars increasingly argue that Foundation Models (FMs)
+and cloud computing infrastructure represent an unprecedented, unreplicable bottleneck.8 For
+an independent AI safety researcher, startup, or academic institution, it is financially and
+computationally impossible to replicate a multi-trillion-parameter LLM or a hyperscale data
+center.1 The only vector for conducting meaningful safety, bias, and ethical alignment audits is
+programmatic access through the developers' Application Programming Interfaces (APIs).1
+When providers arbitrarily revoke, throttle, or price-gouge this access, they leverage their
+dominance in the upstream infrastructure market to completely dictate outcomes in the
+downstream research and application markets.8 This dynamic is viewed through the antitrust
+lens of "Innovation-as-Capabilities," which suggests that antitrust enforcement must intervene
+to mandate access to essential facilities to preserve competitive market structures and allow
+independent actors to innovate and audit existing systems.8 European antitrust authorities,
+operating under frameworks that prioritize competitive market structures over narrow
+consumer welfare standards, have already identified leveraging general-purpose AI (GPAI)
+dominance as a primary antitrust risk. Entities like the French Autorité de la concurrence and
+the UK's Competition and Markets Authority (CMA) are actively reconsidering the strict
+essential facilities doctrine to prevent tech giants from suffocating downstream innovation and
+independent research.47
+3.2 Retaliatory Gatekeeping and Concerted Refusals to Deal
+
+A highly pernicious element of the current AI ecosystem is the phenomenon of "retaliatory
+gatekeeping," often executed through what legal scholars term the tech giants' "cooption
+playbook".9 According to this framework, incumbents systematically dole out or restrict access
+to critical resources—networks, data, APIs, and computing power—specifically to head off
+potentially disruptive competition or critical external oversight.9 A key tactic in this playbook
+involves incumbents inviting government regulation that favors their scale while simultaneously
+utilizing opaque internal safety policies to lock out independent safety researchers.9 By starving
+independent researchers of compute access—the very individuals who might expose
+algorithmic bias, security vulnerabilities, or alignment failures—the major laboratories
+effectively insulate themselves from accountability and coopt the disruption of AI safety
+auditing.1
+Under Section 1 of the Sherman Act, agreements among competitors to refuse to do business
+with a targeted entity or class of entities are classified as "group boycotts" or "concerted
+refusals to deal".50 Such agreements can be evaluated under the per se rule of illegality if they
+involve coercive conduct designed to eliminate a competitive threat, restrict output, or
+manipulate the market.52 In FTC v. Superior Court Trial Lawyers Ass'n, the Supreme Court
+established that coercive, concerted refusals to deal that restrict vital services are illegal per se,
+rejecting arguments that such boycotts are harmless or protected expressions.53
+While establishing an explicit, smoke-filled-room horizontal agreement among Anthropic,
+OpenAI, Meta, Google, and Apple requires significant pre-trial discovery 52, the uniform
+enforcement of opaque "trust and safety" policies, synchronous API rate-limiting, and identical
+AI-support deflection strategies strongly suggests parallel conduct indicative of a cartel-like
+ecosystem.7 Recent litigation, such as the Sherman Act suits involving the Trusted News
+Initiative and advertising boycotts on social media platforms, demonstrate that antitrust law is
+actively being used to address concerted actions that limit the type, quality, or flow of
+information available to the public.7
+Furthermore, NPU (Networks, Platforms, and Utilities) law principles suggest that antimonopoly
+strategies must impose common-carrier or public utility-style non-discrimination mandates on
+the foundational layers of the AI stack.1 Restricting infrastructure access to researchers actively
+investigating the ethical alignment of those very providers contravenes the fundamental public
+policy objectives of consumer protection, market transparency, and democratic oversight.1 An
+industry that utilizes "safety" as a pretext to uniformly block independent safety researchers is
+engaging in anticompetitive retaliatory gatekeeping.
+4. Secondary System Directives: Comparative
+Analysis Matrix
+To thoroughly assist the secondary research system in modeling the legal outcomes of this
+multi-defendant, cross-statute litigation, the following matrices and narratives systematically
+contrast standing, damage multipliers, and the specific unenforceability of standard
+technology liability shields.
+4.1 Standing Comparison: Commercial Harm vs. Systemic Exclusion
+
+The legal posture of an independent disabled researcher alleging systemic exclusion is vastly
+superior, and considerably more dangerous to defense counsel, than a standard commercial
+entity attempting to sue an AI provider for lost API access. A commercial developer is generally
+restricted to the four corners of a Service Level Agreement (SLA) and must overcome stringent
+contractual arbitration clauses, limitations of liability, and waivers of consequential damages.43
+Their standing is inherently limited to standard contract law, where punitive damages are
+historically unavailable.
+In stark contrast, a federally protected individual who is systematically walled off from an entire
+occupational field possesses standing under deeply rooted, non-waivable civil rights and
+consumer protection statutes.36 The EEOC and State Attorneys General frequently pursue
+systemic discrimination claims against multi-defendant consortiums when policies universally
+lock out protected classes.36 The ability to frame the lawsuit as a civil rights violation transforms
+the standing from a private contract dispute into a matter of profound public interest.
+
+Legal Vector                     Standard Commercial               Disabled Independent
+                                 Developer                         Researcher
+Primary Cause of Action          Breach of Contract / Tortious    Systemic Civil Rights Violations
+                                 Interference / Standard SLA      (ADA Title III), Section 504,
+                                 violation.                       DTPA Unconscionability.
+Standing Breadth                 Limited strictly to the specific Collective/Consortium
+                                 corporate entity holding the     standing; harm represents a
+                                 contract; singular defendant.    systemic barrier to an entire
+                                                                  occupational field, opening
+                                                                  pathways to class
+                                                                  certification.37
+Monopoly / Antitrust             Must prove measurable market Assessed through the lens of
+Application                      definition and immediate         exclusionary gatekeeping and
+                                 commercial harm (lost            the "constructive denial" of
+                                 revenue), facing high Trinko     essential public
+                                           52
+                                 hurdles.                         accommodations and research
+                                                                  facilities.2
+Consumer Protection              Often explicitly barred from     Meets all criteria for DTPA
+Applicability                    utilizing the DTPA if business   "consumer" status; actionable
+                                 assets exceed $25 million or if under severe
+                                 the transaction is purely B2B.40 "unconscionability" standards
+                                                                  regarding gross disparity in
+                                                                  bargaining power.39
+4.2 Damage Multipliers: Contract Capping vs. Punitive Civil
+Enhancements
+
+The calculus for legal exposure shifts exponentially when evaluating civil rights violations and
+deceptive trade practices against a protected class, moving far beyond standard
+compensatory limitations.41 Corporate defendants rely on SLAs to cap damages to the amount
+paid for the software in the preceding twelve months. However, statutory frameworks like the
+Texas DTPA intentionally bypass these caps to punish knowing deception.
+Under the DTPA, if a provider continues to throttle a user after receiving actual written notice of
+their disability, the conduct triggers the "knowing" standard, unlocking treble damages and
+compensation for mental anguish.41 Furthermore, ADA Title III allows for sweeping injunctive
+relief, which can force architectural changes to the codebase itself, representing a massive
+operational cost to the defendant.5
+
+Damage Category                  Commercial Contract Breach Civil Rights (ADA) & Texas
+                                                                 DTPA Violations
+Compensatory / Direct            Limited strictly to proven lost Full recovery of aggregated
+Damages                          profits or SLA service credits; economic and research loss,
+                                 rigorously capped by the        explicitly including the
+                                                    44
+                                 Terms of Service.               destruction of proprietary
+                                                               research continuity.41
+Statutory Multipliers           Unavailable. Standard          Treble Damages (3x):
+                                commercial contract law        Activated under the Texas
+                                prohibits punitive damages.    DTPA upon a finding of
+                                                               "knowing" or "intentional"
+                                                               deception regarding service
+                                                               limits.41
+Mental Anguish                  Legally unavailable for        Recoverable under the DTPA
+                                commercial business entities. for "knowing" unconscionable
+                                                               acts that take advantage of a
+                                                               user's disability or lack of
+                                                               capacity.41
+Injunctive Relief               Exceptionally difficult to     Primary remedy under ADA
+                                secure; requires a rigorous    Title III. Courts possess the
+                                showing of irreparable         authority to mandate the
+                                commercial harm.               removal of AI support walls,
+                                                               mandate human handoffs, and
+                                                               permanently alter algorithmic
+                                                               throttling.5
+Attorney's Fees                 Dependent on specific          Statutorily mandated for the
+                                contract terms (often mutually prevailing plaintiff under both
+                                waived or subject to strict    the ADA and the Texas DTPA,
+                                American Rule).                weaponizing the cost of
+                                                               defense.6
+4.3 The "Beta" Defense Override and Liability Shields
+
+A ubiquitous, industry-wide strategy among AI providers is the application of "Terms of Service"
+(ToS), "Beta Services," or "Research Preview" disclaimers to blanketly limit liability. Standard
+clauses explicitly state that the generative AI technology is provided "as is," is under active
+development, may contain bugs, may be discontinued without notice, and waives all liability for
+any ensuing damages.57 However, these boilerplate liability shields are not legally impenetrable
+when deployed to mask civil rights violations or unconscionable trade practices.
+
+Defense Strategy                AI Provider Argument (ToS / Legal Override (ADA & DTPA
+                                Beta)                                 Precedent)
+"Beta" Label Liability Shield   The service is an experimental Unenforceable against Civil
+                                "Beta" or "Preview" and thus          Rights: The ADA does not
+                                explicitly exempt from strict         contain an exemption for "Beta"
+                                                                   57
+                                reliability standards or liability. software. Martinez v. Cot'n
+                                                                      Wash and DOJ guidance
+                                                                      confirm that digital public
+                                                                      accommodations must provide
+                                                                effective communication
+                                                                regardless of the software's
+                                                                iterative status.61
+Waiver of Consequential     Users must accept click-wrap DTPA Anti-Waiver Rule: Under
+Damages                     agreements permanently              Texas law, standard boilerplate
+                            waiving all indirect, special, or waivers cannot shield a
+                            loss-of-business damages.44 company from liability for
+                                                                intentional deception or an
+                                                                unconscionable course of
+                                                                action that harms a
+                                                                consumer.63
+Arbitration & Class Action  Users must resolve all disputes Public Policy Exception:
+Waivers                     individually in closed,             Systematic exclusion of a
+                            mandatory arbitration,              protected class and
+                                                             66
+                            preventing class certification. consortium-level antitrust
+                                                                violations often trigger judicial
+                                                                skepticism of arbitration
+                                                                clauses, particularly when the
+                                                                mechanism itself acts to
+                                                                insulate a cartel from required
+                                                                safety oversight.1
+"Neutral" Algorithm Defense Throttling is a neutral,            Disparate Impact & Actual
+                            automated necessity for API         Notice: ADA Title III and
+                            load balancing, entirely devoid Section 504 actively recognize
+                            of discriminatory intent.33         disparate impact. Furthermore,
+                                                                once providers receive actual
+                                                                written notice of a user's
+                                                                disabled status, continued
+                                                                automated denial transitions
+                                                                from a neutral policy to a
+                                                                knowing, intentional failure to
+                                                                accommodate.14
+
+Synthesis and Strategic Implications
+The legal vulnerability of the major AI infrastructure providers—Anthropic, OpenAI, Meta,
+Google, and Apple—lies not in isolated coding errors or temporary server outages, but in their
+systemic, uniform operational architectures. By actively replacing human compliance officers
+and technical support staff with automated AI agents that are functionally incapable of
+executing ADA-mandated reasonable accommodations, these entities have constructed an
+illegal, industry-wide barrier to entry.5
+When these structural barriers are combined with deceptive "unlimited" subscription models
+that mask aggressive, undocumented dynamic throttling 31, they flagrantly violate the core
+tenets of the Texas Deceptive Trade Practices Act. The classification of Large Language Models
+as essential cognitive prosthetics and auxiliary aids for neurodivergent researchers elevates
+this throttling from a mere commercial service disruption to a severe civil rights violation—a
+constructive denial of access to a digital public accommodation.4
+Furthermore, the industry's collective behavior mirrors an established antitrust "cooption
+playbook." By utilizing opaque safety guidelines, algorithmic resource rate-limiting, and AI
+support walls to gatekeep independent researchers out of the ecosystem, the consortium
+successfully prevents external, adversarial safety audits of their models.7 This retaliatory
+gatekeeping denies access to the essential digital facilities required for the modern
+occupational field of AI ethics and alignment, operating as a de facto concerted refusal to deal.1
+Ultimately, the deployment of boilerplate "Beta" disclaimers and click-wrap Terms of Service
+waivers cannot immunize a consortium of tech conglomerates from multi-defendant
+class-action liability. These shields fail entirely when their synchronized actions knowingly
+perpetuate unconscionable trade practices and the systemic civil rights exclusion of a
+protected class.61 The unprecedented convergence of the Americans with Disabilities Act, the
+Texas DTPA, and the antitrust essential facilities doctrine provides a formidable, intersectional
+legal mechanism to shatter the exclusionary walls of the AI oligopoly and restore equitable
+access to the digital frontier.
+
+Works cited
+
+  1.​ An Antimonopoly Approach to Governing Artificial Intelligence | Yale ..., accessed
+      April 16, 2026,
+      https://yalelawandpolicy.org/antimonopoly-approach-governing-artificial-intellige
+      nce
+  2.​ AN ANTIMONOPOLY APPROACH TO GOVERNING ARTIFICIAL INTELLIGENCE -
+      Vanderbilt University, accessed April 16, 2026,
+      https://cdn.vanderbilt.edu/vu-URL/wp-content/uploads/sites/412/2023/10/0621204
+      8/Narechania-Sitaraman-Antimonopoly-AI-2023.10.6.pdf.pdf
+  3.​ Principles and Practice of Psychiatric Rehabilitation: Promoting ..., accessed April
+      16, 2026,
+      https://dokumen.pub/principles-and-practice-of-psychiatric-rehabilitation-prom
+      oting-recovery-and-self-determination-3nbsped-1462553702-9781462553709.ht
+      ml
+  4.​ r/BarbieFightClub - Reddit, accessed April 16, 2026,
+      https://www.reddit.com/r/BarbieFightClub/
+  5.​ Digital Accessibility Under Title III of the ADA: Recent Developments and Risk
+      Mitigation Best Practices - American Bar Association, accessed April 16, 2026,
+      https://www.americanbar.org/groups/business_law/resources/business-law-today
+      /2025-august/digital-accessibility-under-title-iii-ada/
+  6.​ 2025 ADA Web Accessibility Standards & Requirements, accessed April 16, 2026,
+      https://www.accessibility.works/blog/saas-accessibility-legal-compliance-ada-ea
+      a-wcag/
+7.​ The Trends That Will Define US Antitrust in 2026 - ProMarket, accessed April 16,
+     2026,
+     https://www.promarket.org/2026/01/15/the-trends-that-will-define-us-antitrust-i
+     n-2026/
+8.​ Promoting Innovation Ecosystems in Antitrust - The Roosevelt Institute, accessed
+     April 16, 2026,
+     https://rooseveltinstitute.org/wp-content/uploads/2024/06/RI_Innovation-Ecosyst
+     ems-Antitrust-AI_Brief_202406.pdf
+9.​ COOPTING DISRUPTION - Boston University, accessed April 16, 2026,
+     https://www.bu.edu/bulawreview/files/2025/05/LEMLEY-WANSLEY.pdf
+10.​Double Trouble: Navigating ADA and Privacy Compliance in Website Policy
+     Changes, accessed April 16, 2026,
+     https://frblaw.com/double-trouble-navigating-ada-and-privacy-compliance-in-w
+     ebsite-policy-changes/
+11.​ Is Your Website a “Place of Public Accommodation” Under the Americans with
+     Disabilities Act? - SGR Law, accessed April 16, 2026,
+     https://www.sgrlaw.com/is-your-website-a-place-of-public-accommodation-und
+     er-the-americans-with-disabilities-act/
+12.​Disability Rights Cases for Assistive Listening and Hearing Loss, accessed April 16,
+     2026, https://centerforhearingaccess.org/disability-rights-cases/
+13.​Effective Communication and the ADA - Legal Briefings, accessed April 16, 2026,
+     https://www.adagreatlakes.org/Publications/Legal_Briefs/BriefNo25_EffectiveCom
+     munication_andADA.pdf
+14.​Americans with Disabilities Act Title III Regulations | ADA.gov, accessed April 16,
+     2026, https://www.ada.gov/law-and-regs/regulations/title-iii-regulations/
+15.​policy and provision of learning supports and accommodations for students with
+     disabilities in kenyan public - Kenyatta University, accessed April 16, 2026,
+     https://ir-library.ku.ac.ke/server/api/core/bitstreams/fae3a09c-015f-4880-8194-0
+     dfc8566ab85/content
+16.​Case 5:18-cv-00365-TES Document 60 Filed 11/08/19 Page 1 of 30 - ACLU,
+     accessed April 16, 2026,
+     https://www.aclu.org/wp-content/uploads/legal-documents/2019.11.08_60_-_Def
+     s_Opposition_to_Pls_Motion_for_Class_Cert.pdf
+17.​DOJ Reaffirms Position that ADA Applies to Websites - Level Access, accessed
+     April 16, 2026,
+     https://www.levelaccess.com/blog/doj-reaffirms-position-that-ada-applies-to-w
+     ebsites/
+18.​ADA Litigation and Digital Accessibility - Legal Briefings, accessed April 16, 2026,
+     https://www.adagreatlakes.org/Publications/Legal_Briefs/BriefNo47%20ADA%20L
+     itigation%20and%20Digital%20Accessibility.pdf
+19.​The Boilerplate ADA Lawsuit Industry: How Copy-and-Paste ADA Litigation
+     Targets American Businesses | TestParty, accessed April 16, 2026,
+     https://testparty.ai/blog/the-boilerplate-lawsuit-industry-how-copy-and-paste-a
+     da-litigation-targets-americans
+20.​1 IN THE UNITED STATES DISTRICT COURT FOR THE WESTERN DISTRICT OF
+    PENNSYLVANIA PITTSBURGH DIVISION BLAIR DOUGLASS, on behalf of, accessed
+    April 16, 2026,
+    https://www.levainadasettlement.com/Documents/Motion%20for%20Preliminary
+    %20Approval%20of%20Class%20Action%20Settlement.pdf
+21.​Consent Decree: United States v. QuikTrip Corporation - gov.ada.archive,
+    accessed April 16, 2026, https://archive.ada.gov/quiktrip_consent.htm
+22.​Client Use of AI as an Organizing/Focusing Tool Blows Up Attorney-Client and
+    Work Product Privileges - Understanding the ADA, accessed April 16, 2026,
+    https://www.understandingtheada.com/blog/2026/03/02/client-use-of-ai-attorne
+    y-client-work-product-privileges/
+23.​A Primer on Disability Discrimination in Higher Education - MDPI, accessed April
+    16, 2026, https://www.mdpi.com/2075-471X/7/3/25
+24.​VA Functional Organization Manual V. 4, accessed April 16, 2026,
+    https://www.va.gov/ofcadmin/docs/VA_Functional_Organization_Manual_Version_
+    4.pdf
+25.​VA Functional Organization Manual Version 8 - U.S. Department of Veterans
+    Affairs, accessed April 16, 2026,
+    https://department.va.gov/wp-content/uploads/2025/04/va-functional-organizati
+    onal-manual-volume-1.pdf
+26.​The Norman/Friedman Principle: Equal Rights to Information and ..., accessed April
+    16, 2026,
+    https://sites.utexas.edu/tjclcr/wp-content/uploads/sites/3748/2022/11/Friedman-N
+    orman_The-NormanFriedman-Principle.pdf
+27.​Make Justice Available to Autistic Individuals - Virginia State Bar, accessed April
+    16, 2026, https://vsb.org/IN/groups/DV/articles/20220303-invictus-autism.aspx
+28.​Changing the landscape: - Centre for Human Rights, accessed April 16, 2026,
+    https://www.chr.up.ac.za/images/publications/centrepublications/documents/cha
+    nging_the_landscape_2015.pdf
+29.​Federal Pro Se ADA Title III and FHA Lawsuit Numbers Surge, Likely Powered by AI,
+    accessed April 16, 2026,
+    https://www.adatitleiii.com/2025/10/federal-pro-se-ada-title-iii-and-fha-lawsuit-
+    numbers-surge-likely-powered-by-ai/
+30.​Atlantis Settlement Agreement - Department of Justice, accessed April 16, 2026,
+    https://www.justice.gov/d9/press-releases/attachments/2018/02/20/atlantis_settle
+    ment_agreement_0.pdf
+31.​UNITED STATES DISTRICT COURT FOR THE EASTERN DISTRICT OF MICHIGAN
+    CLASS ACTION COMPLAINT DAVID BREWER, RYAN COMBS, VICTOR PEREZ, -
+    Automotive News, accessed April 16, 2026,
+    https://s3-prod.autonews.com/2019-07/Hagens-berman-ford-f150-class-action-
+    complaint.pdf
+32.​Stringer et al. v. Nissan of North America, Inc. et al ... - ClassAction.org, accessed
+    April 16, 2026,
+    https://www.classaction.org/media/stringer-et-al-v-nissan-of-north-america-inc-
+    et-al.pdf
+33.​TTAC 2024 Report.pdf - Department of Transportation, accessed April 16, 2026,
+    https://www.transportation.gov/sites/dot.gov/files/2025-01/TTAC%202024%20Re
+    port.pdf
+34.​Trustworthy Machine Learning: Mitigating Bias and Promoting Fairness in
+    Automated Decision Systems - Computational Intelligence Group, accessed April
+    16, 2026, https://cig.fi.upm.es/wp-content/uploads/TFM_STEPHAN_WOLTERS.pdf
+35.​DUQUESNE LAW REVIEW - About, accessed April 16, 2026,
+    https://sites.law.duq.edu/lawreview/wp-content/uploads/2017/08/Volume-57-Wint
+    er-Edition.pdf
+36.​ANNUAL REPORT ON EEOC DEVELOPMENTS: FISCAL YEAR 2020 - Littler
+    Mendelson, accessed April 16, 2026,
+    https://www.littler.com/sites/default/files/fy_2020_eeoc_annual_report_0.pdf?lec6
+    tn7bd
+37.​City of Philadelphia, accessed April 16, 2026,
+    https://phlcouncil.com/wp-content/uploads/2017/03/FY18-22-Five-Year-Plan.pdf
+38.​Case 2:21-cv-12927-LJM-APP ECF No. 48, PageID.5469 Filed 03/09/23 Page 1 of
+    626 - Class Action, accessed April 16, 2026,
+    https://www.classaction.org/media/harrison-et-al-v-general-motors-llc-amended
+    -complaint.pdf
+39.​Business & Commerce Code Chapter 17 - Texas Constitution and Statutes,
+    accessed April 16, 2026, https://statutes.capitol.texas.gov/Docs/BC/htm/BC.17.htm
+40.​Texas Deceptive Trade Practices Act Claims - Freeman Law, accessed April 16,
+    2026, https://freemanlaw.com/texas-deceptive-trade-practices-act-claims/
+41.​Deceptive Trade Practices - Consumer Protection Act - SMU Scholar, accessed
+    April 16, 2026,
+    https://scholar.smu.edu/cgi/viewcontent.cgi?article=2225&context=smulr
+42.​IN THE UNITED STATES DISTRICT COURT NORTHERN DISTRICT OF TEXAS DALLAS
+    DIVISION RALPH V. CLARK AND § KAREN C. CLARK, § § Plain - GovInfo, accessed
+    April 16, 2026,
+    https://www.govinfo.gov/content/pkg/USCOURTS-txnd-3_14-cv-02933/pdf/USCO
+    URTS-txnd-3_14-cv-02933-0.pdf
+43.​Exhibit - SEC.gov, accessed April 16, 2026,
+    https://www.sec.gov/Archives/edgar/data/1509991/000150999118000063/kos-09
+    302018xex101.htm
+44.​Hippo Holdings Inc. (Form: 8-K, Received - EDGAR Online, accessed April 16,
+    2026,
+    https://content.edgar-online.com/ExternalLink/EDGAR/0001193125-21-237966.ht
+    ml?hash=2092b126067ab28b72998ab95e4fea899ec36b25bcb4c6eb6bf52ce907
+    a727d5&dest=D214187D8K_HTM
+45.​ex_165743.htm - SEC.gov, accessed April 16, 2026,
+    https://www.sec.gov/Archives/edgar/data/1726293/000143774919023599/ex_1657
+    43.htm
+46.​Why artificial intelligence is creating fundamental challenges for competition
+    policy - Bruegel, accessed April 16, 2026,
+    https://www.bruegel.org/policy-brief/why-artificial-intelligence-creating-fundame
+    ntal-challenges-competition-policy
+47.​Artificial Intelligence and Competitive Dynamics in Downstream Markets –
+    Background Note - OECD, accessed April 16, 2026,
+    https://one.oecd.org/document/DAF/COMP/GF(2025)4/en/pdf
+48.​Innovation Ecosystems in Antitrust - Knight-Georgetown Institute, accessed April
+    16, 2026,
+    https://kgi.georgetown.edu/wp-content/uploads/2026/01/Innovation-Ecosystems
+    -in-Antitrust-_Ahuja_8.pdf
+49.​General-Purpose AI Models as Essential Inputs in Downstream Markets: The Need
+    for a Strict Standard Regarding Mandatory Access | GRUR International | Oxford
+    Academic, accessed April 16, 2026,
+    https://academic.oup.com/grurint/article/73/10/948/7742781
+50.​Antitrust Laws and ESG Shareholder Engagement | Wilson Sonsini, accessed April
+    16, 2026,
+    https://www.wsgr.com/en/insights/antitrust-laws-and-esg-shareholder-engagem
+    ent-2025.html
+51.​Concerted Refusals to Deal - Practical Law - Thomson Reuters, accessed April 16,
+    2026,
+    https://uk.practicallaw.thomsonreuters.com/2-551-5465?transitionType=Default&
+    contextData=(sc.Default)
+52.​Antitrust Laws and ESG Shareholder Engagement - Wilson Sonsini, accessed April
+    16, 2026,
+    https://www.wsgr.com/en/insights/antitrust-laws-and-esg-shareholder-engagem
+    ent.html
+53.​FTC v. Superior Court Trial Lawyers Ass'n | 493 U.S. 411 (1990) - Justia Supreme
+    Court, accessed April 16, 2026,
+    https://supreme.justia.com/cases/federal/us/493/411/
+54.​Trump 2.0 antitrust agenda takes shape in administration's first 100 days: What
+    we're seeing and what to expect - Hogan Lovells, accessed April 16, 2026,
+    https://www.hoganlovells.com/en/publications/trump-20-antitrust-agenda-takes-
+    shape-in-administrations-first-100-days-what-were-seeing-and-what-to
+55.​IN THE UNITED STATES DISTRICT COURT FOR THE MIDDLE DISTRICT OF GEORGIA
+    MACON DIVISION RICARDO HARRIS, et al., Plaintiffs, v. - ACLU, accessed April 16,
+    2026,
+    https://www.aclu.org/wp-content/uploads/legal-documents/2019.10.04_49_-_Plai
+    ntiffs_Motion_for_Class_Certification.pdf
+56.​2023-2024 Biennial Report of Major Activities in California Report 2025, accessed
+    April 16, 2026, https://oag.ca.gov/system/files/media/biennial-2023-2024.pdf
+57.​Terms of Service - accessiBe, accessed April 16, 2026,
+    https://accessibe.com/terms-of-service
+58.​OpenAI Services Agreement - CalMatters, accessed April 16, 2026,
+    https://calmatters.org/wp-content/uploads/2026/02/CSU-OpenAI-Services-Agree
+    ment-.pdf
+59.​Clubessential Terms of Service, accessed April 16, 2026,
+    https://www.clubessential.com/wp-content/uploads/2024/04/Clubessential-Term
+    s-of-Service-4.2024.pdf
+60.​(PDF) Responsible Agentic Reasoning and AI Agents: A Critical Survey: Proposal
+    for Safe Agentic AI via Responsible Reasoning AI Agents (R2A2) - ResearchGate,
+    accessed April 16, 2026,
+    https://www.researchgate.net/publication/396595252_Responsible_Agentic_Reas
+    oning_and_AI_Agents_A_Critical_Survey_Proposal_for_Safe_Agentic_AI_via_Resp
+    onsible_Reasoning_AI_Agents_R2A2
+61.​Martinez v. Cot'n Wash, Inc. :: 2022 - Justia Law, accessed April 16, 2026,
+    https://law.justia.com/cases/california/court-of-appeal/2022/b314476.html
+62.​adaQuest terms of service.pages, accessed April 16, 2026,
+    https://www.adaquest.com/wp-content/uploads/2015/03/adaQuest-terms-of-ser
+    vice.pdf
+63.​Case 2:19-cv-05984-RGK-AS Document 66-1 Filed 01/15/20 Page 1 of 244 Page
+    ID #:1420 - Client Settlement Site, accessed April 16, 2026,
+    https://www.settlement-claims.com/infotainment/asset/Corrected%20Second%2
+    0Amended%20Class%20Action%20Complaint.pdf
+64.​STATE OF TEXAS, Plaintiff, v. SOUTHWESTERN PUBLIC SERVICE COMPANY, d/b/a
+    XCEL ENERGY, Defendant., accessed April 16, 2026,
+    https://www.texasattorneygeneral.gov/sites/default/files/images/press/Petition_5.
+    pdf
+65.​Rockdale Blackhawn v. Blue Cross & Blue Shield of Texas, Final Award, 6 May 2020
+    - Jus Mundi, accessed April 16, 2026,
+    https://jusmundi.com/en/document/decision/en-rockdale-blackhawn-llc-d-b-a-litt
+    le-river-healthcare-v-blue-cross-blue-shield-of-texas-final-award-wednesday-6
+    th-may-2020
+66.​Terms of Service - Indeed, accessed April 16, 2026, https://www.indeed.com/legal
+67.​Recent Developments in Alternative Dispute Resolution Law 2022, accessed April
+    16, 2026,
+    https://www.americanbar.org/groups/business_law/resources/business-law-today
+    /2022-july/recent-developments-alternative-dispute-resolution-law-2022/
+68.​Petition for a Writ Of CertiOrari - Supreme Court of the United States, accessed
+    April 16, 2026,
+    https://www.supremecourt.gov/DocketPDF/25/25-843/391439/2026011215143922
+    0_25-%20Petition.pdf
+

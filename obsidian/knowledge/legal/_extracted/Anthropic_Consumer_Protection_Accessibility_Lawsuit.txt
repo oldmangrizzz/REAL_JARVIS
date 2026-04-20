@@ -1,0 +1,851 @@
+Legal Standing and Actionable Claims
+Against Anthropic PBC: A
+Comprehensive Analysis of Consumer
+Protection, Accessibility, and
+Contractual Compliance
+Introduction to the Inquiry
+The rapid integration of generative artificial intelligence and Large Language Models (LLMs)
+into professional, enterprise, and personal workflows has fundamentally altered the digital
+economy. These advanced systems have transitioned from novel software utilities into critical
+cognitive and operational infrastructure. As dependency on these platforms has escalated,
+providers have introduced tiered, high-capacity subscription models specifically designed to
+accommodate high-volume, "agentic" workflows—tasks where the AI operates autonomously
+over extended periods to execute complex programming, data analysis, and content
+generation. In early 2026, Anthropic PBC launched its premium "Max" subscription tiers,
+including the Max 5x plan priced at $100 per month and the Max 20x plan priced at $200 per
+month.1 These tiers were aggressively marketed as providing vastly expanded compute
+capacity, continuous access for power users, and the ability to maintain long-running context
+windows without interruption.1
+However, beginning in late March 2026, a systemic collapse in service delivery was observed
+and documented across the Anthropic ecosystem.5 Telemetry data, reverse-engineered client
+diagnostics, and thousands of widespread consumer reports indicate that Anthropic
+implemented a series of undisclosed, server-side infrastructure changes designed to
+aggressively throttle user access.7 These changes—including the silent introduction of
+"Peak-Hour Multipliers," a hardcoded twenty-tool call limitation, and an opaque "rolling
+seven-day window" for quota resets—resulted in catastrophic service degradation.7
+Subscribers paying for high-capacity access reported one hundred percent session exhaustion
+within minutes, erratic usage meter behavior, and extended multi-day lockouts that rendered
+the service entirely unusable.8
+This comprehensive research report provides an exhaustive legal analysis investigating the
+viability of a class-action lawsuit against Anthropic PBC based on the events of March and April
+2026. The analysis evaluates Anthropic’s conduct under three primary legal frameworks. First, it
+examines deceptive trade practices and bait-and-switch liabilities under the California Unfair
+Competition Law (UCL § 17200), focusing on the failure to disclose peak-hour multipliers and
+the legality of shifting quota reset windows.12 Second, it investigates violations of digital
+accessibility standards under Title III of the Americans with Disabilities Act (ADA) and Section
+504 of the Rehabilitation Act, focusing on the novel classification of AI interfaces as
+compensatory cognitive aids and the denial of reasonable modifications.15 Third, it analyzes
+breach of express contract and the implied covenant of good faith and fair dealing regarding
+the "Max" tier disconnect, the mathematical impossibility of achieving marketed usage rates,
+and the subsequent refusal by Anthropic to issue prorated refunds.19
+
+Factual Matrix: The March 2026 Infrastructure
+Modifications
+To accurately assess the legal exposure of Anthropic PBC under statutory and common law
+frameworks, it is necessary to establish the precise technical, operational, and architectural
+modifications implemented by the provider during the relevant period. The degradation of
+service was not uniform nor was it merely the result of general network latency; rather, it was
+the direct result of several intersecting, undisclosed policies and critical software defects that
+algorithmically dismantled the utility of the subscribed services.
+The Peak-Hour Multiplier Implementation
+
+Between March 13 and March 28, 2026, Anthropic executed a promotional campaign offering a
+"2x off-peak" usage multiplier, ostensibly to encourage users to shift their heavy computational
+workloads away from high-traffic periods.10 This promotion established a baseline expectation
+among the user base regarding how usage quotas would be consumed. However, between
+March 23 and March 26, the company silently inverted this paradigm by introducing
+undocumented "Peak-Hour Multipliers".10
+Rather than transparently increasing the monetary cost of a prompt or clearly adjusting the
+stated limits in the user interface, this mechanism artificially and dynamically accelerated the
+rate at which session quotas burned during United States business hours, specifically defined
+as 5:00 AM to 11:00 AM Pacific Time.10 Consequently, professional and enterprise users
+performing standard operational tasks during normal working hours experienced a drastic,
+unadvertised reduction in their available compute capacity.10 The deployment of this multiplier
+was not communicated to users at the point of sale, nor was it disclosed in the billing portal
+when users upgraded their accounts to accommodate the artificial scarcity.23
+The Twenty-Tool Call Limit and Service Shrinkflation
+
+Simultaneous with the introduction of peak multipliers, Anthropic imposed a severe,
+undocumented limitation on agentic workflows across all subscription tiers, including the
+premium Max plans.7 Despite the Max 20x tier being explicitly marketed and priced for
+high-volume, autonomous enterprise use, Anthropic implemented a hard stop that abruptly
+halted the Claude model after approximately twenty tool calls, which equates to roughly ten
+server-side iterations.7 Prior to this architectural change, the model possessed the capability to
+autonomously chain together sixty to eighty actions in a single, continuous turn, allowing for
+seamless code generation, debugging, and data processing.7
+This arbitrary limitation triggered a phenomenon identified by the developer community and
+technical analysts as "Service Shrinkflation".7 Because the system forces a hard pause after
+twenty actions, users are required to manually click a "Continue" prompt to resume the task.7
+Each manual resumption forces the system to recalculate the entire context window,
+re-process complex system prompts, and manage massive cache invalidations.7 The constant
+re-transmission of context shreds through token quotas at an artificially accelerated rate,
+consuming up to two to three times more quota than a continuous run would require.7 Tasks
+that previously required a mere 6% of a user's five-hour limit suddenly consumed 14% or more
+solely due to the forced interruptions imposed by the provider.7
+Prompt Caching Breakdown and Telemetry Discrepancies
+
+Exacerbating the intentional throttling mechanisms were verified, systemic software defects
+within the Claude infrastructure. Reverse-engineering of the Claude Code binary by the
+developer community revealed two independent bugs causing the prompt caching system to
+fail catastrophically.24 Normally, prompt caching allows the system to reuse previously analyzed
+context, saving vast amounts of computational resources and preserving the user's quota. By
+breaking the cache history, the system was forced to reprocess every prompt from scratch,
+silently inflating usage costs by an estimated ten to twenty times the normal rate.9
+Furthermore, users reported highly erratic and punitive behavior from the usage meter itself.
+Telemetry data indicated that sessions were frequently initiating at 57% capacity before any
+user prompts were even sent, and single, simple prompts were consuming between 30% and
+100% of a user's entire five-hour or weekly limit.6 Independent diagnostic tools deployed by
+users, such as the open-source "ccmeter," revealed that the heavily marketed "20x usage" was
+constrained by a severe, hidden mathematical ceiling.9 While a five-hour window on the Max
+20x tier theoretically allowed for a $363 budget in API-equivalent compute, Anthropic enforced
+a strict seven-day rolling ceiling of $1,900.9 This structural reality meant that sustained, heavy
+use could quickly hit the hidden weekly ceiling, resulting in a total service lockout for days at a
+time, entirely undermining the core value proposition of a $200 per month high-capacity
+subscription.9
+
+Deceptive Trade Practices and the Unfair Competition
+Law (UCL § 17200)
+The California Unfair Competition Law (UCL), codified at Business and Professions Code §
+17200, serves as a primary vehicle for consumer protection litigation. The statute broadly
+prohibits any "unlawful, unfair or fraudulent business act or practice and unfair, deceptive,
+untrue or misleading advertising".12 The sweeping language of the UCL is intentionally designed
+to protect both consumers and competitors by ensuring a transparent, fair, and equitable
+marketplace, providing courts with broad equitable powers to enjoin deceptive practices and
+order restitution.13 The actions taken by Anthropic PBC in March 2026 present substantial,
+highly actionable grounds for liability under all three independent prongs of the UCL.
+Peak-Hour Multipliers as Fraudulent and Misleading Practices
+
+Under the "fraudulent" prong of the California UCL, a business practice is deemed actionable if
+it is likely to deceive a reasonable consumer.14 Unlike common law fraud, a plaintiff bringing a
+claim under the UCL need not prove intent to deceive, nor must they prove actual reliance by
+every member of the class; they need only demonstrate that the public is likely to be deceived
+by the representation or omission, and that the named plaintiff suffered injury in fact as a result
+of that deception.14
+The silent implementation of Peak-Hour Multipliers constitutes a highly material omission.10
+Consumers subscribing to the "Pro" or "Max" tiers entered into digital agreements based on
+explicit, quantifiable marketing claims regarding message limits and computational capacity.
+For instance, Anthropic's marketing explicitly promised "About 900+ messages per 5-hour
+window" for the Max plan.4 By failing to disclose at the point of sale—or dynamically within the
+user interface during operation—that usage during standard business hours would be subject
+to an aggressive multiplier that artificially drained quotas, Anthropic created a fundamentally
+false impression of the service's utility and economic value.14
+Consumers reasonably expected a static, predictable correlation between their actions
+(sending a prompt) and their quota consumption. The hidden acceleration of quota depletion
+acts as a deceptive financial mechanism, directly analogous to a digital service tricking users
+into spending real-world currency faster than explicitly stated, a practice routinely condemned
+by the Federal Trade Commission (FTC).14 In the context of California law, failing to disclose that
+the product's primary utility will be severely degraded during the exact hours it is most needed
+by professionals constitutes a fraudulent business practice.13
+The Unfair Prong and the Balancing of Harms
+
+Under the "unfair" prong of the UCL, California courts frequently apply a rigorous balancing
+test, weighing the utility of the defendant's conduct against the gravity of the harm suffered by
+the alleged victim.13 Alternatively, courts may examine whether the business practice violates
+an established public policy tethered to a specific constitutional or statutory provision.31
+Anthropic will likely argue that Peak-Hour Multipliers and hidden quota ceilings are a necessary,
+pro-competitive utility utilized to manage massive server loads, prevent catastrophic network
+outages, and maintain service stability for the broader user base.7 However, under the UCL
+balancing test, this utility is heavily outweighed by the severe financial and operational harm
+caused to enterprise and professional users who depend on the service precisely during those
+business hours.35
+The practice is substantially injurious because the capacity management is achieved through a
+covert reduction in delivered value to paying subscribers rather than through transparent,
+equitable mechanisms such as a pricing adjustment, a temporary suspension of new account
+sign-ups, or explicit upfront bandwidth guarantees.37 Furthermore, the Federal Trade
+Commission's Restore Online Shoppers' Confidence Act (ROSCA) strictly mandates that
+companies utilizing auto-renewing subscriptions must clearly and conspicuously disclose all
+material terms of the transaction.33 Anthropic’s failure to disclose the peak-hour multipliers and
+rolling weekly ceilings offends the public policy established by ROSCA, thereby satisfying the
+requirements for an "unfair" practice under California law.34
+The Thirty-Day Lockout Phenomenon and Bait-and-Switch Liability
+
+A classic "bait-and-switch" scheme involves advertising a product or service with the intent not
+to sell it as advertised, but rather to substitute an inferior product, fundamentally alter the
+terms of use, or artificially restrict delivery after the consumer has committed to the
+purchase.40 The events surrounding the March 13–28 promotional period provide a textbook,
+actionable example of this deceptive practice.10
+Anthropic enticed users to upgrade to premium tiers or increase their reliance on the Claude
+ecosystem by aggressively marketing a "2x off-peak promo".5 Immediately following this
+customer acquisition and upgrade phase, Anthropic silently implemented the Peak-Hour
+Multipliers and the hardcoded twenty-tool call limit.7 For users paying $200 per month for the
+Max 20x tier, the bait-and-switch was particularly egregious. These users purchased the
+premium tier specifically to execute autonomous, long-running agentic workflows that require
+vast context retention.7
+The sudden imposition of a server-side limit that capped autonomous iterations effectively
+degraded the Max 20x service level to match the operational bottleneck of the standard $20
+Pro tier.7 Consequently, users reported experiencing a total denial of service—referred to
+colloquially as the "thirty-day lockout"—for significant portions of their billing cycle.6 Users
+exhausted a weekly quota in a matter of hours or days due to the combination of hidden
+ceilings, context recalculation penalties, and caching bugs.11 Selling a high-capacity
+subscription based on explicit numerical promises while simultaneously deploying backend
+algorithmic architecture designed specifically to prevent the realization of that capacity is
+fundamentally deceptive and constitutes a fraudulent business act under UCL § 17200.41
+Dynamic Reset Drift and the Implied Covenant of Good Faith
+
+Beyond statutory consumer protection, every contract governed by state law, including digital
+terms of service and end-user license agreements, contains an implied covenant of good faith
+and fair dealing.44 This foundational legal covenant requires that neither party to a contract do
+anything that will destroy or injure the right of the other party to receive the fruits of the
+agreement.19 Importantly, even when a contract grants a party broad discretionary
+power—such as the right to modify usage limits, throttle bandwidth, or update platform
+rules—that discretion must be exercised reasonably and in good faith.19 It cannot be used
+arbitrarily to retroactively recapture opportunities forgone upon contracting, nor can it be used
+to intentionally undermine the central promise of the original bargain.19
+Anthropic's utilization of a "rolling seven-day window" and dynamic quota resets that shift
+based on provider infrastructure load, rather than adhering to a transparent, fixed calendar
+reset, presents a severe and actionable breach of this covenant.9 By untethering the quota
+reset mechanism from a predictable, verifiable chronological schedule, Anthropic retains
+unilateral, opaque control over when a user may resume utilizing the service they have
+purchased. If a user exhausts their capacity, the "dynamic drift" ensures they cannot accurately
+forecast or plan when their professional tool will become available again.25
+This opacity completely frustrates the primary purpose of a commercial, professional-grade
+software subscription. Applying the legal standard set forth in relevant contract case law,
+modifying the operational terms of a digital service mid-billing cycle to introduce hidden rolling
+ceilings, without providing proper notice or a reasonable opportunity for the consumer to
+reject the modification and receive a refund, violates the implied duty of good faith and fair
+dealing.20
+Identifying the Threshold of Substantial Injury
+
+To successfully maintain an action for unfair practices under consumer protection laws, the
+plaintiff class must demonstrate that the deceptive practice caused a "substantial injury".12
+Legal definitions derived from Federal Trade Commission (FTC) standards, which strongly
+influence state UCL interpretations, mandate that the injury be non-trivial, not outweighed by
+countervailing benefits to consumers or competition, and one that consumers could not
+reasonably have avoided.14 In the modern digital services sector, substantial injury does not
+require an event of massive individual financial ruin; it is routinely established through the
+aggregate of small financial harms across a large user base, direct monetary loss for services
+paid for but not rendered, and the significant, quantifiable loss of professional time spent
+attempting to rectify the service failure or seeking refunds.14
+The critical legal question is determining the exact threshold at which a contractual "usage
+limit" legally transitions into an actionable "denial of service." This threshold is crossed when the
+throttling or quota exhaustion renders the service fundamentally unfit for its advertised,
+marketed purpose.36 While terms of service frequently permit digital providers to throttle
+network speeds or limit compute usage to prevent systemic abuse (commonly disguised as
+"fair use" policies), these clauses are not absolute shields against liability when the limits applied
+are draconian and undisclosed.41
+In the specific case of Anthropic PBC, the threshold of substantial injury was demonstrably
+crossed based on the following specific telemetry and user data metrics:
+
+Metric of Service                 Description of Injury          Transition to Denial of
+Degradation                                                      Service
+Prompt Exhaustion Rate            A single prompt consuming      Constitutes a
+                                  between 30% and 100% of an near-instantaneous denial of
+                                  advertised five-hour usage     service, nullifying the concept
+                                           10
+                                  window.                        of a five-hour continuous
+                                                                 window.
+Time-to-Exhaustion on Max         A $200 per month "Max 20x" Mathematically represents a
+Tier                              quota entirely exhausted in 19 93.6% to 80% downtime within
+                                  to 120 minutes of standard     the advertised window,
+                                 operational use.8                 crossing the threshold of
+                                                                   substantial injury.
+Multi-Day Lockouts                 Users subjected to 3-to-5 day Frustrates the entire
+                                   lockouts despite remaining well commercial purpose of the
+                                   within the advertised           subscription, equating to a
+                                   mathematical bounds (e.g., the total denial of service for the
+                                   900+ message limit) due to      bulk of the billing cycle.
+                                                          4
+                                   hidden weekly ceilings.
+Because consumers possessed no bargaining power to reject these backend infrastructural
+changes, could not reasonably avoid the harm due to the silent nature of the updates, and
+suffered direct financial and operational downtime, the conduct overwhelmingly meets the
+legal definition of substantial injury under UCL § 17200.14
+
+Accessibility Compliance: ADA Title III and
+Rehabilitation Act Section 504
+While consumer protection laws provide a robust and highly viable framework for addressing
+the financial harm caused by Anthropic's service degradation, an equally compelling, legally
+novel, and potentially paradigm-shifting avenue of liability exists under federal accessibility and
+civil rights laws. The Americans with Disabilities Act (ADA) of 1990 and Section 504 of the
+Rehabilitation Act of 1973 strictly prohibit discrimination against individuals with disabilities by
+places of public accommodation and entities receiving federal financial assistance.15
+Artificial Intelligence as a Compensatory Cognitive Aid
+
+Title III of the ADA mandates that places of public accommodation—which federal courts and
+the Department of Justice (DOJ) increasingly interpret to include digital platforms, standalone
+websites, mobile applications, and software-as-a-service (SaaS) providers—must provide
+"auxiliary aids and services" to ensure effective communication and equal access to their goods
+and services.17 Historically, the legal definition of auxiliary aids has been understood to include
+traditional accommodations such as sign language interpreters, Communication Access
+Real-Time Translation (CART) services, closed captioning, braille materials, and screen reading
+software for the visually impaired.56
+However, the rapid advancement and deployment of generative AI has fundamentally
+expanded the functional definition of assistive technology.64 For individuals living with
+documented neurological, psychiatric, or cognitive impairments—such as Autism Spectrum
+Disorder, severe Attention-Deficit/Hyperactivity Disorder (ADHD), Traumatic Brain Injury (TBI),
+or chronic executive dysfunction—AI interfaces like Claude do not merely enhance
+productivity; they function as a critical "compensatory cognitive aid".63 These systems act as a
+literal prosthetic cognitive interface, deeply assisting users in sense-making, task initiation,
+working memory offloading, and complex problem-solving that their neurological impairments
+otherwise inhibit.64
+Under the specific regulatory framework of 28 C.F.R. § 36.303, the DOJ requires public
+accommodations to furnish appropriate auxiliary aids where necessary to ensure effective
+communication, giving primary consideration to the request of the individual with a disability.17
+The ADA Amendments Act of 2008 (ADAAA) explicitly and intentionally broadened the
+definition of disability to include impairments that substantially limit major life activities,
+specifically listing learning, reading, concentrating, and thinking as protected activities.55
+Consequently, when a disabled user integrates an AI model like Claude into their daily workflow
+to mitigate a documented cognitive deficit, the software unequivocally transcends the status
+of a mere commercial productivity tool; it becomes a legally protected auxiliary aid essential for
+effective communication, self-regulation, and occupational stability.64
+Denial of Reasonable Modification and High-Stability Requirements
+
+Both the ADA and Section 504 require covered entities to make "reasonable modifications" to
+their policies, practices, and procedures when necessary to afford equal access to individuals
+with disabilities, unless the entity can demonstrate that doing so would fundamentally alter the
+nature of the goods, services, or programs being offered.65
+When Anthropic implemented its aggressive peak-hour multipliers, rapid quota exhaustion
+logic, and multi-day lockouts, it effectively severed the digital prosthetic relied upon by
+neurodivergent and cognitively impaired users.66 For a user relying on Claude for executive
+function support or memory offloading, a sudden, undocumented lockout does not merely
+cause a frustrating inconvenience or a loss of return on investment; it causes a total cessation
+of their ability to communicate, execute occupational duties, or navigate complex daily tasks.
+Disability advocates and users have reported that Anthropic outright refused to provide an
+"Emergency Bypass" or a "High-Stability Mode" for individuals who rely on the system as an
+occupational or cognitive accommodation.66 The legal standard dictates that upon receiving a
+request for an accommodation, the ADA imposes an affirmative, non-delegable obligation on
+the provider to engage in an interactive process and investigate whether a requested
+accommodation is reasonable, rather than dismissing it out of hand or relying on automated
+systems to deny the request.69
+By subjecting documented disabled users to the exact same erratic, volatile infrastructure
+limits as neurotypical users without offering any mechanism for a medical exemption, manual
+review, or stability buffering, Anthropic has arguably denied a reasonable modification in
+violation of federal law. The provision of a stable, un-throttled text interface for a documented
+disabled user would not constitute a "fundamental alteration" of the multi-billion-dollar
+infrastructure of Anthropic PBC, but its denial effectively excludes that user from digital
+participation and occupational parity.
+Automated Templates and the Standard for Effective Communication
+
+The legal standard for ADA and Section 504 compliance heavily emphasizes the concept of
+"effective communication".54 A public accommodation must ensure that its communications
+with people with disabilities are as effective as its communications with others, and must
+provide auxiliary aids to achieve this baseline.74 When disabled users encountered catastrophic
+usage limits and attempted to report the denial of their cognitive aid to Anthropic support, the
+company responded predominantly with generic, automated "Usage Limit" templates, AI
+chatbot deflections, or absolute silence—even going so far as closing critical GitHub issues
+(e.g., Issue #33969) via automated bot actions.6
+Federal guidance, DOJ enforcement actions, and appellate case law make explicitly clear that
+automated tools, accessibility widgets, and AI chatbots alone cannot guarantee ADA
+compliance.54 While public accommodations possess some flexibility in determining exactly
+how they achieve effective communication, the ultimate legal test is whether the method
+chosen actually results in meaningful access for the disabled individual.54
+The use of automated customer service ticketing systems that fail to recognize, escalate, or
+address the specific accommodation requests of a disabled user, or automated bot responses
+that merely reiterate a generic "fair use" policy without engaging in the federally mandated
+interactive process, represents a severe procedural failure under Title III and Section 504.76
+Simply put, deploying an automated script to dismiss a disabled user's urgent request for the
+restoration of their cognitive auxiliary aid does not, under any interpretation of current civil
+rights law, meet the federal standard for effective communication.75
+
+Breach of Contract: The "Max" Tier Disconnect and
+Refund Policies
+Beyond the realms of statutory consumer protection and civil rights legislation, the
+fundamental relationship between Anthropic and its subscribers is governed by traditional
+contract law. The severe discrepancies between the explicitly advertised features of the "Max"
+subscription tiers and the actual technical service delivered give rise to straightforward, highly
+actionable claims for breach of express contract.
+Service Level Marketing Versus Technical Reality
+
+Anthropic launched the "Max" tier with specific, highly quantifiable marketing claims designed
+to extract a premium price point from professional users. The Max 20x plan, priced at $200 per
+month, was explicitly advertised across official channels as providing "20x more usage than the
+Pro plan" and "About 900+ messages per 5-hour window".1 Consumers entered into a binding
+digital agreement and paid a substantial financial premium based directly on these express
+warranties.
+The technical reality implemented by Anthropic in late March 2026 fundamentally and
+materially breached these warranties. As previously detailed, the hardcoded twenty-tool call
+limit forced Max tier users into the exact same operational bottleneck as users paying a mere
+$20 per month on the standard Pro plan.7 Because the backend system architecture required
+manual resumptions that geometrically inflated token consumption through forced context
+recalculations, the theoretical capacity of "20x usage" was mathematically impossible to
+achieve in a real-world, agentic workflow.7 A digital service that exhausts its entire five-hour
+quota in nineteen minutes is not providing the warranted "900+ messages"; it is providing a
+minuscule fraction of the contracted amount due to intentional backend architectural
+constraints and token-counting software bugs.11
+When a technology company markets a specific numerical multiplier (20x) and a specific
+service volume (900+ messages), those quantifiable statements become an unseverable part
+of the basis of the bargain. Anthropic's failure to deliver this volume—whether due to
+intentional peak-hour server throttling 10, arbitrary tool-call caps designed to limit agentic AI 7,
+or unremediated cache-breaking bugs that inflate token counts 24—constitutes a massive,
+material breach of the subscription agreement.
+Refund Refusal and the Legality of Unilateral Termination Policies
+
+In direct response to the severe service degradation and account lockouts, thousands of users
+requested prorated refunds or immediate subscription cancellations from Anthropic.6
+Anthropic's terms of service, operating in alignment with many digital SaaS platforms, likely
+include a standard, boilerplate "no refund" provision.85 However, the enforceability of such
+clauses is highly restricted under state law, particularly in jurisdictionally relevant states like
+California.
+Under California Civil Code § 1723 and related consumer protection frameworks, a "no refund"
+policy does not shield a company from liability if the product or service delivered is
+fundamentally defective, materially different from what was advertised, or if the contract itself
+was procured through deceptive marketing practices.34 A SaaS provider cannot legally invoke a
+"no refund" clause to retain unearned premium revenue when the service's catastrophic failure
+is caused by the provider's own undisclosed algorithmic throttling, architectural limits, or
+software bugs.89
+Furthermore, if Anthropic refuses to refund users who are structurally locked out of the system
+due to the "rolling seven-day window" or the erratic usage meter jumps (where quotas
+dynamically drop by 50% without a single prompt being sent by the user) 10, the retention of
+those funds constitutes unjust enrichment. The law does not permit a vendor to unilaterally
+degrade the core functionality of a digital service to an unusable state, lock the user out of the
+platform, and subsequently hide behind boilerplate non-refundable language to retain the
+$200 monthly fee.91
+
+Precedential Case Law: Hidden Throttling in
+Unmetered Subscriptions
+The legal landscape surrounding the covert throttling of digital subscriptions is well-established
+and highly hostile to providers engaging in such practices. Federal regulatory agencies,
+including the Federal Trade Commission (FTC) and the Federal Communications Commission
+(FCC), alongside federal courts, have consistently ruled against telecommunications and digital
+service providers who aggressively market "unlimited," "unmetered," or "high-capacity" plans
+while secretly utilizing hidden backend constraints, dynamic ceilings, or arbitrary "fair use"
+definitions to throttle users.33
+The table below outlines highly relevant precedential case law and regulatory actions that
+establish a rigorous framework for prosecuting fraudulent digital throttling and deceptive
+subscription models. These cases are directly applicable to the class-action inquiry against
+Anthropic PBC:
+
+Legal Case /            Core Legal Issue         Direct Relevance to       Outcome / Legal
+Regulatory Action       Investigated             Anthropic PBC             Precedent
+                                                                           Established
+FTC v. AT&T Mobility, Deceptive Trade            AT&T marketed             $60 Million
+                  42
+LLC (2014 / 2019)       Practices; Throttling of unlimited data but        Settlement.
+                        "Unlimited" Data         silently throttled        Established that failing
+                        Subscriptions.           speeds to a crawl once to prominently and
+                                                 users hit an arbitrary conspicuously disclose
+                                                 cap (e.g., 2GB). Directly throttling triggers on
+                                                 parallels Anthropic       high-capacity digital
+                                                 marketing "20x Max        plans constitutes a
+                                                 Usage" but throttling deceptive practice
+                                                 compute to a halt via under the FTC Act.
+                                                 20-tool call limits and
+                                                 Peak-Hour Multipliers.
+FTC v. TracFone         Bait-and-Switch          TracFone promised         $40 Million
+                     92
+Wireless, Inc. (2015) Tactics; Deceptive         "unlimited"               Settlement.
+                        Throttling and           talk/text/data, but       Demonstrated
+                        Unannounced Service drastically slowed or conclusively that
+                        Suspension.              entirely suspended        hidden algorithmic
+                                                 service without           limits cannot legally
+                                                 warning based on          override express
+                                                 undisclosed backend marketing warranties
+                                                 limits. Mirrors           of high-capacity usage.
+                                                 Anthropic's
+                                                 unannounced 30-day
+                                                 lockouts and erratic
+                                                 usage meter
+                                                 suspensions.
+FTC v. Adobe Systems ROSCA Violations;           Adobe failed to clearly Federal Enforcement
+            39
+Inc. (2024)             Hidden Fees and          disclose material terms Action. Reinforced
+                        Deceptive Subscription (Early Termination          that the Restore Online
+                        Architecture.            Fees) and deployed        Shoppers' Confidence
+                                                 digital architecture      Act (ROSCA) mandates
+                                                 making cancellation       explicit, upfront
+                                                 arduous. Relevant to      disclosure of all
+                                                 Anthropic's opaque        material limitations of
+                                                 dynamic reset drift and an auto-renewing
+                                                 refusal to provide        subscription.
+                                                 prorated refunds for
+                                                   degraded service.
+FCC Net Neutrality         Fraudulent "Fair Use" Internet Service           Regulatory
+Data Cap Complaints Application;                   Providers (e.g.,         Precedent. Clarified
+                   36
+(Various rulings)          Bait-and-Switch via     Comcast, Claro)          that generalized "fair
+                           Data Caps.              retroactively applied use" or "acceptable
+                                                   draconian data caps      use" clauses cannot
+                                                   and used "fair use"      retroactively justify
+                                                   policies as a            aggressive throttling
+                                                   smokescreen for          that deprives the
+                                                   infrastructure deficits. consumer of the core
+                                                   Parallels Anthropic's    contracted service.
+                                                   justification of
+                                                   peak-hour multipliers
+                                                   to manage server load
+                                                   while continuing to
+                                                   collect $200/mo
+                                                   premiums.
+These established precedents collectively demonstrate that digital service providers cannot
+cure deceptive marketing or bait-and-switch tactics merely by embedding vague "fair use,"
+"network management," or "discretionary limit" clauses deep within their Terms of Service. If a
+software provider markets a $200 high-capacity subscription, any mechanisms that
+systematically prevent the user from realizing that capacity—whether through intentional
+peak-hour throttling, hidden weekly rolling ceilings, or unpatched cache-breaking bugs—must
+be clearly, explicitly, and conspicuously disclosed prior to the execution of the purchase.
+Anthropic's failure to do so aligns perfectly with the deceptive conduct penalized in the AT&T
+and TracFone settlements.
+Strategic Synthesis and Litigation Outlook
+An exhaustive investigation into Anthropic PBC's conduct regarding the systematic
+degradation of the Claude "Pro" and "Max" subscription tiers in March and April 2026 reveals
+substantial, highly actionable legal exposure across multiple intersecting domains of law. The
+systemic denial of service, characterized by instantaneous quota exhaustion, multi-day
+account lockouts, and severe token inflation, moves far beyond the realm of standard software
+latency or acceptable beta-testing anomalies; it enters the territory of systemic consumer
+fraud and breach of contract.
+From a consumer protection standpoint, the silent deployment of Peak-Hour Multipliers and
+hidden twenty-tool call caps immediately following a heavily promoted acquisition phase
+provides fertile ground for a class-action suit under the California Unfair Competition Law. The
+financial and temporal damages suffered by enterprise and professional users easily satisfy the
+legal threshold of substantial injury, as consumers were locked into high-cost subscriptions
+entirely devoid of their marketed utility. Furthermore, Anthropic's reliance on dynamic, rolling
+seven-day reset windows that drift opaquely fundamentally breaches the implied covenant of
+good faith and fair dealing by depriving users of any predictable access to the service they
+purchased.
+From a civil rights and digital accessibility perspective, the impending litigation presents a rare
+opportunity to establish a landmark legal precedent. By legally recognizing generative AI
+interfaces as essential, compensatory cognitive aids for individuals with documented
+neurological and executive functioning impairments, plaintiffs can effectively leverage Title III of
+the ADA and Section 504 of the Rehabilitation Act. Anthropic's arbitrary algorithmic lockouts
+and its reliance on automated, non-responsive support templates to deflect user complaints
+fundamentally deny disabled users a reasonable modification (such as a requested
+High-Stability Mode) and completely fail the federal statutory mandate for effective
+communication.
+Finally, the stark mathematical disconnect between the "20x usage" and "900+ messages"
+marketing and the functional reality of the Max tier constitutes an indisputable material breach
+of contract. Precedential cases involving major telecommunications providers like AT&T and
+TracFone confirm that federal courts and regulators will not tolerate the covert throttling of
+digital subscriptions, nor will they allow hidden "fair use" clauses to override explicit marketing
+promises. Consequently, Anthropic's refusal to issue prorated refunds for a fundamentally
+defective, artificially throttled service violates established consumer protection frameworks
+and constitutes unjust enrichment. The convergence of these legal theories provides a
+comprehensive, multi-faceted, and highly viable foundation for pursuing class-wide injunctive
+relief and significant financial restitution against Anthropic PBC.
+
+Works cited
+
+  1.​ Claude Max Plan Explained: Pricing, Limits & Features - IntuitionLabs, accessed
+      April 16, 2026,
+      https://intuitionlabs.ai/articles/claude-max-plan-pricing-usage-limits
+  2.​ Finally a word from Anthropic : r/ClaudeAI - Reddit, accessed April 16, 2026,
+      https://www.reddit.com/r/ClaudeAI/comments/1o24l3o/finally_a_word_from_anthr
+      opic/
+  3.​ GrowthPad – Subscriptions Growth Tactics & Strategies, accessed April 16, 2026,
+      https://growthpad.blog/
+  4.​ [BUG] Inconsistent and Undisclosed Quota Accounting Changes in Claude Max
+      Plan. Legal liability claim ready. #22435 - GitHub, accessed April 16, 2026,
+      https://github.com/anthropics/claude-code/issues/22435
+  5.​ sixbillionthsheep - Reddit, accessed April 16, 2026,
+      https://www.reddit.com/user/sixbillionthsheep/
+  6.​ Investigating usage limits hitting faster than expected : r/ClaudeAI - Reddit,
+      accessed April 16, 2026,
+      https://www.reddit.com/r/ClaudeAI/comments/1s7zgj0/investigating_usage_limits
+      _hitting_faster_than/
+  7.​ Dear Anthropic: We're Paying for Agentic AI, Not a “Continue” Button ..., accessed
+      April 16, 2026,
+      https://medium.com/@eshaanjain26/dear-anthropic-were-paying-for-agentic-ai-
+     not-a-continue-button-d8159e444b40
+8.​ [BUG] Max 20x plan: 100% usage after 2 hours of light work (5 commits, no
+     agents) · Issue #42052 · anthropics/claude-code - GitHub, accessed April 16,
+     2026, https://github.com/anthropics/claude-code/issues/42052
+9.​ what does "20x usage" actually mean? i measured it. $363 per 5 hours. :
+     r/ClaudeCode, accessed April 16, 2026,
+     https://www.reddit.com/r/ClaudeCode/comments/1s7ilti/what_does_20x_usage_a
+     ctually_mean_i_measured_it/
+10.​this must be a joke, we are users not your debugger : r/ClaudeCode - Reddit,
+     accessed April 16, 2026,
+     https://www.reddit.com/r/ClaudeCode/comments/1sadx8b/this_must_be_a_ joke_
+     we_are_users_not_your_debugger/
+11.​ 20x max usage gone in 19 minutes?? : r/ClaudeAI - Reddit, accessed April 16,
+     2026,
+     https://www.reddit.com/r/ClaudeAI/comments/1s6yv86/20x_max_usage_gone_in_
+     19_minutes/
+12.​UNITED STATES DISTRICT COURT MIDDLE DISTRICT OF NORTH ..., accessed April
+     16, 2026,
+     https://www.cohenmilstein.com/wp-content/uploads/2023/09/Amended-Consoli
+     dated-Complaints-In-re-Crop-Protection-July-28-2025.pdf
+13.​First Amended Class Action Complaint - Final (00174515-1).DOCX - Moonshine
+     Ink, accessed April 16, 2026,
+     https://www.moonshineink.com/wp-content/uploads/2024/01/First-Amended-Cla
+     ss-Action-Complaint-w-Exs.-1-6-00174528xBDE34.pdf
+14.​The High Cost of Free-To-Play Games: Consumer ... - SMU Scholar, accessed
+     April 16, 2026,
+     https://scholar.smu.edu/cgi/viewcontent.cgi?article=4687&context=smulr
+15.​DEPARTMENT OF HEALTH AND HUMAN SERVICES 45 CFR Part 84 RIN 0945-AA15
+     Nondiscrimination on the Basis of Disability in Programs or - Federal Register,
+     accessed April 16, 2026,
+     https://public-inspection.federalregister.gov/2024-09237.pdf
+16.​Auxiliary Aids and Services for Postsecondary Students with Disabilities | U.S.
+     Department of Education, accessed April 16, 2026,
+     https://www.ed.gov/laws-and-policy/individuals-disabilities/auxiliary-aids-and-ser
+     vices-for-postsecondary-students-with-disabilities
+17.​Americans with Disabilities Act Title III Regulations | ADA.gov, accessed April 16,
+     2026, https://www.ada.gov/law-and-regs/regulations/title-iii-regulations/
+18.​An Equal Chance to Succeed: Challenging Barriers for Disabled People on
+     Probation and Parole - Georgetown Law, accessed April 16, 2026,
+     https://www.law.georgetown.edu/american-criminal-law-review/wp-content/uplo
+     ads/sites/15/2025/08/GT-ACLR250048.pdf
+19.​The Implied Covenant of Good Faith and Fair Dealing: Nemec v. Shrader,
+     accessed April 16, 2026,
+     https://www.rlf.com/the-implied-covenant-of-good-faith-and-fair-dealing-neme
+     c-v-shrader/
+20.​BYU Law Review, accessed April 16, 2026,
+    https://digitalcommons.law.byu.edu/context/lawreview/article/3469/viewcontent/4
+    9BYUL.Rev.2_complete.pdf
+21.​Are people aware that "20x" is not 20x weekly / monthly usage? : r/ClaudeCode -
+    Reddit, accessed April 16, 2026,
+    https://www.reddit.com/r/ClaudeCode/comments/1qiyf2j/are_people_aware_that_
+    20x_is_not_20x_weekly/
+22.​Claude Usage Limits Discussion Megathread Ongoing (sort this by New!) :
+    r/ClaudeAI - Reddit, accessed April 16, 2026,
+    https://www.reddit.com/r/ClaudeAI/comments/1s7fcjf/claude_usage_limits_discus
+    sion_megathread_ongoing/
+23.​Claude Rate Limits 2026: Why Developers Are Cancelling Pro Plans, accessed
+    April 16, 2026, https://dmarketertayeeb.com/blog/claude-rate-limits-2026/
+24.​Claude Code users say they're hitting usage limits faster than ..., accessed April
+    16, 2026, https://thenewstack.io/claude-code-usage-limits/
+25.​Usage Limits Discussion Megathread - beginning Sep 30, 2025 : r/ClaudeAI -
+    Reddit, accessed April 16, 2026,
+    https://www.reddit.com/r/ClaudeAI/comments/1nu9wew/usage_limits_discussion_
+    megathread_beginning_sep/
+26.​rug pulled again: ~80% in 3 days of work on MAX 20x plan, this is ridiculous, and
+    there's no support, migrating to GLM. : r/Anthropic - Reddit, accessed April 16,
+    2026,
+    https://www.reddit.com/r/Anthropic/comments/1s3lysz/rug_pulled_again_80_in_3
+    _days_of_work_on_max_20x/
+27.​Claude Pro Weekly Limits: Pro Plan is Objectively Worse Than Free : r/ClaudeAI -
+    Reddit, accessed April 16, 2026,
+    https://www.reddit.com/r/ClaudeAI/comments/1rplxbv/claude_pro_weekly_limits_
+    pro_plan_is_objectively/
+28.​Carpe Carma, LLC v. SK Energy Americas, Inc. et al. - ClassAction.org, accessed
+    April 16, 2026,
+    https://www.classaction.org/media/carpe-carma-llc-v-sk-energy-americas-inc-et
+    -al.pdf
+29.​-1- UNITED STATES DISTRICT COURT SOUTHERN DISTRICT OF NEW YORK
+    EDWARD SKOLARUS, JAMES SMA - Paul LLP Trial Attorneys, accessed April 16,
+    2026,
+    https://paulllp.com/wp-content/uploads/2024/06/skolarus-et-al-vs-bloomberg-lp.
+    pdf
+30.​Case 2:19-cv-05984-RGK-AS Document 66-1 Filed 01/15/20 Page 1 of 244 Page
+    ID #:1420 - Client Settlement Site, accessed April 16, 2026,
+    https://www.settlement-claims.com/infotainment/asset/Corrected%20Second%2
+    0Amended%20Class%20Action%20Complaint.pdf
+31.​Supreme Court of the United States, accessed April 16, 2026,
+    https://www.supremecourt.gov/DocketPDF/22/22-105/252835/202301201440104
+    68_22-105%20Joint%20Appendix%20Volume%20I%20-%20Final.pdf
+32.​States drop constitutional challenge to Section 504 in Texas v. Kennedy - Deque
+    Systems, accessed April 16, 2026,
+    https://www.deque.com/blog/states-drop-constitutional-challenge-to-section-5
+    04-in-texas-v-kennedy/
+33.​FTC Signals Enforcement on Auto-Renewing Subscriptions and Sales - Holland &
+    Knight, accessed April 16, 2026,
+    https://www.hklaw.com/en/insights/publications/2025/04/ftc-signals-enforcement
+    -on-auto-renewing-subscriptions-and-sales
+34.​Class Action Complaint Yick v. Bank of America, N.A. 1 2 3 4 5 6 7 8 9 10 11 12 13 14
+    15 16 17 18 19 20 21 22 23 24 25 26 27 28 - Cotchett, Pitre & McCarthy, LLP,
+    accessed April 16, 2026,
+    https://www.cpmlegal.com/media/news/15069_BofA%20EDD%20Complaint.pdf
+35.​What People Are Saying About Data Caps - Federal Communications
+    Commission, accessed April 16, 2026,
+    https://www.fcc.gov/sites/default/files/Data-Cap-Complaints-Redacted.pdf
+36.​Ticket: # 364230 - AT&T Wireless Cellular Internet Throttling Description - Federal
+    Communications Commission, accessed April 16, 2026,
+    https://www.fcc.gov/sites/default/files/foia-consumer-complaints-08292017-565-
+    577-throttling.pdf
+37.​Vasquez v. Cebridge Telecom CA, LLC et al. - 1:21-cv-06400, accessed April 16,
+    2026,
+    https://www.classaction.org/media/vasquez-v-cebridge-telecom-ca-llc-et-al.pdf
+38.​Ask and You Shall Receive a Recurring Subscription: FTC Sues a Web Q&A Service
+    for Deceptive Negative Option | Hinshaw & Culbertson LLP, accessed April 16,
+    2026,
+    https://www.hinshawlaw.com/en/insights/blogs/consumer-crossroads-where-fina
+    ncial-services-and-litigation-intersect/ask-and-you-shall-receive-a-recurring-su
+    bscription-ftc-sues-a-web-qanda-service-for-deceptive-negative-option
+39.​FTC Targets Adobe for Hidden Fees and Deceptive Subscription Practices |
+    Insights, accessed April 16, 2026,
+    https://www.gtlaw.com/en/insights/2024/7/ftc-targets-adobe-for-hidden-fees-an
+    d-deceptive-subscription-practices
+40.​Ticket: # 1282316 - Data Usage Cap Description - Federal Communications
+    Commission, accessed April 16, 2026,
+    https://www.fcc.gov/sites/default/files/foia-consumer-complaints-09052017-565-
+    577-data-caps-1.pdf
+41.​Ticket: # 1282380 - Net neutrality Description - Federal Communications
+    Commission, accessed April 16, 2026,
+    https://www.fcc.gov/sites/default/files/foia-consumer-complaints-09142017-565-
+    577-throttling.pdf
+42.​FTC Says AT&T Has Misled Millions of Consumers with 'Unlimited' Data Promises,
+    accessed April 16, 2026,
+    https://www.ftc.gov/news-events/news/press-releases/2014/10/ftc-says-att-has-
+    misled-millions-consumers-unlimited-data-promises
+43.​sixbillionthsheep - Reddit, accessed April 16, 2026,
+    https://www.reddit.com/user/sixbillionthsheep/comments/
+44.​2018 IL App (1st) 171298-U - Illinois Courts, accessed April 16, 2026,
+    https://www.illinoiscourts.gov/files/1171298_R23.pdf/opinion
+45.​Good Faith and Reasonable Expectations - University of Arkansas School of Law,
+    accessed April 16, 2026,
+    https://law.uark.edu/alr/PDFs/67-3/ALR-67-3-525-570Feinman.pdf
+46.​International Law Practicum - New York State Bar Association, accessed April 16,
+    2026, https://nysba.org/wp-content/uploads/2020/03/IntlPracticumAutumn13.pdf
+47.​draft-sharif-aeba-00 - Agent Event Behaviour Analysis (AEBA): A Framework for
+    Behavioural Security Monitoring of Autonomous AI Agents - IETF Datatracker,
+    accessed April 16, 2026, https://datatracker.ietf.org/doc/draft-sharif-aeba/
+48.​Petition for Writ of CertiOrari - Supreme Court of the United States, accessed
+    April 16, 2026,
+    https://www.supremecourt.gov/DocketPDF/25/25-286/374135/202509091433448
+    01_25-__________________Petition%20for%20Writ.pdf
+49.​Ireland-Gordy et al. v. Tile Inc. et al. - 3:23-cv-04119 - Class Action, accessed April
+    16, 2026,
+    https://www.classaction.org/media/ireland-gordy-et-al-v-tile-inc-et-al.pdf
+50.​Delete Request and Opt–out Platform (“DROP”) System Requirements Part 1,
+    accessed April 16, 2026,
+    https://cppa.ca.gov/regulations/pdf/drop_written_comments.pdf
+51.​Hey! I'm Nick, and I work on Integrity at OpenAI. These checks are part of how w...
+    | Hacker News, accessed April 16, 2026,
+    https://news.ycombinator.com/item?id=47567575
+52.​The Ethics of Shared Hosting: When Does Overselling Become Fraud?, accessed
+    April 16, 2026,
+    https://dohost.us/index.php/2026/04/03/the-ethics-of-shared-hosting-when-doe
+    s-overselling-become-fraud/
+53.​Hetzner appears to impose unlisted “fair use” on traffic | Hacker News, accessed
+    April 16, 2026, https://news.ycombinator.com/item?id=32242987
+54.​ADA Title III Technical Assistance Manual, accessed April 16, 2026,
+    https://www.ada.gov/resources/title-iii-manual/
+55.​A New Look at Section 504 and the ADA in Special Education Cases, accessed
+    April 16, 2026,
+    https://www.americanbar.org/groups/litigation/resources/newsletters/childrens-ri
+    ghts/new-look-section-504-ada-special-ed-cases/
+56.​Internet Architecture and Disability - Colorado Law Scholarly Commons,
+    accessed April 16, 2026,
+    https://scholar.law.colorado.edu/cgi/viewcontent.cgi?article=2408&context=facult
+    y-articles
+57.​virtual access: a new framework for disability and human flourishing in an online
+    world - johanna smith* and john inazu - Section Head, accessed April 16, 2026,
+    https://wlr.law.wisc.edu/wp-content/uploads/sites/1263/2021/11/15-Inazu-Smith-C
+    amera-Ready.pdf
+58.​Not a Checklist: Building Accessibility Compliance into Your Business Processes -
+    Deque, accessed April 16, 2026,
+    https://www.deque.com/blog/not-a-checklist-building-accessibility-compliance-i
+    nto-your-business-processes/
+59.​Digital Accessibility Under Title III of the ADA: Recent Developments and Risk
+    Mitigation Best Practices - American Bar Association, accessed April 16, 2026,
+    https://www.americanbar.org/groups/business_law/resources/business-law-today
+    /2025-august/digital-accessibility-under-title-iii-ada/
+60.​United States' Statement of Interest in National Association of the Deaf v. MIT,
+    accessed April 16, 2026, https://archive.ada.gov/briefs/mit_soi.pdf
+61.​BONNETTE v. DISTRICT OF COLUMBIA COURT OF APPEALS | Civil Action No.
+    11-1053 (CKK). | D.D.C. | Judgment | Law | CaseMine, accessed April 16, 2026,
+    https://www.casemine.com/judgement/us/5914aed7add7b049347499de
+62.​Glossary: Auxiliary aids and services | The Northeast ADA Center, accessed April
+    16, 2026, https://northeastada.org/glossary/auxiliary-aids-and-services
+63.​The Impact of AI in Advancing Accessibility for Learners with Disabilities,
+    accessed April 16, 2026,
+    https://er.educause.edu/articles/2024/9/the-impact-of-ai-in-advancing-accessibili
+    ty-for-learners-with-disabilities
+64.​How AI in Assistive Technology Supports Students and Educators with Disabilities,
+    accessed April 16, 2026,
+    https://www.everylearnereverywhere.org/blog/how-ai-in-assistive-technology-su
+    pports-students-and-educators-with-disabilities/
+65.​ADM_0024 ADA and Disability Rights in Child Welfare - DCYF, accessed April 16,
+    2026, https://www.dcyf.wa.gov/sites/default/files/pubs/ADM_0024.pdf
+66.​Transparency Posting of FORMAL BOARD-LEVEL NOTICE : r/Anthropic - Reddit,
+    accessed April 16, 2026,
+    https://www.reddit.com/r/Anthropic/comments/1rm8wbi/transparency_posting_of
+    _formal_boardlevel_notice/
+67.​Harnessing AI for Inclusive Education and Employment: New possibilities for
+    physical, cognitive and communication access - AHEAD, accessed April 16, 2026,
+    https://www.ahead.ie/journal/Harnessing-AI-for-Inclusive-Education-and-Employ
+    ment-New-possibilities-for-physical-cognitive-and-communication-access
+68.​Integrating AI and Assistive Technologies in Healthcare: Insights from a Narrative
+    Review of Reviews - PMC - NIH, accessed April 16, 2026,
+    https://pmc.ncbi.nlm.nih.gov/articles/PMC11898476/
+69.​RAFFORD v. SNOHOMISH COUNTY | Case No. C07-0947RSL. | W.D. Wash. -
+    CaseMine, accessed April 16, 2026,
+    https://www.casemine.com/judgement/us/59146bbfadd7b04934302f97
+70.​Americans with Disabilities Act Advancing Court Accessibility for Individuals with
+    Disabilities Comprehensive Guide, accessed April 16, 2026,
+    https://appellatecourtclerks.org/wp-content/uploads/2025/12/Albuqueque-Master
+    -File.pdf
+71.​Auxiliary Aids and Services - ADA Title III, accessed April 16, 2026,
+    https://www.adatitleiii.com/category/auxiliary-aids/
+72.​Case 2:22-cv-04026-MDH Document 138 Filed 09/22/23 Page 1 of 113 - NCLEJ,
+    accessed April 16, 2026,
+    https://nclej.org/wp-content/uploads/2023/12/138-Suggestions-in-Supp-of-Pls-SJ
+    -Motion.pdf
+73.​A Cautionary Tale for Healthcare Providers: Are You Actually Providing Effective
+    Communication Under the ADA and the Rehabilitation Act? - K&L Gates,
+    accessed April 16, 2026,
+    https://www.klgates.com/A-Cautionary-Tale-for-Healthcare-Providers--Are-You-
+    Actually-Providing-Effective-Communication-Under-the-ADA-and-the-Rehabilit
+    ation-Act-06-06-2017
+74.​SPECIAL EDUCATION LAW YEAR IN REVIEW: KEY COURT DECISIONS IN 2023-24
+    40th Annual State Superintendents' Conference on Special - Wisconsin
+    Department of Public Instruction |, accessed April 16, 2026,
+    https://dpi.wi.gov/sites/default/files/imce/sped/pdf/Wisconsin_DPI.Keynote_YIR.Oc
+    tober_16_2024.pdf
+75.​Website Accessibility Requirements: What Every Business Needs to Know -
+    SCORE.org, accessed April 16, 2026,
+    https://www.score.org/greaterphoenix/resource/blog-post/website-accessibility-r
+    equirements-what-every-business-needs-know
+76.​Bridging the Justice Gap – How Smart Technology Can Support Access to Legal
+    Advice for Underserved Communities, accessed April 16, 2026,
+    https://www.biicl.org/documents/197_ai_legal_access_vulnerable_groups.pdf
+77.​AI Is Fueling a New Wave of Accessibility Lawsuits, accessed April 16, 2026,
+    https://www.accessibility.works/blog/ai-generated-accessibility-ada-lawsuits-diy/
+78.​DOJ Reaffirms Position that ADA Applies to Websites - Level Access, accessed
+    April 16, 2026,
+    https://www.levelaccess.com/blog/doj-reaffirms-position-that-ada-applies-to-w
+    ebsites/
+79.​The ADA and Website Accessibility – Legal Environment and Best Practices -
+    North Carolina Bar Association, accessed April 16, 2026,
+    https://www.ncbar.org/nc-lawyer/2023-11/the-ada-and-website-accessibility-leg
+    al-environment-and-best-practices/
+80.​ADA Compliance for Websites in Plain English (with Checklist), accessed April 16,
+    2026,
+    https://adabook.medium.com/the-ada-checklist-website-compliance-guidelines-
+    for-2019-in-plain-english-123c1d58fad9
+81.​ADA Title II vs Title III in Plain Language: What They Mean for your Organization,
+    accessed April 16, 2026, https://www.siteimprove.com/blog/ada-title-ii-vs-title-iii/
+82.​ADA-Compliant CAPTCHA - Friendly Captcha, accessed April 16, 2026,
+    https://friendlycaptcha.com/accessibility/ada/
+83.​U.S. v. Baystate Medical Center - Voluntary Resolution Agreement - Department
+    of Justice, accessed April 16, 2026,
+    https://www.justice.gov/d9/press-releases/attachments/2021/11/16/u.s._v._baystat
+    e_medical_center_-_voluntary_resolution_agreement_0.pdf
+84.​Case 2:22-cv-04026-MDH Document 161 Filed 05/09/24 Page 1 of 40 - GovInfo,
+    accessed April 16, 2026,
+    https://www.govinfo.gov/content/pkg/USCOURTS-mowd-2_22-cv-04026/pdf/US
+    COURTS-mowd-2_22-cv-04026-1.pdf
+85.​Lion Studios, LLC Terms of Service, accessed April 16, 2026,
+    https://lionstudios.cc/terms/
+86.​Refund Policies | State of California - Department of Justice - Office of the
+    Attorney General, accessed April 16, 2026,
+    https://oag.ca.gov/consumers/general/refunds
+87.​Return and Refund Laws in the U.S. - TermsFeed, accessed April 16, 2026,
+    https://www.termsfeed.com/blog/return-refund-laws-usa/
+88.​Sales and Use Tax Annotations - 490.0000 - CDTFA, accessed April 16, 2026,
+    https://cdtfa.ca.gov/lawguides/vol2/suta/490-0000-all.html
+89.​EULA and Rules of Conduct - APB Reloaded - GamersFirst, accessed April 16,
+    2026, https://www.gamersfirst.com/apb/eula
+90.​Team - Rimon Law, accessed April 16, 2026, https://www.rimonlaw.com/team/
+91.​Case 2:25-cv-05340-ODW-RAO Document 1-3 Filed 06/12/25 Page, accessed
+    April 16, 2026,
+    https://winteryear.com/press/rokoko_electronics_court_case_25CHSC00490/files
+    /1-3.pdf
+92.​Stipulated Order for Permanent Injunction and Monetary Judgment - Federal
+    Trade Commission, accessed April 16, 2026,
+    https://www.ftc.gov/system/files/documents/cases/150223tracfoneorder.pdf
+93.​Restoring Internet Freedom, WC Docket No. 17-108. Why I must dissent - Federal
+    Communications Commission, accessed April 16, 2026,
+    https://docs.fcc.gov/public/attachments/FCC-17-166A3.pdf
+94.​FTC settlement returns $60 million to consumers affected by AT&T's throttling
+    practices, accessed April 16, 2026,
+    https://www.ftc.gov/business-guidance/blog/2019/11/ftc-settlement-returns-60-
+    million-consumers-affected-atts-throttling-practices
+95.​Prepaid Mobile Provider TracFone to Pay $40 Million to Settle FTC Charges It
+    Deceived Consumers About 'Unlimited' Data Plans, accessed April 16, 2026,
+    https://www.ftc.gov/news-events/news/press-releases/2015/01/prepaid-mobile-p
+    rovider-tracfone-pay-40-million-settle-ftc-charges-it-deceived-consumers-abo
+    ut
+96.​Complaint for Permanent Injunction and Other Equitable Relief - Federal Trade
+    Commission, accessed April 16, 2026,
+    https://www.ftc.gov/system/files/documents/cases/150128tracfonecmpt.pdf
+97.​FTC Sues Adobe and Execs for Illegal “Hidden Fees” - Hunton Andrews Kurth LLP,
+    accessed April 16, 2026,
+    https://www.hunton.com/hunton-retail-law-resource/ftc-sues-adobe-and-execs-
+    for-illegal-hidden-fees
+98.​FTC Takes Action Against Adobe and Executives for Hiding Fees, Preventing
+    Consumers from Easily Cancelling Software Subscriptions, accessed April 16,
+    2026,
+    https://www.ftc.gov/news-events/news/press-releases/2024/06/ftc-takes-action-
+    against-adobe-executives-hiding-fees-preventing-consumers-easily-cancelling
+

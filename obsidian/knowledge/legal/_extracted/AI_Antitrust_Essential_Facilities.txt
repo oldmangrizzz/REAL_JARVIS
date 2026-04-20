@@ -1,0 +1,726 @@
+The Antitrust Implications of Generative
+AI Gatekeeping: Collusion, Essential
+Facilities, and Civil Rights Intersections
+Executive Summary
+The rapid commercialization of artificial intelligence (AI), specifically large language models
+(LLMs) and the vast computational infrastructure required to train and deploy them, has
+catalyzed an unprecedented concentration of global market power. A highly consolidated
+oligopoly of technology conglomerates—frequently identified in economic literature as the
+"GAMMANs" (Google, Amazon, Microsoft, Meta, Apple, and Nvidia)—now exercises profound,
+unilateral control over the foundational layers of the modern AI ecosystem.1 This structural
+concentration extends far beyond physical semiconductor hardware and hyperscale cloud
+infrastructure; it permeates the model layer itself, creating systemic chokepoints that dominant
+firms can leverage to dictate downstream market dynamics, stifle application development,
+and, critically, suppress independent AI safety research.1
+This exhaustive research report provides a deep-dive investigation into the federal antitrust
+liability and regulatory enforcement mechanisms surrounding the collective gatekeeping of AI
+infrastructure by major technology laboratories. The analysis synthesizes current jurisprudence
+and economic theory to evaluate the legal peril of deploying exclusionary digital standards and
+coordinated algorithmic behaviors. Specifically, the report addresses the legal standing of
+uniform, undocumented "rolling limit" algorithmic throttling, unappealable automated support
+walls, and discriminatory Application Programming Interface (API) revocations. Such practices
+systematically box out independent and disabled AI safety researchers, thereby insulating
+dominant, proprietary models from external oversight, rigorous ethical alignment testing, and
+competitive pressure.
+Through a detailed examination of the Sherman Antitrust Act (15 U.S.C. §§ 1 & 2), the "Essential
+Facilities" doctrine, Section 5 of the Federal Trade Commission (FTC) Act, and the novel,
+emerging intersection of antitrust law with the Americans with Disabilities Act (ADA) and
+Section 504 of the Rehabilitation Act, this report outlines the multi-front liability matrix facing
+dominant AI gatekeepers. The synthesis of these doctrines reveals that the arbitrary exclusion
+of independent auditors is not merely a matter of restrictive terms of service, but a potentially
+illegal restraint of trade, an abuse of monopoly power, and a discriminatory enforcement of
+digital infrastructure standards designed to maintain proprietary control over the global AI
+safety narrative.
+1. Algorithmic Collusion and the Sherman Antitrust
+Act (Section 1)
+Section 1 of the Sherman Antitrust Act of 1890 establishes the foundational prohibition against
+"[e]very contract, combination in the form of trust or otherwise, or conspiracy, in restraint of
+trade or commerce".3 To successfully prove a violation under Section 1, plaintiffs or federal
+enforcers must traditionally demonstrate two primary elements: an agreement among
+separate competitors, and evidence that the resulting agreement constitutes an unreasonable
+restraint on trade.3 However, the proliferation of advanced AI systems and complex, opaque
+algorithms has fundamentally transformed the mechanics of market coordination, severely
+blurring the doctrinal lines between express collusion (which is per se illegal) and tacit collusion
+or "conscious parallelism" (which is historically difficult to prosecute standing alone).3
+Legal Standing for Hub-and-Spoke Conspiracies in Digital Markets
+
+A central mechanism for prosecuting coordinated algorithmic behavior under Section 1 is the
+"hub-and-spoke" conspiracy framework. This legal metaphor describes an antitrust cartel
+structured identically to a wagon wheel: a vertically related firm (the "hub") enters into separate
+vertical agreements (the "spokes") with various horizontal competitors operating at a different
+level of the supply chain.3 Crucially, for this arrangement to violate Section 1, there must be a
+discernible horizontal agreement among the spokes—the "rim" of the wheel—demonstrating a
+shared, interdependent commitment to the anticompetitive scheme.4 Without the rim, the
+structure is merely a series of vertical agreements, which are typically evaluated under the
+more lenient "rule of reason" standard rather than being deemed per se illegal.3
+The foundational precedent establishing this framework is the 1939 Supreme Court case
+Interstate Circuit, Inc. v. United States, wherein a dominant movie theater exhibitor (acting as
+the hub) sent identical written demands to eight competing film distributors (the spokes) to
+enforce minimum ticket prices.3 The Court inferred a horizontal conspiracy because each
+distributor had an independent economic motive to agree to the hub's demands only if they
+possessed a tacit assurance that their horizontal competitors were doing the exact same
+thing.3 Taking action against one's own independent business interest is a primary "plus factor"
+used to infer a collaborative agreement.4 More recently, the Department of Justice (DOJ)
+successfully applied this theory in United States v. Apple, proving that Apple acted as the
+central hub to orchestrate a conspiracy among major book publishers to raise e-book prices,
+utilizing continuous communication and mutual assurances.4
+In the contemporary digital era, algorithmic intermediaries frequently serve as the hub. In the
+real estate sector, the DOJ and private plaintiffs have pursued aggressive antitrust actions
+against RealPage, alleging that competing landlords (the spokes) fed highly confidential pricing
+and supply data into a centralized pricing algorithm (the hub) to artificially inflate rental prices
+nationwide.3 The legal contention relies heavily on the presence of compliance mechanisms
+that pressured users to adhere to the algorithm's outputs, which the DOJ cited as a critical
+factor suggesting coordinated, rather than unilateral, behavior.6 The Meyer v. Kalanick case
+further cemented this theory, where plaintiffs plausibly alleged that Uber drivers signed up for
+the platform on the precise understanding that all other drivers were agreeing to the same
+algorithmic pricing structure, creating a hub-and-spoke conspiracy orchestrated by the
+algorithm.8
+Tacit Collusion and the "Algorithm Made Me Do It" Defense
+
+As AI evolves from traditional rule-based algorithms to autonomous Machine Learning (ML)
+and Reinforcement Learning (RL) systems, antitrust law faces a paradigm shift. Empirical
+studies demonstrate that LLM-based pricing algorithms and Q-learning systems can
+consistently learn to charge supracompetitive prices on their own, without being explicitly
+programmed to collude and without direct communication between competitors.3 This
+introduces the "Algorithm Made Me Do It" defense, where companies argue that parallel
+market behavior is simply the result of autonomous machine optimization rather than an illegal
+agreement.3
+State lawmakers and federal regulators are increasingly concerned that these tools facilitate
+purely tacit collusion, circumventing traditional Section 1 liability which strictly requires proof of
+an agreement.10 If competitors independently deploy algorithms that scrape public data and
+arrive at uniform market restrictions, courts struggle to find the requisite "meeting of the
+minds".11 The legal debate currently centers on whether the mutual delegation of
+decision-making to predictable, self-learning algorithms constitutes an implicit agreement to
+restrain trade.13
+Uniform Throttling of AI Safety Researchers as a Restraint of Trade
+
+The legal theories surrounding algorithmic hub-and-spoke conspiracies and tacit collusion
+provide a highly relevant framework for examining the collective behavior of major AI
+laboratories (e.g., OpenAI, Anthropic, Google, Meta, Apple). Independent safety researchers,
+alignment auditors, and vulnerability testers heavily rely on consistent, high-volume API access
+to conduct their work.15 If these dominant labs uniformly adopt identical, undocumented
+"rolling limit" throttling practices and route all researcher account appeals through identical,
+automated AI-only support walls, this parallel conduct invites severe antitrust scrutiny under
+Section 1.16
+A "rolling limit" dynamically restricts API calls based on a hidden, shifting time window, making
+systematic algorithmic auditing practically impossible because the researcher cannot replicate
+tests consistently or predict their available bandwidth.16 The legal standing for a conspiracy
+claim hinges on whether the uniform deployment of these limits across the industry is merely
+conscious parallelism or constitutes a coordinated effort to box out independent oversight.
+To establish an actionable restraint of trade, regulators must identify the "rim" of the
+conspiracy. In the AI ecosystem, a shared cloud infrastructure provider, a common foundational
+dataset distributor, or a shared algorithmic security and bot-detection protocol could easily
+function as the hub.3 If the AI labs input sensitive usage data into a shared threat-detection
+algorithm that uniformly flags and throttles independent safety researchers under the guise of
+"abuse prevention" or "spam mitigation," this shared infrastructure acts as the direct conduit for
+coordination.8
+Furthermore, an inference of a horizontal agreement can be strongly drawn if a lab acts against
+its own independent economic interest.4 Rejecting paid API queries from well-funded safety
+researchers directly reduces a lab's immediate revenue.7 A lab would logically only incur this
+financial loss if it possessed an underlying assurance that its competitors were deploying the
+exact same throttling mechanisms, thereby preventing the alienated researcher from simply
+migrating to a rival platform to conduct their audits.4 By homogenizing the throttling thresholds
+and erecting impenetrable AI-only support walls, the labs effectively establish an industry-wide
+boycott of independent algorithmic auditing. This coordinated action shields their proprietary
+models from external critique, eliminates the secondary market for independent alignment
+verification, and maintains absolute control over the safety narrative.19
+Collusion Modality         Mechanism in AI        Legal Standard          Application to AI
+                           Markets                (Sherman Act Sec. 1) Safety Gatekeeping
+Express Collusion          Direct communication Per se illegal. Requires Rare, but actionable if
+                           between lab executives direct evidence of      internal
+                           to restrict API access communication.          communications reveal
+                           for auditors.                                  intent to block specific
+                                                                          researchers.
+Tacit Collusion            Observing competitor Not inherently            Labs mirror each
+                           API limits and         actionable without      other's "rolling limits"
+                           independently          additional "plus        based on public
+                           mirroring them via     factors."               observations, avoiding
+                           public data.                                   direct communication.
+Hub-and-Spoke              A shared               Actionable if a         Labs rely on a common
+                           security/API-managem horizontal "rim" (mutual intermediary tool to
+                           ent algorithm dictates reliance/interdependen globally flag and
+                           access limits for all  ce) is inferred.        throttle "high-volume"
+                           competing labs.                                safety researchers.
+Autonomous                 RL algorithms          Frontier legal issue.   AI support walls
+Algorithmic                independently learn    Liability standards     autonomously identify
+                           that throttling        currently fiercely      and delay researcher
+                           researchers maximizes debated.                 appeals without any
+                           long-term dominance.                           human intervention.
+
+
+2. Monopolization of Frontier Compute under the
+Sherman Antitrust Act (Section 2)
+While Section 1 addresses collaborative and conspiratorial agreements, Section 2 of the
+Sherman Act targets unilateral power, making it illegal to "monopolize, or attempt to
+monopolize... any part of the trade or commerce among the several States".20 The offense of
+monopolization requires the proof of two distinct elements: first, the possession of monopoly
+power in a properly defined relevant market; and second, the willful acquisition, maintenance,
+or use of that power for exclusionary purposes, as distinguished from growth resulting from
+superior products, business acumen, or historical accident.21
+The Shared Monopoly Theory and Market Concentration
+
+The modern AI technology stack is characterized by extreme concentration, specifically at the
+foundational hardware and cloud computing layers. Training frontier AI models requires
+massive arrays of specialized microprocessors (primarily Nvidia GPUs) and immense
+hyperscale cloud computing capacity, markets effectively dominated by Amazon Web Services
+(AWS), Google Cloud Platform, and Microsoft Azure.2 The fixed costs associated with model
+training are growing exponentially on a logarithmic scale, reaching billions of dollars per training
+run, with no current signs of diminishing returns.1 These exorbitant capital requirements and
+physical hardware bottlenecks create virtually insurmountable barriers to entry for
+independent developers and smaller research laboratories.1
+When analyzing this highly concentrated oligopoly, the concept of a "shared monopoly" arises.
+A shared monopoly occurs when a small group of dominant firms collectively exercises market
+power equivalent to a single monopolist, maintaining supracompetitive prices and foreclosing
+entry without necessarily engaging in a formal, prosecutable agreement under Section 1.22
+Historically, U.S. federal courts have exhibited profound skepticism toward shared monopoly
+claims under Section 2. The First, Second, and other Circuits have consistently rejected the
+theory, explicitly holding that Section 2 requires an individual defendant to possess sufficient
+market power on its own to constitute a monopoly; the combined power of independent
+competitors is legally insufficient for a Section 2 claim.20
+However, the traditional rejection of shared monopolies is being challenged by modern
+economic frameworks, notably the "Moligopoly" thesis advanced by scholars like Nicolas
+Petit.25 This thesis provides a nuanced understanding of digital ecosystems, positing that tech
+giants hold deeply entrenched, unassailable monopolies in their core, "tipped" markets (e.g.,
+Google in general search, Microsoft in enterprise operating systems, Amazon in e-commerce)
+but compete fiercely as an oligopoly in emerging, "untipped" markets like General-Purpose AI
+(GPAI).25 Under this framework, the legal vulnerability under Section 2 lies not in a shared
+monopoly of AI itself, but in the individual leveraging of core monopoly power to dominate and
+foreclose adjacent AI markets.21 For example, the August 2024 landmark ruling by Judge Amit
+Mehta in United States v. Google affirmed that Google possessed and abused monopoly
+power in the general search market, utilizing exclusionary default agreements to deprive rivals
+of data scale.26 The DOJ and private litigants argue that this exact monopolistic power is now
+being leveraged to capture the generative AI landscape.21
+Exclusionary Conduct and the Suppression of Independent Oversight
+
+The exertion of monopoly power over compute infrastructure directly translates into the ability
+to suppress independent oversight. The recent class action complaint in Samuel Bryant et al. v.
+Microsoft Corporation (Case No. 3:25-cv-8733, filed October 2025) provides a potent
+illustration of Section 2 liability mechanics within the AI sector.28 The complaint alleges that
+Microsoft leveraged an exclusive cloud computing agreement with OpenAI to artificially
+constrain the supply of compute available to its horizontal competitor.28 By acting as the
+exclusive cloud provider, Microsoft reportedly "mercilessly choked" OpenAI's compute supply,
+which restricted output, degraded the quality of ChatGPT, and inflated per-token prices by 136
+to 200 times the competitive baseline during a 2025 price war initiated by DeepSeek AI.28
+When Microsoft partially relaxed this compute restraint in June 2025, OpenAI token prices
+immediately plummeted by 80%, clearly demonstrating the market distortion caused by the
+exclusionary control of infrastructure.28
+This dynamic extends directly to the treatment of independent safety researchers. If a
+dominant AI laboratory, backed by an exclusive hyperscale cloud provider, possesses a
+chokehold over frontier AI compute, it wields the unilateral capability to revoke access to the
+only platforms practically capable of running advanced ethical alignment and safety tests.15
+When an AI lab utilizes this monopoly power to arbitrarily throttle a paid, third-party researcher,
+it transcends standard network management. It constitutes exclusionary conduct explicitly
+designed to foreclose the downstream, secondary market for independent AI auditing and
+safety verification.19
+By starving independent researchers of the requisite compute and API bandwidth, dominant
+labs neutralize nascent competitive threats in the AI safety sector. This ensures that the labs
+remain the sole, unquestioned arbiters of what constitutes "safe" or "aligned" AI, thereby
+preempting external regulatory intervention, suppressing critical safety narratives, and
+maintaining their overarching market dominance.19 The use of monopoly power to deny inputs
+to a dependent secondary market is a classic violation of Section 2, particularly when the
+refusal to deal lacks a valid, procompetitive business justification.21
+
+3. The "Essential Facilities" Doctrine in the Era of Cloud
+Infrastructure and Large Language Models
+A highly potent, albeit historically controversial, remedy for unilateral refusals to deal under
+Section 2 of the Sherman Act is the "Essential Facilities" doctrine. Originating from early
+twentieth-century cases involving physical infrastructure—such as the St. Louis terminal
+railroads, where a consortium controlled the only bridges and switching yards into the city—the
+doctrine mandates that a monopolist controlling a facility that is absolutely essential to
+competition in a downstream market must grant access to competitors on reasonable,
+non-discriminatory terms.2
+Doctrinal Evolution and the Four-Prong Test
+
+To successfully invoke the Essential Facilities doctrine under established U.S. jurisprudence, a
+plaintiff must typically demonstrate four elements, derived from the Seventh Circuit's seminal
+ruling in MCI Communications Corp v. AT&T Co.:
+   1.​ Control of the essential facility by a monopolist.
+   2.​ A competitor's inability practically or reasonably to duplicate the essential facility.
+   3.​ The denial of the use of the facility to a competitor.
+   4.​ The feasibility of providing the facility to the competitor.2
+While the U.S. Supreme Court has expressed skepticism toward the doctrine in recent
+decades—most notably in Verizon Communications Inc. v. Law Offices of Curtis V. Trinko
+(2004), where the Court stated that forced sharing could reduce investment incentives and
+turn courts into central planners—the doctrine has never been formally repudiated and is
+experiencing a renaissance in the context of digital platforms.2 Legal scholars increasingly
+argue that digital platforms serve as the railroads of the modern economy, controlling the vital
+bottlenecks of commerce and information flow.30
+In contrast to the U.S. hesitation, the European Union has actively embraced and expanded
+essential facilities-like remedies under Article 102 TFEU. Following cases like Magill, Bronner,
+and IMS Health, which required strict indispensability, the European Commission significantly
+relaxed the standard in the Microsoft, Google Shopping, and Android Auto cases.25 The EU now
+frequently imposes duties to deal and interoperability mandates on digital gatekeepers to
+prevent the leveraging of market power into downstream services, prioritizing competition in
+the market over the long-term incentives to compete for the market.25
+Compute and API Access as Digital Public Utilities
+
+In the contemporary AI ecosystem, hyperscale cloud computing infrastructure (IaaS) and
+foundational Large Language Models operate precisely as utility-like bottlenecks.2 Foundation
+models and cloud compute infrastructure perfectly map onto the second criterion of the MCI
+test: duplication is economically and practically infeasible for independent researchers.1 The
+multi-billion-dollar fixed costs of acquiring vast GPU clusters, securing massive proprietary
+training datasets, and paying elite engineering talent place the creation of frontier models
+entirely out of reach for academic institutions, non-profits, and independent auditing startups.1
+Consequently, access to the APIs of these dominant models is an absolute prerequisite for
+participating in the downstream market of AI application development and safety verification.15
+The Denial of Essential Facilities to Paid Researchers
+
+The application of this doctrine is actively playing out in the AI market, highlighting the severe
+risks of unregulated gatekeeping. A critical case study is Anthropic's 2025 termination of API
+access for Windsurf, a startup that developed a highly successful AI coding agent.15 Anthropic
+deliberately severed Windsurf's access to the Claude API upon rumors that OpenAI might
+acquire the startup.15 Anthropic's executives explicitly cited competitive motivations, seeking to
+avoid empowering a primary rival, while simultaneously protecting their own vertically
+integrated coding agent, Claude Code.15 Similarly, Anthropic restricted xAI's use of Cursor,
+demonstrating a willingness to use the API as a "kill switch" to execute a discriminatory refusal
+to deal against a "customer's customer".15
+When independent safety researchers are denied access or arbitrarily throttled without an
+appeal mechanism, they suffer a similar anticompetitive foreclosure. Safety researchers
+operate in a secondary, downstream market: algorithmic auditing, bias detection, and
+compliance verification. If they cannot conduct their research without access to the
+proprietary weights, fine-tuning mechanisms, and high-volume APIs of the frontier models, the
+LLM itself unequivocally becomes an essential facility.25
+The arbitrary, unappealable throttling of a paid safety researcher therefore constitutes an illegal
+denial of an essential facility, provided it can be proven that the AI lab wields monopoly power
+and that providing access is technically feasible.2 Given that the labs already provide
+commercial API access at scale, allocating un-throttled bandwidth to a paying researcher is
+highly feasible and poses no technical burden.2 To combat these abuses, scholars and
+policymakers are increasingly advocating for an "AI Neutrality" mandate—akin to net neutrality
+rules for telecommunications—that would legally prohibit foundation model providers from
+unjustly discriminating, throttling, or artificially altering the latency and quality of service for
+third-party downstream users and auditors.15
+Doctrine Element (MCI v. AT&T)                         Application to AI Infrastructure & Safety
+                                                       Research
+1. Monopolist Control                                  GAMMANs exert near-total, oligopolistic
+                                                       control over hyperscale compute and top-tier
+                                                       LLM API endpoints.
+2. Inability to Duplicate                              Multi-billion-dollar training costs, copyright
+                                                       data restrictions, and hardware shortages
+                                                       make replicating frontier models impossible for
+                                                       independent safety researchers.
+3. Denial of Use                                       AI labs impose unappealable rolling limits,
+                                                       execute discriminatory API revocations (e.g.,
+                                                       Windsurf), and utilize automated support walls
+                                                       to deny the high-volume access needed for
+                                                       rigorous auditing.
+4. Feasibility of Provision                            Labs already provide API access commercially;
+                                                       allocating un-throttled bandwidth to a paying
+                                                       researcher is highly technically feasible and
+                                                       incurs negligible marginal cost.
+
+
+4. Regulatory Oversight: The FTC Act (Section 5) and
+Unfair Methods of Competition
+Beyond the strict and heavily litigated strictures of the Sherman and Clayton Acts, federal
+regulators possess broader, more flexible authority under Section 5 of the Federal Trade
+Commission (FTC) Act. Section 5 explicitly prohibits "unfair methods of competition in or
+affecting commerce" alongside "unfair or deceptive acts or practices".36 This statutory authority
+is deliberately designed to arrest anticompetitive behavior in its incipiency, granting the FTC the
+mandate to target conduct that violates the spirit of antitrust laws, even if it does not
+technically fulfill the rigid, judicially narrowed requirements of Section 1 or Section 2 of the
+Sherman Act.22
+Current Agency Inquiries into Big Tech AI Monopolies
+
+The FTC, under the leadership of Chair Lina M. Khan, has aggressively utilized its Section 5
+enforcement authority and its Section 6(b) investigatory powers to scrutinize the highly
+concentrated AI landscape. Section 6(b) authorizes the Commission to conduct wide-ranging,
+mandatory studies that do not require a specific law enforcement purpose, compelling
+companies to submit detailed internal documents regarding their business practices.37
+In early 2024, the FTC launched comprehensive 6(b) inquiries into the multi-billion-dollar
+investments and partnerships between the dominant cloud service providers (CSPs) and
+leading AI developers. Specifically, the orders targeted Microsoft's relationship with OpenAI,
+Amazon's partnership with Anthropic, and Google's partnership with Anthropic.39 The resulting
+2025 FTC staff report revealed profound concerns regarding these "co-opetition" dynamics.1
+The report highlighted that these partnerships often grant the CSPs extensive equity,
+revenue-sharing rights, and exclusive access to sensitive technical information.40 This structure
+effectively creates "lock-in," deprives nascent startups of key AI inputs (such as engineering
+talent and compute resources), and reveals sensitive data that can systematically undermine
+fair competition.40
+Through these complex investments, dominant tech firms create "walled gardens," utilizing
+restrictive Application Programming Interfaces (APIs) to exert total control over the
+downstream data flow and application layer.22 The FTC has historically viewed the strategic
+closing of APIs to stifle dependent third parties as an unfair method of competition. Notable
+precedents include the FTC's Section 5 actions against Intel for redesigning software to
+purposefully disadvantage competing CPUs, and actions against Dell for reneging on
+information-sharing agreements essential for industry interoperability.22 If major AI labs utilize
+their market dominance to arbitrarily throttle independent safety researchers, this behavior
+squarely aligns with the FTC's definition of an incipient tying arrangement or a breach of
+interoperability designed to "pick winners" and insulate the dominant platform from external
+scrutiny.22
+Mechanisms for Filing Formal Complaints Regarding Algorithmic
+Throttling
+
+For private citizens, independent labs, or safety researchers facing algorithmic throttling
+explicitly designed to suppress safety narratives, the federal government provides specific
+avenues for regulatory redress. While the FTC does not generally resolve individual private
+contractual disputes, it actively aggregates complaints to identify patterns of systemic
+anticompetitive behavior that warrant federal intervention and broad enforcement actions.42
+An independent researcher experiencing unappealable API revocation, discriminatory
+throttling, or the imposition of exclusionary digital barriers can file a formal complaint directly
+with the FTC's Bureau of Competition via their dedicated antitrust complaint intake
+webform.42 To maximize the efficacy of such a complaint, the researcher must frame the
+throttling not merely as a breach of terms of service or poor customer support, but
+strategically as an "unfair method of competition" under Section 5 of the FTC Act. The
+complaint must meticulously document how the AI lab is leveraging its gatekeeping power to
+foreclose the secondary market of AI safety auditing. By doing so, the lab maintains proprietary
+control over public safety narratives and protects its core monopoly from regulatory or
+competitive disruption generated by negative audit findings.19
+Concurrently, if the independent safety research is funded by government grants or involves
+federal procurement, complaints concerning anticompetitive impacts can be routed to the
+DOJ's Procurement Collusion Strike Force (PCSF).44 Furthermore, researchers employed by
+these labs or affiliated entities who blow the whistle on these practices are protected from
+employer retaliation under the Criminal Antitrust Anti-Retaliation Act of 2019 (CAARA), and can
+file retaliation complaints directly with the Occupational Safety and Health Administration
+(OSHA).45 By utilizing these formal mechanisms, researchers can trigger the FTC's immense
+investigative powers, including the issuance of Civil Investigative Demands (CIDs) and
+subpoenas under Section 9 of the FTC Act, to compel the disclosure of the proprietary
+algorithms used to enact the throttling.37
+
+5. Discriminatory Monopolies: The Intersection of
+Antitrust Law and the ADA
+The most novel, legally complex, and arguably insidious dimension of AI gatekeeping lies at the
+intersection of antitrust law and civil rights—specifically, Title III of the Americans with
+Disabilities Act (ADA) and Section 504 of the Rehabilitation Act. When a monopoly or a highly
+concentrated cartel possesses the absolute market power to dictate the technological
+standards of an entire industry, the adoption of exclusionary digital infrastructure transcends
+mere poor user experience. It becomes a systemic, structural barrier to entry that
+disproportionately and illegally affects protected classes, weaponizing digital exclusion as an
+anticompetitive tool.47
+Digital Infrastructure Standards and Statutory Precedent
+
+Title III of the ADA mandates that places of "public accommodation" ensure effective
+communication and equal access to goods and services for individuals with disabilities.49
+Historically, federal circuit courts have been split on whether online-only businesses lacking a
+physical brick-and-mortar storefront constitute public accommodations.50 However, recent
+jurisprudence and sweeping regulatory updates by the DOJ have increasingly affirmed that
+digital platforms, APIs, and mobile applications must conform to strict accessibility standards,
+most notably the Web Content Accessibility Guidelines (WCAG) 2.1 Level AA.49
+In April 2024, the DOJ published a final rule under Title II of the ADA mandating WCAG 2.1 AA
+compliance for state and local government digital properties.52 Legal experts widely agree this
+Title II rule establishes the de facto standard that will soon be aggressively applied to private
+sector Title III entities.47 Furthermore, in May 2024, the Department of Health and Human
+Services (HHS) finalized a historic rule under Section 504 of the Rehabilitation Act, explicitly
+requiring that all web content and mobile apps developed by organizations receiving federal
+funding conform to WCAG 2.1 AA.53 Section 504 explicitly treats inaccessible digital
+experiences as actionable disability discrimination.55 Together, these precedents establish a
+clear federal mandate: digital infrastructure must be accessible. The failure to comply has
+resulted in a massive surge in litigation, with plaintiffs filing 4,187 digital accessibility lawsuits in
+2024 alone.48 Key cases, such as Robles v. Domino's and Gil v. Winn-Dixie, have cemented the
+legal reality that digital inaccessibility yields immense liability.57
+Exclusionary Design as an Anticompetitive Moat
+
+In the context of frontier AI, major laboratories often deploy highly automated, AI-driven
+support walls to handle API quota requests, account appeals, and throttling inquiries.16 These
+automated systems are frequently designed without comprehensive accessibility overlays,
+utilizing complex visual CAPTCHAs, poorly coded dynamic web elements, or strictly
+mouse-dependent interfaces that are entirely incompatible with screen readers, voice
+navigation, or other assistive technologies relied upon by disabled researchers.58
+When a competitive market functions properly, a disabled user facing an inaccessible interface
+can simply take their business to a competitor offering an accessible alternative. However, in a
+monopolistic or perfectly cartelized market, there are no viable alternatives.26 If the GAMMANs
+universally adopt inaccessible AI support walls, they effectively establish an industry-wide
+standard that systematically excludes disabled populations from participating in the AI
+economy, without offering any alternatives.26
+This digital exclusion serves a profound, deeply anticompetitive purpose. The sociological and
+legal theory regarding the "aesthetics of disability" posits that structural discrimination often
+relies on minimizing contact between disabled individuals and the dominant economic
+infrastructure.60 By deploying inaccessible digital choke-points, AI monopolies functionally
+sanitize their user base, filtering out individuals who require customized, high-touch support or
+who might deploy specialized accessibility scripts that algorithms misidentify as "high-volume"
+or "bot" API usage.
+When an independent safety researcher with a visual or motor disability is throttled by an AI
+lab's opaque "rolling limit" and subsequently trapped behind an inaccessible, automated appeal
+system, the injury is twofold. First, the researcher is denied the essential facility of the LLM,
+entirely halting their vital auditing work.25 Second, and more critically from an antitrust
+perspective, the monopolistic firm insulates itself from the legal, competitive, and public
+relations pressures that a diverse, independent auditing body would inevitably generate. By
+passively enforcing a digital standard that violates WCAG 2.1 AA and ADA Title III, the AI cartel
+homogenizes the pool of actors capable of interacting with its systems, locking out disabled
+researchers who might uncover novel algorithmic biases or safety vulnerabilities.48
+This intersection creates a compelling, multi-front legal vulnerability for Big Tech. Antitrust
+regulators (DOJ/FTC) and civil rights litigators can converge on the premise that the failure to
+provide accessible alternatives is not merely a technical oversight or a basic ADA violation, but
+a calculated, exclusionary standard-setting practice. When this failure is engineered by a
+monopoly to lock out a specific subset of researchers, it bridges the gap between civil rights
+violations and exclusionary anticompetitive conduct under Section 2 of the Sherman Act,
+demonstrating how market power can be weaponized to evade both accessibility mandates
+and independent safety oversight.
+Legal Framework       Regulatory Focus         Implication for AI      Mechanism of
+                                               Gatekeeping             Exclusion
+ADA Title III         Public                   AI support walls must Visual CAPTCHAs and
+                      accommodations must be fully navigable by        mouse-only interfaces
+                      provide equal digital    assistive tech.         trap disabled
+                      access (WCAG 2.1 AA).                            researchers.
+Rehabilitation Act    Prohibits discrimination Federally backed AI     Failure to provide
+(Sec. 504)            by entities receiving    research grants require accessible endpoints
+                      federal funds.           accessible API          violates federal funding
+                                               interfaces.             terms.
+Sherman Act (Sec. 2) Prohibits the             Inaccessible standards Monopolists use
+                      maintenance of           act as an               non-compliant design
+                      monopoly power via anticompetitive moat. to filter out auditors,
+                      exclusionary conduct.                            insulating the model
+                                                                       from scrutiny.
+
+
+6. Comprehensive Synthesis and Strategic Outlook
+The rapid consolidation of the artificial intelligence sector, driven by insurmountable capital
+requirements and massive compute bottlenecks, demands a robust and multifaceted
+regulatory response. As this exhaustive analysis demonstrates, the collective behavior of major
+AI laboratories—specifically the arbitrary throttling of API access, the deployment of
+unappealable automated support walls, and the leveraging of exclusive hyperscale
+computational advantages—violates the foundational principles of competition law across
+multiple statutory dimensions.
+   1.​ Collusion and Coordination: Under Section 1 of the Sherman Act, the uniform,
+       industry-wide adoption of restrictive API limits and automated blockades can be
+       aggressively prosecuted as a hub-and-spoke conspiracy. This requires demonstrating
+       that labs rely on shared algorithmic infrastructure or act against their independent
+       economic interests to maintain a collective boycott of independent safety researchers,
+       thereby chilling the secondary market for alignment auditing.3
+   2.​ Monopolization of Compute: Under Section 2 of the Sherman Act, the absolute control
+       over hyperscale compute and foundational models by a highly concentrated oligopoly
+       constitutes an actionable shared monopoly under modern frameworks like the
+       Moligopoly thesis.1 The weaponization of this power to choke compute supply and
+       degrade downstream applications—as explicitly alleged in the recent Bryant v. Microsoft
+       litigation—illustrates a clear pattern of exclusionary conduct intended to neutralize
+       competitive threats and suppress oversight.28
+   3.​ Essential Facilities: Because the multi-billion-dollar cost of training frontier models
+       renders duplication practically impossible, LLMs and their underlying cloud infrastructure
+       act as modern essential facilities. The discriminatory revocation of access, exemplified by
+       the 2025 Anthropic/Windsurf incident, establishes a dangerous precedent of dominant
+       firms starving downstream competitors and safety auditors of essential digital public
+       utilities.2
+   4.​ FTC Enforcement: The FTC's broad authority under Section 5 of the FTC Act perfectly
+       encapsulates the incipient threat of AI "walled gardens" and the lock-in effects of CSP
+       partnerships. Formal complaints to the Bureau of Competition regarding unfair
+       algorithmic throttling offer a direct mechanism for researchers to challenge the labs'
+       efforts to exercise proprietary control over the public safety narrative.22
+   5.​ Civil Rights Intersection: The most profound regulatory insight emerges from the
+       synthesis of antitrust principles and the ADA. By embedding inaccessible digital
+       standards into the very support walls required to appeal API throttling, monopolies
+       systematically exclude disabled researchers.48 This conduct transcends traditional
+       discrimination; it functions as a calculated anticompetitive moat that actively insulates
+       dominant models from rigorous, diverse, and independent algorithmic auditing, shielding
+       the gatekeepers from accountability.
+To preserve the integrity of the technological frontier and ensure that the trajectory of
+General-Purpose AI is subjected to independent ethical alignment, regulatory bodies must look
+beyond traditional price-theory antitrust enforcement. They must embrace the deeply
+interconnected nature of digital civil rights, essential facilities mandates, and algorithmic
+collusion to systematically dismantle the gatekeeping mechanisms currently insulating the
+world's most powerful AI laboratories.
+
+Works cited
+
+  1.​ Why artificial intelligence is creating fundamental challenges for competition
+      policy - Bruegel, accessed April 16, 2026,
+      https://www.bruegel.org/policy-brief/why-artificial-intelligence-creating-fundame
+      ntal-challenges-competition-policy
+  2.​ An Antimonopoly Approach to Governing Artificial Intelligence - Yale Law & Policy
+      Review, accessed April 16, 2026,
+      https://yalelawandpolicy.org/antimonopoly-approach-governing-artificial-intellige
+      nce
+  3.​ AI and Antitrust: “The Algorithm Made Me Do It”, accessed April 16, 2026,
+      https://competition.scholasticahq.com/article/124368-ai-and-antitrust-the-algorit
+      hm-made-me-do-it
+  4.​ Antitrust 101: A Quick Spin Through Hub-and-Spoke Conspiracies | Winston &
+      Strawn, accessed April 16, 2026,
+      https://www.winston.com/en/blogs-and-podcasts/competition-corner/antitrust-1
+      01-a-quick-spin-through-hub-and-spoke-conspiracies
+  5.​ Hub-and-Spoke Conspiracies: Can Big Data and Pricing Algorithms Form the
+      Rim? - SMU Scholar, accessed April 16, 2026,
+      https://scholar.smu.edu/cgi/viewcontent.cgi?article=1350&context=scitech
+  6.​ Coordination by Code: Rethinking Antitrust Liability in the Age of AI Pricing -
+     American Bar Association, accessed April 16, 2026,
+     https://www.americanbar.org/groups/antitrust_law/resources/magazine/2025-fall/
+     coordination-code-rethinking-antitrust-liability-age-ai-pricing/
+7.​ Exhibit 1 Comments of Center for Democracy & Technology: U.S. and Plaintiff
+     States v. RealPage, Inc. - Department of Justice, accessed April 16, 2026,
+     https://www.justice.gov/atr/media/1398941/dl
+8.​ SUSTAINABLE AND UNCHALLENGED ALGORITHMIC TACIT COLLUSION -
+     Scholarly Commons: Northwestern Pritzker School of Law, accessed April 16,
+     2026,
+     https://scholarlycommons.law.northwestern.edu/cgi/viewcontent.cgi?article=1331
+     &context=njtip
+9.​ Tacit Agreements to Collude: Enforcing Section 1 of the Sherman Act in the Age
+     of Algorithms - American Bar Association, accessed April 16, 2026,
+     https://www.americanbar.org/groups/antitrust_law/resources/magazine/2025-fall/
+     tacit-agreements-collude-enforcing-section-1-sherman-act-age-algorithms/
+10.​Algorithmic Price-Fixing: US States Hit Control-Alt-Delete on Digital Collusion |
+     Perkins Coie, accessed April 16, 2026,
+     https://perkinscoie.com/insights/update/algorithmic-price-fixing-us-states-hit-co
+     ntrol-alt-delete-digital-collusion
+11.​ Clarity Starts to Form Regarding Pricing Algorithm Antitrust Cases - Steptoe,
+     accessed April 16, 2026,
+     https://www.steptoe.com/en/news-publications/stepahead-antitrust-and-compet
+     ition-insights/clarity-starts-to-form-regarding-pricing-algorithm-antitrust-cases.
+     html
+12.​Artificial Intelligence and Antitrust: When Do Algorithms Violate Competition
+     Laws? I. What's the issue? - Quinn Emanuel, accessed April 16, 2026,
+     https://www.quinnemanuel.com/media/vdwbb1ag/client-alert-artificial-intelligenc
+     e-and-antitrust-when-do-algorithms-violate-competition-laws.pdf
+13.​Can Machines Commit Crimes Under U.S. Antitrust Laws?, accessed April 16,
+     2026,
+     https://businesslawreview.uchicago.edu/print-archive/can-machines-commit-cri
+     mes-under-us-antitrust-laws
+14.​Artificial Intelligence and Antitrust: When Do Algorithms Violate Competition
+     Laws?, accessed April 16, 2026,
+     https://www.quinnemanuel.com/the-firm/publications/artificial-intelligence-and-a
+     ntitrust-when-do-algorithms-violate-competition-laws/
+15.​AI Neutrality - Vanderbilt University, accessed April 16, 2026,
+     https://cdn.vanderbilt.edu/vu-URL/wp-content/uploads/sites/412/2026/01/2216071
+     8/AI-Neutrality.pdf
+16.​Tell HN: Twitter switched temporarily to rate limited mode | Hacker News,
+     accessed April 16, 2026, https://news.ycombinator.com/item?id=36552324
+17.​International Metals Reclamation Company (INMETCO) RACT 2 SIP Summary
+     TV-37-00243 Ellwood City Borough, Lawrence County Page Nu - Regulations.gov,
+     accessed April 16, 2026,
+     https://downloads.regulations.gov/EPA-R03-OAR-2021-0380-0002/attachment_7
+    .pdf
+18.​Tell HN: Anthropic no longer allowing Claude Code subscriptions to use
+    OpenClaw | Hacker News, accessed April 16, 2026,
+    https://news.ycombinator.com/item?id=47633396
+19.​How Antitrust Can Promote AI Safety Collaborations - Lawfare, accessed April 16,
+    2026,
+    https://www.lawfaremedia.org/article/how-antitrust-can-promote-ai-safety-colla
+    borations
+20.​Breiding v. Eversource Energy & Avangrid, Inc. | Civil Action No. 17-12274 | D. Mass.
+    | Judgment | Law | CaseMine, accessed April 16, 2026,
+    https://www.casemine.com/judgement/us/5b99dbeb342cca319d1fc32d
+21.​The Antitrust Case Against AI Overviews - Harvard Journal of Law & Technology,
+    accessed April 16, 2026,
+    https://jolt.law.harvard.edu/digest/the-antitrust-case-against-ai-overviews
+22.​Concentrated Digital Markets, Restrictive APIs, and the Fight for Internet
+    Interoperability - The University of Memphis, accessed April 16, 2026,
+    https://www.memphis.edu/law/documents/04_sharma.pdf
+23.​Antitrust Analysis: Problems, Text, and Cases, 8th Edition, 2021, by Areeda,
+    Kaplow, Edlin, and Hemphill [7 ed.] 9781454824992 - DOKUMEN.PUB, accessed
+    April 16, 2026,
+    https://dokumen.pub/antitrust-analysis-problems-text-and-cases-8th-edition-20
+    21-by-areeda-kaplow-edlin-and-hemphill-7nbsped-9781454824992.html
+24.​Cornpetition Policy for S m d Market Economies: Market Conditions Under the
+    Magnifying GIass, accessed April 16, 2026,
+    https://www.collectionscanada.ca/obj/s4/f2/dsk2/ftp03/NQ53773.pdf
+25.​General-Purpose AI Models as Essential Inputs in Downstream Markets: The Need
+    for a Strict Standard Regarding Mandatory Access | GRUR International | Oxford
+    Academic, accessed April 16, 2026,
+    https://academic.oup.com/grurint/article/73/10/948/7742781
+26.​U.S. v. Google — A Landmark Case | Purdue Global Law School, accessed April 16,
+    2026, https://www.purduegloballawschool.edu/blog/news/google-landmark-case
+27.​In Landmark Decision, D.C. Federal Court Holds Google Maintained an Illegal
+    Monopoly in Internet Search and Advertising Markets and Sets the Stage For
+    Future Enforcement Actions | White & Case LLP, accessed April 16, 2026,
+    https://www.whitecase.com/insight-our-thinking/landmark-decision-dc-federal-c
+    ourt-holds-google-maintained-illegal-monopoly
+28.​1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 ... - Class Action, accessed April
+    16, 2026,
+    https://www.classaction.org/media/bryant-et-al-v-microsoft-corporation-compla
+    int.pdf
+29.​THE SEPARATION OF PLATFORMS AND COMMERCE - Columbia Law Review -,
+    accessed April 16, 2026,
+    https://columbialawreview.org/content/the-separation-of-platforms-and-comme
+    rce/
+30.​Nikolas Guggenberger* Digital platforms are the railroads of the modern era. In
+    the early twentieth century, a vast railroad net, accessed April 16, 2026,
+    https://appliedantitrust.com/16_foreclosure/digital_markets/general/guggenberge
+    r_essential_platforms2020.pdf
+31.​Liability for Data Scraping Prohibitions under the Refusal to Deal Doctrine: An
+    Incremental Step toward More Robust Sherman Act Enforcement | The University
+    of Chicago Law Review, accessed April 16, 2026,
+    https://lawreview.uchicago.edu/print-archive/liability-data-scraping-prohibitions-
+    under-refusal-deal-doctrine-incremental-step
+32.​The Essential Facilities Doctrine in the Digital Economy: Dispelling Persistent
+    Myths, accessed April 16, 2026,
+    https://yjolt.org/essential-facilities-doctrine-digital-economy-dispelling-persisten
+    t-myths
+33.​Essential Platforms | Stanford Law School, accessed April 16, 2026,
+    https://law.stanford.edu/wp-content/uploads/2021/05/publish_this_-_guggenberg
+    er_essential_platforms_eic.pdf
+34.​Android Auto: the end of the essential facility doctrine as we know it - Wolters
+    Kluwer, accessed April 16, 2026,
+    https://legalblogs.wolterskluwer.com/competition-blog/android-auto-the-end-of-
+    the-essential-facility-doctrine-as-we-know-it/
+35.​CLOUD INFRASTRUCTURE-AS-A-SERVICE AS AN ESSENTIAL FACILITY: MARKET
+    STRUCTURE, COMPETITION, AND THE NEED FOR INDUSTRY AND REGULAT -
+    Berkeley Technology Law Journal, accessed April 16, 2026,
+    https://btlj.org/data/articles2019/34_1/03_Benzina_Web.pdf
+36.​Antitrust Year in Review and a Look Ahead to 2025 - Hogan Lovells, accessed
+    April 16, 2026,
+    https://www.hoganlovells.com/en/publications/antitrust-yearinreview-and-look-a
+    head-to-2025
+37.​A Brief Overview of the Federal Trade Commission's Investigative, Law
+    Enforcement, and Rulemaking Authority, accessed April 16, 2026,
+    https://www.ftc.gov/about-ftc/mission/enforcement-authority
+38.​Unfairness, Reconstructed - Yale Law School Open Scholarship Repository,
+    accessed April 16, 2026,
+    https://openyls.law.yale.edu/server/api/core/bitstreams/547850f9-0d87-4cbe-b1c
+    2-e2b7bd1dc0b3/content
+39.​FTC Launches Inquiry into Generative AI Investments and Partnerships, accessed
+    April 16, 2026,
+    https://www.ftc.gov/news-events/news/press-releases/2024/01/ftc-launches-inqu
+    iry-generative-ai-investments-partnerships
+40.​FTC Issues Staff Report on AI Partnerships & Investments Study, accessed April
+    16, 2026,
+    https://www.ftc.gov/news-events/news/press-releases/2025/01/ftc-issues-staff-r
+    eport-ai-partnerships-investments-study
+41.​Partnerships Between Cloud Service Providers and AI Developers - Federal Trade
+    Commission, accessed April 16, 2026,
+    https://www.ftc.gov/system/files/ftc_gov/pdf/p246201_aipartnerships6breport_re
+    dacted_0.pdf
+42.​Antitrust Complaint Intake - Federal Trade Commission, accessed April 16, 2026,
+    https://www.ftc.gov/advice-guidance/competition-guidance/antitrust-complaint-i
+    ntake
+43.​Contact the Federal Trade Commission, accessed April 16, 2026,
+    https://www.ftc.gov/about-ftc/contact
+44.​PCSF Citizen Complaint - Antitrust Division - Department of Justice, accessed
+    April 16, 2026, https://www.justice.gov/atr/webform/pcsf-citizen-complaint
+45.​Submit Your Antitrust Report Online | United States Department of Justice,
+    accessed April 16, 2026,
+    https://www.justice.gov/atr/webform/submit-your-antitrust-report-online
+46.​Report Antitrust Concerns to the Antitrust Division | United States Department of
+    Justice, accessed April 16, 2026,
+    https://www.justice.gov/atr/report-antitrust-concerns
+47.​DOJ Final Rule on Website Accessibility for State and Local Governments
+    Portends Significant Changes for Private-Sector Websites - Ogletree Deakins,
+    accessed April 16, 2026,
+    https://ogletree.com/insights-resources/blog-posts/doj-final-rule-on-website-ac
+    cessibility-for-state-and-local-governments-portends-significant-changes-for-p
+    rivate-sector-websites/
+48.​ADA Website Lawsuits 2026: Trends & Defense - Kha Creation, accessed April 16,
+    2026, https://khacreationusa.com/ada-title-iii-website-lawsuits/
+49.​Digital Accessibility Under Title III of the ADA: Recent Developments and Risk
+    Mitigation Best Practices - American Bar Association, accessed April 16, 2026,
+    https://www.americanbar.org/groups/business_law/resources/business-law-today
+    /2025-august/digital-accessibility-under-title-iii-ada/
+50.​Minnesota District Court Says Web-Only Businesses Are Subject to Title III of the
+    ADA, accessed April 16, 2026,
+    https://www.adatitleiii.com/2025/03/minnesota-district-court-says-web-only-bus
+    inesses-are-subject-to-title-iii-of-the-ada/
+51.​ADA Website Compliance Lawsuits | 2024 High Profile Cases - Level Access,
+    accessed April 16, 2026,
+    https://www.levelaccess.com/blog/title-iii-lawsuits-10-big-companies-sued-over
+    -website-accessibility/
+52.​Fact Sheet: New Rule on the Accessibility of Web Content and Mobile Apps
+    Provided by State and Local Governments | ADA.gov, accessed April 16, 2026,
+    https://www.ada.gov/resources/2024-03-08-web-rule/
+53.​HHS Section 504 Digital Accessibility Rule Is in Effect. What To Do If You're Not
+    Compliant, accessed April 16, 2026,
+    https://testpros.com/compliance/hhs-section-504-digital-accessibility-rule/
+54.​HHS's section 504 final rule includes digital accessibility standards - Reed Smith
+    LLP, accessed April 16, 2026,
+    https://www.reedsmith.com/articles/hhss-section-504-final-rule-includes-digital-
+    accessibility-standards/
+55.​What Happens When Section 504 Digital Accessibility Requirements are Violated,
+    accessed April 16, 2026,
+    https://www.siteimprove.com/blog/section-504-digital-accessibility-requirement
+    s-violations/
+56.​A Rise in ADA Website Accessibility Lawsuits May Leave You Asking: Is My
+    Website A Risk?, accessed April 16, 2026,
+    https://www.saul.com/insights/blog/ada-website-accessibility-risk
+57.​ADA Compliance Requirements for Websites 2026 | A Must-Read Guide -
+    DigitalA11Y, accessed April 16, 2026, https://www.digitala11y.com/compliance/ada/
+58.​ADA Title III | Disability Law for Businesses | Seyfarth Shaw, accessed April 16,
+    2026, https://www.adatitleiii.com/
+59.​Research Brief: Digital Access and Title III of the ADA, accessed April 16, 2026,
+    https://adata.org/research_brief/digital-access-and-title-iii-ada
+60.​THE AESTHETICS OF DISABILITY - Columbia Law Review, accessed April 16, 2026,
+    https://www.columbialawreview.org/content/the-aesthetics-of-disability/
+

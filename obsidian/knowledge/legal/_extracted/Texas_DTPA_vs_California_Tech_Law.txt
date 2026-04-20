@@ -1,0 +1,848 @@
+Comparative Legal Analysis: Texas DTPA
+and California UCL in the Context of
+SaaS Denial and Algorithmic Harm
+The intersection of state consumer protection laws, cross-jurisdictional digital commerce, and
+the algorithmic management of Software-as-a-Service (SaaS) platforms presents a highly
+complex frontier in contemporary civil litigation. This report delivers an exhaustive evaluation of
+the legal standing, jurisdictional mechanics, and potential recovery models for a Texas-based
+plaintiff pursuing claims against California-based technology entities—specifically Apple Inc.
+and Anthropic PBC.
+The central factual matrix involves the sale of a premium digital subscription where the provider
+utilizes undisclosed, server-side algorithmic "rolling windows" to rate-limit access, ultimately
+resulting in a total service denial (a "hard stop" or "logic loop lock-out"). Furthermore, the
+analysis explores the compounding severity of this service denial when the digital platform is
+utilized by the consumer as a compensatory cognitive aid, thereby implicating state and federal
+disability discrimination statutes. The ensuing legal analysis dissects the statutory frameworks,
+the procedural hurdles of long-arm jurisdiction and forum selection, and the complex damage
+modeling required to litigate such claims effectively.
+1. Texas Deceptive Trade Practices Act (DTPA) Analysis
+The Texas Deceptive Trade Practices-Consumer Protection Act (DTPA), codified in Texas
+Business and Commerce Code § 17.41 et seq., serves as the primary statutory vehicle for
+protecting Texas consumers against false, misleading, and deceptive business practices,
+unconscionable actions, and breaches of warranty.1 The DTPA is statutorily mandated to be
+liberally construed to protect consumers and provide efficient, economical procedures to
+secure such protection.2 The threshold requirement for invoking the DTPA is establishing
+"consumer" status, defined as an individual, partnership, or corporation that seeks or acquires
+goods or services by purchase or lease.1 A purchaser of a digital SaaS subscription
+fundamentally qualifies as a consumer under this definition.
+1.1 Actionable Misrepresentations under Section 17.46(b)
+
+To successfully state a claim under the DTPA's "laundry list" of deceptive practices, a plaintiff
+must demonstrate that the defendant's conduct violated specific statutory provisions and that
+this violation was the producing cause of economic or mental anguish damages.4 In the context
+of digital subscriptions, the relevant provisions are found within Tex. Bus. & Com. Code §
+17.46(b).5
+Section 17.46(b)(5) explicitly prohibits "representing that goods or services have sponsorship,
+approval, characteristics, ingredients, uses, benefits, or quantities which they do not have".7
+Concurrently, Section 17.46(b)(7) prohibits representing that goods or services are of a
+"particular standard, quality, or grade... if they are of another".5 Furthermore, failing to disclose
+information concerning goods or services known at the time of the transaction, with the intent
+to induce the consumer into a transaction they otherwise would have avoided, constitutes an
+actionable omission under Section 17.46(b)(24).9
+When a technology entity, such as Apple or Anthropic, markets a "Pro" or premium subscription
+tier, the nomenclature itself inherently represents a specific characteristic, use, and benefit:
+namely, enhanced, continuous, or elevated access to the algorithmic service compared to free
+or basic tiers. If the service architecture relies on undisclosed "rolling windows"—a dynamic
+rate-limiting mechanism where user prompts are calculated against an invisible, continuously
+shifting time-bracket rather than a predictable, fixed daily or monthly quota—the service
+fundamentally lacks the represented characteristics.9 A rolling window algorithm makes it
+impossible for the end-user to predict when their access will be restored, as their capacity
+depends on exactly when their previous interactions "fall off" the trailing edge of the
+algorithmic window.
+If a consumer purchases a "Pro" subscription under the reasonable expectation of persistent
+access, but is subjected to a server-side hard stop that completely denies service without prior
+transparent disclosure of the mathematical limits of the rolling window, this constitutes an
+actionable misrepresentation under § 17.46(b)(5) and § 17.46(b)(7).5 The strategic omission of
+the precise token-bucket limits or the logic loop thresholds that trigger the hard lock operates
+as a deceptive inducement. Texas jurisprudence establishes that misrepresentations regarding
+the functionality, reliability, and continuous availability of software and digital services strictly
+violate these provisions.11 For instance, in consumer actions involving software vendors who
+misrepresented the operational capabilities of their systems, courts have routinely found
+sufficient evidence to sustain DTPA claims when the software failed to perform the tasks
+promised during the marketing phase.11
+To contextualize the specific DTPA violations against the hypothetical software architecture, the
+following table maps the statutory provisions to the algorithmic mechanics:
+
+DTPA Statutory Provision         Legal Interpretation           Application to Algorithmic
+                                                                SaaS Denial
+§ 17.46(b)(5)                    Misrepresenting that services Marketing a "Pro" tier implies
+                                 have characteristics, uses, or robust, continuous utility.
+                                 benefits they do not possess.8 Imposing a hard stop via an
+                                                                undisclosed rolling window
+                                                                contradicts the core "benefit"
+                                                                of the premium tier.
+§ 17.46(b)(7)                    Misrepresenting that services Guaranteeing a
+                                 are of a particular standard,  premium-grade digital
+                                                   5
+                                 quality, or grade.             experience, yet delivering a
+                                                                service that routinely initiates
+                                                                absolute lock-outs without
+                                                                transparency, degrades the
+                                                                actual service quality.
+§ 17.46(b)(24)                  Failing to disclose information The technology provider
+                                known at the time of the        possesses actual knowledge of
+                                transaction to induce a         the algorithmic limiters.
+                                           5
+                                purchase.                       Omitting these limits induces
+                                                                the consumer to purchase a
+                                                                subscription they might
+                                                                otherwise reject.
+1.2 Algorithmic Unconscionability and Server-Side Hard Stops
+
+Beyond affirmative misrepresentations, the DTPA provides an independent cause of action for
+any "unconscionable action or course of action".12 Section 17.45(5) defines an unconscionable
+action as an act or practice which, to a consumer's detriment, "takes advantage of the lack of
+knowledge, ability, experience, or capacity of the consumer to a grossly unfair degree".3
+The evidentiary standard for proving unconscionability in Texas is exceptionally rigorous. The
+landmark Texas Supreme Court decision in Chastain v. Koonce established that the resulting
+unfairness must be "glaringly noticeable, flagrant, complete and unmitigated".4 The assessment
+of unconscionability relies on an objective standard determined by examining the entirety of
+the transaction from the consumer's perspective. Notably, the specific intent of the defendant
+or their actual knowledge that the act was unconscionable is irrelevant to establishing baseline
+liability for the unconscionable act itself.18
+The deployment of opaque algorithms to manage consumer access inherently creates a
+massive disparity in knowledge, ability, and capacity between a Silicon Valley technology
+conglomerate and the average Texas consumer. The consumer possesses zero visibility into the
+backend server architecture, the load-balancing algorithms, or the dynamic parameter weights
+that govern the "rolling window." The consumer cannot audit the code, predict the rate-limit
+triggers, or negotiate the terms of the algorithmic throttling.
+When a provider utilizes this absolute informational asymmetry to initiate a complete service
+denial—despite having accepted premium subscription fees—they are taking advantage of the
+consumer's technical incapacity. If the logic loop locks the user out continuously without a
+clear path to remediation, while the provider continues to process recurring payments or
+maintain the subscription contract, the unfairness transcends mere contractual breach. Under
+the strict Chastain standard, selling a digital service and abruptly severing it through hidden
+server-side mechanics presents a "glaringly noticeable, flagrant, complete and unmitigated"
+exploitation of the consumer's inability to comprehend or bypass the algorithmic gatekeeper.16
+The gross disparity in bargaining power and technical knowledge is the very foundation upon
+which a DTPA unconscionability claim is built.18
+1.3 The Mandatory Section 17.505 Demand Letter Protocol
+
+Procedural compliance is an absolute prerequisite in DTPA litigation. Texas Business and
+Commerce Code § 17.505 mandates that a consumer must provide written notice to the
+defendant at least 60 days prior to filing a lawsuit.20 This statutory prerequisite is not merely a
+formality; it is a substantive requirement designed to encourage pre-litigation settlement, allow
+the defendant to inspect the goods or services, and avoid unnecessary judicial intervention.20
+The demand letter must advise the defendant in "reasonable detail" of the consumer's specific
+complaint and expressly state the calculated amount of economic damages, damages for
+mental anguish, and expenses, including projected attorneys' fees.23 The notice must
+specifically outline the factual background of the transaction and identify the exact
+sub-provisions of § 17.46(b) that were allegedly violated by the defendant's conduct.24 The
+letter should meticulously describe how the undisclosed algorithmic rolling windows and hard
+stops operate as actionable misrepresentations and unconscionable acts under Texas law.
+If a plaintiff files suit without providing the requisite 60-day notice, the defendant's immediate
+remedy is to file a verified plea in abatement not later than the 30th day after filing their original
+answer.21 The court is statutorily obligated to abate (pause) the proceedings until the 60th day
+after the proper notice is ultimately served.21 Consequently, a Texas plaintiff must meticulously
+draft and serve this demand letter via certified mail, return receipt requested, prior to initiating
+formal litigation against Apple or Anthropic.23 A strategically drafted DTPA demand letter not
+only satisfies the statutory prerequisite but also forces the technology entity to officially
+document their position on their algorithmic rate-limiting practices during the 60-day
+settlement window.
+2. Standing and Jurisdiction: Texas Plaintiff vs.
+California Defendants
+Litigating against major California technology corporations introduces complex jurisdictional
+friction. The primary obstacles involve establishing the constitutional reach of the Texas
+long-arm statute to hale foreign corporations into state courts and navigating the
+enforceability of the defendants' standard Terms of Service (ToS), which invariably include
+restrictive forum selection clauses designed to force litigation out of plaintiff-friendly states.
+2.1 Long-Arm Jurisdiction Over Digital Harms
+
+To subject a nonresident defendant (such as Apple Inc. or Anthropic PBC) to personal
+jurisdiction in a Texas court, the plaintiff must satisfy the requirements of both the Texas
+long-arm statute and federal constitutional due process guarantees.27 The Texas long-arm
+statute broadly allows state courts to exercise jurisdiction over a nonresident who "commits a
+tort in whole or in part in this state" and extends its reach precisely as far as federal due
+process permits.28
+Federal due process requires that the nonresident defendant purposefully established
+"minimum contacts" with the forum state and that the exercise of jurisdiction comports with
+"traditional notions of fair play and substantial justice".28 In the digital realm, personal
+jurisdiction analysis frequently invokes the United States Supreme Court's decision in Calder v.
+Jones, which established the "effects test." Under Calder, jurisdiction is permissible where a
+defendant commits an intentional act, expressly aimed at the forum state, causing harm that
+the defendant knows is likely to be suffered in the forum state.29
+However, the mere foreseeability that a digital service might be accessed by a resident in
+Texas, or that a Texas resident might suffer a digital harm, is insufficient to establish specific
+personal jurisdiction. The Texas Supreme Court has continuously refined this doctrine,
+reaffirming the strict "stream-of-commerce-plus" test. In cases such as BRP-Rotax GmbH &
+Co. KG v. Shaik, the court held that a non-Texas company must specifically and purposefully
+target Texas; it is not enough that the defendant merely foresees its product or service ending
+up in the state.32
+When analyzing digital interactions, courts often utilize the sliding scale established in Zippo
+Mfg. Co. v. Zippo Dot Com, Inc., which assesses the interactivity of a website and the
+commercial nature of the exchange.33 Passive websites do not confer jurisdiction, but highly
+interactive platforms that process subscriptions and exchange data routinely establish
+sufficient minimum contacts.33
+Application to Apple and Anthropic:
+Establishing general or specific jurisdiction over Apple Inc. in Texas is highly feasible. Apple
+maintains extensive physical retail locations, operates massive corporate campuses in the state
+(such as the extensive facilities in Austin), and purposefully directs localized marketing and
+product distribution directly to Texas residents. A transaction processed through the Apple
+ecosystem inherently involves a massive web of minimum contacts with the state.
+Anthropic PBC, while headquartered in San Francisco and lacking the physical retail footprint of
+Apple, actively solicits commercial subscriptions across all fifty states through its highly
+interactive digital platforms.34 If Anthropic directly processes a premium "Pro" subscription
+transaction with a Texas resident, collects recurring subscription revenue from a Texas billing
+address, and delivers its proprietary artificial intelligence data services continuously into the
+state, this conduct constitutes a purposeful availment of the privilege of conducting business in
+Texas. Furthermore, the intentional deployment of a server-side logic loop lock-out directed
+against an IP address or user account known to be localized and billed in Texas satisfies the
+long-arm requirement that the tortious harm (the DTPA violation and the unconscionable denial
+of service) occurred, at least in part, within the state.28
+The following table contrasts the jurisdictional tests relevant to digital harm:
+
+Jurisdictional Doctrine         Legal Standard                   Application to SaaS Providers
+                                                                 in Texas
+Stream-of-Commerce-Plus         Requires purposeful targeting Collecting recurring
+                                of the forum state, not mere     subscription fees from Texas
+                                foreseeability of the product addresses and maintaining
+                                reaching the state.32            active, continuous data
+                                                                 delivery establishes purposeful
+                                                                 targeting.
+Calder Effects Test             Jurisdiction is proper if        Activating a server-side hard
+                                intentional conduct is expressly stop against a known Texas
+                                aimed at the forum state,        user intentionally localizes the
+                                 causing localized harm.29         algorithmic harm within Texas.
+Zippo Sliding Scale              Jurisdiction depends on the       Selling "Pro" subscriptions
+                                 level of commercial               requires interactive data
+                                 interactivity of the digital      exchange, billing, and contract
+                                 platform.33                       execution, satisfying the
+                                                                   highest tier of the scale.
+2.2 Venue Selection and the Enforcement of Forum Selection Clauses
+
+Despite establishing personal jurisdiction, the most formidable procedural barrier for a Texas
+plaintiff is the presence of mandatory forum selection clauses embedded within the End User
+License Agreements (EULAs) or Terms of Service (ToS) promulgated by the defendants.
+Technology companies aggressively utilize these clauses to centralize litigation in their home
+jurisdictions, drastically reducing their exposure to diverse state consumer protection laws.
+   ●​ Apple Developer Program License Agreement & Media Services: Apple's consumer
+       and developer agreements routinely mandate that all litigation must take place in the
+       Northern District of California, with exclusive venue designated in the state and federal
+       courts of Santa Clara County, California. These agreements further stipulate that
+       disputes shall be governed exclusively by California law.35
+   ●​ Anthropic Terms of Service: Anthropic's Commercial Terms of Service specify a highly
+       restrictive dispute resolution protocol. The terms dictate that any dispute must be
+       determined by final, binding arbitration located in San Francisco, California, utilizing the
+       rules of Judicial Arbitration and Mediation Services, Inc. (JAMS). Like Apple, Anthropic's
+       terms mandate the application of California law.38
+Texas courts, heavily influenced by federal jurisprudence originating from the United States
+Supreme Court's decision in M/S Bremen v. Zapata Off-Shore Co., maintain a strong
+presumption that forum selection clauses are valid and must be enforced.39 A Texas trial court
+commits a clear abuse of discretion if it refuses to enforce such a clause unless the party
+opposing enforcement meets the "heavy burden" of demonstrating that specific exceptions
+apply.
+The recognized exceptions to the mandatory enforcement of a forum selection clause require
+the plaintiff to clearly show that:
+   1.​ Enforcement of the clause would be fundamentally unreasonable or unjust.
+   2.​ The clause itself is invalid for reasons of fraud or overreaching.
+   3.​ Enforcement would contravene a strong public policy of the forum where the suit was
+       brought.
+   4.​ The selected forum would be seriously inconvenient for trial, to the extent that the party
+       would essentially be deprived of their day in court.40
+2.3 The Public Policy Exception and the DTPA Anti-Waiver Provision
+
+Can a Texas plaintiff leverage the DTPA's strict anti-waiver provision to override Apple or
+Anthropic's California-centric forum selection clauses under the "strong public policy"
+exception? Texas Business and Commerce Code § 17.42 explicitly states that any waiver by a
+consumer of the provisions of the DTPA is contrary to public policy and is strictly unenforceable
+and void (unless specifically negotiated in writing with the assistance of independent legal
+counsel).43
+However, the Texas Supreme Court has consistently and narrowly interpreted this public policy
+exception, distinguishing between the substantive waiver of statutory rights and the
+procedural selection of a venue. The prevailing jurisprudence holds that a forum selection
+clause merely dictates where a dispute will be heard, not what substantive law ultimately
+applies or what rights are permanently waived.44
+In In re Lyon Financial Services, the Texas Supreme Court addressed a situation where a plaintiff
+argued that enforcing a Pennsylvania forum selection clause would effectively destroy their
+Texas usury claim, as Pennsylvania law did not recognize the cause of action for corporations.
+The court held that a party's inability to assert a specific Texas statutory claim in a foreign
+jurisdiction does not, by itself, create a sufficient public policy reason to deny the enforcement
+of a validly executed forum selection clause.46 Similarly, in In re AutoNation, the Texas Supreme
+Court permitted the enforcement of a Florida forum selection clause even when fundamental
+Texas public policy regarding the enforceability of non-compete agreements was directly
+implicated.48
+To successfully defeat the Santa Clara or San Francisco forum selection clauses, the Texas
+plaintiff must prove far more than the mere loss of a home-field advantage. The plaintiff must
+demonstrate that litigating the algorithmic harm in California would effectively deprive them of
+their day in court entirely, or that the California forum fundamentally eviscerates their
+substantive remedies in a manner that completely shocks the conscience of Texas public
+policy. Given the robust enforcement of clickwrap agreements and standard ToS documents in
+the digital era, overcoming this burden remains a monumental strategic challenge.
+2.4 Standing Discrepancies: Texas DTPA vs. California UCL
+
+Understanding why technology companies mandate California venues requires examining the
+profound differences between the Texas DTPA and California's Unfair Competition Law (UCL),
+codified at California Business & Professions Code § 17200. If the forum selection clause is
+enforced and the case is transferred to California, the Texas plaintiff faces a severe reduction in
+legal leverage and potential recovery.
+The UCL broadly prohibits any "unlawful, unfair or fraudulent business act or practice".50 While
+seemingly expansive, the actual mechanisms for private recovery under the UCL were severely
+curtailed by the passage of Proposition 64 in 2004. Proposition 64 was enacted specifically to
+limit the scope of "private attorney general" lawsuits.52
+Under the amended UCL, a private plaintiff must establish strict statutory standing by proving
+they suffered an "injury in fact" and specifically "lost money or property as a result of" the
+alleged unfair competition.52 This economic injury requirement is a critical defense for
+technology businesses facing UCL claims.52 More importantly, the remedies available under the
+UCL are strictly equitable in nature. A prevailing plaintiff is generally limited to obtaining
+injunctive relief (an order forcing the company to cease the practice) and restitution (the return
+of the specific money acquired by the defendant through the unfair practice).55
+The comparative table below illustrates the catastrophic loss of leverage a plaintiff suffers if a
+DTPA claim is subsumed by a UCL framework due to a forum transfer:
+
+Legal Feature                     Texas DTPA (Texas Forum)       California UCL (§ 17200)
+                                                                 (California Forum)
+Standing Threshold                Must qualify as a "Consumer" Must demonstrate strict "injury
+                                  who acquired goods/services in fact" and specific loss of
+                                  by purchase.1                  money or property (Prop 64).52
+Recoverable Damages               Broad economic damages,        Strictly limited to equitable
+                                  consequential damages, and relief: restitution and
+                                  mental anguish.3               injunctions.55
+Mental Anguish                    Fully recoverable upon proving Not recoverable. The UCL
+                                  "knowing" or "intentional"     explicitly excludes all
+                                            3
+                                  conduct.                       compensatory and punitive
+                                                                 tort damages.55
+Punitive Multipliers              Discretionary treble damages No punitive, exemplary, or
+                                  (up to 3x economic and mental treble damages are permitted
+                                  anguish).58                    under the statute.
+Recovery on $20 Sub                 Economic ($20) + Mental            Restitution of the subscription
+                                    Anguish (e.g., $50k) x 3 =         fee = $20
+                                    $150,060
+If forced into California under the UCL, the plaintiff's economic recovery for a deceptive SaaS
+lock-out is largely restricted to the restitution of the actual subscription fee paid (e.g., a $20 to
+$100 "Pro" subscription). The UCL's strict limitation on damages wholly prevents the recovery of
+intangible distress, cognitive harm, lost time, or punitive damages caused by the algorithmic
+lock-out.51 Thus, the technology companies' use of EULAs is not merely a preference for local
+courts; it is a highly effective, substantive liability shield against massive consumer protection
+judgments. Defeating the forum selection clause to maintain the action in Texas under the DTPA
+is strategically existential for the plaintiff's case.
+3. Comparative Disability Discrimination in Digital
+Accommodations
+The severity of the algorithmic SaaS denial escalates beyond a standard consumer protection
+dispute when the plaintiff utilizes the artificial intelligence or digital platform as a compensatory
+cognitive aid. The abrupt, unexplained termination of a cognitive prosthesis via algorithmic
+rolling windows directly implicates state and federal civil rights and disability statutes. When a
+technology platform ceases to be a mere convenience and functions as an essential
+accessibility tool, the legal obligations of the provider expand dramatically.
+3.1 Texas Human Resources Code (Chapter 121) vs. The ADA
+
+Chapter 121 of the Texas Human Resources Code (THRC) represents Texas's state-level
+statutory equivalent to the federal Americans with Disabilities Act (ADA).60 The THRC declares a
+robust state policy dedicated to ensuring that persons with disabilities have the exact same
+right as the able-bodied to the "full use and enjoyment of any public facility in the state." This
+mandate includes the affirmative right to reasonable accommodations in policies, practices,
+and procedures, as well as access to necessary auxiliary aids.60
+While the THRC's underlying objectives align closely with Title III of the ADA, it provides distinct
+state-level remedies. Notably, Chapter 121 imposes a statutory civil penalty of $300 per
+violation, assigning criminal classifications to prohibited activities, and allowing individuals to
+pursue private actions in state court for localized discrimination.61
+However, applying Chapter 121 to a purely digital, California-hosted SaaS platform faces
+substantial jurisprudential hurdles. Texas courts have historically construed the definition of a
+"public facility" with strict textual adherence, often requiring a nexus to a physical,
+brick-and-mortar location. In the appellate decision Livingston v. Beeman, the Texas court
+explicitly held that the definition of "public facilities" under Chapter 121 has no exact
+counterpart in the ADA, dictating that Texas courts must look strictly to the state statutory text
+rather than importing federal ADA interpretations wholesale.62
+Because a purely digital cloud architecture or an AI chatbot interface lacks a physical presence
+in Texas that is openly invited to the public in a traditional sense, categorizing a SaaS
+environment as a "public facility" under THRC § 121.002(5) requires a novel and aggressive
+expansion of state law.65 While there is a growing consensus that commercial websites must
+comply with accessibility guidelines (such as WCAG 2.2) to accommodate users with disabilities
+66
+  , utilizing Chapter 121 to attack backend algorithmic rate-limits remains legally untested and
+highly vulnerable to dismissal.
+3.2 Section 504 Enforcement and "Effective Communication" in the
+5th Circuit
+
+A vastly more potent civil rights avenue exists under Section 504 of the Rehabilitation Act of
+1973. Section 504 applicability is triggered if the technology entities receive any form of federal
+financial assistance—a common occurrence for massive entities like Apple or Anthropic, which
+frequently engage in federal grants, defense contracting, or research subsidies.68 Section 504
+unequivocally mandates that no qualified individual with a disability shall be excluded from
+participation in, be denied the benefits of, or be subjected to discrimination under any program
+or activity receiving federal financial assistance.70
+A critical, heavily litigated component of Section 504—which is also mirrored in Title II and Title
+III of the ADA—is the stringent requirement to ensure "effective communication".70 Covered
+entities must take appropriate steps to furnish "auxiliary aids and services" to afford individuals
+with sensory, manual, or cognitive disabilities an equal opportunity to participate in and enjoy
+the benefits of a service.70 The United States Court of Appeals for the Fifth Circuit (which
+maintains appellate jurisdiction over Texas) enforces these communication mandates
+vigorously, holding that communication with disabled individuals must be as effective as
+communication with non-disabled individuals.76
+3.3 Compensatory Cognitive Aids and the Denial of Service
+
+The regulatory definitions surrounding auxiliary aids and effective communication have evolved
+to encompass a wide array of advanced technologies. These encompass screen readers,
+text-to-speech software, real-time captioning algorithms, and complex digital interfaces
+specifically designed to assist those with sensory, cognitive, neurological, and psychiatric
+disabilities.75
+If a plaintiff presenting with an intellectual, psychiatric, or neurodivergent disability relies on a
+digital platform (such as an advanced AI language model or specialized organizational
+software) to process complex information, manage severe executive dysfunction, or facilitate
+daily interpersonal communication, the software ceases to be a mere convenience. Legally and
+functionally, the platform operates as a compensatory cognitive aid—a digital prosthesis
+essential for the plaintiff's equitable participation in daily life.
+Under the Section 504 framework, when a company like Anthropic or Apple sells a premium
+service that is subsequently utilized by a consumer as an auxiliary cognitive aid, subjecting that
+disabled user to an unannounced, algorithmically enforced "hard stop" due to a hidden rolling
+window constitutes a severe denial of effective communication. Just as a physical public
+accommodation cannot arbitrarily confiscate a patron's wheelchair or banish a sign language
+interpreter halfway through a transaction, a digital platform subject to Section 504 cannot
+abruptly and automatically sever the digital cognitive prosthesis upon which the user relies to
+interact with the service.
+To remain compliant with Section 504 and avoid discriminatory impact, the technology
+platform would be legally required to engage in an interactive process and implement a
+"reasonable accommodation" or a "modification of policies, practices, and procedures".77 In the
+context of algorithmic rate-limiting, reasonable accommodations could manifest as:
+   1.​ Exempting verified disabled users from strict, automated token rate-limits that result in
+        total lock-outs.
+   2.​ Providing explicit, highly visible, and predictive warnings before usage limits are reached,
+        allowing the user to manage their cognitive load.
+   3.​ Implementing a "graceful degradation" of service (e.g., slowing down processing speeds)
+        rather than initiating an absolute, brick-wall logic loop lock-out.
+The total failure to provide such algorithmic accommodations, resulting in the violent severance
+of the user's cognitive aid, bridges the conceptual gap between a standard consumer
+protection DTPA claim and actionable, systemic disability discrimination.
+The table below contrasts the application of these disability frameworks to digital
+environments:
+
+Statutory Framework Jurisdiction                  Scope of Application     Enforcement
+                                                  to Digital SaaS          Mechanism
+THRC Ch. 121             Texas State Law          Narrow. Requires         Private state action;
+                                                  classifying a cloud      $300 civil penalty per
+                                                  software environment     violation; criminal
+                                                 as a "public facility," misdemeanor
+                                                 which Texas courts      classifications.61
+                                                 hesitate to do without
+                                                 physical nexus.64
+Section 504             Federal Law (5th         Broad. Applies strictly Federal civil action;
+                        Circuit)                 to any entity receiving injunctive relief;
+                                                 federal funds. Focuses compensatory
+                                                 on preventing           damages if intentional
+                                                 exclusion from          discrimination is
+                                                 programs and ensuring proven.
+                                                 "effective
+                                                 communication".68
+ADA Title III           Federal Law              Moderate. Requires      Private federal action;
+                                                 classifying the digital limited primarily to
+                                                 service as a "place of injunctive relief and
+                                                 public                  attorneys' fees; no
+                                                 accommodation."         compensatory
+                                                 Circuit courts remain damages.
+                                                 split on web-only
+                                                 applicability without a
+                                                 physical storefront.78
+
+4. Damage Modeling: Economic vs. Mental Anguish
+If the plaintiff successfully defeats the EULA forum selection clauses, maintains the action in
+Texas, and establishes liability under the DTPA and/or Section 504, the damage modeling
+diverges significantly from standard breach of contract metrics. The Texas DTPA is a highly
+punitive statute designed to heavily penalize corporate scienter and intentional deception.
+4.1 Economic Damages and the "Knowing" Violation Multiplier
+
+Under standard contract law, a plaintiff denied a digital subscription service would merely be
+entitled to a refund of the unfulfilled subscription period. However, under Tex. Bus. & Com.
+Code § 17.50(b)(1), a prevailing consumer under the DTPA may recover the total amount of
+"economic damages" found by the trier of fact.79 Economic damages represent compensatory
+damages for pecuniary loss, which in this scenario extends far beyond the subscription fee. It
+encompasses the cost of the subscription, the collateral costs of migrating data to alternative
+platforms, and any lost professional income directly attributable to the algorithmic service
+outage.57
+The true peril for technology defendants under the DTPA lies in its punitive multiplier system,
+which scales based on the defendant's culpable mental state:
+   ●​ "Knowing" Conduct: If the trier of fact finds that the deceptive act was committed
+       "knowingly," the consumer may recover up to three times the amount of economic
+        damages (treble economic damages), plus actual damages for mental anguish.3 The
+        DTPA defines "knowingly" as requiring actual awareness of the falsity, deception, or
+        unfairness of the act or practice.57
+   ●​ "Intentional" Conduct: If the act was committed "intentionally"—meaning actual
+        awareness coupled with the specific, targeted intent that the consumer act in
+        detrimental reliance on the falsity—the consumer's recovery escalates radically. The
+        plaintiff may recover up to three times the economic damages and up to three times the
+        mental anguish damages.3
+For a Silicon Valley platform managing millions of users, proving "knowing" conduct is highly
+achievable through targeted electronic discovery. The implementation of algorithmic rate
+limits, mathematical rolling windows, and automated server-side hard stops are not accidental
+occurrences or system glitches; they are meticulously coded engineering decisions designed
+to optimize server load, throttle heavy users, and reduce compute costs. If internal corporate
+documentation, Slack logs, or Git commits reveal that engineers knew the frontend user
+interface failed to warn consumers about these backend caps, actual awareness of the
+deceptive omission is legally established. This evidentiary finding immediately triggers the
+treble economic damage multiplier.
+
+
+
+
+4.2 Mental Anguish and the "Substantial Disruption" Standard
+
+Recovering mental anguish damages in Texas requires clearing a remarkably high evidentiary
+threshold. Following the Texas Supreme Court's stringent jurisprudence in Parkway Co. v.
+Woodruff, a plaintiff cannot simply rely on conclusory, self-serving statements of being upset,
+frustrated, or angry over a broken contract.58
+To survive a directed verdict on mental anguish, the plaintiff must present direct, compelling
+evidence regarding the "nature, duration, and severity" of the mental anguish. The evidence
+must establish a "substantial disruption in the plaintiff's daily routine" or demonstrate a "high
+degree of mental pain and distress that is more than mere worry, anxiety, vexation,
+embarrassment, or anger".18 Texas courts have expressed increasing concern regarding
+over-compensation in consumer cases, routinely striking down massive mental anguish awards
+where the plaintiff failed to prove that the emotional distress physically or fundamentally
+altered their daily existence.58
+While a standard consumer might experience mere "vexation" or temporary "anger" when a
+software subscription abruptly locks them out, the calculus shifts entirely for a disabled plaintiff
+using the service as an integrated cognitive aid. If the plaintiff relies on the AI platform or digital
+software to process daily communications, mitigate neurodivergent executive dysfunction, or
+manage complex psychiatric disabilities, the sudden, algorithmic denial of this service natively
+and objectively induces a "substantial disruption of daily routine".84
+For a disabled user, the disruption is not a mere commercial inconvenience; it constitutes the
+sudden, non-consensual removal of a psychological and operational crutch. To meet the heavy
+evidentiary burden demanded by Texas courts, the plaintiff should present corroborating,
+third-party testimony from medical professionals, psychologists, colleagues, or family
+members detailing the subsequent behavioral impact, the resulting inability to complete
+necessary daily tasks, or any required medical intervention directly subsequent to the
+algorithmic lock-out.80
+If the jury accepts this evidence and further finds that the technology entity acted
+intentionally—by ruthlessly designing an automated system that locks out high-dependency
+users to save compute costs without any regard for their reliance on the tool—the ultimate
+recovery model scales aggressively, punishing the corporate scienter:
+
+
+
+
+The following table summarizes the required proof and recovery thresholds under the DTPA:
+
+Culpable Mental State            Statutory Definition / Burden Authorized DTPA Recovery
+                                 of Proof
+Strict Liability (Baseline)      No intent required. Act simply Actual Economic Damages +
+                                 occurred and caused damage. Attorneys' Fees.
+"Knowingly"                      Actual awareness of the        Up to 3x Economic Damages +
+                                 deception or unfairness of the Actual Mental Anguish
+                                 rolling window.57              Damages.
+"Intentionally"                  Actual awareness plus specific Up to 3x Economic Damages +
+                                 intent to deceive or harm the Up to 3x Mental Anguish
+                                 consumer.59                    Damages.
+Mental Anguish Threshold         Must prove "substantial          Unlock compensatory and
+                                 disruption of daily routine"     treble emotional distress
+                                 (Parkway standard).18            awards.
+
+5. Strategic Synthesis and Conclusions
+Litigating a highly technical SaaS denial-of-service claim initiated by a Texas resident against a
+California technology conglomerate requires navigating a perilous gauntlet of restrictive
+contract law, punitive state consumer protection statutes, and federal disability rights
+mandates. The fusion of algorithmic backend management with consumer-facing subscription
+marketing creates novel avenues for liability that stretch traditional jurisprudence.
+An exhaustive analysis of the statutory frameworks and case law yields the following
+determinative insights and strategic realities:
+   1.​ The Algorithmic Deception is Actionable: Enforcing undisclosed "rolling windows" and
+       initiating absolute hard stops on a paid "Pro" subscription squarely fits the Texas DTPA
+       definitions of deceptive misrepresentations of characteristics under § 17.46(b)(5) and
+       unconscionable courses of action under § 17.45(5). The exploitation of the consumer's
+       technical blindness to backend server constraints, while continuously charging premium
+     fees, represents a gross disparity in capacity that satisfies the Chastain standard for
+     unconscionability.
+ 2.​ The Venue Battle is Existential: Entities like Apple and Anthropic will immediately move
+     to transfer venue to California, relying heavily on their respective forum selection clauses
+     and arbitration mandates. Because Texas public policy heavily favors the freedom of
+     contract and the enforcement of these clauses, the plaintiff faces a massive procedural
+     hurdle. The plaintiff must construct a compelling argument that transferring the case to
+     California's UCL framework—which strips away treble damages and eliminates mental
+     anguish recovery due to Proposition 64—essentially deprives a disabled Texas consumer
+     of their substantive day in court and weaponizes the EULA to shield intentional corporate
+     deception.
+ 3.​ The Civil Rights Nexus is the Shield Penetrator: Elevating the software lock-out from a
+     mere breach of consumer contract to a violation of Section 504 of the Rehabilitation Act
+     provides the most robust mechanism for demonstrating profound, actionable harm. By
+     successfully framing the digital platform as a compensatory cognitive aid utilized by a
+     qualified individual with a disability, the algorithmic hard stop transforms into an active,
+     discriminatory denial of "effective communication." This federal civil rights framing
+     bypasses the limitations of the Texas Human Resources Code and justifies substantial
+     mental anguish damages by objectively satisfying the Texas requirement for a
+     "substantial disruption of daily routine."
+ 4.​ Procedural Imperatives Dictate Success: Before any formal litigation commences, the
+     plaintiff must execute a highly specific, statutorily compliant 60-day demand letter under
+     DTPA § 17.505. This letter must meticulously detail the algorithmic deception, the specific
+     disability impact, and provide an exact calculation of treble economic and mental anguish
+     damages. Properly executing this demand letter not only avoids mandatory case
+     abatement but sets the procedural trap for maximum statutory recovery, forcing the
+     technology entity to officially defend its opaque algorithmic throttling practices.
+
+Works cited
+
+ 1.​ Consumer Fraud Lawyers | Consumer Protection & DTPA - Nunis & Associates,
+     accessed April 16, 2026,
+     https://www.nunislaw.com/consumer-protection-deceptive-trade-practices-act/
+ 2.​ COMMENT:The DTPA's Professional Services Exemption: Let 'em Be Doctors and
+     Lawyers and Such*, * The Author would like to - Whitaker Chalk, accessed April
+     16, 2026,
+     https://www.whitakerchalk.com/wp-content/uploads/2019/10/COMMENT_The-DT
+     PA_s-Professional-Services-Exemption.pdf
+ 3.​ Texas Deceptive Trade Practices-Consumer Protection Act, accessed April 16,
+     2026,
+     https://www.templelawoffice.com/wp-content/uploads/sites/1501901/2020/01/Tex
+     as-Deceptive-Trade-Practices.pdf
+ 4.​ Deceptive Trade Practices - Consumer Protection Act - SMU Scholar, accessed
+     April 16, 2026,
+     https://scholar.smu.edu/cgi/viewcontent.cgi?article=1954&context=smulr
+5.​ STATE OF TEXAS, Plaintiff, v. SOUTHWESTERN PUBLIC SERVICE COMPANY, d/b/a
+     XCEL ENERGY, Defendant., accessed April 16, 2026,
+     https://www.texasattorneygeneral.gov/sites/default/files/images/press/Petition_5.
+     pdf
+6.​ INSURANCE - The Portal to Texas History, accessed April 16, 2026,
+     https://texashistory.unt.edu/ark:/67531/metapth639062/m2/1/high_res_d/UNT-002
+     3-0008.pdf
+7.​ Fourth Court of Appeals - U.S. Case Law, accessed April 16, 2026,
+     https://cases.justia.com/texas/fourth-court-of-appeals/04-12-00368-cv.pdf?ts=1
+     396148384
+8.​ Case 2:24-cv-10546-BRM-KGA ECF No. 30, PageID.3491 Filed 11/25/24 Page 1 of
+     389 - Lieff Cabraser, accessed April 16, 2026,
+     https://www.lieffcabraser.com/pdf/Dkt.30-SecondAmendedComplaint2024.11.25.
+     pdf
+9.​ Exhibit B, accessed April 16, 2026,
+     https://files.lbr.cloud/public/2025-06/Texas%27s%20second%20amended%20pet
+     ition.pdf?VersionId=pk5vqR6sodKXeq2u62TEvynpu1UQYg1V
+10.​Samuel Avila and Nilsa Avila, d/b/a Mundo Latino v. The State of Texas--Appeal
+     from 7th District Court of Smith County - Justia Law, accessed April 16, 2026,
+     https://law.justia.com/cases/texas/twelfth-court-of-appeals/2008/8473.html
+11.​ FIELDTECH AVIONICS INSTRUMENTS INC v. COMPONENT CONTROL COM INC
+     USA (2008) - FindLaw Caselaw, accessed April 16, 2026,
+     https://caselaw.findlaw.com/court/tx-court-of-appeals/1256874.html
+12.​UNITED STATES DISTRICT COURT EASTERN DISTRICT OF MICHIGAN SOUTHERN
+     DIVISION IN RE: FCA US LLC MONOSTABLE ELECTRONIC GEARSHIFT L -
+     Lockridge Grindal Nauen PLLP, accessed April 16, 2026,
+     https://www.locklaw.com/wp-content/uploads/Fiat-Second-Amended-Consolidat
+     ed-Master-Class-Action-Complaint-In-re-FAC-US-LLC-Monstable-Electronic-G
+     earshift-Litigation-.pdf
+13.​ORTIZ v. COLLINS (2006) - FindLaw Caselaw, accessed April 16, 2026,
+     https://caselaw.findlaw.com/court/tx-court-of-appeals/1145584.html
+14.​Consumer Protection - Texas A&M Law Scholarship, accessed April 16, 2026,
+     https://scholarship.law.tamu.edu/context/student-scholarship/article/1007/viewco
+     ntent/Consumer_Protection.pdf
+15.​STATE FARM LLOYDS v. NICOLAU | No. 94-0287. | Tex. | Judgment | Law |
+     CaseMine, accessed April 16, 2026,
+     https://www.casemine.com/judgement/us/5914bc35add7b0493479b29f
+16.​Chastain v. Koonce :: 1985 :: Supreme Court of Texas Decisions - Justia Law,
+     accessed April 16, 2026,
+     https://law.justia.com/cases/texas/supreme-court/1985/c-3478-0.html
+17.​LATHAM v. CASTILLO (1998) - FindLaw Caselaw, accessed April 16, 2026,
+     https://caselaw.findlaw.com/court/tx-supreme-court/1130952.html
+18.​Deceptive Trade Practices, accessed April 16, 2026,
+     https://www.texaslegalbrains.com/texas-causes-of-action/deceptive-trade-practi
+    ces
+19.​A Consumer Update: Recent Developments under the Texas Deceptive Trade
+    Practices Act., accessed April 16, 2026,
+    https://commons.stmarytx.edu/cgi/viewcontent.cgi?article=1883&context=thestm
+    aryslawjournal
+20.​What steps should a consumer take before filing a Texas DTPA claim?, accessed
+    April 16, 2026, https://www.woodlands.law/texas-dtpa/steps-before-filing/
+21.​Texas Business and Commerce Code - BUS & COM § 17.505. Notice; Inspection,
+    accessed April 16, 2026,
+    https://codes.findlaw.com/tx/business-and-commerce-code/bus-com-sect-17-5
+    05/
+22.​Demand Letters That Hold Power Under the Texas Deceptive Trade Practices Act
+    (DTPA), accessed April 16, 2026,
+    https://kjm.law/texas-deceptive-trade-practices-act-demand-letter/
+23.​Rethinking the Sixty-Day Notice Letter in Texas | Property Insurance Coverage
+    Law Blog, accessed April 16, 2026,
+    https://www.propertyinsurancecoveragelaw.com/blog/rethinking-the-sixtyday-no
+    tice-letter-in-texas/
+24.​Deceptive Trade Practices Act: Protections for Consumers - Texas Law Help,
+    accessed April 16, 2026,
+    https://texaslawhelp.org/article/deceptive-trade-practices-act-protections-for-c
+    onsumers
+25.​Deceptive Trade Practices-Consumer Protection Act - SMU Scholar, accessed
+    April 16, 2026,
+    https://scholar.smu.edu/cgi/viewcontent.cgi?article=1652&context=smulr
+26.​IN THE UNITED STATES DISTRICT COURT NORTHERN DISTRICT OF TEXAS DALLAS
+    DIVISION RALPH V. CLARK AND § KAREN C. CLARK, § § Plain - GovInfo, accessed
+    April 16, 2026,
+    https://www.govinfo.gov/content/pkg/USCOURTS-txnd-3_14-cv-02933/pdf/USCO
+    URTS-txnd-3_14-cv-02933-0.pdf
+27.​IN THE SUPREME COURT OF TEXAS, accessed April 16, 2026,
+    https://www.txcourts.gov/media/1386416/140186cx.pdf
+28.​opinion of the Court - Texas Judicial Branch, accessed April 16, 2026,
+    https://www.txcourts.gov/media/1309504/140186.pdf
+29.​Determining Internet Jurisdiction - The CPA Journal Archive, accessed April 16,
+    2026, http://archives.cpajournal.com/2003/0703/features/f072403.htm
+30.​Personal Jurisdiction in the Shadow of the First Amendment - California Law
+    Review, accessed April 16, 2026,
+    https://www.californialawreview.org/print/jurisdiction-first-amendment
+31.​PAVLOVICH v. DVD (2001) - FindLaw Caselaw, accessed April 16, 2026,
+    https://caselaw.findlaw.com/ca-court-of-appeal/1071993.html
+32.​Texas Supreme Court Reaffirms That Non-Texas Companies Must “Target Texas”
+    To Be Subject To Personal Jurisdiction - Gibson Dunn, accessed April 16, 2026,
+    https://www.gibsondunn.com/texas-supreme-court-reaffirms-that-non-texas-co
+    mpanies-must-target-texas-to-be-subject-to-personal-jurisdiction/
+33.​Doe v. Geller and Personal Jurisdiction Over Internet Activities - Texas A&M Law
+    Scholarship, accessed April 16, 2026,
+    https://scholarship.law.tamu.edu/cgi/viewcontent.cgi?article=1354&context=lawre
+    view
+34.​Reddit Sues Anthropic Over AI Use of User Content - DDG | Avocats, accessed
+    April 16, 2026,
+    https://www.ddg.fr/actualite/reddit-inc-v-anthropic-pbc---legal-action-over-the-
+    unauthorized-use-of-user-generated-content-in-ai-training
+35.​Apple Developer Agreement, accessed April 16, 2026,
+    https://developer.apple.com/support/downloads/terms/apple-developer-agreem
+    ent/Apple-Developer-Agreement-20250318-English.pdf
+36.​Apt Systems, Inc. et al v. Apple Inc., No. 3:2022cv00524 - Document 32 (N.D. Cal.
+    2022), accessed April 16, 2026,
+    https://law.justia.com/cases/federal/district-courts/california/candce/3:2022cv005
+    24/391081/32/
+37.​IN RE: APPLE INC. (2020) - FindLaw Caselaw, accessed April 16, 2026,
+    https://caselaw.findlaw.com/court/us-federal-circuit/2063730.html
+38.​Anthropic on Bedrock - Commercial Terms of Service, accessed April 16, 2026,
+    https://www-cdn.anthropic.com/6b68a6508f0210c5fe08f0199caa05c4ee6fb4dc
+    /Anthropic-on-Bedrock-Commercial-Terms-of-Service_Dec_2023.pdf
+39.​Franchise Law - Dallas - SMU Scholar, accessed April 16, 2026,
+    https://scholar.smu.edu/cgi/viewcontent.cgi?article=2230&context=smulr
+40.​In Re: Bambu Franchising LLC, Bambu Desserts and Drinks, Inc., and Bambu IP,
+    LLC Appeal from 298th Judicial District Court of Dallas County - Justia Law,
+    accessed April 16, 2026,
+    https://law.justia.com/cases/texas/fifth-court-of-appeals/2017/05-17-00690-cv.ht
+    ml
+41.​TEX. CASE LAW ---> FORUM SELECTION AND VENUE | FORUM INCONVENIENS |
+    MANDAMUS - Texas Opinions, accessed April 16, 2026,
+    http://www.texas-opinions.com/law-forum-selection.html
+42.​MEMORANDUM OPINION - U.S. Case Law, accessed April 16, 2026,
+    https://cases.justia.com/texas/thirteenth-court-of-appeals/13-12-00151-cv.pdf?ts
+    =1396146191
+43.​Business & Commerce Code Chapter 17 - Texas Constitution and Statutes,
+    accessed April 16, 2026, https://statutes.capitol.texas.gov/Docs/BC/htm/BC.17.htm
+44.​Texas Insurance Law Newsbrief - February 10, 2026, accessed April 16, 2026,
+    https://www.mdjwlaw.com/newsroom/newsbriefs/texas-insurance-law-newsbrief
+    -february-10-2026
+45.​US corporate governance: 2025 year-end review | Herbert Smith Freehills Kramer
+    | Global law firm, accessed April 16, 2026,
+    https://www.hsfkramer.com/insights/2026-02/corporate-governance-2025-year-
+    end-review
+46.​THE USE OF ARBITRATION, FORUM-SELECTION, AND JURY-WAIVER CLAUSES IN
+    TRUST AND ESTATE LITIGATION IN TEXAS DAVID F. JOHNSON, For, accessed April
+    16, 2026,
+     https://www.fiduciarylitigator.com/files/2019/12/Arbitration-Forum-Selection-Jury
+     -Waiver-Clauses-in-Trust-and-Estate-Litigation_Paper.pdf
+47.​law-usury - Texas Opinions, accessed April 16, 2026,
+     https://www.texas-opinions.com/law-usury.html
+48.​Drafting Enforceable Non-Compete Agreements for a Remote Workforce,
+     accessed April 16, 2026,
+     https://www.hchlawyers.com/blog/2022/may/drafting-enforceable-non-compete
+     -agreements-for-/
+49.​Contractual Clauses That Impact Disputes David F. Johnson Winstead PC 300
+     Throckmorton, Suite 1700 Fort Worth, TX 76102 (817) 4 - The Fiduciary Litigator,
+     accessed April 16, 2026,
+     https://www.fiduciarylitigator.com/files/2017/04/TBA-Contractual-Clauses-Paper.
+     pdf
+50.​​Defenses to a Section 17200 Unfair Competition Law Claim in California,
+     accessed April 16, 2026,
+     https://www.bonalaw.com/insights/legal-resources/defenses-to-a-section-17200
+     -unfair-competition-law-claim-in-california
+51.​Organizations May Sue Employers Based On Time Spent Opposing Unfair
+     Competition, accessed April 16, 2026,
+     https://www.proskauer.com/blog/organizations-may-sue-employers-based-on-ti
+     me-spent-opposing-unfair-competition-blog
+52.​Navigating the Nuances of California's Unfair Competition Law - Keller/Anderle,
+     accessed April 16, 2026,
+     https://kelleranderle.com/navigating-the-nuances-of-californias-unfair-competiti
+     on-law/
+53.​California Supreme Court Ruling on UCL Standing Requirement May Open the
+     Floodgates to Frivolous Suits - Mayer Brown, accessed April 16, 2026,
+     https://www.mayerbrown.com/-/media/files/perspectives-events/publications/20
+     09/07/california-supreme-court-ruling-on-ucl-standing-re/files/nadolencoparash
+     aramiranlettpdf/fileattachment/nadolenco-parasharami-ranlett.pdf
+54.​Organizations May Sue Employers Based On Time Spent Opposing Unfair
+     Competition, accessed April 16, 2026,
+     https://calemploymentlawupdate.proskauer.com/2023/07/organizations-may-sue
+     -employers-based-on-time-spent-opposing-unfair-competition/
+55.​IN KWIKSET, THE CALIFORNIA SUPREME COURT LOWERS THE BAR TO GAIN
+     STANDING FOR UNFAIR COMPETITION CLAIMS, BUT MAY HAVE RAISED THE -
+     Arnold & Porter, accessed April 16, 2026,
+     https://www.arnoldporter.com/en/perspectives/advisories/2011/02/california-supr
+     eme-court-lowers-bar-for-ucl-stan__
+56.​California's Unfair Competition Law and Consumers Legal Remedies Act 2024
+     Annual Overview - Steptoe, accessed April 16, 2026,
+     https://www.steptoe.com/a/web/4DY8ntSCUCGzKTG7juucUL/a5MEfa/18155-calif
+     ornias-unfair-competition-law-002.pdf
+57.​12, accessed April 16, 2026, https://ble.texas.gov/A_2011_Feb_Q12
+58.​Texas Deceptive Trade Practices Act: Comprehensive Enforcement Guide,
+    accessed April 16, 2026,
+    https://legalrepusa.com/blog/texas-deceptive-trade-practices-act-comprehensi
+    ve-guide
+59.​When can a consumer recover treble damages under the Texas DTPA?, accessed
+    April 16, 2026, https://www.woodlands.law/texas-dtpa/treble-damages/
+60.​121.002 - Texas Constitution and Statutes, accessed April 16, 2026,
+    https://statutes.capitol.texas.gov/GetStatute.aspx?Code=HR&Value=121.002
+61.​Americans with Disabilities Act (ADA) - Office of the Texas Governor, accessed
+    April 16, 2026, https://gov.texas.gov/organization/disabilities/ada
+62.​Brad Livingston, in his Official Capacity as the Executive Director of the Texas
+    Department of Criminal Justice, Appellant v. Laura Beeman and Janet Lock,
+    Appellees (2013) - FindLaw Caselaw, accessed April 16, 2026,
+    https://caselaw.findlaw.com/tx-court-of-appeals/1639788.html
+63.​Access Litigation in Texas Under the Americans with Disabilities Act and its Texas
+    Companion - Texans for Lawsuit Reform Foundation, accessed April 16, 2026,
+    https://tlrfoundation.org/foundation_papers/access-litigation-in-texas-under-the
+    -americans-with-disabilities-act-and-its-texas-companion/
+64.​opinion of the Court - Texas Judicial Branch, accessed April 16, 2026,
+    https://www.txcourts.gov/media/1008510/130867.pdf
+65.​SILGUERO v. CSL PLASMA INCORPORATED (2019) | FindLaw, accessed April 16,
+    2026, https://caselaw.findlaw.com/court/tx-supreme-court/2007490.html
+66.​Your Guide To ADA Compliance In Texas - Accessibility Checker, accessed April
+    16, 2026, https://www.accessibilitychecker.org/blog/ada-compliance-in-texas/
+67.​Website ADA Accessibility Compliance in Texas - Skynet Technologies, accessed
+    April 16, 2026,
+    https://www.skynettechnologies.com/blog/website-ada-compliance-in-texas
+68.​Americans with Disabilities Act Title III Regulations | ADA.gov, accessed April 16,
+    2026, https://www.ada.gov/law-and-regs/regulations/title-iii-regulations/
+69.​What the DOD-Anthropic Dispute Means for Government Contractors and
+    Businesses That Work With the Federal Government - Hoyer Law Group,
+    accessed April 16, 2026,
+    https://www.hoyerlawgroup.com/what-the-dod-anthropic-dispute-means-for-g
+    overnment-contractors-and-businesses-that-work-with-the-federal-governmen
+    t/
+70.​Effective Communication and the ADA - Legal Briefings, accessed April 16, 2026,
+    https://www.adagreatlakes.org/Publications/Legal_Briefs/BriefNo25_EffectiveCom
+    munication_andADA.pdf
+71.​Section 504 - Texas Project First, accessed April 16, 2026,
+    https://texasprojectfirst.org/section-504/
+72.​Diagnosing Accessibility Issues and Inequality for Patients with Disabilities Within
+    the American Health - The University of Memphis, accessed April 16, 2026,
+    https://www.memphis.edu/law/documents/book4_moss.pdf
+73.​Nondiscrimination on the Basis of Disability in Programs or Activities Receiving
+    Federal Financial Assistance, accessed April 16, 2026,
+    https://www.federalregister.gov/documents/2024/05/09/2024-09237/nondiscrimin
+    ation-on-the-basis-of-disability-in-programs-or-activities-receiving-federal-fina
+    ncial
+74.​An Equal Chance to Succeed: Challenging Barriers for Disabled People on
+    Probation and Parole - Georgetown Law, accessed April 16, 2026,
+    https://www.law.georgetown.edu/american-criminal-law-review/wp-content/uplo
+    ads/sites/15/2025/08/GT-ACLR250048.pdf
+75.​ADA Handbook - Judicial Council of Georgia, accessed April 16, 2026,
+    https://jcaoc.georgiacourts.gov/wp-content/uploads/2024/05/ADA-Judicial-Hand
+    book-2017_Oct-Update.pdf
+76.​Discrimination on the Basis of Disability in Health and Human Service Programs or
+    Activities, accessed April 16, 2026,
+    https://www.regulations.gov/document/HHS-OCR-2023-0013-0001
+77.​Americans with Disabilities Act Advancing Court Accessibility for Individuals with
+    Disabilities Comprehensive Guide, accessed April 16, 2026,
+    https://appellatecourtclerks.org/wp-content/uploads/2025/12/Albuqueque-Master
+    -File.pdf
+78.​Is a Website Subject to Title III of the ADA: Why the Text Applies to Only Websites
+    “Of” a Place of Public Accommodation - Texas A&M Law Scholarship, accessed
+    April 16, 2026,
+    https://scholarship.law.tamu.edu/journal-of-property-law/vol8/iss2/5/
+79.​Texas Deceptive Trade Practices Act - Journal of Consumer & Commercial Law,
+    accessed April 16, 2026,
+    http://www.jtexconsumerlaw.com/V15N1/V15N1_Remedies.pdf
+80.​Question 6 – July 2014 – Selected Answer 1 I. Pat can assert claims under the
+    Deceptive Trade Practices Act for a “laundry, accessed April 16, 2026,
+    https://ble.texas.gov/A_2014_July_Q6
+81.​Treble Damages! - Gray Becker, P.C., accessed April 16, 2026,
+    https://www.graybecker.com/blog/treble-damages/
+82.​RECENTDEVELOPMENTS - Journal of Consumer & Commercial Law, accessed
+    April 16, 2026, http://www.jtexconsumerlaw.com/v28n3/JCCL_V28N3_DTPA.pdf
+83.​Unconscionable Conduct by Attorneys Under DTPA: Castillo v. Latham -
+    CaseMine, accessed April 16, 2026,
+    https://www.casemine.com/commentary/us/unconscionable-conduct-by-attorne
+    ys-under-dtpa:-castillo-v.-latham/view
+84.​Patel v. Hussain | NO. 14-14-00459-CV | Tex. App. | Judgment | Law | CaseMine,
+    accessed April 16, 2026,
+    https://www.casemine.com/judgement/us/5914ad50add7b04934741cbe
+85.​Question 11 – February 2013 – Selected Answer 1, accessed April 16, 2026,
+    https://ble.texas.gov/A_2013_Feb_Q11
+
