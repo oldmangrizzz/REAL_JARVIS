@@ -9,6 +9,7 @@ public enum JarvisRemoteAction: String, Codable, CaseIterable, Sendable, Identif
     case queueGuiIntent = "queue_gui_intent"
     case reseedObsidian = "reseed_obsidian"
     case bridgeIntercom = "bridge_intercom"
+    case presenceArrival = "presence_arrival"
     case shutdown
     case runSkill = "run_skill"
     case ping

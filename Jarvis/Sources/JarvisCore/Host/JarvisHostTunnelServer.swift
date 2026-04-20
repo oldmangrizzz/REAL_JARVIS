@@ -373,6 +373,36 @@ public final class JarvisHostTunnelServer: @unchecked Sendable {
                 spokenText: "Tunnel acknowledged shutdown. The host remains available for manual restart.",
                 snapshot: try makeSnapshot()
             )
+        case .presenceArrival:
+            let event = try decodePresenceEvent(from: command)
+            let outcome = try runtime.presenceRouter.handle(event)
+            return JarvisTunnelResponse(
+                action: .presenceArrival,
+                spokenText: outcome.summary,
+                snapshot: try makeSnapshot(),
+                payloadJSON: try makeJSONString([
+                    "eventID": outcome.eventID,
+                    "greeted": outcome.greeted,
+                    "suppressed": outcome.plan.suppressed,
+                    "suppressionReason": outcome.plan.suppressionReason ?? "",
+                    "surfaces": outcome.plan.surfaces.map { $0.rawValue },
+                    "line": outcome.plan.line
+                ]),
+                outputPath: outcome.spokenOutputPath
+            )
+        }
+    }
+
+    private func decodePresenceEvent(from command: JarvisRemoteCommand) throws -> JarvisPresenceEvent {
+        guard let json = command.payloadJSON, let data = json.data(using: .utf8) else {
+            throw JarvisError.invalidInput("presence_arrival requires a JSON payload describing the presence event.")
+        }
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        do {
+            return try decoder.decode(JarvisPresenceEvent.self, from: data)
+        } catch {
+            throw JarvisError.invalidInput("presence_arrival payload failed to decode: \(error.localizedDescription)")
         }
     }
 

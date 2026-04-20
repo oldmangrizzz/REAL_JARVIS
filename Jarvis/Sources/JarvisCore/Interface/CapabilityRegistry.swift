@@ -24,6 +24,10 @@ public struct DisplayEndpoint: Codable, Sendable, Identifiable {
         case airplay, ddcCI = "ddc-ci", http, hdmiCEC = "hdmi-cec", matter, homeKit = "homekit"
         case local
         case jarvisTunnel = "jarvis-tunnel"
+        /// DIAL (Discovery and Launch) — used for Fire TV / Chromecast app launch.
+        case dial
+        /// Alexa routine invoked via webhook. Used for Echo Show cards.
+        case alexaRoutine = "alexa-routine"
     }
 
     public enum Authority: String, Codable, Sendable {

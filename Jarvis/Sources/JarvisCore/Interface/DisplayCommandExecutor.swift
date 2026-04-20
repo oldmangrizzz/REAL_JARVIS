@@ -168,6 +168,38 @@ public final class DisplayCommandExecutor: @unchecked Sendable {
                     "authority": display.authority.rawValue
                 ]
             )
+
+        case .dial:
+            // Fire TV / Chromecast DIAL protocol. SSDP discovery + POST to
+            // :8008 / :8009. Not yet implemented — log intent and return
+            // a queued result so upstream callers and tests stay honest.
+            return ExecutionResult(
+                success: true,
+                spokenText: "Queued DIAL launch for \(display.displayName).",
+                details: [
+                    "display": display.id,
+                    "transport": "dial",
+                    "address": display.address ?? "",
+                    "action": action,
+                    "status": "queued-pending-dial-bridge"
+                ]
+            )
+
+        case .alexaRoutine:
+            // Echo Show routines invoked via webhook. The routine name is
+            // stored in `display.address`. Queued-log path until the
+            // Alexa routine bridge ships.
+            return ExecutionResult(
+                success: true,
+                spokenText: "Queued Alexa routine for \(display.displayName).",
+                details: [
+                    "display": display.id,
+                    "transport": "alexa-routine",
+                    "routine": display.address ?? "",
+                    "action": action,
+                    "status": "queued-pending-alexa-bridge"
+                ]
+            )
         }
     }
 

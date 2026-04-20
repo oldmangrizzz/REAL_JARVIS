@@ -15,6 +15,7 @@ public final class JarvisRuntime {
     public let physics: PhysicsEngine
     public let physicsSummarizer: PhysicsSummarizer
     public let arcBridge: ARCHarnessBridge
+    public let presenceRouter: PresenceEventRouter
 
     public init(paths: WorkspacePaths) throws {
         self.paths = paths
@@ -37,6 +38,11 @@ public final class JarvisRuntime {
             broadcasterURL: URL(string: "ws://localhost:8765")!,
             telemetry: telemetry,
             engine: self.physics
+        )
+        self.presenceRouter = PresenceEventRouter(
+            voice: self.voice,
+            telemetry: self.telemetry,
+            voiceCacheDirectory: paths.voiceCacheDirectory
         )
         Task.detached { [telemetrySync] in
             await telemetrySync.start()

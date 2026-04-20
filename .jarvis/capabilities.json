@@ -95,6 +95,36 @@
       "capabilities": ["telemetry", "dashboard", "control"],
       "room": "workshop",
       "authority": "full-access-and-control"
+    },
+    {
+      "id": "apple-tv-living-room",
+      "displayName": "Apple TV (Living Room)",
+      "aliases": ["apple tv", "living room tv", "atv"],
+      "type": "tv",
+      "transport": "airplay",
+      "address": "192.168.4.200",
+      "capabilities": ["video", "dashboard"],
+      "room": "living-room"
+    },
+    {
+      "id": "fire-tv",
+      "displayName": "Fire TV",
+      "aliases": ["fire tv", "firetv", "amazon tv"],
+      "type": "tv",
+      "transport": "dial",
+      "address": "192.168.4.201",
+      "capabilities": ["video", "dashboard"],
+      "room": "bedroom"
+    },
+    {
+      "id": "echo-show-kitchen",
+      "displayName": "Echo Show (Kitchen)",
+      "aliases": ["echo show", "kitchen show", "kitchen display"],
+      "type": "tv",
+      "transport": "alexa-routine",
+      "address": "jarvis-kitchen-card",
+      "capabilities": ["video", "dashboard"],
+      "room": "kitchen"
     }
   ],
   "accessories": [
