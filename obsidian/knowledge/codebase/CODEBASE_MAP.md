@@ -103,7 +103,7 @@
 
 | Module | Files | Public Types | Purpose |
 |--------|-------|--------------|---------|
-| **RLM** | PythonRLMBridge.swift, rlm_repl.py | `PythonRLMBridge` | Python subprocess management; REPL interface for off-device LLM; DispatchSource-based process lifetime (post-CX-005 timer fix) |
+| **RLM** | PythonRLMBridge.swift, ContextualRetrievalBridge.swift, rlm_repl.py | `PythonRLMBridge`, `ContextualRetrievalBridge`, `RetrievalContext` | Python subprocess management; REPL interface for off-device LLM; DispatchSource-based process lifetime (post-CX-005 timer fix); semantic+pheromone retrieval fusion for prompt enrichment |
 
 ### Telemetry & Observability (3 files)
 
@@ -140,6 +140,18 @@
 | Module | Files | Public Types | Purpose |
 |--------|-------|--------------|---------|
 | **Host** | JarvisHostTunnelServer.swift | `JarvisHostTunnelServer` | [[concepts/TinCan-Firewall|TinCan Firewall]] tunnel endpoint; gRPC/protobuf encapsulation (post-CX-006 default auth fix) |
+
+### Credentials (1 file)
+
+| Module | Files | Public Types | Purpose |
+|--------|-------|--------------|---------|
+| **Credentials** | MapboxCredentials.swift | `MapboxCredentials`, `MapboxCredentialLoader` | [[codebase/modules/Credentials\|Tier-gated credential loader]]; public vs. secret-token split with Principal enforcement at the type boundary; fail-closed for non-operator tiers |
+
+### OSINT (2 files)
+
+| Module | Files | Public Types | Purpose |
+|--------|-------|--------------|---------|
+| **OSINT** | OSINTSourceRegistry.swift, WebContentFetchPolicy.swift | `OSINTSource`, `OSINTSourceRegistry`, `OSINTFetchGuard`, `WebContentFetchPolicy`, `SearchProvenance` | [[codebase/modules/OSINT\|Open-source doctrine]]; pinned host allowlist for structured APIs; provenance-stamped fetch gate for arbitrary web pages with robots.txt + rate-limit compliance |
 
 ---
 
