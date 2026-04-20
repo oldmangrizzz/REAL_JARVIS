@@ -68,6 +68,75 @@ final class MapboxCredentialsTests: XCTestCase {
         XCTAssertFalse(creds.hasSecretToken)
     }
 
+    func testSecretTokenRejectsResponderPrincipal() {
+        let creds = MapboxCredentials(
+            publicToken: "pk.abcdefghijklmnopqrstuvwxyz",
+            secretToken: "sk.abcdefghijklmnopqrstuvwxyz"
+        )
+        let responder = Principal.responder(role: .emt)
+        XCTAssertNil(creds.secretToken(for: responder), "responder tier must never see secret token")
+        XCTAssertTrue(creds.hasSecretToken, "hasSecretToken must not gate on principal")
+    }
+
+    func testHasSecretTokenFalseWhenAbsent() {
+        let creds = MapboxCredentials(publicToken: "pk.abcdefghijklmnopqrstuvwxyz", secretToken: nil)
+        XCTAssertFalse(creds.hasSecretToken)
+        XCTAssertNil(creds.secretToken(for: .operatorTier))
+    }
+
+    func testLoaderFallsBackToFileWhenNoEnv() throws {
+        let tmp = URL(fileURLWithPath: NSTemporaryDirectory())
+            .appendingPathComponent("mapbox-file-\(UUID().uuidString)", isDirectory: true)
+        try FileManager.default.createDirectory(
+            at: tmp.appendingPathComponent(".jarvis/secrets"),
+            withIntermediateDirectories: true
+        )
+        let contents = """
+        MAPBOX_PUBLIC_TOKEN=pk.FILE_public_xxxxxxxxxxxxxxxxxxxx
+        MAPBOX_SECRET_TOKEN=sk.FILE_secret_xxxxxxxxxxxxxxxxxxxx
+        """
+        try contents.write(
+            to: tmp.appendingPathComponent(".jarvis/secrets/mapbox.env"),
+            atomically: true, encoding: .utf8
+        )
+        defer { try? FileManager.default.removeItem(at: tmp) }
+
+        let creds = MapboxCredentialLoader.load(repoRoot: tmp, environment: [:])
+        XCTAssertEqual(creds.publicToken, "pk.FILE_public_xxxxxxxxxxxxxxxxxxxx")
+        XCTAssertEqual(creds.secretToken(for: .operatorTier), "sk.FILE_secret_xxxxxxxxxxxxxxxxxxxx")
+    }
+
+    func testValidateTokenLengthBoundary() {
+        // Threshold is `prefix.count + 20` — strictly greater than.
+        // "pk." (3) + 20 = 23 → need length >= 24.
+        let shortAt23 = "pk." + String(repeating: "a", count: 20)      // len 23 → rejected
+        let longAt24  = "pk." + String(repeating: "a", count: 21)      // len 24 → accepted
+        XCTAssertNil(MapboxCredentialLoader.validateToken(shortAt23, prefix: "pk."))
+        XCTAssertEqual(MapboxCredentialLoader.validateToken(longAt24, prefix: "pk."), longAt24)
+        XCTAssertNil(MapboxCredentialLoader.validateToken(nil, prefix: "pk."))
+    }
+
+    func testDotenvParserSkipsMalformedAndMissing() throws {
+        let missingURL = URL(fileURLWithPath: NSTemporaryDirectory())
+            .appendingPathComponent("mapbox-missing-\(UUID().uuidString).env")
+        XCTAssertNil(MapboxCredentialLoader.parseDotenv(at: missingURL), "missing file returns nil")
+
+        let tmp = URL(fileURLWithPath: NSTemporaryDirectory())
+            .appendingPathComponent("mapbox-dotenv-skip-\(UUID().uuidString).env")
+        let contents = """
+
+        # comment line
+        THIS_HAS_NO_EQUALS_SIGN
+        VALID_KEY=valid_value
+        """
+        try contents.write(to: tmp, atomically: true, encoding: .utf8)
+        defer { try? FileManager.default.removeItem(at: tmp) }
+        let parsed = try XCTUnwrap(MapboxCredentialLoader.parseDotenv(at: tmp))
+        XCTAssertEqual(parsed["VALID_KEY"], "valid_value")
+        XCTAssertNil(parsed["THIS_HAS_NO_EQUALS_SIGN"])
+        XCTAssertEqual(parsed.count, 1, "comments, blanks, and no-= lines must all be skipped")
+    }
+
     func testDotenvParserHandlesCommentsAndQuotes() throws {
         let tmp = URL(fileURLWithPath: NSTemporaryDirectory())
             .appendingPathComponent("mapbox-dotenv-\(UUID().uuidString).env")
