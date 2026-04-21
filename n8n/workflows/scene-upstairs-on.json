@@ -12,39 +12,63 @@
       "name": "Webhook",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 1,
-      "position": [200, 300],
+      "position": [
+        200,
+        300
+      ],
       "webhookId": "jarvis-scene-upstairs-on"
     },
     {
       "parameters": {
         "method": "POST",
-        "url": "http://192.168.7.199:8123/api/services/light/turn_on",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
+        "url": "={{$env.HA_URL}}/api/services/light/turn_on",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{$env.HA_TOKEN}}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
         "sendBody": true,
-        "contentType": "json",
-        "jsonParameters": true,
-        "bodyParametersJson": "={\n  \"entity_id\": \"group.upstairs_lights\",\n  \"brightness_pct\": {{$json.brightness || 80}}\n}",
-        "options": {}
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"entity_id\": \"group.upstairs_lights\",\n  \"brightness_pct\": {{ ($json.body && $json.body.brightness) || 80 }}\n}",
+        "options": {
+          "timeout": 10000,
+          "response": {
+            "response": {
+              "neverError": true
+            }
+          }
+        }
       },
       "id": "u2",
       "name": "Turn On Lights",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4,
-      "position": [500, 300],
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "ha-bearer",
-          "name": "Home Assistant Bearer"
-        }
-      }
+      "position": [
+        500,
+        300
+      ],
+      "alwaysOutputData": true
     },
     {
       "parameters": {
         "values": {
           "string": [
-            {"name": "status", "value": "ok"},
-            {"name": "scene", "value": "upstairs-on"}
+            {
+              "name": "status",
+              "value": "ok"
+            },
+            {
+              "name": "scene",
+              "value": "upstairs-on"
+            }
           ]
         },
         "options": {}
@@ -53,14 +77,39 @@
       "name": "Respond",
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
-      "position": [800, 300]
+      "position": [
+        800,
+        300
+      ]
     }
   ],
   "connections": {
-    "Webhook": {"main": [[{"node": "Turn On Lights", "type": "main", "index": 0}]]},
-    "Turn On Lights": {"main": [[{"node": "Respond", "type": "main", "index": 0}]]}
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Turn On Lights",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Turn On Lights": {
+      "main": [
+        [
+          {
+            "node": "Respond",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
   },
   "active": false,
-  "settings": {"executionOrder": "v1"},
-  "tags": ["jarvis", "ha", "scene"]
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "id": "af5ac3f0-5e4f-4e63-995f-af435050b568"
 }

@@ -12,38 +12,60 @@
       "name": "Webhook",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 1,
-      "position": [200, 300],
+      "position": [
+        200,
+        300
+      ],
       "webhookId": "jarvis-ha-call-service"
     },
     {
       "parameters": {
         "method": "POST",
-        "url": "=http://192.168.7.199:8123/api/services/{{$json.domain}}/{{$json.service}}",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
+        "url": "={{$env.HA_URL}}/api/services/{{$json.body.domain}}/{{$json.body.service}}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{$env.HA_TOKEN}}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
         "sendBody": true,
-        "contentType": "json",
-        "jsonParameters": true,
-        "bodyParametersJson": "={{$json.data || {}}}",
-        "options": {}
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json.body.data || {}) }}",
+        "options": {
+          "timeout": 10000,
+          "response": {
+            "response": {
+              "neverError": true,
+              "responseFormat": "json"
+            }
+          }
+        }
       },
       "id": "c2",
       "name": "HA Call Service",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4,
-      "position": [500, 300],
-      "credentials": {
-        "httpHeaderAuth": {
-          "id": "ha-bearer",
-          "name": "Home Assistant Bearer"
-        }
-      }
+      "alwaysOutputData": true,
+      "position": [
+        500,
+        300
+      ]
     },
     {
       "parameters": {
         "values": {
           "string": [
-            {"name": "status", "value": "ok"}
+            {
+              "name": "status",
+              "value": "ok"
+            }
           ]
         },
         "options": {}
@@ -52,14 +74,39 @@
       "name": "Set Response",
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
-      "position": [800, 300]
+      "position": [
+        800,
+        300
+      ]
     }
   ],
   "connections": {
-    "Webhook": {"main": [[{"node": "HA Call Service", "type": "main", "index": 0}]]},
-    "HA Call Service": {"main": [[{"node": "Set Response", "type": "main", "index": 0}]]}
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "HA Call Service",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HA Call Service": {
+      "main": [
+        [
+          {
+            "node": "Set Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
   },
   "active": false,
-  "settings": {"executionOrder": "v1"},
-  "tags": ["jarvis", "ha"]
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "id": "f91d4342-9617-4860-9275-aec70b74bbd8"
 }
