@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   LastUpgradeVersion = "1230"
+   version = "1.7">
+   <BuildAction
+      parallelizeBuildables = "YES"
+      buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForRunning = "YES"
+            buildForTesting = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "JarvisCLI"
+               BuildableName = "JarvisCLI"
+               BlueprintName = "JarvisCLI"
+               ReferencedContainer = "container:Jarvis.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForRunning = "YES"
+            buildForTesting = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "RealJarvisMac"
+               BuildableName = "RealJarvisMac"
+               BlueprintName = "RealJarvisMac"
+               ReferencedContainer = "container:Jarvis.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForRunning = "YES"
+            buildForTesting = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "RealJarvisPhone"
+               BuildableName = "RealJarvisPhone"
+               BlueprintName = "RealJarvisPhone"
+               ReferencedContainer = "container:Jarvis.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForRunning = "YES"
+            buildForTesting = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "RealJarvisPad"
+               BuildableName = "RealJarvisPad"
+               BlueprintName = "RealJarvisPad"
+               ReferencedContainer = "container:Jarvis.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForRunning = "YES"
+            buildForTesting = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "RealJarvisWatch"
+               BuildableName = "RealJarvisWatch"
+               BlueprintName = "RealJarvisWatch"
+               ReferencedContainer = "container:Jarvis.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <!-- VisionOS target – included only when the VisionOS SDK is available -->
+         <BuildActionEntry
+            buildForRunning = "YES"
+            buildForTesting = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "RealJarvisVision"
+               BuildableName = "RealJarvisVision"
+               BlueprintName = "RealJarvisVision"
+               ReferencedContainer = "container:Jarvis.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode"
+      selectedLauncherIdentifier = "Xcode"
+      shouldUseLaunchSchemeArgsEnv = "YES">
+      <Testables/>
+   </TestAction>
+   <LaunchAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode"
+      selectedLauncherIdentifier = "Xcode"
+      launchStyle = "0"
+      useCustomWorkingDirectory = "NO"
+      ignorePersistentStateOnLaunch = "NO"
+      debugDocumentVersioning = "YES"
+      allowLocationSimulation = "YES"/>
+   <ProfileAction
+      buildConfiguration = "Release"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      savedToolIdentifier = ""
+      useCustomWorkingDirectory = "NO"
+      debugDocumentVersioning = "YES"/>
+   <AnalyzeAction
+      buildConfiguration = "Debug"/>
+   <ArchiveAction
+      buildConfiguration = "Release"
+      revealArchiveInOrganizer = "YES"/>
+</Scheme>
