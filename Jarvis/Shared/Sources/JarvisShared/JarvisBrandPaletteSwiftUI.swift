@@ -23,15 +23,24 @@ import SwiftUI
 
 public extension JarvisBrandPalette {
     /// Canvas (deep background) as a SwiftUI Color.
-    var canvasBlackColor: Color { Color(hex: canvasBlackHex) ?? .black }
+    var canvasBlackColor: Color { jarvisPaletteColor(canvasBlackHex) ?? .black }
     /// Chrome (frames / bezels / structural).
-    var chromeSilverColor: Color { Color(hex: chromeSilverHex) ?? .gray }
+    var chromeSilverColor: Color { jarvisPaletteColor(chromeSilverHex) ?? .gray }
     /// Alert (crimson — reserved for destructive / red-zone UI).
-    var alertCrimsonColor: Color { Color(hex: alertCrimsonHex) ?? .red }
+    var alertCrimsonColor: Color { jarvisPaletteColor(alertCrimsonHex) ?? .red }
     /// Accent (the tier-changing colour — emerald / teal / duty-blue / dim).
-    var accentColor: Color { Color(hex: accentHex) ?? .accentColor }
+    var accentColor: Color { jarvisPaletteColor(accentHex) ?? .accentColor }
     /// Accent glow (focus / active state, slightly lighter variant).
-    var accentGlowColor: Color { Color(hex: accentGlowHex) ?? accentColor }
+    var accentGlowColor: Color { jarvisPaletteColor(accentGlowHex) ?? accentColor }
+}
+
+/// Internal helper that resolves a palette hex token to a SwiftUI `Color`.
+/// Declared as a free function (not a `Color` extension) so it cannot
+/// collide with `Color.init(hex:)` extensions defined by sibling modules
+/// that are co-compiled into the same target (e.g. JarvisMobileCore).
+private func jarvisPaletteColor(_ hex: String) -> Color? {
+    guard let rgb = JarvisPaletteHex(hex: hex) else { return nil }
+    return Color(.sRGB, red: rgb.red, green: rgb.green, blue: rgb.blue, opacity: 1.0)
 }
 
 private struct JarvisPaletteKey: EnvironmentKey {
@@ -83,10 +92,8 @@ public struct JarvisPaletteHex {
 }
 
 #if canImport(SwiftUI)
-private extension Color {
-    init?(hex: String) {
-        guard let rgb = JarvisPaletteHex(hex: hex) else { return nil }
-        self.init(.sRGB, red: rgb.red, green: rgb.green, blue: rgb.blue, opacity: 1.0)
-    }
-}
+// Intentionally no `Color.init(hex:)` extension here — see
+// `jarvisPaletteColor(_:)` above. Co-compiled targets may declare their own
+// `Color.init(hex:)` and two extensions (even when one is `private`) can
+// collide when the same source is folded into a single module build.
 #endif

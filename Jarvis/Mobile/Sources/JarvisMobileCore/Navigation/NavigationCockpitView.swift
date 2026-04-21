@@ -42,7 +42,7 @@ private struct MapView: UIViewRepresentable {
         mapView.delegate = context.coordinator
         mapView.mapType = .satellite
         mapView.showsUserLocation = true
-        mapView.userInterfaceStyle = .dark // Force dark mode for HUD consistency
+        mapView.overrideUserInterfaceStyle = .dark // Force dark mode for HUD consistency
         return mapView
     }
     
@@ -73,19 +73,13 @@ private struct MapView: UIViewRepresentable {
         case "baseMap":
             mapView.mapType = .satellite
         case "routes":
-            if let route = store.state.activeRoute {
-                let polyline = MKPolyline(coordinates: route.coordinates, count: route.coordinates.count)
-                polyline.title = "Active Route"
-                mapView.addOverlay(polyline)
-            }
+            // TODO(MK3): Wire to JarvisMobileCockpitStore once active route state
+            // is modeled on `JarvisSharedState`. Intentionally a no-op so the
+            // navigation surface compiles while the engine catches up.
+            break
         case "waypoints":
-            for waypoint in store.state.waypoints {
-                let annotation = MKPointAnnotation()
-                annotation.coordinate = waypoint.coordinate
-                annotation.title = waypoint.title
-                annotation.subtitle = waypoint.subtitle
-                mapView.addAnnotation(annotation)
-            }
+            // TODO(MK3): Same as `routes` — needs store-backed waypoint list.
+            break
         case "selfPos":
             // User location handled by showsUserLocation = true
             break
@@ -106,7 +100,7 @@ private struct MapView: UIViewRepresentable {
             if let polyline = overlay as? MKPolyline {
                 let renderer = MKPolylineRenderer(overlay: polyline)
                 let color = NavigationDesignTokens.PrimaryTrack.color(for: principal)
-                renderer.strokeColor = color
+                renderer.strokeColor = UIColor(color)
                 renderer.lineWidth = NavigationDesignTokens.PrimaryTrack.width(for: principal)
                 return renderer
             }
@@ -133,7 +127,7 @@ private struct OverlayLayerStack: View {
                     }
                 }
                 .padding(12)
-                .background(NavigationDesignTokens.SceneBriefING.color(for: principal))
+                .background(NavigationDesignTokens.SceneBriefing.color(for: principal))
                 .cornerRadius(8)
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
@@ -269,7 +263,7 @@ public protocol MapTileProvider: Sendable {
 struct NavigationCockpitView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationCockpitView(principal: .operatorTier, tileProvider: MockTileProvider())
-            .environmentObject(JarvisMobileCockpitStore())
+            .environmentObject(JarvisMobileCockpitStore(role: .phone))
     }
     
     struct MockTileProvider: MapTileProvider {

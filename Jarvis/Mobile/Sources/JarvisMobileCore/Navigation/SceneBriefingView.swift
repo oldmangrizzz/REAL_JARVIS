@@ -118,11 +118,11 @@ private struct AccessNotesView: View {
     var audioSummary: String {
         var parts: [String] = []
         parts.append("Access: \(notes.entrances.count) entrances available")
-        parts.append("Accessibility: \(notes.accessibility.description)")
+        parts.append("Accessibility: \(notes.accessibility.summaryDescription)")
         if let ingressEgress = notes.ingressEgress, !ingressEgress.isEmpty {
             parts.append("Ingress/egress: \(ingressEgress)")
         }
-        return parts.joined(separator=". ")
+        return parts.joined(separator: ". ")
     }
 }
 
@@ -222,7 +222,7 @@ private struct HazardSummaryView: View {
                     .font(.system(size: NavigationDesignTokens.Typography.hudSmall, weight: .regular, design: .monospaced))
                     .foregroundStyle(Color(hex: JarvisGMRIPalette.silverHex).opacity(0.7))
             } else {
-                ForEach(hazards, id: \.type) { hazard in
+                ForEach(Array(hazards.enumerated()), id: \.offset) { _, hazard in
                     HazardRow(hazard: hazard, principal: principal)
                 }
             }
@@ -236,7 +236,7 @@ private struct HazardSummaryView: View {
         let sorted = hazards.sorted { $0.distanceMeters < $1.distanceMeters }
         return "Nearby hazards: " + sorted.prefix(3).map { h in
             let dist = h.distanceMeters >= 1000 ? String(format: "%.1f km", h.distanceMeters/1000) : String(format: "%.0f m", h.distanceMeters)
-            return "\(h.type.description) at \(dist)"
+            return "\(h.type.shortDescription) at \(dist)"
         }.joined(separator: "; ")
     }
 }
@@ -377,15 +377,15 @@ extension String {
 struct SceneBriefingView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            SceneBriefingView(briefing: .previewOperator, principal: .operatorTier)
+            SceneBriefingView(briefing: Self.previewOperator, principal: .operatorTier)
                 .previewDisplayName("Operator Tier")
                 .background(Color.black)
             
-            SceneBriefingView(briefing: .previewCompanion, principal: .companion(memberID: "fam-001"))
+            SceneBriefingView(briefing: Self.previewCompanion, principal: .companion(memberID: "fam-001"))
                 .previewDisplayName("Companion Tier")
                 .background(Color.black)
             
-            SceneBriefingView(briefing: .previewResponder, principal: .responder(role: .emt))
+            SceneBriefingView(briefing: Self.previewResponder, principal: .responder(role: .emt))
                 .previewDisplayName("Responder EMT Tier")
                 .background(Color.black)
         }
@@ -429,9 +429,18 @@ struct SceneBriefingView_Previews: PreviewProvider {
     }
     
     static var previewResponder: SceneBriefing {
-        var data = previewData
-        data.accessNotes.ingressEgress = "All perimeter roads accessible. EMS preferred routing available."
-        return data
+        let base = previewData
+        let responderAccessNotes = AccessNotes(
+            entrances: base.accessNotes.entrances,
+            accessibility: base.accessNotes.accessibility,
+            ingressEgress: "All perimeter roads accessible. EMS preferred routing available."
+        )
+        return SceneBriefing(
+            destination: base.destination,
+            accessNotes: responderAccessNotes,
+            surroundingHazards: base.surroundingHazards,
+            sourceAttestations: base.sourceAttestations
+        )
     }
 }
 

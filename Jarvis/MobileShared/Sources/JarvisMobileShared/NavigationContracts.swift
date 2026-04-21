@@ -199,6 +199,33 @@ public enum HazardType: Equatable, Sendable, Codable {
     case traffic
     case emergencyServices
     case other(String)
+
+    /// Short human-readable description (used in audio summaries & HUD).
+    public var shortDescription: String {
+        switch self {
+        case .fire: return "fire"
+        case .severeWeather: return "severe weather"
+        case .seismic: return "seismic event"
+        case .traffic: return "traffic"
+        case .emergencyServices: return "emergency services"
+        case .other(let label): return label
+        }
+    }
+}
+
+public extension AccessibilityInfo {
+    /// Short human-readable summary (used in audio briefings).
+    var summaryDescription: String {
+        var flags: [String] = []
+        if curbCuts { flags.append("curb cuts") }
+        if elevators { flags.append("elevators") }
+        if accessibleParking { flags.append("accessible parking") }
+        if flags.isEmpty { flags.append("no accessibility amenities") }
+        if let notes = notes, !notes.isEmpty {
+            flags.append(notes)
+        }
+        return flags.joined(separator: ", ")
+    }
 }
 
 public struct SourceAttestation: Equatable, Sendable, Codable {
@@ -288,7 +315,7 @@ extension UnityNavigationBridge: Codable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(type, forKey: .type)
-        let encodablePayload = payload.value.mapValues { AnyCodableEncodable($0) }
+        let encodablePayload = payload.value.mapValues { AnyCodableEncodable(wrappedValue: AnyCodable($0)) }
         try container.encode(encodablePayload, forKey: .payload)
     }
 }
@@ -490,7 +517,7 @@ extension SceneBriefing {
         )
         
         // Parse entrances
-        let entrances = entrancesArray.compactMap { d in
+        let entrances: [Entrance] = entrancesArray.compactMap { d -> Entrance? in
             guard
                 let name = d["name"] as? String,
                 let loc = d["location"] as? [Double]
@@ -516,7 +543,7 @@ extension SceneBriefing {
         )
         
         // Parse hazards
-        let surroundingHazards = hazardsArray.compactMap { d in
+        let surroundingHazards: [HazardSummary] = hazardsArray.compactMap { d -> HazardSummary? in
             guard
                 let typeRaw = d["type"] as? String,
                 let severityRaw = d["severity"] as? String,
@@ -545,7 +572,7 @@ extension SceneBriefing {
         }
         
         // Parse source attestations
-        let sourceAttestations = sourcesArray.compactMap { d in
+        let sourceAttestations: [SourceAttestation] = sourcesArray.compactMap { d -> SourceAttestation? in
             guard
                 let key = d["sourceKey"] as? String,
                 let updatedAt = d["lastUpdated"] as? String
