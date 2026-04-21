@@ -13,6 +13,8 @@ their own principal.
 | **Guest (fallback)**  | `.guestTier`              | `guest`                  | powered by Companion OS (guest)     |
 | **Responder OS**      | `.responder(role:)`       | `responder:<role>`       | powered by Responder OS             |
 
+**Note:** In the brand hierarchy, the watch device is considered the primary *Responder* surface, handling real‑time interactions, while the phone acts mainly as a compute slab backing the watch’s operations.
+
 Source: [[codebase/modules/Host|Principal.swift]] (in `JarvisShared`).
 
 ## Operator canon (verbatim)
