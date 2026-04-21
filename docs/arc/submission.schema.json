@@ -1,0 +1,127 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://arc-agi.org/schemas/submission.schema.json",
+  "title": "ARC-AGI Submission",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "name",
+    "description",
+    "author",
+    "version",
+    "tasks"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Human‑readable name of the submission."
+    },
+    "description": {
+      "type": "string",
+      "description": "A brief description of the submission and its purpose."
+    },
+    "author": {
+      "$ref": "#/definitions/author"
+    },
+    "version": {
+      "type": "string",
+      "description": "Semantic version of the submission (e.g., \"1.0.0\").",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "tasks": {
+      "type": "array",
+      "description": "List of tasks that this submission implements.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/task"
+      }
+    },
+    "files": {
+      "type": "array",
+      "description": "Relative paths to additional files required by the submission.",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "environment": {
+      "$ref": "#/definitions/environment"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Arbitrary key‑value pairs providing extra information about the submission.",
+      "additionalProperties": true
+    }
+  },
+  "definitions": {
+    "author": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Full name of the author or organization."
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Contact email address."
+        }
+      }
+    },
+    "task": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "description",
+        "entrypoint"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the task."
+        },
+        "description": {
+          "type": "string",
+          "description": "Human‑readable description of what the task does."
+        },
+        "entrypoint": {
+          "type": "string",
+          "description": "Path to the Python module or script that implements the task's entry point."
+        },
+        "input_schema": {
+          "type": "object",
+          "description": "JSON Schema describing the expected input format for the task.",
+          "additionalProperties": true
+        },
+        "output_schema": {
+          "type": "object",
+          "description": "JSON Schema describing the output format produced by the task.",
+          "additionalProperties": true
+        }
+      }
+    },
+    "environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "python_version": {
+          "type": "string",
+          "description": "Version of Python required (e.g., \"3.11\")."
+        },
+        "dependencies": {
+          "type": "array",
+          "description": "List of pip‑installable packages required at runtime.",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      }
+    }
+  }
+}

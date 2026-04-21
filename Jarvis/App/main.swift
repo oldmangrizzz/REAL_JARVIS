@@ -81,6 +81,32 @@ struct JarvisCLI {
             case "voice-revoke":
                 try runtime.voice.revokeApproval()
                 try printJSON(["status": "revoked"])
+            case "arc-submit":
+                // Emit start telemetry
+                runtime.telemetry.emit(event: "arc.submit.start", properties: nil)
+                do {
+                    // Orchestrator handles the full ARC‑AGI submission flow
+                    let orchestrator = try ARCSubmissionOrchestrator(paths: paths, runtime: runtime)
+                    // Emit telemetry for preparation stage
+                    runtime.telemetry.emit(event: "arc.submit.prepare", properties: nil)
+                    // Run the demo task and submit
+                    let result = try orchestrator.runDemoTask()
+                    // Emit success telemetry
+                    runtime.telemetry.emit(event: "arc.submit.success", properties: nil)
+                    try printJSON(result)
+                } catch {
+                    // Determine a reason code if possible
+                    let reason: String
+                    if let arcError = error as? ARCSubmissionError {
+                        reason = arcError.code
+                    } else {
+                        reason = (error as NSError).domain
+                    }
+                    // Emit failure telemetry with reason
+                    runtime.telemetry.emit(event: "arc.submit.failed", properties: ["reason": reason])
+                    // Propagate as a JarvisError so outer handler prints it
+                    throw JarvisError.invalidInput("arc.submit.failed: \(reason)")
+                }
             default:
                 fputs(usage(), stderr)
                 exit(64)
@@ -160,6 +186,7 @@ struct JarvisCLI {
           Jarvis voice-audition <text>
           Jarvis voice-approve <operator-label> [notes]
           Jarvis voice-revoke
+          Jarvis arc-submit
         """
     }
 }
