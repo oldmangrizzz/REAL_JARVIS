@@ -1,0 +1,68 @@
+{
+  "name": "jarvis-forge-self-heal",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {"field": "minutes", "minutesInterval": 10}
+          ]
+        }
+      },
+      "id": "h1",
+      "name": "Every 10 min",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [200, 300]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://forge.grizzlymedicine.icu/healthz",
+        "options": {"timeout": 5000, "response": {"response": {"neverError": true}}}
+      },
+      "id": "h2",
+      "name": "Probe Forge",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [500, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {"value1": "={{$node[\"Probe Forge\"].json[\"statusCode\"] || 0}}", "operation": "notEqual", "value2": 200}
+          ]
+        }
+      },
+      "id": "h3",
+      "name": "Unhealthy?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [800, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://ntfy.grizzlymedicine.icu/jarvis-forge",
+        "sendBody": true,
+        "contentType": "raw",
+        "rawContentType": "text/plain",
+        "body": "Forge health probe failed — attempting restart"
+      },
+      "id": "h4",
+      "name": "Notify",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [1100, 220]
+    }
+  ],
+  "connections": {
+    "Every 10 min": {"main": [[{"node": "Probe Forge", "type": "main", "index": 0}]]},
+    "Probe Forge": {"main": [[{"node": "Unhealthy?", "type": "main", "index": 0}]]},
+    "Unhealthy?": {"main": [[{"node": "Notify", "type": "main", "index": 0}]]}
+  },
+  "active": false,
+  "settings": {"executionOrder": "v1"},
+  "tags": ["jarvis", "forge", "self-heal"]
+}

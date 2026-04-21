@@ -669,6 +669,7 @@
 		A81EC0B9ABF60145FD2DF8A0 /* 0091.wav in Resources */ = {isa = PBXBuildFile; fileRef = 066C69829B20B9A14E103DE4 /* 0091.wav */; };
 		A8346D2C7966209E173103E1 /* 0291.wav in Resources */ = {isa = PBXBuildFile; fileRef = 83AF2091AAA82787175DB16E /* 0291.wav */; };
 		A83E8C31202C3357AA30E967 /* 0620.wav in Resources */ = {isa = PBXBuildFile; fileRef = AB5D738FE703788C2A54A770 /* 0620.wav */; };
+		A8FD2EB60CE883E2EF24C0F2 /* N8NBridgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2844EAC4BA075976C12D79 /* N8NBridgeTests.swift */; };
 		A954F4CFF1A717801FF2FA8E /* 0388.wav in Resources */ = {isa = PBXBuildFile; fileRef = 153EC4F5AB23B06CA7112E51 /* 0388.wav */; };
 		A95B4C21ACE3D7AA4277A68F /* 0141.wav in Resources */ = {isa = PBXBuildFile; fileRef = A84209B211A7F9C651C11615 /* 0141.wav */; };
 		A95B88684A48A02F523CA13C /* CanonAdversarialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A0B30BF8C47EE036E9F210 /* CanonAdversarialTests.swift */; };
@@ -891,6 +892,7 @@
 		E26CEB4A2A5E521402135D5D /* 0436.wav in Resources */ = {isa = PBXBuildFile; fileRef = 568FB1387E56099BAA74B844 /* 0436.wav */; };
 		E30929EADA380EEDA2ABE6D2 /* 0498.wav in Resources */ = {isa = PBXBuildFile; fileRef = 026554D35EF10761A4DF8345 /* 0498.wav */; };
 		E33CF795B0531FB4CFBBED99 /* 0182.wav in Resources */ = {isa = PBXBuildFile; fileRef = 072DCC87EEE6F4B61993979D /* 0182.wav */; };
+		E53BBA80F48490D0611E4BA5 /* N8NBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C81BED52278E956553246F /* N8NBridge.swift */; };
 		E557F125A70AF1975844A2BB /* 0271.wav in Resources */ = {isa = PBXBuildFile; fileRef = CD479202E7ABE672955C9B28 /* 0271.wav */; };
 		E5A5DEC76E6BB8544790123E /* 0340.wav in Resources */ = {isa = PBXBuildFile; fileRef = 20C2A2D11DBB8DDC3CD9AF89 /* 0340.wav */; };
 		E60483403967F1F1E88D247F /* 0075.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2A2357C7C647984F40836E6E /* 0075.wav */; };
@@ -1598,6 +1600,7 @@
 		7F9C5F093B25608B3D7CE5CF /* 0219.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0219.wav; sourceTree = "<group>"; };
 		800CAB7EE07F99C24B6F6164 /* ref1_cfg1.3_ddpm15_RENDER.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ref1_cfg1.3_ddpm15_RENDER.wav; sourceTree = "<group>"; };
 		80827175E630FF603F0B4695 /* 0057.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0057.wav; sourceTree = "<group>"; };
+		80C81BED52278E956553246F /* N8NBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = N8NBridge.swift; sourceTree = "<group>"; };
 		81CBAEBCB7A5E3FE9A18BADB /* 0432.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0432.wav; sourceTree = "<group>"; };
 		82556938D9071951A12FCCDE /* 0454.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0454.wav; sourceTree = "<group>"; };
 		8266EFFE96F8DE9A9ACE88BC /* 0316.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0316.wav; sourceTree = "<group>"; };
@@ -1871,6 +1874,7 @@
 		CB5AD312E214CAE963D6968D /* 0003.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0003.wav; sourceTree = "<group>"; };
 		CB631CFF0346C5AB5B0C8634 /* 0055.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0055.wav; sourceTree = "<group>"; };
 		CC101C3FD471047FA975D3FB /* TileProviderOrchestrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileProviderOrchestrator.swift; sourceTree = "<group>"; };
+		CC2844EAC4BA075976C12D79 /* N8NBridgeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = N8NBridgeTests.swift; sourceTree = "<group>"; };
 		CC688DDB8FCEE37A8FF73D24 /* ScenePreSearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenePreSearchTests.swift; sourceTree = "<group>"; };
 		CC6CFDC53822FF55658ADB95 /* 0206.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0206.wav; sourceTree = "<group>"; };
 		CD479202E7ABE672955C9B28 /* 0271.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0271.wav; sourceTree = "<group>"; };
@@ -3121,6 +3125,14 @@
 			path = Jarvis/Mobile/Sources/JarvisMobileCore;
 			sourceTree = "<group>";
 		};
+		5BE7A95788BEFC1D210B0D77 /* Integrations */ = {
+			isa = PBXGroup;
+			children = (
+				CC2844EAC4BA075976C12D79 /* N8NBridgeTests.swift */,
+			);
+			path = Integrations;
+			sourceTree = "<group>";
+		};
 		5F7006B0F1C4038FDE6A548B /* Host */ = {
 			isa = PBXGroup;
 			children = (
@@ -3213,6 +3225,7 @@
 				A6BB8788CAD2A89C07357F84 /* Credentials */,
 				FE04A431501398F36420CF8D /* Harness */,
 				C60F7A1917A118665C8CE834 /* Host */,
+				D553F5BC4C9254EA92154643 /* Integrations */,
 				B93B10AD2749F84A17ABB8D4 /* Interface */,
 				9AEDBCDA565CECF9ACD3C474 /* Memory */,
 				8ADB4E494832C89341B0D849 /* Navigation */,
@@ -3445,6 +3458,14 @@
 			path = SoulAnchor;
 			sourceTree = "<group>";
 		};
+		D553F5BC4C9254EA92154643 /* Integrations */ = {
+			isa = PBXGroup;
+			children = (
+				80C81BED52278E956553246F /* N8NBridge.swift */,
+			);
+			path = Integrations;
+			sourceTree = "<group>";
+		};
 		D79F3DD4E24495549286DCD4 /* ControlPlane */ = {
 			isa = PBXGroup;
 			children = (
@@ -3531,6 +3552,7 @@
 				9FF52355755C8CFE8556DBC3 /* ARC */,
 				2361240FF7148BEBF335AE42 /* Conversation */,
 				5F7006B0F1C4038FDE6A548B /* Host */,
+				5BE7A95788BEFC1D210B0D77 /* Integrations */,
 				8640F65F79C2920E34F43A3F /* Navigation */,
 			);
 			name = JarvisCoreTests;
@@ -4667,6 +4689,7 @@
 				6868EFB76FED771B25A1DE4E /* MapTileProviderTests.swift in Sources */,
 				DA4F7CE0EA3B715BF3B97350 /* MapboxCredentialsTests.swift in Sources */,
 				50A19BE0C7F5D7C9183831BD /* MemoryEngineTests.swift in Sources */,
+				A8FD2EB60CE883E2EF24C0F2 /* N8NBridgeTests.swift in Sources */,
 				FC056776D5FB6D028756B0AA /* NavUtteranceTests.swift in Sources */,
 				FF8FE7FA4B80BE0BDACCA356 /* OSINTSourceRegistryTests.swift in Sources */,
 				C148E0853A8463434F1D2B1C /* OscillatorTests.swift in Sources */,
@@ -4747,6 +4770,7 @@
 				6595F657D99CA64413C4782E /* MasterOscillator.swift in Sources */,
 				F7F045570123611BAC0FAA06 /* MemoryEngine.swift in Sources */,
 				EFCDB7DF49985D64A52F8C4E /* MyceliumControlPlane.swift in Sources */,
+				E53BBA80F48490D0611E4BA5 /* N8NBridge.swift in Sources */,
 				FDE5A5F5F8B67FF6D8AE7E83 /* NASAFIRMSAdapter.swift in Sources */,
 				62B421017ECB3809592A7041 /* NOAAWeatherAdapter.swift in Sources */,
 				9EC4D7B0632F5CCC127796EA /* NavContextSnapshot.swift in Sources */,

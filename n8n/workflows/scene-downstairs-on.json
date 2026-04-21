@@ -1,0 +1,66 @@
+{
+  "name": "jarvis-scene-downstairs-on",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "jarvis/scene/downstairs-on",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "id": "s1",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [200, 300],
+      "webhookId": "jarvis-scene-downstairs-on"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://192.168.7.199:8123/api/services/light/turn_on",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "contentType": "json",
+        "jsonParameters": true,
+        "bodyParametersJson": "={\n  \"entity_id\": \"group.downstairs_lights\",\n  \"brightness_pct\": {{$json.brightness || 80}}\n}",
+        "options": {}
+      },
+      "id": "s2",
+      "name": "Turn On Lights",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [500, 300],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "ha-bearer",
+          "name": "Home Assistant Bearer"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {"name": "status", "value": "ok"},
+            {"name": "scene", "value": "downstairs-on"}
+          ]
+        },
+        "options": {}
+      },
+      "id": "s3",
+      "name": "Respond",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [800, 300]
+    }
+  ],
+  "connections": {
+    "Webhook": {"main": [[{"node": "Turn On Lights", "type": "main", "index": 0}]]},
+    "Turn On Lights": {"main": [[{"node": "Respond", "type": "main", "index": 0}]]}
+  },
+  "active": false,
+  "settings": {"executionOrder": "v1"},
+  "tags": ["jarvis", "ha", "scene"]
+}
