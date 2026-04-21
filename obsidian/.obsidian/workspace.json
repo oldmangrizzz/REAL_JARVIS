@@ -213,6 +213,10 @@
   },
   "active": "69ddc1c2c86a4143",
   "lastOpenFiles": [
+    "knowledge/phase-status/phase-2.md",
+    "knowledge/operator-tasks/phase-2-pairings.md",
+    "knowledge/device-registry/devices.md",
+    "knowledge/operator-tasks",
     "knowledge/grind-log/2026-04-21-phase1-complete.md",
     "knowledge/operations/n8n.md",
     "knowledge/canon/voice.md",
@@ -243,12 +247,8 @@
     "knowledge/canon/Responder-OS.md",
     "knowledge/research/early-drafts/_source-README.md",
     "knowledge/characters/dc/jason-todd.md",
-    "knowledge/characters/marvel/natasha-romanoff.md",
-    "knowledge/characters/marvel/peter-parker.md",
-    "knowledge/characters/dc/bruce-wayne.md",
     "knowledge/characters/marvel",
     "knowledge/characters/dc",
-    "knowledge/characters",
     "knowledge/corpus/downloads-2026-04-20/109ec238fee96a8002f2335704999c57.jpg"
   ]
 }

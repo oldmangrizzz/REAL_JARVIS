@@ -25,11 +25,36 @@ public final class ConversationSession: @unchecked Sendable {
     private var slaMissCount: Int = 0
     private var turnStartedAt: Date?
 
+    // Per-turn / per-session tracking (VOICE-002 telemetry)
+    public private(set) var activeTurnID: UUID?
+    public private(set) var bargeInCount: Int = 0
+    public private(set) var currentRoute: AmbientGatewayRoute = .watchHosted
+
     public var shouldDegrade: Bool { slaMissCount >= 3 }
 
     public init(principal: Principal) {
         self.id = UUID()
         self.principal = principal
+    }
+
+    public func beginTurn(_ turnID: UUID) {
+        activeTurnID = turnID
+    }
+
+    public func endTurn() {
+        activeTurnID = nil
+    }
+
+    public func incrementBargeIn() {
+        bargeInCount += 1
+    }
+
+    public func resetBargeInCount() {
+        bargeInCount = 0
+    }
+
+    public func updateRoute(_ route: AmbientGatewayRoute) {
+        currentRoute = route
     }
 
     public func transition(to newState: ConversationState, reason: String? = nil) throws {

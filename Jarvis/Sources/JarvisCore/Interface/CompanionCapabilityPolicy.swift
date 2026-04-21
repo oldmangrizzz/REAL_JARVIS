@@ -154,6 +154,9 @@ public struct CompanionCapabilityPolicy: Sendable {
             // Skills can have side effects; until per-skill risk metadata
             // exists, companion tier cannot invoke arbitrary skills.
             return .deny(reason: "skill-invocation:operator-only-for-now")
+        case .displayWipe, .capabilityDelete, .voiceGateRevoke, .memoryPurge, .soulAnchorRotate:
+            // MK2-EPIC-02: Destructive actions are operator-tier only.
+            return .deny(reason: "destructive-action:operator-only")
         }
     }
 

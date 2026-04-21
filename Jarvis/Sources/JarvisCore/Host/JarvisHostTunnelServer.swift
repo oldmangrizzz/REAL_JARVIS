@@ -18,6 +18,11 @@ public final class JarvisHostTunnelServer: @unchecked Sendable {
     private var clientPrincipals: [ObjectIdentifier: Principal] = [:]  // SPEC-009: server-assigned tier per connection
     private let identityStore: TunnelIdentityStore  // SPEC-007: per-device role binding
     private let companionPolicy: CompanionCapabilityPolicy  // SPEC-009: tier-aware command policy
+    // MK2-EPIC-02: role token state
+    private var clientTokens: [ObjectIdentifier: TunnelRoleToken] = [:]
+    private var clientPubKeys: [ObjectIdentifier: String] = [:]
+    private let capabilityRegistry: CapabilityRegistry
+    private let nonceTracker = DestructiveNonceTracker()
 
     /// SPEC-011: active connection count (thread-safe via serial queue).
     public var activeConnectionCount: Int {
@@ -30,7 +35,15 @@ public final class JarvisHostTunnelServer: @unchecked Sendable {
     }
     private var _idleDisconnectCount: Int = 0
 
-    public init(runtime: JarvisRuntime, registry: JarvisSkillRegistry, port: UInt16 = 9443, sharedSecret: String? = nil, idleTimeout: TimeInterval = 60, identityStore: TunnelIdentityStore? = nil) {
+    public init(
+        runtime: JarvisRuntime,
+        registry: JarvisSkillRegistry,
+        port: UInt16 = 9443,
+        sharedSecret: String? = nil,
+        idleTimeout: TimeInterval = 60,
+        identityStore: TunnelIdentityStore? = nil,
+        capabilityRegistry: CapabilityRegistry? = nil
+    ) {
         self.runtime = runtime
         self.registry = registry
         self.port = port
@@ -55,6 +68,13 @@ public final class JarvisHostTunnelServer: @unchecked Sendable {
             self.identityStore = store
         }
         self.companionPolicy = CompanionCapabilityPolicy()
+        // MK2-EPIC-02: capability registry for client role lookup
+        if let provided = capabilityRegistry {
+            self.capabilityRegistry = provided
+        } else {
+            self.capabilityRegistry = (try? CapabilityRegistry(configURL: runtime.paths.capabilityConfigURL))
+                ?? CapabilityRegistry(displays: [], accessories: [], clientRoles: [])
+        }
     }
 
     public func start() throws {
@@ -162,6 +182,8 @@ public final class JarvisHostTunnelServer: @unchecked Sendable {
         clients.removeValue(forKey: identifier)
         clientSources.removeValue(forKey: identifier)  // CX-038: cleanup
         clientPrincipals.removeValue(forKey: identifier)  // SPEC-009: cleanup
+        clientTokens.removeValue(forKey: identifier)  // MK2-EPIC-02: cleanup
+        clientPubKeys.removeValue(forKey: identifier)  // MK2-EPIC-02: cleanup
         buffers.removeValue(forKey: identifier)
     }
 
@@ -279,6 +301,10 @@ public final class JarvisHostTunnelServer: @unchecked Sendable {
     }
 
     private func route(_ message: JarvisTunnelMessage, from connection: NWConnection) throws -> JarvisTunnelMessage {
+        // MK2-EPIC-02: validate role token on all non-register frames
+        if message.kind != .register {
+            try validateRoleToken(message, from: connection)
+        }
         switch message.kind {
         case .register:
             // R06: assign source from client registration role
@@ -290,6 +316,30 @@ public final class JarvisHostTunnelServer: @unchecked Sendable {
                     // SPEC-009: bind principal at registration time. Identity
                     // store is the only trusted source; clients never assert.
                     clientPrincipals[identifier] = identityStore.principal(for: registration.deviceID)
+                    // MK2-EPIC-02: issue role token. Use device identity key as pubKey if available.
+                    let identityKeyHex = identityStore.identity(for: registration.deviceID)?.identityKeyHex
+                        ?? registration.deviceID
+                    let tunnelRole = capabilityRegistry.clientIdentity(publicKeyHex: identityKeyHex)
+                    let token = crypto.signRoleToken(role: tunnelRole, clientPubKey: identityKeyHex)
+                    clientTokens[identifier] = token
+                    clientPubKeys[identifier] = identityKeyHex
+                    let wireToken = try? token.wireString()
+                    try? runtime.telemetry.logExecutionTrace(
+                        workflowID: "host-tunnel",
+                        stepID: "tunnel.auth.granted",
+                        inputContext: "\(registration.deviceID):\(tunnelRole.rawValue)",
+                        outputResult: "role-token-issued",
+                        status: "success"
+                    )
+                    return JarvisTunnelMessage(
+                        kind: .response,
+                        response: JarvisTunnelResponse(
+                            action: .ping,
+                            spokenText: "Mobile endpoint registered to the Jarvis host tunnel.",
+                            snapshot: try makeSnapshot()
+                        ),
+                        roleToken: wireToken
+                    )
                 } else if let err = result.error {
                     return JarvisTunnelMessage(kind: .error, error: err)
                 }
@@ -309,7 +359,7 @@ public final class JarvisHostTunnelServer: @unchecked Sendable {
                 throw JarvisError.invalidInput("Tunnel command missing payload.")
             }
             try ensureAuthorized(command, from: connection)
-            let response = try handle(command: command)
+            let response = try handle(command: command, confirmHash: message.confirmHash, nonce: message.nonce, from: connection)
             return JarvisTunnelMessage(kind: .response, snapshot: response.snapshot, response: response)
         case .snapshot:
             return JarvisTunnelMessage(kind: .snapshot, snapshot: try makeSnapshot())
@@ -348,7 +398,130 @@ public final class JarvisHostTunnelServer: @unchecked Sendable {
         }
     }
 
-    private func handle(command: JarvisRemoteCommand) throws -> JarvisTunnelResponse {
+    /// MK2-EPIC-02: Validate the role token carried in every post-registration frame.
+    /// On any failure, emits `tunnel.auth.denied` telemetry and throws.
+    private func validateRoleToken(_ message: JarvisTunnelMessage, from connection: NWConnection) throws {
+        let identifier = ObjectIdentifier(connection)
+        // If this connection has no stored token (e.g., unauthenticated), we only
+        // enforce if the client is registered (has a source assigned). Unauthenticated
+        // connections are handled by the idle-timer path.
+        guard clientSources[identifier] != nil, clientSources[identifier] != "unauthenticated" else {
+            return
+        }
+        guard let wireToken = message.roleToken else {
+            emitAuthDenied(connection: connection, reason: "missing-role-token")
+            throw TunnelError.missingRoleToken
+        }
+        let token: TunnelRoleToken
+        do {
+            token = try TunnelRoleToken.from(wireString: wireToken)
+        } catch {
+            emitAuthDenied(connection: connection, reason: "token-decode-failed")
+            throw TunnelError.invalidToken
+        }
+        guard crypto.verifyRoleToken(token) else {
+            emitAuthDenied(connection: connection, reason: "hmac-invalid")
+            throw TunnelError.invalidToken
+        }
+        guard !token.isExpired else {
+            emitAuthDenied(connection: connection, reason: "token-expired")
+            throw TunnelError.expiredToken
+        }
+        // Verify pubKey matches the one we stored at registration
+        if let storedPubKey = clientPubKeys[identifier], storedPubKey != token.clientPubKey {
+            emitAuthDenied(connection: connection, reason: "pubkey-mismatch")
+            throw TunnelError.pubKeyMismatch
+        }
+        // Verify token role matches the role we stored
+        if let storedToken = clientTokens[identifier], storedToken.role != token.role {
+            emitAuthDenied(connection: connection, reason: "role-mismatch")
+            throw TunnelError.roleClaimMismatch
+        }
+    }
+
+    private func emitAuthDenied(connection: NWConnection, reason: String) {
+        try? runtime.telemetry.logExecutionTrace(
+            workflowID: "host-tunnel",
+            stepID: "tunnel.auth.denied",
+            inputContext: reason,
+            outputResult: "connection-dropped",
+            status: "failure"
+        )
+        disconnect(connection, reason: "auth-denied:\(reason)")
+        connection.cancel()
+    }
+
+    /// MK2-EPIC-02: Synchronous nonce validation using DispatchSemaphore bridge.
+    /// The actor runs on the cooperative thread pool; we block the tunnel serial queue briefly.
+    private func validateDestructiveNonce(_ nonce: String) -> Bool {
+        // Use a Mutex-like box to safely pass the result out of the Task.
+        let box = _NonceResultBox()
+        let sema = DispatchSemaphore(value: 0)
+        Task {
+            box.result = await nonceTracker.insertAndValidate(nonce)
+            sema.signal()
+        }
+        sema.wait()
+        return box.result
+    }
+
+    private func handle(command: JarvisRemoteCommand, confirmHash: String? = nil, nonce: String? = nil, from connection: NWConnection? = nil) throws -> JarvisTunnelResponse {
+        // MK2-EPIC-02: Destructive path — nonce + confirmHash required
+        if command.action.isDestructive {
+            guard let nonceValue = nonce, !nonceValue.isEmpty else {
+                try? runtime.telemetry.logExecutionTrace(
+                    workflowID: "host-tunnel",
+                    stepID: "destructive.rejected",
+                    inputContext: command.action.rawValue,
+                    outputResult: "missing-nonce",
+                    status: "failure"
+                )
+                throw TunnelError.missingNonce
+            }
+            guard validateDestructiveNonce(nonceValue) else {
+                try? runtime.telemetry.logExecutionTrace(
+                    workflowID: "host-tunnel",
+                    stepID: "destructive.rejected",
+                    inputContext: command.action.rawValue,
+                    outputResult: "nonce-replay",
+                    status: "failure"
+                )
+                throw TunnelError.nonceReplay
+            }
+            let expected = command.action.canonicalHashHex
+            guard let provided = confirmHash else {
+                try? runtime.telemetry.logExecutionTrace(
+                    workflowID: "host-tunnel",
+                    stepID: "destructive.rejected",
+                    inputContext: command.action.rawValue,
+                    outputResult: "missing-confirm-hash",
+                    status: "failure"
+                )
+                throw TunnelError.destructiveRequiresConfirm
+            }
+            guard provided == expected else {
+                try? runtime.telemetry.logExecutionTrace(
+                    workflowID: "host-tunnel",
+                    stepID: "destructive.rejected",
+                    inputContext: command.action.rawValue,
+                    outputResult: "hash-mismatch",
+                    status: "failure"
+                )
+                throw TunnelError.confirmHashMismatch
+            }
+            try? runtime.telemetry.logExecutionTrace(
+                workflowID: "host-tunnel",
+                stepID: "destructive.confirmed",
+                inputContext: command.action.rawValue,
+                outputResult: "proceeding",
+                status: "success"
+            )
+            return JarvisTunnelResponse(
+                action: command.action,
+                spokenText: "Destructive action \(command.action.rawValue) confirmed and accepted.",
+                snapshot: try makeSnapshot()
+            )
+        }
         switch command.action {
         case .status, .ping:
             let snapshot = try makeSnapshot()
@@ -467,6 +640,15 @@ public final class JarvisHostTunnelServer: @unchecked Sendable {
                     "line": outcome.plan.line
                 ]),
                 outputPath: outcome.spokenOutputPath
+            )
+        case .displayWipe, .capabilityDelete, .voiceGateRevoke, .memoryPurge, .soulAnchorRotate:
+            // Destructive actions are gated in the preamble above; reaching here means
+            // they passed nonce + confirmHash validation. This exhaustive case silences
+            // the compiler — actual execution is a no-op stub until each action ships.
+            return JarvisTunnelResponse(
+                action: command.action,
+                spokenText: "Destructive action \(command.action.rawValue) confirmed and accepted.",
+                snapshot: try makeSnapshot()
             )
         }
     }
@@ -608,4 +790,14 @@ public final class JarvisHostTunnelServer: @unchecked Sendable {
         }
         return payload
     }
+}
+
+// MARK: - MK2-EPIC-02: Internal helper for nonce validation bridge
+
+/// Single-use box for ferrying an actor result out of a Task into synchronous code.
+/// Only ever written once (inside the Task, before the semaphore fires) and
+/// read once (in the calling thread after sema.wait()). The server's serial queue
+/// and the semaphore together guarantee no concurrent access.
+private final class _NonceResultBox: @unchecked Sendable {
+    var result = false
 }

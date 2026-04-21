@@ -79,6 +79,12 @@ public final class ConversationEngine: @unchecked Sendable {
             throw JarvisError.invalidInput("AmbientAudioFrame channelCount must be 1 (got \(frame.channelCount)).")
         }
 
+        // Record the canonical route hint from the gateway so per-turn telemetry
+        // can attribute latency/outcome to the correct transport.
+        if let session = queue.sync(execute: { activeSessions[sessionID] }) {
+            session.updateRoute(frame.routeHint)
+        }
+
         // Canonicalize to Data (signed int16 LE)
         // The pcmData is already in the correct format per spec
         try ingestAudio(frame: frame.pcmData, sessionID: sessionID)
@@ -151,7 +157,7 @@ public final class ConversationEngine: @unchecked Sendable {
         // Log transition (SPEC-009)
         let record = ConversationStateTransitionRecord(
             sessionId: session.id,
-            turnId: nil, // TODO: track active turnId
+            turnId: session.activeTurnID,
             fromState: fromState.rawValue,
             toState: state.rawValue,
             reason: reason,
@@ -172,6 +178,9 @@ public final class ConversationEngine: @unchecked Sendable {
     private func runTurn(session: ConversationSession, prompt: String) async throws {
         let turnID = UUID()
         let startedAt = Date()
+        session.beginTurn(turnID)
+        session.resetBargeInCount()
+        defer { session.endTurn() }
         try transition(session: session, to: .generating, reason: "asr_final")
         
         do {
@@ -231,7 +240,7 @@ public final class ConversationEngine: @unchecked Sendable {
             text: text,
             referenceAudioURL: config.referenceAudioURL,
             referenceTranscript: config.referenceTranscript,
-            parameters: backendIsF5() ? .f5ttsLocked : .vibevoiceLocked
+            parameters: backendIsF5() ? .f5ttsLocked : .xttsLocked
         )
         
         var firstChunk = true
@@ -282,9 +291,9 @@ public final class ConversationEngine: @unchecked Sendable {
                 ttsFirstChunk: metrics["ttsFirstChunk"],
                 endToEnd: metrics["endToEnd"] ?? 0
             ),
-            bargeInCount: 0, // TODO
+            bargeInCount: session.bargeInCount,
             principal: session.principal.tierToken,
-            route: "watchHosted", // TODO: read from gateway
+            route: session.currentRoute.rawValue,
             multiplier: 1.0
         )
         
@@ -303,8 +312,9 @@ public final class ConversationEngine: @unchecked Sendable {
     
     public func handleBargeIn(sessionID: UUID) throws {
         guard let session = queue.sync(execute: { activeSessions[sessionID] }) else { return }
-        
+
         if session.state == .speaking {
+            session.incrementBargeIn()
             try session.transition(to: .bargeInterrupt)
             llm.cancel()
             tts.cancel()

@@ -1,3 +1,4 @@
+import CryptoKit
 import Foundation
 
 public enum JarvisRemoteAction: String, Codable, CaseIterable, Sendable, Identifiable {
@@ -13,8 +14,40 @@ public enum JarvisRemoteAction: String, Codable, CaseIterable, Sendable, Identif
     case shutdown
     case runSkill = "run_skill"
     case ping
+    // MARK: - MK2-EPIC-02: Destructive actions (PRINCIPLES §1.3 operator-on-loop)
+    case displayWipe = "display_wipe"
+    case capabilityDelete = "capability_delete"
+    case voiceGateRevoke = "voice_gate_revoke"
+    case memoryPurge = "memory_purge"
+    case soulAnchorRotate = "soul_anchor_rotate"
 
     public var id: String { rawValue }
+
+    /// MK2-EPIC-02: True for actions that mutate critical system state and require
+    /// a two-step confirm (PRINCIPLES §1.3 operator-on-loop).
+    public var isDestructive: Bool {
+        switch self {
+        case .displayWipe, .capabilityDelete, .voiceGateRevoke, .memoryPurge, .soulAnchorRotate:
+            return true
+        default:
+            return false
+        }
+    }
+
+    /// MK2-EPIC-02: Deterministic JSON canonical representation (sorted keys).
+    /// Used to compute the confirm-hash that the client must echo back.
+    public func canonicalBytes() -> Data {
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .sortedKeys
+        let dict = ["action": rawValue]
+        return (try? encoder.encode(dict)) ?? Data(rawValue.utf8)
+    }
+
+    /// MK2-EPIC-02: SHA-256 hex of `canonicalBytes()`.
+    public var canonicalHashHex: String {
+        let digest = SHA256.hash(data: canonicalBytes())
+        return digest.map { String(format: "%02x", $0) }.joined()
+    }
 }
 
 public enum JarvisTunnelMessageKind: String, Codable, Sendable {
@@ -422,6 +455,15 @@ public struct JarvisTunnelMessage: Codable, Sendable {
     public let response: JarvisTunnelResponse?
     public let push: JarvisPushDirective?
     public let error: String?
+    /// MK2-EPIC-02 wire-v2: Base64url-encoded TunnelRoleToken; required on every
+    /// post-registration frame. Server validates HMAC + TTL on receipt.
+    public let roleToken: String?
+    /// MK2-EPIC-02 wire-v2: SHA-256 hex of the destructive action's canonical bytes.
+    /// Required for destructive commands (PRINCIPLES §1.3 operator-on-loop).
+    public let confirmHash: String?
+    /// MK2-EPIC-02 wire-v2: Unique nonce for destructive frames; prevents replay
+    /// within the 15-minute sliding window.
+    public let nonce: String?
 
     public init(
         kind: JarvisTunnelMessageKind,
@@ -430,7 +472,10 @@ public struct JarvisTunnelMessage: Codable, Sendable {
         snapshot: JarvisHostSnapshot? = nil,
         response: JarvisTunnelResponse? = nil,
         push: JarvisPushDirective? = nil,
-        error: String? = nil
+        error: String? = nil,
+        roleToken: String? = nil,
+        confirmHash: String? = nil,
+        nonce: String? = nil
     ) {
         self.kind = kind
         self.registration = registration
@@ -439,6 +484,9 @@ public struct JarvisTunnelMessage: Codable, Sendable {
         self.response = response
         self.push = push
         self.error = error
+        self.roleToken = roleToken
+        self.confirmHash = confirmHash
+        self.nonce = nonce
     }
 }
 
@@ -582,5 +630,101 @@ public struct JarvisVoiceGateSnapshot: Codable, Sendable {
         self.operatorLabel = operatorLabel
         self.notes = notes
         self.lastSyncISO8601 = lastSyncISO8601
+    }
+}
+
+// MARK: - MK2-EPIC-02: Tunnel Role + Authorization Token
+
+/// Server-assigned authority tier for a connected client.
+public enum TunnelRole: String, Codable, Sendable, CaseIterable {
+    case macHost      = "mac_host"
+    case mobileClient = "mobile_client"
+    case watchClient  = "watch_client"
+    case guest        = "guest"
+}
+
+/// Signed role token issued by the host at registration time.
+/// Wire format: compact base64url of JSON. TTL = 8 hours.
+/// MAC = HMAC-SHA256("role|issuedAt|expiresAt|clientPubKey", hostKey).
+public struct TunnelRoleToken: Codable, Sendable {
+    public let role: TunnelRole
+    public let issuedAt: Int64
+    public let expiresAt: Int64
+    public let clientPubKey: String
+    public let mac: String
+
+    public init(role: TunnelRole, issuedAt: Int64, expiresAt: Int64, clientPubKey: String, mac: String) {
+        self.role = role
+        self.issuedAt = issuedAt
+        self.expiresAt = expiresAt
+        self.clientPubKey = clientPubKey
+        self.mac = mac
+    }
+
+    public var isExpired: Bool {
+        Int64(Date().timeIntervalSince1970) > expiresAt
+    }
+
+    /// Compact base64url wire encoding for inclusion in JarvisTunnelMessage.roleToken.
+    public func wireString() throws -> String {
+        let data = try JSONEncoder().encode(self)
+        return data.tunnelBase64URLEncoded()
+    }
+
+    /// Decode from compact base64url wire string.
+    public static func from(wireString: String) throws -> TunnelRoleToken {
+        guard let data = Data(tunnelBase64URLDecoding: wireString) else {
+            throw TunnelError.invalidToken
+        }
+        return try JSONDecoder().decode(TunnelRoleToken.self, from: data)
+    }
+}
+
+// MARK: - MK2-EPIC-02: Tunnel Errors
+
+public enum TunnelError: Error, LocalizedError, Sendable {
+    case missingRoleToken
+    case invalidToken
+    case expiredToken
+    case roleClaimMismatch
+    case pubKeyMismatch
+    case destructiveRequiresConfirm
+    case confirmHashMismatch
+    case nonceReplay
+    case missingNonce
+
+    public var errorDescription: String? {
+        switch self {
+        case .missingRoleToken:          return "Frame missing required role token."
+        case .invalidToken:              return "Role token HMAC verification failed."
+        case .expiredToken:              return "Role token has expired."
+        case .roleClaimMismatch:         return "Token role does not match server-assigned role."
+        case .pubKeyMismatch:            return "Token client public key does not match connection identity."
+        case .destructiveRequiresConfirm: return "Destructive action requires X-Confirm-Hash header."
+        case .confirmHashMismatch:       return "Provided confirm hash does not match action canonical hash."
+        case .nonceReplay:               return "Nonce has already been used within the 15-minute window."
+        case .missingNonce:              return "Destructive action requires a unique nonce."
+        }
+    }
+}
+
+// MARK: - Base64URL helpers (RFC 4648 §5, no padding)
+
+extension Data {
+    func tunnelBase64URLEncoded() -> String {
+        base64EncodedString()
+            .replacingOccurrences(of: "+", with: "-")
+            .replacingOccurrences(of: "/", with: "_")
+            .replacingOccurrences(of: "=", with: "")
+    }
+
+    init?(tunnelBase64URLDecoding string: String) {
+        var base64 = string
+            .replacingOccurrences(of: "-", with: "+")
+            .replacingOccurrences(of: "_", with: "/")
+        let remainder = base64.count % 4
+        if remainder > 0 { base64 += String(repeating: "=", count: 4 - remainder) }
+        guard let data = Data(base64Encoded: base64) else { return nil }
+        self = data
     }
 }

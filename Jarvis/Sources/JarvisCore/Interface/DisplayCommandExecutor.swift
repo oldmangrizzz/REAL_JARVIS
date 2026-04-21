@@ -83,6 +83,58 @@ public final class DisplayCommandExecutor: @unchecked Sendable {
         self.hdmiCECBridge = HDMICECBridge()
     }
 
+    // MARK: - MK2-EPIC-02: Destructive guardrail (PRINCIPLES §1.3 operator-on-loop)
+
+    /// Execute a tunnel command, enforcing the two-step confirm for destructive actions.
+    /// - Parameters:
+    ///   - tunnelCommand: The remote command from the tunnel frame.
+    ///   - confirmHash:   The `X-Confirm-Hash` value from the frame (nil if absent).
+    ///   - authorization: Authority context for the connection.
+    public func execute(
+        tunnelCommand: JarvisRemoteCommand,
+        confirmHash: String?,
+        authorization: CommandAuthorization
+    ) async throws -> ExecutionResult {
+        let action = tunnelCommand.action
+        if action.isDestructive {
+            let expected = action.canonicalHashHex
+            guard let provided = confirmHash else {
+                try? telemetry.append(record: [
+                    "event": "destructive.rejected",
+                    "action": action.rawValue,
+                    "reason": "missing-confirm-hash",
+                    "timestamp": ISO8601DateFormatter().string(from: Date())
+                ], to: "tunnel_events")
+                throw TunnelError.destructiveRequiresConfirm
+            }
+            guard provided == expected else {
+                try? telemetry.append(record: [
+                    "event": "destructive.rejected",
+                    "action": action.rawValue,
+                    "reason": "hash-mismatch",
+                    "provided": provided,
+                    "expected": expected,
+                    "timestamp": ISO8601DateFormatter().string(from: Date())
+                ], to: "tunnel_events")
+                throw TunnelError.confirmHashMismatch
+            }
+            try? telemetry.append(record: [
+                "event": "destructive.confirmed",
+                "action": action.rawValue,
+                "timestamp": ISO8601DateFormatter().string(from: Date())
+            ], to: "tunnel_events")
+        }
+        return ExecutionResult(
+            success: true,
+            spokenText: "Tunnel command \(action.rawValue) accepted.",
+            details: [
+                "action": action.rawValue,
+                "destructive": "\(action.isDestructive)",
+                "authority": authorization.authority.description
+            ]
+        )
+    }
+
     public func execute(intent: ParsedIntent, authorization: CommandAuthorization) async throws -> ExecutionResult {
         switch intent.intent {
         case .displayAction(let target, let action, let parameters):

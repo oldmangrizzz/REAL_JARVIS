@@ -87,30 +87,64 @@ public struct AccessoryEndpoint: Codable, Sendable, Identifiable {
 public struct CapabilityConfig: Codable, Sendable {
     public let displays: [DisplayEndpoint]
     public let accessories: [AccessoryEndpoint]
+    /// MK2-EPIC-02: per-client role bindings keyed by device identity key hex.
+    /// Backward compatible — missing field defaults to empty (everyone gets .guest).
+    public let clientRoles: [ClientRoleEntry]
 
-    public init(displays: [DisplayEndpoint], accessories: [AccessoryEndpoint]) {
+    public init(displays: [DisplayEndpoint], accessories: [AccessoryEndpoint], clientRoles: [ClientRoleEntry] = []) {
         self.displays = displays
         self.accessories = accessories
+        self.clientRoles = clientRoles
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case displays, accessories, clientRoles
+    }
+
+    public init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        self.displays = try c.decode([DisplayEndpoint].self, forKey: .displays)
+        self.accessories = try c.decode([AccessoryEndpoint].self, forKey: .accessories)
+        self.clientRoles = try c.decodeIfPresent([ClientRoleEntry].self, forKey: .clientRoles) ?? []
+    }
+}
+
+/// MK2-EPIC-02: Maps a device identity key hex to a server-assigned TunnelRole.
+public struct ClientRoleEntry: Codable, Sendable {
+    public let publicKeyHex: String
+    public let role: TunnelRole
+
+    public init(publicKeyHex: String, role: TunnelRole) {
+        self.publicKeyHex = publicKeyHex
+        self.role = role
     }
 }
 
 public final class CapabilityRegistry: @unchecked Sendable {
     private var displays: [DisplayEndpoint]
     private var accessories: [AccessoryEndpoint]
+    private var clientRoles: [ClientRoleEntry]
 
     public var allDisplayIDs: [String] { displays.map { $0.id } }
     public var allAccessoryIDs: [String] { accessories.map { $0.id } }
 
-    public init(displays: [DisplayEndpoint], accessories: [AccessoryEndpoint]) {
+    public init(displays: [DisplayEndpoint], accessories: [AccessoryEndpoint], clientRoles: [ClientRoleEntry] = []) {
         self.displays = displays
         self.accessories = accessories
+        self.clientRoles = clientRoles
     }
 
     public convenience init(configURL: URL) throws {
         let data = try Data(contentsOf: configURL)
         let decoder = JSONDecoder()
         let config = try decoder.decode(CapabilityConfig.self, from: data)
-        self.init(displays: config.displays, accessories: config.accessories)
+        self.init(displays: config.displays, accessories: config.accessories, clientRoles: config.clientRoles)
+    }
+
+    /// MK2-EPIC-02: Look up the server-assigned TunnelRole for a device identity key.
+    /// Returns `.guest` if the key is not listed (fail-safe, minimal privilege).
+    public func clientIdentity(publicKeyHex: String) -> TunnelRole {
+        clientRoles.first(where: { $0.publicKeyHex.lowercased() == publicKeyHex.lowercased() })?.role ?? .guest
     }
 
     public func matchDisplay(from text: String) -> String {
@@ -174,5 +208,6 @@ public final class CapabilityRegistry: @unchecked Sendable {
         let config = try decoder.decode(CapabilityConfig.self, from: data)
         self.displays = config.displays
         self.accessories = config.accessories
+        self.clientRoles = config.clientRoles
     }
 }

@@ -29,9 +29,20 @@ public struct TTSRenderParameters: Sendable {
 
     /// Operator-locked VibeVoice defaults from the 2026-04-18 audition matrix.
     /// Reference clip: voice-samples/0299_TINCANS_CANONICAL.wav.
+    /// DEPRECATED: VibeVoice is sunset; use `xttsLocked` for XTTS v2 canon.
+    /// Retained for VoiceSynthesis env-fallback compatibility.
     public static let vibevoiceLocked = TTSRenderParameters(
         cfgScale: 2.1,
         ddpmSteps: 10
+    )
+
+    /// Operator-locked Coqui XTTS v2 defaults (voice canon 2026-04-21).
+    /// Reference clip: voice-samples/0299_TINCANS_CANONICAL.wav.
+    /// XTTS does not use diffusion params (cfgScale/ddpmSteps); tuning happens
+    /// server-side on Delta:8787. Temperature/topP kept for client-side sampling.
+    public static let xttsLocked = TTSRenderParameters(
+        temperature: 0.7,
+        topP: 0.85
     )
 
     /// Operator-locked F5-TTS defaults. Asserted by F5TTSBackendTests.

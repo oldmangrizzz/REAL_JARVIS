@@ -211,6 +211,15 @@ public final class TunnelIdentityStore: @unchecked Sendable {
         return .operatorTier
     }
 
+    /// MK2-EPIC-02: Return the DeviceIdentity for a given deviceID, if registered.
+    /// Used by the tunnel server to look up the device identity key for role-token issuance.
+    public func identity(for deviceID: String) -> DeviceIdentity? {
+        lock.lock()
+        let doc = document
+        lock.unlock()
+        return doc?.identities.first(where: { $0.deviceID == deviceID })
+    }
+
     private func pruneExpiredNoncesLocked(reference: Date) {
         let window = Self.nonceWindow * 2
         for (device, entries) in seenNonces {

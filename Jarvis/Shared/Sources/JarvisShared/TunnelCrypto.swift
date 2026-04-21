@@ -63,6 +63,28 @@ public struct JarvisTunnelCrypto: Sendable {
         let opened = try ChaChaPoly.open(box, using: key)
         return try decoder.decode(type, from: opened)
     }
+
+    // MARK: - MK2-EPIC-02: Role Token signing (HMAC-SHA256, 8h TTL)
+
+    /// Issue a signed TunnelRoleToken for the given role and client public key.
+    /// MAC covers "role|issuedAtUnix|expiresAtUnix|clientPubKeyHex".
+    public func signRoleToken(role: TunnelRole, clientPubKey: String) -> TunnelRoleToken {
+        let now = Int64(Date().timeIntervalSince1970)
+        let expiresAt = now + 8 * 3600
+        let message = "\(role.rawValue)|\(now)|\(expiresAt)|\(clientPubKey)"
+        let mac = HMAC<SHA256>.authenticationCode(for: Data(message.utf8), using: key)
+        let macHex = mac.map { String(format: "%02x", $0) }.joined()
+        return TunnelRoleToken(role: role, issuedAt: now, expiresAt: expiresAt, clientPubKey: clientPubKey, mac: macHex)
+    }
+
+    /// Returns true iff the token's MAC is valid for the current host key.
+    /// Does NOT check TTL — caller is responsible for `token.isExpired`.
+    public func verifyRoleToken(_ token: TunnelRoleToken) -> Bool {
+        let message = "\(token.role.rawValue)|\(token.issuedAt)|\(token.expiresAt)|\(token.clientPubKey)"
+        let expected = HMAC<SHA256>.authenticationCode(for: Data(message.utf8), using: key)
+        let expectedHex = expected.map { String(format: "%02x", $0) }.joined()
+        return expectedHex == token.mac
+    }
 }
 
 internal extension Data {

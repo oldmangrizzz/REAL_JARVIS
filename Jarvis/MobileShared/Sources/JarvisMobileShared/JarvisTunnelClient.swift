@@ -10,6 +10,9 @@ public final class JarvisTunnelClient: @unchecked Sendable {
     private let onStateChange: @Sendable (JarvisConnectionState, String?) -> Void
     private var connection: NWConnection?
     private var buffer = Data()
+    /// MK2-EPIC-02 wire-v2: Stored role token issued by the server at registration.
+    /// Included in every post-registration frame for server-side validation.
+    private var storedRoleToken: String?
 
     public init(
         config: JarvisHostConfiguration,
@@ -70,7 +73,25 @@ public final class JarvisTunnelClient: @unchecked Sendable {
     private func send(_ message: JarvisTunnelMessage) {
         guard let connection else { return }
         do {
-            let sealed = try crypto.seal(message)
+            // MK2-EPIC-02 wire-v2: inject stored role token into every post-registration frame
+            let outgoing: JarvisTunnelMessage
+            if message.kind != .register, let token = storedRoleToken {
+                outgoing = JarvisTunnelMessage(
+                    kind: message.kind,
+                    registration: message.registration,
+                    command: message.command,
+                    snapshot: message.snapshot,
+                    response: message.response,
+                    push: message.push,
+                    error: message.error,
+                    roleToken: token,
+                    confirmHash: message.confirmHash,
+                    nonce: message.nonce
+                )
+            } else {
+                outgoing = message
+            }
+            let sealed = try crypto.seal(outgoing)
             let packet = JarvisTransportPacket(
                 origin: registration.deviceID,
                 timestamp: ISO8601DateFormatter().string(from: Date()),
@@ -112,6 +133,10 @@ public final class JarvisTunnelClient: @unchecked Sendable {
         do {
             let packet = try JSONDecoder().decode(JarvisTransportPacket.self, from: data)
             let message = try crypto.open(JarvisTunnelMessage.self, from: packet.payload)
+            // MK2-EPIC-02 wire-v2: persist role token from server registration response
+            if let token = message.roleToken {
+                storedRoleToken = token
+            }
             DispatchQueue.main.async {
                 self.onMessage(message)
             }
