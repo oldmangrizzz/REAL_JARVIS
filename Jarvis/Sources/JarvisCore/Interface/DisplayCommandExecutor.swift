@@ -67,8 +67,16 @@ public final class DisplayCommandExecutor: @unchecked Sendable {
     private let airPlayBridge: AirPlayBridge
     private let httpBridge: HTTPDisplayBridge
     private let hdmiCECBridge: HDMICECBridge
+    private let n8nBridge: N8NBridge?
+    private let n8nHAWebhookPath: String
 
-    public init(registry: CapabilityRegistry, controlPlane: MyceliumControlPlane, telemetry: TelemetryStore) {
+    public init(
+        registry: CapabilityRegistry,
+        controlPlane: MyceliumControlPlane,
+        telemetry: TelemetryStore,
+        n8nBridge: N8NBridge? = nil,
+        n8nHAWebhookPath: String = "jarvis/ha/call-service"
+    ) {
         self.registry = registry
         self.controlPlane = controlPlane
         self.telemetry = telemetry
@@ -81,6 +89,8 @@ public final class DisplayCommandExecutor: @unchecked Sendable {
         self.airPlayBridge = AirPlayBridge(paths: paths)
         self.httpBridge = HTTPDisplayBridge()
         self.hdmiCECBridge = HDMICECBridge()
+        self.n8nBridge = n8nBridge
+        self.n8nHAWebhookPath = n8nHAWebhookPath
     }
 
     // MARK: - MK2-EPIC-02: Destructive guardrail (PRINCIPLES §1.3 operator-on-loop)
@@ -297,8 +307,122 @@ public final class DisplayCommandExecutor: @unchecked Sendable {
         )
     }
 
+    /// Route a HomeKit-style intent to Home Assistant via n8n when an
+    /// `N8NBridge` is configured. Maps `characteristic` → HA domain/service and
+    /// best-effort maps the spoken accessory name to an `entity_id`.
+    /// If no bridge is configured, falls back to a queued no-op so unit tests
+    /// that don't provide network plumbing still pass.
     private func routeToHomeKit(accessory: String, characteristic: String, value: String) async throws -> ExecutionResult {
-        return ExecutionResult(success: true, spokenText: "HomeKit control queued for \(accessory).", details: ["accessory": accessory, "characteristic": characteristic, "value": value])
+        guard let bridge = n8nBridge else {
+            return ExecutionResult(
+                success: true,
+                spokenText: "HomeKit control queued for \(accessory).",
+                details: ["accessory": accessory, "characteristic": characteristic, "value": value]
+            )
+        }
+
+        let mapping = Self.mapHomeKitToHA(accessory: accessory, characteristic: characteristic, value: value)
+        var payload: [String: Any] = [
+            "domain": mapping.domain,
+            "service": mapping.service,
+            "data": mapping.data
+        ]
+        if let entityId = mapping.entityId {
+            payload["entity_id"] = entityId
+        }
+
+        do {
+            _ = try await bridge.runWorkflow(webhookPath: n8nHAWebhookPath, payload: payload)
+            return ExecutionResult(
+                success: true,
+                spokenText: "\(accessory) \(mapping.spokenVerb).",
+                details: [
+                    "accessory": accessory,
+                    "characteristic": characteristic,
+                    "value": value,
+                    "haDomain": mapping.domain,
+                    "haService": mapping.service,
+                    "haEntityId": mapping.entityId ?? ""
+                ]
+            )
+        } catch {
+            return ExecutionResult(
+                success: false,
+                spokenText: "I couldn't reach the home bridge for \(accessory).",
+                details: [
+                    "accessory": accessory,
+                    "characteristic": characteristic,
+                    "value": value,
+                    "error": String(describing: error)
+                ]
+            )
+        }
+    }
+
+    /// Pure mapping from the abstract HomeKit triple to HA call-service
+    /// parameters. Exposed as `internal` so tests can verify it without
+    /// spinning up an N8NBridge.
+    struct HAMapping {
+        let domain: String
+        let service: String
+        let entityId: String?
+        let data: [String: Any]
+        let spokenVerb: String
+    }
+
+    static func mapHomeKitToHA(accessory: String, characteristic: String, value: String) -> HAMapping {
+        let entityId = haEntityID(for: accessory)
+        switch characteristic.lowercased() {
+        case "on":
+            let isOn = ["true", "1", "on", "yes"].contains(value.lowercased())
+            return HAMapping(
+                domain: "light",
+                service: isOn ? "turn_on" : "turn_off",
+                entityId: entityId,
+                data: [:],
+                spokenVerb: isOn ? "is on" : "is off"
+            )
+        case "brightness":
+            let pct = max(0, min(100, Int(value) ?? 50))
+            return HAMapping(
+                domain: "light",
+                service: "turn_on",
+                entityId: entityId,
+                data: ["brightness_pct": pct],
+                spokenVerb: "set to \(pct) percent"
+            )
+        default:
+            return HAMapping(
+                domain: "homeassistant",
+                service: "turn_on",
+                entityId: entityId,
+                data: [:],
+                spokenVerb: "acknowledged"
+            )
+        }
+    }
+
+    /// Best-effort normalization of spoken accessory names to HA entity_ids.
+    /// Accepts explicit entity ids (`light.x`) verbatim; otherwise maps a
+    /// common vocabulary of room/group names to the canonical group IDs
+    /// used by the Phase 3 seed workflows.
+    static func haEntityID(for accessory: String) -> String? {
+        let raw = accessory.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !raw.isEmpty, raw != "unknown" else { return nil }
+        if raw.contains(".") { return raw }
+
+        if raw.contains("downstairs") { return "group.downstairs_lights" }
+        if raw.contains("upstairs") { return "group.upstairs_lights" }
+        if raw.contains("all light") || raw == "lights" || raw == "all lights" {
+            return "group.all_lights"
+        }
+
+        let slug = raw
+            .map { $0.isLetter || $0.isNumber ? $0 : "_" }
+            .reduce(into: "") { $0.append($1) }
+            .split(separator: "_", omittingEmptySubsequences: true)
+            .joined(separator: "_")
+        return slug.isEmpty ? nil : "light.\(slug)"
     }
 
     private func logExecution(intent: ParsedIntent, result: ExecutionResult, authorization: CommandAuthorization) throws {

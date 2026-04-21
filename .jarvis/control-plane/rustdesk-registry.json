@@ -1,49 +1,49 @@
 [
   {
-    "handoffURL" : "rustdesk:\/\/IRONSILO-ECHO",
+    "handoffURL" : "rustdesk:\/\/232611902",
     "id" : "echo",
-    "lastSeen" : "2026-04-21T20:02:41Z",
+    "lastSeen" : "2026-04-21T20:08:12Z",
     "nodeName" : "echo",
     "relayLocked" : true,
-    "rustDeskID" : "IRONSILO-ECHO",
+    "rustDeskID" : "232611902",
     "status" : "relay-locked"
   },
   {
-    "handoffURL" : "rustdesk:\/\/IRONSILO-ALPHA",
+    "handoffURL" : "rustdesk:\/\/293187511",
     "id" : "alpha",
-    "lastSeen" : "2026-04-21T20:02:41Z",
+    "lastSeen" : "2026-04-21T20:08:12Z",
     "nodeName" : "alpha",
     "relayLocked" : true,
-    "rustDeskID" : "IRONSILO-ALPHA",
+    "rustDeskID" : "293187511",
     "status" : "relay-locked"
   },
   {
     "address" : "192.168.4.151:5984",
-    "handoffURL" : "rustdesk:\/\/IRONSILO-BETA",
+    "handoffURL" : "rustdesk:\/\/286923437",
     "id" : "beta",
-    "lastSeen" : "2026-04-21T20:02:41Z",
+    "lastSeen" : "2026-04-21T20:08:12Z",
     "nodeName" : "beta",
     "relayLocked" : true,
-    "rustDeskID" : "IRONSILO-BETA",
+    "rustDeskID" : "286923437",
     "status" : "relay-locked"
   },
   {
     "address" : "192.168.4.151",
-    "handoffURL" : "rustdesk:\/\/IRONSILO-CHARLIE",
+    "handoffURL" : "rustdesk:\/\/347700740",
     "id" : "charlie",
-    "lastSeen" : "2026-04-21T20:02:41Z",
+    "lastSeen" : "2026-04-21T20:08:12Z",
     "nodeName" : "charlie",
     "relayLocked" : true,
-    "rustDeskID" : "IRONSILO-CHARLIE",
+    "rustDeskID" : "347700740",
     "status" : "relay-locked"
   },
   {
-    "handoffURL" : "rustdesk:\/\/IRONSILO-DELTA",
+    "handoffURL" : "rustdesk:\/\/347824774",
     "id" : "delta",
-    "lastSeen" : "2026-04-21T20:02:41Z",
+    "lastSeen" : "2026-04-21T20:08:12Z",
     "nodeName" : "delta",
     "relayLocked" : true,
-    "rustDeskID" : "IRONSILO-DELTA",
+    "rustDeskID" : "347824774",
     "status" : "relay-locked"
   }
 ]

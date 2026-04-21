@@ -7,7 +7,7 @@
       {
         "id" : "internal-regulation",
         "kind" : "internal_regulation",
-        "lastUpdated" : "2026-04-21T20:02:41Z",
+        "lastUpdated" : "2026-04-21T20:08:12Z",
         "name" : "J.A.R.V.I.S. Internal Regulation",
         "room" : "Iron Silo",
         "severity" : "warning",
@@ -17,7 +17,7 @@
       {
         "id" : "vagal-tone",
         "kind" : "internal_metric",
-        "lastUpdated" : "2026-04-21T20:02:41Z",
+        "lastUpdated" : "2026-04-21T20:08:12Z",
         "name" : "J.A.R.V.I.S. Vagal Tone",
         "room" : "Iron Silo",
         "severity" : "nominal",
@@ -26,7 +26,7 @@
       {
         "id" : "command-gate",
         "kind" : "command_gate",
-        "lastUpdated" : "2026-04-21T20:02:41Z",
+        "lastUpdated" : "2026-04-21T20:08:12Z",
         "name" : "J.A.R.V.I.S. Command Gate",
         "room" : "Iron Silo",
         "severity" : "nominal",
@@ -35,7 +35,7 @@
       {
         "id" : "voice-intercom",
         "kind" : "doorbell_intercom",
-        "lastUpdated" : "2026-04-21T20:02:41Z",
+        "lastUpdated" : "2026-04-21T20:08:12Z",
         "name" : "J.A.R.V.I.S. HomePod Intercom",
         "room" : "Iron Silo",
         "severity" : "nominal",
@@ -51,7 +51,7 @@
     "charlieAddress" : "192.168.4.151",
     "distressState" : "elevated",
     "homebridgePort" : 8581,
-    "lastSync" : "2026-04-21T20:02:41Z",
+    "lastSync" : "2026-04-21T20:08:12Z",
     "matterEnabled" : true,
     "reachable" : true,
     "regulationVisibility" : "internal-only",
@@ -61,18 +61,18 @@
     {
       "guiReachable" : false,
       "id" : "echo",
-      "lastSeen" : "2026-04-21T20:02:41Z",
+      "lastSeen" : "2026-04-21T20:08:12Z",
       "nodeName" : "echo",
-      "rustDeskID" : "IRONSILO-ECHO",
+      "rustDeskID" : "232611902",
       "source" : "rustdesk",
       "tunnelState" : "pending"
     },
     {
       "guiReachable" : false,
       "id" : "alpha",
-      "lastSeen" : "2026-04-21T20:02:41Z",
+      "lastSeen" : "2026-04-21T20:08:12Z",
       "nodeName" : "alpha",
-      "rustDeskID" : "IRONSILO-ALPHA",
+      "rustDeskID" : "293187511",
       "source" : "rustdesk",
       "tunnelState" : "pending"
     },
@@ -80,9 +80,9 @@
       "address" : "192.168.4.151:5984",
       "guiReachable" : true,
       "id" : "beta",
-      "lastSeen" : "2026-04-21T20:02:41Z",
+      "lastSeen" : "2026-04-21T20:08:12Z",
       "nodeName" : "beta",
-      "rustDeskID" : "IRONSILO-BETA",
+      "rustDeskID" : "286923437",
       "source" : "rustdesk",
       "tunnelState" : "online"
     },
@@ -90,18 +90,18 @@
       "address" : "192.168.4.151",
       "guiReachable" : true,
       "id" : "charlie",
-      "lastSeen" : "2026-04-21T20:02:41Z",
+      "lastSeen" : "2026-04-21T20:08:12Z",
       "nodeName" : "charlie",
-      "rustDeskID" : "IRONSILO-CHARLIE",
+      "rustDeskID" : "347700740",
       "source" : "homebridge",
       "tunnelState" : "online"
     },
     {
       "guiReachable" : false,
       "id" : "delta",
-      "lastSeen" : "2026-04-21T20:02:41Z",
+      "lastSeen" : "2026-04-21T20:08:12Z",
       "nodeName" : "delta",
-      "rustDeskID" : "IRONSILO-DELTA",
+      "rustDeskID" : "347824774",
       "source" : "rustdesk",
       "tunnelState" : "pending"
     }
@@ -110,7 +110,7 @@
     "betaCouchEndpoint" : "http:\/\/192.168.4.151:5984\/obsidian_vault",
     "databaseName" : "obsidian_vault",
     "docCount" : 0,
-    "lastSync" : "2026-04-21T20:02:41Z",
+    "lastSync" : "2026-04-21T20:08:12Z",
     "pluginListening" : true,
     "replicationConfigured" : true,
     "replicationObserved" : false,
@@ -119,50 +119,50 @@
   },
   "rustDeskNodes" : [
     {
-      "handoffURL" : "rustdesk:\/\/IRONSILO-ECHO",
+      "handoffURL" : "rustdesk:\/\/232611902",
       "id" : "echo",
-      "lastSeen" : "2026-04-21T20:02:41Z",
+      "lastSeen" : "2026-04-21T20:08:12Z",
       "nodeName" : "echo",
       "relayLocked" : true,
-      "rustDeskID" : "IRONSILO-ECHO",
+      "rustDeskID" : "232611902",
       "status" : "relay-locked"
     },
     {
-      "handoffURL" : "rustdesk:\/\/IRONSILO-ALPHA",
+      "handoffURL" : "rustdesk:\/\/293187511",
       "id" : "alpha",
-      "lastSeen" : "2026-04-21T20:02:41Z",
+      "lastSeen" : "2026-04-21T20:08:12Z",
       "nodeName" : "alpha",
       "relayLocked" : true,
-      "rustDeskID" : "IRONSILO-ALPHA",
+      "rustDeskID" : "293187511",
       "status" : "relay-locked"
     },
     {
       "address" : "192.168.4.151:5984",
-      "handoffURL" : "rustdesk:\/\/IRONSILO-BETA",
+      "handoffURL" : "rustdesk:\/\/286923437",
       "id" : "beta",
-      "lastSeen" : "2026-04-21T20:02:41Z",
+      "lastSeen" : "2026-04-21T20:08:12Z",
       "nodeName" : "beta",
       "relayLocked" : true,
-      "rustDeskID" : "IRONSILO-BETA",
+      "rustDeskID" : "286923437",
       "status" : "relay-locked"
     },
     {
       "address" : "192.168.4.151",
-      "handoffURL" : "rustdesk:\/\/IRONSILO-CHARLIE",
+      "handoffURL" : "rustdesk:\/\/347700740",
       "id" : "charlie",
-      "lastSeen" : "2026-04-21T20:02:41Z",
+      "lastSeen" : "2026-04-21T20:08:12Z",
       "nodeName" : "charlie",
       "relayLocked" : true,
-      "rustDeskID" : "IRONSILO-CHARLIE",
+      "rustDeskID" : "347700740",
       "status" : "relay-locked"
     },
     {
-      "handoffURL" : "rustdesk:\/\/IRONSILO-DELTA",
+      "handoffURL" : "rustdesk:\/\/347824774",
       "id" : "delta",
-      "lastSeen" : "2026-04-21T20:02:41Z",
+      "lastSeen" : "2026-04-21T20:08:12Z",
       "nodeName" : "delta",
       "relayLocked" : true,
-      "rustDeskID" : "IRONSILO-DELTA",
+      "rustDeskID" : "347824774",
       "status" : "relay-locked"
     }
   ]

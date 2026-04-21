@@ -552,7 +552,8 @@ public final class RealJarvisInterface: NSObject {
         let executor = DisplayCommandExecutor(
             registry: capabilityRegistry,
             controlPlane: runtime.controlPlane,
-            telemetry: runtime.telemetry
+            telemetry: runtime.telemetry,
+            n8nBridge: Self.makeN8NBridge()
         )
         return VoiceCommandRouter(
             runtime: runtime,
@@ -560,6 +561,19 @@ public final class RealJarvisInterface: NSObject {
             intentParser: intentParser,
             displayExecutor: executor,
             capabilityRegistry: capabilityRegistry
+        )
+    }
+
+    private static func makeN8NBridge() -> N8NBridge? {
+        let env = ProcessInfo.processInfo.environment
+        guard let raw = env["JARVIS_N8N_BASE_URL"],
+              let url = URL(string: raw) else {
+            return nil
+        }
+        return N8NBridge(
+            baseURL: url,
+            basicAuthUser: env["JARVIS_N8N_USER"],
+            basicAuthPassword: env["JARVIS_N8N_PASSWORD"]
         )
     }
 
