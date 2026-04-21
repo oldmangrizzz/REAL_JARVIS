@@ -1,0 +1,20 @@
+{
+  "features": [
+    {
+      "id": "usgs-001",
+      "mag": 5.5,
+      "lat": 33.0,
+      "lon": -96.0,
+      "place": "5km N of Dallas",
+      "observed_at": "2026-04-20T16:00:00Z"
+    },
+    {
+      "id": "usgs-002",
+      "mag": 3.0,
+      "lat": 30.5,
+      "lon": -97.5,
+      "place": "2km W of Austin",
+      "observed_at": "2026-04-20T16:30:00Z"
+    }
+  ]
+}

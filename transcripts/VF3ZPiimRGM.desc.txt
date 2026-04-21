@@ -1,0 +1,41 @@
+👉 AI Agents Studio : https://www.youtube.com/channel/UCAawqobkJZ28OLcYcMgqYaw?sub_confirmation=1
+This video covers top trending open-source Dev Tool projects gaining attention this week. Developers will discover tools focused on AI agents, developer productivity, workflows, and performance. Projects like Page Agent enable browser-based automation, Trivy helps detect security issues across environments, and LiteLLM provides a unified interface for multiple language models. If you are exploring practical tools for automation, local workflows, and scalable development systems, this weekly roundup highlights useful open-source projects worth checking out.
+
+👍 Like, share, and subscribe for more updates on AI advancements. Drop your thoughts and questions in the comments below!
+
+📌 Get FREE AI Project Updates : https://manuagi.beehiiv.com/subscribe
+
+📌 Important AI Tools (affiliate)
+🔗 AI Voice  - https://try.elevenlabs.io/0wgaz29csuo5
+🔗Try Dzine AI FREE : https://www.dzine.ai/src/BnkUwm2a
+
+📌 Timestamps : 
+00:00 - Intro Part
+01:07 - Page Agent : https://github.com/alibaba/page-agent
+01:51 - Trivy : https://github.com/aquasecurity/trivy
+02:38 - Chat SDK : https://github.com/vercel/chat
+03:22 - Swift Agent Skills : https://github.com/twostraws/Swift-Agent-Skills
+04:07 - VectorSearch.js : https://github.com/jasonmayes/VectorSearch.js 
+04:55 - better-result : https://github.com/dmmulroy/better-result
+05:34 - vite-plus : https://github.com/voidzero-dev/vite-plus
+06:13 - OpenSquirrel : https://github.com/Infatoshi/OpenSquirrel
+06:54 - LiteLLM : https://github.com/BerriAI/litellm
+07:35 - RuFlo v3.5 : https://github.com/ruvnet/ruflo
+08:17 - Strix : https://github.com/usestrix/strix
+08:52 - TradingAgents : https://github.com/TauricResearch/TradingAgents
+09:29 - Hermes Agent : https://github.com/NousResearch/hermes-agent
+10:15 - GitNexus : https://github.com/abhigyanpatwari/GitNexus
+10:55 - Temporal Core SDK : https://github.com/temporalio/sdk-core
+11:35 - Temporal UI : https://github.com/temporalio/ui
+12:11 - Sentinel : https://github.com/coollabsio/sentinel
+12:48 - Plausible Analytics : https://github.com/plausible/analytics
+13:26 - swift-format : https://github.com/swiftlang/swift-format
+14:03 - zeabur : https://github.com/zeabur/zeabur
+
+📈 Subscribe for more AI tutorials, tips, and industry insights. Don't forget to like, comment, and share with your tech-savvy friends!
+
+Tags: 
+Top Dev Tool Projects, Page Agent, Trivy, LiteLLM, OpenSquirrel, Strix & Zeabur, dev tools, open source dev tools, trending github projects, developer productivity, dev workflow, ai developer tools, ai agents, automation tools, cli tools, security tools, developer automation, programming tools, open source projects, github trending, coding tools, software development, workflow automation, web development tools, ai workflow tools, devops tools
+
+Hashtags:
+#devtools  #opensource #githubprojects #developer #programming #softwaredevelopment #automation #aiagents #workflow #codingtools #webdevelopment #devops #securitytools #opentools #developers

@@ -1,0 +1,3232 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.080 --> 00:00:01.910 align:start position:0%
+ 
+What<00:00:00.240><c> is</c><00:00:00.400><c> up</c><00:00:00.640><c> developers?</c><00:00:01.360><c> Welcome</c><00:00:01.600><c> back</c><00:00:01.760><c> to</c>
+
+00:00:01.910 --> 00:00:01.920 align:start position:0%
+What is up developers? Welcome back to
+ 
+
+00:00:01.920 --> 00:00:04.550 align:start position:0%
+What is up developers? Welcome back to
+GitHub<00:00:02.480><c> awesome.</c><00:00:03.200><c> GitHub</c><00:00:03.679><c> trending</c><00:00:04.160><c> today</c>
+
+00:00:04.550 --> 00:00:04.560 align:start position:0%
+GitHub awesome. GitHub trending today
+ 
+
+00:00:04.560 --> 00:00:07.829 align:start position:0%
+GitHub awesome. GitHub trending today
+episode<00:00:05.040><c> 31.</c><00:00:05.920><c> 36</c><00:00:06.560><c> repositories</c><00:00:07.279><c> trending</c><00:00:07.680><c> on</c>
+
+00:00:07.829 --> 00:00:07.839 align:start position:0%
+episode 31. 36 repositories trending on
+ 
+
+00:00:07.839 --> 00:00:12.549 align:start position:0%
+episode 31. 36 repositories trending on
+GitHub<00:00:08.320><c> right</c><00:00:08.480><c> now.</c><00:00:09.040><c> Let's</c><00:00:09.360><c> get</c><00:00:09.440><c> into</c><00:00:09.760><c> it.</c>
+
+00:00:12.549 --> 00:00:12.559 align:start position:0%
+GitHub right now. Let's get into it.
+ 
+
+00:00:12.559 --> 00:00:14.629 align:start position:0%
+GitHub right now. Let's get into it.
+Every<00:00:12.880><c> browserbased</c><00:00:13.599><c> terminal</c><00:00:14.000><c> renders</c><00:00:14.400><c> onto</c>
+
+00:00:14.629 --> 00:00:14.639 align:start position:0%
+Every browserbased terminal renders onto
+ 
+
+00:00:14.639 --> 00:00:17.269 align:start position:0%
+Every browserbased terminal renders onto
+an<00:00:14.880><c> HTML</c><00:00:15.440><c> canvas.</c><00:00:16.240><c> That</c><00:00:16.480><c> means</c><00:00:16.720><c> no</c><00:00:16.880><c> native</c>
+
+00:00:17.269 --> 00:00:17.279 align:start position:0%
+an HTML canvas. That means no native
+ 
+
+00:00:17.279 --> 00:00:19.990 align:start position:0%
+an HTML canvas. That means no native
+text<00:00:17.520><c> selection.</c><00:00:18.400><c> Werm</c><00:00:19.039><c> reimagines</c><00:00:19.600><c> the</c><00:00:19.760><c> web</c>
+
+00:00:19.990 --> 00:00:20.000 align:start position:0%
+text selection. Werm reimagines the web
+ 
+
+00:00:20.000 --> 00:00:22.310 align:start position:0%
+text selection. Werm reimagines the web
+terminal<00:00:20.480><c> entirely.</c><00:00:21.359><c> Built</c><00:00:21.680><c> with</c><00:00:21.840><c> Zigg</c><00:00:22.160><c> and</c>
+
+00:00:22.310 --> 00:00:22.320 align:start position:0%
+terminal entirely. Built with Zigg and
+ 
+
+00:00:22.320 --> 00:00:25.109 align:start position:0%
+terminal entirely. Built with Zigg and
+Web<00:00:22.480><c> Assembly,</c><00:00:23.039><c> it</c><00:00:23.279><c> parses</c><00:00:23.680><c> VT100</c><00:00:24.400><c> and</c><00:00:24.640><c> Xterm</c>
+
+00:00:25.109 --> 00:00:25.119 align:start position:0%
+Web Assembly, it parses VT100 and Xterm
+ 
+
+00:00:25.119 --> 00:00:27.269 align:start position:0%
+Web Assembly, it parses VT100 and Xterm
+escape<00:00:25.519><c> sequences,</c><00:00:26.160><c> but</c><00:00:26.400><c> renders</c><00:00:26.800><c> output</c>
+
+00:00:27.269 --> 00:00:27.279 align:start position:0%
+escape sequences, but renders output
+ 
+
+00:00:27.279 --> 00:00:29.750 align:start position:0%
+escape sequences, but renders output
+directly<00:00:27.680><c> into</c><00:00:27.920><c> the</c><00:00:28.080><c> DOM</c><00:00:28.640><c> as</c><00:00:28.960><c> real</c><00:00:29.279><c> semantic</c>
+
+00:00:29.750 --> 00:00:29.760 align:start position:0%
+directly into the DOM as real semantic
+ 
+
+00:00:29.760 --> 00:00:32.709 align:start position:0%
+directly into the DOM as real semantic
+HTML<00:00:30.400><c> text.</c><00:00:31.279><c> Native</c><00:00:31.679><c> text</c><00:00:31.920><c> selection,</c>
+
+00:00:32.709 --> 00:00:32.719 align:start position:0%
+HTML text. Native text selection,
+ 
+
+00:00:32.719 --> 00:00:34.630 align:start position:0%
+HTML text. Native text selection,
+perfect<00:00:33.040><c> copy,</c><00:00:33.440><c> paste,</c><00:00:33.760><c> and</c><00:00:34.000><c> screen</c><00:00:34.239><c> reader</c>
+
+00:00:34.630 --> 00:00:34.640 align:start position:0%
+perfect copy, paste, and screen reader
+ 
+
+00:00:34.640 --> 00:00:37.430 align:start position:0%
+perfect copy, paste, and screen reader
+support<00:00:35.040><c> out</c><00:00:35.200><c> of</c><00:00:35.280><c> the</c><00:00:35.520><c> box.</c><00:00:36.320><c> The</c><00:00:36.480><c> entire</c><00:00:36.880><c> WASM</c>
+
+00:00:37.430 --> 00:00:37.440 align:start position:0%
+support out of the box. The entire WASM
+ 
+
+00:00:37.440 --> 00:00:39.750 align:start position:0%
+support out of the box. The entire WASM
+core<00:00:37.600><c> is</c><00:00:37.840><c> 12</c><00:00:38.079><c> kilob.</c><00:00:39.040><c> React</c><00:00:39.440><c> support</c>
+
+00:00:39.750 --> 00:00:39.760 align:start position:0%
+core is 12 kilob. React support
+ 
+
+00:00:39.760 --> 00:00:41.350 align:start position:0%
+core is 12 kilob. React support
+included.
+
+00:00:41.350 --> 00:00:41.360 align:start position:0%
+included.
+ 
+
+00:00:41.360 --> 00:00:42.950 align:start position:0%
+included.
+Someone<00:00:41.680><c> built</c><00:00:41.840><c> a</c><00:00:42.000><c> palunteer</c><00:00:42.640><c> style</c>
+
+00:00:42.950 --> 00:00:42.960 align:start position:0%
+Someone built a palunteer style
+ 
+
+00:00:42.960 --> 00:00:45.030 align:start position:0%
+Someone built a palunteer style
+operations<00:00:43.440><c> dashboard</c><00:00:44.000><c> to</c><00:00:44.239><c> coordinate</c><00:00:44.719><c> three</c>
+
+00:00:45.030 --> 00:00:45.040 align:start position:0%
+operations dashboard to coordinate three
+ 
+
+00:00:45.040 --> 00:00:47.270 align:start position:0%
+operations dashboard to coordinate three
+families<00:00:45.520><c> driving</c><00:00:45.760><c> to</c><00:00:46.000><c> Yusede.</c><00:00:46.879><c> convoy</c>
+
+00:00:47.270 --> 00:00:47.280 align:start position:0%
+families driving to Yusede. convoy
+ 
+
+00:00:47.280 --> 00:00:49.510 align:start position:0%
+families driving to Yusede. convoy
+routes,<00:00:47.840><c> arrival</c><00:00:48.320><c> windows,</c><00:00:48.960><c> mission</c><00:00:49.280><c> launch</c>
+
+00:00:49.510 --> 00:00:49.520 align:start position:0%
+routes, arrival windows, mission launch
+ 
+
+00:00:49.520 --> 00:00:52.150 align:start position:0%
+routes, arrival windows, mission launch
+overlays,<00:00:50.239><c> meal</c><00:00:50.559><c> logistics,</c><00:00:51.360><c> a</c><00:00:51.600><c> live</c><00:00:51.840><c> Google</c>
+
+00:00:52.150 --> 00:00:52.160 align:start position:0%
+overlays, meal logistics, a live Google
+ 
+
+00:00:52.160 --> 00:00:53.990 align:start position:0%
+overlays, meal logistics, a live Google
+Maps<00:00:52.559><c> layer</c><00:00:52.719><c> with</c><00:00:52.879><c> day-by-day</c><00:00:53.520><c> timeline</c>
+
+00:00:53.990 --> 00:00:54.000 align:start position:0%
+Maps layer with day-by-day timeline
+ 
+
+00:00:54.000 --> 00:00:56.790 align:start position:0%
+Maps layer with day-by-day timeline
+playback<00:00:54.800><c> for</c><00:00:54.960><c> a</c><00:00:55.120><c> cabin</c><00:00:55.520><c> trip.</c><00:00:56.160><c> The</c><00:00:56.320><c> readme</c>
+
+00:00:56.790 --> 00:00:56.800 align:start position:0%
+playback for a cabin trip. The readme
+ 
+
+00:00:56.800 --> 00:00:58.950 align:start position:0%
+playback for a cabin trip. The readme
+describes<00:00:57.120><c> it</c><00:00:57.280><c> as</c><00:00:57.760><c> intentionally</c><00:00:58.399><c> overbuilt</c>
+
+00:00:58.950 --> 00:00:58.960 align:start position:0%
+describes it as intentionally overbuilt
+ 
+
+00:00:58.960 --> 00:01:02.069 align:start position:0%
+describes it as intentionally overbuilt
+for<00:00:59.199><c> a</c><00:00:59.440><c> small</c><00:00:59.840><c> real</c><00:01:00.160><c> life</c><00:01:00.399><c> use</c><00:01:00.640><c> case.</c><00:01:01.440><c> React</c>
+
+00:01:02.069 --> 00:01:02.079 align:start position:0%
+for a small real life use case. React
+ 
+
+00:01:02.079 --> 00:01:05.109 align:start position:0%
+for a small real life use case. React
+19,<00:01:02.719><c> vit</c><00:01:03.199><c> framer</c><00:01:03.680><c> motion</c><00:01:04.159><c> runs</c><00:01:04.400><c> locally</c><00:01:04.720><c> in</c><00:01:04.960><c> a</c>
+
+00:01:05.109 --> 00:01:05.119 align:start position:0%
+19, vit framer motion runs locally in a
+ 
+
+00:01:05.119 --> 00:01:07.350 align:start position:0%
+19, vit framer motion runs locally in a
+few<00:01:05.280><c> commands.</c>
+
+00:01:07.350 --> 00:01:07.360 align:start position:0%
+few commands.
+ 
+
+00:01:07.360 --> 00:01:09.750 align:start position:0%
+few commands.
+Duck<00:01:07.760><c> DB</c><00:01:08.080><c> is</c><00:01:08.240><c> the</c><00:01:08.400><c> best</c><00:01:08.799><c> local</c><00:01:09.119><c> analytical</c>
+
+00:01:09.750 --> 00:01:09.760 align:start position:0%
+Duck DB is the best local analytical
+ 
+
+00:01:09.760 --> 00:01:12.230 align:start position:0%
+Duck DB is the best local analytical
+database<00:01:10.240><c> available,</c><00:01:11.040><c> but</c><00:01:11.360><c> scaling</c><00:01:11.680><c> it</c><00:01:11.840><c> to</c><00:01:12.000><c> a</c>
+
+00:01:12.230 --> 00:01:12.240 align:start position:0%
+database available, but scaling it to a
+ 
+
+00:01:12.240 --> 00:01:14.070 align:start position:0%
+database available, but scaling it to a
+team<00:01:12.640><c> usually</c><00:01:13.040><c> means</c><00:01:13.360><c> paying</c><00:01:13.600><c> for</c><00:01:13.760><c> mother</c>
+
+00:01:14.070 --> 00:01:14.080 align:start position:0%
+team usually means paying for mother
+ 
+
+00:01:14.080 --> 00:01:16.710 align:start position:0%
+team usually means paying for mother
+duck.<00:01:15.119><c> OpenDuck</c><00:01:15.760><c> is</c><00:01:15.840><c> a</c><00:01:16.000><c> self-hosted</c>
+
+00:01:16.710 --> 00:01:16.720 align:start position:0%
+duck. OpenDuck is a self-hosted
+ 
+
+00:01:16.720 --> 00:01:18.630 align:start position:0%
+duck. OpenDuck is a self-hosted
+re-implementation<00:01:17.439><c> of</c><00:01:17.680><c> Motherduck's</c><00:01:18.400><c> core</c>
+
+00:01:18.630 --> 00:01:18.640 align:start position:0%
+re-implementation of Motherduck's core
+ 
+
+00:01:18.640 --> 00:01:21.990 align:start position:0%
+re-implementation of Motherduck's core
+architectural<00:01:19.439><c> ideas.</c><00:01:20.720><c> Dual</c><00:01:21.119><c> execution</c><00:01:21.680><c> and</c>
+
+00:01:21.990 --> 00:01:22.000 align:start position:0%
+architectural ideas. Dual execution and
+ 
+
+00:01:22.000 --> 00:01:23.590 align:start position:0%
+architectural ideas. Dual execution and
+differential<00:01:22.640><c> storage</c><00:01:23.040><c> on</c><00:01:23.280><c> your</c><00:01:23.439><c> own</c>
+
+00:01:23.590 --> 00:01:23.600 align:start position:0%
+differential storage on your own
+ 
+
+00:01:23.600 --> 00:01:26.149 align:start position:0%
+differential storage on your own
+infrastructure.<00:01:24.799><c> SQL</c><00:01:25.200><c> queries</c><00:01:25.600><c> executing</c>
+
+00:01:26.149 --> 00:01:26.159 align:start position:0%
+infrastructure. SQL queries executing
+ 
+
+00:01:26.159 --> 00:01:27.830 align:start position:0%
+infrastructure. SQL queries executing
+across<00:01:26.560><c> both</c><00:01:26.880><c> local</c><00:01:27.200><c> and</c><00:01:27.439><c> remote</c>
+
+00:01:27.830 --> 00:01:27.840 align:start position:0%
+across both local and remote
+ 
+
+00:01:27.840 --> 00:01:30.390 align:start position:0%
+across both local and remote
+simultaneously.<00:01:29.200><c> Heavy</c><00:01:29.600><c> lifting</c><00:01:29.920><c> pushed</c><00:01:30.240><c> to</c>
+
+00:01:30.390 --> 00:01:30.400 align:start position:0%
+simultaneously. Heavy lifting pushed to
+ 
+
+00:01:30.400 --> 00:01:32.469 align:start position:0%
+simultaneously. Heavy lifting pushed to
+the<00:01:30.560><c> cloud</c><00:01:31.119><c> while</c><00:01:31.439><c> local</c><00:01:31.759><c> results</c><00:01:32.159><c> stay</c>
+
+00:01:32.469 --> 00:01:32.479 align:start position:0%
+the cloud while local results stay
+ 
+
+00:01:32.479 --> 00:01:33.990 align:start position:0%
+the cloud while local results stay
+instant.
+
+00:01:33.990 --> 00:01:34.000 align:start position:0%
+instant.
+ 
+
+00:01:34.000 --> 00:01:36.630 align:start position:0%
+instant.
+The<00:01:34.240><c> hard</c><00:01:34.479><c> drive</c><00:01:34.799><c> died</c><00:01:35.600><c> into</c><00:01:35.920><c> its</c><00:01:36.079><c> activation</c>
+
+00:01:36.630 --> 00:01:36.640 align:start position:0%
+The hard drive died into its activation
+ 
+
+00:01:36.640 --> 00:01:39.350 align:start position:0%
+The hard drive died into its activation
+servers<00:01:37.040><c> have</c><00:01:37.200><c> been</c><00:01:37.360><c> offline</c><00:01:37.840><c> since</c><00:01:38.240><c> 2017.</c>
+
+00:01:39.350 --> 00:01:39.360 align:start position:0%
+servers have been offline since 2017.
+ 
+
+00:01:39.360 --> 00:01:42.469 align:start position:0%
+servers have been offline since 2017.
+The<00:01:39.680><c> $199</c><00:01:40.720><c> license</c><00:01:41.040><c> is</c><00:01:41.280><c> worthless,</c><00:01:42.079><c> so</c><00:01:42.240><c> they</c>
+
+00:01:42.469 --> 00:01:42.479 align:start position:0%
+The $199 license is worthless, so they
+ 
+
+00:01:42.479 --> 00:01:45.670 align:start position:0%
+The $199 license is worthless, so they
+rebuilt<00:01:42.880><c> it</c><00:01:43.119><c> from</c><00:01:43.360><c> scratch.</c><00:01:44.159><c> Slowbooks</c><00:01:45.360><c> is</c><00:01:45.520><c> a</c>
+
+00:01:45.670 --> 00:01:45.680 align:start position:0%
+rebuilt it from scratch. Slowbooks is a
+ 
+
+00:01:45.680 --> 00:01:47.590 align:start position:0%
+rebuilt it from scratch. Slowbooks is a
+full<00:01:45.840><c> double</c><00:01:46.079><c> entry</c><00:01:46.479><c> bookkeeping</c><00:01:47.040><c> app</c><00:01:47.280><c> with</c>
+
+00:01:47.590 --> 00:01:47.600 align:start position:0%
+full double entry bookkeeping app with
+ 
+
+00:01:47.600 --> 00:01:49.910 align:start position:0%
+full double entry bookkeeping app with
+invoices,<00:01:48.479><c> estimates,</c><00:01:49.119><c> payments,</c><00:01:49.680><c> bank</c>
+
+00:01:49.910 --> 00:01:49.920 align:start position:0%
+invoices, estimates, payments, bank
+ 
+
+00:01:49.920 --> 00:01:52.550 align:start position:0%
+invoices, estimates, payments, bank
+reconciliation,<00:01:50.960><c> P&amp;L,</c><00:01:51.600><c> balance</c><00:01:51.920><c> sheet,</c><00:01:52.240><c> and</c>
+
+00:01:52.550 --> 00:01:52.560 align:start position:0%
+reconciliation, P&amp;L, balance sheet, and
+ 
+
+00:01:52.560 --> 00:01:56.069 align:start position:0%
+reconciliation, P&amp;L, balance sheet, and
+AR<00:01:52.880><c> aging.</c><00:01:54.000><c> Authentic</c><00:01:54.479><c> QuickBooks</c><00:01:55.200><c> 2003</c><00:01:55.759><c> Navy</c>
+
+00:01:56.069 --> 00:01:56.079 align:start position:0%
+AR aging. Authentic QuickBooks 2003 Navy
+ 
+
+00:01:56.079 --> 00:01:59.109 align:start position:0%
+AR aging. Authentic QuickBooks 2003 Navy
+and<00:01:56.240><c> gold</c><00:01:56.479><c> skin</c><00:01:57.439><c> reads</c><00:01:57.680><c> and</c><00:01:57.920><c> writes</c><00:01:58.240><c> IIF</c><00:01:58.799><c> files</c>
+
+00:01:59.109 --> 00:01:59.119 align:start position:0%
+and gold skin reads and writes IIF files
+ 
+
+00:01:59.119 --> 00:02:01.670 align:start position:0%
+and gold skin reads and writes IIF files
+so<00:01:59.280><c> data</c><00:01:59.600><c> round</c><00:01:59.920><c> trips</c><00:02:00.159><c> with</c><00:02:00.240><c> QB203</c><00:02:01.360><c> if</c><00:02:01.520><c> you</c>
+
+00:02:01.670 --> 00:02:01.680 align:start position:0%
+so data round trips with QB203 if you
+ 
+
+00:02:01.680 --> 00:02:04.149 align:start position:0%
+so data round trips with QB203 if you
+still<00:02:01.840><c> have</c><00:02:02.000><c> it</c><00:02:02.159><c> running.</c><00:02:03.600><c> Someone</c><00:02:03.920><c> was</c>
+
+00:02:04.149 --> 00:02:04.159 align:start position:0%
+still have it running. Someone was
+ 
+
+00:02:04.159 --> 00:02:06.709 align:start position:0%
+still have it running. Someone was
+spending<00:02:04.479><c> over</c><00:02:04.880><c> $200</c><00:02:05.520><c> a</c><00:02:05.680><c> day</c><00:02:05.840><c> on</c><00:02:06.079><c> clawed</c><00:02:06.479><c> code</c>
+
+00:02:06.709 --> 00:02:06.719 align:start position:0%
+spending over $200 a day on clawed code
+ 
+
+00:02:06.719 --> 00:02:09.430 align:start position:0%
+spending over $200 a day on clawed code
+API<00:02:07.200><c> credits</c><00:02:07.920><c> with</c><00:02:08.160><c> no</c><00:02:08.399><c> idea</c><00:02:08.800><c> where</c><00:02:09.039><c> it</c><00:02:09.280><c> was</c>
+
+00:02:09.430 --> 00:02:09.440 align:start position:0%
+API credits with no idea where it was
+ 
+
+00:02:09.440 --> 00:02:11.190 align:start position:0%
+API credits with no idea where it was
+going.<00:02:10.000><c> So,</c><00:02:10.160><c> they</c><00:02:10.319><c> built</c><00:02:10.560><c> a</c><00:02:10.720><c> tool</c><00:02:10.879><c> to</c><00:02:11.039><c> find</c>
+
+00:02:11.190 --> 00:02:11.200 align:start position:0%
+going. So, they built a tool to find
+ 
+
+00:02:11.200 --> 00:02:13.190 align:start position:0%
+going. So, they built a tool to find
+out.<00:02:11.440><c> Code</c><00:02:11.840><c> burn</c><00:02:12.000><c> is</c><00:02:12.160><c> a</c><00:02:12.319><c> terminal</c><00:02:12.640><c> UI</c><00:02:12.959><c> that</c>
+
+00:02:13.190 --> 00:02:13.200 align:start position:0%
+out. Code burn is a terminal UI that
+ 
+
+00:02:13.200 --> 00:02:15.350 align:start position:0%
+out. Code burn is a terminal UI that
+reads<00:02:13.440><c> your</c><00:02:13.599><c> local</c><00:02:13.920><c> session</c><00:02:14.400><c> transcripts</c><00:02:15.040><c> and</c>
+
+00:02:15.350 --> 00:02:15.360 align:start position:0%
+reads your local session transcripts and
+ 
+
+00:02:15.360 --> 00:02:18.070 align:start position:0%
+reads your local session transcripts and
+categorizes<00:02:16.160><c> every</c><00:02:16.400><c> token</c><00:02:16.800><c> spent.</c><00:02:17.280><c> No</c><00:02:17.520><c> LLM</c>
+
+00:02:18.070 --> 00:02:18.080 align:start position:0%
+categorizes every token spent. No LLM
+ 
+
+00:02:18.080 --> 00:02:20.869 align:start position:0%
+categorizes every token spent. No LLM
+calls<00:02:18.400><c> required.</c><00:02:19.440><c> Cost</c><00:02:19.760><c> broken</c><00:02:20.160><c> down</c><00:02:20.319><c> by</c><00:02:20.560><c> task</c>
+
+00:02:20.869 --> 00:02:20.879 align:start position:0%
+calls required. Cost broken down by task
+ 
+
+00:02:20.879 --> 00:02:23.350 align:start position:0%
+calls required. Cost broken down by task
+type,<00:02:21.440><c> debugging,</c><00:02:22.080><c> brainstorming,</c><00:02:22.959><c> actual</c>
+
+00:02:23.350 --> 00:02:23.360 align:start position:0%
+type, debugging, brainstorming, actual
+ 
+
+00:02:23.360 --> 00:02:25.910 align:start position:0%
+type, debugging, brainstorming, actual
+coding,<00:02:24.160><c> plus</c><00:02:24.480><c> token</c><00:02:24.800><c> overhead</c><00:02:25.280><c> from</c><00:02:25.440><c> bloated</c>
+
+00:02:25.910 --> 00:02:25.920 align:start position:0%
+coding, plus token overhead from bloated
+ 
+
+00:02:25.920 --> 00:02:28.949 align:start position:0%
+coding, plus token overhead from bloated
+MCP<00:02:26.560><c> servers.</c><00:02:27.520><c> Interactive</c><00:02:28.080><c> daily</c><00:02:28.480><c> activity</c>
+
+00:02:28.949 --> 00:02:28.959 align:start position:0%
+MCP servers. Interactive daily activity
+ 
+
+00:02:28.959 --> 00:02:31.110 align:start position:0%
+MCP servers. Interactive daily activity
+chart<00:02:29.360><c> and</c><00:02:29.520><c> a</c><00:02:29.760><c> Mac</c><00:02:30.080><c> menu</c><00:02:30.400><c> bar</c><00:02:30.640><c> widget</c>
+
+00:02:31.110 --> 00:02:31.120 align:start position:0%
+chart and a Mac menu bar widget
+ 
+
+00:02:31.120 --> 00:02:32.949 align:start position:0%
+chart and a Mac menu bar widget
+included.
+
+00:02:32.949 --> 00:02:32.959 align:start position:0%
+included.
+ 
+
+00:02:32.959 --> 00:02:35.030 align:start position:0%
+included.
+Building<00:02:33.440><c> beautiful</c><00:02:33.920><c> interactive</c><00:02:34.560><c> terminal</c>
+
+00:02:35.030 --> 00:02:35.040 align:start position:0%
+Building beautiful interactive terminal
+ 
+
+00:02:35.040 --> 00:02:36.869 align:start position:0%
+Building beautiful interactive terminal
+interfaces<00:02:35.680><c> means</c><00:02:36.000><c> cobbling</c><00:02:36.480><c> together</c>
+
+00:02:36.869 --> 00:02:36.879 align:start position:0%
+interfaces means cobbling together
+ 
+
+00:02:36.879 --> 00:02:39.910 align:start position:0%
+interfaces means cobbling together
+dozens<00:02:37.360><c> of</c><00:02:37.519><c> raw</c><00:02:37.840><c> npm</c><00:02:38.400><c> packages.</c><00:02:39.120><c> Term</c><00:02:39.519><c> CNN</c>
+
+00:02:39.910 --> 00:02:39.920 align:start position:0%
+dozens of raw npm packages. Term CNN
+ 
+
+00:02:39.920 --> 00:02:42.710 align:start position:0%
+dozens of raw npm packages. Term CNN
+brings<00:02:40.160><c> the</c><00:02:40.400><c> Shad/</c><00:02:41.200><c> UI</c><00:02:41.680><c> philosophy</c><00:02:42.319><c> directly</c>
+
+00:02:42.710 --> 00:02:42.720 align:start position:0%
+brings the Shad/ UI philosophy directly
+ 
+
+00:02:42.720 --> 00:02:45.190 align:start position:0%
+brings the Shad/ UI philosophy directly
+to<00:02:42.879><c> the</c><00:02:43.040><c> terminal.</c><00:02:43.920><c> Built</c><00:02:44.239><c> on</c><00:02:44.400><c> Ink,</c><00:02:44.879><c> it's</c><00:02:45.040><c> a</c>
+
+00:02:45.190 --> 00:02:45.200 align:start position:0%
+to the terminal. Built on Ink, it's a
+ 
+
+00:02:45.200 --> 00:02:47.509 align:start position:0%
+to the terminal. Built on Ink, it's a
+registry<00:02:45.599><c> of</c><00:02:45.760><c> over</c><00:02:46.080><c> 100</c><00:02:46.400><c> zeroconfig</c><00:02:47.120><c> terminal</c>
+
+00:02:47.509 --> 00:02:47.519 align:start position:0%
+registry of over 100 zeroconfig terminal
+ 
+
+00:02:47.519 --> 00:02:50.070 align:start position:0%
+registry of over 100 zeroconfig terminal
+UI<00:02:47.920><c> components</c><00:02:48.720><c> you</c><00:02:49.040><c> copy</c><00:02:49.280><c> and</c><00:02:49.519><c> paste</c><00:02:49.840><c> into</c>
+
+00:02:50.070 --> 00:02:50.080 align:start position:0%
+UI components you copy and paste into
+ 
+
+00:02:50.080 --> 00:02:52.630 align:start position:0%
+UI components you copy and paste into
+your<00:02:50.239><c> React</c><00:02:50.640><c> codebase,</c><00:02:51.680><c> command</c><00:02:52.000><c> pallets,</c>
+
+00:02:52.630 --> 00:02:52.640 align:start position:0%
+your React codebase, command pallets,
+ 
+
+00:02:52.640 --> 00:02:54.869 align:start position:0%
+your React codebase, command pallets,
+progress<00:02:53.040><c> bars,</c><00:02:53.599><c> interactive</c><00:02:54.160><c> charts,</c>
+
+00:02:54.869 --> 00:02:54.879 align:start position:0%
+progress bars, interactive charts,
+ 
+
+00:02:54.879 --> 00:02:57.110 align:start position:0%
+progress bars, interactive charts,
+sidebars,<00:02:55.599><c> and</c><00:02:55.840><c> specialized</c><00:02:56.319><c> AI</c><00:02:56.720><c> components</c>
+
+00:02:57.110 --> 00:02:57.120 align:start position:0%
+sidebars, and specialized AI components
+ 
+
+00:02:57.120 --> 00:03:00.390 align:start position:0%
+sidebars, and specialized AI components
+like<00:02:57.440><c> streaming</c><00:02:57.920><c> text</c><00:02:58.239><c> and</c><00:02:58.480><c> thinking</c><00:02:58.800><c> blocks.</c>
+
+00:03:00.390 --> 00:03:00.400 align:start position:0%
+like streaming text and thinking blocks.
+ 
+
+00:03:00.400 --> 00:03:02.390 align:start position:0%
+like streaming text and thinking blocks.
+Sideloading<00:03:00.959><c> apps</c><00:03:01.280><c> on</c><00:03:01.440><c> iOS</c><00:03:01.920><c> used</c><00:03:02.080><c> to</c><00:03:02.239><c> mean</c>
+
+00:03:02.390 --> 00:03:02.400 align:start position:0%
+Sideloading apps on iOS used to mean
+ 
+
+00:03:02.400 --> 00:03:04.550 align:start position:0%
+Sideloading apps on iOS used to mean
+Apple's<00:03:02.800><c> desktop</c><00:03:03.360><c> software</c><00:03:03.760><c> or</c><00:03:04.000><c> keeping</c><00:03:04.239><c> Alt</c>
+
+00:03:04.550 --> 00:03:04.560 align:start position:0%
+Apple's desktop software or keeping Alt
+ 
+
+00:03:04.560 --> 00:03:07.670 align:start position:0%
+Apple's desktop software or keeping Alt
+server<00:03:04.879><c> running</c><00:03:05.200><c> 24/7</c><00:03:05.760><c> on</c><00:03:05.920><c> a</c><00:03:06.080><c> Mac</c><00:03:06.239><c> or</c><00:03:06.480><c> PC.</c><00:03:07.440><c> Side</c>
+
+00:03:07.670 --> 00:03:07.680 align:start position:0%
+server running 24/7 on a Mac or PC. Side
+ 
+
+00:03:07.680 --> 00:03:09.670 align:start position:0%
+server running 24/7 on a Mac or PC. Side
+Impactor<00:03:08.159><c> ports</c><00:03:08.480><c> the</c><00:03:08.720><c> entire</c><00:03:09.040><c> cryptographic</c>
+
+00:03:09.670 --> 00:03:09.680 align:start position:0%
+Impactor ports the entire cryptographic
+ 
+
+00:03:09.680 --> 00:03:11.270 align:start position:0%
+Impactor ports the entire cryptographic
+signing<00:03:10.080><c> process</c><00:03:10.480><c> into</c><00:03:10.800><c> clientside</c>
+
+00:03:11.270 --> 00:03:11.280 align:start position:0%
+signing process into clientside
+ 
+
+00:03:11.280 --> 00:03:14.390 align:start position:0%
+signing process into clientside
+JavaScript<00:03:11.920><c> via</c><00:03:12.159><c> the</c><00:03:12.319><c> web</c><00:03:12.560><c> USB</c><00:03:13.040><c> API.</c><00:03:14.080><c> Use</c><00:03:14.319><c> it</c>
+
+00:03:14.390 --> 00:03:14.400 align:start position:0%
+JavaScript via the web USB API. Use it
+ 
+
+00:03:14.400 --> 00:03:16.550 align:start position:0%
+JavaScript via the web USB API. Use it
+on<00:03:14.560><c> a</c><00:03:14.720><c> Windows</c><00:03:15.040><c> machine</c><00:03:15.280><c> at</c><00:03:15.519><c> a</c><00:03:15.680><c> library,</c><00:03:16.400><c> a</c>
+
+00:03:16.550 --> 00:03:16.560 align:start position:0%
+on a Windows machine at a library, a
+ 
+
+00:03:16.560 --> 00:03:19.190 align:start position:0%
+on a Windows machine at a library, a
+Linux<00:03:16.959><c> laptop,</c><00:03:17.680><c> or</c><00:03:18.000><c> Chrome</c><00:03:18.319><c> on</c><00:03:18.560><c> an</c><00:03:18.720><c> Android</c>
+
+00:03:19.190 --> 00:03:19.200 align:start position:0%
+Linux laptop, or Chrome on an Android
+ 
+
+00:03:19.200 --> 00:03:21.990 align:start position:0%
+Linux laptop, or Chrome on an Android
+phone.<00:03:20.159><c> Sign</c><00:03:20.480><c> and</c><00:03:20.640><c> inject</c><00:03:20.959><c> an</c><00:03:21.120><c> IPA</c><00:03:21.599><c> directly</c>
+
+00:03:21.990 --> 00:03:22.000 align:start position:0%
+phone. Sign and inject an IPA directly
+ 
+
+00:03:22.000 --> 00:03:25.509 align:start position:0%
+phone. Sign and inject an IPA directly
+into<00:03:22.239><c> your</c><00:03:22.480><c> iPhone</c><00:03:22.959><c> from</c><00:03:23.200><c> any</c><00:03:23.440><c> browser.</c>
+
+00:03:25.509 --> 00:03:25.519 align:start position:0%
+into your iPhone from any browser.
+ 
+
+00:03:25.519 --> 00:03:27.430 align:start position:0%
+into your iPhone from any browser.
+Cloning<00:03:25.920><c> a</c><00:03:26.080><c> massive</c><00:03:26.480><c> repository</c><00:03:27.120><c> just</c><00:03:27.280><c> to</c>
+
+00:03:27.430 --> 00:03:27.440 align:start position:0%
+Cloning a massive repository just to
+ 
+
+00:03:27.440 --> 00:03:30.149 align:start position:0%
+Cloning a massive repository just to
+read<00:03:27.599><c> a</c><00:03:27.840><c> few</c><00:03:28.000><c> files</c><00:03:28.480><c> is</c><00:03:28.800><c> wasteful</c><00:03:29.280><c> and</c><00:03:29.599><c> slow.</c>
+
+00:03:30.149 --> 00:03:30.159 align:start position:0%
+read a few files is wasteful and slow.
+ 
+
+00:03:30.159 --> 00:03:32.550 align:start position:0%
+read a few files is wasteful and slow.
+GHFS<00:03:30.879><c> uses</c><00:03:31.200><c> Apple's</c><00:03:31.599><c> native</c><00:03:31.920><c> file</c><00:03:32.239><c> system</c>
+
+00:03:32.550 --> 00:03:32.560 align:start position:0%
+GHFS uses Apple's native file system
+ 
+
+00:03:32.560 --> 00:03:34.630 align:start position:0%
+GHFS uses Apple's native file system
+extensions<00:03:33.200><c> to</c><00:03:33.360><c> mount</c><00:03:33.599><c> GitHub</c><00:03:34.000><c> repositories</c>
+
+00:03:34.630 --> 00:03:34.640 align:start position:0%
+extensions to mount GitHub repositories
+ 
+
+00:03:34.640 --> 00:03:36.869 align:start position:0%
+extensions to mount GitHub repositories
+directly<00:03:35.040><c> to</c><00:03:35.200><c> Finder</c><00:03:35.680><c> as</c><00:03:35.840><c> a</c><00:03:36.000><c> virtual</c><00:03:36.319><c> readonly</c>
+
+00:03:36.869 --> 00:03:36.879 align:start position:0%
+directly to Finder as a virtual readonly
+ 
+
+00:03:36.879 --> 00:03:39.430 align:start position:0%
+directly to Finder as a virtual readonly
+file<00:03:37.200><c> system.</c><00:03:38.080><c> Browse</c><00:03:38.480><c> remote</c><00:03:38.799><c> repos</c><00:03:39.200><c> like</c>
+
+00:03:39.430 --> 00:03:39.440 align:start position:0%
+file system. Browse remote repos like
+ 
+
+00:03:39.440 --> 00:03:42.070 align:start position:0%
+file system. Browse remote repos like
+regular<00:03:39.920><c> folders,</c><00:03:40.720><c> open</c><00:03:41.120><c> files</c><00:03:41.599><c> straight</c><00:03:41.840><c> in</c>
+
+00:03:42.070 --> 00:03:42.080 align:start position:0%
+regular folders, open files straight in
+ 
+
+00:03:42.080 --> 00:03:45.110 align:start position:0%
+regular folders, open files straight in
+VS<00:03:42.480><c> Code</c><00:03:42.720><c> or</c><00:03:42.879><c> Xcode.</c><00:03:43.760><c> Zero</c><00:03:44.159><c> disk</c><00:03:44.480><c> space</c><00:03:44.879><c> used</c>
+
+00:03:45.110 --> 00:03:45.120 align:start position:0%
+VS Code or Xcode. Zero disk space used
+ 
+
+00:03:45.120 --> 00:03:47.350 align:start position:0%
+VS Code or Xcode. Zero disk space used
+until<00:03:45.440><c> you</c><00:03:45.680><c> actually</c><00:03:46.000><c> open</c><00:03:46.400><c> something.</c><00:03:47.120><c> No</c>
+
+00:03:47.350 --> 00:03:47.360 align:start position:0%
+until you actually open something. No
+ 
+
+00:03:47.360 --> 00:03:49.990 align:start position:0%
+until you actually open something. No
+git<00:03:47.680><c> clone,</c><00:03:48.159><c> no</c><00:03:48.400><c> web</c><00:03:48.640><c> interface,</c><00:03:49.440><c> no</c><00:03:49.599><c> messy</c>
+
+00:03:49.990 --> 00:03:50.000 align:start position:0%
+git clone, no web interface, no messy
+ 
+
+00:03:50.000 --> 00:03:52.149 align:start position:0%
+git clone, no web interface, no messy
+history<00:03:50.319><c> to</c><00:03:50.560><c> manage.</c>
+
+00:03:52.149 --> 00:03:52.159 align:start position:0%
+history to manage.
+ 
+
+00:03:52.159 --> 00:03:54.149 align:start position:0%
+history to manage.
+Animated<00:03:52.720><c> handwriting</c><00:03:53.280><c> effects</c><00:03:53.599><c> on</c><00:03:53.760><c> landing</c>
+
+00:03:54.149 --> 00:03:54.159 align:start position:0%
+Animated handwriting effects on landing
+ 
+
+00:03:54.159 --> 00:03:56.470 align:start position:0%
+Animated handwriting effects on landing
+pages<00:03:54.959><c> usually</c><00:03:55.280><c> mean</c><00:03:55.599><c> hours</c><00:03:55.840><c> of</c><00:03:56.080><c> manually</c>
+
+00:03:56.470 --> 00:03:56.480 align:start position:0%
+pages usually mean hours of manually
+ 
+
+00:03:56.480 --> 00:03:59.990 align:start position:0%
+pages usually mean hours of manually
+tracing<00:03:56.879><c> SVG</c><00:03:57.360><c> paths</c><00:03:57.680><c> in</c><00:03:57.920><c> Illustrator.</c><00:03:59.360><c> Tagi</c>
+
+00:03:59.990 --> 00:04:00.000 align:start position:0%
+tracing SVG paths in Illustrator. Tagi
+ 
+
+00:04:00.000 --> 00:04:02.470 align:start position:0%
+tracing SVG paths in Illustrator. Tagi
+automates<00:04:00.480><c> the</c><00:04:00.720><c> entire</c><00:04:01.120><c> process.</c><00:04:02.159><c> Give</c><00:04:02.319><c> it</c>
+
+00:04:02.470 --> 00:04:02.480 align:start position:0%
+automates the entire process. Give it
+ 
+
+00:04:02.480 --> 00:04:04.229 align:start position:0%
+automates the entire process. Give it
+any<00:04:02.720><c> Google</c><00:04:03.040><c> font</c><00:04:03.280><c> and</c><00:04:03.439><c> it</c><00:04:03.599><c> generates</c><00:04:04.000><c> a</c>
+
+00:04:04.229 --> 00:04:04.239 align:start position:0%
+any Google font and it generates a
+ 
+
+00:04:04.239 --> 00:04:06.309 align:start position:0%
+any Google font and it generates a
+perfectly<00:04:04.640><c> animated</c><00:04:05.200><c> real-time</c><00:04:05.680><c> handwriting</c>
+
+00:04:06.309 --> 00:04:06.319 align:start position:0%
+perfectly animated real-time handwriting
+ 
+
+00:04:06.319 --> 00:04:08.470 align:start position:0%
+perfectly animated real-time handwriting
+effect.<00:04:07.200><c> The</c><00:04:07.439><c> creator</c><00:04:07.760><c> wrote</c><00:04:08.000><c> a</c><00:04:08.239><c> complete</c>
+
+00:04:08.470 --> 00:04:08.480 align:start position:0%
+effect. The creator wrote a complete
+ 
+
+00:04:08.480 --> 00:04:10.550 align:start position:0%
+effect. The creator wrote a complete
+image<00:04:08.879><c> processing</c><00:04:09.360><c> pipeline</c><00:04:10.159><c> including</c>
+
+00:04:10.550 --> 00:04:10.560 align:start position:0%
+image processing pipeline including
+ 
+
+00:04:10.560 --> 00:04:12.630 align:start position:0%
+image processing pipeline including
+custom<00:04:10.959><c> rasterization</c><00:04:11.920><c> and</c><00:04:12.159><c> distance</c>
+
+00:04:12.630 --> 00:04:12.640 align:start position:0%
+custom rasterization and distance
+ 
+
+00:04:12.640 --> 00:04:15.830 align:start position:0%
+custom rasterization and distance
+transforms<00:04:13.760><c> single</c><00:04:14.080><c> npm</c><00:04:14.640><c> package</c><00:04:15.439><c> react</c>
+
+00:04:15.830 --> 00:04:15.840 align:start position:0%
+transforms single npm package react
+ 
+
+00:04:15.840 --> 00:04:18.150 align:start position:0%
+transforms single npm package react
+components<00:04:16.400><c> included.</c>
+
+00:04:18.150 --> 00:04:18.160 align:start position:0%
+components included.
+ 
+
+00:04:18.160 --> 00:04:20.069 align:start position:0%
+components included.
+Zada<00:04:18.639><c> just</c><00:04:18.799><c> open</c><00:04:19.120><c> sourced</c><00:04:19.440><c> the</c><00:04:19.600><c> platform</c>
+
+00:04:20.069 --> 00:04:20.079 align:start position:0%
+Zada just open sourced the platform
+ 
+
+00:04:20.079 --> 00:04:22.069 align:start position:0%
+Zada just open sourced the platform
+powering<00:04:20.400><c> their</c><00:04:20.639><c> cloud</c><00:04:20.959><c> service.</c><00:04:21.840><c> The</c>
+
+00:04:22.069 --> 00:04:22.079 align:start position:0%
+powering their cloud service. The
+ 
+
+00:04:22.079 --> 00:04:24.150 align:start position:0%
+powering their cloud service. The
+standout<00:04:22.560><c> feature</c><00:04:22.960><c> is</c><00:04:23.280><c> copyon</c><00:04:23.919><c> write</c>
+
+00:04:24.150 --> 00:04:24.160 align:start position:0%
+standout feature is copyon write
+ 
+
+00:04:24.160 --> 00:04:26.390 align:start position:0%
+standout feature is copyon write
+branching<00:04:24.639><c> at</c><00:04:24.800><c> the</c><00:04:24.960><c> storage</c><00:04:25.280><c> level.</c><00:04:26.160><c> A</c>
+
+00:04:26.390 --> 00:04:26.400 align:start position:0%
+branching at the storage level. A
+ 
+
+00:04:26.400 --> 00:04:28.550 align:start position:0%
+branching at the storage level. A
+terabyte<00:04:26.880><c> Postgress</c><00:04:27.440><c> database</c><00:04:27.919><c> branches</c><00:04:28.320><c> in</c>
+
+00:04:28.550 --> 00:04:28.560 align:start position:0%
+terabyte Postgress database branches in
+ 
+
+00:04:28.560 --> 00:04:30.710 align:start position:0%
+terabyte Postgress database branches in
+seconds<00:04:29.199><c> making</c><00:04:29.520><c> preview</c><00:04:30.000><c> environments</c><00:04:30.479><c> and</c>
+
+00:04:30.710 --> 00:04:30.720 align:start position:0%
+seconds making preview environments and
+ 
+
+00:04:30.720 --> 00:04:32.150 align:start position:0%
+seconds making preview environments and
+test<00:04:30.960><c> setups</c><00:04:31.360><c> that</c><00:04:31.520><c> were</c><00:04:31.759><c> previously</c>
+
+00:04:32.150 --> 00:04:32.160 align:start position:0%
+test setups that were previously
+ 
+
+00:04:32.160 --> 00:04:34.950 align:start position:0%
+test setups that were previously
+impractical<00:04:32.960><c> suddenly</c><00:04:33.440><c> cheap.</c><00:04:34.560><c> Runs</c><00:04:34.800><c> on</c>
+
+00:04:34.950 --> 00:04:34.960 align:start position:0%
+impractical suddenly cheap. Runs on
+ 
+
+00:04:34.960 --> 00:04:37.670 align:start position:0%
+impractical suddenly cheap. Runs on
+Kubernetes<00:04:35.919><c> built</c><00:04:36.160><c> on</c><00:04:36.320><c> cloudnative</c><00:04:37.040><c> PG</c><00:04:37.360><c> and</c>
+
+00:04:37.670 --> 00:04:37.680 align:start position:0%
+Kubernetes built on cloudnative PG and
+ 
+
+00:04:37.680 --> 00:04:40.550 align:start position:0%
+Kubernetes built on cloudnative PG and
+open<00:04:37.919><c> EBS.</c><00:04:38.960><c> Scale</c><00:04:39.280><c> to</c><00:04:39.440><c> zero</c><00:04:39.759><c> baked</c><00:04:40.080><c> in.</c>
+
+00:04:40.550 --> 00:04:40.560 align:start position:0%
+open EBS. Scale to zero baked in.
+ 
+
+00:04:40.560 --> 00:04:42.710 align:start position:0%
+open EBS. Scale to zero baked in.
+Inactivity<00:04:41.280><c> hibernates</c><00:04:41.919><c> the</c><00:04:42.080><c> instance.</c>
+
+00:04:42.710 --> 00:04:42.720 align:start position:0%
+Inactivity hibernates the instance.
+ 
+
+00:04:42.720 --> 00:04:45.830 align:start position:0%
+Inactivity hibernates the instance.
+First<00:04:43.040><c> connection</c><00:04:43.440><c> wakes</c><00:04:43.759><c> it</c><00:04:43.919><c> back</c><00:04:44.080><c> up.</c>
+
+00:04:45.830 --> 00:04:45.840 align:start position:0%
+First connection wakes it back up.
+ 
+
+00:04:45.840 --> 00:04:47.830 align:start position:0%
+First connection wakes it back up.
+Weft<00:04:46.240><c> is</c><00:04:46.320><c> a</c><00:04:46.479><c> new</c><00:04:46.720><c> programming</c><00:04:47.120><c> language</c><00:04:47.520><c> where</c>
+
+00:04:47.830 --> 00:04:47.840 align:start position:0%
+Weft is a new programming language where
+ 
+
+00:04:47.840 --> 00:04:50.950 align:start position:0%
+Weft is a new programming language where
+LLMs,<00:04:48.639><c> APIs,</c><00:04:49.520><c> databases,</c><00:04:50.160><c> and</c><00:04:50.320><c> human</c><00:04:50.639><c> in</c><00:04:50.800><c> the</c>
+
+00:04:50.950 --> 00:04:50.960 align:start position:0%
+LLMs, APIs, databases, and human in the
+ 
+
+00:04:50.960 --> 00:04:52.550 align:start position:0%
+LLMs, APIs, databases, and human in the
+loop<00:04:51.120><c> approvals</c><00:04:51.680><c> are</c><00:04:51.919><c> base</c><00:04:52.160><c> language</c>
+
+00:04:52.550 --> 00:04:52.560 align:start position:0%
+loop approvals are base language
+ 
+
+00:04:52.560 --> 00:04:54.629 align:start position:0%
+loop approvals are base language
+primitives<00:04:53.360><c> the</c><00:04:53.600><c> same</c><00:04:53.680><c> way</c><00:04:54.000><c> integers</c><00:04:54.479><c> and</c>
+
+00:04:54.629 --> 00:04:54.639 align:start position:0%
+primitives the same way integers and
+ 
+
+00:04:54.639 --> 00:04:57.510 align:start position:0%
+primitives the same way integers and
+loops<00:04:55.040><c> are</c><00:04:55.120><c> in</c><00:04:55.280><c> Python.</c><00:04:56.320><c> It</c><00:04:56.560><c> compiles</c><00:04:56.960><c> to</c><00:04:57.120><c> Rust</c>
+
+00:04:57.510 --> 00:04:57.520 align:start position:0%
+loops are in Python. It compiles to Rust
+ 
+
+00:04:57.520 --> 00:04:59.749 align:start position:0%
+loops are in Python. It compiles to Rust
+and<00:04:57.680><c> runs</c><00:04:57.919><c> on</c><00:04:58.160><c> restate</c><00:04:58.880><c> so</c><00:04:59.120><c> your</c><00:04:59.280><c> code</c><00:04:59.600><c> can</c>
+
+00:04:59.749 --> 00:04:59.759 align:start position:0%
+and runs on restate so your code can
+ 
+
+00:04:59.759 --> 00:05:02.150 align:start position:0%
+and runs on restate so your code can
+literally<00:05:00.240><c> pause</c><00:05:00.639><c> midf</c><00:05:00.960><c> function.</c><00:05:01.759><c> Send</c><00:05:02.000><c> a</c>
+
+00:05:02.150 --> 00:05:02.160 align:start position:0%
+literally pause midf function. Send a
+ 
+
+00:05:02.160 --> 00:05:04.150 align:start position:0%
+literally pause midf function. Send a
+form<00:05:02.400><c> to</c><00:05:02.560><c> a</c><00:05:02.720><c> human,</c><00:05:03.199><c> wait</c><00:05:03.440><c> 3</c><00:05:03.680><c> days</c><00:05:03.919><c> for</c>
+
+00:05:04.150 --> 00:05:04.160 align:start position:0%
+form to a human, wait 3 days for
+ 
+
+00:05:04.160 --> 00:05:06.310 align:start position:0%
+form to a human, wait 3 days for
+approval,<00:05:04.720><c> and</c><00:05:04.960><c> execution</c><00:05:05.600><c> resumes</c><00:05:06.000><c> exactly</c>
+
+00:05:06.310 --> 00:05:06.320 align:start position:0%
+approval, and execution resumes exactly
+ 
+
+00:05:06.320 --> 00:05:08.870 align:start position:0%
+approval, and execution resumes exactly
+where<00:05:06.560><c> it</c><00:05:06.720><c> left</c><00:05:06.960><c> off.</c><00:05:07.600><c> No</c><00:05:07.840><c> web</c><00:05:08.080><c> hooks,</c><00:05:08.639><c> no</c>
+
+00:05:08.870 --> 00:05:08.880 align:start position:0%
+where it left off. No web hooks, no
+ 
+
+00:05:08.880 --> 00:05:11.830 align:start position:0%
+where it left off. No web hooks, no
+cues,<00:05:09.600><c> no</c><00:05:09.919><c> state</c><00:05:10.240><c> machines.</c>
+
+00:05:11.830 --> 00:05:11.840 align:start position:0%
+cues, no state machines.
+ 
+
+00:05:11.840 --> 00:05:13.350 align:start position:0%
+cues, no state machines.
+You've<00:05:12.160><c> seen</c><00:05:12.320><c> those</c><00:05:12.560><c> glowing</c><00:05:12.960><c> border</c>
+
+00:05:13.350 --> 00:05:13.360 align:start position:0%
+You've seen those glowing border
+ 
+
+00:05:13.360 --> 00:05:15.670 align:start position:0%
+You've seen those glowing border
+animations<00:05:13.840><c> on</c><00:05:14.000><c> Versel</c><00:05:14.560><c> and</c><00:05:14.800><c> linear</c><00:05:15.199><c> pricing</c>
+
+00:05:15.670 --> 00:05:15.680 align:start position:0%
+animations on Versel and linear pricing
+ 
+
+00:05:15.680 --> 00:05:17.830 align:start position:0%
+animations on Versel and linear pricing
+cards.<00:05:16.400><c> Border</c><00:05:16.720><c> beam</c><00:05:17.039><c> makes</c><00:05:17.199><c> it</c><00:05:17.360><c> a</c><00:05:17.520><c> single</c>
+
+00:05:17.830 --> 00:05:17.840 align:start position:0%
+cards. Border beam makes it a single
+ 
+
+00:05:17.840 --> 00:05:20.150 align:start position:0%
+cards. Border beam makes it a single
+component.<00:05:18.880><c> Give</c><00:05:19.039><c> your</c><00:05:19.199><c> container</c><00:05:19.759><c> relative</c>
+
+00:05:20.150 --> 00:05:20.160 align:start position:0%
+component. Give your container relative
+ 
+
+00:05:20.160 --> 00:05:22.469 align:start position:0%
+component. Give your container relative
+positioning.<00:05:20.960><c> Drop</c><00:05:21.199><c> in</c><00:05:21.440><c> the</c><00:05:21.600><c> tag</c><00:05:22.000><c> and</c><00:05:22.240><c> you</c>
+
+00:05:22.469 --> 00:05:22.479 align:start position:0%
+positioning. Drop in the tag and you
+ 
+
+00:05:22.479 --> 00:05:24.469 align:start position:0%
+positioning. Drop in the tag and you
+instantly<00:05:22.880><c> get</c><00:05:23.039><c> a</c><00:05:23.199><c> glowing</c><00:05:23.520><c> beam</c><00:05:23.919><c> tracing</c><00:05:24.320><c> the</c>
+
+00:05:24.469 --> 00:05:24.479 align:start position:0%
+instantly get a glowing beam tracing the
+ 
+
+00:05:24.479 --> 00:05:27.189 align:start position:0%
+instantly get a glowing beam tracing the
+perimeter.<00:05:25.440><c> Customizable</c><00:05:26.160><c> colors,</c><00:05:26.800><c> beam</c>
+
+00:05:27.189 --> 00:05:27.199 align:start position:0%
+perimeter. Customizable colors, beam
+ 
+
+00:05:27.199 --> 00:05:29.670 align:start position:0%
+perimeter. Customizable colors, beam
+size,<00:05:27.840><c> animation</c><00:05:28.400><c> duration,</c><00:05:28.960><c> and</c><00:05:29.199><c> multiple</c>
+
+00:05:29.670 --> 00:05:29.680 align:start position:0%
+size, animation duration, and multiple
+ 
+
+00:05:29.680 --> 00:05:31.830 align:start position:0%
+size, animation duration, and multiple
+delayed<00:05:30.080><c> beams</c><00:05:30.479><c> for</c><00:05:30.720><c> a</c><00:05:30.880><c> sci-fi</c><00:05:31.360><c> tracing</c>
+
+00:05:31.830 --> 00:05:31.840 align:start position:0%
+delayed beams for a sci-fi tracing
+ 
+
+00:05:31.840 --> 00:05:35.029 align:start position:0%
+delayed beams for a sci-fi tracing
+effect.<00:05:32.800><c> Works</c><00:05:33.039><c> with</c><00:05:33.280><c> Nex.js,</c><00:05:34.320><c> Vite,</c><00:05:34.800><c> and</c>
+
+00:05:35.029 --> 00:05:35.039 align:start position:0%
+effect. Works with Nex.js, Vite, and
+ 
+
+00:05:35.039 --> 00:05:38.230 align:start position:0%
+effect. Works with Nex.js, Vite, and
+Remix.<00:05:35.520><c> Out</c><00:05:35.680><c> of</c><00:05:35.840><c> the</c><00:05:36.000><c> box,</c><00:05:37.440><c> design</c><00:05:37.759><c> extract</c>
+
+00:05:38.230 --> 00:05:38.240 align:start position:0%
+Remix. Out of the box, design extract
+ 
+
+00:05:38.240 --> 00:05:40.550 align:start position:0%
+Remix. Out of the box, design extract
+takes<00:05:38.479><c> a</c><00:05:38.639><c> URL,</c><00:05:39.280><c> crawls</c><00:05:39.600><c> the</c><00:05:39.759><c> live</c><00:05:40.000><c> DOM,</c><00:05:40.320><c> and</c>
+
+00:05:40.550 --> 00:05:40.560 align:start position:0%
+takes a URL, crawls the live DOM, and
+ 
+
+00:05:40.560 --> 00:05:42.390 align:start position:0%
+takes a URL, crawls the live DOM, and
+reverse<00:05:40.960><c> engineers</c><00:05:41.440><c> the</c><00:05:41.680><c> entire</c><00:05:42.080><c> design</c>
+
+00:05:42.390 --> 00:05:42.400 align:start position:0%
+reverse engineers the entire design
+ 
+
+00:05:42.400 --> 00:05:45.189 align:start position:0%
+reverse engineers the entire design
+language.<00:05:43.520><c> Colors,</c><00:05:44.000><c> fonts,</c><00:05:44.479><c> grid</c><00:05:44.720><c> patterns,</c>
+
+00:05:45.189 --> 00:05:45.199 align:start position:0%
+language. Colors, fonts, grid patterns,
+ 
+
+00:05:45.199 --> 00:05:46.870 align:start position:0%
+language. Colors, fonts, grid patterns,
+hover<00:05:45.600><c> transitions,</c><00:05:46.320><c> responsive</c>
+
+00:05:46.870 --> 00:05:46.880 align:start position:0%
+hover transitions, responsive
+ 
+
+00:05:46.880 --> 00:05:49.189 align:start position:0%
+hover transitions, responsive
+breakpoints,<00:05:47.600><c> outputs</c><00:05:48.080><c> a</c><00:05:48.160><c> Tailwind</c><00:05:48.639><c> config,</c>
+
+00:05:49.189 --> 00:05:49.199 align:start position:0%
+breakpoints, outputs a Tailwind config,
+ 
+
+00:05:49.199 --> 00:05:52.150 align:start position:0%
+breakpoints, outputs a Tailwind config,
+CSS<00:05:49.759><c> variables,</c><00:05:50.320><c> a</c><00:05:50.479><c> shad</c><00:05:50.880><c> CN</c><00:05:51.199><c> UI</c><00:05:51.520><c> theme,</c><00:05:51.919><c> and</c>
+
+00:05:52.150 --> 00:05:52.160 align:start position:0%
+CSS variables, a shad CN UI theme, and
+ 
+
+00:05:52.160 --> 00:05:54.870 align:start position:0%
+CSS variables, a shad CN UI theme, and
+Figma<00:05:52.639><c> variables.</c><00:05:53.840><c> Install</c><00:05:54.160><c> the</c><00:05:54.320><c> output</c><00:05:54.560><c> as</c><00:05:54.720><c> a</c>
+
+00:05:54.870 --> 00:05:54.880 align:start position:0%
+Figma variables. Install the output as a
+ 
+
+00:05:54.880 --> 00:05:56.469 align:start position:0%
+Figma variables. Install the output as a
+cloud<00:05:55.199><c> code</c><00:05:55.440><c> skill.</c><00:05:56.000><c> Type</c>
+
+00:05:56.469 --> 00:05:56.479 align:start position:0%
+cloud code skill. Type
+ 
+
+00:05:56.479 --> 00:05:58.230 align:start position:0%
+cloud code skill. Type
+extractdesignstripe.com,
+
+00:05:58.230 --> 00:05:58.240 align:start position:0%
+extractdesignstripe.com,
+ 
+
+00:05:58.240 --> 00:05:59.990 align:start position:0%
+extractdesignstripe.com,
+and<00:05:58.479><c> your</c><00:05:58.639><c> agent</c><00:05:58.960><c> builds</c><00:05:59.199><c> a</c><00:05:59.360><c> landing</c><00:05:59.680><c> page</c>
+
+00:05:59.990 --> 00:06:00.000 align:start position:0%
+and your agent builds a landing page
+ 
+
+00:06:00.000 --> 00:06:01.830 align:start position:0%
+and your agent builds a landing page
+matching<00:06:00.320><c> that</c><00:06:00.560><c> exact</c><00:06:00.880><c> design</c><00:06:01.199><c> system</c><00:06:01.520><c> first</c>
+
+00:06:01.830 --> 00:06:01.840 align:start position:0%
+matching that exact design system first
+ 
+
+00:06:01.840 --> 00:06:03.670 align:start position:0%
+matching that exact design system first
+try.
+
+00:06:03.670 --> 00:06:03.680 align:start position:0%
+try.
+ 
+
+00:06:03.680 --> 00:06:05.749 align:start position:0%
+try.
+Docker<00:06:04.080><c> file</c><00:06:04.400><c> roast</c><00:06:04.720><c> is</c><00:06:04.880><c> an</c><00:06:05.039><c> opinionated</c>
+
+00:06:05.749 --> 00:06:05.759 align:start position:0%
+Docker file roast is an opinionated
+ 
+
+00:06:05.759 --> 00:06:08.390 align:start position:0%
+Docker file roast is an opinionated
+Docker<00:06:06.160><c> file</c><00:06:06.400><c> llinter</c><00:06:06.880><c> written</c><00:06:07.199><c> in</c><00:06:07.360><c> Rust</c><00:06:08.080><c> that</c>
+
+00:06:08.390 --> 00:06:08.400 align:start position:0%
+Docker file llinter written in Rust that
+ 
+
+00:06:08.400 --> 00:06:10.550 align:start position:0%
+Docker file llinter written in Rust that
+doesn't<00:06:08.639><c> give</c><00:06:08.800><c> you</c><00:06:08.960><c> boring</c><00:06:09.360><c> warnings.</c><00:06:10.240><c> It</c>
+
+00:06:10.550 --> 00:06:10.560 align:start position:0%
+doesn't give you boring warnings. It
+ 
+
+00:06:10.560 --> 00:06:12.870 align:start position:0%
+doesn't give you boring warnings. It
+aggressively<00:06:11.199><c> roasts</c><00:06:11.759><c> your</c><00:06:12.000><c> bad</c><00:06:12.319><c> DevOps</c>
+
+00:06:12.870 --> 00:06:12.880 align:start position:0%
+aggressively roasts your bad DevOps
+ 
+
+00:06:12.880 --> 00:06:15.590 align:start position:0%
+aggressively roasts your bad DevOps
+practices.<00:06:14.000><c> Layer</c><00:06:14.319><c> bloat,</c><00:06:14.880><c> missing</c><00:06:15.280><c> cache</c>
+
+00:06:15.590 --> 00:06:15.600 align:start position:0%
+practices. Layer bloat, missing cache
+ 
+
+00:06:15.600 --> 00:06:18.070 align:start position:0%
+practices. Layer bloat, missing cache
+mounts,<00:06:16.240><c> running</c><00:06:16.560><c> as</c><00:06:16.720><c> root,</c><00:06:17.120><c> uncombbined</c><00:06:17.759><c> run</c>
+
+00:06:18.070 --> 00:06:18.080 align:start position:0%
+mounts, running as root, uncombbined run
+ 
+
+00:06:18.080 --> 00:06:20.390 align:start position:0%
+mounts, running as root, uncombbined run
+commands,<00:06:18.960><c> all</c><00:06:19.280><c> called</c><00:06:19.520><c> out</c><00:06:19.680><c> with</c><00:06:19.919><c> exactly</c>
+
+00:06:20.390 --> 00:06:20.400 align:start position:0%
+commands, all called out with exactly
+ 
+
+00:06:20.400 --> 00:06:23.270 align:start position:0%
+commands, all called out with exactly
+how<00:06:20.560><c> to</c><00:06:20.720><c> fix</c><00:06:20.960><c> them.</c><00:06:21.919><c> Drop</c><00:06:22.160><c> it</c><00:06:22.319><c> in</c><00:06:22.479><c> CI</c><00:06:22.960><c> and</c><00:06:23.120><c> let</c>
+
+00:06:23.270 --> 00:06:23.280 align:start position:0%
+how to fix them. Drop it in CI and let
+ 
+
+00:06:23.280 --> 00:06:24.790 align:start position:0%
+how to fix them. Drop it in CI and let
+it<00:06:23.440><c> automatically</c><00:06:23.919><c> roast</c><00:06:24.240><c> your</c><00:06:24.400><c> teammates's</c>
+
+00:06:24.790 --> 00:06:24.800 align:start position:0%
+it automatically roast your teammates's
+ 
+
+00:06:24.800 --> 00:06:26.790 align:start position:0%
+it automatically roast your teammates's
+unoptimized<00:06:25.440><c> pull</c><00:06:25.759><c> requests</c><00:06:26.160><c> in</c><00:06:26.319><c> the</c><00:06:26.560><c> code</c>
+
+00:06:26.790 --> 00:06:26.800 align:start position:0%
+unoptimized pull requests in the code
+ 
+
+00:06:26.800 --> 00:06:28.469 align:start position:0%
+unoptimized pull requests in the code
+comments.
+
+00:06:28.469 --> 00:06:28.479 align:start position:0%
+comments.
+ 
+
+00:06:28.479 --> 00:06:30.469 align:start position:0%
+comments.
+App<00:06:28.800><c> Store</c><00:06:29.120><c> screenshots</c><00:06:29.840><c> are</c><00:06:30.080><c> one</c><00:06:30.240><c> of</c><00:06:30.319><c> those</c>
+
+00:06:30.469 --> 00:06:30.479 align:start position:0%
+App Store screenshots are one of those
+ 
+
+00:06:30.479 --> 00:06:32.629 align:start position:0%
+App Store screenshots are one of those
+launch<00:06:30.800><c> tasks</c><00:06:31.199><c> that</c><00:06:31.520><c> takes</c><00:06:31.840><c> far</c><00:06:32.080><c> longer</c><00:06:32.479><c> than</c>
+
+00:06:32.629 --> 00:06:32.639 align:start position:0%
+launch tasks that takes far longer than
+ 
+
+00:06:32.639 --> 00:06:34.950 align:start position:0%
+launch tasks that takes far longer than
+it<00:06:32.880><c> should.</c><00:06:33.440><c> SnapFrame</c><00:06:34.080><c> wraps</c><00:06:34.400><c> your</c><00:06:34.639><c> raw</c>
+
+00:06:34.950 --> 00:06:34.960 align:start position:0%
+it should. SnapFrame wraps your raw
+ 
+
+00:06:34.960 --> 00:06:37.909 align:start position:0%
+it should. SnapFrame wraps your raw
+screenshots<00:06:35.680><c> in</c><00:06:36.000><c> device</c><00:06:36.400><c> frames,</c><00:06:37.360><c> applies</c>
+
+00:06:37.909 --> 00:06:37.919 align:start position:0%
+screenshots in device frames, applies
+ 
+
+00:06:37.919 --> 00:06:40.230 align:start position:0%
+screenshots in device frames, applies
+color<00:06:38.240><c> themes,</c><00:06:38.960><c> and</c><00:06:39.199><c> exports</c><00:06:39.759><c> correctly</c>
+
+00:06:40.230 --> 00:06:40.240 align:start position:0%
+color themes, and exports correctly
+ 
+
+00:06:40.240 --> 00:06:42.390 align:start position:0%
+color themes, and exports correctly
+sized<00:06:40.560><c> assets</c><00:06:41.039><c> for</c><00:06:41.280><c> every</c><00:06:41.600><c> app</c><00:06:41.919><c> store</c><00:06:42.160><c> and</c>
+
+00:06:42.390 --> 00:06:42.400 align:start position:0%
+sized assets for every app store and
+ 
+
+00:06:42.400 --> 00:06:44.710 align:start position:0%
+sized assets for every app store and
+Play<00:06:42.560><c> Store</c><00:06:42.960><c> resolution</c><00:06:43.919><c> entirely</c><00:06:44.400><c> in</c><00:06:44.560><c> the</c>
+
+00:06:44.710 --> 00:06:44.720 align:start position:0%
+Play Store resolution entirely in the
+ 
+
+00:06:44.720 --> 00:06:47.110 align:start position:0%
+Play Store resolution entirely in the
+browser<00:06:45.360><c> with</c><00:06:45.600><c> no</c><00:06:45.919><c> uploads</c><00:06:46.400><c> or</c><00:06:46.639><c> login</c>
+
+00:06:47.110 --> 00:06:47.120 align:start position:0%
+browser with no uploads or login
+ 
+
+00:06:47.120 --> 00:06:49.590 align:start position:0%
+browser with no uploads or login
+required.<00:06:48.080><c> Feed</c><00:06:48.319><c> your</c><00:06:48.479><c> app</c><00:06:48.800><c> metadata</c><00:06:49.280><c> to</c><00:06:49.440><c> an</c>
+
+00:06:49.590 --> 00:06:49.600 align:start position:0%
+required. Feed your app metadata to an
+ 
+
+00:06:49.600 --> 00:06:52.550 align:start position:0%
+required. Feed your app metadata to an
+LLM,<00:06:50.479><c> get</c><00:06:50.639><c> a</c><00:06:50.960><c> layout</c><00:06:51.199><c> config</c><00:06:51.600><c> back,</c><00:06:52.080><c> and</c><00:06:52.319><c> your</c>
+
+00:06:52.550 --> 00:06:52.560 align:start position:0%
+LLM, get a layout config back, and your
+ 
+
+00:06:52.560 --> 00:06:54.309 align:start position:0%
+LLM, get a layout config back, and your
+entire<00:06:52.960><c> marketing</c><00:06:53.360><c> screenshot</c><00:06:53.919><c> suite</c>
+
+00:06:54.309 --> 00:06:54.319 align:start position:0%
+entire marketing screenshot suite
+ 
+
+00:06:54.319 --> 00:06:56.629 align:start position:0%
+entire marketing screenshot suite
+generates<00:06:54.800><c> in</c><00:06:55.039><c> one</c><00:06:55.199><c> click.</c>
+
+00:06:56.629 --> 00:06:56.639 align:start position:0%
+generates in one click.
+ 
+
+00:06:56.639 --> 00:06:59.110 align:start position:0%
+generates in one click.
+Port<00:06:57.039><c> Paul</c><00:06:57.280><c> is</c><00:06:57.440><c> a</c><00:06:57.520><c> lightweight</c><00:06:58.000><c> Tori</c><00:06:58.479><c> and</c><00:06:58.639><c> Rust</c>
+
+00:06:59.110 --> 00:06:59.120 align:start position:0%
+Port Paul is a lightweight Tori and Rust
+ 
+
+00:06:59.120 --> 00:07:01.510 align:start position:0%
+Port Paul is a lightweight Tori and Rust
+desktop<00:06:59.680><c> app</c><00:07:00.000><c> that</c><00:07:00.319><c> shows</c><00:07:00.639><c> every</c><00:07:00.880><c> active</c><00:07:01.280><c> port</c>
+
+00:07:01.510 --> 00:07:01.520 align:start position:0%
+desktop app that shows every active port
+ 
+
+00:07:01.520 --> 00:07:04.390 align:start position:0%
+desktop app that shows every active port
+on<00:07:01.759><c> your</c><00:07:01.919><c> machine,</c><00:07:02.960><c> detects</c><00:07:03.520><c> which</c><00:07:03.840><c> specific</c>
+
+00:07:04.390 --> 00:07:04.400 align:start position:0%
+on your machine, detects which specific
+ 
+
+00:07:04.400 --> 00:07:06.469 align:start position:0%
+on your machine, detects which specific
+project<00:07:04.800><c> is</c><00:07:05.039><c> using</c><00:07:05.280><c> it,</c><00:07:05.680><c> and</c><00:07:05.919><c> lets</c><00:07:06.080><c> you</c><00:07:06.240><c> kill</c>
+
+00:07:06.469 --> 00:07:06.479 align:start position:0%
+project is using it, and lets you kill
+ 
+
+00:07:06.479 --> 00:07:09.029 align:start position:0%
+project is using it, and lets you kill
+zombie<00:07:06.960><c> processes</c><00:07:07.440><c> with</c><00:07:07.599><c> one</c><00:07:07.919><c> click.</c><00:07:08.800><c> No</c>
+
+00:07:09.029 --> 00:07:09.039 align:start position:0%
+zombie processes with one click. No
+ 
+
+00:07:09.039 --> 00:07:11.430 align:start position:0%
+zombie processes with one click. No
+terminal<00:07:09.520><c> required.</c><00:07:10.560><c> Live</c><00:07:10.880><c> port</c><00:07:11.120><c> map</c>
+
+00:07:11.430 --> 00:07:11.440 align:start position:0%
+terminal required. Live port map
+ 
+
+00:07:11.440 --> 00:07:13.430 align:start position:0%
+terminal required. Live port map
+visualization<00:07:12.160><c> shows</c><00:07:12.479><c> how</c><00:07:12.639><c> your</c><00:07:12.800><c> front</c><00:07:13.039><c> end,</c>
+
+00:07:13.430 --> 00:07:13.440 align:start position:0%
+visualization shows how your front end,
+ 
+
+00:07:13.440 --> 00:07:16.710 align:start position:0%
+visualization shows how your front end,
+API,<00:07:14.000><c> and</c><00:07:14.240><c> database</c><00:07:14.800><c> connect</c><00:07:15.120><c> in</c><00:07:15.280><c> real</c><00:07:15.599><c> time.</c>
+
+00:07:16.710 --> 00:07:16.720 align:start position:0%
+API, and database connect in real time.
+ 
+
+00:07:16.720 --> 00:07:18.309 align:start position:0%
+API, and database connect in real time.
+Sits<00:07:17.039><c> in</c><00:07:17.199><c> your</c><00:07:17.280><c> menu</c><00:07:17.599><c> bar</c><00:07:17.759><c> with</c><00:07:17.919><c> a</c><00:07:18.080><c> traffic</c>
+
+00:07:18.309 --> 00:07:18.319 align:start position:0%
+Sits in your menu bar with a traffic
+ 
+
+00:07:18.319 --> 00:07:21.589 align:start position:0%
+Sits in your menu bar with a traffic
+light<00:07:18.639><c> status</c><00:07:19.120><c> icon.</c><00:07:20.479><c> Clone</c><00:07:20.880><c> any</c><00:07:21.120><c> voice</c><00:07:21.440><c> from</c>
+
+00:07:21.589 --> 00:07:21.599 align:start position:0%
+light status icon. Clone any voice from
+ 
+
+00:07:21.599 --> 00:07:23.670 align:start position:0%
+light status icon. Clone any voice from
+a<00:07:21.759><c> 3-se</c><00:07:22.000><c> secondond</c><00:07:22.319><c> audio</c><00:07:22.720><c> clip,</c><00:07:23.280><c> translate</c>
+
+00:07:23.670 --> 00:07:23.680 align:start position:0%
+a 3-se secondond audio clip, translate
+ 
+
+00:07:23.680 --> 00:07:26.070 align:start position:0%
+a 3-se secondond audio clip, translate
+it<00:07:23.840><c> into</c><00:07:24.080><c> dozens</c><00:07:24.479><c> of</c><00:07:24.639><c> languages,</c><00:07:25.440><c> and</c><00:07:25.680><c> dub</c><00:07:25.919><c> it</c>
+
+00:07:26.070 --> 00:07:26.080 align:start position:0%
+it into dozens of languages, and dub it
+ 
+
+00:07:26.080 --> 00:07:28.390 align:start position:0%
+it into dozens of languages, and dub it
+back<00:07:26.319><c> into</c><00:07:26.639><c> your</c><00:07:26.800><c> video</c><00:07:27.199><c> automatically.</c>
+
+00:07:28.390 --> 00:07:28.400 align:start position:0%
+back into your video automatically.
+ 
+
+00:07:28.400 --> 00:07:30.790 align:start position:0%
+back into your video automatically.
+OmniVoice<00:07:29.120><c> Studio</c><00:07:29.520><c> is</c><00:07:29.680><c> a</c><00:07:29.840><c> fully</c><00:07:30.160><c> open-source</c>
+
+00:07:30.790 --> 00:07:30.800 align:start position:0%
+OmniVoice Studio is a fully open-source
+ 
+
+00:07:30.800 --> 00:07:33.110 align:start position:0%
+OmniVoice Studio is a fully open-source
+dubbing<00:07:31.120><c> and</c><00:07:31.360><c> voice</c><00:07:31.680><c> generation</c><00:07:32.240><c> platform.</c>
+
+00:07:33.110 --> 00:07:33.120 align:start position:0%
+dubbing and voice generation platform.
+ 
+
+00:07:33.120 --> 00:07:35.909 align:start position:0%
+dubbing and voice generation platform.
+It<00:07:33.360><c> transcribes,</c><00:07:34.400><c> translates,</c><00:07:35.280><c> clones</c><00:07:35.680><c> the</c>
+
+00:07:35.909 --> 00:07:35.919 align:start position:0%
+It transcribes, translates, clones the
+ 
+
+00:07:35.919 --> 00:07:38.230 align:start position:0%
+It transcribes, translates, clones the
+voice,<00:07:36.639><c> isolates</c><00:07:37.280><c> vocals</c><00:07:37.680><c> to</c><00:07:37.840><c> preserve</c>
+
+00:07:38.230 --> 00:07:38.240 align:start position:0%
+voice, isolates vocals to preserve
+ 
+
+00:07:38.240 --> 00:07:40.550 align:start position:0%
+voice, isolates vocals to preserve
+background<00:07:38.720><c> music</c><00:07:39.039><c> and</c><00:07:39.280><c> sound</c><00:07:39.520><c> effects,</c><00:07:40.319><c> and</c>
+
+00:07:40.550 --> 00:07:40.560 align:start position:0%
+background music and sound effects, and
+ 
+
+00:07:40.560 --> 00:07:42.790 align:start position:0%
+background music and sound effects, and
+adapts<00:07:40.960><c> to</c><00:07:41.199><c> the</c><00:07:41.360><c> speaker's</c><00:07:41.840><c> native</c><00:07:42.160><c> accent,</c>
+
+00:07:42.790 --> 00:07:42.800 align:start position:0%
+adapts to the speaker's native accent,
+ 
+
+00:07:42.800 --> 00:07:45.270 align:start position:0%
+adapts to the speaker's native accent,
+timber,<00:07:43.280><c> and</c><00:07:43.599><c> pacing.</c>
+
+00:07:45.270 --> 00:07:45.280 align:start position:0%
+timber, and pacing.
+ 
+
+00:07:45.280 --> 00:07:47.589 align:start position:0%
+timber, and pacing.
+Electron<00:07:45.840><c> text</c><00:07:46.000><c> editors</c><00:07:46.479><c> eat</c><00:07:46.720><c> RAM,</c><00:07:47.280><c> drain</c>
+
+00:07:47.589 --> 00:07:47.599 align:start position:0%
+Electron text editors eat RAM, drain
+ 
+
+00:07:47.599 --> 00:07:49.749 align:start position:0%
+Electron text editors eat RAM, drain
+your<00:07:47.759><c> battery,</c><00:07:48.160><c> and</c><00:07:48.400><c> take</c><00:07:48.560><c> forever</c><00:07:48.960><c> to</c><00:07:49.120><c> boot.</c>
+
+00:07:49.749 --> 00:07:49.759 align:start position:0%
+your battery, and take forever to boot.
+ 
+
+00:07:49.759 --> 00:07:51.749 align:start position:0%
+your battery, and take forever to boot.
+LightEeddit<00:07:50.319><c> is</c><00:07:50.479><c> a</c><00:07:50.639><c> native</c><00:07:50.960><c> Mac</c><00:07:51.120><c> OS</c><00:07:51.520><c> code</c>
+
+00:07:51.749 --> 00:07:51.759 align:start position:0%
+LightEeddit is a native Mac OS code
+ 
+
+00:07:51.759 --> 00:07:54.469 align:start position:0%
+LightEeddit is a native Mac OS code
+editor<00:07:52.160><c> built</c><00:07:52.479><c> purely</c><00:07:52.880><c> in</c><00:07:53.120><c> Swift</c><00:07:53.440><c> and</c><00:07:53.680><c> AppKit.</c>
+
+00:07:54.469 --> 00:07:54.479 align:start position:0%
+editor built purely in Swift and AppKit.
+ 
+
+00:07:54.479 --> 00:07:56.469 align:start position:0%
+editor built purely in Swift and AppKit.
+The<00:07:54.720><c> entire</c><00:07:54.960><c> app</c><00:07:55.199><c> is</c><00:07:55.360><c> 1</c><00:07:55.599><c> megabyte.</c><00:07:56.240><c> Full</c>
+
+00:07:56.469 --> 00:07:56.479 align:start position:0%
+The entire app is 1 megabyte. Full
+ 
+
+00:07:56.479 --> 00:07:58.629 align:start position:0%
+The entire app is 1 megabyte. Full
+syntax<00:07:56.960><c> highlighting,</c><00:07:57.680><c> interactive</c><00:07:58.240><c> file</c>
+
+00:07:58.629 --> 00:07:58.639 align:start position:0%
+syntax highlighting, interactive file
+ 
+
+00:07:58.639 --> 00:08:00.869 align:start position:0%
+syntax highlighting, interactive file
+tree<00:07:58.879><c> sidebar,</c><00:07:59.520><c> boots</c><00:07:59.919><c> instantly.</c><00:08:00.560><c> No</c>
+
+00:08:00.869 --> 00:08:00.879 align:start position:0%
+tree sidebar, boots instantly. No
+ 
+
+00:08:00.879 --> 00:08:03.670 align:start position:0%
+tree sidebar, boots instantly. No
+Electron,<00:08:01.680><c> no</c><00:08:01.919><c> bloat,</c><00:08:02.560><c> just</c><00:08:02.720><c> a</c><00:08:02.960><c> pure</c><00:08:03.360><c> Apple</c>
+
+00:08:03.670 --> 00:08:03.680 align:start position:0%
+Electron, no bloat, just a pure Apple
+ 
+
+00:08:03.680 --> 00:08:06.150 align:start position:0%
+Electron, no bloat, just a pure Apple
+native<00:08:04.160><c> editing</c><00:08:04.639><c> experience</c><00:08:05.280><c> that</c><00:08:05.599><c> stays</c><00:08:06.000><c> out</c>
+
+00:08:06.150 --> 00:08:06.160 align:start position:0%
+native editing experience that stays out
+ 
+
+00:08:06.160 --> 00:08:07.990 align:start position:0%
+native editing experience that stays out
+of<00:08:06.319><c> your</c><00:08:06.479><c> way.</c>
+
+00:08:07.990 --> 00:08:08.000 align:start position:0%
+of your way.
+ 
+
+00:08:08.000 --> 00:08:10.230 align:start position:0%
+of your way.
+Carpathy's<00:08:08.639><c> AI</c><00:08:09.039><c> maintained</c><00:08:09.360><c> wiki</c><00:08:09.840><c> concept</c>
+
+00:08:10.230 --> 00:08:10.240 align:start position:0%
+Carpathy's AI maintained wiki concept
+ 
+
+00:08:10.240 --> 00:08:11.990 align:start position:0%
+Carpathy's AI maintained wiki concept
+was<00:08:10.400><c> powerful,</c><00:08:10.879><c> but</c><00:08:11.199><c> required</c><00:08:11.599><c> wrestling</c>
+
+00:08:11.990 --> 00:08:12.000 align:start position:0%
+was powerful, but required wrestling
+ 
+
+00:08:12.000 --> 00:08:13.749 align:start position:0%
+was powerful, but required wrestling
+with<00:08:12.160><c> Python</c><00:08:12.639><c> scripts</c><00:08:13.120><c> and</c><00:08:13.280><c> terminal</c>
+
+00:08:13.749 --> 00:08:13.759 align:start position:0%
+with Python scripts and terminal
+ 
+
+00:08:13.759 --> 00:08:15.990 align:start position:0%
+with Python scripts and terminal
+environments.<00:08:14.639><c> Wiki</c><00:08:15.039><c> Wise</c><00:08:15.360><c> packages</c><00:08:15.759><c> the</c>
+
+00:08:15.990 --> 00:08:16.000 align:start position:0%
+environments. Wiki Wise packages the
+ 
+
+00:08:16.000 --> 00:08:18.950 align:start position:0%
+environments. Wiki Wise packages the
+entire<00:08:16.319><c> concept</c><00:08:16.800><c> into</c><00:08:17.039><c> a</c><00:08:17.199><c> native</c><00:08:17.520><c> Mac</c><00:08:17.759><c> OS</c><00:08:18.160><c> app.</c>
+
+00:08:18.950 --> 00:08:18.960 align:start position:0%
+entire concept into a native Mac OS app.
+ 
+
+00:08:18.960 --> 00:08:21.510 align:start position:0%
+entire concept into a native Mac OS app.
+Zero<00:08:19.360><c> coding,</c><00:08:20.080><c> zero</c><00:08:20.479><c> configuration.</c>
+
+00:08:21.510 --> 00:08:21.520 align:start position:0%
+Zero coding, zero configuration.
+ 
+
+00:08:21.520 --> 00:08:23.430 align:start position:0%
+Zero coding, zero configuration.
+Built-in<00:08:22.000><c> Swifterm</c><00:08:22.560><c> terminal</c><00:08:22.879><c> lets</c><00:08:23.120><c> you</c><00:08:23.280><c> run</c>
+
+00:08:23.430 --> 00:08:23.440 align:start position:0%
+Built-in Swifterm terminal lets you run
+ 
+
+00:08:23.440 --> 00:08:26.309 align:start position:0%
+Built-in Swifterm terminal lets you run
+claude<00:08:23.840><c> code</c><00:08:24.000><c> or</c><00:08:24.240><c> codecs</c><00:08:24.800><c> directly</c><00:08:25.199><c> inside.</c>
+
+00:08:26.309 --> 00:08:26.319 align:start position:0%
+claude code or codecs directly inside.
+ 
+
+00:08:26.319 --> 00:08:28.710 align:start position:0%
+claude code or codecs directly inside.
+File<00:08:26.639><c> manager,</c><00:08:27.360><c> AI</c><00:08:27.759><c> terminal,</c><00:08:28.240><c> and</c><00:08:28.400><c> live</c>
+
+00:08:28.710 --> 00:08:28.720 align:start position:0%
+File manager, AI terminal, and live
+ 
+
+00:08:28.720 --> 00:08:31.749 align:start position:0%
+File manager, AI terminal, and live
+markdown<00:08:29.199><c> preview</c><00:08:29.680><c> all</c><00:08:29.840><c> side</c><00:08:30.160><c> by</c><00:08:30.400><c> side.</c>
+
+00:08:31.749 --> 00:08:31.759 align:start position:0%
+markdown preview all side by side.
+ 
+
+00:08:31.759 --> 00:08:33.589 align:start position:0%
+markdown preview all side by side.
+Writing<00:08:32.159><c> text</c><00:08:32.479><c> prompts</c><00:08:32.880><c> for</c><00:08:33.039><c> complex</c>
+
+00:08:33.589 --> 00:08:33.599 align:start position:0%
+Writing text prompts for complex
+ 
+
+00:08:33.599 --> 00:08:36.310 align:start position:0%
+Writing text prompts for complex
+multi-step<00:08:34.240><c> web</c><00:08:34.560><c> workflows</c><00:08:35.039><c> is</c><00:08:35.279><c> frustrating.</c>
+
+00:08:36.310 --> 00:08:36.320 align:start position:0%
+multi-step web workflows is frustrating.
+ 
+
+00:08:36.320 --> 00:08:38.949 align:start position:0%
+multi-step web workflows is frustrating.
+Video<00:08:36.719><c> use</c><00:08:37.039><c> lets</c><00:08:37.279><c> you</c><00:08:37.440><c> show</c><00:08:37.599><c> instead</c><00:08:37.919><c> of</c><00:08:38.159><c> tell.</c>
+
+00:08:38.949 --> 00:08:38.959 align:start position:0%
+Video use lets you show instead of tell.
+ 
+
+00:08:38.959 --> 00:08:40.790 align:start position:0%
+Video use lets you show instead of tell.
+Record<00:08:39.279><c> your</c><00:08:39.519><c> screen,</c><00:08:40.159><c> click</c><00:08:40.399><c> through</c><00:08:40.560><c> the</c>
+
+00:08:40.790 --> 00:08:40.800 align:start position:0%
+Record your screen, click through the
+ 
+
+00:08:40.800 --> 00:08:42.870 align:start position:0%
+Record your screen, click through the
+website<00:08:41.200><c> yourself,</c><00:08:41.760><c> and</c><00:08:41.919><c> it</c><00:08:42.159><c> uses</c><00:08:42.479><c> computer</c>
+
+00:08:42.870 --> 00:08:42.880 align:start position:0%
+website yourself, and it uses computer
+ 
+
+00:08:42.880 --> 00:08:45.110 align:start position:0%
+website yourself, and it uses computer
+vision<00:08:43.279><c> to</c><00:08:43.519><c> extract</c><00:08:43.919><c> your</c><00:08:44.159><c> mouse</c><00:08:44.480><c> movements,</c>
+
+00:08:45.110 --> 00:08:45.120 align:start position:0%
+vision to extract your mouse movements,
+ 
+
+00:08:45.120 --> 00:08:47.590 align:start position:0%
+vision to extract your mouse movements,
+clicks,<00:08:45.519><c> and</c><00:08:45.680><c> keystrokes,</c><00:08:46.959><c> converting</c><00:08:47.360><c> the</c>
+
+00:08:47.590 --> 00:08:47.600 align:start position:0%
+clicks, and keystrokes, converting the
+ 
+
+00:08:47.600 --> 00:08:49.350 align:start position:0%
+clicks, and keystrokes, converting the
+recording<00:08:48.080><c> directly</c><00:08:48.480><c> into</c><00:08:48.720><c> a</c><00:08:48.959><c> fully</c>
+
+00:08:49.350 --> 00:08:49.360 align:start position:0%
+recording directly into a fully
+ 
+
+00:08:49.360 --> 00:08:52.870 align:start position:0%
+recording directly into a fully
+executable<00:08:50.080><c> AI</c><00:08:50.480><c> workflow.</c><00:08:51.600><c> No</c><00:08:51.920><c> code,</c><00:08:52.560><c> no</c>
+
+00:08:52.870 --> 00:08:52.880 align:start position:0%
+executable AI workflow. No code, no
+ 
+
+00:08:52.880 --> 00:08:54.870 align:start position:0%
+executable AI workflow. No code, no
+step-by-step<00:08:53.519><c> instructions.</c><00:08:54.320><c> Just</c><00:08:54.560><c> do</c><00:08:54.720><c> the</c>
+
+00:08:54.870 --> 00:08:54.880 align:start position:0%
+step-by-step instructions. Just do the
+ 
+
+00:08:54.880 --> 00:08:58.550 align:start position:0%
+step-by-step instructions. Just do the
+task<00:08:55.200><c> once,</c><00:08:55.680><c> and</c><00:08:55.920><c> the</c><00:08:56.160><c> AI</c><00:08:56.560><c> learns</c><00:08:56.880><c> it.</c><00:08:58.240><c> Just</c>
+
+00:08:58.550 --> 00:08:58.560 align:start position:0%
+task once, and the AI learns it. Just
+ 
+
+00:08:58.560 --> 00:09:01.990 align:start position:0%
+task once, and the AI learns it. Just
+open<00:08:58.720><c> your</c><00:08:58.959><c> terminal</c><00:08:59.279><c> and</c><00:08:59.440><c> type</c><00:08:59.680><c> SSH</c><00:09:00.399><c> late.sh.</c>
+
+00:09:01.990 --> 00:09:02.000 align:start position:0%
+open your terminal and type SSH late.sh.
+ 
+
+00:09:02.000 --> 00:09:04.870 align:start position:0%
+open your terminal and type SSH late.sh.
+Your<00:09:02.240><c> SSH</c><00:09:02.800><c> key</c><00:09:03.040><c> is</c><00:09:03.279><c> your</c><00:09:03.600><c> identity.</c><00:09:04.399><c> Late.sh</c>
+
+00:09:04.870 --> 00:09:04.880 align:start position:0%
+Your SSH key is your identity. Late.sh
+ 
+
+00:09:04.880 --> 00:09:06.870 align:start position:0%
+Your SSH key is your identity. Late.sh
+SH<00:09:05.279><c> is</c><00:09:05.440><c> a</c><00:09:05.519><c> multiplayer</c><00:09:06.080><c> clubhouse</c><00:09:06.640><c> for</c>
+
+00:09:06.870 --> 00:09:06.880 align:start position:0%
+SH is a multiplayer clubhouse for
+ 
+
+00:09:06.880 --> 00:09:08.790 align:start position:0%
+SH is a multiplayer clubhouse for
+developers<00:09:07.440><c> built</c><00:09:07.680><c> entirely</c><00:09:08.160><c> in</c><00:09:08.399><c> Rust</c><00:09:08.640><c> with</c>
+
+00:09:08.790 --> 00:09:08.800 align:start position:0%
+developers built entirely in Rust with
+ 
+
+00:09:08.800 --> 00:09:10.790 align:start position:0%
+developers built entirely in Rust with
+Ratatouille.<00:09:09.839><c> Chat</c><00:09:10.080><c> with</c><00:09:10.320><c> developers</c>
+
+00:09:10.790 --> 00:09:10.800 align:start position:0%
+Ratatouille. Chat with developers
+ 
+
+00:09:10.800 --> 00:09:12.790 align:start position:0%
+Ratatouille. Chat with developers
+globally.<00:09:11.440><c> Grow</c><00:09:11.680><c> a</c><00:09:11.839><c> virtual</c><00:09:12.160><c> bonsai</c><00:09:12.640><c> tree</c>
+
+00:09:12.790 --> 00:09:12.800 align:start position:0%
+globally. Grow a virtual bonsai tree
+ 
+
+00:09:12.800 --> 00:09:14.550 align:start position:0%
+globally. Grow a virtual bonsai tree
+that<00:09:12.959><c> withers</c><00:09:13.360><c> if</c><00:09:13.519><c> you</c><00:09:13.680><c> break</c><00:09:13.839><c> your</c><00:09:14.000><c> streak.</c>
+
+00:09:14.550 --> 00:09:14.560 align:start position:0%
+that withers if you break your streak.
+ 
+
+00:09:14.560 --> 00:09:16.870 align:start position:0%
+that withers if you break your streak.
+Play<00:09:14.800><c> Tetris,</c><00:09:15.360><c> Mind</c><00:09:15.680><c> Sweeper,</c><00:09:16.320><c> chess,</c><00:09:16.640><c> and</c>
+
+00:09:16.870 --> 00:09:16.880 align:start position:0%
+Play Tetris, Mind Sweeper, chess, and
+ 
+
+00:09:16.880 --> 00:09:19.190 align:start position:0%
+Play Tetris, Mind Sweeper, chess, and
+Texas<00:09:17.200><c> Holden</c><00:09:17.600><c> Poker,</c><00:09:18.320><c> a</c><00:09:18.560><c> synchronized</c>
+
+00:09:19.190 --> 00:09:19.200 align:start position:0%
+Texas Holden Poker, a synchronized
+ 
+
+00:09:19.200 --> 00:09:21.910 align:start position:0%
+Texas Holden Poker, a synchronized
+global<00:09:19.519><c> loafy</c><00:09:20.000><c> music</c><00:09:20.320><c> radio</c><00:09:20.880><c> with</c><00:09:21.120><c> a</c><00:09:21.360><c> realtime</c>
+
+00:09:21.910 --> 00:09:21.920 align:start position:0%
+global loafy music radio with a realtime
+ 
+
+00:09:21.920 --> 00:09:24.389 align:start position:0%
+global loafy music radio with a realtime
+ASI<00:09:22.399><c> audio</c><00:09:22.800><c> visualizer</c><00:09:23.440><c> that</c><00:09:23.760><c> syncs</c><00:09:24.080><c> to</c><00:09:24.240><c> the</c>
+
+00:09:24.389 --> 00:09:24.399 align:start position:0%
+ASI audio visualizer that syncs to the
+ 
+
+00:09:24.399 --> 00:09:26.630 align:start position:0%
+ASI audio visualizer that syncs to the
+beat<00:09:24.720><c> in</c><00:09:24.880><c> your</c><00:09:25.120><c> terminal.</c>
+
+00:09:26.630 --> 00:09:26.640 align:start position:0%
+beat in your terminal.
+ 
+
+00:09:26.640 --> 00:09:28.790 align:start position:0%
+beat in your terminal.
+Getting<00:09:26.959><c> fast</c><00:09:27.360><c> local</c><00:09:27.680><c> LLM</c><00:09:28.160><c> generation</c>
+
+00:09:28.790 --> 00:09:28.800 align:start position:0%
+Getting fast local LLM generation
+ 
+
+00:09:28.800 --> 00:09:30.470 align:start position:0%
+Getting fast local LLM generation
+usually<00:09:29.120><c> means</c><00:09:29.440><c> quantizing</c><00:09:30.080><c> your</c><00:09:30.240><c> model</c>
+
+00:09:30.470 --> 00:09:30.480 align:start position:0%
+usually means quantizing your model
+ 
+
+00:09:30.480 --> 00:09:33.509 align:start position:0%
+usually means quantizing your model
+until<00:09:30.720><c> it</c><00:09:30.880><c> gets</c><00:09:31.120><c> dumb.</c><00:09:32.000><c> DFlash</c><00:09:32.640><c> MLX</c><00:09:33.200><c> fixes</c>
+
+00:09:33.509 --> 00:09:33.519 align:start position:0%
+until it gets dumb. DFlash MLX fixes
+ 
+
+00:09:33.519 --> 00:09:35.910 align:start position:0%
+until it gets dumb. DFlash MLX fixes
+that<00:09:33.920><c> without</c><00:09:34.320><c> sacrificing</c><00:09:34.959><c> quality.</c><00:09:35.760><c> It</c>
+
+00:09:35.910 --> 00:09:35.920 align:start position:0%
+that without sacrificing quality. It
+ 
+
+00:09:35.920 --> 00:09:38.230 align:start position:0%
+that without sacrificing quality. It
+brings<00:09:36.240><c> lossless</c><00:09:36.800><c> speculative</c><00:09:37.440><c> decoding</c><00:09:38.000><c> to</c>
+
+00:09:38.230 --> 00:09:38.240 align:start position:0%
+brings lossless speculative decoding to
+ 
+
+00:09:38.240 --> 00:09:41.030 align:start position:0%
+brings lossless speculative decoding to
+Apple<00:09:38.560><c> silicon</c><00:09:38.959><c> via</c><00:09:39.279><c> MLX.</c><00:09:40.240><c> A</c><00:09:40.399><c> tiny</c><00:09:40.720><c> draft</c>
+
+00:09:41.030 --> 00:09:41.040 align:start position:0%
+Apple silicon via MLX. A tiny draft
+ 
+
+00:09:41.040 --> 00:09:43.670 align:start position:0%
+Apple silicon via MLX. A tiny draft
+model<00:09:41.360><c> uses</c><00:09:41.760><c> block</c><00:09:42.000><c> diffusion</c><00:09:42.560><c> to</c><00:09:42.800><c> propose</c><00:09:43.360><c> 16</c>
+
+00:09:43.670 --> 00:09:43.680 align:start position:0%
+model uses block diffusion to propose 16
+ 
+
+00:09:43.680 --> 00:09:45.990 align:start position:0%
+model uses block diffusion to propose 16
+tokens<00:09:44.080><c> at</c><00:09:44.320><c> once.</c><00:09:44.959><c> Then</c><00:09:45.200><c> your</c><00:09:45.360><c> full</c><00:09:45.680><c> target</c>
+
+00:09:45.990 --> 00:09:46.000 align:start position:0%
+tokens at once. Then your full target
+ 
+
+00:09:46.000 --> 00:09:47.990 align:start position:0%
+tokens at once. Then your full target
+model<00:09:46.320><c> verifies</c><00:09:46.800><c> the</c><00:09:46.959><c> entire</c><00:09:47.360><c> block</c><00:09:47.600><c> in</c><00:09:47.839><c> a</c>
+
+00:09:47.990 --> 00:09:48.000 align:start position:0%
+model verifies the entire block in a
+ 
+
+00:09:48.000 --> 00:09:50.790 align:start position:0%
+model verifies the entire block in a
+single<00:09:48.240><c> forward</c><00:09:48.640><c> pass.</c><00:09:49.920><c> Output</c><00:09:50.320><c> is</c><00:09:50.480><c> bit</c>
+
+00:09:50.790 --> 00:09:50.800 align:start position:0%
+single forward pass. Output is bit
+ 
+
+00:09:50.800 --> 00:09:53.829 align:start position:0%
+single forward pass. Output is bit
+forbit<00:09:51.279><c> identical</c><00:09:51.600><c> to</c><00:09:51.839><c> normal</c><00:09:52.160><c> generation.</c>
+
+00:09:53.829 --> 00:09:53.839 align:start position:0%
+forbit identical to normal generation.
+ 
+
+00:09:53.839 --> 00:09:57.190 align:start position:0%
+forbit identical to normal generation.
+Bunwv<00:09:54.640><c> is</c><00:09:54.800><c> a</c><00:09:55.040><c> 400line</c><00:09:55.760><c> CLI</c><00:09:56.320><c> tool</c><00:09:56.560><c> that</c><00:09:56.800><c> runs</c><00:09:57.040><c> as</c>
+
+00:09:57.190 --> 00:09:57.200 align:start position:0%
+Bunwv is a 400line CLI tool that runs as
+ 
+
+00:09:57.200 --> 00:09:59.829 align:start position:0%
+Bunwv is a 400line CLI tool that runs as
+a<00:09:57.360><c> persistent</c><00:09:57.920><c> headless</c><00:09:58.399><c> browser</c><00:09:58.720><c> demon</c><00:09:59.519><c> on</c>
+
+00:09:59.829 --> 00:09:59.839 align:start position:0%
+a persistent headless browser demon on
+ 
+
+00:09:59.839 --> 00:10:02.070 align:start position:0%
+a persistent headless browser demon on
+Mac.<00:10:00.399><c> Zero</c><00:10:00.720><c> dependencies.</c><00:10:01.519><c> It</c><00:10:01.680><c> hooks</c>
+
+00:10:02.070 --> 00:10:02.080 align:start position:0%
+Mac. Zero dependencies. It hooks
+ 
+
+00:10:02.080 --> 00:10:04.550 align:start position:0%
+Mac. Zero dependencies. It hooks
+directly<00:10:02.399><c> into</c><00:10:02.720><c> native</c><00:10:03.040><c> WebKit.</c><00:10:04.080><c> Commands</c>
+
+00:10:04.550 --> 00:10:04.560 align:start position:0%
+directly into native WebKit. Commands
+ 
+
+00:10:04.560 --> 00:10:06.949 align:start position:0%
+directly into native WebKit. Commands
+dispatch<00:10:05.040><c> as</c><00:10:05.279><c> OS</c><00:10:05.680><c> level</c><00:10:05.920><c> native</c><00:10:06.240><c> events.</c><00:10:06.800><c> So</c>
+
+00:10:06.949 --> 00:10:06.959 align:start position:0%
+dispatch as OS level native events. So
+ 
+
+00:10:06.959 --> 00:10:08.630 align:start position:0%
+dispatch as OS level native events. So
+the<00:10:07.120><c> browser</c><00:10:07.519><c> registers</c><00:10:08.000><c> them</c><00:10:08.160><c> as</c><00:10:08.320><c> is</c>
+
+00:10:08.630 --> 00:10:08.640 align:start position:0%
+the browser registers them as is
+ 
+
+00:10:08.640 --> 00:10:09.829 align:start position:0%
+the browser registers them as is
+trusted.<00:10:09.120><c> True.</c><00:10:09.440><c> Completely</c>
+
+00:10:09.829 --> 00:10:09.839 align:start position:0%
+trusted. True. Completely
+ 
+
+00:10:09.839 --> 00:10:12.230 align:start position:0%
+trusted. True. Completely
+indistinguishable<00:10:10.640><c> from</c><00:10:10.800><c> a</c><00:10:11.040><c> real</c><00:10:11.200><c> human.</c>
+
+00:10:12.230 --> 00:10:12.240 align:start position:0%
+indistinguishable from a real human.
+ 
+
+00:10:12.240 --> 00:10:14.310 align:start position:0%
+indistinguishable from a real human.
+Persistent<00:10:12.800><c> over</c><00:10:12.959><c> a</c><00:10:13.120><c> Unix</c><00:10:13.440><c> socket.</c><00:10:14.000><c> So</c><00:10:14.160><c> your</c>
+
+00:10:14.310 --> 00:10:14.320 align:start position:0%
+Persistent over a Unix socket. So your
+ 
+
+00:10:14.320 --> 00:10:16.550 align:start position:0%
+Persistent over a Unix socket. So your
+agent<00:10:14.640><c> logs</c><00:10:14.959><c> in,</c><00:10:15.440><c> goes</c><00:10:15.680><c> off</c><00:10:15.920><c> and</c><00:10:16.079><c> does</c><00:10:16.320><c> other</c>
+
+00:10:16.550 --> 00:10:16.560 align:start position:0%
+agent logs in, goes off and does other
+ 
+
+00:10:16.560 --> 00:10:19.190 align:start position:0%
+agent logs in, goes off and does other
+tasks,<00:10:17.360><c> comes</c><00:10:17.680><c> back</c><00:10:17.920><c> later,</c><00:10:18.320><c> and</c><00:10:18.480><c> the</c><00:10:18.720><c> session</c>
+
+00:10:19.190 --> 00:10:19.200 align:start position:0%
+tasks, comes back later, and the session
+ 
+
+00:10:19.200 --> 00:10:23.190 align:start position:0%
+tasks, comes back later, and the session
+DOM<00:10:19.600><c> state</c><00:10:20.079><c> and</c><00:10:20.320><c> O</c><00:10:20.720><c> are</c><00:10:20.959><c> all</c><00:10:21.120><c> still</c><00:10:21.360><c> there.</c>
+
+00:10:23.190 --> 00:10:23.200 align:start position:0%
+DOM state and O are all still there.
+ 
+
+00:10:23.200 --> 00:10:25.269 align:start position:0%
+DOM state and O are all still there.
+Commercial<00:10:23.600><c> Mac</c><00:10:23.920><c> cleaners</c><00:10:24.560><c> have</c><00:10:24.720><c> a</c><00:10:24.959><c> giant</c>
+
+00:10:25.269 --> 00:10:25.279 align:start position:0%
+Commercial Mac cleaners have a giant
+ 
+
+00:10:25.279 --> 00:10:27.430 align:start position:0%
+Commercial Mac cleaners have a giant
+clean<00:10:25.600><c> button</c><00:10:26.000><c> and</c><00:10:26.240><c> you</c><00:10:26.399><c> just</c><00:10:26.560><c> blindly</c><00:10:27.120><c> trust</c>
+
+00:10:27.430 --> 00:10:27.440 align:start position:0%
+clean button and you just blindly trust
+ 
+
+00:10:27.440 --> 00:10:30.069 align:start position:0%
+clean button and you just blindly trust
+them.<00:10:28.240><c> If</c><00:10:28.480><c> something</c><00:10:28.800><c> breaks,</c><00:10:29.519><c> it's</c><00:10:29.839><c> gone</c>
+
+00:10:30.069 --> 00:10:30.079 align:start position:0%
+them. If something breaks, it's gone
+ 
+
+00:10:30.079 --> 00:10:31.590 align:start position:0%
+them. If something breaks, it's gone
+permanently.
+
+00:10:31.590 --> 00:10:31.600 align:start position:0%
+permanently.
+ 
+
+00:10:31.600 --> 00:10:33.509 align:start position:0%
+permanently.
+Maxif<00:10:32.240><c> takes</c><00:10:32.399><c> the</c><00:10:32.560><c> opposite</c><00:10:32.880><c> approach.</c><00:10:33.279><c> It</c>
+
+00:10:33.509 --> 00:10:33.519 align:start position:0%
+Maxif takes the opposite approach. It
+ 
+
+00:10:33.519 --> 00:10:35.750 align:start position:0%
+Maxif takes the opposite approach. It
+lists<00:10:33.839><c> every</c><00:10:34.079><c> junk</c><00:10:34.399><c> file,</c><00:10:34.800><c> log,</c><00:10:35.120><c> and</c><00:10:35.360><c> cache</c>
+
+00:10:35.750 --> 00:10:35.760 align:start position:0%
+lists every junk file, log, and cache
+ 
+
+00:10:35.760 --> 00:10:37.990 align:start position:0%
+lists every junk file, log, and cache
+grouped<00:10:36.079><c> by</c><00:10:36.240><c> the</c><00:10:36.480><c> exact</c><00:10:36.800><c> app</c><00:10:37.040><c> that</c><00:10:37.200><c> owns</c><00:10:37.519><c> it.</c>
+
+00:10:37.990 --> 00:10:38.000 align:start position:0%
+grouped by the exact app that owns it.
+ 
+
+00:10:38.000 --> 00:10:39.990 align:start position:0%
+grouped by the exact app that owns it.
+Full<00:10:38.320><c> transparency</c><00:10:39.200><c> before</c><00:10:39.600><c> anything</c>
+
+00:10:39.990 --> 00:10:40.000 align:start position:0%
+Full transparency before anything
+ 
+
+00:10:40.000 --> 00:10:42.389 align:start position:0%
+Full transparency before anything
+happens.<00:10:40.800><c> Maxift</c><00:10:41.440><c> never</c><00:10:41.839><c> permanently</c>
+
+00:10:42.389 --> 00:10:42.399 align:start position:0%
+happens. Maxift never permanently
+ 
+
+00:10:42.399 --> 00:10:44.949 align:start position:0%
+happens. Maxift never permanently
+deletes<00:10:42.880><c> files.</c><00:10:43.839><c> Everything</c><00:10:44.240><c> moves</c><00:10:44.560><c> to</c><00:10:44.720><c> your</c>
+
+00:10:44.949 --> 00:10:44.959 align:start position:0%
+deletes files. Everything moves to your
+ 
+
+00:10:44.959 --> 00:10:46.870 align:start position:0%
+deletes files. Everything moves to your
+trash<00:10:45.360><c> so</c><00:10:45.519><c> you</c><00:10:45.680><c> can</c><00:10:45.839><c> restore</c><00:10:46.320><c> anything</c>
+
+00:10:46.870 --> 00:10:46.880 align:start position:0%
+trash so you can restore anything
+ 
+
+00:10:46.880 --> 00:10:49.829 align:start position:0%
+trash so you can restore anything
+instantly<00:10:47.519><c> if</c><00:10:47.760><c> an</c><00:10:48.000><c> app</c><00:10:48.240><c> breaks.</c>
+
+00:10:49.829 --> 00:10:49.839 align:start position:0%
+instantly if an app breaks.
+ 
+
+00:10:49.839 --> 00:10:52.710 align:start position:0%
+instantly if an app breaks.
+Nano<00:10:50.320><c> FFmpeg</c><00:10:51.120><c> is</c><00:10:51.200><c> a</c><00:10:51.360><c> keyboard-driven</c><00:10:52.160><c> TUI</c>
+
+00:10:52.710 --> 00:10:52.720 align:start position:0%
+Nano FFmpeg is a keyboard-driven TUI
+ 
+
+00:10:52.720 --> 00:10:55.350 align:start position:0%
+Nano FFmpeg is a keyboard-driven TUI
+built-in<00:10:53.200><c> Go</c><00:10:53.600><c> that</c><00:10:53.839><c> wraps</c><00:10:54.160><c> FFmpeg</c><00:10:54.959><c> into</c><00:10:55.120><c> a</c>
+
+00:10:55.350 --> 00:10:55.360 align:start position:0%
+built-in Go that wraps FFmpeg into a
+ 
+
+00:10:55.360 --> 00:10:57.590 align:start position:0%
+built-in Go that wraps FFmpeg into a
+clean<00:10:55.600><c> dashboard.</c><00:10:56.399><c> Browse</c><00:10:56.720><c> files</c><00:10:57.040><c> with</c><00:10:57.200><c> arrow</c>
+
+00:10:57.590 --> 00:10:57.600 align:start position:0%
+clean dashboard. Browse files with arrow
+ 
+
+00:10:57.600 --> 00:11:00.310 align:start position:0%
+clean dashboard. Browse files with arrow
+keys.<00:10:58.160><c> Pick</c><00:10:58.399><c> from</c><00:10:58.720><c> 12</c><00:10:58.959><c> guided</c><00:10:59.440><c> operations</c><00:11:00.079><c> and</c>
+
+00:11:00.310 --> 00:11:00.320 align:start position:0%
+keys. Pick from 12 guided operations and
+ 
+
+00:11:00.320 --> 00:11:02.389 align:start position:0%
+keys. Pick from 12 guided operations and
+it<00:11:00.480><c> handles</c><00:11:00.800><c> the</c><00:11:01.040><c> rest.</c><00:11:01.680><c> Autodetects</c>
+
+00:11:02.389 --> 00:11:02.399 align:start position:0%
+it handles the rest. Autodetects
+ 
+
+00:11:02.399 --> 00:11:04.630 align:start position:0%
+it handles the rest. Autodetects
+hardware<00:11:02.800><c> acceleration</c><00:11:03.440><c> like</c><00:11:03.760><c> video</c><00:11:04.160><c> toolbox</c>
+
+00:11:04.630 --> 00:11:04.640 align:start position:0%
+hardware acceleration like video toolbox
+ 
+
+00:11:04.640 --> 00:11:07.509 align:start position:0%
+hardware acceleration like video toolbox
+and<00:11:04.880><c> envank</c><00:11:05.920><c> suggests</c><00:11:06.399><c> smart</c><00:11:06.800><c> defaults</c><00:11:07.279><c> from</c>
+
+00:11:07.509 --> 00:11:07.519 align:start position:0%
+and envank suggests smart defaults from
+ 
+
+00:11:07.519 --> 00:11:09.829 align:start position:0%
+and envank suggests smart defaults from
+your<00:11:07.680><c> media</c><00:11:08.079><c> file.</c><00:11:08.720><c> Live</c><00:11:09.040><c> command</c><00:11:09.440><c> preview</c>
+
+00:11:09.829 --> 00:11:09.839 align:start position:0%
+your media file. Live command preview
+ 
+
+00:11:09.839 --> 00:11:12.310 align:start position:0%
+your media file. Live command preview
+shows<00:11:10.160><c> you</c><00:11:10.320><c> the</c><00:11:10.480><c> exact</c><00:11:10.880><c> raw</c><00:11:11.200><c> ffmpeg</c><00:11:12.000><c> command</c>
+
+00:11:12.310 --> 00:11:12.320 align:start position:0%
+shows you the exact raw ffmpeg command
+ 
+
+00:11:12.320 --> 00:11:14.150 align:start position:0%
+shows you the exact raw ffmpeg command
+before<00:11:12.560><c> you</c><00:11:12.800><c> execute.</c><00:11:13.600><c> So</c><00:11:13.680><c> you</c><00:11:13.920><c> actually</c>
+
+00:11:14.150 --> 00:11:14.160 align:start position:0%
+before you execute. So you actually
+ 
+
+00:11:14.160 --> 00:11:15.990 align:start position:0%
+before you execute. So you actually
+learn<00:11:14.399><c> the</c><00:11:14.560><c> tool</c><00:11:14.959><c> instead</c><00:11:15.279><c> of</c><00:11:15.360><c> just</c><00:11:15.600><c> hiding</c><00:11:15.839><c> it</c>
+
+00:11:15.990 --> 00:11:16.000 align:start position:0%
+learn the tool instead of just hiding it
+ 
+
+00:11:16.000 --> 00:11:19.750 align:start position:0%
+learn the tool instead of just hiding it
+behind<00:11:16.320><c> a</c><00:11:16.480><c> UI.</c><00:11:17.680><c> Getting</c><00:11:18.880><c> remote</c><00:11:19.279><c> desktop</c>
+
+00:11:19.750 --> 00:11:19.760 align:start position:0%
+behind a UI. Getting remote desktop
+ 
+
+00:11:19.760 --> 00:11:21.750 align:start position:0%
+behind a UI. Getting remote desktop
+access<00:11:20.079><c> to</c><00:11:20.240><c> a</c><00:11:20.399><c> Windows</c><00:11:20.800><c> machine</c><00:11:21.360><c> usually</c>
+
+00:11:21.750 --> 00:11:21.760 align:start position:0%
+access to a Windows machine usually
+ 
+
+00:11:21.760 --> 00:11:23.910 align:start position:0%
+access to a Windows machine usually
+means<00:11:22.079><c> fighting</c><00:11:22.480><c> firewalls,</c><00:11:23.519><c> opening</c>
+
+00:11:23.910 --> 00:11:23.920 align:start position:0%
+means fighting firewalls, opening
+ 
+
+00:11:23.920 --> 00:11:26.630 align:start position:0%
+means fighting firewalls, opening
+inbound<00:11:24.399><c> ports,</c><00:11:24.959><c> or</c><00:11:25.200><c> managing</c><00:11:25.680><c> separate</c><00:11:26.160><c> VPN</c>
+
+00:11:26.630 --> 00:11:26.640 align:start position:0%
+inbound ports, or managing separate VPN
+ 
+
+00:11:26.640 --> 00:11:29.670 align:start position:0%
+inbound ports, or managing separate VPN
+clients.<00:11:27.920><c> Tail</c><00:11:28.240><c> VNC</c><00:11:28.720><c> bundles</c><00:11:29.120><c> a</c><00:11:29.360><c> fully</c>
+
+00:11:29.670 --> 00:11:29.680 align:start position:0%
+clients. Tail VNC bundles a fully
+ 
+
+00:11:29.680 --> 00:11:31.990 align:start position:0%
+clients. Tail VNC bundles a fully
+functional<00:11:30.079><c> VNC</c><00:11:30.640><c> server</c><00:11:31.120><c> and</c><00:11:31.360><c> an</c><00:11:31.600><c> embedded</c>
+
+00:11:31.990 --> 00:11:32.000 align:start position:0%
+functional VNC server and an embedded
+ 
+
+00:11:32.000 --> 00:11:34.150 align:start position:0%
+functional VNC server and an embedded
+Tailcale<00:11:32.640><c> node</c><00:11:32.959><c> into</c><00:11:33.360><c> one</c><00:11:33.600><c> standalone</c>
+
+00:11:34.150 --> 00:11:34.160 align:start position:0%
+Tailcale node into one standalone
+ 
+
+00:11:34.160 --> 00:11:36.710 align:start position:0%
+Tailcale node into one standalone
+Windows<00:11:34.640><c> binary.</c><00:11:35.680><c> Drop</c><00:11:35.920><c> it</c><00:11:36.079><c> on</c><00:11:36.160><c> the</c><00:11:36.320><c> target</c>
+
+00:11:36.710 --> 00:11:36.720 align:start position:0%
+Windows binary. Drop it on the target
+ 
+
+00:11:36.720 --> 00:11:38.870 align:start position:0%
+Windows binary. Drop it on the target
+machine<00:11:37.279><c> and</c><00:11:37.440><c> it</c><00:11:37.680><c> punches</c><00:11:38.000><c> through</c><00:11:38.320><c> NATS</c><00:11:38.720><c> and</c>
+
+00:11:38.870 --> 00:11:38.880 align:start position:0%
+machine and it punches through NATS and
+ 
+
+00:11:38.880 --> 00:11:41.110 align:start position:0%
+machine and it punches through NATS and
+firewalls<00:11:39.760><c> to</c><00:11:40.000><c> connect</c><00:11:40.320><c> directly</c><00:11:40.720><c> into</c><00:11:40.959><c> your</c>
+
+00:11:41.110 --> 00:11:41.120 align:start position:0%
+firewalls to connect directly into your
+ 
+
+00:11:41.120 --> 00:11:44.470 align:start position:0%
+firewalls to connect directly into your
+WireGuard<00:11:41.680><c> encrypted</c><00:11:42.240><c> tail</c><00:11:42.640><c> scale</c><00:11:42.880><c> network.</c>
+
+00:11:44.470 --> 00:11:44.480 align:start position:0%
+WireGuard encrypted tail scale network.
+ 
+
+00:11:44.480 --> 00:11:46.310 align:start position:0%
+WireGuard encrypted tail scale network.
+Video<00:11:44.880><c> editing</c><00:11:45.279><c> means</c><00:11:45.519><c> sifting</c><00:11:46.000><c> through</c>
+
+00:11:46.310 --> 00:11:46.320 align:start position:0%
+Video editing means sifting through
+ 
+
+00:11:46.320 --> 00:11:48.630 align:start position:0%
+Video editing means sifting through
+hours<00:11:46.640><c> of</c><00:11:46.800><c> raw</c><00:11:47.120><c> footage</c><00:11:47.519><c> to</c><00:11:47.760><c> find</c><00:11:48.000><c> the</c><00:11:48.240><c> perfect</c>
+
+00:11:48.630 --> 00:11:48.640 align:start position:0%
+hours of raw footage to find the perfect
+ 
+
+00:11:48.640 --> 00:11:51.430 align:start position:0%
+hours of raw footage to find the perfect
+3-second<00:11:49.279><c> clip.</c><00:11:50.079><c> This</c><00:11:50.320><c> tool</c><00:11:50.640><c> automates</c><00:11:51.120><c> the</c>
+
+00:11:51.430 --> 00:11:51.440 align:start position:0%
+3-second clip. This tool automates the
+ 
+
+00:11:51.440 --> 00:11:54.069 align:start position:0%
+3-second clip. This tool automates the
+entire<00:11:51.839><c> pipeline.</c><00:11:52.800><c> A</c><00:11:52.959><c> Gentic</c><00:11:53.440><c> video</c><00:11:53.680><c> editor</c>
+
+00:11:54.069 --> 00:11:54.079 align:start position:0%
+entire pipeline. A Gentic video editor
+ 
+
+00:11:54.079 --> 00:11:56.310 align:start position:0%
+entire pipeline. A Gentic video editor
+takes<00:11:54.320><c> a</c><00:11:54.560><c> folder</c><00:11:54.800><c> of</c><00:11:54.959><c> raw</c><00:11:55.279><c> footage</c><00:11:55.680><c> and</c><00:11:55.920><c> a</c><00:11:56.079><c> text</c>
+
+00:11:56.310 --> 00:11:56.320 align:start position:0%
+takes a folder of raw footage and a text
+ 
+
+00:11:56.320 --> 00:11:58.949 align:start position:0%
+takes a folder of raw footage and a text
+brief<00:11:56.640><c> and</c><00:11:56.880><c> produces</c><00:11:57.200><c> a</c><00:11:57.360><c> polished</c><00:11:57.760><c> MP4</c><00:11:58.640><c> using</c>
+
+00:11:58.949 --> 00:11:58.959 align:start position:0%
+brief and produces a polished MP4 using
+ 
+
+00:11:58.959 --> 00:12:02.069 align:start position:0%
+brief and produces a polished MP4 using
+an<00:11:59.200><c> ensemble</c><00:11:59.760><c> of</c><00:11:59.920><c> AI</c><00:12:00.320><c> agents.</c><00:12:01.440><c> A</c><00:12:01.680><c> director</c>
+
+00:12:02.069 --> 00:12:02.079 align:start position:0%
+an ensemble of AI agents. A director
+ 
+
+00:12:02.079 --> 00:12:04.470 align:start position:0%
+an ensemble of AI agents. A director
+selects<00:12:02.399><c> the</c><00:12:02.640><c> best</c><00:12:02.880><c> shots.</c><00:12:03.519><c> A</c><00:12:03.680><c> trim</c><00:12:04.000><c> refiner</c>
+
+00:12:04.470 --> 00:12:04.480 align:start position:0%
+selects the best shots. A trim refiner
+ 
+
+00:12:04.480 --> 00:12:06.949 align:start position:0%
+selects the best shots. A trim refiner
+tightens<00:12:04.880><c> the</c><00:12:05.040><c> cuts.</c><00:12:05.680><c> An</c><00:12:05.920><c> editor</c><00:12:06.320><c> renders</c><00:12:06.720><c> the</c>
+
+00:12:06.949 --> 00:12:06.959 align:start position:0%
+tightens the cuts. An editor renders the
+ 
+
+00:12:06.959 --> 00:12:08.629 align:start position:0%
+tightens the cuts. An editor renders the
+timeline.
+
+00:12:08.629 --> 00:12:08.639 align:start position:0%
+timeline.
+ 
+
+00:12:08.639 --> 00:12:10.790 align:start position:0%
+timeline.
+Every<00:12:08.959><c> developer</c><00:12:09.440><c> knows</c><00:12:09.680><c> how</c><00:12:09.839><c> to</c><00:12:09.920><c> call</c><00:12:10.079><c> an</c><00:12:10.320><c> LLM</c>
+
+00:12:10.790 --> 00:12:10.800 align:start position:0%
+Every developer knows how to call an LLM
+ 
+
+00:12:10.800 --> 00:12:13.190 align:start position:0%
+Every developer knows how to call an LLM
+API.<00:12:11.440><c> Very</c><00:12:11.760><c> few</c><00:12:12.079><c> actually</c><00:12:12.480><c> understand</c><00:12:12.800><c> what's</c>
+
+00:12:13.190 --> 00:12:13.200 align:start position:0%
+API. Very few actually understand what's
+ 
+
+00:12:13.200 --> 00:12:16.150 align:start position:0%
+API. Very few actually understand what's
+running<00:12:13.440><c> underneath.</c><00:12:14.720><c> LLM</c><00:12:15.279><c> internals</c><00:12:15.839><c> breaks</c>
+
+00:12:16.150 --> 00:12:16.160 align:start position:0%
+running underneath. LLM internals breaks
+ 
+
+00:12:16.160 --> 00:12:18.470 align:start position:0%
+running underneath. LLM internals breaks
+down<00:12:16.320><c> the</c><00:12:16.560><c> entire</c><00:12:16.959><c> AI</c><00:12:17.360><c> pipeline</c><00:12:17.839><c> in</c><00:12:18.079><c> plain</c>
+
+00:12:18.470 --> 00:12:18.480 align:start position:0%
+down the entire AI pipeline in plain
+ 
+
+00:12:18.480 --> 00:12:21.030 align:start position:0%
+down the entire AI pipeline in plain
+English.<00:12:19.200><c> Tokenization,</c><00:12:20.320><c> self-attention</c>
+
+00:12:21.030 --> 00:12:21.040 align:start position:0%
+English. Tokenization, self-attention
+ 
+
+00:12:21.040 --> 00:12:23.269 align:start position:0%
+English. Tokenization, self-attention
+mechanics,<00:12:21.920><c> inference</c><00:12:22.399><c> optimization</c><00:12:23.040><c> on</c>
+
+00:12:23.269 --> 00:12:23.279 align:start position:0%
+mechanics, inference optimization on
+ 
+
+00:12:23.279 --> 00:12:26.069 align:start position:0%
+mechanics, inference optimization on
+real<00:12:23.519><c> hardware,</c><00:12:24.320><c> no</c><00:12:24.560><c> dense</c><00:12:24.959><c> academic</c><00:12:25.519><c> papers,</c>
+
+00:12:26.069 --> 00:12:26.079 align:start position:0%
+real hardware, no dense academic papers,
+ 
+
+00:12:26.079 --> 00:12:28.629 align:start position:0%
+real hardware, no dense academic papers,
+no<00:12:26.399><c> terrifying</c><00:12:26.880><c> math</c><00:12:27.279><c> formulas,</c><00:12:28.320><c> clean</c>
+
+00:12:28.629 --> 00:12:28.639 align:start position:0%
+no terrifying math formulas, clean
+ 
+
+00:12:28.639 --> 00:12:30.389 align:start position:0%
+no terrifying math formulas, clean
+developer<00:12:29.200><c> friendly</c><00:12:29.519><c> explanations</c><00:12:30.079><c> with</c>
+
+00:12:30.389 --> 00:12:30.399 align:start position:0%
+developer friendly explanations with
+ 
+
+00:12:30.399 --> 00:12:32.790 align:start position:0%
+developer friendly explanations with
+code<00:12:30.720><c> snippets</c><00:12:31.279><c> showing</c><00:12:31.600><c> exactly</c><00:12:32.079><c> how</c><00:12:32.399><c> text</c>
+
+00:12:32.790 --> 00:12:32.800 align:start position:0%
+code snippets showing exactly how text
+ 
+
+00:12:32.800 --> 00:12:35.910 align:start position:0%
+code snippets showing exactly how text
+turns<00:12:33.120><c> into</c><00:12:33.440><c> intelligent</c><00:12:34.000><c> predictions.</c>
+
+00:12:35.910 --> 00:12:35.920 align:start position:0%
+turns into intelligent predictions.
+ 
+
+00:12:35.920 --> 00:12:37.990 align:start position:0%
+turns into intelligent predictions.
+Interacting<00:12:36.399><c> with</c><00:12:36.480><c> your</c><00:12:36.639><c> Hermes</c><00:12:37.120><c> AI</c><00:12:37.440><c> agent</c>
+
+00:12:37.990 --> 00:12:38.000 align:start position:0%
+Interacting with your Hermes AI agent
+ 
+
+00:12:38.000 --> 00:12:39.990 align:start position:0%
+Interacting with your Hermes AI agent
+usually<00:12:38.320><c> means</c><00:12:38.639><c> sitting</c><00:12:38.800><c> at</c><00:12:38.959><c> a</c><00:12:39.120><c> terminal.</c>
+
+00:12:39.990 --> 00:12:40.000 align:start position:0%
+usually means sitting at a terminal.
+ 
+
+00:12:40.000 --> 00:12:41.509 align:start position:0%
+usually means sitting at a terminal.
+Hermes-Tlegram-
+
+00:12:41.509 --> 00:12:41.519 align:start position:0%
+Hermes-Tlegram-
+ 
+
+00:12:41.519 --> 00:12:43.269 align:start position:0%
+Hermes-Tlegram-
+miniapp<00:12:41.920><c> bridges</c><00:12:42.240><c> Hermes</c><00:12:42.720><c> directly</c><00:12:42.959><c> into</c>
+
+00:12:43.269 --> 00:12:43.279 align:start position:0%
+miniapp bridges Hermes directly into
+ 
+
+00:12:43.279 --> 00:12:45.750 align:start position:0%
+miniapp bridges Hermes directly into
+Telegram<00:12:43.760><c> as</c><00:12:44.000><c> a</c><00:12:44.160><c> native</c><00:12:44.560><c> mini</c><00:12:44.800><c> app.</c><00:12:45.360><c> Not</c><00:12:45.600><c> a</c>
+
+00:12:45.750 --> 00:12:45.760 align:start position:0%
+Telegram as a native mini app. Not a
+ 
+
+00:12:45.760 --> 00:12:48.310 align:start position:0%
+Telegram as a native mini app. Not a
+basic<00:12:46.079><c> chat</c><00:12:46.399><c> bubble.</c><00:12:47.120><c> A</c><00:12:47.360><c> full</c><00:12:47.600><c> terminal</c><00:12:48.079><c> style</c>
+
+00:12:48.310 --> 00:12:48.320 align:start position:0%
+basic chat bubble. A full terminal style
+ 
+
+00:12:48.320 --> 00:12:50.710 align:start position:0%
+basic chat bubble. A full terminal style
+UI<00:12:48.800><c> rendered</c><00:12:49.120><c> inside</c><00:12:49.440><c> your</c><00:12:49.600><c> messaging</c><00:12:50.079><c> app.</c>
+
+00:12:50.710 --> 00:12:50.720 align:start position:0%
+UI rendered inside your messaging app.
+ 
+
+00:12:50.720 --> 00:12:53.190 align:start position:0%
+UI rendered inside your messaging app.
+Aski<00:12:51.120><c> banner,</c><00:12:51.680><c> real-time</c><00:12:52.240><c> spinners,</c><00:12:52.880><c> skills</c>
+
+00:12:53.190 --> 00:12:53.200 align:start position:0%
+Aski banner, real-time spinners, skills
+ 
+
+00:12:53.200 --> 00:12:55.590 align:start position:0%
+Aski banner, real-time spinners, skills
+panel,<00:12:53.680><c> cron</c><00:12:54.079><c> jobs,</c><00:12:54.560><c> system</c><00:12:54.959><c> monitoring,</c>
+
+00:12:55.590 --> 00:12:55.600 align:start position:0%
+panel, cron jobs, system monitoring,
+ 
+
+00:12:55.600 --> 00:12:58.790 align:start position:0%
+panel, cron jobs, system monitoring,
+stats,<00:12:56.399><c> all</c><00:12:56.560><c> of</c><00:12:56.720><c> it.</c><00:12:57.279><c> It</c><00:12:57.519><c> feels</c><00:12:57.760><c> like</c><00:12:58.000><c> sshing</c>
+
+00:12:58.790 --> 00:12:58.800 align:start position:0%
+stats, all of it. It feels like sshing
+ 
+
+00:12:58.800 --> 00:13:00.710 align:start position:0%
+stats, all of it. It feels like sshing
+directly<00:12:59.120><c> into</c><00:12:59.360><c> your</c><00:12:59.600><c> autonomous</c><00:13:00.079><c> AI</c><00:13:00.399><c> agent</c>
+
+00:13:00.710 --> 00:13:00.720 align:start position:0%
+directly into your autonomous AI agent
+ 
+
+00:13:00.720 --> 00:13:02.870 align:start position:0%
+directly into your autonomous AI agent
+from<00:13:00.959><c> your</c><00:13:01.120><c> pocket.</c>
+
+00:13:02.870 --> 00:13:02.880 align:start position:0%
+from your pocket.
+ 
+
+00:13:02.880 --> 00:13:04.870 align:start position:0%
+from your pocket.
+The<00:13:03.040><c> iPhone's</c><00:13:03.519><c> dynamic</c><00:13:04.000><c> island,</c><00:13:04.399><c> but</c><00:13:04.639><c> on</c><00:13:04.720><c> your</c>
+
+00:13:04.870 --> 00:13:04.880 align:start position:0%
+The iPhone's dynamic island, but on your
+ 
+
+00:13:04.880 --> 00:13:08.069 align:start position:0%
+The iPhone's dynamic island, but on your
+Mac<00:13:05.200><c> desktop.</c><00:13:06.639><c> Super</c><00:13:07.040><c> Island</c><00:13:07.360><c> is</c><00:13:07.519><c> a</c><00:13:07.760><c> fully</c>
+
+00:13:08.069 --> 00:13:08.079 align:start position:0%
+Mac desktop. Super Island is a fully
+ 
+
+00:13:08.079 --> 00:13:11.030 align:start position:0%
+Mac desktop. Super Island is a fully
+extensible<00:13:08.800><c> floating</c><00:13:09.279><c> notch</c><00:13:09.680><c> for</c><00:13:09.920><c> Mac</c><00:13:10.160><c> OS,</c><00:13:10.800><c> a</c>
+
+00:13:11.030 --> 00:13:11.040 align:start position:0%
+extensible floating notch for Mac OS, a
+ 
+
+00:13:11.040 --> 00:13:13.430 align:start position:0%
+extensible floating notch for Mac OS, a
+local<00:13:11.279><c> HTTP</c><00:13:12.079><c> endpoint</c><00:13:12.480><c> that</c><00:13:12.720><c> lets</c><00:13:12.959><c> you</c><00:13:13.120><c> pipe</c>
+
+00:13:13.430 --> 00:13:13.440 align:start position:0%
+local HTTP endpoint that lets you pipe
+ 
+
+00:13:13.440 --> 00:13:15.190 align:start position:0%
+local HTTP endpoint that lets you pipe
+notifications<00:13:14.079><c> from</c><00:13:14.320><c> anywhere</c><00:13:14.800><c> directly</c>
+
+00:13:15.190 --> 00:13:15.200 align:start position:0%
+notifications from anywhere directly
+ 
+
+00:13:15.200 --> 00:13:17.509 align:start position:0%
+notifications from anywhere directly
+into<00:13:15.519><c> it.</c><00:13:16.160><c> Developers</c><00:13:16.639><c> are</c><00:13:16.800><c> hooking</c><00:13:17.040><c> it</c><00:13:17.200><c> up</c><00:13:17.279><c> to</c>
+
+00:13:17.509 --> 00:13:17.519 align:start position:0%
+into it. Developers are hooking it up to
+ 
+
+00:13:17.519 --> 00:13:19.430 align:start position:0%
+into it. Developers are hooking it up to
+clawed<00:13:17.839><c> code</c><00:13:18.079><c> so</c><00:13:18.240><c> when</c><00:13:18.399><c> an</c><00:13:18.560><c> agent</c><00:13:18.880><c> finishes</c><00:13:19.200><c> a</c>
+
+00:13:19.430 --> 00:13:19.440 align:start position:0%
+clawed code so when an agent finishes a
+ 
+
+00:13:19.440 --> 00:13:22.150 align:start position:0%
+clawed code so when an agent finishes a
+refactor,<00:13:20.160><c> hits</c><00:13:20.399><c> an</c><00:13:20.720><c> error,</c><00:13:21.200><c> or</c><00:13:21.519><c> needs</c><00:13:21.839><c> human</c>
+
+00:13:22.150 --> 00:13:22.160 align:start position:0%
+refactor, hits an error, or needs human
+ 
+
+00:13:22.160 --> 00:13:24.629 align:start position:0%
+refactor, hits an error, or needs human
+approval,<00:13:22.880><c> it</c><00:13:23.120><c> pops</c><00:13:23.440><c> a</c><00:13:23.600><c> sleek</c><00:13:24.079><c> interactive</c>
+
+00:13:24.629 --> 00:13:24.639 align:start position:0%
+approval, it pops a sleek interactive
+ 
+
+00:13:24.639 --> 00:13:27.030 align:start position:0%
+approval, it pops a sleek interactive
+notification<00:13:25.360><c> into</c><00:13:25.680><c> the</c><00:13:25.839><c> dynamic</c><00:13:26.320><c> island</c>
+
+00:13:27.030 --> 00:13:27.040 align:start position:0%
+notification into the dynamic island
+ 
+
+00:13:27.040 --> 00:13:28.790 align:start position:0%
+notification into the dynamic island
+instead<00:13:27.360><c> of</c><00:13:27.519><c> getting</c><00:13:27.760><c> buried</c><00:13:28.160><c> in</c><00:13:28.320><c> terminal</c>
+
+00:13:28.790 --> 00:13:28.800 align:start position:0%
+instead of getting buried in terminal
+ 
+
+00:13:28.800 --> 00:13:30.389 align:start position:0%
+instead of getting buried in terminal
+output.
+
+00:13:30.389 --> 00:13:30.399 align:start position:0%
+output.
+ 
+
+00:13:30.399 --> 00:13:32.949 align:start position:0%
+output.
+Can<00:13:30.560><c> it</c><00:13:30.800><c> run</c><00:13:31.040><c> Doom?</c><00:13:32.000><c> This</c><00:13:32.320><c> developer</c><00:13:32.720><c> took</c>
+
+00:13:32.949 --> 00:13:32.959 align:start position:0%
+Can it run Doom? This developer took
+ 
+
+00:13:32.959 --> 00:13:35.350 align:start position:0%
+Can it run Doom? This developer took
+that<00:13:33.120><c> question</c><00:13:33.440><c> to</c><00:13:33.600><c> the</c><00:13:33.760><c> network</c><00:13:34.320><c> layer.</c><00:13:34.959><c> Curl</c>
+
+00:13:35.350 --> 00:13:35.360 align:start position:0%
+that question to the network layer. Curl
+ 
+
+00:13:35.360 --> 00:13:37.990 align:start position:0%
+that question to the network layer. Curl
+Doom<00:13:35.600><c> is</c><00:13:35.760><c> an</c><00:13:35.920><c> HTTP</c><00:13:36.639><c> server</c><00:13:36.959><c> that</c><00:13:37.200><c> renders</c><00:13:37.600><c> live</c>
+
+00:13:37.990 --> 00:13:38.000 align:start position:0%
+Doom is an HTTP server that renders live
+ 
+
+00:13:38.000 --> 00:13:40.069 align:start position:0%
+Doom is an HTTP server that renders live
+Doom<00:13:38.320><c> frames</c><00:13:38.720><c> as</c><00:13:39.040><c> antsy</c><00:13:39.519><c> halfblock</c>
+
+00:13:40.069 --> 00:13:40.079 align:start position:0%
+Doom frames as antsy halfblock
+ 
+
+00:13:40.079 --> 00:13:41.829 align:start position:0%
+Doom frames as antsy halfblock
+characters<00:13:40.639><c> and</c><00:13:40.880><c> streams</c><00:13:41.279><c> them</c><00:13:41.440><c> to</c><00:13:41.680><c> your</c>
+
+00:13:41.829 --> 00:13:41.839 align:start position:0%
+characters and streams them to your
+ 
+
+00:13:41.839 --> 00:13:44.790 align:start position:0%
+characters and streams them to your
+terminal<00:13:42.399><c> over</c><00:13:42.639><c> a</c><00:13:42.880><c> standard</c><00:13:43.279><c> web</c><00:13:43.519><c> request.</c>
+
+00:13:44.790 --> 00:13:44.800 align:start position:0%
+terminal over a standard web request.
+ 
+
+00:13:44.800 --> 00:13:46.550 align:start position:0%
+terminal over a standard web request.
+Type<00:13:45.120><c> one</c><00:13:45.360><c> curl</c><00:13:45.680><c> command</c><00:13:45.920><c> and</c><00:13:46.160><c> you're</c><00:13:46.320><c> playing</c>
+
+00:13:46.550 --> 00:13:46.560 align:start position:0%
+Type one curl command and you're playing
+ 
+
+00:13:46.560 --> 00:13:49.110 align:start position:0%
+Type one curl command and you're playing
+Doom.<00:13:47.440><c> Birectional</c><00:13:48.320><c> streaming</c><00:13:48.720><c> captures</c>
+
+00:13:49.110 --> 00:13:49.120 align:start position:0%
+Doom. Birectional streaming captures
+ 
+
+00:13:49.120 --> 00:13:51.509 align:start position:0%
+Doom. Birectional streaming captures
+your<00:13:49.279><c> keystrokes</c><00:13:49.920><c> and</c><00:13:50.160><c> pushes</c><00:13:50.560><c> updated</c><00:13:50.959><c> ASKI</c>
+
+00:13:51.509 --> 00:13:51.519 align:start position:0%
+your keystrokes and pushes updated ASKI
+ 
+
+00:13:51.519 --> 00:13:54.550 align:start position:0%
+your keystrokes and pushes updated ASKI
+frames<00:13:51.839><c> back</c><00:13:52.000><c> in</c><00:13:52.240><c> real</c><00:13:52.480><c> time.</c>
+
+00:13:54.550 --> 00:13:54.560 align:start position:0%
+frames back in real time.
+ 
+
+00:13:54.560 --> 00:13:56.870 align:start position:0%
+frames back in real time.
+A<00:13:54.720><c> raw</c><00:13:54.959><c> linear</c><00:13:55.360><c> scan</c><00:13:55.600><c> of</c><00:13:55.839><c> 100,000</c><00:13:56.399><c> vectors</c><00:13:56.720><c> on</c>
+
+00:13:56.870 --> 00:13:56.880 align:start position:0%
+A raw linear scan of 100,000 vectors on
+ 
+
+00:13:56.880 --> 00:14:00.310 align:start position:0%
+A raw linear scan of 100,000 vectors on
+S3<00:13:57.360><c> takes</c><00:13:57.760><c> 25</c><00:13:58.160><c> seconds</c><00:13:58.480><c> per</c><00:13:58.720><c> query.</c><00:13:59.680><c> Fernflow</c>
+
+00:14:00.310 --> 00:14:00.320 align:start position:0%
+S3 takes 25 seconds per query. Fernflow
+ 
+
+00:14:00.320 --> 00:14:02.710 align:start position:0%
+S3 takes 25 seconds per query. Fernflow
+brings<00:14:00.560><c> that</c><00:14:00.720><c> down</c><00:14:00.880><c> to</c><00:14:01.120><c> 72</c><00:14:01.600><c> micros</c><00:14:02.160><c> on</c><00:14:02.320><c> warm</c>
+
+00:14:02.710 --> 00:14:02.720 align:start position:0%
+brings that down to 72 micros on warm
+ 
+
+00:14:02.720 --> 00:14:05.990 align:start position:0%
+brings that down to 72 micros on warm
+queries.<00:14:03.360><c> That's</c><00:14:03.600><c> a</c><00:14:03.839><c> 350,000x</c><00:14:05.199><c> difference.</c>
+
+00:14:05.990 --> 00:14:06.000 align:start position:0%
+queries. That's a 350,000x difference.
+ 
+
+00:14:06.000 --> 00:14:08.230 align:start position:0%
+queries. That's a 350,000x difference.
+And<00:14:06.160><c> every</c><00:14:06.399><c> cache</c><00:14:06.720><c> hit</c><00:14:07.040><c> means</c><00:14:07.360><c> zero</c><00:14:07.760><c> S3</c>
+
+00:14:08.230 --> 00:14:08.240 align:start position:0%
+And every cache hit means zero S3
+ 
+
+00:14:08.240 --> 00:14:11.430 align:start position:0%
+And every cache hit means zero S3
+requests<00:14:08.639><c> on</c><00:14:08.800><c> your</c><00:14:09.040><c> bill.</c><00:14:10.320><c> Three</c><00:14:10.639><c> tier</c><00:14:10.880><c> cache,</c>
+
+00:14:11.430 --> 00:14:11.440 align:start position:0%
+requests on your bill. Three tier cache,
+ 
+
+00:14:11.440 --> 00:14:14.710 align:start position:0%
+requests on your bill. Three tier cache,
+RAM,<00:14:11.920><c> NVMe,</c><00:14:12.639><c> then</c><00:14:12.880><c> S3.</c><00:14:13.839><c> Multi-tenant</c><00:14:14.560><c> by</c>
+
+00:14:14.710 --> 00:14:14.720 align:start position:0%
+RAM, NVMe, then S3. Multi-tenant by
+ 
+
+00:14:14.720 --> 00:14:17.430 align:start position:0%
+RAM, NVMe, then S3. Multi-tenant by
+design<00:14:14.959><c> with</c><00:14:15.199><c> per</c><00:14:15.360><c> namespace</c><00:14:15.920><c> S3</c><00:14:16.320><c> prefixes.</c>
+
+00:14:17.430 --> 00:14:17.440 align:start position:0%
+design with per namespace S3 prefixes.
+ 
+
+00:14:17.440 --> 00:14:19.990 align:start position:0%
+design with per namespace S3 prefixes.
+Vector<00:14:17.839><c> search,</c><00:14:18.320><c> BM25</c><00:14:19.199><c> full</c><00:14:19.440><c> text,</c><00:14:19.760><c> and</c>
+
+00:14:19.990 --> 00:14:20.000 align:start position:0%
+Vector search, BM25 full text, and
+ 
+
+00:14:20.000 --> 00:14:22.470 align:start position:0%
+Vector search, BM25 full text, and
+hybrid<00:14:20.480><c> all</c><00:14:20.720><c> supported.</c>
+
+00:14:22.470 --> 00:14:22.480 align:start position:0%
+hybrid all supported.
+ 
+
+00:14:22.480 --> 00:14:25.269 align:start position:0%
+hybrid all supported.
+Local<00:14:22.880><c> LLM</c><00:14:23.440><c> generation</c><00:14:24.000><c> on</c><00:14:24.240><c> Apple</c><00:14:24.560><c> silicon,</c>
+
+00:14:25.269 --> 00:14:25.279 align:start position:0%
+Local LLM generation on Apple silicon,
+ 
+
+00:14:25.279 --> 00:14:27.110 align:start position:0%
+Local LLM generation on Apple silicon,
+but<00:14:25.600><c> four</c><00:14:25.920><c> times</c><00:14:26.320><c> faster</c><00:14:26.800><c> without</c>
+
+00:14:27.110 --> 00:14:27.120 align:start position:0%
+but four times faster without
+ 
+
+00:14:27.120 --> 00:14:30.470 align:start position:0%
+but four times faster without
+sacrificing<00:14:27.839><c> quality.</c><00:14:29.040><c> Dlash</c><00:14:29.600><c> MLX</c><00:14:30.160><c> brings</c>
+
+00:14:30.470 --> 00:14:30.480 align:start position:0%
+sacrificing quality. Dlash MLX brings
+ 
+
+00:14:30.480 --> 00:14:32.629 align:start position:0%
+sacrificing quality. Dlash MLX brings
+speculative<00:14:31.040><c> decoding</c><00:14:31.519><c> to</c><00:14:31.680><c> Apple's</c><00:14:32.079><c> MLX</c>
+
+00:14:32.629 --> 00:14:32.639 align:start position:0%
+speculative decoding to Apple's MLX
+ 
+
+00:14:32.639 --> 00:14:35.670 align:start position:0%
+speculative decoding to Apple's MLX
+framework.<00:14:33.680><c> A</c><00:14:33.920><c> tiny</c><00:14:34.240><c> draft</c><00:14:34.639><c> model</c><00:14:35.040><c> uses</c><00:14:35.360><c> block</c>
+
+00:14:35.670 --> 00:14:35.680 align:start position:0%
+framework. A tiny draft model uses block
+ 
+
+00:14:35.680 --> 00:14:37.829 align:start position:0%
+framework. A tiny draft model uses block
+diffusion<00:14:36.079><c> to</c><00:14:36.240><c> predict</c><00:14:36.639><c> 16</c><00:14:37.040><c> tokens</c><00:14:37.440><c> at</c><00:14:37.680><c> once</c>
+
+00:14:37.829 --> 00:14:37.839 align:start position:0%
+diffusion to predict 16 tokens at once
+ 
+
+00:14:37.839 --> 00:14:40.069 align:start position:0%
+diffusion to predict 16 tokens at once
+in<00:14:38.079><c> parallel.</c><00:14:38.800><c> Then</c><00:14:38.959><c> your</c><00:14:39.199><c> full</c><00:14:39.440><c> target</c><00:14:39.760><c> model</c>
+
+00:14:40.069 --> 00:14:40.079 align:start position:0%
+in parallel. Then your full target model
+ 
+
+00:14:40.079 --> 00:14:42.069 align:start position:0%
+in parallel. Then your full target model
+verifies<00:14:40.560><c> the</c><00:14:40.800><c> entire</c><00:14:41.199><c> block</c><00:14:41.440><c> in</c><00:14:41.680><c> a</c><00:14:41.839><c> single</c>
+
+00:14:42.069 --> 00:14:42.079 align:start position:0%
+verifies the entire block in a single
+ 
+
+00:14:42.079 --> 00:14:44.710 align:start position:0%
+verifies the entire block in a single
+forward<00:14:42.560><c> pass.</c><00:14:43.519><c> A</c><00:14:43.680><c> custom</c><00:14:44.000><c> metal</c><00:14:44.320><c> kernel</c>
+
+00:14:44.710 --> 00:14:44.720 align:start position:0%
+forward pass. A custom metal kernel
+ 
+
+00:14:44.720 --> 00:14:46.710 align:start position:0%
+forward pass. A custom metal kernel
+handles<00:14:45.040><c> tape</c><00:14:45.440><c> replay</c><00:14:45.680><c> roll</c><00:14:45.920><c> back</c><00:14:46.240><c> so</c><00:14:46.480><c> every</c>
+
+00:14:46.710 --> 00:14:46.720 align:start position:0%
+handles tape replay roll back so every
+ 
+
+00:14:46.720 --> 00:14:49.030 align:start position:0%
+handles tape replay roll back so every
+token<00:14:47.120><c> is</c><00:14:47.360><c> perfectly</c><00:14:47.839><c> verified</c><00:14:48.399><c> before</c><00:14:48.720><c> being</c>
+
+00:14:49.030 --> 00:14:49.040 align:start position:0%
+token is perfectly verified before being
+ 
+
+00:14:49.040 --> 00:14:50.710 align:start position:0%
+token is perfectly verified before being
+committed.
+
+00:14:50.710 --> 00:14:50.720 align:start position:0%
+committed.
+ 
+
+00:14:50.720 --> 00:14:53.030 align:start position:0%
+committed.
+Obscura<00:14:51.440><c> is</c><00:14:51.600><c> a</c><00:14:51.680><c> headless</c><00:14:52.160><c> browser</c><00:14:52.560><c> written</c><00:14:52.800><c> in</c>
+
+00:14:53.030 --> 00:14:53.040 align:start position:0%
+Obscura is a headless browser written in
+ 
+
+00:14:53.040 --> 00:14:55.189 align:start position:0%
+Obscura is a headless browser written in
+Rust<00:14:53.600><c> that</c><00:14:53.839><c> drops</c><00:14:54.160><c> the</c><00:14:54.320><c> Chromium</c><00:14:54.800><c> UI</c>
+
+00:14:55.189 --> 00:14:55.199 align:start position:0%
+Rust that drops the Chromium UI
+ 
+
+00:14:55.199 --> 00:14:57.430 align:start position:0%
+Rust that drops the Chromium UI
+entirely,<00:14:55.760><c> but</c><00:14:56.000><c> embeds</c><00:14:56.399><c> the</c><00:14:56.639><c> actual</c><00:14:57.040><c> V8</c>
+
+00:14:57.430 --> 00:14:57.440 align:start position:0%
+entirely, but embeds the actual V8
+ 
+
+00:14:57.440 --> 00:15:00.790 align:start position:0%
+entirely, but embeds the actual V8
+engine<00:14:57.760><c> for</c><00:14:58.000><c> real</c><00:14:58.320><c> JavaScript</c><00:14:59.040><c> execution.</c>
+
+00:15:00.790 --> 00:15:00.800 align:start position:0%
+engine for real JavaScript execution.
+ 
+
+00:15:00.800 --> 00:15:03.189 align:start position:0%
+engine for real JavaScript execution.
+Native<00:15:01.199><c> Chrome</c><00:15:01.519><c> DevTools</c><00:15:02.160><c> protocol</c><00:15:02.639><c> support</c>
+
+00:15:03.189 --> 00:15:03.199 align:start position:0%
+Native Chrome DevTools protocol support
+ 
+
+00:15:03.199 --> 00:15:04.949 align:start position:0%
+Native Chrome DevTools protocol support
+makes<00:15:03.440><c> it</c><00:15:03.600><c> a</c><00:15:03.760><c> drop-in</c><00:15:04.240><c> replacement</c><00:15:04.720><c> for</c>
+
+00:15:04.949 --> 00:15:04.959 align:start position:0%
+makes it a drop-in replacement for
+ 
+
+00:15:04.959 --> 00:15:06.550 align:start position:0%
+makes it a drop-in replacement for
+existing<00:15:05.360><c> Puppeteer</c><00:15:05.920><c> and</c><00:15:06.079><c> Playwright</c>
+
+00:15:06.550 --> 00:15:06.560 align:start position:0%
+existing Puppeteer and Playwright
+ 
+
+00:15:06.560 --> 00:15:09.829 align:start position:0%
+existing Puppeteer and Playwright
+scripts.<00:15:07.680><c> 30</c><00:15:07.920><c> megabytes</c><00:15:08.480><c> of</c><00:15:08.560><c> RAM,</c><00:15:09.360><c> instant</c>
+
+00:15:09.829 --> 00:15:09.839 align:start position:0%
+scripts. 30 megabytes of RAM, instant
+ 
+
+00:15:09.839 --> 00:15:12.629 align:start position:0%
+scripts. 30 megabytes of RAM, instant
+startup,<00:15:10.560><c> 85</c><00:15:11.120><c> millisecond</c><00:15:11.680><c> page</c><00:15:11.920><c> loads</c>
+
+00:15:12.629 --> 00:15:12.639 align:start position:0%
+startup, 85 millisecond page loads
+ 
+
+00:15:12.639 --> 00:15:14.150 align:start position:0%
+startup, 85 millisecond page loads
+versus<00:15:13.040><c> half</c><00:15:13.199><c> a</c><00:15:13.360><c> second</c><00:15:13.600><c> for</c><00:15:13.839><c> standard</c>
+
+00:15:14.150 --> 00:15:14.160 align:start position:0%
+versus half a second for standard
+ 
+
+00:15:14.160 --> 00:15:16.389 align:start position:0%
+versus half a second for standard
+headless<00:15:14.639><c> Chrome.</c>
+
+00:15:16.389 --> 00:15:16.399 align:start position:0%
+headless Chrome.
+ 
+
+00:15:16.399 --> 00:15:18.550 align:start position:0%
+headless Chrome.
+Mac<00:15:16.560><c> OS</c><00:15:16.880><c> Synoma</c><00:15:17.680><c> lets</c><00:15:17.920><c> you</c><00:15:18.079><c> click</c><00:15:18.320><c> your</c>
+
+00:15:18.550 --> 00:15:18.560 align:start position:0%
+Mac OS Synoma lets you click your
+ 
+
+00:15:18.560 --> 00:15:20.870 align:start position:0%
+Mac OS Synoma lets you click your
+desktop<00:15:18.959><c> wallpaper</c><00:15:19.519><c> to</c><00:15:19.839><c> instantly</c><00:15:20.399><c> clear</c><00:15:20.639><c> all</c>
+
+00:15:20.870 --> 00:15:20.880 align:start position:0%
+desktop wallpaper to instantly clear all
+ 
+
+00:15:20.880 --> 00:15:23.829 align:start position:0%
+desktop wallpaper to instantly clear all
+your<00:15:21.120><c> windows.</c><00:15:22.079><c> Windows</c><00:15:22.560><c> doesn't</c><00:15:22.880><c> have</c><00:15:23.040><c> this.</c>
+
+00:15:23.829 --> 00:15:23.839 align:start position:0%
+your windows. Windows doesn't have this.
+ 
+
+00:15:23.839 --> 00:15:26.069 align:start position:0%
+your windows. Windows doesn't have this.
+So<00:15:24.079><c> Scott</c><00:15:24.320><c> Hansselman,</c><00:15:25.040><c> legendary</c><00:15:25.519><c> Microsoft</c>
+
+00:15:26.069 --> 00:15:26.079 align:start position:0%
+So Scott Hansselman, legendary Microsoft
+ 
+
+00:15:26.079 --> 00:15:28.069 align:start position:0%
+So Scott Hansselman, legendary Microsoft
+engineer,<00:15:26.720><c> just</c><00:15:26.959><c> built</c><00:15:27.199><c> and</c><00:15:27.440><c> open</c><00:15:27.680><c> sourced</c><00:15:27.920><c> it</c>
+
+00:15:28.069 --> 00:15:28.079 align:start position:0%
+engineer, just built and open sourced it
+ 
+
+00:15:28.079 --> 00:15:30.870 align:start position:0%
+engineer, just built and open sourced it
+for<00:15:28.240><c> Windows</c><00:15:28.560><c> 10</c><00:15:28.800><c> and</c><00:15:29.040><c> 11.</c><00:15:29.839><c> Peak</c><00:15:30.160><c> Desktop</c><00:15:30.560><c> is</c><00:15:30.720><c> a</c>
+
+00:15:30.870 --> 00:15:30.880 align:start position:0%
+for Windows 10 and 11. Peak Desktop is a
+ 
+
+00:15:30.880 --> 00:15:32.790 align:start position:0%
+for Windows 10 and 11. Peak Desktop is a
+single<00:15:31.199><c> file</c><00:15:31.519><c> utility</c><00:15:31.920><c> that</c><00:15:32.160><c> runs</c><00:15:32.399><c> in</c><00:15:32.639><c> your</c>
+
+00:15:32.790 --> 00:15:32.800 align:start position:0%
+single file utility that runs in your
+ 
+
+00:15:32.800 --> 00:15:36.470 align:start position:0%
+single file utility that runs in your
+system<00:15:33.120><c> tray.</c><00:15:34.399><c> Click</c><00:15:34.800><c> empty</c><00:15:35.199><c> wallpaper.</c><00:15:36.240><c> All</c>
+
+00:15:36.470 --> 00:15:36.480 align:start position:0%
+system tray. Click empty wallpaper. All
+ 
+
+00:15:36.480 --> 00:15:39.030 align:start position:0%
+system tray. Click empty wallpaper. All
+Windows<00:15:36.959><c> Minimize</c><00:15:37.600><c> instantly.</c><00:15:38.720><c> Click</c>
+
+00:15:39.030 --> 00:15:39.040 align:start position:0%
+Windows Minimize instantly. Click
+ 
+
+00:15:39.040 --> 00:15:42.069 align:start position:0%
+Windows Minimize instantly. Click
+anything<00:15:39.360><c> to</c><00:15:39.600><c> restore</c><00:15:40.000><c> your</c><00:15:40.240><c> workspace.</c>
+
+00:15:42.069 --> 00:15:42.079 align:start position:0%
+anything to restore your workspace.
+ 
+
+00:15:42.079 --> 00:15:44.790 align:start position:0%
+anything to restore your workspace.
+Type<00:15:42.320><c> a</c><00:15:42.480><c> prompt.</c><00:15:43.360><c> Get</c><00:15:43.519><c> a</c><00:15:43.680><c> back</c><00:15:44.000><c> tested</c><00:15:44.399><c> trading</c>
+
+00:15:44.790 --> 00:15:44.800 align:start position:0%
+Type a prompt. Get a back tested trading
+ 
+
+00:15:44.800 --> 00:15:46.629 align:start position:0%
+Type a prompt. Get a back tested trading
+strategy.
+
+00:15:46.629 --> 00:15:46.639 align:start position:0%
+strategy.
+ 
+
+00:15:46.639 --> 00:15:48.790 align:start position:0%
+strategy.
+Vibe<00:15:47.040><c> Trading</c><00:15:47.360><c> is</c><00:15:47.519><c> a</c><00:15:47.680><c> multi-agent</c><00:15:48.399><c> finance</c>
+
+00:15:48.790 --> 00:15:48.800 align:start position:0%
+Vibe Trading is a multi-agent finance
+ 
+
+00:15:48.800 --> 00:15:52.069 align:start position:0%
+Vibe Trading is a multi-agent finance
+workspace.<00:15:50.000><c> 69</c><00:15:50.639><c> specialized</c><00:15:51.279><c> finance</c><00:15:51.680><c> skills</c>
+
+00:15:52.069 --> 00:15:52.079 align:start position:0%
+workspace. 69 specialized finance skills
+ 
+
+00:15:52.079 --> 00:15:55.430 align:start position:0%
+workspace. 69 specialized finance skills
+and<00:15:52.399><c> 29</c><00:15:52.880><c> preconfigured</c><00:15:53.680><c> agent</c><00:15:54.079><c> swarm</c><00:15:54.480><c> teams.</c>
+
+00:15:55.430 --> 00:15:55.440 align:start position:0%
+and 29 preconfigured agent swarm teams.
+ 
+
+00:15:55.440 --> 00:15:57.670 align:start position:0%
+and 29 preconfigured agent swarm teams.
+Spin<00:15:55.680><c> up</c><00:15:55.839><c> a</c><00:15:56.079><c> virtual</c><00:15:56.480><c> global</c><00:15:56.959><c> equities</c><00:15:57.440><c> desk</c>
+
+00:15:57.670 --> 00:15:57.680 align:start position:0%
+Spin up a virtual global equities desk
+ 
+
+00:15:57.680 --> 00:15:59.509 align:start position:0%
+Spin up a virtual global equities desk
+where<00:15:57.920><c> a</c><00:15:58.079><c> crypto</c><00:15:58.399><c> analyst</c><00:15:58.880><c> and</c><00:15:59.040><c> a</c><00:15:59.199><c> global</c>
+
+00:15:59.509 --> 00:15:59.519 align:start position:0%
+where a crypto analyst and a global
+ 
+
+00:15:59.519 --> 00:16:01.350 align:start position:0%
+where a crypto analyst and a global
+strategist<00:16:00.079><c> debate</c><00:16:00.480><c> the</c><00:16:00.720><c> market</c><00:16:01.040><c> before</c>
+
+00:16:01.350 --> 00:16:01.360 align:start position:0%
+strategist debate the market before
+ 
+
+00:16:01.360 --> 00:16:03.670 align:start position:0%
+strategist debate the market before
+delivering<00:16:01.759><c> a</c><00:16:02.000><c> final</c><00:16:02.399><c> investment</c><00:16:02.959><c> call.</c>
+
+00:16:03.670 --> 00:16:03.680 align:start position:0%
+delivering a final investment call.
+ 
+
+00:16:03.680 --> 00:16:06.150 align:start position:0%
+delivering a final investment call.
+Exposes<00:16:04.320><c> everything</c><00:16:04.639><c> as</c><00:16:04.880><c> an</c><00:16:05.040><c> MCP</c><00:16:05.600><c> plug-in</c><00:16:06.000><c> so</c>
+
+00:16:06.150 --> 00:16:06.160 align:start position:0%
+Exposes everything as an MCP plug-in so
+ 
+
+00:16:06.160 --> 00:16:07.829 align:start position:0%
+Exposes everything as an MCP plug-in so
+Claude<00:16:06.480><c> Desktop</c><00:16:06.880><c> can</c><00:16:07.040><c> gather</c><00:16:07.360><c> market</c><00:16:07.600><c> data</c>
+
+00:16:07.829 --> 00:16:07.839 align:start position:0%
+Claude Desktop can gather market data
+ 
+
+00:16:07.839 --> 00:16:11.639 align:start position:0%
+Claude Desktop can gather market data
+and<00:16:08.079><c> write</c><00:16:08.320><c> trading</c><00:16:08.639><c> algorithms.</c>
+

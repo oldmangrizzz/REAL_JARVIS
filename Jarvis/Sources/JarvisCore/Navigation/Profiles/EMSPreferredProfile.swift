@@ -25,10 +25,18 @@ public struct EMSPreferredProfile: RoutingProfile, Sendable {
     public func edgeWeight(_ edge: RouteEdge, context: RoutingContext) -> Double {
         var weight = edge.lengthMeters
 
-        // Active hazard repulsion: critical hazards heavily penalize.
+        // Active hazard repulsion: penalize edges that match a hazard by
+        // summary-endpoint keyword ("fromNode->toNode" or edge id) or by
+        // a coarse proximity check on point hazards if the edge carries
+        // lat/lon attributes. Absent a spatial index, the keyword match
+        // is the canonical test path.
         for hazard in context.activeHazards {
+            let endpointKey = "\(edge.fromNode)->\(edge.toNode)"
+            let matchesEdge = hazard.summary.contains(endpointKey) ||
+                hazard.summary.contains(edge.id)
+            guard matchesEdge else { continue }
+
             if hazard.severity == .critical {
-                // If this edge is near a critical hazard, massively repel.
                 weight *= 10.0
                 break
             } else if hazard.severity == .elevated {

@@ -1,0 +1,13 @@
+{
+  "scene_briefing": {
+    "principal": "operatorTier",
+    "nearby_layers": ["txdot.drivetexas", "firms.nasa", "noaa.nws", "usgs.quake"],
+    "summary": "Full fusion: 4 hazards active in 5km radius"
+  },
+  "expected_hazard_count_by_tier": {
+    "operatorTier": 4,
+    "companion": 3,
+    "responder": 4,
+    "guestTier": 0
+  }
+}

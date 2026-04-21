@@ -231,18 +231,22 @@ public enum PWAComponentBoundaries {
 
 /// Unity AR bridge JSON contract for GLM → Unity data transfer.
 /// Unity owns the rendering; Swift sends JSON data.
-public struct UnityNavigationBridge: Equatable, Sendable, Codable {
+public struct UnityNavigationBridge: Equatable, @unchecked Sendable {
     public let type: BridgeType
     public let payload: AnyJSON
     
-    public enum BridgeType: Equatable, Sendable, Codable {
+    public enum BridgeType: Equatable, Sendable, Codable, Hashable {
         case route
         case hazard
         case briefing
         case selfPos
     }
     
-    public struct AnyJSON: Sendable, Codable, Equatable {
+    // AnyJSON: Equatable payload wrapper. Not Codable at top level —
+    // encoding/decoding lives on UnityNavigationBridge itself where the
+    // schema is known. Per UX-001: Codable removed from AnyJSON to
+    // resolve Sendable synthesis conflict with `Any` stored in AnyCodable.
+    public struct AnyJSON: Equatable, @unchecked Sendable {
         public let value: [String: AnyCodable]
         public init(_ value: [String: Any]) {
             self.value = value.mapValues { AnyCodable($0) }
@@ -261,8 +265,94 @@ public struct UnityNavigationBridge: Equatable, Sendable, Codable {
     }
 }
 
+// MARK: - UnityNavigationBridge Codable (manual)
+//
+// Per UX-001: AnyJSON is no longer Codable, so encoding/decoding is done
+// manually here where the `type` + `payload` schema is known. Payload
+// values are serialized through their concrete types via AnyCodable.
+
+extension UnityNavigationBridge: Codable {
+    private enum CodingKeys: String, CodingKey { case type, payload }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.type = try container.decode(BridgeType.self, forKey: .type)
+        let payloadContainer = try container.decode([String: AnyCodableDecodable].self, forKey: .payload)
+        var payloadDict: [String: Any] = [:]
+        for (key, decodable) in payloadContainer {
+            payloadDict[key] = decodable.wrappedValue
+        }
+        self.payload = AnyJSON(payloadDict)
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(type, forKey: .type)
+        let encodablePayload = payload.value.mapValues { AnyCodableEncodable($0) }
+        try container.encode(encodablePayload, forKey: .payload)
+    }
+}
+
+/// Helper for decoding AnyCodable values from JSON.
+private struct AnyCodableDecodable: Codable {
+    let wrappedValue: Any
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        if let intVal = try? container.decode(Int.self) {
+            wrappedValue = intVal
+        } else if let doubleVal = try? container.decode(Double.self) {
+            wrappedValue = doubleVal
+        } else if let boolVal = try? container.decode(Bool.self) {
+            wrappedValue = boolVal
+        } else if let stringVal = try? container.decode(String.self) {
+            wrappedValue = stringVal
+        } else if let arrayVal = try? container.decode([AnyCodableDecodable].self) {
+            wrappedValue = arrayVal.map { $0.wrappedValue }
+        } else if let dictVal = try? container.decode([String: AnyCodableDecodable].self) {
+            wrappedValue = dictVal.mapValues { $0.wrappedValue }
+        } else {
+            wrappedValue = NSNull()
+        }
+    }
+}
+
+/// Helper for encoding AnyCodable values to JSON.
+private struct AnyCodableEncodable: Encodable {
+    let wrappedValue: AnyCodable
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        switch wrappedValue.value {
+        case let intVal as Int:
+            try container.encode(intVal)
+        case let doubleVal as Double:
+            try container.encode(doubleVal)
+        case let boolVal as Bool:
+            try container.encode(boolVal)
+        case let stringVal as String:
+            try container.encode(stringVal)
+        case let arrayVal as [Any]:
+            let encodables = arrayVal.map { AnyCodableEncodable(wrappedValue: AnyCodable($0)) }
+            try container.encode(encodables)
+        case let dictVal as [String: Any]:
+            let encodables = dictVal.mapValues { AnyCodableEncodable(wrappedValue: AnyCodable($0)) }
+            try container.encode(encodables)
+        case is NSNull:
+            try container.encodeNil()
+        default:
+            try container.encode(String(describing: wrappedValue.value))
+        }
+    }
+}
+
 // MARK: - AnyCodable wrapper for Equatable JSON
-private struct AnyCodable: Equatable, Sendable {
+// Per UX-001: `value: Any` cannot satisfy strict Sendable. Use @unchecked
+// because runtime safety is enforced by the Equatable implementation which
+// only compares known-type branches; mismatched types return false rather
+// than trapping. Codable is deliberately omitted — AnyCodable is a
+// comparison-only wrapper; encode/decode belongs on the parent struct.
+private struct AnyCodable: Equatable, @unchecked Sendable {
     let value: Any
     
     init(_ value: Any) {

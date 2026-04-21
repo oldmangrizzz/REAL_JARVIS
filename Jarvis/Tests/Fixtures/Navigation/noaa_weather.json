@@ -1,0 +1,20 @@
+{
+  "features": [
+    {
+      "id": "noaa-001",
+      "severity": "Severe",
+      "lat": 32.0,
+      "lon": -97.0,
+      "observed_at": "2026-04-20T15:00:00Z",
+      "headline": "Tornado Warning"
+    },
+    {
+      "id": "noaa-002",
+      "severity": "Minor",
+      "lat": 31.5,
+      "lon": -96.5,
+      "observed_at": "2026-04-20T15:30:00Z",
+      "headline": "Flood Advisory"
+    }
+  ]
+}

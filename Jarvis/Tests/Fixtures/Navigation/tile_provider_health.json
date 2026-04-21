@@ -1,0 +1,14 @@
+{
+  "providers": [
+    {
+      "identifier": "mapbox.tiles",
+      "status": "healthy",
+      "last_probe": "2026-04-20T12:00:00Z"
+    },
+    {
+      "identifier": "osm.tiles",
+      "status": "healthy",
+      "last_probe": "2026-04-20T12:00:00Z"
+    }
+  ]
+}

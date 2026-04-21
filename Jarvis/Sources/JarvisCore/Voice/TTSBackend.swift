@@ -35,6 +35,13 @@ public struct TTSRenderParameters {
         cfgScale: 2.1,
         ddpmSteps: 10
     )
+
+    /// Operator-locked F5-TTS defaults. Used when the active backend
+    /// identifier indicates F5-TTS. Values asserted by F5TTSBackendTests.
+    public static let f5ttsLocked = TTSRenderParameters(
+        cfgScale: 2.0,
+        ddpmSteps: 32
+    )
 }
 
 extension TTSRenderParameters: Sendable {}

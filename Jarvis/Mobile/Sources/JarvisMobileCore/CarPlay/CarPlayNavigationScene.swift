@@ -1,14 +1,14 @@
+#if canImport(CarPlay)
 import SwiftUI
 import CarPlay
 import MapKit
 
 // MARK: - CarPlay Navigation HUD Surface
-
-/// Phase C — CarPlay Navigation Scene.
-/// 
-/// `CarPlayNavigationExtensionViewController` — CarPlay extension host.
-/// Uses `CPMapTemplate` + overlays for minimal HUD.
-/// AR HUD overlay concept (degrades gracefully when AR unavailable).
+//
+// `CarPlayNavigationExtensionViewController` — CarPlay extension host.
+// Uses `CPMapTemplate` + overlays for minimal HUD.
+// AR HUD overlay concept (degrades gracefully when AR unavailable).
+// Entire file guarded by `#if canImport(CarPlay)` per UX-001 build hardening.
 
 // MARK: - ExtensionDelegate
 
@@ -313,3 +313,5 @@ extension UIImage {
 }
 
 #endif
+
+#endif // canImport(CarPlay)

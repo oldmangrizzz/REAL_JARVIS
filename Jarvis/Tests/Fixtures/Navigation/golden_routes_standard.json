@@ -1,0 +1,12 @@
+{
+  "routes": [
+    {
+      "from": "A",
+      "to": "D",
+      "profile": "standard_auto",
+      "expected_edge_ids": ["e1", "e2", "e5"],
+      "expected_cost": 250.0,
+      "expected_length": 250.0
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "e1",
+    "from_node": "A",
+    "to_node": "B",
+    "length_meters": 100.0,
+    "max_speed_kph": 80.0,
+    "attributes": { "highway": "secondary" }
+  },
+  {
+    "id": "e2",
+    "from_node": "B",
+    "to_node": "C",
+    "length_meters": 100.0,
+    "max_speed_kph": 80.0,
+    "attributes": { "highway": "secondary" }
+  },
+  {
+    "id": "e3",
+    "from_node": "A",
+    "to_node": "C",
+    "length_meters": 250.0,
+    "max_speed_kph": 120.0,
+    "attributes": { "highway": "motorway" }
+  },
+  {
+    "id": "e4",
+    "from_node": "B",
+    "to_node": "D",
+    "length_meters": 300.0,
+    "max_speed_kph": 40.0,
+    "attributes": { "highway": "residential" }
+  },
+  {
+    "id": "e5",
+    "from_node": "C",
+    "to_node": "D",
+    "length_meters": 50.0,
+    "max_speed_kph": 60.0,
+    "attributes": { "highway": "secondary" }
+  },
+  {
+    "id": "e6",
+    "from_node": "A",
+    "to_node": "D",
+    "length_meters": 500.0,
+    "max_speed_kph": 100.0,
+    "attributes": { "highway": "primary" }
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "id": "firms-001",
+    "lat": 31.5,
+    "lon": -97.2,
+    "confidence": 85,
+    "observed_at": "2026-04-20T14:00:00Z"
+  },
+  {
+    "id": "firms-002",
+    "lat": 30.1,
+    "lon": -95.8,
+    "confidence": 50,
+    "observed_at": "2026-04-20T14:30:00Z"
+  }
+]

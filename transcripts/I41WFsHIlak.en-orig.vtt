@@ -1,0 +1,3224 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:01.670 align:start position:0%
+ 
+Someone<00:00:00.400><c> left</c><00:00:00.600><c> a</c><00:00:00.680><c> message</c><00:00:01.080><c> asking</c><00:00:01.480><c> if</c><00:00:01.600><c> we</c>
+
+00:00:01.670 --> 00:00:01.680 align:start position:0%
+Someone left a message asking if we
+ 
+
+00:00:01.680 --> 00:00:03.030 align:start position:0%
+Someone left a message asking if we
+could<00:00:01.880><c> separate</c><00:00:02.280><c> out</c><00:00:02.400><c> the</c><00:00:02.480><c> Claude</c><00:00:02.800><c> code</c>
+
+00:00:03.030 --> 00:00:03.040 align:start position:0%
+could separate out the Claude code
+ 
+
+00:00:03.040 --> 00:00:05.390 align:start position:0%
+could separate out the Claude code
+skills<00:00:03.480><c> into</c><00:00:03.680><c> their</c><00:00:03.840><c> own</c><00:00:03.960><c> videos.</c><00:00:04.840><c> So,</c><00:00:05.000><c> today</c>
+
+00:00:05.390 --> 00:00:05.400 align:start position:0%
+skills into their own videos. So, today
+ 
+
+00:00:05.400 --> 00:00:07.270 align:start position:0%
+skills into their own videos. So, today
+we're<00:00:05.560><c> launching</c><00:00:05.920><c> a</c><00:00:06.000><c> brand</c><00:00:06.320><c> new</c><00:00:06.440><c> series,</c>
+
+00:00:07.270 --> 00:00:07.280 align:start position:0%
+we're launching a brand new series,
+ 
+
+00:00:07.280 --> 00:00:10.630 align:start position:0%
+we're launching a brand new series,
+GitHub<00:00:07.880><c> trending</c><00:00:08.320><c> skills,</c><00:00:09.080><c> episode</c><00:00:09.600><c> 1.</c>
+
+00:00:10.630 --> 00:00:10.640 align:start position:0%
+GitHub trending skills, episode 1.
+ 
+
+00:00:10.640 --> 00:00:13.670 align:start position:0%
+GitHub trending skills, episode 1.
+35<00:00:11.600><c> open</c><00:00:11.920><c> source</c><00:00:12.160><c> repositories.</c>
+
+00:00:13.670 --> 00:00:13.680 align:start position:0%
+35 open source repositories.
+ 
+
+00:00:13.680 --> 00:00:16.910 align:start position:0%
+35 open source repositories.
+Let's<00:00:13.920><c> get</c><00:00:14.120><c> started.</c>
+
+00:00:16.910 --> 00:00:16.920 align:start position:0%
+ 
+ 
+
+00:00:16.920 --> 00:00:18.910 align:start position:0%
+ 
+You<00:00:17.080><c> ask</c><00:00:17.280><c> an</c><00:00:17.400><c> AI</c><00:00:17.680><c> a</c><00:00:17.760><c> simple</c><00:00:18.080><c> question</c><00:00:18.600><c> and</c><00:00:18.720><c> get</c>
+
+00:00:18.910 --> 00:00:18.920 align:start position:0%
+You ask an AI a simple question and get
+ 
+
+00:00:18.920 --> 00:00:21.110 align:start position:0%
+You ask an AI a simple question and get
+certainly,<00:00:19.680><c> I'd</c><00:00:19.800><c> be</c><00:00:19.920><c> happy</c><00:00:20.200><c> to</c><00:00:20.320><c> explain,</c>
+
+00:00:21.110 --> 00:00:21.120 align:start position:0%
+certainly, I'd be happy to explain,
+ 
+
+00:00:21.120 --> 00:00:22.910 align:start position:0%
+certainly, I'd be happy to explain,
+followed<00:00:21.440><c> by</c><00:00:21.560><c> five</c><00:00:21.880><c> paragraphs</c><00:00:22.400><c> of</c><00:00:22.520><c> robotic</c>
+
+00:00:22.910 --> 00:00:22.920 align:start position:0%
+followed by five paragraphs of robotic
+ 
+
+00:00:22.920 --> 00:00:25.350 align:start position:0%
+followed by five paragraphs of robotic
+fluff.<00:00:23.760><c> Talk</c><00:00:24.040><c> normal</c><00:00:24.480><c> is</c><00:00:24.640><c> a</c><00:00:24.680><c> system</c><00:00:25.040><c> prompt</c>
+
+00:00:25.350 --> 00:00:25.360 align:start position:0%
+fluff. Talk normal is a system prompt
+ 
+
+00:00:25.360 --> 00:00:27.590 align:start position:0%
+fluff. Talk normal is a system prompt
+that<00:00:25.520><c> fixes</c><00:00:25.880><c> that.</c><00:00:26.480><c> Drop</c><00:00:26.760><c> it</c><00:00:26.840><c> into</c><00:00:27.040><c> Claude,</c>
+
+00:00:27.590 --> 00:00:27.600 align:start position:0%
+that fixes that. Drop it into Claude,
+ 
+
+00:00:27.600 --> 00:00:30.350 align:start position:0%
+that fixes that. Drop it into Claude,
+ChatGPT,<00:00:28.560><c> or</c><00:00:28.720><c> your</c><00:00:28.840><c> local</c><00:00:29.160><c> LLM</c><00:00:29.800><c> and</c><00:00:29.920><c> it</c><00:00:30.040><c> strips</c>
+
+00:00:30.350 --> 00:00:30.360 align:start position:0%
+ChatGPT, or your local LLM and it strips
+ 
+
+00:00:30.360 --> 00:00:32.910 align:start position:0%
+ChatGPT, or your local LLM and it strips
+away<00:00:30.600><c> the</c><00:00:30.760><c> AI</c><00:00:31.040><c> slop.</c><00:00:31.920><c> No</c><00:00:32.160><c> filler,</c><00:00:32.720><c> no</c>
+
+00:00:32.910 --> 00:00:32.920 align:start position:0%
+away the AI slop. No filler, no
+ 
+
+00:00:32.920 --> 00:00:34.910 align:start position:0%
+away the AI slop. No filler, no
+restating<00:00:33.400><c> the</c><00:00:33.480><c> question,</c><00:00:34.280><c> no</c><00:00:34.480><c> robotic</c>
+
+00:00:34.910 --> 00:00:34.920 align:start position:0%
+restating the question, no robotic
+ 
+
+00:00:34.920 --> 00:00:37.590 align:start position:0%
+restating the question, no robotic
+transitions.<00:00:36.080><c> Just</c><00:00:36.320><c> direct,</c><00:00:36.920><c> concise,</c>
+
+00:00:37.590 --> 00:00:37.600 align:start position:0%
+transitions. Just direct, concise,
+ 
+
+00:00:37.600 --> 00:00:40.190 align:start position:0%
+transitions. Just direct, concise,
+structurally<00:00:38.160><c> sound</c><00:00:38.480><c> answers.</c>
+
+00:00:40.190 --> 00:00:40.200 align:start position:0%
+structurally sound answers.
+ 
+
+00:00:40.200 --> 00:00:42.550 align:start position:0%
+structurally sound answers.
+Minimax<00:00:40.840><c> AI</c><00:00:41.120><c> skills</c><00:00:41.560><c> is</c><00:00:41.680><c> an</c><00:00:41.800><c> official</c><00:00:42.200><c> skills</c>
+
+00:00:42.550 --> 00:00:42.560 align:start position:0%
+Minimax AI skills is an official skills
+ 
+
+00:00:42.560 --> 00:00:44.510 align:start position:0%
+Minimax AI skills is an official skills
+kit<00:00:42.840><c> that</c><00:00:43.040><c> turns</c><00:00:43.320><c> Claude</c><00:00:43.720><c> code</c><00:00:43.960><c> into</c><00:00:44.160><c> senior</c>
+
+00:00:44.510 --> 00:00:44.520 align:start position:0%
+kit that turns Claude code into senior
+ 
+
+00:00:44.520 --> 00:00:45.870 align:start position:0%
+kit that turns Claude code into senior
+engineers.
+
+00:00:45.870 --> 00:00:45.880 align:start position:0%
+engineers.
+ 
+
+00:00:45.880 --> 00:00:47.910 align:start position:0%
+engineers.
+Strict<00:00:46.400><c> production</c><00:00:46.800><c> grade</c><00:00:47.080><c> workflows</c><00:00:47.640><c> force</c>
+
+00:00:47.910 --> 00:00:47.920 align:start position:0%
+Strict production grade workflows force
+ 
+
+00:00:47.920 --> 00:00:49.950 align:start position:0%
+Strict production grade workflows force
+the<00:00:48.120><c> AI</c><00:00:48.480><c> through</c><00:00:48.720><c> requirements</c><00:00:49.280><c> analysis,</c>
+
+00:00:49.950 --> 00:00:49.960 align:start position:0%
+the AI through requirements analysis,
+ 
+
+00:00:49.960 --> 00:00:51.230 align:start position:0%
+the AI through requirements analysis,
+architecture<00:00:50.520><c> design,</c><00:00:51.000><c> then</c>
+
+00:00:51.230 --> 00:00:51.240 align:start position:0%
+architecture design, then
+ 
+
+00:00:51.240 --> 00:00:53.710 align:start position:0%
+architecture design, then
+implementation.<00:00:52.560><c> Expert</c><00:00:53.040><c> skill</c><00:00:53.240><c> packs</c><00:00:53.560><c> for</c>
+
+00:00:53.710 --> 00:00:53.720 align:start position:0%
+implementation. Expert skill packs for
+ 
+
+00:00:53.720 --> 00:00:56.830 align:start position:0%
+implementation. Expert skill packs for
+full<00:00:53.960><c> stack</c><00:00:54.280><c> React,</c><00:00:55.000><c> Android,</c><00:00:55.640><c> iOS,</c><00:00:56.520><c> and</c><00:00:56.640><c> even</c>
+
+00:00:56.830 --> 00:00:56.840 align:start position:0%
+full stack React, Android, iOS, and even
+ 
+
+00:00:56.840 --> 00:00:59.190 align:start position:0%
+full stack React, Android, iOS, and even
+complex<00:00:57.400><c> GLSL</c><00:00:58.040><c> shaders.</c>
+
+00:00:59.190 --> 00:00:59.200 align:start position:0%
+complex GLSL shaders.
+ 
+
+00:00:59.200 --> 00:01:01.230 align:start position:0%
+complex GLSL shaders.
+Ask<00:00:59.480><c> your</c><00:00:59.680><c> agent</c><00:01:00.040><c> in</c><00:01:00.120><c> the</c><00:01:00.280><c> IDE</c><00:01:00.680><c> to</c><00:01:00.840><c> write</c><00:01:01.120><c> and</c>
+
+00:01:01.230 --> 00:01:01.240 align:start position:0%
+Ask your agent in the IDE to write and
+ 
+
+00:01:01.240 --> 00:01:03.470 align:start position:0%
+Ask your agent in the IDE to write and
+sing<00:01:01.440><c> a</c><00:01:01.520><c> personalized</c><00:01:02.160><c> song</c><00:01:02.960><c> or</c><00:01:03.080><c> convert</c><00:01:03.440><c> a</c>
+
+00:01:03.470 --> 00:01:03.480 align:start position:0%
+sing a personalized song or convert a
+ 
+
+00:01:03.480 --> 00:01:05.950 align:start position:0%
+sing a personalized song or convert a
+photo<00:01:04.000><c> into</c><00:01:04.280><c> an</c><00:01:04.400><c> animated</c><00:01:04.920><c> Funko</c><00:01:05.239><c> Pop</c><00:01:05.519><c> sticker</c>
+
+00:01:05.950 --> 00:01:05.960 align:start position:0%
+photo into an animated Funko Pop sticker
+ 
+
+00:01:05.960 --> 00:01:08.870 align:start position:0%
+photo into an animated Funko Pop sticker
+using<00:01:06.240><c> their</c><00:01:06.400><c> generation</c><00:01:06.960><c> APIs.</c>
+
+00:01:08.870 --> 00:01:08.880 align:start position:0%
+using their generation APIs.
+ 
+
+00:01:08.880 --> 00:01:10.470 align:start position:0%
+using their generation APIs.
+Ever<00:01:09.160><c> looked</c><00:01:09.360><c> at</c><00:01:09.480><c> Stripe</c><00:01:09.840><c> or</c><00:01:10.000><c> Apple</c><00:01:10.320><c> and</c>
+
+00:01:10.470 --> 00:01:10.480 align:start position:0%
+Ever looked at Stripe or Apple and
+ 
+
+00:01:10.480 --> 00:01:11.750 align:start position:0%
+Ever looked at Stripe or Apple and
+wished<00:01:10.720><c> you</c><00:01:10.760><c> could</c><00:01:10.920><c> steal</c><00:01:11.240><c> their</c><00:01:11.400><c> entire</c>
+
+00:01:11.750 --> 00:01:11.760 align:start position:0%
+wished you could steal their entire
+ 
+
+00:01:11.760 --> 00:01:14.630 align:start position:0%
+wished you could steal their entire
+design<00:01:12.160><c> system?</c><00:01:13.120><c> NPX</c><00:01:13.640><c> skill</c><00:01:14.000><c> we</c><00:01:14.240><c> reverse</c>
+
+00:01:14.630 --> 00:01:14.640 align:start position:0%
+design system? NPX skill we reverse
+ 
+
+00:01:14.640 --> 00:01:17.230 align:start position:0%
+design system? NPX skill we reverse
+engineers<00:01:15.160><c> design</c><00:01:15.560><c> systems</c><00:01:16.080><c> from</c><00:01:16.320><c> any</c><00:01:16.560><c> URL,</c>
+
+00:01:17.230 --> 00:01:17.240 align:start position:0%
+engineers design systems from any URL,
+ 
+
+00:01:17.240 --> 00:01:19.550 align:start position:0%
+engineers design systems from any URL,
+GitHub<00:01:17.640><c> repo,</c><00:01:18.120><c> or</c><00:01:18.320><c> local</c><00:01:18.680><c> project</c><00:01:19.200><c> with</c><00:01:19.360><c> one</c>
+
+00:01:19.550 --> 00:01:19.560 align:start position:0%
+GitHub repo, or local project with one
+ 
+
+00:01:19.560 --> 00:01:22.470 align:start position:0%
+GitHub repo, or local project with one
+command.<00:01:20.480><c> No</c><00:01:20.680><c> AI</c><00:01:20.960><c> involved,</c><00:01:21.600><c> no</c><00:01:21.760><c> API</c><00:01:22.200><c> keys</c>
+
+00:01:22.470 --> 00:01:22.480 align:start position:0%
+command. No AI involved, no API keys
+ 
+
+00:01:22.480 --> 00:01:25.350 align:start position:0%
+command. No AI involved, no API keys
+required.<00:01:23.400><c> Pure</c><00:01:23.640><c> static</c><00:01:24.040><c> analysis.</c><00:01:25.000><c> Default</c>
+
+00:01:25.350 --> 00:01:25.360 align:start position:0%
+required. Pure static analysis. Default
+ 
+
+00:01:25.360 --> 00:01:27.470 align:start position:0%
+required. Pure static analysis. Default
+mode<00:01:25.560><c> extracts</c><00:01:25.960><c> design</c><00:01:26.320><c> tokens,</c><00:01:26.920><c> fonts,</c><00:01:27.360><c> and</c>
+
+00:01:27.470 --> 00:01:27.480 align:start position:0%
+mode extracts design tokens, fonts, and
+ 
+
+00:01:27.480 --> 00:01:30.030 align:start position:0%
+mode extracts design tokens, fonts, and
+hex<00:01:27.720><c> colors.</c><00:01:28.600><c> Ultra</c><00:01:28.920><c> mode</c><00:01:29.160><c> fires</c><00:01:29.480><c> up</c><00:01:29.640><c> headless</c>
+
+00:01:30.030 --> 00:01:30.040 align:start position:0%
+hex colors. Ultra mode fires up headless
+ 
+
+00:01:30.040 --> 00:01:32.030 align:start position:0%
+hex colors. Ultra mode fires up headless
+Playwright<00:01:30.640><c> to</c><00:01:30.760><c> capture</c><00:01:31.120><c> scroll</c><00:01:31.520><c> journeys,</c>
+
+00:01:32.030 --> 00:01:32.040 align:start position:0%
+Playwright to capture scroll journeys,
+ 
+
+00:01:32.040 --> 00:01:34.310 align:start position:0%
+Playwright to capture scroll journeys,
+hover<00:01:32.400><c> interactions,</c><00:01:33.160><c> and</c><00:01:33.320><c> complex</c><00:01:33.840><c> CSS</c>
+
+00:01:34.310 --> 00:01:34.320 align:start position:0%
+hover interactions, and complex CSS
+ 
+
+00:01:34.320 --> 00:01:36.310 align:start position:0%
+hover interactions, and complex CSS
+animations.
+
+00:01:36.310 --> 00:01:36.320 align:start position:0%
+animations.
+ 
+
+00:01:36.320 --> 00:01:38.430 align:start position:0%
+animations.
+Email<00:01:36.680><c> campaigns-Claude</c>
+
+00:01:38.430 --> 00:01:38.440 align:start position:0%
+Email campaigns-Claude
+ 
+
+00:01:38.440 --> 00:01:40.270 align:start position:0%
+Email campaigns-Claude
+is<00:01:38.560><c> an</c><00:01:38.680><c> autonomous</c><00:01:39.320><c> email</c><00:01:39.720><c> agent</c><00:01:40.120><c> that</c>
+
+00:01:40.270 --> 00:01:40.280 align:start position:0%
+is an autonomous email agent that
+ 
+
+00:01:40.280 --> 00:01:41.990 align:start position:0%
+is an autonomous email agent that
+connects<00:01:40.640><c> Claude</c><00:01:40.960><c> code</c><00:01:41.240><c> directly</c><00:01:41.760><c> to</c><00:01:41.880><c> the</c>
+
+00:01:41.990 --> 00:01:42.000 align:start position:0%
+connects Claude code directly to the
+ 
+
+00:01:42.000 --> 00:01:44.550 align:start position:0%
+connects Claude code directly to the
+Resend<00:01:42.440><c> API.</c><00:01:43.360><c> Give</c><00:01:43.520><c> it</c><00:01:43.600><c> a</c><00:01:43.640><c> prompt</c><00:01:44.080><c> like,</c>
+
+00:01:44.550 --> 00:01:44.560 align:start position:0%
+Resend API. Give it a prompt like,
+ 
+
+00:01:44.560 --> 00:01:46.230 align:start position:0%
+Resend API. Give it a prompt like,
+"Draft<00:01:44.880><c> a</c><00:01:44.960><c> three-part</c><00:01:45.440><c> welcome</c><00:01:45.720><c> sequence</c><00:01:46.120><c> for</c>
+
+00:01:46.230 --> 00:01:46.240 align:start position:0%
+"Draft a three-part welcome sequence for
+ 
+
+00:01:46.240 --> 00:01:48.430 align:start position:0%
+"Draft a three-part welcome sequence for
+new<00:01:46.440><c> users."</c><00:01:47.000><c> And</c><00:01:47.120><c> Claude</c><00:01:47.400><c> writes</c><00:01:47.640><c> the</c><00:01:47.720><c> copy,</c>
+
+00:01:48.430 --> 00:01:48.440 align:start position:0%
+new users." And Claude writes the copy,
+ 
+
+00:01:48.440 --> 00:01:51.150 align:start position:0%
+new users." And Claude writes the copy,
+codes<00:01:48.800><c> the</c><00:01:48.920><c> HTML</c><00:01:49.440><c> layouts,</c><00:01:50.480><c> optimizes</c>
+
+00:01:51.150 --> 00:01:51.160 align:start position:0%
+codes the HTML layouts, optimizes
+ 
+
+00:01:51.160 --> 00:01:53.150 align:start position:0%
+codes the HTML layouts, optimizes
+subject<00:01:51.600><c> lines,</c><00:01:52.120><c> and</c><00:01:52.240><c> dispatches</c><00:01:52.800><c> the</c><00:01:52.880><c> bulk</c>
+
+00:01:53.150 --> 00:01:53.160 align:start position:0%
+subject lines, and dispatches the bulk
+ 
+
+00:01:53.160 --> 00:01:55.590 align:start position:0%
+subject lines, and dispatches the bulk
+emails<00:01:53.520><c> via</c><00:01:53.720><c> Resend.</c><00:01:54.640><c> Your</c><00:01:54.800><c> terminal</c><00:01:55.240><c> becomes</c>
+
+00:01:55.590 --> 00:01:55.600 align:start position:0%
+emails via Resend. Your terminal becomes
+ 
+
+00:01:55.600 --> 00:01:58.270 align:start position:0%
+emails via Resend. Your terminal becomes
+a<00:01:55.680><c> full-time</c><00:01:56.280><c> marketing</c><00:01:56.720><c> manager.</c><00:01:57.680><c> No</c><00:01:57.920><c> SaaS</c>
+
+00:01:58.270 --> 00:01:58.280 align:start position:0%
+a full-time marketing manager. No SaaS
+ 
+
+00:01:58.280 --> 00:02:01.390 align:start position:0%
+a full-time marketing manager. No SaaS
+menus,<00:01:59.160><c> no</c><00:01:59.360><c> subscription</c><00:02:00.000><c> fees.</c>
+
+00:02:01.390 --> 00:02:01.400 align:start position:0%
+menus, no subscription fees.
+ 
+
+00:02:01.400 --> 00:02:03.750 align:start position:0%
+menus, no subscription fees.
+Harness<00:02:02.080><c> is</c><00:02:02.240><c> a</c><00:02:02.280><c> meta</c><00:02:02.600><c> skill</c><00:02:03.040><c> that</c><00:02:03.280><c> builds</c><00:02:03.640><c> the</c>
+
+00:02:03.750 --> 00:02:03.760 align:start position:0%
+Harness is a meta skill that builds the
+ 
+
+00:02:03.760 --> 00:02:06.710 align:start position:0%
+Harness is a meta skill that builds the
+entire<00:02:04.320><c> AI</c><00:02:04.600><c> team</c><00:02:04.960><c> for</c><00:02:05.120><c> you.</c><00:02:05.880><c> Type,</c><00:02:06.440><c> "Build</c><00:02:06.680><c> a</c>
+
+00:02:06.710 --> 00:02:06.720 align:start position:0%
+entire AI team for you. Type, "Build a
+ 
+
+00:02:06.720 --> 00:02:08.630 align:start position:0%
+entire AI team for you. Type, "Build a
+harness<00:02:07.080><c> for</c><00:02:07.200><c> this</c><00:02:07.400><c> project."</c><00:02:08.360><c> and</c><00:02:08.479><c> it</c>
+
+00:02:08.630 --> 00:02:08.640 align:start position:0%
+harness for this project." and it
+ 
+
+00:02:08.640 --> 00:02:10.910 align:start position:0%
+harness for this project." and it
+analyzes<00:02:09.200><c> your</c><00:02:09.320><c> domain,</c><00:02:10.160><c> picks</c><00:02:10.440><c> from</c><00:02:10.600><c> six</c>
+
+00:02:10.910 --> 00:02:10.920 align:start position:0%
+analyzes your domain, picks from six
+ 
+
+00:02:10.920 --> 00:02:13.270 align:start position:0%
+analyzes your domain, picks from six
+architectures<00:02:11.760><c> like</c><00:02:12.000><c> producer</c><00:02:12.440><c> reviewer</c><00:02:13.120><c> or</c>
+
+00:02:13.270 --> 00:02:13.280 align:start position:0%
+architectures like producer reviewer or
+ 
+
+00:02:13.280 --> 00:02:15.710 align:start position:0%
+architectures like producer reviewer or
+hierarchical<00:02:13.840><c> delegation,</c><00:02:14.960><c> then</c><00:02:15.160><c> generates</c>
+
+00:02:15.710 --> 00:02:15.720 align:start position:0%
+hierarchical delegation, then generates
+ 
+
+00:02:15.720 --> 00:02:17.710 align:start position:0%
+hierarchical delegation, then generates
+all<00:02:15.880><c> the</c><00:02:16.000><c> specialized</c><00:02:16.640><c> agent</c><00:02:16.920><c> definitions</c>
+
+00:02:17.710 --> 00:02:17.720 align:start position:0%
+all the specialized agent definitions
+ 
+
+00:02:17.720 --> 00:02:19.390 align:start position:0%
+all the specialized agent definitions
+and<00:02:17.880><c> custom</c><00:02:18.240><c> skills</c><00:02:18.680><c> needed</c><00:02:19.000><c> for</c><00:02:19.120><c> them</c><00:02:19.280><c> to</c>
+
+00:02:19.390 --> 00:02:19.400 align:start position:0%
+and custom skills needed for them to
+ 
+
+00:02:19.400 --> 00:02:20.990 align:start position:0%
+and custom skills needed for them to
+collaborate.
+
+00:02:20.990 --> 00:02:21.000 align:start position:0%
+collaborate.
+ 
+
+00:02:21.000 --> 00:02:23.590 align:start position:0%
+collaborate.
+Handles<00:02:21.560><c> inter-agent</c><00:02:22.120><c> data</c><00:02:22.360><c> passing,</c><00:02:23.320><c> error</c>
+
+00:02:23.590 --> 00:02:23.600 align:start position:0%
+Handles inter-agent data passing, error
+ 
+
+00:02:23.600 --> 00:02:25.270 align:start position:0%
+Handles inter-agent data passing, error
+handling,<00:02:24.320><c> and</c><00:02:24.520><c> orchestration</c>
+
+00:02:25.270 --> 00:02:25.280 align:start position:0%
+handling, and orchestration
+ 
+
+00:02:25.280 --> 00:02:27.270 align:start position:0%
+handling, and orchestration
+automatically.
+
+00:02:27.270 --> 00:02:27.280 align:start position:0%
+automatically.
+ 
+
+00:02:27.280 --> 00:02:29.470 align:start position:0%
+automatically.
+Your<00:02:27.520><c> AI</c><00:02:27.800><c> writes</c><00:02:28.120><c> the</c><00:02:28.240><c> code,</c><00:02:29.000><c> you</c><00:02:29.120><c> ship</c><00:02:29.400><c> the</c>
+
+00:02:29.470 --> 00:02:29.480 align:start position:0%
+Your AI writes the code, you ship the
+ 
+
+00:02:29.480 --> 00:02:33.030 align:start position:0%
+Your AI writes the code, you ship the
+feature,<00:02:30.440><c> you</c><00:02:30.600><c> learn</c><00:02:30.960><c> absolutely</c><00:02:31.560><c> nothing.</c>
+
+00:02:33.030 --> 00:02:33.040 align:start position:0%
+feature, you learn absolutely nothing.
+ 
+
+00:02:33.040 --> 00:02:35.110 align:start position:0%
+feature, you learn absolutely nothing.
+Anti-Vibe<00:02:33.680><c> is</c><00:02:33.800><c> a</c><00:02:33.880><c> Claude</c><00:02:34.280><c> code</c><00:02:34.600><c> skill</c><00:02:34.920><c> that</c>
+
+00:02:35.110 --> 00:02:35.120 align:start position:0%
+Anti-Vibe is a Claude code skill that
+ 
+
+00:02:35.120 --> 00:02:37.990 align:start position:0%
+Anti-Vibe is a Claude code skill that
+fixes<00:02:35.560><c> that.</c><00:02:36.320><c> After</c><00:02:36.680><c> every</c><00:02:36.960><c> coding</c><00:02:37.320><c> session,</c>
+
+00:02:37.990 --> 00:02:38.000 align:start position:0%
+fixes that. After every coding session,
+ 
+
+00:02:38.000 --> 00:02:39.910 align:start position:0%
+fixes that. After every coding session,
+automatic<00:02:38.480><c> hooks</c><00:02:38.840><c> trigger</c><00:02:39.160><c> a</c><00:02:39.240><c> specialized</c>
+
+00:02:39.910 --> 00:02:39.920 align:start position:0%
+automatic hooks trigger a specialized
+ 
+
+00:02:39.920 --> 00:02:41.870 align:start position:0%
+automatic hooks trigger a specialized
+sub-agent<00:02:40.680><c> that</c><00:02:40.800><c> generates</c><00:02:41.240><c> a</c><00:02:41.280><c> deep</c><00:02:41.600><c> dive</c>
+
+00:02:41.870 --> 00:02:41.880 align:start position:0%
+sub-agent that generates a deep dive
+ 
+
+00:02:41.880 --> 00:02:44.270 align:start position:0%
+sub-agent that generates a deep dive
+markdown<00:02:42.360><c> file</c><00:02:42.920><c> explaining</c><00:02:43.520><c> why</c><00:02:43.760><c> the</c><00:02:43.960><c> AI</c>
+
+00:02:44.270 --> 00:02:44.280 align:start position:0%
+markdown file explaining why the AI
+ 
+
+00:02:44.280 --> 00:02:46.350 align:start position:0%
+markdown file explaining why the AI
+wrote<00:02:44.520><c> the</c><00:02:44.640><c> code</c><00:02:44.880><c> that</c><00:02:45.120><c> way,</c><00:02:45.800><c> what</c><00:02:46.000><c> CS</c>
+
+00:02:46.350 --> 00:02:46.360 align:start position:0%
+wrote the code that way, what CS
+ 
+
+00:02:46.360 --> 00:02:48.750 align:start position:0%
+wrote the code that way, what CS
+patterns<00:02:46.960><c> are</c><00:02:47.080><c> in</c><00:02:47.200><c> play,</c><00:02:47.920><c> and</c><00:02:48.120><c> curated</c>
+
+00:02:48.750 --> 00:02:48.760 align:start position:0%
+patterns are in play, and curated
+ 
+
+00:02:48.760 --> 00:02:50.910 align:start position:0%
+patterns are in play, and curated
+resources<00:02:49.400><c> to</c><00:02:49.520><c> learn</c><00:02:49.760><c> more.</c><00:02:50.480><c> Runs</c><00:02:50.760><c> in</c><00:02:50.840><c> the</c>
+
+00:02:50.910 --> 00:02:50.920 align:start position:0%
+resources to learn more. Runs in the
+ 
+
+00:02:50.920 --> 00:02:52.710 align:start position:0%
+resources to learn more. Runs in the
+background<00:02:51.480><c> with</c><00:02:51.640><c> zero</c><00:02:51.880><c> friction,</c><00:02:52.520><c> works</c>
+
+00:02:52.710 --> 00:02:52.720 align:start position:0%
+background with zero friction, works
+ 
+
+00:02:52.720 --> 00:02:54.750 align:start position:0%
+background with zero friction, works
+with<00:02:52.880><c> any</c><00:02:53.040><c> language.</c>
+
+00:02:54.750 --> 00:02:54.760 align:start position:0%
+with any language.
+ 
+
+00:02:54.760 --> 00:02:57.310 align:start position:0%
+with any language.
+Auto<00:02:55.040><c> skills</c><00:02:55.560><c> is</c><00:02:55.720><c> a</c><00:02:55.800><c> CLI</c><00:02:56.560><c> that</c><00:02:56.760><c> installs</c><00:02:57.200><c> your</c>
+
+00:02:57.310 --> 00:02:57.320 align:start position:0%
+Auto skills is a CLI that installs your
+ 
+
+00:02:57.320 --> 00:03:00.350 align:start position:0%
+Auto skills is a CLI that installs your
+entire<00:02:57.960><c> AI</c><00:02:58.280><c> skill</c><00:02:58.600><c> stack</c><00:02:58.960><c> with</c><00:02:59.160><c> one</c><00:02:59.400><c> command.</c>
+
+00:03:00.350 --> 00:03:00.360 align:start position:0%
+entire AI skill stack with one command.
+ 
+
+00:03:00.360 --> 00:03:02.870 align:start position:0%
+entire AI skill stack with one command.
+Run<00:03:00.560><c> NPX</c><00:03:01.040><c> auto</c><00:03:01.240><c> skills</c><00:03:01.640><c> in</c><00:03:01.720><c> your</c><00:03:01.840><c> project</c><00:03:02.280><c> root</c>
+
+00:03:02.870 --> 00:03:02.880 align:start position:0%
+Run NPX auto skills in your project root
+ 
+
+00:03:02.880 --> 00:03:04.510 align:start position:0%
+Run NPX auto skills in your project root
+and<00:03:03.000><c> it</c><00:03:03.120><c> scans</c><00:03:03.480><c> your</c><00:03:03.600><c> package.json</c><00:03:04.400><c> and</c>
+
+00:03:04.510 --> 00:03:04.520 align:start position:0%
+and it scans your package.json and
+ 
+
+00:03:04.520 --> 00:03:06.510 align:start position:0%
+and it scans your package.json and
+config<00:03:04.880><c> files</c><00:03:05.200><c> to</c><00:03:05.280><c> detect</c><00:03:05.760><c> your</c><00:03:05.840><c> exact</c><00:03:06.320><c> tech</c>
+
+00:03:06.510 --> 00:03:06.520 align:start position:0%
+config files to detect your exact tech
+ 
+
+00:03:06.520 --> 00:03:09.750 align:start position:0%
+config files to detect your exact tech
+stack.<00:03:07.360><c> Next.js,</c><00:03:08.480><c> Tailwind,</c><00:03:09.200><c> Spring</c><00:03:09.520><c> Boot,</c>
+
+00:03:09.750 --> 00:03:09.760 align:start position:0%
+stack. Next.js, Tailwind, Spring Boot,
+ 
+
+00:03:09.760 --> 00:03:11.430 align:start position:0%
+stack. Next.js, Tailwind, Spring Boot,
+whatever<00:03:10.080><c> you're</c><00:03:10.240><c> using.</c>
+
+00:03:11.430 --> 00:03:11.440 align:start position:0%
+whatever you're using.
+ 
+
+00:03:11.440 --> 00:03:13.270 align:start position:0%
+whatever you're using.
+Automatically<00:03:12.080><c> pulls</c><00:03:12.360><c> the</c><00:03:12.480><c> best</c><00:03:12.800><c> community</c>
+
+00:03:13.270 --> 00:03:13.280 align:start position:0%
+Automatically pulls the best community
+ 
+
+00:03:13.280 --> 00:03:15.110 align:start position:0%
+Automatically pulls the best community
+curated<00:03:13.800><c> markdown</c><00:03:14.280><c> skills</c><00:03:14.840><c> from</c><00:03:15.040><c> the</c>
+
+00:03:15.110 --> 00:03:15.120 align:start position:0%
+curated markdown skills from the
+ 
+
+00:03:15.120 --> 00:03:17.350 align:start position:0%
+curated markdown skills from the
+skills.sh<00:03:16.000><c> registry</c><00:03:16.560><c> straight</c><00:03:17.040><c> into</c><00:03:17.240><c> your</c>
+
+00:03:17.350 --> 00:03:17.360 align:start position:0%
+skills.sh registry straight into your
+ 
+
+00:03:17.360 --> 00:03:19.110 align:start position:0%
+skills.sh registry straight into your
+project.
+
+00:03:19.110 --> 00:03:19.120 align:start position:0%
+project.
+ 
+
+00:03:19.120 --> 00:03:20.950 align:start position:0%
+project.
+AI<00:03:19.600><c> image</c><00:03:19.880><c> generators</c><00:03:20.400><c> give</c><00:03:20.560><c> you</c><00:03:20.640><c> messy</c>
+
+00:03:20.950 --> 00:03:20.960 align:start position:0%
+AI image generators give you messy
+ 
+
+00:03:20.960 --> 00:03:23.150 align:start position:0%
+AI image generators give you messy
+bitmaps<00:03:21.480><c> with</c><00:03:21.680><c> weird</c><00:03:22.000><c> text.</c><00:03:22.720><c> You</c><00:03:22.840><c> wanted</c><00:03:23.120><c> a</c>
+
+00:03:23.150 --> 00:03:23.160 align:start position:0%
+bitmaps with weird text. You wanted a
+ 
+
+00:03:23.160 --> 00:03:25.390 align:start position:0%
+bitmaps with weird text. You wanted a
+logo,<00:03:23.920><c> you</c><00:03:24.040><c> got</c><00:03:24.240><c> a</c><00:03:24.280><c> mess.</c>
+
+00:03:25.390 --> 00:03:25.400 align:start position:0%
+logo, you got a mess.
+ 
+
+00:03:25.400 --> 00:03:27.670 align:start position:0%
+logo, you got a mess.
+Logo<00:03:25.720><c> generator</c><00:03:26.080><c> skill</c><00:03:26.440><c> uses</c><00:03:26.800><c> Claude</c><00:03:27.200><c> code</c><00:03:27.560><c> to</c>
+
+00:03:27.670 --> 00:03:27.680 align:start position:0%
+Logo generator skill uses Claude code to
+ 
+
+00:03:27.680 --> 00:03:29.990 align:start position:0%
+Logo generator skill uses Claude code to
+write<00:03:27.880><c> the</c><00:03:28.000><c> raw</c><00:03:28.240><c> SVG</c><00:03:28.760><c> code</c><00:03:29.040><c> for</c><00:03:29.160><c> your</c><00:03:29.320><c> logo.</c>
+
+00:03:29.990 --> 00:03:30.000 align:start position:0%
+write the raw SVG code for your logo.
+ 
+
+00:03:30.000 --> 00:03:32.230 align:start position:0%
+write the raw SVG code for your logo.
+Tell<00:03:30.240><c> it</c><00:03:30.320><c> your</c><00:03:30.440><c> project</c><00:03:30.840><c> name</c><00:03:31.040><c> and</c><00:03:31.160><c> industry.</c>
+
+00:03:32.230 --> 00:03:32.240 align:start position:0%
+Tell it your project name and industry.
+ 
+
+00:03:32.240 --> 00:03:34.470 align:start position:0%
+Tell it your project name and industry.
+Get<00:03:32.480><c> six</c><00:03:32.880><c> geometric</c><00:03:33.480><c> vector-based</c><00:03:34.120><c> design</c>
+
+00:03:34.470 --> 00:03:34.480 align:start position:0%
+Get six geometric vector-based design
+ 
+
+00:03:34.480 --> 00:03:37.270 align:start position:0%
+Get six geometric vector-based design
+variations.<00:03:35.600><c> Pure</c><00:03:35.840><c> SVG</c><00:03:36.400><c> means</c><00:03:36.760><c> infinitely</c>
+
+00:03:37.270 --> 00:03:37.280 align:start position:0%
+variations. Pure SVG means infinitely
+ 
+
+00:03:37.280 --> 00:03:39.310 align:start position:0%
+variations. Pure SVG means infinitely
+scalable,<00:03:37.960><c> fully</c><00:03:38.240><c> responsive,</c><00:03:39.000><c> and</c><00:03:39.120><c> you</c><00:03:39.200><c> can</c>
+
+00:03:39.310 --> 00:03:39.320 align:start position:0%
+scalable, fully responsive, and you can
+ 
+
+00:03:39.320 --> 00:03:41.350 align:start position:0%
+scalable, fully responsive, and you can
+drag<00:03:39.600><c> it</c><00:03:39.680><c> straight</c><00:03:40.040><c> into</c><00:03:40.240><c> Figma</c><00:03:40.920><c> to</c><00:03:41.040><c> tweak</c>
+
+00:03:41.350 --> 00:03:41.360 align:start position:0%
+drag it straight into Figma to tweak
+ 
+
+00:03:41.360 --> 00:03:44.750 align:start position:0%
+drag it straight into Figma to tweak
+radii,<00:03:42.160><c> gradients,</c><00:03:42.920><c> and</c><00:03:43.080><c> layout.</c>
+
+00:03:44.750 --> 00:03:44.760 align:start position:0%
+radii, gradients, and layout.
+ 
+
+00:03:44.760 --> 00:03:47.110 align:start position:0%
+radii, gradients, and layout.
+Claude<00:03:45.160><c> code</c><00:03:45.440><c> generates</c><00:03:46.000><c> UIs</c><00:03:46.480><c> that</c><00:03:46.640><c> look</c><00:03:46.840><c> sort</c>
+
+00:03:47.110 --> 00:03:47.120 align:start position:0%
+Claude code generates UIs that look sort
+ 
+
+00:03:47.120 --> 00:03:49.470 align:start position:0%
+Claude code generates UIs that look sort
+of<00:03:47.240><c> like</c><00:03:47.440><c> Material</c><00:03:47.920><c> Design,</c><00:03:48.760><c> but</c><00:03:48.920><c> ignore</c><00:03:49.320><c> the</c>
+
+00:03:49.470 --> 00:03:49.480 align:start position:0%
+of like Material Design, but ignore the
+ 
+
+00:03:49.480 --> 00:03:51.830 align:start position:0%
+of like Material Design, but ignore the
+actual<00:03:49.880><c> strict</c><00:03:50.280><c> guidelines.</c>
+
+00:03:51.830 --> 00:03:51.840 align:start position:0%
+actual strict guidelines.
+ 
+
+00:03:51.840 --> 00:03:54.390 align:start position:0%
+actual strict guidelines.
+Material<00:03:52.440><c> 3</c><00:03:52.720><c> skill</c><00:03:53.160><c> turns</c><00:03:53.520><c> your</c><00:03:53.680><c> AI</c><00:03:54.080><c> into</c><00:03:54.360><c> a</c>
+
+00:03:54.390 --> 00:03:54.400 align:start position:0%
+Material 3 skill turns your AI into a
+ 
+
+00:03:54.400 --> 00:03:56.430 align:start position:0%
+Material 3 skill turns your AI into a
+certified<00:03:55.000><c> Google</c><00:03:55.280><c> Material</c><00:03:55.680><c> Design</c><00:03:56.080><c> 3</c>
+
+00:03:56.430 --> 00:03:56.440 align:start position:0%
+certified Google Material Design 3
+ 
+
+00:03:56.440 --> 00:03:57.830 align:start position:0%
+certified Google Material Design 3
+expert.
+
+00:03:57.830 --> 00:03:57.840 align:start position:0%
+expert.
+ 
+
+00:03:57.840 --> 00:04:00.550 align:start position:0%
+expert.
+30+<00:03:58.440><c> components,</c><00:03:59.400><c> the</c><00:03:59.480><c> full</c><00:03:59.720><c> dynamic</c><00:04:00.240><c> tonal</c>
+
+00:04:00.550 --> 00:04:00.560 align:start position:0%
+30+ components, the full dynamic tonal
+ 
+
+00:04:00.560 --> 00:04:02.750 align:start position:0%
+30+ components, the full dynamic tonal
+color<00:04:00.840><c> system,</c><00:04:01.720><c> and</c><00:04:01.840><c> responsive</c><00:04:02.440><c> layout</c>
+
+00:04:02.750 --> 00:04:02.760 align:start position:0%
+color system, and responsive layout
+ 
+
+00:04:02.760 --> 00:04:05.230 align:start position:0%
+color system, and responsive layout
+breakpoints.<00:04:03.800><c> Feed</c><00:04:04.000><c> it</c><00:04:04.160><c> one</c><00:04:04.400><c> seed</c><00:04:04.680><c> color</c><00:04:05.120><c> and</c>
+
+00:04:05.230 --> 00:04:05.240 align:start position:0%
+breakpoints. Feed it one seed color and
+ 
+
+00:04:05.240 --> 00:04:07.110 align:start position:0%
+breakpoints. Feed it one seed color and
+get<00:04:05.400><c> a</c><00:04:05.440><c> perfectly</c><00:04:05.960><c> balanced</c><00:04:06.440><c> light</c><00:04:06.720><c> and</c><00:04:06.840><c> dark</c>
+
+00:04:07.110 --> 00:04:07.120 align:start position:0%
+get a perfectly balanced light and dark
+ 
+
+00:04:07.120 --> 00:04:09.030 align:start position:0%
+get a perfectly balanced light and dark
+mode<00:04:07.400><c> theme.</c>
+
+00:04:09.030 --> 00:04:09.040 align:start position:0%
+mode theme.
+ 
+
+00:04:09.040 --> 00:04:10.990 align:start position:0%
+mode theme.
+Litch<00:04:09.440><c> skills</c><00:04:09.840><c> injects</c><00:04:10.280><c> a</c><00:04:10.320><c> strict</c>
+
+00:04:10.990 --> 00:04:11.000 align:start position:0%
+Litch skills injects a strict
+ 
+
+00:04:11.000 --> 00:04:12.910 align:start position:0%
+Litch skills injects a strict
+spec-driven<00:04:11.720><c> development</c><00:04:12.240><c> workflow</c><00:04:12.680><c> into</c>
+
+00:04:12.910 --> 00:04:12.920 align:start position:0%
+spec-driven development workflow into
+ 
+
+00:04:12.920 --> 00:04:14.990 align:start position:0%
+spec-driven development workflow into
+your<00:04:13.120><c> agent,</c><00:04:13.800><c> forcing</c><00:04:14.160><c> it</c><00:04:14.280><c> to</c><00:04:14.400><c> plan</c><00:04:14.880><c> and</c>
+
+00:04:14.990 --> 00:04:15.000 align:start position:0%
+your agent, forcing it to plan and
+ 
+
+00:04:15.000 --> 00:04:17.030 align:start position:0%
+your agent, forcing it to plan and
+design<00:04:15.480><c> architecture</c><00:04:16.280><c> before</c><00:04:16.680><c> writing</c><00:04:16.959><c> a</c>
+
+00:04:17.030 --> 00:04:17.040 align:start position:0%
+design architecture before writing a
+ 
+
+00:04:17.040 --> 00:04:19.470 align:start position:0%
+design architecture before writing a
+single<00:04:17.480><c> line</c><00:04:17.680><c> of</c><00:04:17.799><c> code.</c><00:04:18.640><c> Beyond</c><00:04:19.040><c> that,</c><00:04:19.359><c> it</c>
+
+00:04:19.470 --> 00:04:19.480 align:start position:0%
+single line of code. Beyond that, it
+ 
+
+00:04:19.480 --> 00:04:22.110 align:start position:0%
+single line of code. Beyond that, it
+equips<00:04:19.880><c> your</c><00:04:20.120><c> AI</c><00:04:20.600><c> with</c><00:04:20.880><c> live</c><00:04:21.280><c> web</c><00:04:21.519><c> search</c><00:04:21.959><c> via</c>
+
+00:04:22.110 --> 00:04:22.120 align:start position:0%
+equips your AI with live web search via
+ 
+
+00:04:22.120 --> 00:04:24.430 align:start position:0%
+equips your AI with live web search via
+the<00:04:22.280><c> Tavily</c><00:04:22.760><c> API</c><00:04:23.680><c> to</c><00:04:23.800><c> look</c><00:04:23.960><c> up</c><00:04:24.120><c> latest</c>
+
+00:04:24.430 --> 00:04:24.440 align:start position:0%
+the Tavily API to look up latest
+ 
+
+00:04:24.440 --> 00:04:27.150 align:start position:0%
+the Tavily API to look up latest
+documentation<00:04:25.760><c> and</c><00:04:25.880><c> hooks</c><00:04:26.120><c> into</c><00:04:26.320><c> Nano</c><00:04:26.640><c> Banana</c>
+
+00:04:27.150 --> 00:04:27.160 align:start position:0%
+documentation and hooks into Nano Banana
+ 
+
+00:04:27.160 --> 00:04:29.550 align:start position:0%
+documentation and hooks into Nano Banana
+for<00:04:27.440><c> instant</c><00:04:27.920><c> image</c><00:04:28.200><c> generation</c><00:04:29.120><c> right</c><00:04:29.400><c> from</c>
+
+00:04:29.550 --> 00:04:29.560 align:start position:0%
+for instant image generation right from
+ 
+
+00:04:29.560 --> 00:04:31.830 align:start position:0%
+for instant image generation right from
+your<00:04:29.720><c> terminal.</c>
+
+00:04:31.830 --> 00:04:31.840 align:start position:0%
+your terminal.
+ 
+
+00:04:31.840 --> 00:04:34.350 align:start position:0%
+your terminal.
+3GP<00:04:32.520><c> skill</c><00:04:33.040><c> turns</c><00:04:33.360><c> Claude</c><00:04:33.720><c> into</c><00:04:33.960><c> a</c><00:04:34.000><c> senior</c>
+
+00:04:34.350 --> 00:04:34.360 align:start position:0%
+3GP skill turns Claude into a senior
+ 
+
+00:04:34.360 --> 00:04:36.430 align:start position:0%
+3GP skill turns Claude into a senior
+telecom<00:04:34.800><c> consultant</c><00:04:35.360><c> grounded</c><00:04:35.760><c> in</c><00:04:35.920><c> actual</c>
+
+00:04:36.430 --> 00:04:36.440 align:start position:0%
+telecom consultant grounded in actual
+ 
+
+00:04:36.440 --> 00:04:39.270 align:start position:0%
+telecom consultant grounded in actual
+engineering<00:04:37.000><c> standards</c><00:04:37.560><c> from</c><00:04:37.760><c> 2G</c><00:04:38.240><c> through</c><00:04:38.480><c> 6G</c>
+
+00:04:39.270 --> 00:04:39.280 align:start position:0%
+engineering standards from 2G through 6G
+ 
+
+00:04:39.280 --> 00:04:42.070 align:start position:0%
+engineering standards from 2G through 6G
+and<00:04:39.400><c> release</c><00:04:39.720><c> 21.</c><00:04:40.800><c> Ask</c><00:04:41.080><c> complex</c><00:04:41.520><c> questions</c>
+
+00:04:42.070 --> 00:04:42.080 align:start position:0%
+and release 21. Ask complex questions
+ 
+
+00:04:42.080 --> 00:04:44.230 align:start position:0%
+and release 21. Ask complex questions
+like<00:04:42.320><c> how</c><00:04:42.440><c> 5G</c><00:04:42.880><c> protects</c><00:04:43.280><c> against</c><00:04:43.680><c> IMSI</c>
+
+00:04:44.230 --> 00:04:44.240 align:start position:0%
+like how 5G protects against IMSI
+ 
+
+00:04:44.240 --> 00:04:46.790 align:start position:0%
+like how 5G protects against IMSI
+catchers<00:04:45.200><c> or</c><00:04:45.360><c> how</c><00:04:45.520><c> to</c><00:04:45.640><c> migrate</c><00:04:46.080><c> from</c><00:04:46.280><c> LTE</c><00:04:46.680><c> to</c>
+
+00:04:46.790 --> 00:04:46.800 align:start position:0%
+catchers or how to migrate from LTE to
+ 
+
+00:04:46.800 --> 00:04:49.390 align:start position:0%
+catchers or how to migrate from LTE to
+5G<00:04:47.200><c> core</c><00:04:47.920><c> and</c><00:04:48.040><c> it</c><00:04:48.160><c> maps</c><00:04:48.440><c> the</c><00:04:48.560><c> entire</c><00:04:48.920><c> protocol</c>
+
+00:04:49.390 --> 00:04:49.400 align:start position:0%
+5G core and it maps the entire protocol
+ 
+
+00:04:49.400 --> 00:04:51.950 align:start position:0%
+5G core and it maps the entire protocol
+flow<00:04:49.720><c> across</c><00:04:50.080><c> the</c><00:04:50.200><c> PPHY,</c><00:04:50.960><c> MAC,</c><00:04:51.360><c> and</c><00:04:51.480><c> RRC</c>
+
+00:04:51.950 --> 00:04:51.960 align:start position:0%
+flow across the PPHY, MAC, and RRC
+ 
+
+00:04:51.960 --> 00:04:54.230 align:start position:0%
+flow across the PPHY, MAC, and RRC
+layers.<00:04:52.880><c> Every</c><00:04:53.160><c> single</c><00:04:53.520><c> answer</c><00:04:53.800><c> backed</c><00:04:54.080><c> by</c>
+
+00:04:54.230 --> 00:04:54.240 align:start position:0%
+layers. Every single answer backed by
+ 
+
+00:04:54.240 --> 00:04:55.950 align:start position:0%
+layers. Every single answer backed by
+exact<00:04:54.800><c> technical</c><00:04:55.240><c> specification</c>
+
+00:04:55.950 --> 00:04:55.960 align:start position:0%
+exact technical specification
+ 
+
+00:04:55.960 --> 00:04:59.310 align:start position:0%
+exact technical specification
+references.<00:04:56.960><c> No</c><00:04:57.200><c> hallucinations.</c>
+
+00:04:59.310 --> 00:04:59.320 align:start position:0%
+references. No hallucinations.
+ 
+
+00:04:59.320 --> 00:05:01.510 align:start position:0%
+references. No hallucinations.
+AI<00:04:59.680><c> writing</c><00:05:00.080><c> sounds</c><00:05:00.400><c> like</c><00:05:00.600><c> AI</c><00:05:00.800><c> writing.</c>
+
+00:05:01.510 --> 00:05:01.520 align:start position:0%
+AI writing sounds like AI writing.
+ 
+
+00:05:01.520 --> 00:05:04.950 align:start position:0%
+AI writing sounds like AI writing.
+Inside<00:05:02.040><c> Lago-Voice</c><00:05:03.080><c> skill</c><00:05:03.560><c> fixes</c><00:05:04.000><c> that.</c><00:05:04.840><c> The</c>
+
+00:05:04.950 --> 00:05:04.960 align:start position:0%
+Inside Lago-Voice skill fixes that. The
+ 
+
+00:05:04.960 --> 00:05:06.950 align:start position:0%
+Inside Lago-Voice skill fixes that. The
+founder<00:05:05.360><c> of</c><00:05:05.480><c> Lago</c><00:05:05.840><c> had</c><00:05:06.040><c> multiple</c><00:05:06.560><c> viral</c>
+
+00:05:06.950 --> 00:05:06.960 align:start position:0%
+founder of Lago had multiple viral
+ 
+
+00:05:06.960 --> 00:05:09.190 align:start position:0%
+founder of Lago had multiple viral
+Hacker<00:05:07.240><c> News</c><00:05:07.480><c> hits</c><00:05:08.200><c> and</c><00:05:08.320><c> just</c><00:05:08.560><c> open</c><00:05:08.880><c> sourced</c>
+
+00:05:09.190 --> 00:05:09.200 align:start position:0%
+Hacker News hits and just open sourced
+ 
+
+00:05:09.200 --> 00:05:11.070 align:start position:0%
+Hacker News hits and just open sourced
+the<00:05:09.320><c> exact</c><00:05:09.720><c> Claude</c><00:05:10.040><c> skill</c><00:05:10.360><c> she</c><00:05:10.520><c> used</c><00:05:10.760><c> to</c><00:05:10.840><c> write</c>
+
+00:05:11.070 --> 00:05:11.080 align:start position:0%
+the exact Claude skill she used to write
+ 
+
+00:05:11.080 --> 00:05:13.510 align:start position:0%
+the exact Claude skill she used to write
+them.<00:05:11.760><c> A</c><00:05:11.840><c> framework</c><00:05:12.400><c> for</c><00:05:12.520><c> teaching</c><00:05:12.880><c> an</c><00:05:13.040><c> AI</c><00:05:13.360><c> to</c>
+
+00:05:13.510 --> 00:05:13.520 align:start position:0%
+them. A framework for teaching an AI to
+ 
+
+00:05:13.520 --> 00:05:15.350 align:start position:0%
+them. A framework for teaching an AI to
+write<00:05:13.760><c> like</c><00:05:14.000><c> you,</c><00:05:14.400><c> not</c><00:05:14.600><c> a</c><00:05:14.640><c> corporate</c><00:05:15.040><c> version</c>
+
+00:05:15.350 --> 00:05:15.360 align:start position:0%
+write like you, not a corporate version
+ 
+
+00:05:15.360 --> 00:05:16.430 align:start position:0%
+write like you, not a corporate version
+of<00:05:15.480><c> you.</c>
+
+00:05:16.430 --> 00:05:16.440 align:start position:0%
+of you.
+ 
+
+00:05:16.440 --> 00:05:18.430 align:start position:0%
+of you.
+Seven<00:05:16.880><c> structured</c><00:05:17.400><c> sections</c><00:05:18.000><c> including</c>
+
+00:05:18.430 --> 00:05:18.440 align:start position:0%
+Seven structured sections including
+ 
+
+00:05:18.440 --> 00:05:20.790 align:start position:0%
+Seven structured sections including
+voice,<00:05:19.040><c> core</c><00:05:19.320><c> rules,</c><00:05:19.800><c> and</c><00:05:19.920><c> an</c><00:05:20.040><c> anti-filler</c>
+
+00:05:20.790 --> 00:05:20.800 align:start position:0%
+voice, core rules, and an anti-filler
+ 
+
+00:05:20.800 --> 00:05:23.030 align:start position:0%
+voice, core rules, and an anti-filler
+checklist.<00:05:21.880><c> You</c><00:05:22.000><c> feed</c><00:05:22.280><c> it</c><00:05:22.400><c> your</c><00:05:22.520><c> personal</c>
+
+00:05:23.030 --> 00:05:23.040 align:start position:0%
+checklist. You feed it your personal
+ 
+
+00:05:23.040 --> 00:05:25.670 align:start position:0%
+checklist. You feed it your personal
+anti-patterns,<00:05:24.320><c> the</c><00:05:24.440><c> exact</c><00:05:24.920><c> manual</c><00:05:25.360><c> edits</c>
+
+00:05:25.670 --> 00:05:25.680 align:start position:0%
+anti-patterns, the exact manual edits
+ 
+
+00:05:25.680 --> 00:05:29.110 align:start position:0%
+anti-patterns, the exact manual edits
+you<00:05:25.840><c> always</c><00:05:26.080><c> make</c><00:05:26.320><c> to</c><00:05:26.440><c> fix</c><00:05:26.840><c> AI</c><00:05:27.080><c> drafts.</c>
+
+00:05:29.110 --> 00:05:29.120 align:start position:0%
+you always make to fix AI drafts.
+ 
+
+00:05:29.120 --> 00:05:31.510 align:start position:0%
+you always make to fix AI drafts.
+Marp<00:05:29.480><c> slides</c><00:05:30.080><c> is</c><00:05:30.200><c> a</c><00:05:30.280><c> Claude</c><00:05:30.680><c> code</c><00:05:30.960><c> skill</c><00:05:31.360><c> that</c>
+
+00:05:31.510 --> 00:05:31.520 align:start position:0%
+Marp slides is a Claude code skill that
+ 
+
+00:05:31.520 --> 00:05:33.070 align:start position:0%
+Marp slides is a Claude code skill that
+turns<00:05:31.800><c> your</c><00:05:31.960><c> agent</c><00:05:32.360><c> into</c><00:05:32.560><c> a</c><00:05:32.640><c> master</c>
+
+00:05:33.070 --> 00:05:33.080 align:start position:0%
+turns your agent into a master
+ 
+
+00:05:33.080 --> 00:05:34.870 align:start position:0%
+turns your agent into a master
+presentation<00:05:33.760><c> designer.</c>
+
+00:05:34.870 --> 00:05:34.880 align:start position:0%
+presentation designer.
+ 
+
+00:05:34.880 --> 00:05:37.390 align:start position:0%
+presentation designer.
+It<00:05:35.080><c> uses</c><00:05:35.440><c> 22</c><00:05:36.000><c> curated</c><00:05:36.560><c> reference</c><00:05:37.000><c> decks</c><00:05:37.280><c> to</c>
+
+00:05:37.390 --> 00:05:37.400 align:start position:0%
+It uses 22 curated reference decks to
+ 
+
+00:05:37.400 --> 00:05:39.310 align:start position:0%
+It uses 22 curated reference decks to
+teach<00:05:37.720><c> Claude</c><00:05:38.200><c> how</c><00:05:38.320><c> to</c><00:05:38.440><c> compose</c><00:05:38.880><c> beautiful</c>
+
+00:05:39.310 --> 00:05:39.320 align:start position:0%
+teach Claude how to compose beautiful
+ 
+
+00:05:39.320 --> 00:05:41.550 align:start position:0%
+teach Claude how to compose beautiful
+Marp<00:05:39.640><c> decks</c><00:05:39.960><c> using</c><00:05:40.200><c> pure</c><00:05:40.520><c> markdown</c><00:05:41.120><c> and</c><00:05:41.320><c> raw</c>
+
+00:05:41.550 --> 00:05:41.560 align:start position:0%
+Marp decks using pure markdown and raw
+ 
+
+00:05:41.560 --> 00:05:44.430 align:start position:0%
+Marp decks using pure markdown and raw
+HTML.<00:05:42.640><c> Prompt</c><00:05:43.000><c> it</c><00:05:43.120><c> with,</c><00:05:43.680><c> "Create</c><00:05:44.040><c> a</c><00:05:44.080><c> dark</c>
+
+00:05:44.430 --> 00:05:44.440 align:start position:0%
+HTML. Prompt it with, "Create a dark
+ 
+
+00:05:44.440 --> 00:05:46.830 align:start position:0%
+HTML. Prompt it with, "Create a dark
+mode<00:05:44.640><c> presentation</c><00:05:45.440><c> reviewing</c><00:05:45.880><c> my</c><00:05:46.040><c> Q1</c><00:05:46.480><c> sales</c>
+
+00:05:46.830 --> 00:05:46.840 align:start position:0%
+mode presentation reviewing my Q1 sales
+ 
+
+00:05:46.840 --> 00:05:49.110 align:start position:0%
+mode presentation reviewing my Q1 sales
+data."<00:05:47.720><c> and</c><00:05:47.840><c> it</c><00:05:47.960><c> autonomously</c><00:05:48.640><c> builds</c><00:05:49.000><c> the</c>
+
+00:05:49.110 --> 00:05:49.120 align:start position:0%
+data." and it autonomously builds the
+ 
+
+00:05:49.120 --> 00:05:52.230 align:start position:0%
+data." and it autonomously builds the
+entire<00:05:49.720><c> deck</c><00:05:50.120><c> with</c><00:05:50.320><c> SVG</c><00:05:50.880><c> bar</c><00:05:51.160><c> charts,</c><00:05:51.840><c> metric</c>
+
+00:05:52.230 --> 00:05:52.240 align:start position:0%
+entire deck with SVG bar charts, metric
+ 
+
+00:05:52.240 --> 00:05:55.310 align:start position:0%
+entire deck with SVG bar charts, metric
+cards,<00:05:52.720><c> and</c><00:05:52.880><c> polished</c><00:05:53.360><c> layouts.</c>
+
+00:05:55.310 --> 00:05:55.320 align:start position:0%
+cards, and polished layouts.
+ 
+
+00:05:55.320 --> 00:05:57.870 align:start position:0%
+cards, and polished layouts.
+Managing<00:05:55.800><c> a</c><00:05:55.880><c> swarm</c><00:05:56.240><c> of</c><00:05:56.400><c> AI</c><00:05:56.760><c> agents</c><00:05:57.400><c> means</c><00:05:57.720><c> when</c>
+
+00:05:57.870 --> 00:05:57.880 align:start position:0%
+Managing a swarm of AI agents means when
+ 
+
+00:05:57.880 --> 00:06:00.030 align:start position:0%
+Managing a swarm of AI agents means when
+one<00:05:58.080><c> tool</c><00:05:58.320><c> breaks,</c><00:05:59.160><c> every</c><00:05:59.480><c> agent</c><00:05:59.800><c> on</c><00:05:59.920><c> your</c>
+
+00:06:00.030 --> 00:06:00.040 align:start position:0%
+one tool breaks, every agent on your
+ 
+
+00:06:00.040 --> 00:06:02.430 align:start position:0%
+one tool breaks, every agent on your
+team<00:06:00.400><c> fails</c><00:06:00.800><c> the</c><00:06:00.880><c> same</c><00:06:01.200><c> way</c><00:06:01.960><c> until</c><00:06:02.280><c> you</c>
+
+00:06:02.430 --> 00:06:02.440 align:start position:0%
+team fails the same way until you
+ 
+
+00:06:02.440 --> 00:06:04.990 align:start position:0%
+team fails the same way until you
+manually<00:06:03.000><c> rewrite</c><00:06:03.400><c> the</c><00:06:03.480><c> code.</c><00:06:04.440><c> Skill</c><00:06:04.760><c> claw</c>
+
+00:06:04.990 --> 00:06:05.000 align:start position:0%
+manually rewrite the code. Skill claw
+ 
+
+00:06:05.000 --> 00:06:06.830 align:start position:0%
+manually rewrite the code. Skill claw
+fixes<00:06:05.440><c> that</c><00:06:05.840><c> with</c><00:06:06.000><c> collective</c><00:06:06.520><c> skill</c>
+
+00:06:06.830 --> 00:06:06.840 align:start position:0%
+fixes that with collective skill
+ 
+
+00:06:06.840 --> 00:06:09.430 align:start position:0%
+fixes that with collective skill
+evolution.<00:06:08.000><c> A</c><00:06:08.080><c> local</c><00:06:08.400><c> proxy</c><00:06:08.880><c> silently</c>
+
+00:06:09.430 --> 00:06:09.440 align:start position:0%
+evolution. A local proxy silently
+ 
+
+00:06:09.440 --> 00:06:11.870 align:start position:0%
+evolution. A local proxy silently
+monitors<00:06:09.920><c> your</c><00:06:10.080><c> agents.</c><00:06:11.040><c> When</c><00:06:11.200><c> one</c><00:06:11.360><c> discovers</c>
+
+00:06:11.870 --> 00:06:11.880 align:start position:0%
+monitors your agents. When one discovers
+ 
+
+00:06:11.880 --> 00:06:14.030 align:start position:0%
+monitors your agents. When one discovers
+a<00:06:11.920><c> new</c><00:06:12.160><c> workflow</c><00:06:12.680><c> or</c><00:06:12.800><c> hits</c><00:06:13.040><c> an</c><00:06:13.160><c> error,</c><00:06:13.920><c> an</c>
+
+00:06:14.030 --> 00:06:14.040 align:start position:0%
+a new workflow or hits an error, an
+ 
+
+00:06:14.040 --> 00:06:16.630 align:start position:0%
+a new workflow or hits an error, an
+autonomous<00:06:14.640><c> agentic</c><00:06:15.120><c> evolver</c><00:06:15.800><c> analyzes</c><00:06:16.520><c> the</c>
+
+00:06:16.630 --> 00:06:16.640 align:start position:0%
+autonomous agentic evolver analyzes the
+ 
+
+00:06:16.640 --> 00:06:18.990 align:start position:0%
+autonomous agentic evolver analyzes the
+session,<00:06:17.360><c> dynamically</c><00:06:18.080><c> rewrites</c><00:06:18.600><c> the</c><00:06:18.720><c> tool's</c>
+
+00:06:18.990 --> 00:06:19.000 align:start position:0%
+session, dynamically rewrites the tool's
+ 
+
+00:06:19.000 --> 00:06:21.190 align:start position:0%
+session, dynamically rewrites the tool's
+logic,<00:06:19.680><c> and</c><00:06:19.840><c> syncs</c><00:06:20.160><c> the</c><00:06:20.320><c> upgrade</c><00:06:20.720><c> to</c><00:06:20.800><c> a</c><00:06:20.880><c> shared</c>
+
+00:06:21.190 --> 00:06:21.200 align:start position:0%
+logic, and syncs the upgrade to a shared
+ 
+
+00:06:21.200 --> 00:06:23.430 align:start position:0%
+logic, and syncs the upgrade to a shared
+cloud<00:06:21.520><c> repository.</c>
+
+00:06:23.430 --> 00:06:23.440 align:start position:0%
+cloud repository.
+ 
+
+00:06:23.440 --> 00:06:26.470 align:start position:0%
+cloud repository.
+SVG<00:06:24.240><c> hand-drawn</c><00:06:24.800><c> skill</c><00:06:25.600><c> plugs</c><00:06:25.960><c> into</c><00:06:26.160><c> Claude</c>
+
+00:06:26.470 --> 00:06:26.480 align:start position:0%
+SVG hand-drawn skill plugs into Claude
+ 
+
+00:06:26.480 --> 00:06:29.070 align:start position:0%
+SVG hand-drawn skill plugs into Claude
+code<00:06:26.840><c> or</c><00:06:27.000><c> cursor.</c><00:06:27.920><c> Feed</c><00:06:28.200><c> it</c><00:06:28.560><c> a</c><00:06:28.640><c> rigid</c>
+
+00:06:29.070 --> 00:06:29.080 align:start position:0%
+code or cursor. Feed it a rigid
+ 
+
+00:06:29.080 --> 00:06:32.830 align:start position:0%
+code or cursor. Feed it a rigid
+corporate<00:06:29.520><c> SVG</c><00:06:30.520><c> chart,</c><00:06:31.040><c> logo,</c><00:06:31.600><c> or</c><00:06:31.840><c> icon</c><00:06:32.720><c> and</c>
+
+00:06:32.830 --> 00:06:32.840 align:start position:0%
+corporate SVG chart, logo, or icon and
+ 
+
+00:06:32.840 --> 00:06:34.510 align:start position:0%
+corporate SVG chart, logo, or icon and
+it<00:06:32.920><c> converts</c><00:06:33.360><c> it</c><00:06:33.480><c> into</c><00:06:33.680><c> a</c><00:06:33.760><c> beautiful</c><00:06:34.240><c> rough</c>
+
+00:06:34.510 --> 00:06:34.520 align:start position:0%
+it converts it into a beautiful rough
+ 
+
+00:06:34.520 --> 00:06:36.710 align:start position:0%
+it converts it into a beautiful rough
+hand-drawn<00:06:35.040><c> style</c><00:06:35.400><c> graphic.</c><00:06:36.280><c> It</c><00:06:36.400><c> doesn't</c>
+
+00:06:36.710 --> 00:06:36.720 align:start position:0%
+hand-drawn style graphic. It doesn't
+ 
+
+00:06:36.720 --> 00:06:38.790 align:start position:0%
+hand-drawn style graphic. It doesn't
+output<00:06:37.040><c> a</c><00:06:37.120><c> static</c><00:06:37.520><c> image.</c><00:06:38.200><c> It</c><00:06:38.320><c> generates</c><00:06:38.760><c> a</c>
+
+00:06:38.790 --> 00:06:38.800 align:start position:0%
+output a static image. It generates a
+ 
+
+00:06:38.800 --> 00:06:40.830 align:start position:0%
+output a static image. It generates a
+complete<00:06:39.240><c> HTML</c><00:06:39.760><c> preview</c><00:06:40.280><c> with</c><00:06:40.440><c> a</c><00:06:40.480><c> player</c>
+
+00:06:40.830 --> 00:06:40.840 align:start position:0%
+complete HTML preview with a player
+ 
+
+00:06:40.840 --> 00:06:43.230 align:start position:0%
+complete HTML preview with a player
+script<00:06:41.160><c> that</c><00:06:41.320><c> animates</c><00:06:41.720><c> the</c><00:06:41.880><c> SVG</c><00:06:42.800><c> making</c><00:06:43.120><c> it</c>
+
+00:06:43.230 --> 00:06:43.240 align:start position:0%
+script that animates the SVG making it
+ 
+
+00:06:43.240 --> 00:06:44.510 align:start position:0%
+script that animates the SVG making it
+look<00:06:43.440><c> like</c><00:06:43.600><c> the</c><00:06:43.720><c> graphic</c><00:06:44.120><c> is</c><00:06:44.280><c> being</c>
+
+00:06:44.510 --> 00:06:44.520 align:start position:0%
+look like the graphic is being
+ 
+
+00:06:44.520 --> 00:06:46.430 align:start position:0%
+look like the graphic is being
+physically<00:06:45.040><c> sketched</c><00:06:45.560><c> onto</c><00:06:45.800><c> the</c><00:06:45.920><c> screen</c><00:06:46.320><c> in</c>
+
+00:06:46.430 --> 00:06:46.440 align:start position:0%
+physically sketched onto the screen in
+ 
+
+00:06:46.440 --> 00:06:48.230 align:start position:0%
+physically sketched onto the screen in
+real<00:06:46.680><c> time.</c>
+
+00:06:48.230 --> 00:06:48.240 align:start position:0%
+real time.
+ 
+
+00:06:48.240 --> 00:06:50.310 align:start position:0%
+real time.
+Buffett<00:06:48.640><c> skills</c><00:06:49.080><c> distills</c><00:06:49.680><c> Warren</c><00:06:49.960><c> Buffett's</c>
+
+00:06:50.310 --> 00:06:50.320 align:start position:0%
+Buffett skills distills Warren Buffett's
+ 
+
+00:06:50.320 --> 00:06:52.830 align:start position:0%
+Buffett skills distills Warren Buffett's
+entire<00:06:50.800><c> value</c><00:06:51.240><c> investing</c><00:06:51.720><c> brain</c><00:06:52.480><c> into</c><00:06:52.720><c> an</c>
+
+00:06:52.830 --> 00:06:52.840 align:start position:0%
+entire value investing brain into an
+ 
+
+00:06:52.840 --> 00:06:55.070 align:start position:0%
+entire value investing brain into an
+autonomous<00:06:53.480><c> agent</c><00:06:53.840><c> skill.</c><00:06:54.720><c> Drop</c><00:06:55.000><c> the</c>
+
+00:06:55.070 --> 00:06:55.080 align:start position:0%
+autonomous agent skill. Drop the
+ 
+
+00:06:55.080 --> 00:06:57.590 align:start position:0%
+autonomous agent skill. Drop the
+skill.md<00:06:55.880><c> into</c><00:06:56.120><c> Claude</c><00:06:56.440><c> code</c><00:06:56.720><c> or</c><00:06:56.880><c> open</c><00:06:57.120><c> claw</c>
+
+00:06:57.590 --> 00:06:57.600 align:start position:0%
+skill.md into Claude code or open claw
+ 
+
+00:06:57.600 --> 00:06:59.510 align:start position:0%
+skill.md into Claude code or open claw
+and<00:06:57.760><c> it</c><00:06:57.880><c> transforms</c><00:06:58.480><c> your</c><00:06:58.680><c> agent</c><00:06:59.200><c> into</c><00:06:59.440><c> a</c>
+
+00:06:59.510 --> 00:06:59.520 align:start position:0%
+and it transforms your agent into a
+ 
+
+00:06:59.520 --> 00:07:02.070 align:start position:0%
+and it transforms your agent into a
+ruthless<00:07:00.080><c> fundamental</c><00:07:00.640><c> value</c><00:07:00.960><c> investor.</c>
+
+00:07:02.070 --> 00:07:02.080 align:start position:0%
+ruthless fundamental value investor.
+ 
+
+00:07:02.080 --> 00:07:04.670 align:start position:0%
+ruthless fundamental value investor.
+Give<00:07:02.240><c> it</c><00:07:02.320><c> an</c><00:07:02.480><c> annual</c><00:07:02.840><c> report</c><00:07:03.560><c> or</c><00:07:03.720><c> ticker.</c><00:07:04.560><c> It</c>
+
+00:07:04.670 --> 00:07:04.680 align:start position:0%
+Give it an annual report or ticker. It
+ 
+
+00:07:04.680 --> 00:07:06.510 align:start position:0%
+Give it an annual report or ticker. It
+runs<00:07:04.920><c> structured</c><00:07:05.320><c> analysis</c><00:07:05.880><c> on</c><00:07:06.040><c> economic</c>
+
+00:07:06.510 --> 00:07:06.520 align:start position:0%
+runs structured analysis on economic
+ 
+
+00:07:06.520 --> 00:07:08.670 align:start position:0%
+runs structured analysis on economic
+moat,<00:07:07.040><c> management</c><00:07:07.560><c> integrity,</c><00:07:08.200><c> intrinsic</c>
+
+00:07:08.670 --> 00:07:08.680 align:start position:0%
+moat, management integrity, intrinsic
+ 
+
+00:07:08.680 --> 00:07:12.790 align:start position:0%
+moat, management integrity, intrinsic
+value,<00:07:09.320><c> and</c><00:07:09.480><c> long-term</c><00:07:10.000><c> capital</c><00:07:10.400><c> allocation.</c>
+
+00:07:12.790 --> 00:07:12.800 align:start position:0%
+value, and long-term capital allocation.
+ 
+
+00:07:12.800 --> 00:07:14.790 align:start position:0%
+value, and long-term capital allocation.
+Paper<00:07:13.160><c> orchestra</c><00:07:13.600><c> transforms</c><00:07:14.280><c> your</c><00:07:14.400><c> single</c>
+
+00:07:14.790 --> 00:07:14.800 align:start position:0%
+Paper orchestra transforms your single
+ 
+
+00:07:14.800 --> 00:07:16.870 align:start position:0%
+Paper orchestra transforms your single
+AI<00:07:15.040><c> assistant</c><00:07:15.680><c> into</c><00:07:15.920><c> a</c><00:07:16.000><c> full</c><00:07:16.400><c> academic</c>
+
+00:07:16.870 --> 00:07:16.880 align:start position:0%
+AI assistant into a full academic
+ 
+
+00:07:16.880 --> 00:07:18.110 align:start position:0%
+AI assistant into a full academic
+ensemble.
+
+00:07:18.110 --> 00:07:18.120 align:start position:0%
+ensemble.
+ 
+
+00:07:18.120 --> 00:07:20.350 align:start position:0%
+ensemble.
+Outline<00:07:18.600><c> agent,</c><00:07:19.280><c> plotting</c><00:07:19.640><c> agent,</c>
+
+00:07:20.350 --> 00:07:20.360 align:start position:0%
+Outline agent, plotting agent,
+ 
+
+00:07:20.360 --> 00:07:22.390 align:start position:0%
+Outline agent, plotting agent,
+literature<00:07:20.800><c> review</c><00:07:21.120><c> agent,</c><00:07:21.840><c> and</c><00:07:22.000><c> content</c>
+
+00:07:22.390 --> 00:07:22.400 align:start position:0%
+literature review agent, and content
+ 
+
+00:07:22.400 --> 00:07:24.670 align:start position:0%
+literature review agent, and content
+refiner.<00:07:23.240><c> Feed</c><00:07:23.520><c> it</c><00:07:23.640><c> your</c><00:07:23.760><c> messy</c><00:07:24.120><c> pre-writing</c>
+
+00:07:24.670 --> 00:07:24.680 align:start position:0%
+refiner. Feed it your messy pre-writing
+ 
+
+00:07:24.680 --> 00:07:26.790 align:start position:0%
+refiner. Feed it your messy pre-writing
+notes<00:07:25.040><c> and</c><00:07:25.160><c> the</c><00:07:25.240><c> swarm</c><00:07:25.760><c> synthesizes</c><00:07:26.440><c> a</c><00:07:26.520><c> deep</c>
+
+00:07:26.790 --> 00:07:26.800 align:start position:0%
+notes and the swarm synthesizes a deep
+ 
+
+00:07:26.800 --> 00:07:29.030 align:start position:0%
+notes and the swarm synthesizes a deep
+literature<00:07:27.240><c> review,</c><00:07:28.000><c> generates</c><00:07:28.480><c> conceptual</c>
+
+00:07:29.030 --> 00:07:29.040 align:start position:0%
+literature review, generates conceptual
+ 
+
+00:07:29.040 --> 00:07:31.870 align:start position:0%
+literature review, generates conceptual
+diagrams,<00:07:30.200><c> iteratively</c><00:07:30.800><c> refines</c><00:07:31.400><c> clarity</c>
+
+00:07:31.870 --> 00:07:31.880 align:start position:0%
+diagrams, iteratively refines clarity
+ 
+
+00:07:31.880 --> 00:07:34.110 align:start position:0%
+diagrams, iteratively refines clarity
+through<00:07:32.080><c> simulated</c><00:07:32.720><c> peer</c><00:07:32.920><c> review,</c><00:07:33.880><c> and</c>
+
+00:07:34.110 --> 00:07:34.120 align:start position:0%
+through simulated peer review, and
+ 
+
+00:07:34.120 --> 00:07:36.230 align:start position:0%
+through simulated peer review, and
+outputs<00:07:34.600><c> a</c><00:07:34.680><c> perfectly</c><00:07:35.200><c> formatted</c><00:07:35.760><c> LaTeX</c>
+
+00:07:36.230 --> 00:07:36.240 align:start position:0%
+outputs a perfectly formatted LaTeX
+ 
+
+00:07:36.240 --> 00:07:37.750 align:start position:0%
+outputs a perfectly formatted LaTeX
+file.
+
+00:07:37.750 --> 00:07:37.760 align:start position:0%
+file.
+ 
+
+00:07:37.760 --> 00:07:40.070 align:start position:0%
+file.
+Staring<00:07:38.240><c> at</c><00:07:38.360><c> a</c><00:07:38.400><c> massive</c><00:07:38.880><c> undocumented</c><00:07:39.680><c> legacy</c>
+
+00:07:40.070 --> 00:07:40.080 align:start position:0%
+Staring at a massive undocumented legacy
+ 
+
+00:07:40.080 --> 00:07:42.350 align:start position:0%
+Staring at a massive undocumented legacy
+codebase<00:07:40.880><c> is</c><00:07:41.040><c> one</c><00:07:41.200><c> of</c><00:07:41.280><c> the</c><00:07:41.440><c> worst</c><00:07:41.840><c> feelings</c><00:07:42.240><c> in</c>
+
+00:07:42.350 --> 00:07:42.360 align:start position:0%
+codebase is one of the worst feelings in
+ 
+
+00:07:42.360 --> 00:07:45.110 align:start position:0%
+codebase is one of the worst feelings in
+software.<00:07:43.320><c> How</c><00:07:43.720><c> is</c><00:07:43.880><c> a</c><00:07:43.920><c> cursor</c><00:07:44.360><c> plugin</c><00:07:44.880><c> that</c>
+
+00:07:45.110 --> 00:07:45.120 align:start position:0%
+software. How is a cursor plugin that
+ 
+
+00:07:45.120 --> 00:07:46.870 align:start position:0%
+software. How is a cursor plugin that
+adds<00:07:45.400><c> a</c><00:07:45.480><c> {slash}</c><00:07:45.960><c> how</c><00:07:46.160><c> command</c><00:07:46.640><c> to</c><00:07:46.720><c> your</c>
+
+00:07:46.870 --> 00:07:46.880 align:start position:0%
+adds a {slash} how command to your
+ 
+
+00:07:46.880 --> 00:07:49.470 align:start position:0%
+adds a {slash} how command to your
+workspace?<00:07:47.920><c> Ask,</c><00:07:48.600><c> "How</c><00:07:48.760><c> does</c><00:07:48.960><c> the</c><00:07:49.040><c> message</c>
+
+00:07:49.470 --> 00:07:49.480 align:start position:0%
+workspace? Ask, "How does the message
+ 
+
+00:07:49.480 --> 00:07:51.710 align:start position:0%
+workspace? Ask, "How does the message
+virtualization<00:07:50.360><c> work?"</c><00:07:51.080><c> and</c><00:07:51.200><c> instead</c><00:07:51.520><c> of</c><00:07:51.640><c> a</c>
+
+00:07:51.710 --> 00:07:51.720 align:start position:0%
+virtualization work?" and instead of a
+ 
+
+00:07:51.720 --> 00:07:54.190 align:start position:0%
+virtualization work?" and instead of a
+raw<00:07:51.960><c> code</c><00:07:52.280><c> snippet,</c><00:07:53.080><c> you</c><00:07:53.240><c> get</c><00:07:53.440><c> a</c><00:07:53.480><c> structured</c>
+
+00:07:54.190 --> 00:07:54.200 align:start position:0%
+raw code snippet, you get a structured
+ 
+
+00:07:54.200 --> 00:07:56.390 align:start position:0%
+raw code snippet, you get a structured
+architectural<00:07:55.000><c> explanation</c><00:07:55.760><c> like</c><00:07:55.960><c> a</c><00:07:56.000><c> senior</c>
+
+00:07:56.390 --> 00:07:56.400 align:start position:0%
+architectural explanation like a senior
+ 
+
+00:07:56.400 --> 00:07:59.070 align:start position:0%
+architectural explanation like a senior
+staff<00:07:56.840><c> engineer</c><00:07:57.840><c> onboarding</c><00:07:58.480><c> you</c><00:07:58.840><c> to</c><00:07:58.960><c> the</c>
+
+00:07:59.070 --> 00:07:59.080 align:start position:0%
+staff engineer onboarding you to the
+ 
+
+00:07:59.080 --> 00:08:00.590 align:start position:0%
+staff engineer onboarding you to the
+team.
+
+00:08:00.590 --> 00:08:00.600 align:start position:0%
+team.
+ 
+
+00:08:00.600 --> 00:08:02.470 align:start position:0%
+team.
+Running<00:08:00.920><c> a</c><00:08:00.960><c> Shopify</c><00:08:01.480><c> store</c><00:08:01.840><c> means</c><00:08:02.120><c> clicking</c>
+
+00:08:02.470 --> 00:08:02.480 align:start position:0%
+Running a Shopify store means clicking
+ 
+
+00:08:02.480 --> 00:08:04.270 align:start position:0%
+Running a Shopify store means clicking
+through<00:08:02.680><c> hundreds</c><00:08:03.120><c> of</c><00:08:03.200><c> admin</c><00:08:03.520><c> pages</c><00:08:04.120><c> or</c>
+
+00:08:04.270 --> 00:08:04.280 align:start position:0%
+through hundreds of admin pages or
+ 
+
+00:08:04.280 --> 00:08:06.790 align:start position:0%
+through hundreds of admin pages or
+paying<00:08:04.640><c> for</c><00:08:04.760><c> expensive</c><00:08:05.280><c> third-party</c><00:08:05.800><c> apps.</c>
+
+00:08:06.790 --> 00:08:06.800 align:start position:0%
+paying for expensive third-party apps.
+ 
+
+00:08:06.800 --> 00:08:09.470 align:start position:0%
+paying for expensive third-party apps.
+Shopify<00:08:07.480><c> admin-skills</c><00:08:08.640><c> is</c><00:08:08.800><c> a</c><00:08:08.840><c> collection</c><00:08:09.360><c> of</c>
+
+00:08:09.470 --> 00:08:09.480 align:start position:0%
+Shopify admin-skills is a collection of
+ 
+
+00:08:09.480 --> 00:08:12.470 align:start position:0%
+Shopify admin-skills is a collection of
+63<00:08:10.200><c> AI</c><00:08:10.640><c> agent</c><00:08:10.960><c> skills</c><00:08:11.440><c> built</c><00:08:11.720><c> specifically</c>
+
+00:08:12.470 --> 00:08:12.480 align:start position:0%
+63 AI agent skills built specifically
+ 
+
+00:08:12.480 --> 00:08:14.670 align:start position:0%
+63 AI agent skills built specifically
+for<00:08:12.680><c> operating</c><00:08:13.080><c> Shopify</c><00:08:13.520><c> stores.</c>
+
+00:08:14.670 --> 00:08:14.680 align:start position:0%
+for operating Shopify stores.
+ 
+
+00:08:14.680 --> 00:08:16.990 align:start position:0%
+for operating Shopify stores.
+Install<00:08:15.160><c> it</c><00:08:15.280><c> with</c><00:08:15.440><c> NPX</c><00:08:15.920><c> skills</c><00:08:16.280><c> add,</c>
+
+00:08:16.990 --> 00:08:17.000 align:start position:0%
+Install it with NPX skills add,
+ 
+
+00:08:17.000 --> 00:08:19.510 align:start position:0%
+Install it with NPX skills add,
+authenticate<00:08:17.680><c> with</c><00:08:17.800><c> the</c><00:08:17.880><c> Shopify</c><00:08:18.320><c> CLI,</c><00:08:19.400><c> and</c>
+
+00:08:19.510 --> 00:08:19.520 align:start position:0%
+authenticate with the Shopify CLI, and
+ 
+
+00:08:19.520 --> 00:08:21.310 align:start position:0%
+authenticate with the Shopify CLI, and
+your<00:08:19.640><c> local</c><00:08:20.040><c> AI</c><00:08:20.400><c> agent</c><00:08:20.800><c> becomes</c><00:08:21.160><c> an</c>
+
+00:08:21.310 --> 00:08:21.320 align:start position:0%
+your local AI agent becomes an
+ 
+
+00:08:21.320 --> 00:08:23.470 align:start position:0%
+your local AI agent becomes an
+e-commerce<00:08:21.800><c> manager.</c>
+
+00:08:23.470 --> 00:08:23.480 align:start position:0%
+e-commerce manager.
+ 
+
+00:08:23.480 --> 00:08:25.790 align:start position:0%
+e-commerce manager.
+AI<00:08:23.800><c> life</c><00:08:24.120><c> skills</c><00:08:25.000><c> is</c><00:08:25.120><c> a</c><00:08:25.200><c> collection</c><00:08:25.680><c> of</c>
+
+00:08:25.790 --> 00:08:25.800 align:start position:0%
+AI life skills is a collection of
+ 
+
+00:08:25.800 --> 00:08:27.750 align:start position:0%
+AI life skills is a collection of
+markdown<00:08:26.360><c> skill</c><00:08:26.640><c> files</c><00:08:26.920><c> that</c><00:08:27.040><c> transform</c>
+
+00:08:27.750 --> 00:08:27.760 align:start position:0%
+markdown skill files that transform
+ 
+
+00:08:27.760 --> 00:08:31.110 align:start position:0%
+markdown skill files that transform
+Claude<00:08:28.160><c> code</c><00:08:28.600><c> into</c><00:08:28.840><c> a</c><00:08:28.920><c> proactive</c><00:08:29.560><c> life</c><00:08:29.840><c> coach.</c>
+
+00:08:31.110 --> 00:08:31.120 align:start position:0%
+Claude code into a proactive life coach.
+ 
+
+00:08:31.120 --> 00:08:33.310 align:start position:0%
+Claude code into a proactive life coach.
+Analyzes<00:08:31.800><c> your</c><00:08:31.960><c> daily</c><00:08:32.320><c> journal</c><00:08:32.719><c> entries</c><00:08:33.200><c> to</c>
+
+00:08:33.310 --> 00:08:33.320 align:start position:0%
+Analyzes your daily journal entries to
+ 
+
+00:08:33.320 --> 00:08:35.909 align:start position:0%
+Analyzes your daily journal entries to
+detect<00:08:33.680><c> burnout,</c><00:08:34.680><c> reviews</c><00:08:35.080><c> your</c><00:08:35.200><c> calendar</c><00:08:35.719><c> to</c>
+
+00:08:35.909 --> 00:08:35.919 align:start position:0%
+detect burnout, reviews your calendar to
+ 
+
+00:08:35.919 --> 00:08:38.830 align:start position:0%
+detect burnout, reviews your calendar to
+aggressively<00:08:36.599><c> schedule</c><00:08:37.120><c> deep</c><00:08:37.440><c> work</c><00:08:37.680><c> blocks,</c>
+
+00:08:38.830 --> 00:08:38.840 align:start position:0%
+aggressively schedule deep work blocks,
+ 
+
+00:08:38.840 --> 00:08:41.390 align:start position:0%
+aggressively schedule deep work blocks,
+automates<00:08:39.560><c> daily</c><00:08:39.919><c> reflection</c><00:08:40.479><c> logs.</c><00:08:41.159><c> Catch</c>
+
+00:08:41.390 --> 00:08:41.400 align:start position:0%
+automates daily reflection logs. Catch
+ 
+
+00:08:41.400 --> 00:08:43.270 align:start position:0%
+automates daily reflection logs. Catch
+yourself<00:08:41.880><c> infinite</c><00:08:42.320><c> scrolling</c><00:08:42.760><c> on</c><00:08:42.880><c> Twitter</c>
+
+00:08:43.270 --> 00:08:43.280 align:start position:0%
+yourself infinite scrolling on Twitter
+ 
+
+00:08:43.280 --> 00:08:45.390 align:start position:0%
+yourself infinite scrolling on Twitter
+during<00:08:43.560><c> a</c><00:08:43.640><c> focus</c><00:08:44.039><c> block</c><00:08:44.680><c> and</c><00:08:44.800><c> it</c><00:08:44.920><c> literally</c>
+
+00:08:45.390 --> 00:08:45.400 align:start position:0%
+during a focus block and it literally
+ 
+
+00:08:45.400 --> 00:08:47.470 align:start position:0%
+during a focus block and it literally
+shuts<00:08:45.800><c> down</c><00:08:46.040><c> the</c><00:08:46.120><c> browser</c><00:08:46.520><c> tab</c><00:08:46.880><c> via</c><00:08:47.160><c> OS</c>
+
+00:08:47.470 --> 00:08:47.480 align:start position:0%
+shuts down the browser tab via OS
+ 
+
+00:08:47.480 --> 00:08:49.550 align:start position:0%
+shuts down the browser tab via OS
+command<00:08:48.440><c> and</c><00:08:48.640><c> forces</c><00:08:49.040><c> you</c><00:08:49.120><c> to</c><00:08:49.240><c> type</c><00:08:49.480><c> a</c>
+
+00:08:49.550 --> 00:08:49.560 align:start position:0%
+command and forces you to type a
+ 
+
+00:08:49.560 --> 00:08:52.870 align:start position:0%
+command and forces you to type a
+reflection<00:08:50.200><c> on</c><00:08:50.400><c> why</c><00:08:50.680><c> you</c><00:08:50.840><c> broke</c><00:08:51.120><c> focus.</c>
+
+00:08:52.870 --> 00:08:52.880 align:start position:0%
+reflection on why you broke focus.
+ 
+
+00:08:52.880 --> 00:08:55.110 align:start position:0%
+reflection on why you broke focus.
+Paper<00:08:53.240><c> finder</c><00:08:53.760><c> is</c><00:08:53.960><c> a</c><00:08:54.040><c> Claude</c><00:08:54.440><c> code</c><00:08:54.720><c> skill</c>
+
+00:08:55.110 --> 00:08:55.120 align:start position:0%
+Paper finder is a Claude code skill
+ 
+
+00:08:55.120 --> 00:08:57.710 align:start position:0%
+Paper finder is a Claude code skill
+explicitly<00:08:55.800><c> tuned</c><00:08:56.200><c> for</c><00:08:56.360><c> deep</c><00:08:56.840><c> ML</c><00:08:57.160><c> literature</c>
+
+00:08:57.710 --> 00:08:57.720 align:start position:0%
+explicitly tuned for deep ML literature
+ 
+
+00:08:57.720 --> 00:08:58.990 align:start position:0%
+explicitly tuned for deep ML literature
+research.
+
+00:08:58.990 --> 00:08:59.000 align:start position:0%
+research.
+ 
+
+00:08:59.000 --> 00:09:00.910 align:start position:0%
+research.
+Drop<00:08:59.320><c> it</c><00:08:59.400><c> in</c><00:08:59.480><c> your</c><00:08:59.640><c> workspace</c><00:09:00.280><c> and</c><00:09:00.400><c> your</c><00:09:00.600><c> AI</c>
+
+00:09:00.910 --> 00:09:00.920 align:start position:0%
+Drop it in your workspace and your AI
+ 
+
+00:09:00.920 --> 00:09:03.470 align:start position:0%
+Drop it in your workspace and your AI
+agent<00:09:01.320><c> acts</c><00:09:01.600><c> like</c><00:09:01.760><c> a</c><00:09:01.840><c> senior</c><00:09:02.200><c> PhD</c><00:09:02.760><c> advisor</c>
+
+00:09:03.470 --> 00:09:03.480 align:start position:0%
+agent acts like a senior PhD advisor
+ 
+
+00:09:03.480 --> 00:09:05.310 align:start position:0%
+agent acts like a senior PhD advisor
+instead<00:09:03.840><c> of</c><00:09:03.920><c> a</c><00:09:03.960><c> dumb</c><00:09:04.280><c> search</c><00:09:04.600><c> bar.</c><00:09:05.240><c> The</c>
+
+00:09:05.310 --> 00:09:05.320 align:start position:0%
+instead of a dumb search bar. The
+ 
+
+00:09:05.320 --> 00:09:07.110 align:start position:0%
+instead of a dumb search bar. The
+creator<00:09:05.800><c> tested</c><00:09:06.200><c> it</c><00:09:06.320><c> on</c><00:09:06.520><c> bleeding</c><00:09:06.920><c> edge</c>
+
+00:09:07.110 --> 00:09:07.120 align:start position:0%
+creator tested it on bleeding edge
+ 
+
+00:09:07.120 --> 00:09:09.750 align:start position:0%
+creator tested it on bleeding edge
+topics<00:09:07.600><c> like</c><00:09:07.840><c> mixed</c><00:09:08.200><c> resolution</c><00:09:08.720><c> diffusion</c>
+
+00:09:09.750 --> 00:09:09.760 align:start position:0%
+topics like mixed resolution diffusion
+ 
+
+00:09:09.760 --> 00:09:12.150 align:start position:0%
+topics like mixed resolution diffusion
+and<00:09:09.880><c> efficient</c><00:09:10.320><c> video</c><00:09:10.640><c> tokenization.</c><00:09:11.960><c> It</c>
+
+00:09:12.150 --> 00:09:12.160 align:start position:0%
+and efficient video tokenization. It
+ 
+
+00:09:12.160 --> 00:09:14.550 align:start position:0%
+and efficient video tokenization. It
+consistently<00:09:12.960><c> unearths</c><00:09:13.520><c> hidden</c><00:09:13.800><c> gem</c><00:09:14.040><c> papers</c>
+
+00:09:14.550 --> 00:09:14.560 align:start position:0%
+consistently unearths hidden gem papers
+ 
+
+00:09:14.560 --> 00:09:15.950 align:start position:0%
+consistently unearths hidden gem papers
+that<00:09:14.760><c> traditional</c><00:09:15.320><c> search</c><00:09:15.600><c> engines</c>
+
+00:09:15.950 --> 00:09:15.960 align:start position:0%
+that traditional search engines
+ 
+
+00:09:15.960 --> 00:09:17.950 align:start position:0%
+that traditional search engines
+completely<00:09:16.440><c> miss.</c>
+
+00:09:17.950 --> 00:09:17.960 align:start position:0%
+completely miss.
+ 
+
+00:09:17.960 --> 00:09:20.190 align:start position:0%
+completely miss.
+Engineering<00:09:18.600><c> figure</c><00:09:18.920><c> banana</c><00:09:19.600><c> is</c><00:09:19.760><c> a</c><00:09:19.800><c> Claude</c>
+
+00:09:20.190 --> 00:09:20.200 align:start position:0%
+Engineering figure banana is a Claude
+ 
+
+00:09:20.200 --> 00:09:22.470 align:start position:0%
+Engineering figure banana is a Claude
+code<00:09:20.480><c> skill</c><00:09:21.000><c> with</c><00:09:21.160><c> a</c><00:09:21.240><c> dual</c><00:09:21.600><c> mode</c><00:09:21.880><c> architecture</c>
+
+00:09:22.470 --> 00:09:22.480 align:start position:0%
+code skill with a dual mode architecture
+ 
+
+00:09:22.480 --> 00:09:24.830 align:start position:0%
+code skill with a dual mode architecture
+that<00:09:22.680><c> separates</c><00:09:23.200><c> conceptual</c><00:09:23.880><c> diagrams</c><00:09:24.640><c> from</c>
+
+00:09:24.830 --> 00:09:24.840 align:start position:0%
+that separates conceptual diagrams from
+ 
+
+00:09:24.840 --> 00:09:26.830 align:start position:0%
+that separates conceptual diagrams from
+quantitative<00:09:25.600><c> plots.</c>
+
+00:09:26.830 --> 00:09:26.840 align:start position:0%
+quantitative plots.
+ 
+
+00:09:26.840 --> 00:09:28.750 align:start position:0%
+quantitative plots.
+System<00:09:27.320><c> architecture</c><00:09:27.960><c> or</c><00:09:28.160><c> algorithm</c>
+
+00:09:28.750 --> 00:09:28.760 align:start position:0%
+System architecture or algorithm
+ 
+
+00:09:28.760 --> 00:09:31.230 align:start position:0%
+System architecture or algorithm
+workflow<00:09:29.480><c> goes</c><00:09:29.720><c> through</c><00:09:29.880><c> an</c><00:09:30.000><c> image</c><00:09:30.320><c> model.</c>
+
+00:09:31.230 --> 00:09:31.240 align:start position:0%
+workflow goes through an image model.
+ 
+
+00:09:31.240 --> 00:09:33.190 align:start position:0%
+workflow goes through an image model.
+Benchmark<00:09:31.760><c> chart</c><00:09:32.160><c> or</c><00:09:32.280><c> scatter</c><00:09:32.680><c> plot</c><00:09:33.080><c> where</c>
+
+00:09:33.190 --> 00:09:33.200 align:start position:0%
+Benchmark chart or scatter plot where
+ 
+
+00:09:33.200 --> 00:09:35.670 align:start position:0%
+Benchmark chart or scatter plot where
+the<00:09:33.320><c> numbers</c><00:09:33.720><c> actually</c><00:09:34.120><c> matter</c><00:09:34.880><c> forces</c><00:09:35.320><c> plot</c>
+
+00:09:35.670 --> 00:09:35.680 align:start position:0%
+the numbers actually matter forces plot
+ 
+
+00:09:35.680 --> 00:09:38.070 align:start position:0%
+the numbers actually matter forces plot
+mode<00:09:36.280><c> and</c><00:09:36.400><c> writes</c><00:09:36.680><c> exact</c><00:09:37.200><c> code</c><00:09:37.560><c> to</c><00:09:37.680><c> render</c><00:09:37.960><c> the</c>
+
+00:09:38.070 --> 00:09:38.080 align:start position:0%
+mode and writes exact code to render the
+ 
+
+00:09:38.080 --> 00:09:40.950 align:start position:0%
+mode and writes exact code to render the
+geometry<00:09:38.720><c> locally.</c>
+
+00:09:40.950 --> 00:09:40.960 align:start position:0%
+geometry locally.
+ 
+
+00:09:40.960 --> 00:09:43.310 align:start position:0%
+geometry locally.
+Cursor<00:09:41.360><c> just</c><00:09:41.600><c> introduced</c><00:09:42.080><c> agent</c><00:09:42.400><c> skills,</c><00:09:43.120><c> but</c>
+
+00:09:43.310 --> 00:09:43.320 align:start position:0%
+Cursor just introduced agent skills, but
+ 
+
+00:09:43.320 --> 00:09:44.790 align:start position:0%
+Cursor just introduced agent skills, but
+figuring<00:09:43.720><c> out</c><00:09:43.840><c> how</c><00:09:43.960><c> to</c><00:09:44.080><c> write</c><00:09:44.280><c> good</c><00:09:44.520><c> ones</c>
+
+00:09:44.790 --> 00:09:44.800 align:start position:0%
+figuring out how to write good ones
+ 
+
+00:09:44.800 --> 00:09:46.230 align:start position:0%
+figuring out how to write good ones
+takes<00:09:45.040><c> trial</c><00:09:45.360><c> and</c><00:09:45.480><c> error.</c>
+
+00:09:46.230 --> 00:09:46.240 align:start position:0%
+takes trial and error.
+ 
+
+00:09:46.240 --> 00:09:48.310 align:start position:0%
+takes trial and error.
+Awesome-Cursor-Skills
+
+00:09:48.310 --> 00:09:48.320 align:start position:0%
+Awesome-Cursor-Skills
+ 
+
+00:09:48.320 --> 00:09:50.310 align:start position:0%
+Awesome-Cursor-Skills
+is<00:09:48.480><c> a</c><00:09:48.560><c> curated</c><00:09:49.040><c> collection</c><00:09:49.520><c> of</c><00:09:49.680><c> ready-to-use</c>
+
+00:09:50.310 --> 00:09:50.320 align:start position:0%
+is a curated collection of ready-to-use
+ 
+
+00:09:50.320 --> 00:09:52.230 align:start position:0%
+is a curated collection of ready-to-use
+skills<00:09:50.960><c> you</c><00:09:51.080><c> paste</c><00:09:51.400><c> directly</c><00:09:51.880><c> into</c><00:09:52.080><c> your</c>
+
+00:09:52.230 --> 00:09:52.240 align:start position:0%
+skills you paste directly into your
+ 
+
+00:09:52.240 --> 00:09:54.070 align:start position:0%
+skills you paste directly into your
+{dot}<00:09:52.520><c> cursor</c><00:09:52.920><c> {slash}</c><00:09:53.320><c> skills</c><00:09:53.720><c> {slash}</c>
+
+00:09:54.070 --> 00:09:54.080 align:start position:0%
+{dot} cursor {slash} skills {slash}
+ 
+
+00:09:54.080 --> 00:09:56.710 align:start position:0%
+{dot} cursor {slash} skills {slash}
+directory.<00:09:55.120><c> Suggesting</c><00:09:55.720><c> cursor</c><00:09:56.080><c> rules,</c>
+
+00:09:56.710 --> 00:09:56.720 align:start position:0%
+directory. Suggesting cursor rules,
+ 
+
+00:09:56.720 --> 00:09:58.830 align:start position:0%
+directory. Suggesting cursor rules,
+watches<00:09:57.120><c> your</c><00:09:57.240><c> corrections,</c><00:09:58.440><c> and</c><00:09:58.600><c> if</c><00:09:58.720><c> you</c>
+
+00:09:58.830 --> 00:09:58.840 align:start position:0%
+watches your corrections, and if you
+ 
+
+00:09:58.840 --> 00:10:01.070 align:start position:0%
+watches your corrections, and if you
+keep<00:09:59.120><c> fixing</c><00:09:59.480><c> the</c><00:09:59.560><c> same</c><00:09:59.880><c> styling</c><00:10:00.280><c> mistake,</c>
+
+00:10:01.070 --> 00:10:01.080 align:start position:0%
+keep fixing the same styling mistake,
+ 
+
+00:10:01.080 --> 00:10:04.670 align:start position:0%
+keep fixing the same styling mistake,
+autonomously<00:10:01.800><c> proposes</c><00:10:02.320><c> a</c><00:10:02.360><c> permanent</c><00:10:02.880><c> rule.</c>
+
+00:10:04.670 --> 00:10:04.680 align:start position:0%
+autonomously proposes a permanent rule.
+ 
+
+00:10:04.680 --> 00:10:07.150 align:start position:0%
+autonomously proposes a permanent rule.
+Skill-based<00:10:05.440><c> architecture</c><00:10:06.320><c> is</c><00:10:06.440><c> a</c><00:10:06.520><c> meta</c><00:10:06.800><c> skill</c>
+
+00:10:07.150 --> 00:10:07.160 align:start position:0%
+Skill-based architecture is a meta skill
+ 
+
+00:10:07.160 --> 00:10:09.510 align:start position:0%
+Skill-based architecture is a meta skill
+designed<00:10:07.560><c> to</c><00:10:07.680><c> organize</c><00:10:08.200><c> your</c><00:10:08.400><c> other</c><00:10:08.640><c> skills.</c>
+
+00:10:09.510 --> 00:10:09.520 align:start position:0%
+designed to organize your other skills.
+ 
+
+00:10:09.520 --> 00:10:11.710 align:start position:0%
+designed to organize your other skills.
+Feed<00:10:09.760><c> it</c><00:10:09.880><c> your</c><00:10:10.000><c> long</c><00:10:10.320><c> single-file</c><00:10:10.920><c> prompts</c><00:10:11.600><c> or</c>
+
+00:10:11.710 --> 00:10:11.720 align:start position:0%
+Feed it your long single-file prompts or
+ 
+
+00:10:11.720 --> 00:10:13.590 align:start position:0%
+Feed it your long single-file prompts or
+scattered<00:10:12.160><c> project</c><00:10:12.640><c> rules,</c><00:10:13.360><c> and</c><00:10:13.480><c> it</c>
+
+00:10:13.590 --> 00:10:13.600 align:start position:0%
+scattered project rules, and it
+ 
+
+00:10:13.600 --> 00:10:15.750 align:start position:0%
+scattered project rules, and it
+autonomously<00:10:14.400><c> refactors</c><00:10:15.080><c> them</c><00:10:15.480><c> into</c><00:10:15.720><c> a</c>
+
+00:10:15.750 --> 00:10:15.760 align:start position:0%
+autonomously refactors them into a
+ 
+
+00:10:15.760 --> 00:10:18.110 align:start position:0%
+autonomously refactors them into a
+structured<00:10:16.320><c> skills</c><00:10:16.720><c> directory</c><00:10:17.240><c> tree.</c>
+
+00:10:18.110 --> 00:10:18.120 align:start position:0%
+structured skills directory tree.
+ 
+
+00:10:18.120 --> 00:10:20.470 align:start position:0%
+structured skills directory tree.
+Monolithic<00:10:18.800><c> instructions</c><00:10:19.560><c> get</c><00:10:19.760><c> broken</c><00:10:20.240><c> into</c>
+
+00:10:20.470 --> 00:10:20.480 align:start position:0%
+Monolithic instructions get broken into
+ 
+
+00:10:20.480 --> 00:10:23.430 align:start position:0%
+Monolithic instructions get broken into
+modular<00:10:20.920><c> purpose-built</c><00:10:21.560><c> files.</c><00:10:22.680><c> Your</c><00:10:23.040><c> agent</c>
+
+00:10:23.430 --> 00:10:23.440 align:start position:0%
+modular purpose-built files. Your agent
+ 
+
+00:10:23.440 --> 00:10:25.990 align:start position:0%
+modular purpose-built files. Your agent
+only<00:10:23.800><c> reads</c><00:10:24.160><c> the</c><00:10:24.280><c> exact</c><00:10:24.760><c> content</c><00:10:25.320><c> it</c><00:10:25.440><c> needs,</c>
+
+00:10:25.990 --> 00:10:26.000 align:start position:0%
+only reads the exact content it needs,
+ 
+
+00:10:26.000 --> 00:10:28.670 align:start position:0%
+only reads the exact content it needs,
+exactly<00:10:26.680><c> when</c><00:10:26.880><c> it</c><00:10:27.000><c> needs</c><00:10:27.280><c> it.</c>
+
+00:10:28.670 --> 00:10:28.680 align:start position:0%
+exactly when it needs it.
+ 
+
+00:10:28.680 --> 00:10:30.710 align:start position:0%
+exactly when it needs it.
+Making<00:10:29.120><c> an</c><00:10:29.240><c> Apple</c><00:10:29.560><c> Keynote-style</c><00:10:30.360><c> promo</c>
+
+00:10:30.710 --> 00:10:30.720 align:start position:0%
+Making an Apple Keynote-style promo
+ 
+
+00:10:30.720 --> 00:10:32.630 align:start position:0%
+Making an Apple Keynote-style promo
+video<00:10:31.080><c> usually</c><00:10:31.440><c> takes</c><00:10:31.760><c> days</c><00:10:32.200><c> in</c><00:10:32.360><c> After</c>
+
+00:10:32.630 --> 00:10:32.640 align:start position:0%
+video usually takes days in After
+ 
+
+00:10:32.640 --> 00:10:35.510 align:start position:0%
+video usually takes days in After
+Effects<00:10:33.040><c> and</c><00:10:33.200><c> 3D</c><00:10:33.520><c> software.</c><00:10:34.480><c> C</c><00:10:34.720><c> dance</c><00:10:35.040><c> skill</c>
+
+00:10:35.510 --> 00:10:35.520 align:start position:0%
+Effects and 3D software. C dance skill
+ 
+
+00:10:35.520 --> 00:10:37.550 align:start position:0%
+Effects and 3D software. C dance skill
+automates<00:10:36.040><c> it</c><00:10:36.160><c> entirely.</c>
+
+00:10:37.550 --> 00:10:37.560 align:start position:0%
+automates it entirely.
+ 
+
+00:10:37.560 --> 00:10:39.390 align:start position:0%
+automates it entirely.
+This<00:10:37.840><c> Claude</c><00:10:38.160><c> code</c><00:10:38.520><c> skill</c><00:10:38.880><c> integrates</c>
+
+00:10:39.390 --> 00:10:39.400 align:start position:0%
+This Claude code skill integrates
+ 
+
+00:10:39.400 --> 00:10:42.150 align:start position:0%
+This Claude code skill integrates
+ByteDance's<00:10:40.200><c> C</c><00:10:40.440><c> dance</c><00:10:40.760><c> 2.0</c><00:10:41.320><c> motion</c><00:10:41.680><c> graphics</c>
+
+00:10:42.150 --> 00:10:42.160 align:start position:0%
+ByteDance's C dance 2.0 motion graphics
+ 
+
+00:10:42.160 --> 00:10:43.910 align:start position:0%
+ByteDance's C dance 2.0 motion graphics
+model<00:10:42.480><c> straight</c><00:10:42.880><c> into</c><00:10:43.080><c> your</c><00:10:43.200><c> terminal</c><00:10:43.720><c> via</c>
+
+00:10:43.910 --> 00:10:43.920 align:start position:0%
+model straight into your terminal via
+ 
+
+00:10:43.920 --> 00:10:46.950 align:start position:0%
+model straight into your terminal via
+the<00:10:44.040><c> Foul</c><00:10:44.440><c> AI</c><00:10:44.760><c> API.</c><00:10:45.840><c> Point</c><00:10:46.200><c> your</c><00:10:46.360><c> agent</c><00:10:46.720><c> at</c><00:10:46.840><c> an</c>
+
+00:10:46.950 --> 00:10:46.960 align:start position:0%
+the Foul AI API. Point your agent at an
+ 
+
+00:10:46.960 --> 00:10:48.550 align:start position:0%
+the Foul AI API. Point your agent at an
+App<00:10:47.160><c> Store</c><00:10:47.480><c> link</c><00:10:47.880><c> or</c><00:10:48.000><c> a</c><00:10:48.040><c> folder</c><00:10:48.440><c> of</c>
+
+00:10:48.550 --> 00:10:48.560 align:start position:0%
+App Store link or a folder of
+ 
+
+00:10:48.560 --> 00:10:51.110 align:start position:0%
+App Store link or a folder of
+screenshots.<00:10:49.520><c> It</c><00:10:49.680><c> uses</c><00:10:50.000><c> specialized</c><00:10:50.760><c> liquid</c>
+
+00:10:51.110 --> 00:10:51.120 align:start position:0%
+screenshots. It uses specialized liquid
+ 
+
+00:10:51.120 --> 00:10:53.390 align:start position:0%
+screenshots. It uses specialized liquid
+glass<00:10:51.560><c> prompting</c><00:10:52.040><c> to</c><00:10:52.200><c> autonomously</c><00:10:52.960><c> generate</c>
+
+00:10:53.390 --> 00:10:53.400 align:start position:0%
+glass prompting to autonomously generate
+ 
+
+00:10:53.400 --> 00:10:57.190 align:start position:0%
+glass prompting to autonomously generate
+a<00:10:53.480><c> glossy</c><00:10:54.080><c> cinematic</c><00:10:54.720><c> promo</c><00:10:55.080><c> clip.</c>
+
+00:10:57.190 --> 00:10:57.200 align:start position:0%
+a glossy cinematic promo clip.
+ 
+
+00:10:57.200 --> 00:11:00.270 align:start position:0%
+a glossy cinematic promo clip.
+Friday<00:10:57.760><c> is</c><00:10:57.920><c> a</c><00:10:58.000><c> fully</c><00:10:58.320><c> autonomous</c><00:10:58.880><c> 24/7</c><00:10:59.960><c> AI</c>
+
+00:11:00.270 --> 00:11:00.280 align:start position:0%
+Friday is a fully autonomous 24/7 AI
+ 
+
+00:11:00.280 --> 00:11:02.710 align:start position:0%
+Friday is a fully autonomous 24/7 AI
+assistant<00:11:01.120><c> built</c><00:11:01.400><c> using</c><00:11:01.760><c> nothing</c><00:11:02.160><c> but</c><00:11:02.360><c> Claude</c>
+
+00:11:02.710 --> 00:11:02.720 align:start position:0%
+assistant built using nothing but Claude
+ 
+
+00:11:02.720 --> 00:11:05.670 align:start position:0%
+assistant built using nothing but Claude
+code<00:11:03.120><c> CLI</c><00:11:03.720><c> and</c><00:11:03.880><c> a</c><00:11:03.920><c> single</c><00:11:04.240><c> markdown</c><00:11:04.720><c> file.</c><00:11:05.560><c> The</c>
+
+00:11:05.670 --> 00:11:05.680 align:start position:0%
+code CLI and a single markdown file. The
+ 
+
+00:11:05.680 --> 00:11:08.190 align:start position:0%
+code CLI and a single markdown file. The
+entire<00:11:06.120><c> brain</c><00:11:06.640><c> lives</c><00:11:06.960><c> in</c><00:11:07.040><c> that</c><00:11:07.280><c> file,</c><00:11:07.960><c> backed</c>
+
+00:11:08.190 --> 00:11:08.200 align:start position:0%
+entire brain lives in that file, backed
+ 
+
+00:11:08.200 --> 00:11:10.350 align:start position:0%
+entire brain lives in that file, backed
+by<00:11:08.320><c> a</c><00:11:08.400><c> tiny</c><00:11:08.720><c> Flask</c><00:11:09.160><c> server</c><00:11:09.600><c> for</c><00:11:09.760><c> persistent</c>
+
+00:11:10.350 --> 00:11:10.360 align:start position:0%
+by a tiny Flask server for persistent
+ 
+
+00:11:10.360 --> 00:11:12.870 align:start position:0%
+by a tiny Flask server for persistent
+rag<00:11:10.600><c> memory.</c><00:11:11.480><c> It</c><00:11:11.760><c> sends</c><00:11:12.040><c> morning</c><00:11:12.400><c> weather</c><00:11:12.760><c> and</c>
+
+00:11:12.870 --> 00:11:12.880 align:start position:0%
+rag memory. It sends morning weather and
+ 
+
+00:11:12.880 --> 00:11:15.390 align:start position:0%
+rag memory. It sends morning weather and
+crypto<00:11:13.240><c> briefings</c><00:11:13.760><c> via</c><00:11:14.000><c> Telegram,</c><00:11:14.880><c> monitors</c>
+
+00:11:15.390 --> 00:11:15.400 align:start position:0%
+crypto briefings via Telegram, monitors
+ 
+
+00:11:15.400 --> 00:11:17.750 align:start position:0%
+crypto briefings via Telegram, monitors
+Hugging<00:11:15.720><c> Face</c><00:11:16.040><c> for</c><00:11:16.160><c> new</c><00:11:16.320><c> models,</c><00:11:17.160><c> pushes</c><00:11:17.520><c> Git</c>
+
+00:11:17.750 --> 00:11:17.760 align:start position:0%
+Hugging Face for new models, pushes Git
+ 
+
+00:11:17.760 --> 00:11:20.230 align:start position:0%
+Hugging Face for new models, pushes Git
+commits,<00:11:18.280><c> transcribes</c><00:11:18.920><c> YouTube</c><00:11:19.280><c> videos,</c><00:11:20.000><c> and</c>
+
+00:11:20.230 --> 00:11:20.240 align:start position:0%
+commits, transcribes YouTube videos, and
+ 
+
+00:11:20.240 --> 00:11:23.150 align:start position:0%
+commits, transcribes YouTube videos, and
+creates<00:11:20.760><c> self-healing</c><00:11:21.400><c> cron</c><00:11:21.680><c> jobs.</c>
+
+00:11:23.150 --> 00:11:23.160 align:start position:0%
+creates self-healing cron jobs.
+ 
+
+00:11:23.160 --> 00:11:25.829 align:start position:0%
+creates self-healing cron jobs.
+Agentic<00:11:23.760><c> SEO</c><00:11:24.200><c> from</c><00:11:24.440><c> Adi</c><00:11:24.680><c> Ozmani</c><00:11:25.360><c> is</c><00:11:25.520><c> Google</c>
+
+00:11:25.829 --> 00:11:25.839 align:start position:0%
+Agentic SEO from Adi Ozmani is Google
+ 
+
+00:11:25.839 --> 00:11:27.950 align:start position:0%
+Agentic SEO from Adi Ozmani is Google
+Lighthouse,<00:11:26.520><c> but</c><00:11:26.680><c> specifically</c><00:11:27.480><c> for</c><00:11:27.680><c> AI</c>
+
+00:11:27.950 --> 00:11:27.960 align:start position:0%
+Lighthouse, but specifically for AI
+ 
+
+00:11:27.960 --> 00:11:30.190 align:start position:0%
+Lighthouse, but specifically for AI
+agent<00:11:28.320><c> readiness.</c><00:11:29.400><c> Run</c><00:11:29.600><c> it</c><00:11:29.720><c> against</c><00:11:30.080><c> your</c>
+
+00:11:30.190 --> 00:11:30.200 align:start position:0%
+agent readiness. Run it against your
+ 
+
+00:11:30.200 --> 00:11:31.829 align:start position:0%
+agent readiness. Run it against your
+site<00:11:30.520><c> or</c><00:11:30.600><c> docs,</c><00:11:31.040><c> and</c><00:11:31.160><c> it</c><00:11:31.280><c> scans</c><00:11:31.720><c> for</c>
+
+00:11:31.829 --> 00:11:31.839 align:start position:0%
+site or docs, and it scans for
+ 
+
+00:11:31.839 --> 00:11:34.590 align:start position:0%
+site or docs, and it scans for
+machine-readable<00:11:32.560><c> signals</c><00:11:33.080><c> like</c><00:11:33.400><c> llms.texty</c>
+
+00:11:34.590 --> 00:11:34.600 align:start position:0%
+machine-readable signals like llms.texty
+ 
+
+00:11:34.600 --> 00:11:36.950 align:start position:0%
+machine-readable signals like llms.texty
+files,<00:11:35.200><c> clean</c><00:11:35.480><c> markdown,</c><00:11:36.160><c> and</c><00:11:36.320><c> strict</c><00:11:36.640><c> token</c>
+
+00:11:36.950 --> 00:11:36.960 align:start position:0%
+files, clean markdown, and strict token
+ 
+
+00:11:36.960 --> 00:11:37.990 align:start position:0%
+files, clean markdown, and strict token
+limits.
+
+00:11:37.990 --> 00:11:38.000 align:start position:0%
+limits.
+ 
+
+00:11:38.000 --> 00:11:40.110 align:start position:0%
+limits.
+Make<00:11:38.280><c> sure</c><00:11:38.480><c> your</c><00:11:38.640><c> API</c><00:11:39.080><c> references</c><00:11:39.640><c> don't</c><00:11:39.880><c> blow</c>
+
+00:11:40.110 --> 00:11:40.120 align:start position:0%
+Make sure your API references don't blow
+ 
+
+00:11:40.120 --> 00:11:42.550 align:start position:0%
+Make sure your API references don't blow
+out<00:11:40.360><c> an</c><00:11:40.520><c> agent's</c><00:11:40.920><c> context</c><00:11:41.440><c> window.</c><00:11:42.200><c> Checks</c>
+
+00:11:42.550 --> 00:11:42.560 align:start position:0%
+out an agent's context window. Checks
+ 
+
+00:11:42.560 --> 00:11:45.150 align:start position:0%
+out an agent's context window. Checks
+whether<00:11:42.800><c> you</c><00:11:42.920><c> have</c><00:11:43.080><c> skill.md</c><00:11:44.040><c> or</c><00:11:44.280><c> agents.md</c>
+
+00:11:45.150 --> 00:11:45.160 align:start position:0%
+whether you have skill.md or agents.md
+ 
+
+00:11:45.160 --> 00:11:47.390 align:start position:0%
+whether you have skill.md or agents.md
+files<00:11:45.480><c> exposed,</c><00:11:46.520><c> so</c><00:11:46.680><c> bots</c><00:11:47.000><c> know</c><00:11:47.160><c> how</c><00:11:47.280><c> to</c>
+
+00:11:47.390 --> 00:11:47.400 align:start position:0%
+files exposed, so bots know how to
+ 
+
+00:11:47.400 --> 00:11:49.590 align:start position:0%
+files exposed, so bots know how to
+navigate<00:11:47.800><c> your</c><00:11:47.920><c> code</c><00:11:48.160><c> base.</c>
+
+00:11:49.590 --> 00:11:49.600 align:start position:0%
+navigate your code base.
+ 
+
+00:11:49.600 --> 00:11:50.990 align:start position:0%
+navigate your code base.
+PowerPoint<00:11:50.240><c> and</c><00:11:50.320><c> Google</c><00:11:50.560><c> Slides</c><00:11:50.920><c> are</c>
+
+00:11:50.990 --> 00:11:51.000 align:start position:0%
+PowerPoint and Google Slides are
+ 
+
+00:11:51.000 --> 00:11:54.350 align:start position:0%
+PowerPoint and Google Slides are
+tedious.<00:11:52.120><c> HTML</c><00:11:52.760><c> PPT</c><00:11:53.240><c> skill</c><00:11:53.800><c> automates</c>
+
+00:11:54.350 --> 00:11:54.360 align:start position:0%
+tedious. HTML PPT skill automates
+ 
+
+00:11:54.360 --> 00:11:56.750 align:start position:0%
+tedious. HTML PPT skill automates
+presentations<00:11:55.080><c> entirely.</c><00:11:56.040><c> An</c><00:11:56.160><c> installable</c>
+
+00:11:56.750 --> 00:11:56.760 align:start position:0%
+presentations entirely. An installable
+ 
+
+00:11:56.760 --> 00:11:58.630 align:start position:0%
+presentations entirely. An installable
+Claude<00:11:57.080><c> code</c><00:11:57.360><c> skill</c><00:11:57.720><c> that</c><00:11:57.880><c> turns</c><00:11:58.120><c> your</c><00:11:58.320><c> agent</c>
+
+00:11:58.630 --> 00:11:58.640 align:start position:0%
+Claude code skill that turns your agent
+ 
+
+00:11:58.640 --> 00:12:00.150 align:start position:0%
+Claude code skill that turns your agent
+into<00:11:58.880><c> a</c><00:11:58.920><c> professional</c><00:11:59.520><c> presentation</c>
+
+00:12:00.150 --> 00:12:00.160 align:start position:0%
+into a professional presentation
+ 
+
+00:12:00.160 --> 00:12:02.230 align:start position:0%
+into a professional presentation
+designer.<00:12:01.080><c> Feed</c><00:12:01.320><c> it</c><00:12:01.400><c> a</c><00:12:01.480><c> rough</c><00:12:01.720><c> outline</c><00:12:02.120><c> or</c>
+
+00:12:02.230 --> 00:12:02.240 align:start position:0%
+designer. Feed it a rough outline or
+ 
+
+00:12:02.240 --> 00:12:04.030 align:start position:0%
+designer. Feed it a rough outline or
+markdown,<00:12:03.120><c> it</c><00:12:03.280><c> outputs</c><00:12:03.640><c> a</c><00:12:03.720><c> single</c>
+
+00:12:04.030 --> 00:12:04.040 align:start position:0%
+markdown, it outputs a single
+ 
+
+00:12:04.040 --> 00:12:06.870 align:start position:0%
+markdown, it outputs a single
+self-contained<00:12:04.760><c> HTML</c><00:12:05.360><c> slide</c><00:12:05.760><c> deck.</c><00:12:06.360><c> 24</c>
+
+00:12:06.870 --> 00:12:06.880 align:start position:0%
+self-contained HTML slide deck. 24
+ 
+
+00:12:06.880 --> 00:12:09.790 align:start position:0%
+self-contained HTML slide deck. 24
+themes,<00:12:07.520><c> 31</c><00:12:08.000><c> layouts,</c><00:12:08.760><c> 20-plus</c><00:12:09.400><c> built-in</c>
+
+00:12:09.790 --> 00:12:09.800 align:start position:0%
+themes, 31 layouts, 20-plus built-in
+ 
+
+00:12:09.800 --> 00:12:11.990 align:start position:0%
+themes, 31 layouts, 20-plus built-in
+animations.<00:12:10.960><c> Everything</c><00:12:11.400><c> bundled</c><00:12:11.800><c> with</c>
+
+00:12:11.990 --> 00:12:12.000 align:start position:0%
+animations. Everything bundled with
+ 
+
+00:12:12.000 --> 00:12:14.510 align:start position:0%
+animations. Everything bundled with
+inline<00:12:12.440><c> CSS</c><00:12:13.080><c> and</c><00:12:13.240><c> JavaScript,</c><00:12:14.240><c> runs</c>
+
+00:12:14.510 --> 00:12:14.520 align:start position:0%
+inline CSS and JavaScript, runs
+ 
+
+00:12:14.520 --> 00:12:17.310 align:start position:0%
+inline CSS and JavaScript, runs
+perfectly<00:12:15.080><c> in</c><00:12:15.320><c> any</c><00:12:15.560><c> browser.</c>
+
+00:12:17.310 --> 00:12:17.320 align:start position:0%
+perfectly in any browser.
+ 
+
+00:12:17.320 --> 00:12:19.590 align:start position:0%
+perfectly in any browser.
+AI<00:12:17.760><c> agents</c><00:12:18.200><c> burn</c><00:12:18.520><c> tokens</c><00:12:19.000><c> writing</c><00:12:19.240><c> polite</c>
+
+00:12:19.590 --> 00:12:19.600 align:start position:0%
+AI agents burn tokens writing polite
+ 
+
+00:12:19.600 --> 00:12:21.190 align:start position:0%
+AI agents burn tokens writing polite
+essays<00:12:20.000><c> just</c><00:12:20.200><c> to</c><00:12:20.280><c> give</c><00:12:20.480><c> you</c><00:12:20.640><c> one</c><00:12:20.880><c> line</c><00:12:21.080><c> of</c>
+
+00:12:21.190 --> 00:12:21.200 align:start position:0%
+essays just to give you one line of
+ 
+
+00:12:21.200 --> 00:12:23.310 align:start position:0%
+essays just to give you one line of
+code.
+
+00:12:23.310 --> 00:12:23.320 align:start position:0%
+code.
+ 
+
+00:12:23.320 --> 00:12:24.870 align:start position:0%
+code.
+Caveman<00:12:23.880><c> Claude</c><00:12:24.240><c> skill</c><00:12:24.600><c> is</c><00:12:24.720><c> an</c>
+
+00:12:24.870 --> 00:12:24.880 align:start position:0%
+Caveman Claude skill is an
+ 
+
+00:12:24.880 --> 00:12:27.110 align:start position:0%
+Caveman Claude skill is an
+ultra-compressed<00:12:25.680><c> communication</c><00:12:26.360><c> mode</c><00:12:26.960><c> that</c>
+
+00:12:27.110 --> 00:12:27.120 align:start position:0%
+ultra-compressed communication mode that
+ 
+
+00:12:27.120 --> 00:12:28.950 align:start position:0%
+ultra-compressed communication mode that
+forces<00:12:27.480><c> your</c><00:12:27.680><c> AI</c><00:12:27.920><c> to</c><00:12:28.040><c> talk</c><00:12:28.280><c> like</c><00:12:28.440><c> a</c><00:12:28.520><c> literal</c>
+
+00:12:28.950 --> 00:12:28.960 align:start position:0%
+forces your AI to talk like a literal
+ 
+
+00:12:28.960 --> 00:12:31.870 align:start position:0%
+forces your AI to talk like a literal
+caveman.<00:12:30.000><c> Drops</c><00:12:30.400><c> articles,</c><00:12:31.120><c> filler,</c><00:12:31.680><c> and</c>
+
+00:12:31.870 --> 00:12:31.880 align:start position:0%
+caveman. Drops articles, filler, and
+ 
+
+00:12:31.880 --> 00:12:33.950 align:start position:0%
+caveman. Drops articles, filler, and
+hedging<00:12:32.480><c> while</c><00:12:32.600><c> preserving</c><00:12:33.080><c> 100%</c><00:12:33.800><c> of</c><00:12:33.839><c> the</c>
+
+00:12:33.950 --> 00:12:33.960 align:start position:0%
+hedging while preserving 100% of the
+ 
+
+00:12:33.960 --> 00:12:36.829 align:start position:0%
+hedging while preserving 100% of the
+technical<00:12:34.440><c> accuracy</c><00:12:35.160><c> and</c><00:12:35.360><c> code</c><00:12:35.600><c> blocks.</c><00:12:36.480><c> Cuts</c>
+
+00:12:36.829 --> 00:12:36.839 align:start position:0%
+technical accuracy and code blocks. Cuts
+ 
+
+00:12:36.839 --> 00:12:39.990 align:start position:0%
+technical accuracy and code blocks. Cuts
+output<00:12:37.280><c> token</c><00:12:37.640><c> usage</c><00:12:38.080><c> by</c><00:12:38.240><c> up</c><00:12:38.360><c> to</c><00:12:38.480><c> 75%</c>
+
+00:12:39.990 --> 00:12:40.000 align:start position:0%
+output token usage by up to 75%
+ 
+
+00:12:40.000 --> 00:12:41.950 align:start position:0%
+output token usage by up to 75%
+Adjustable<00:12:40.560><c> intensity</c><00:12:41.120><c> levels</c><00:12:41.520><c> including</c><00:12:41.920><c> a</c>
+
+00:12:41.950 --> 00:12:41.960 align:start position:0%
+Adjustable intensity levels including a
+ 
+
+00:12:41.960 --> 00:12:44.070 align:start position:0%
+Adjustable intensity levels including a
+classical<00:12:42.520><c> Chinese</c><00:12:43.040><c> mode</c><00:12:43.360><c> for</c><00:12:43.480><c> extreme</c>
+
+00:12:44.070 --> 00:12:44.080 align:start position:0%
+classical Chinese mode for extreme
+ 
+
+00:12:44.080 --> 00:12:46.270 align:start position:0%
+classical Chinese mode for extreme
+character<00:12:44.520><c> compression.</c>
+
+00:12:46.270 --> 00:12:46.280 align:start position:0%
+character compression.
+ 
+
+00:12:46.280 --> 00:12:48.550 align:start position:0%
+character compression.
+Keeping<00:12:46.760><c> system</c><00:12:47.200><c> prompts</c><00:12:47.680><c> and</c><00:12:47.839><c> project</c><00:12:48.320><c> rules</c>
+
+00:12:48.550 --> 00:12:48.560 align:start position:0%
+Keeping system prompts and project rules
+ 
+
+00:12:48.560 --> 00:12:51.070 align:start position:0%
+Keeping system prompts and project rules
+in<00:12:48.720><c> sync</c><00:12:49.040><c> across</c><00:12:49.440><c> Claude</c><00:12:49.800><c> code,</c><00:12:50.320><c> cursor,</c><00:12:50.920><c> and</c>
+
+00:12:51.070 --> 00:12:51.080 align:start position:0%
+in sync across Claude code, cursor, and
+ 
+
+00:12:51.080 --> 00:12:54.230 align:start position:0%
+in sync across Claude code, cursor, and
+codex<00:12:51.560><c> is</c><00:12:51.720><c> painful.</c><00:12:52.720><c> Manual</c><00:12:53.200><c> SDD</c><00:12:54.000><c> is</c><00:12:54.160><c> a</c>
+
+00:12:54.230 --> 00:12:54.240 align:start position:0%
+codex is painful. Manual SDD is a
+ 
+
+00:12:54.240 --> 00:12:56.230 align:start position:0%
+codex is painful. Manual SDD is a
+skills-first<00:12:55.000><c> starter</c><00:12:55.360><c> kit</c><00:12:55.640><c> you</c><00:12:55.760><c> drop</c><00:12:56.040><c> into</c>
+
+00:12:56.230 --> 00:12:56.240 align:start position:0%
+skills-first starter kit you drop into
+ 
+
+00:12:56.240 --> 00:12:58.070 align:start position:0%
+skills-first starter kit you drop into
+your<00:12:56.360><c> repo</c><00:12:56.720><c> that</c><00:12:56.920><c> introduces</c><00:12:57.520><c> spec-driven</c>
+
+00:12:58.070 --> 00:12:58.080 align:start position:0%
+your repo that introduces spec-driven
+ 
+
+00:12:58.080 --> 00:13:00.470 align:start position:0%
+your repo that introduces spec-driven
+development<00:12:58.600><c> for</c><00:12:58.720><c> the</c><00:12:58.880><c> AI</c><00:12:59.160><c> era.</c><00:13:00.000><c> Instead</c><00:13:00.360><c> of</c>
+
+00:13:00.470 --> 00:13:00.480 align:start position:0%
+development for the AI era. Instead of
+ 
+
+00:13:00.480 --> 00:13:02.510 align:start position:0%
+development for the AI era. Instead of
+configuring<00:13:01.080><c> each</c><00:13:01.320><c> tool</c><00:13:01.560><c> separately,</c><00:13:02.400><c> you</c>
+
+00:13:02.510 --> 00:13:02.520 align:start position:0%
+configuring each tool separately, you
+ 
+
+00:13:02.520 --> 00:13:04.910 align:start position:0%
+configuring each tool separately, you
+maintain<00:13:03.000><c> a</c><00:13:03.080><c> single</c><00:13:03.520><c> canonical</c><00:13:04.160><c> AI</c><00:13:04.480><c> specs</c>
+
+00:13:04.910 --> 00:13:04.920 align:start position:0%
+maintain a single canonical AI specs
+ 
+
+00:13:04.920 --> 00:13:07.030 align:start position:0%
+maintain a single canonical AI specs
+folder.<00:13:05.839><c> Clever</c><00:13:06.240><c> symlinks</c><00:13:06.720><c> make</c><00:13:06.920><c> your</c>
+
+00:13:07.030 --> 00:13:07.040 align:start position:0%
+folder. Clever symlinks make your
+ 
+
+00:13:07.040 --> 00:13:10.230 align:start position:0%
+folder. Clever symlinks make your
+.cursor,<00:13:07.800><c> .claude,</c><00:13:08.560><c> and</c><00:13:08.720><c> .codex</c><00:13:09.360><c> directories</c>
+
+00:13:10.230 --> 00:13:10.240 align:start position:0%
+.cursor, .claude, and .codex directories
+ 
+
+00:13:10.240 --> 00:13:12.590 align:start position:0%
+.cursor, .claude, and .codex directories
+all<00:13:10.520><c> read</c><00:13:10.800><c> from</c><00:13:10.960><c> the</c><00:13:11.080><c> exact</c><00:13:11.600><c> same</c><00:13:11.920><c> centralized</c>
+
+00:13:12.590 --> 00:13:12.600 align:start position:0%
+all read from the exact same centralized
+ 
+
+00:13:12.600 --> 00:13:14.270 align:start position:0%
+all read from the exact same centralized
+playbook.
+
+00:13:14.270 --> 00:13:14.280 align:start position:0%
+playbook.
+ 
+
+00:13:14.280 --> 00:13:16.710 align:start position:0%
+playbook.
+Hue<00:13:14.720><c> is</c><00:13:14.880><c> an</c><00:13:15.000><c> installable</c><00:13:15.720><c> Claude</c><00:13:16.080><c> code</c><00:13:16.440><c> skill</c>
+
+00:13:16.710 --> 00:13:16.720 align:start position:0%
+Hue is an installable Claude code skill
+ 
+
+00:13:16.720 --> 00:13:18.950 align:start position:0%
+Hue is an installable Claude code skill
+that<00:13:16.880><c> learns</c><00:13:17.240><c> any</c><00:13:17.480><c> brand</c><00:13:17.960><c> from</c><00:13:18.120><c> a</c><00:13:18.200><c> URL,</c>
+
+00:13:18.950 --> 00:13:18.960 align:start position:0%
+that learns any brand from a URL,
+ 
+
+00:13:18.960 --> 00:13:20.990 align:start position:0%
+that learns any brand from a URL,
+company<00:13:19.320><c> name,</c><00:13:19.640><c> or</c><00:13:19.800><c> screenshot,</c><00:13:20.760><c> and</c>
+
+00:13:20.990 --> 00:13:21.000 align:start position:0%
+company name, or screenshot, and
+ 
+
+00:13:21.000 --> 00:13:23.230 align:start position:0%
+company name, or screenshot, and
+instantly<00:13:21.640><c> reverse</c><00:13:22.040><c> engineers</c><00:13:22.560><c> it</c><00:13:22.960><c> into</c><00:13:23.200><c> a</c>
+
+00:13:23.230 --> 00:13:23.240 align:start position:0%
+instantly reverse engineers it into a
+ 
+
+00:13:23.240 --> 00:13:25.990 align:start position:0%
+instantly reverse engineers it into a
+complete<00:13:23.800><c> reusable</c><00:13:24.360><c> design</c><00:13:24.760><c> system.</c><00:13:25.680><c> Color</c>
+
+00:13:25.990 --> 00:13:26.000 align:start position:0%
+complete reusable design system. Color
+ 
+
+00:13:26.000 --> 00:13:28.510 align:start position:0%
+complete reusable design system. Color
+tokens,<00:13:26.680><c> typography</c><00:13:27.360><c> scales,</c><00:13:27.880><c> plus</c><00:13:28.200><c> strict</c>
+
+00:13:28.510 --> 00:13:28.520 align:start position:0%
+tokens, typography scales, plus strict
+ 
+
+00:13:28.520 --> 00:13:31.190 align:start position:0%
+tokens, typography scales, plus strict
+recipes<00:13:29.080><c> for</c><00:13:29.240><c> light</c><00:13:29.480><c> and</c><00:13:29.600><c> dark</c><00:13:29.839><c> modes.</c><00:13:30.880><c> Run</c>
+
+00:13:31.190 --> 00:13:31.200 align:start position:0%
+recipes for light and dark modes. Run
+ 
+
+00:13:31.200 --> 00:13:32.870 align:start position:0%
+recipes for light and dark modes. Run
+the<00:13:31.320><c> install</c><00:13:31.680><c> command</c><00:13:32.200><c> and</c><00:13:32.320><c> drop</c><00:13:32.560><c> it</c><00:13:32.680><c> into</c>
+
+00:13:32.870 --> 00:13:32.880 align:start position:0%
+the install command and drop it into
+ 
+
+00:13:32.880 --> 00:13:35.310 align:start position:0%
+the install command and drop it into
+your<00:13:33.000><c> .claude/skills</c><00:13:34.280><c> folder.</c>
+
+00:13:35.310 --> 00:13:35.320 align:start position:0%
+your .claude/skills folder.
+ 
+
+00:13:35.320 --> 00:13:37.390 align:start position:0%
+your .claude/skills folder.
+Every<00:13:35.720><c> interface</c><00:13:36.200><c> your</c><00:13:36.400><c> AI</c><00:13:36.640><c> builds</c><00:13:37.000><c> from</c><00:13:37.160><c> that</c>
+
+00:13:37.390 --> 00:13:37.400 align:start position:0%
+Every interface your AI builds from that
+ 
+
+00:13:37.400 --> 00:13:39.630 align:start position:0%
+Every interface your AI builds from that
+moment<00:13:37.920><c> is</c><00:13:38.080><c> strictly</c><00:13:38.520><c> bound</c><00:13:38.960><c> to</c><00:13:39.040><c> that</c><00:13:39.240><c> custom</c>
+
+00:13:39.630 --> 00:13:39.640 align:start position:0%
+moment is strictly bound to that custom
+ 
+
+00:13:39.640 --> 00:13:41.710 align:start position:0%
+moment is strictly bound to that custom
+design<00:13:40.000><c> language.</c>
+
+00:13:41.710 --> 00:13:41.720 align:start position:0%
+design language.
+ 
+
+00:13:41.720 --> 00:13:43.750 align:start position:0%
+design language.
+Jetpack<00:13:42.240><c> Compose</c><00:13:42.720><c> audit</c><00:13:43.000><c> skill</c><00:13:43.360><c> is</c><00:13:43.520><c> like</c>
+
+00:13:43.750 --> 00:13:43.760 align:start position:0%
+Jetpack Compose audit skill is like
+ 
+
+00:13:43.760 --> 00:13:45.990 align:start position:0%
+Jetpack Compose audit skill is like
+having<00:13:44.040><c> a</c><00:13:44.120><c> senior</c><00:13:44.600><c> Android</c><00:13:45.000><c> architect</c><00:13:45.680><c> review</c>
+
+00:13:45.990 --> 00:13:46.000 align:start position:0%
+having a senior Android architect review
+ 
+
+00:13:46.000 --> 00:13:48.350 align:start position:0%
+having a senior Android architect review
+your<00:13:46.160><c> code</c><00:13:46.440><c> base.</c><00:13:47.240><c> It</c><00:13:47.400><c> doesn't</c><00:13:47.720><c> just</c><00:13:48.040><c> use</c>
+
+00:13:48.350 --> 00:13:48.360 align:start position:0%
+your code base. It doesn't just use
+ 
+
+00:13:48.360 --> 00:13:51.230 align:start position:0%
+your code base. It doesn't just use
+generic<00:13:48.839><c> LLM</c><00:13:49.280><c> prompts.</c><00:13:50.280><c> It</c><00:13:50.480><c> runs</c><00:13:50.720><c> a</c><00:13:50.760><c> built-in</c>
+
+00:13:51.230 --> 00:13:51.240 align:start position:0%
+generic LLM prompts. It runs a built-in
+ 
+
+00:13:51.240 --> 00:13:53.670 align:start position:0%
+generic LLM prompts. It runs a built-in
+Gradle<00:13:51.600><c> script</c><00:13:52.320><c> to</c><00:13:52.440><c> generate</c><00:13:52.920><c> and</c><00:13:53.080><c> parse</c><00:13:53.480><c> your</c>
+
+00:13:53.670 --> 00:13:53.680 align:start position:0%
+Gradle script to generate and parse your
+ 
+
+00:13:53.680 --> 00:13:56.110 align:start position:0%
+Gradle script to generate and parse your
+raw<00:13:54.000><c> compose</c><00:13:54.440><c> compiler</c><00:13:54.960><c> metrics.</c>
+
+00:13:56.110 --> 00:13:56.120 align:start position:0%
+raw compose compiler metrics.
+ 
+
+00:13:56.120 --> 00:13:57.710 align:start position:0%
+raw compose compiler metrics.
+Combines<00:13:56.600><c> that</c><00:13:56.800><c> hard</c><00:13:57.080><c> deterministic</c>
+
+00:13:57.710 --> 00:13:57.720 align:start position:0%
+Combines that hard deterministic
+ 
+
+00:13:57.720 --> 00:14:00.510 align:start position:0%
+Combines that hard deterministic
+compiler<00:13:58.200><c> data</c><00:13:58.839><c> with</c><00:13:59.080><c> AI</c><00:13:59.360><c> reasoning</c><00:14:00.200><c> to</c><00:14:00.320><c> give</c>
+
+00:14:00.510 --> 00:14:00.520 align:start position:0%
+compiler data with AI reasoning to give
+ 
+
+00:14:00.520 --> 00:14:02.590 align:start position:0%
+compiler data with AI reasoning to give
+your<00:14:00.680><c> project</c><00:14:01.240><c> a</c><00:14:01.320><c> brutal</c><00:14:01.720><c> quantified</c><00:14:02.320><c> audit</c>
+
+00:14:02.590 --> 00:14:02.600 align:start position:0%
+your project a brutal quantified audit
+ 
+
+00:14:02.600 --> 00:14:05.510 align:start position:0%
+your project a brutal quantified audit
+score<00:14:03.000><c> out</c><00:14:03.120><c> of</c><00:14:03.240><c> 100.</c>
+
+00:14:05.510 --> 00:14:05.520 align:start position:0%
+score out of 100.
+ 
+
+00:14:05.520 --> 00:14:07.910 align:start position:0%
+score out of 100.
+My<00:14:05.880><c> AI</c><00:14:06.120><c> workflow</c><00:14:06.720><c> is</c><00:14:06.880><c> Matteo</c><00:14:07.320><c> Barbaro's</c>
+
+00:14:07.910 --> 00:14:07.920 align:start position:0%
+My AI workflow is Matteo Barbaro's
+ 
+
+00:14:07.920 --> 00:14:11.270 align:start position:0%
+My AI workflow is Matteo Barbaro's
+battle-tested<00:14:08.720><c> methodology</c><00:14:09.800><c> open-sourced.</c>
+
+00:14:11.270 --> 00:14:11.280 align:start position:0%
+battle-tested methodology open-sourced.
+ 
+
+00:14:11.280 --> 00:14:13.310 align:start position:0%
+battle-tested methodology open-sourced.
+Instead<00:14:11.680><c> of</c><00:14:11.800><c> diving</c><00:14:12.120><c> straight</c><00:14:12.480><c> into</c><00:14:12.680><c> prompts,</c>
+
+00:14:13.310 --> 00:14:13.320 align:start position:0%
+Instead of diving straight into prompts,
+ 
+
+00:14:13.320 --> 00:14:15.750 align:start position:0%
+Instead of diving straight into prompts,
+a<00:14:13.400><c> custom</c><00:14:13.839><c> skill</c><00:14:14.200><c> forces</c><00:14:14.680><c> the</c><00:14:14.839><c> AI</c><00:14:15.200><c> to</c>
+
+00:14:15.750 --> 00:14:15.760 align:start position:0%
+a custom skill forces the AI to
+ 
+
+00:14:15.760 --> 00:14:18.030 align:start position:0%
+a custom skill forces the AI to
+interview<00:14:16.200><c> you</c><00:14:16.360><c> first.</c><00:14:17.240><c> Explore</c><00:14:17.680><c> the</c><00:14:17.800><c> code</c>
+
+00:14:18.030 --> 00:14:18.040 align:start position:0%
+interview you first. Explore the code
+ 
+
+00:14:18.040 --> 00:14:21.430 align:start position:0%
+interview you first. Explore the code
+base,<00:14:18.800><c> ask</c><00:14:19.200><c> hard</c><00:14:19.560><c> architectural</c><00:14:20.400><c> questions,</c>
+
+00:14:21.430 --> 00:14:21.440 align:start position:0%
+base, ask hard architectural questions,
+ 
+
+00:14:21.440 --> 00:14:23.270 align:start position:0%
+base, ask hard architectural questions,
+walk<00:14:21.720><c> every</c><00:14:21.920><c> branch</c><00:14:22.240><c> of</c><00:14:22.360><c> the</c><00:14:22.440><c> design</c><00:14:22.800><c> tree,</c>
+
+00:14:23.270 --> 00:14:23.280 align:start position:0%
+walk every branch of the design tree,
+ 
+
+00:14:23.280 --> 00:14:25.069 align:start position:0%
+walk every branch of the design tree,
+resolve<00:14:23.640><c> dependencies,</c><00:14:24.560><c> all</c><00:14:24.760><c> before</c><00:14:25.000><c> a</c>
+
+00:14:25.069 --> 00:14:25.079 align:start position:0%
+resolve dependencies, all before a
+ 
+
+00:14:25.079 --> 00:14:27.270 align:start position:0%
+resolve dependencies, all before a
+single<00:14:25.440><c> line</c><00:14:25.640><c> of</c><00:14:25.760><c> code</c><00:14:26.040><c> gets</c><00:14:26.280><c> written.</c><00:14:27.079><c> The</c>
+
+00:14:27.270 --> 00:14:27.280 align:start position:0%
+single line of code gets written. The
+ 
+
+00:14:27.280 --> 00:14:29.630 align:start position:0%
+single line of code gets written. The
+output<00:14:27.640><c> is</c><00:14:27.760><c> a</c><00:14:27.800><c> structured</c><00:14:28.360><c> PRD</c><00:14:29.240><c> that</c><00:14:29.360><c> becomes</c>
+
+00:14:29.630 --> 00:14:29.640 align:start position:0%
+output is a structured PRD that becomes
+ 
+
+00:14:29.640 --> 00:14:31.470 align:start position:0%
+output is a structured PRD that becomes
+the<00:14:29.760><c> source</c><00:14:30.120><c> of</c><00:14:30.240><c> truth</c><00:14:30.720><c> for</c><00:14:30.839><c> your</c><00:14:31.079><c> agents</c>
+
+00:14:31.470 --> 00:14:31.480 align:start position:0%
+the source of truth for your agents
+ 
+
+00:14:31.480 --> 00:14:33.230 align:start position:0%
+the source of truth for your agents
+going<00:14:31.760><c> forward.</c>
+
+00:14:33.230 --> 00:14:33.240 align:start position:0%
+going forward.
+ 
+
+00:14:33.240 --> 00:14:35.430 align:start position:0%
+going forward.
+Scraping<00:14:33.800><c> a</c><00:14:33.839><c> modern</c><00:14:34.200><c> webpage</c><00:14:34.680><c> with</c><00:14:34.839><c> AI</c>
+
+00:14:35.430 --> 00:14:35.440 align:start position:0%
+Scraping a modern webpage with AI
+ 
+
+00:14:35.440 --> 00:14:37.910 align:start position:0%
+Scraping a modern webpage with AI
+usually<00:14:35.880><c> ends</c><00:14:36.160><c> in</c><00:14:36.240><c> disaster.</c><00:14:37.400><c> Blocked</c><00:14:37.800><c> by</c>
+
+00:14:37.910 --> 00:14:37.920 align:start position:0%
+usually ends in disaster. Blocked by
+ 
+
+00:14:37.920 --> 00:14:39.910 align:start position:0%
+usually ends in disaster. Blocked by
+Cloudflare<00:14:38.600><c> or</c><00:14:38.760><c> drowning</c><00:14:39.280><c> your</c><00:14:39.400><c> context</c>
+
+00:14:39.910 --> 00:14:39.920 align:start position:0%
+Cloudflare or drowning your context
+ 
+
+00:14:39.920 --> 00:14:42.110 align:start position:0%
+Cloudflare or drowning your context
+window<00:14:40.240><c> in</c><00:14:40.400><c> thousands</c><00:14:40.920><c> of</c><00:14:41.040><c> lines</c><00:14:41.480><c> of</c><00:14:41.640><c> useless</c>
+
+00:14:42.110 --> 00:14:42.120 align:start position:0%
+window in thousands of lines of useless
+ 
+
+00:14:42.120 --> 00:14:45.190 align:start position:0%
+window in thousands of lines of useless
+HTML.<00:14:43.120><c> Spider</c><00:14:43.560><c> King</c><00:14:43.839><c> skill</c><00:14:44.440><c> is</c><00:14:44.600><c> the</c><00:14:44.680><c> drop-in</c>
+
+00:14:45.190 --> 00:14:45.200 align:start position:0%
+HTML. Spider King skill is the drop-in
+ 
+
+00:14:45.200 --> 00:14:47.870 align:start position:0%
+HTML. Spider King skill is the drop-in
+web<00:14:45.440><c> crawler</c><00:14:45.800><c> skill</c><00:14:46.160><c> for</c><00:14:46.400><c> AI</c><00:14:46.640><c> assistants.</c>
+
+00:14:47.870 --> 00:14:47.880 align:start position:0%
+web crawler skill for AI assistants.
+ 
+
+00:14:47.880 --> 00:14:49.750 align:start position:0%
+web crawler skill for AI assistants.
+Handles<00:14:48.360><c> headless</c><00:14:48.680><c> browser</c><00:14:49.040><c> rendering,</c>
+
+00:14:49.750 --> 00:14:49.760 align:start position:0%
+Handles headless browser rendering,
+ 
+
+00:14:49.760 --> 00:14:51.990 align:start position:0%
+Handles headless browser rendering,
+navigates<00:14:50.280><c> anti-bot</c><00:14:50.720><c> protections,</c><00:14:51.839><c> and</c>
+
+00:14:51.990 --> 00:14:52.000 align:start position:0%
+navigates anti-bot protections, and
+ 
+
+00:14:52.000 --> 00:14:54.510 align:start position:0%
+navigates anti-bot protections, and
+strips<00:14:52.360><c> away</c><00:14:52.600><c> DOM</c><00:14:52.880><c> noise</c><00:14:53.200><c> automatically.</c>
+
+00:14:54.510 --> 00:14:54.520 align:start position:0%
+strips away DOM noise automatically.
+ 
+
+00:14:54.520 --> 00:14:56.750 align:start position:0%
+strips away DOM noise automatically.
+Feeds<00:14:54.959><c> clean</c><00:14:55.280><c> structured</c><00:14:55.800><c> markdown</c><00:14:56.240><c> or</c><00:14:56.320><c> JSON</c>
+
+00:14:56.750 --> 00:14:56.760 align:start position:0%
+Feeds clean structured markdown or JSON
+ 
+
+00:14:56.760 --> 00:14:59.630 align:start position:0%
+Feeds clean structured markdown or JSON
+directly<00:14:57.240><c> into</c><00:14:57.440><c> your</c><00:14:57.600><c> LLM's</c><00:14:58.079><c> memory.</c>
+
+00:14:59.630 --> 00:14:59.640 align:start position:0%
+directly into your LLM's memory.
+ 
+
+00:14:59.640 --> 00:15:01.550 align:start position:0%
+directly into your LLM's memory.
+Google's<00:15:00.079><c> official</c><00:15:00.520><c> Android</c><00:15:00.920><c> team</c><00:15:01.200><c> dropped</c><00:15:01.520><c> a</c>
+
+00:15:01.550 --> 00:15:01.560 align:start position:0%
+Google's official Android team dropped a
+ 
+
+00:15:01.560 --> 00:15:04.390 align:start position:0%
+Google's official Android team dropped a
+massive<00:15:02.040><c> repository</c><00:15:02.720><c> of</c><00:15:02.839><c> AI</c><00:15:03.120><c> skills</c><00:15:04.000><c> covering</c>
+
+00:15:04.390 --> 00:15:04.400 align:start position:0%
+massive repository of AI skills covering
+ 
+
+00:15:04.400 --> 00:15:06.670 align:start position:0%
+massive repository of AI skills covering
+canonical<00:15:05.000><c> best</c><00:15:05.320><c> practices</c><00:15:05.839><c> for</c><00:15:06.000><c> XML</c><00:15:06.560><c> to</c>
+
+00:15:06.670 --> 00:15:06.680 align:start position:0%
+canonical best practices for XML to
+ 
+
+00:15:06.680 --> 00:15:09.470 align:start position:0%
+canonical best practices for XML to
+Jetpack<00:15:07.200><c> Compose</c><00:15:07.640><c> migrations.</c><00:15:08.839><c> But</c><00:15:09.000><c> manually</c>
+
+00:15:09.470 --> 00:15:09.480 align:start position:0%
+Jetpack Compose migrations. But manually
+ 
+
+00:15:09.480 --> 00:15:11.590 align:start position:0%
+Jetpack Compose migrations. But manually
+reformatting<00:15:10.120><c> raw</c><00:15:10.320><c> markdown</c><00:15:10.800><c> for</c><00:15:11.000><c> every</c><00:15:11.320><c> AI</c>
+
+00:15:11.590 --> 00:15:11.600 align:start position:0%
+reformatting raw markdown for every AI
+ 
+
+00:15:11.600 --> 00:15:14.910 align:start position:0%
+reformatting raw markdown for every AI
+tool<00:15:12.000><c> is</c><00:15:12.160><c> a</c><00:15:12.240><c> nightmare.</c><00:15:13.280><c> Android</c><00:15:13.680><c> skills</c><00:15:14.040><c> MCP</c>
+
+00:15:14.910 --> 00:15:14.920 align:start position:0%
+tool is a nightmare. Android skills MCP
+ 
+
+00:15:14.920 --> 00:15:17.390 align:start position:0%
+tool is a nightmare. Android skills MCP
+is<00:15:15.040><c> an</c><00:15:15.160><c> MCP</c><00:15:15.720><c> server</c><00:15:16.120><c> and</c><00:15:16.280><c> CLI</c><00:15:16.640><c> packager</c><00:15:17.160><c> from</c>
+
+00:15:17.390 --> 00:15:17.400 align:start position:0%
+is an MCP server and CLI packager from
+ 
+
+00:15:17.400 --> 00:15:20.110 align:start position:0%
+is an MCP server and CLI packager from
+Skydoves<00:15:18.079><c> that</c><00:15:18.240><c> bridges</c><00:15:18.600><c> all</c><00:15:18.800><c> of</c><00:15:18.920><c> it.</c><00:15:19.360><c> One</c><00:15:19.600><c> NPX</c>
+
+00:15:20.110 --> 00:15:20.120 align:start position:0%
+Skydoves that bridges all of it. One NPX
+ 
+
+00:15:20.120 --> 00:15:22.270 align:start position:0%
+Skydoves that bridges all of it. One NPX
+command<00:15:20.560><c> translates</c><00:15:21.120><c> Google's</c><00:15:21.520><c> raw</c><00:15:21.760><c> skills</c>
+
+00:15:22.270 --> 00:15:22.280 align:start position:0%
+command translates Google's raw skills
+ 
+
+00:15:22.280 --> 00:15:24.150 align:start position:0%
+command translates Google's raw skills
+into<00:15:22.560><c> native</c><00:15:22.880><c> rule</c><00:15:23.120><c> formats</c><00:15:23.640><c> for</c><00:15:23.760><c> seven</c>
+
+00:15:24.150 --> 00:15:24.160 align:start position:0%
+into native rule formats for seven
+ 
+
+00:15:24.160 --> 00:15:27.480 align:start position:0%
+into native rule formats for seven
+different<00:15:24.560><c> AI</c><00:15:24.880><c> agents.</c>
+
+00:15:27.480 --> 00:15:27.490 align:start position:0%
+different AI agents.
+ 
+
+00:15:27.490 --> 00:15:29.510 align:start position:0%
+different AI agents.
+&gt;&gt; [music]
+

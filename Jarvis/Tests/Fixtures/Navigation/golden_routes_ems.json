@@ -1,0 +1,11 @@
+{
+  "routes": [
+    {
+      "from": "A",
+      "to": "D",
+      "profile": "ems_preferred",
+      "expected_edge_ids": ["e1", "e2", "e5"],
+      "expected_cost_note": "EMS profile uses hazard-adjusted weights — golden verifies tier-scope acceptance only"
+    }
+  ]
+}

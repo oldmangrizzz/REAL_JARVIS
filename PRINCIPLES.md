@@ -196,3 +196,26 @@ This file may be modified only by a commit signed by **both** the Ed25519 cold r
 ---
 
 **End of PRINCIPLES.md — Version 1.0.0**
+
+---
+
+## CANON LAW — VOICE (locked 2026-04-21)
+
+**The only voice used for any Jarvis output, agent report, alert, notification, or spoken response is the XTTS-v2 zero-shot clone of the Derek/Harvard Jarvis reference samples, served from Delta.**
+
+**Hard stop. No exceptions. ADA / cognitive-prosthetic sensory sensitivity.**
+
+- **Client:** `~/.jarvis/bin/jarvis-say` — ONLY approved TTS client on Echo.
+- **Transport:** autossh tunnel `127.0.0.1:8787 → delta:8787` via LaunchAgent `com.grizz.jarvis.xtts-tunnel`.
+- **Server:** systemd unit `jarvis-tts.service` on Delta, model `xtts_v2`, refs in `/opt/jarvis-tts/refs/`.
+
+### FORBIDDEN
+- `say` (Daniel, Samantha, Moira, Fred, Karen, *any* voice)
+- `AVSpeechSynthesizer`, `NSSpeechSynthesizer` with system voices
+- Siri TTS voices (all variants)
+- Cloud TTS APIs (ElevenLabs, GCP Chirp, Cartesia, Play.ht, Deepgram, etc.)
+- Any "fallback" or "degradation" path that produces spoken output in any voice other than canon
+
+### If the canon path fails
+- `jarvis-say` returns non-zero. **Silent failure is mandatory.** Never substitute a different voice.
+- Alert via ntfy/dashboard/logs — text only. No spoken fallback, ever.

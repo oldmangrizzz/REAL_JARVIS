@@ -1,0 +1,10 @@
+{
+  "routes": [
+    {
+      "from": "A",
+      "to": "D",
+      "profile": "accessibility",
+      "expected_edge_ids_note": "Accessibility profile prefers ramp-tagged edges; golden verifies tier-scope acceptance only"
+    }
+  ]
+}
