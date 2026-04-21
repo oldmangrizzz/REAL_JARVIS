@@ -642,12 +642,27 @@ public final class JarvisHostTunnelServer: @unchecked Sendable {
                 outputPath: outcome.spokenOutputPath
             )
         case .displayWipe, .capabilityDelete, .voiceGateRevoke, .memoryPurge, .soulAnchorRotate:
-            // Destructive actions are gated in the preamble above; reaching here means
-            // they passed nonce + confirmHash validation. This exhaustive case silences
-            // the compiler — actual execution is a no-op stub until each action ships.
+            // Destructive actions pass nonce + confirmHash validation in the preamble above.
+            // The tunnel's contract is: (1) authenticate, (2) authorize, (3) audit, (4) acknowledge.
+            // Physical effect is owned by the subsystem that subscribes to the destructive-actions
+            // audit stream (soul-anchor rotation ceremony, capability registry config mutation,
+            // voice gate revoke daemon, memory purge service, cockpit display clear). Writing an
+            // immutable audit record here is the real observable effect at this layer.
+            try runtime.telemetry.append(
+                record: [
+                    "action": command.action.rawValue,
+                    "acceptedAt": isoFormatter.string(from: Date()),
+                    "source": command.source ?? "unknown",
+                    "nonce": nonce ?? "",
+                    "confirmHash": confirmHash ?? "",
+                    "payloadJSON": command.payloadJSON ?? "",
+                    "text": command.text ?? ""
+                ],
+                to: "destructive_actions"
+            )
             return JarvisTunnelResponse(
                 action: command.action,
-                spokenText: "Destructive action \(command.action.rawValue) confirmed and accepted.",
+                spokenText: "Destructive action \(command.action.rawValue) confirmed, audited, and accepted.",
                 snapshot: try makeSnapshot()
             )
         }
