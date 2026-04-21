@@ -31,6 +31,19 @@ targets:
         DEFINES_MODULE: YES
         PRODUCT_NAME: JarvisCore
 
+  VoiceConversation:
+    type: framework.static
+    platform: macOS
+    deploymentTarget: "14.0"
+    sources:
+      - path: Jarvis/Sources/VoiceConversation
+    dependencies:
+      - target: JarvisCore
+    settings:
+      base:
+        DEFINES_MODULE: YES
+        PRODUCT_NAME: VoiceConversation
+
   JarvisCLI:
     type: tool
     platform: macOS
