@@ -440,6 +440,7 @@
 		72E11F671B3DAD9B20BB0DA5 /* ref3_cfg2.1_ddpm10_RENDER.wav in Resources */ = {isa = PBXBuildFile; fileRef = DC0450B5D62940780A40B738 /* ref3_cfg2.1_ddpm10_RENDER.wav */; };
 		72E209131D91E76768CE74A8 /* 0217.wav in Resources */ = {isa = PBXBuildFile; fileRef = FD48572A9C865C72792B344F /* 0217.wav */; };
 		7319D94984F41B7607CAFE8C /* 0451.wav in Resources */ = {isa = PBXBuildFile; fileRef = CEF015883F9D706146C9D7F0 /* 0451.wav */; };
+		7324751BB2B6E3C94345128B /* N8nWorkflowRunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F8B7D9B25AB3E55148A37F /* N8nWorkflowRunnerTests.swift */; };
 		733AEA4B745DF23784A8E065 /* 0411.wav in Resources */ = {isa = PBXBuildFile; fileRef = E4218AF71AEBDA2FCA69DC0B /* 0411.wav */; };
 		73739BDE0D977B2A2D62C12A /* JarvisMobileAppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8C776CADFD3DBC92FA02B7 /* JarvisMobileAppIntent.swift */; };
 		73C38D824813AA8E16434CCF /* 0389.wav in Resources */ = {isa = PBXBuildFile; fileRef = 88A0D946E85C7F7F872911D4 /* 0389.wav */; };
@@ -783,6 +784,7 @@
 		C43A5323B1ADC31472465C53 /* 0352.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6EDAC7BA1903C5A2D8C3EB72 /* 0352.wav */; };
 		C4689CD8230FDE70FB9F924B /* 0283.wav in Resources */ = {isa = PBXBuildFile; fileRef = FEC910EBB28C3B67F29ACB54 /* 0283.wav */; };
 		C487882C8E24F9EB08E61343 /* 0481.wav in Resources */ = {isa = PBXBuildFile; fileRef = DC36C405FDF4095DB3D0AE74 /* 0481.wav */; };
+		C4F0D0A9096A74EC61BD1E22 /* N8nWorkflowRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947534F45B2BAF22F37548AB /* N8nWorkflowRunner.swift */; };
 		C50826B5EA69E2E4A24A41D1 /* 0154.wav in Resources */ = {isa = PBXBuildFile; fileRef = F380CD99445A1A50CEF8E54D /* 0154.wav */; };
 		C51B207CA2CBB15CF93AE880 /* 0452.wav in Resources */ = {isa = PBXBuildFile; fileRef = 39E9B117B2A71ABFA2CA34F1 /* 0452.wav */; };
 		C5466A196A88EC861A01AEF8 /* 0132.wav in Resources */ = {isa = PBXBuildFile; fileRef = FDDC15503518F385235540B4 /* 0132.wav */; };
@@ -1187,6 +1189,7 @@
 		10711801B884194FE5820D9A /* 0702.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0702.wav; sourceTree = "<group>"; };
 		10C3C946F30F647E50174786 /* 0079.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0079.wav; sourceTree = "<group>"; };
 		10F1980E5C5F64901FEC45B6 /* 0183.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0183.wav; sourceTree = "<group>"; };
+		10F8B7D9B25AB3E55148A37F /* N8nWorkflowRunnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = N8nWorkflowRunnerTests.swift; sourceTree = "<group>"; };
 		11017438689CF53872AC143A /* MemoryEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryEngine.swift; sourceTree = "<group>"; };
 		11172B1046E69BCEC5005F13 /* 0026.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0026.wav; sourceTree = "<group>"; };
 		11AB56A27259406FB56E9054 /* NavigationDesignTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDesignTokens.swift; sourceTree = "<group>"; };
@@ -1676,6 +1679,7 @@
 		93046BA3B8DA8A490ABAA26E /* 0028.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0028.wav; sourceTree = "<group>"; };
 		93079C813E00FE1CD17B0E66 /* 0532.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0532.wav; sourceTree = "<group>"; };
 		9424E6F7A77DCADFA28C72DC /* 0174.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0174.wav; sourceTree = "<group>"; };
+		947534F45B2BAF22F37548AB /* N8nWorkflowRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = N8nWorkflowRunner.swift; sourceTree = "<group>"; };
 		951602A1DA67AA7645E504AA /* 0272.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0272.wav; sourceTree = "<group>"; };
 		9556013C9A2AB6D2271CA47E /* 0044.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0044.wav; sourceTree = "<group>"; };
 		958E6736D415A120964ACE1D /* 0111.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0111.wav; sourceTree = "<group>"; };
@@ -3409,6 +3413,7 @@
 				38589B0BC80231B907DD2ADE /* IntentParser.swift */,
 				9A4E9998E76660D87C8B64F8 /* IntentTypes.swift */,
 				229D0691D1CB9AFE5C32CDD2 /* MeshDisplayDispatcher.swift */,
+				947534F45B2BAF22F37548AB /* N8nWorkflowRunner.swift */,
 				C292CC924D7D7D2FCC7866AA /* PresenceEventRouter.swift */,
 				3BAE8C9FAA999598E8642891 /* RealJarvisInterface.swift */,
 				CED099260A076385B24A1028 /* SystemCommandHandler.swift */,
@@ -3548,6 +3553,7 @@
 				F389B6B3E20B86F1B807EA01 /* MapboxCredentialsTests.swift */,
 				ED39C97D28386B343B1D38A3 /* MemoryEngineTests.swift */,
 				E2B8C826121D859879AEBB31 /* MeshDisplayDispatcherTests.swift */,
+				10F8B7D9B25AB3E55148A37F /* N8nWorkflowRunnerTests.swift */,
 				1F75216FC40410C16F31CB87 /* OscillatorTests.swift */,
 				1314D648DB0F646F8AF96258 /* OSINTSourceRegistryTests.swift */,
 				95BCBEA2AE274469D94C31B4 /* PhaseLockMonitorTests.swift */,
@@ -4727,6 +4733,7 @@
 				C91DFB3E29925F9089DA88B7 /* MeshDisplayDispatcherTests.swift in Sources */,
 				E07ABEAB93E401EABB9E2780 /* MockURLProtocol.swift in Sources */,
 				A8FD2EB60CE883E2EF24C0F2 /* N8NBridgeTests.swift in Sources */,
+				7324751BB2B6E3C94345128B /* N8nWorkflowRunnerTests.swift in Sources */,
 				FC056776D5FB6D028756B0AA /* NavUtteranceTests.swift in Sources */,
 				FF8FE7FA4B80BE0BDACCA356 /* OSINTSourceRegistryTests.swift in Sources */,
 				C148E0853A8463434F1D2B1C /* OscillatorTests.swift in Sources */,
@@ -4811,6 +4818,7 @@
 				CC202E7A540F0D14B719F1EA /* MeshDisplayDispatcher.swift in Sources */,
 				EFCDB7DF49985D64A52F8C4E /* MyceliumControlPlane.swift in Sources */,
 				E53BBA80F48490D0611E4BA5 /* N8NBridge.swift in Sources */,
+				C4F0D0A9096A74EC61BD1E22 /* N8nWorkflowRunner.swift in Sources */,
 				FDE5A5F5F8B67FF6D8AE7E83 /* NASAFIRMSAdapter.swift in Sources */,
 				62B421017ECB3809592A7041 /* NOAAWeatherAdapter.swift in Sources */,
 				9EC4D7B0632F5CCC127796EA /* NavContextSnapshot.swift in Sources */,

@@ -33,13 +33,32 @@ public final class VoiceCommandRouter {
     private let destructiveGuard: DestructiveIntentGuard
     private let companionPolicy: CompanionCapabilityPolicy
 
+    /// Returns a live `N8nWorkflowRunner` when `JARVIS_N8N_BASE_URL` is set.
+    /// Falls back to `nil` so the skill handler simply reports "no runner".
+    static func makeN8nRunner() -> N8nWorkflowRunning? {
+        let env = ProcessInfo.processInfo.environment
+        guard let raw = env["JARVIS_N8N_BASE_URL"],
+              let url = URL(string: raw) else {
+            return nil
+        }
+        return N8nWorkflowRunner(
+            baseURL: url,
+            basicAuthUser: env["JARVIS_N8N_USER"],
+            basicAuthPassword: env["JARVIS_N8N_PASSWORD"]
+        )
+    }
+
     public init(runtime: JarvisRuntime, registry: JarvisSkillRegistry) {
         self.runtime = runtime
         self.registry = registry
         self.intentParser = nil
         self.displayExecutor = nil
         self.capabilityRegistry = nil
-        self.systemHandler = SystemCommandHandler(runtime: runtime, skillRegistry: registry)
+        self.systemHandler = SystemCommandHandler(
+            runtime: runtime,
+            skillRegistry: registry,
+            n8nRunner: Self.makeN8nRunner()
+        )
         self.rateLimiter = CommandRateLimiter()
         self.destructiveGuard = DestructiveIntentGuard()
         self.companionPolicy = CompanionCapabilityPolicy()
@@ -60,7 +79,11 @@ public final class VoiceCommandRouter {
         self.intentParser = intentParser
         self.displayExecutor = displayExecutor
         self.capabilityRegistry = capabilityRegistry
-        self.systemHandler = SystemCommandHandler(runtime: runtime, skillRegistry: registry)
+        self.systemHandler = SystemCommandHandler(
+            runtime: runtime,
+            skillRegistry: registry,
+            n8nRunner: Self.makeN8nRunner()
+        )
         self.rateLimiter = rateLimiter
         self.destructiveGuard = destructiveGuard
         self.companionPolicy = companionPolicy

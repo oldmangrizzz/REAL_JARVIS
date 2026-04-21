@@ -1,5 +1,21 @@
 import Foundation
 
+/// Thread-safe result box for bridging async → sync in `SystemCommandHandler`.
+private final class SystemCommandHandlerAwaitBox<T>: @unchecked Sendable {
+    private let lock = NSLock()
+    private var value: T?
+    private var error: Error?
+
+    func store(_ v: T) { lock.lock(); value = v; lock.unlock() }
+    func store(error e: Error) { lock.lock(); error = e; lock.unlock() }
+    func result() throws -> T {
+        lock.lock(); defer { lock.unlock() }
+        if let error { throw error }
+        guard let value else { fatalError("SystemCommandHandlerAwaitBox: no result") }
+        return value
+    }
+}
+
 /// SPEC-004: Handles `.systemQuery` and `.skillInvocation` intents parsed by
 /// `IntentParser` and produces a `VoiceCommandResponse`.
 ///
@@ -10,10 +26,16 @@ import Foundation
 public final class SystemCommandHandler: @unchecked Sendable {
     private let runtime: JarvisRuntime
     private let skillRegistry: JarvisSkillRegistry
+    private let n8nRunner: N8nWorkflowRunning?
 
-    public init(runtime: JarvisRuntime, skillRegistry: JarvisSkillRegistry) {
+    public init(
+        runtime: JarvisRuntime,
+        skillRegistry: JarvisSkillRegistry,
+        n8nRunner: N8nWorkflowRunning? = nil
+    ) {
         self.runtime = runtime
         self.skillRegistry = skillRegistry
+        self.n8nRunner = n8nRunner
     }
 
     public func handle(intent: ParsedIntent, command: String) throws -> VoiceCommandResponse? {
@@ -88,6 +110,16 @@ public final class SystemCommandHandler: @unchecked Sendable {
     // MARK: - Skill invocation
 
     private func handleSkillInvocation(requested: String) throws -> VoiceCommandResponse? {
+        // SPEC: `n8n:<webhook-path>` prefix routes directly to the n8n runner,
+        // which stamps ts+source and POSTs to /webhook/<path>.
+        if requested.lowercased().hasPrefix("n8n:"), let runner = n8nRunner {
+            let path = String(requested.dropFirst(4)).trimmingCharacters(in: .whitespaces)
+            let result = try awaitRunnerSync { try await runner.run(workflowPath: path, payload: [:]) }
+            var details: [String: Any] = ["command": "n8n", "workflowPath": path, "success": result.success]
+            for (k, v) in result.details { details[k] = v }
+            return VoiceCommandResponse(spokenText: result.spokenText, details: details, shouldShutdown: false)
+        }
+
         let normalized = normalizedSkillFragment(from: requested)
         if let matched = bestSkillMatch(for: normalized) {
             let payload = defaultPayload(for: matched)
@@ -100,6 +132,22 @@ public final class SystemCommandHandler: @unchecked Sendable {
             details: ["command": "run-skill", "requested": normalized],
             shouldShutdown: false
         )
+    }
+
+    private func awaitRunnerSync<T: Sendable>(_ op: @Sendable @escaping () async throws -> T) throws -> T {
+        let sema = DispatchSemaphore(value: 0)
+        let box = SystemCommandHandlerAwaitBox<T>()
+        Task {
+            do {
+                let value = try await op()
+                box.store(value)
+            } catch {
+                box.store(error: error)
+            }
+            sema.signal()
+        }
+        sema.wait()
+        return try box.result()
     }
 
     private func normalizedSkillFragment(from text: String) -> String {
