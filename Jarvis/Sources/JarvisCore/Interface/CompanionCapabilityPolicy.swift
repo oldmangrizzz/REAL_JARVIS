@@ -146,7 +146,8 @@ public struct CompanionCapabilityPolicy: Sendable {
         case .status, .ping,
              .homeKitStatus, .listSkills,
              .startupVoice, .bridgeIntercom,
-             .queueGuiIntent, .presenceArrival:
+             .queueGuiIntent, .presenceArrival,
+             .speakRealtime:
             return .allow
         case .selfHeal, .reseedObsidian, .shutdown:
             return .deny(reason: "destructive-or-admin:operator-only")

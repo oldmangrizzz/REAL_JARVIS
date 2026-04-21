@@ -18,7 +18,7 @@ import Foundation
 ///   "max_new_tokens": null
 /// }
 /// → 200 audio/wav (raw bytes) OR application/json {"audio_b64": "..."}
-public final class HTTPTTSBackend: TTSBackend {
+public actor HTTPTTSBackend: TTSBackend {
     public let identifier: String
     public let selectedVoiceLabel: String
     public let sampleRate: Int
@@ -27,6 +27,10 @@ public final class HTTPTTSBackend: TTSBackend {
     private let bearerToken: String
     private let session: URLSession
     private let timeout: TimeInterval
+
+    // Isolate mutable state – keep a reference to the currently‑running task
+    // so that it can be cancelled if needed.
+    private var activeTask: Task<Void, Never>?
 
     public init(
         endpoint: URL,
@@ -52,80 +56,78 @@ public final class HTTPTTSBackend: TTSBackend {
         referenceTranscript: String,
         parameters: TTSRenderParameters,
         outputURL: URL
-    ) throws {
-        let referenceData = try Data(contentsOf: referenceAudioURL)
-        var payload: [String: Any] = [
-            "text": text,
-            "reference_audio_b64": referenceData.base64EncodedString(),
-            "reference_text": referenceTranscript,
-            "temperature": parameters.temperature,
-            "top_p": parameters.topP
-        ]
-        if let maxTokens = parameters.maxNewTokens {
-            payload["max_new_tokens"] = maxTokens
-        }
-        if let cfg = parameters.cfgScale {
-            payload["cfg_scale"] = cfg
-        }
-        if let ddpm = parameters.ddpmSteps {
-            payload["ddpm_steps"] = ddpm
-        }
-
-        let body = try JSONSerialization.data(withJSONObject: payload)
-        var request = URLRequest(url: endpoint)
-        request.httpMethod = "POST"
-        request.timeoutInterval = timeout
-        request.setValue("Bearer \(bearerToken)", forHTTPHeaderField: "Authorization")
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("audio/wav", forHTTPHeaderField: "Accept")
-        request.httpBody = body
-
-        let semaphore = DispatchSemaphore(value: 0)
-        var resultData: Data?
-        var resultResponse: URLResponse?
-        var resultError: Error?
-        let task = session.dataTask(with: request) { data, response, error in
-            resultData = data
-            resultResponse = response
-            resultError = error
-            semaphore.signal()
-        }
-        task.resume()
-        let waitResult = semaphore.wait(timeout: .now() + timeout + 30)
-        guard waitResult == .success else {
-            task.cancel()
-            throw JarvisError.processFailure("HTTPTTSBackend: request to \(endpoint) timed out after \(timeout)s.")
-        }
-
-        if let error = resultError {
-            throw JarvisError.processFailure("HTTPTTSBackend: transport failure: \(error.localizedDescription)")
-        }
-        guard let httpResponse = resultResponse as? HTTPURLResponse else {
-            throw JarvisError.processFailure("HTTPTTSBackend: response was not HTTP.")
-        }
-        guard (200..<300).contains(httpResponse.statusCode), let data = resultData else {
-            let bodyPreview = (resultData.flatMap { String(data: $0.prefix(512), encoding: .utf8) }) ?? "<no body>"
-            throw JarvisError.processFailure("HTTPTTSBackend: \(httpResponse.statusCode) from \(endpoint): \(bodyPreview)")
-        }
-
-        let wavBytes: Data
-        let contentType = (httpResponse.value(forHTTPHeaderField: "Content-Type") ?? "").lowercased()
-        if contentType.contains("application/json") {
-            let object = try JSONSerialization.jsonObject(with: data)
-            guard
-                let dict = object as? [String: Any],
-                let b64 = dict["audio_b64"] as? String,
-                let decoded = Data(base64Encoded: b64)
-            else {
-                throw JarvisError.serializationFailure("HTTPTTSBackend: JSON response missing audio_b64.")
+    ) async throws {
+        // Cancel any previous synthesis that might still be running.
+        activeTask?.cancel()
+        let task = Task {
+            let referenceData = try Data(contentsOf: referenceAudioURL)
+            var payload: [String: Any] = [
+                "text": text,
+                "reference_audio_b64": referenceData.base64EncodedString(),
+                "reference_text": referenceTranscript,
+                "temperature": parameters.temperature,
+                "top_p": parameters.topP
+            ]
+            if let maxTokens = parameters.maxNewTokens {
+                payload["max_new_tokens"] = maxTokens
             }
-            wavBytes = decoded
-        } else {
-            wavBytes = data
+            if let cfg = parameters.cfgScale {
+                payload["cfg_scale"] = cfg
+            }
+            if let ddpm = parameters.ddpmSteps {
+                payload["ddpm_steps"] = ddpm
+            }
+
+            let body = try JSONSerialization.data(withJSONObject: payload)
+            var request = URLRequest(url: endpoint)
+            request.httpMethod = "POST"
+            request.timeoutInterval = timeout
+            request.setValue("Bearer \(bearerToken)", forHTTPHeaderField: "Authorization")
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.setValue("audio/wav", forHTTPHeaderField: "Accept")
+            request.httpBody = body
+
+            // Perform the request using async/await.
+            let (data, response) = try await session.data(for: request, delegate: nil)
+
+            guard let httpResponse = response as? HTTPURLResponse else {
+                throw JarvisError.processFailure("HTTPTTSBackend: response was not HTTP.")
+            }
+
+            guard (200..<300).contains(httpResponse.statusCode) else {
+                let bodyPreview = String(data: data.prefix(512), encoding: .utf8) ?? "<no body>"
+                throw JarvisError.processFailure(
+                    "HTTPTTSBackend: \(httpResponse.statusCode) from \(endpoint): \(bodyPreview)"
+                )
+            }
+
+            let wavBytes: Data
+            let contentType = (httpResponse.value(forHTTPHeaderField: "Content-Type") ?? "").lowercased()
+            if contentType.contains("application/json") {
+                let object = try JSONSerialization.jsonObject(with: data)
+                guard
+                    let dict = object as? [String: Any],
+                    let b64 = dict["audio_b64"] as? String,
+                    let decoded = Data(base64Encoded: b64)
+                else {
+                    throw JarvisError.serializationFailure("HTTPTTSBackend: JSON response missing audio_b64.")
+                }
+                wavBytes = decoded
+            } else {
+                wavBytes = data
+            }
+
+            try FileManager.default.createDirectory(
+                at: outputURL.deletingLastPathComponent(),
+                withIntermediateDirectories: true
+            )
+            try wavBytes.write(to: outputURL, options: .atomic)
         }
 
-        try FileManager.default.createDirectory(at: outputURL.deletingLastPathComponent(), withIntermediateDirectories: true)
-        try wavBytes.write(to: outputURL, options: .atomic)
+        // Store the task so it can be cancelled by a subsequent call.
+        activeTask = task
+        // Propagate any error thrown by the task.
+        try await task.value
     }
 }
 

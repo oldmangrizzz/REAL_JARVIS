@@ -52,6 +52,7 @@ targets:
     deploymentTarget: "14.0"
     sources:
       - path: Jarvis/Tests/JarvisCoreTests
+      - path: Jarvis/Tests/JarvisCoreTests/Conversation
     dependencies:
       - target: JarvisCore
     settings:
