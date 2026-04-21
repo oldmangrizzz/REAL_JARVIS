@@ -1,0 +1,273 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		5A1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D6E7F8A9B /* VisionDocs */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 9F8E7D6C5B4A3B2C1D0E9F8A7B6C5D4E /* Build configuration list for PBXAggregateTarget "VisionDocs" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = VisionDocs;
+			productName = VisionDocs;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		111111111111111111111111 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222222222222222222222222 /* main.swift */; };
+		333333333333333333333333 /* ImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444444444444444444444444 /* ImmersiveView.swift */; };
+		555555555555555555555555 /* VisionTests.swift in Tests */ = {isa = PBXBuildFile; fileRef = 666666666666666666666666 /* VisionTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		222222222222222222222222 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		444444444444444444444444 /* ImmersiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveView.swift; sourceTree = "<group>"; };
+		666666666666666666666666 /* VisionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionTests.swift; sourceTree = "<group>"; };
+		777777777777777777777777 /* VisionDocs.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = VisionDocs.md; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		AAAAAAAAAAAAAAAAAAAAAAAA /* Jarvis */ = {
+			isa = PBXGroup;
+			children = (
+				BBBBBBBBBBBBBBBBBBBBBBBB /* Vision */,
+			);
+			path = Jarvis;
+			sourceTree = "<group>";
+		};
+		BBBBBBBBBBBBBBBBBBBBBBBB /* Vision */ = {
+			isa = PBXGroup;
+			children = (
+				222222222222222222222222 /* main.swift */,
+				444444444444444444444444 /* ImmersiveView.swift */,
+				666666666666666666666666 /* VisionTests.swift */,
+				777777777777777777777777 /* VisionDocs.md */,
+			);
+			name = Vision;
+			path = Vision;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CCCCCCCCCCCCCCCCCCCCCCCC /* RealJarvisVision */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDDDDDDDDDDDDDDDDDDDDDDD /* Build configuration list for PBXNativeTarget "RealJarvisVision" */;
+			buildPhases = (
+				EEEEEEEEEEEEEEEEEEEEEEEE /* Sources */,
+				FFFFFFFFFFFFFFFFFFFFFFFF /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RealJarvisVision;
+			productName = RealJarvisVision;
+			productReference = GGGGGGGGGGGGGGGGGGGGGGGG /* RealJarvisVision.app */;
+			productType = "com.apple.product-type.application";
+		};
+
+		HHHHHHHHHHHHHHHHHHHHHHHH /* RealJarvisVisionTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = IIIIIIIIIIIIIIIIIIIIII /* Build configuration list for PBXNativeTarget "RealJarvisVisionTests" */;
+			buildPhases = (
+				JJJJJJJJJJJJJJJJJJJJJJ /* Sources */,
+				KKKKKKKKKKKKKKKKKKKKKK /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CCCCCCCCCCCCCCCCCCCCCCCC /* PBXTargetDependency */,
+			);
+			name = RealJarvisVisionTests;
+			productName = RealJarvisVisionTests;
+			productReference = LLLLLLLLLLLLLLLLLLLLLLLL /* RealJarvisVisionTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		MMMMMMMMMMMMMMMMMMMMMMMM /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1230;
+			};
+			buildConfigurationList = NNNNNNNNNNNNNNNNNNNNNNNN /* Build configuration list for PBXProject "Project" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			mainGroup = AAAAAAAAAAAAAAAAAAAAAAAA /* Jarvis */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CCCCCCCCCCCCCCCCCCCCCCCC /* RealJarvisVision */,
+				HHHHHHHHHHHHHHHHHHHHHHHH /* RealJarvisVisionTests */,
+				5A1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D6E7F8A9B /* VisionDocs */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FFFFFFFFFFFFFFFFFFFFFFFF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EEEEEEEEEEEEEEEEEEEEEEEE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				111111111111111111111111 /* main.swift in Sources */,
+				333333333333333333333333 /* ImmersiveView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+
+		JJJJJJJJJJJJJJJJJJJJJJ /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				555555555555555555555555 /* VisionTests.swift in Tests */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		OOOOOOOOOOOOOOOOOOOOOOOO /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "visionos";
+				SDKROOT = "visionos";
+				ENABLE_BITCODE = NO;
+				OTHER_SWIFT_FLAGS = "$(inherited) -DREAL_JARVIS_VISION";
+			};
+			name = Debug;
+		};
+		PPPPPPPPPPPPPPPPPPPPPPPP /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "visionos";
+				SDKROOT = "visionos";
+				ENABLE_BITCODE = NO;
+				OTHER_SWIFT_FLAGS = "$(inherited) -DREAL_JARVIS_VISION";
+			};
+			name = Release;
+		};
+
+		QQQQQQQQQQQQQQQQQQQQQQQQ /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "visionos";
+				SDKROOT = "visionos";
+				ENABLE_BITCODE = NO;
+				OTHER_SWIFT_FLAGS = "$(inherited) -DREAL_JARVIS_VISION_TESTS";
+			};
+			name = Debug;
+		};
+		RRRRRRRRRRRRRRRRRRRRRRRR /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "visionos";
+				SDKROOT = "visionos";
+				ENABLE_BITCODE = NO;
+				OTHER_SWIFT_FLAGS = "$(inherited) -DREAL_JARVIS_VISION_TESTS";
+			};
+			name = Release;
+		};
+
+		SSSSSSSSSSSSSSSSSSSSSSSS /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				ENABLE_BITCODE = NO;
+			};
+			name = Debug;
+		};
+		TTTTTTTTTTTTTTTTTTTTTTTT /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				ENABLE_BITCODE = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DDDDDDDDDDDDDDDDDDDDDDDD /* Build configuration list for PBXNativeTarget "RealJarvisVision" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OOOOOOOOOOOOOOOOOOOOOOOO /* Debug */,
+				PPPPPPPPPPPPPPPPPPPPPPPP /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+
+		IIIIIIIIIIIIIIIIIIIIIIII /* Build configuration list for PBXNativeTarget "RealJarvisVisionTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				QQQQQQQQQQQQQQQQQQQQQQQQ /* Debug */,
+				RRRRRRRRRRRRRRRRRRRRRRRR /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+
+		NNNNNNNNNNNNNNNNNNNNNNNN /* Build configuration list for PBXProject "Project" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				SSSSSSSSSSSSSSSSSSSSSSSS /* Debug */,
+				TTTTTTTTTTTTTTTTTTTTTTTT /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+
+		D9F8E7D6C5B4A3B2C1D0E9F8A7B6C5D4E /* Build configuration list for PBXAggregateTarget "VisionDocs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				SSSSSSSSSSSSSSSSSSSSSSSS /* Debug */,
+				TTTTTTTTTTTTTTTTTTTTTTTT /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin PBXTargetDependency section */
+		PBXTargetDependency /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CCCCCCCCCCCCCCCCCCCCCCCC /* RealJarvisVision */;
+			targetProxy = {
+				isa = PBXContainerItemProxy;
+				containerPortal = AAAAAAAAAAAAAAAAAAAAAAAA /* Project object */;
+				proxyType = 1;
+				remoteGlobalIDString = CCCCCCCCCCCCCCCCCCCCCCCC;
+				remoteInfo = RealJarvisVision;
+			};
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXFileReference for product */
+		GGGGGGGGGGGGGGGGGGGGGGGG /* RealJarvisVision.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = RealJarvisVision.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		LLLLLLLLLLLLLLLLLLLLLLLL /* RealJarvisVisionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = RealJarvisVisionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference for product */
+
+	};
+	rootObject = MMMMMMMMMMMMMMMMMMMMMMMM /* Project object */;
+}
