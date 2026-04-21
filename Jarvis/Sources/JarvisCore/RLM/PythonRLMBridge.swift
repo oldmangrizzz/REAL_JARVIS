@@ -16,7 +16,7 @@ public struct RLMQueryResult {
     }
 }
 
-public final class PythonRLMBridge {
+public final class PythonRLMBridge: @unchecked Sendable {
     private let paths: WorkspacePaths
     private let telemetry: TelemetryStore
 
@@ -64,6 +64,29 @@ public final class PythonRLMBridge {
     ) throws -> RLMQueryResult {
         let enriched = retrieval.enrichedPrompt(basePrompt: basePrompt, query: query, limit: limit)
         return try self.query(prompt: enriched, query: query)
+    }
+
+    /// Propose an output grid for the given input grid state.
+    /// Calls `rlm_repl.py --mode propose_grid` — pure local subprocess, no cloud.
+    public func propose(gridState: [[Int]], timestep: Int) throws -> [[Int]] {
+        guard let gridData = try? JSONSerialization.data(withJSONObject: gridState),
+              let jsonStr = String(data: gridData, encoding: .utf8) else {
+            throw JarvisError.processFailure("PythonRLMBridge: failed to JSON-encode grid state.")
+        }
+        let output = try runPython(arguments: [
+            paths.rlmScriptURL.path,
+            "--mode", "propose_grid",
+            "--grid-json", jsonStr
+        ], captureOutput: true)
+
+        guard let data = output.data(using: .utf8) else {
+            throw JarvisError.processFailure("PythonRLMBridge propose_grid: invalid UTF-8 output.")
+        }
+        let obj = try JSONSerialization.jsonObject(with: data)
+        guard let result = obj as? [[Int]] else {
+            throw JarvisError.processFailure("PythonRLMBridge propose_grid: expected [[Int]], got \(type(of: obj)).")
+        }
+        return result
     }
 
     public func startREPL(prompt: String) throws {
@@ -154,3 +177,8 @@ public final class PythonRLMBridge {
         return ""
     }
 }
+
+
+// MARK: - GridProposer Conformance
+
+extension PythonRLMBridge: GridProposer {}

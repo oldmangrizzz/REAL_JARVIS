@@ -81,6 +81,47 @@ struct JarvisCLI {
             case "voice-revoke":
                 try runtime.voice.revokeApproval()
                 try printJSON(["status": "revoked"])
+            case "arc-submit":
+                let (taskURL, outURL) = try parseArcSubmitArgs(arguments)
+                try FileManager.default.createDirectory(at: outURL, withIntermediateDirectories: true)
+                let orchestrator = ARCSubmissionOrchestrator(
+                    telemetry: runtime.telemetry,
+                    physics: runtime.physics,
+                    proposer: runtime.pythonRLM
+                )
+                // Bridge async→sync via a Sendable box; the Python subprocess is blocking.
+                final class ResultBox: @unchecked Sendable {
+                    var artifact: ARCSubmissionArtifact?
+                    var failure: Error?
+                }
+                let box = ResultBox()
+                let sema = DispatchSemaphore(value: 0)
+                Task.detached { [orchestrator, taskURL, box, sema] in
+                    do { box.artifact = try await orchestrator.run(taskFileURL: taskURL) }
+                    catch { box.failure = error }
+                    sema.signal()
+                }
+                sema.wait()
+                if let e = box.failure { throw e }
+                let a = box.artifact!
+
+                // Write submission JSON
+                let encoder = JSONEncoder()
+                encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
+                let subData = try encoder.encode(a)
+                let subURL = outURL.appendingPathComponent("\(a.taskId)-submission.json")
+                try subData.write(to: subURL)
+
+                // Emit single trailing JSON line for scripts to parse
+                let line: [String: Any] = [
+                    "taskId": a.taskId,
+                    "candidateGrid": a.candidateGrid,
+                    "latencyMs": a.latencyMs,
+                    "ttl": a.ttl,
+                    "witnessSha256": a.witnessSha256
+                ]
+                let lineData = try JSONSerialization.data(withJSONObject: line, options: [.sortedKeys])
+                print(String(data: lineData, encoding: .utf8)!)
             default:
                 fputs(usage(), stderr)
                 exit(64)
@@ -89,6 +130,30 @@ struct JarvisCLI {
             fputs("Jarvis error: \(error)\n", stderr)
             exit(1)
         }
+    }
+
+    private static func parseArcSubmitArgs(_ arguments: [String]) throws -> (taskURL: URL, outURL: URL) {
+        let defaultOut = FileManager.default.homeDirectoryForCurrentUser
+            .appendingPathComponent("arc-agi-submissions")
+        var taskPath: String?
+        var outPath = defaultOut.path
+        var i = 1
+        while i < arguments.count {
+            switch arguments[i] {
+            case "--task":
+                i += 1
+                if i < arguments.count { taskPath = arguments[i] }
+            case "--out":
+                i += 1
+                if i < arguments.count { outPath = arguments[i] }
+            default: break
+            }
+            i += 1
+        }
+        guard let tp = taskPath else {
+            throw JarvisError.invalidInput("Usage: Jarvis arc-submit --task <path> [--out <dir>]")
+        }
+        return (URL(fileURLWithPath: tp), URL(fileURLWithPath: outPath))
     }
 
     private static func resolveTunnelSecret(paths: WorkspacePaths) throws -> String {
@@ -160,6 +225,7 @@ struct JarvisCLI {
           Jarvis voice-audition <text>
           Jarvis voice-approve <operator-label> [notes]
           Jarvis voice-revoke
+          Jarvis arc-submit --task <path> [--out <dir>]
         """
     }
 }

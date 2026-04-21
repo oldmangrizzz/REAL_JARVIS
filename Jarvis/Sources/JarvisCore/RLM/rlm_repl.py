@@ -64,6 +64,17 @@ class PromptEnvironment:
         }
 
 
+def propose_grid(grid_json: str) -> list:
+    """Return the input grid unchanged — identity stub, pure stdlib.
+
+    The RLM subprocess is local (PRINCIPLES §2). This stub satisfies the
+    smoke-test contract; a real inference backend can replace it without
+    changing the Swift bridge API.
+    """
+    grid = json.loads(grid_json)
+    return grid
+
+
 def start_repl(prompt: str):
     env = PromptEnvironment(prompt)
 
@@ -80,10 +91,16 @@ def start_repl(prompt: str):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--mode", choices=["query", "repl"], required=True)
-    parser.add_argument("--prompt-file", required=True)
+    parser.add_argument("--mode", choices=["query", "repl", "propose_grid"], required=True)
+    parser.add_argument("--prompt-file", default="")
     parser.add_argument("--query", default="Summarize the prompt.")
+    parser.add_argument("--grid-json", default="[]")
     args = parser.parse_args()
+
+    if args.mode == "propose_grid":
+        result = propose_grid(args.grid_json)
+        print(json.dumps(result))
+        return
 
     prompt = pathlib.Path(args.prompt_file).read_text(encoding="utf-8")
     if args.mode == "repl":

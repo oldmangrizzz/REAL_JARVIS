@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://realjarvis.ai/schemas/arc/submission.schema.json",
+  "title": "ARCSubmissionArtifact",
+  "description": "Schema for an ARC-AGI submission artifact produced by ARCSubmissionOrchestrator.",
+  "type": "object",
+  "required": ["taskId", "candidateGrid", "latencyMs", "ttl", "witnessSha256"],
+  "additionalProperties": false,
+  "properties": {
+    "taskId": {
+      "type": "string",
+      "description": "Identifier derived from the task file stem (e.g. SAMPLE-0001).",
+      "minLength": 1
+    },
+    "candidateGrid": {
+      "type": "array",
+      "description": "Proposed output grid — a 2-D array of non-negative integers (ARC color values 0–9).",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9
+        },
+        "minItems": 1
+      },
+      "minItems": 1
+    },
+    "latencyMs": {
+      "type": "integer",
+      "description": "Wall-clock milliseconds from orchestrator entry to artifact construction.",
+      "minimum": 0
+    },
+    "ttl": {
+      "type": "number",
+      "description": "Unix epoch seconds at which this submission expires (typically now + 300).",
+      "minimum": 0
+    },
+    "witnessSha256": {
+      "type": "string",
+      "description": "SHA-256 hex digest of the canonical JSON encoding of candidateGrid. Used to detect post-hoc tampering.",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}
