@@ -413,6 +413,7 @@
 		6D6E8469E10A6BA1728E63D2 /* ref4_cfg1.7_ddpm15_RENDER.wav in Resources */ = {isa = PBXBuildFile; fileRef = B5740142889F77D868B87BB5 /* ref4_cfg1.7_ddpm15_RENDER.wav */; };
 		6D7D7695BA09B63CC7DFBC49 /* 0611.wav in Resources */ = {isa = PBXBuildFile; fileRef = ED9DB5D0178F206658890619 /* 0611.wav */; };
 		6D89A2A703227C272B9686A4 /* TunnelModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3D49046D4BCEA82EF336DB /* TunnelModels.swift */; };
+		6D931108D13F21E4333EF86F /* TTSRenderParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B91AE510F1CD8D3FDD8C09 /* TTSRenderParameters.swift */; };
 		6D9A42A6C25343207252B9BC /* 0043.wav in Resources */ = {isa = PBXBuildFile; fileRef = F9C619C032659A4E12480232 /* 0043.wav */; };
 		6DFA5316C6AF36363DFCA9E2 /* 0540.wav in Resources */ = {isa = PBXBuildFile; fileRef = DB0215D12C8EA3983307C0CA /* 0540.wav */; };
 		6E30978468A50E04959845EA /* 0706.wav in Resources */ = {isa = PBXBuildFile; fileRef = 45172E6BDA3120DAD3426DF0 /* 0706.wav */; };
@@ -423,6 +424,7 @@
 		6F48548332E56167D872A39E /* 0041.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7C1CAC6150F3AF9786EF89E4 /* 0041.wav */; };
 		6F5F10C6649E94FF57906739 /* 0554.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6D892D09BE658698297AE66 /* 0554.wav */; };
 		6F821E236E0F45548057BA19 /* 0039.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4DF73B98C779C64959E58B61 /* 0039.wav */; };
+		70265216E3C37A74EB635F27 /* TTSRenderParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B91AE510F1CD8D3FDD8C09 /* TTSRenderParameters.swift */; };
 		702DABE7D10EBF73DA557A03 /* JarvisTunnelClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160367015EA806653C38799C /* JarvisTunnelClient.swift */; };
 		70D4E2638F40D7588C588EB6 /* 0365.wav in Resources */ = {isa = PBXBuildFile; fileRef = 48FA74CD21803D7173520352 /* 0365.wav */; };
 		718F6F5B92D3F8811CDF77ED /* 0158.wav in Resources */ = {isa = PBXBuildFile; fileRef = EF416C69C76AA0A78F7A8770 /* 0158.wav */; };
@@ -704,6 +706,7 @@
 		B1EF3FC00D178F151E549460 /* IntentTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4E9998E76660D87C8B64F8 /* IntentTypes.swift */; };
 		B24ED00244B722BCB6A7B00D /* StreamingASRBackend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57668F2FD4DC63C63DAA1994 /* StreamingASRBackend.swift */; };
 		B255DEFADF8B592AC9C2CACC /* 0233.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4E9125F0E51E17EF9042178B /* 0233.wav */; };
+		B289858E6A44B0889E9178EC /* TTSRenderParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B91AE510F1CD8D3FDD8C09 /* TTSRenderParameters.swift */; };
 		B3265E6B5D60A87A3F133D73 /* JarvisHostTunnelServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69F0FA79AF7572EF2B95086 /* JarvisHostTunnelServer.swift */; };
 		B36DF35D9FCCDF847113F936 /* 0686.wav in Resources */ = {isa = PBXBuildFile; fileRef = A52B43F20B1FBBC7B23C56E4 /* 0686.wav */; };
 		B3B510FE244FA0F0CD072535 /* 0275.wav in Resources */ = {isa = PBXBuildFile; fileRef = 96B83C1BBB643C7993414067 /* 0275.wav */; };
@@ -1478,6 +1481,7 @@
 		6051D300B9787C98BF61C0B4 /* ArchonHarness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchonHarness.swift; sourceTree = "<group>"; };
 		6083F67BCC8A6233DD0C918D /* 0404.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0404.wav; sourceTree = "<group>"; };
 		60A4DDFD3ED785A62DE8AD3A /* 0493.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0493.wav; sourceTree = "<group>"; };
+		60B91AE510F1CD8D3FDD8C09 /* TTSRenderParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSRenderParameters.swift; sourceTree = "<group>"; };
 		6107F848B4DBE1096A591D1E /* 0377.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0377.wav; sourceTree = "<group>"; };
 		61493FA5A19A3A72FAF77F67 /* 0663.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0663.wav; sourceTree = "<group>"; };
 		61945CD718453EC005B343FD /* 0325.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0325.wav; sourceTree = "<group>"; };
@@ -3139,6 +3143,7 @@
 				57668F2FD4DC63C63DAA1994 /* StreamingASRBackend.swift */,
 				B17837D4107A1C5F01850E71 /* StreamingLLMClient.swift */,
 				EA1CB17FAB37803FF6191CFD /* StreamingTTSBackend.swift */,
+				60B91AE510F1CD8D3FDD8C09 /* TTSRenderParameters.swift */,
 				253BAC4EBBE2419D0D5261E9 /* TunnelCrypto.swift */,
 				6F3D49046D4BCEA82EF336DB /* TunnelModels.swift */,
 				E588E84112F72FD297F883B8 /* VoiceStreamingTypes.swift */,
@@ -4586,6 +4591,7 @@
 				B24ED00244B722BCB6A7B00D /* StreamingASRBackend.swift in Sources */,
 				44E8EC3A5B517FCE1C48B501 /* StreamingLLMClient.swift in Sources */,
 				6BB95BFD36138914C405A34B /* StreamingTTSBackend.swift in Sources */,
+				B289858E6A44B0889E9178EC /* TTSRenderParameters.swift in Sources */,
 				152F3A4F4BC8290C10ED737D /* TunnelCrypto.swift in Sources */,
 				31ECA25C561CC9EC70F06928 /* TunnelModels.swift in Sources */,
 				8E6AA8E81E66EE0D76572B75 /* VoiceStreamingTypes.swift in Sources */,
@@ -4728,6 +4734,7 @@
 				9565B30F0F907F8B51541C21 /* StubPhysicsEngine.swift in Sources */,
 				9EAF574F4B71362353E47B2B /* SystemCommandHandler.swift in Sources */,
 				D8271BEA49D82F59116DB526 /* TTSBackend.swift in Sources */,
+				6D931108D13F21E4333EF86F /* TTSRenderParameters.swift in Sources */,
 				5427C39C2220E53848B7A414 /* TelemetryStore.swift in Sources */,
 				94C82140802F41A68F8DFC5E /* TileProviderOrchestrator.swift in Sources */,
 				142D3118384E8E618E19CCA5 /* TunnelCrypto.swift in Sources */,
@@ -4774,6 +4781,7 @@
 				2EE46C2E464B85959FD31209 /* StreamingASRBackend.swift in Sources */,
 				17CECF41C16FC94EC39CE867 /* StreamingLLMClient.swift in Sources */,
 				F2E75560C0D5D6952B6C16D4 /* StreamingTTSBackend.swift in Sources */,
+				70265216E3C37A74EB635F27 /* TTSRenderParameters.swift in Sources */,
 				AD9EE35B29C49B2E712CBC55 /* TunnelCrypto.swift in Sources */,
 				2E6C476B5248EE6266A66C5A /* TunnelModels.swift in Sources */,
 				C95CB993B87897E87F83FD2A /* VoiceStreamingTypes.swift in Sources */,

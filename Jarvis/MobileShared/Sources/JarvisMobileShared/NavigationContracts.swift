@@ -294,7 +294,7 @@ extension UnityNavigationBridge: Codable {
 }
 
 /// Helper for decoding AnyCodable values from JSON.
-private struct AnyCodableDecodable: Codable {
+private struct AnyCodableDecodable: Decodable {
     let wrappedValue: Any
     
     init(from decoder: Decoder) throws {
@@ -352,14 +352,14 @@ private struct AnyCodableEncodable: Encodable {
 // only compares known-type branches; mismatched types return false rather
 // than trapping. Codable is deliberately omitted — AnyCodable is a
 // comparison-only wrapper; encode/decode belongs on the parent struct.
-private struct AnyCodable: Equatable, @unchecked Sendable {
-    let value: Any
-    
-    init(_ value: Any) {
+public struct AnyCodable: Equatable, @unchecked Sendable {
+    public let value: Any
+
+    public init(_ value: Any) {
         self.value = value
     }
-    
-    static func == (lhs: AnyCodable, rhs: AnyCodable) -> Bool {
+
+    public static func == (lhs: AnyCodable, rhs: AnyCodable) -> Bool {
         switch (lhs.value, rhs.value) {
         case let (lhs as String, rhs as String):
             return lhs == rhs
