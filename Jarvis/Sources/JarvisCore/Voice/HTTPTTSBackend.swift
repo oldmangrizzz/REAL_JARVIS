@@ -18,7 +18,7 @@ import Foundation
 ///   "max_new_tokens": null
 /// }
 /// → 200 audio/wav (raw bytes) OR application/json {"audio_b64": "..."}
-public final class HTTPTTSBackend: TTSBackend {
+public actor HTTPTTSBackend: TTSBackend {
     public let identifier: String
     public let selectedVoiceLabel: String
     public let sampleRate: Int
@@ -52,7 +52,7 @@ public final class HTTPTTSBackend: TTSBackend {
         referenceTranscript: String,
         parameters: TTSRenderParameters,
         outputURL: URL
-    ) throws {
+    ) async throws {
         let referenceData = try Data(contentsOf: referenceAudioURL)
         var payload: [String: Any] = [
             "text": text,
@@ -80,31 +80,15 @@ public final class HTTPTTSBackend: TTSBackend {
         request.setValue("audio/wav", forHTTPHeaderField: "Accept")
         request.httpBody = body
 
-        let semaphore = DispatchSemaphore(value: 0)
-        var resultData: Data?
-        var resultResponse: URLResponse?
-        var resultError: Error?
-        let task = session.dataTask(with: request) { data, response, error in
-            resultData = data
-            resultResponse = response
-            resultError = error
-            semaphore.signal()
-        }
-        task.resume()
-        let waitResult = semaphore.wait(timeout: .now() + timeout + 30)
-        guard waitResult == .success else {
-            task.cancel()
-            throw JarvisError.processFailure("HTTPTTSBackend: request to \(endpoint) timed out after \(timeout)s.")
-        }
+        // Perform the request using async/await.
+        let (data, response) = try await session.data(for: request)
 
-        if let error = resultError {
-            throw JarvisError.processFailure("HTTPTTSBackend: transport failure: \(error.localizedDescription)")
-        }
-        guard let httpResponse = resultResponse as? HTTPURLResponse else {
+        guard let httpResponse = response as? HTTPURLResponse else {
             throw JarvisError.processFailure("HTTPTTSBackend: response was not HTTP.")
         }
-        guard (200..<300).contains(httpResponse.statusCode), let data = resultData else {
-            let bodyPreview = (resultData.flatMap { String(data: $0.prefix(512), encoding: .utf8) }) ?? "<no body>"
+
+        guard (200..<300).contains(httpResponse.statusCode) else {
+            let bodyPreview = String(data: data.prefix(512), encoding: .utf8) ?? "<no body>"
             throw JarvisError.processFailure("HTTPTTSBackend: \(httpResponse.statusCode) from \(endpoint): \(bodyPreview)")
         }
 
@@ -124,7 +108,8 @@ public final class HTTPTTSBackend: TTSBackend {
             wavBytes = data
         }
 
-        try FileManager.default.createDirectory(at: outputURL.deletingLastPathComponent(), withIntermediateDirectories: true)
+        try FileManager.default.createDirectory(at: outputURL.deletingLastPathComponent(),
+                                                withIntermediateDirectories: true)
         try wavBytes.write(to: outputURL, options: .atomic)
     }
 }

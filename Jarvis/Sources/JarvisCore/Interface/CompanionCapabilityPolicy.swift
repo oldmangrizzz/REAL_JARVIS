@@ -154,6 +154,12 @@ public struct CompanionCapabilityPolicy: Sendable {
             // Skills can have side effects; until per-skill risk metadata
             // exists, companion tier cannot invoke arbitrary skills.
             return .deny(reason: "skill-invocation:operator-only-for-now")
+        case .speakRealtime:
+            // Currently not supported for companion or responder tiers.
+            return .deny(reason: "unsupported-action:speakRealtime")
+        @unknown default:
+            // Future-proofing: deny any unknown actions.
+            return .deny(reason: "unsupported-action:unknown")
         }
     }
 

@@ -1,6 +1,6 @@
 import Foundation
 
-public typealias SkillHandler = (_ input: [String: Any], _ runtime: JarvisRuntime) throws -> [String: Any]
+public typealias SkillHandler = (_ input: [String: Any], _ runtime: JarvisRuntime) async throws -> [String: Any]
 
 public struct JarvisSkillDescriptor: Sendable {
     public let name: String
@@ -40,14 +40,14 @@ public final class JarvisSkillRegistry {
         descriptors.map(\.name).sorted()
     }
 
-    public func execute(name: String, input: [String: Any], runtime: JarvisRuntime) throws -> [String: Any] {
+    public func execute(name: String, input: [String: Any], runtime: JarvisRuntime) async throws -> [String: Any] {
         guard descriptors.contains(where: { $0.name == name }) else {
             throw JarvisError.skillNotFound("Skill '\(name)' is not defined in agent-skills.")
         }
         guard let handler = nativeHandlers[name] else {
             throw JarvisError.nativeSkillUnavailable("Skill '\(name)' is documented but not bound to a native handler.")
         }
-        return try handler(input, runtime)
+        return try await handler(input, runtime)
     }
 
     private static func loadDescriptors(in directory: URL) throws -> [JarvisSkillDescriptor] {
@@ -84,7 +84,7 @@ public final class JarvisSkillRegistry {
 
     private static func makeNativeHandlers(paths: WorkspacePaths) -> [String: SkillHandler] {
         [
-            "stigmergic-regulation-skill": { input, runtime in
+            "stigmergic-regulation-skill": { input, runtime async throws in
                 let source = (input["source"] as? String) ?? "planner"
                 let target = (input["target"] as? String) ?? "implementation"
                 let current = (input["currentPheromone"] as? Double) ?? 0.0
@@ -102,7 +102,8 @@ public final class JarvisSkillRegistry {
                 ]
 
                 let mapped = try deposits.map { raw -> PheromoneDeposit in
-                    guard let signalValue = raw["signal"] as? Int, let signal = TernarySignal(rawValue: signalValue) else {
+                    guard let signalValue = raw["signal"] as? Int,
+                          let signal = TernarySignal(rawValue: signalValue) else {
                         throw JarvisError.invalidInput("Each pheromone deposit must include signal = -1, 0, or 1.")
                     }
                     return PheromoneDeposit(
@@ -128,38 +129,42 @@ public final class JarvisSkillRegistry {
                     "recommendedNextEdge": runtime.pheromind.chooseNextEdge(from: source)?.dictionary ?? NSNull()
                 ]
             },
-            "recursive-language-model-repl-skill": { input, runtime in
+            "recursive-language-model-repl-skill": { input, runtime async throws in
                 let prompt = (input["prompt"] as? String) ?? ""
                 let mode = (input["mode"] as? String) ?? "query"
                 if mode == "repl" {
-                    try runtime.pythonRLM.startREPL(prompt: prompt)
+                    try await runtime.pythonRLM.startREPL(prompt: prompt)
                     return ["status": "interactive-repl-started"]
                 }
                 let query = (input["query"] as? String) ?? "Summarize the prompt."
-                return try runtime.pythonRLM.query(prompt: prompt, query: query).json
+                return try await runtime.pythonRLM.query(prompt: prompt, query: query).json
             },
-            "memory-tier-memify-skill": { input, runtime in
+            "memory-tier-memify-skill": { input, runtime async throws in
                 let logPaths = (input["logPaths"] as? [String]) ?? []
-                let logURLs = logPaths.isEmpty ? try runtime.memory.defaultMemifyTargets() : logPaths.map(runtime.paths.resolve(path:))
-                let memify = try runtime.memory.memify(logFileURLs: logURLs)
+                let logURLs = logPaths.isEmpty
+                    ? try runtime.memory.defaultMemifyTargets()
+                    : logPaths.map(runtime.paths.resolve(path:))
+                let memify = try await runtime.memory.memify(logFileURLs: logURLs)
                 let query = (input["query"] as? String) ?? "latest execution state"
-                let page = try runtime.memory.pageIn(query: query, limit: 4)
+                let page = try await runtime.memory.pageIn(query: query, limit: 4)
                 return [
                     "memify": memify.json,
                     "page": page.json
                 ]
             },
-            "zero-shot-voice-synthesis-skill": { input, runtime in
+            "zero-shot-voice-synthesis-skill": { input, runtime async throws in
                 let text = (input["text"] as? String) ?? "Good evening. I have assembled the system."
                 let outputName = (input["outputName"] as? String) ?? "jarvis-response.aiff"
-                let result = try runtime.voice.synthesize(text: text, outputURL: runtime.paths.storageRoot.appendingPathComponent(outputName))
+                let result = try await runtime.voice.synthesize(
+                    text: text,
+                    outputURL: runtime.paths.storageRoot.appendingPathComponent(outputName)
+                )
                 return result.json
             },
-            "meta-harness-convex-observability-skill": { input, runtime in
-                let workflowURL = runtime.paths.resolve(path: (input["workflowPath"] as? String) ?? "Archon/default_workflow.yaml")
-                let traceDirectory = runtime.paths.resolve(path: (input["traceDirectory"] as? String) ?? runtime.paths.traceDirectory.path)
-                let mutation = try runtime.metaHarness.diagnoseAndRewrite(workflowURL: workflowURL, traceDirectory: traceDirectory)
-                return mutation.json
+            "meta-harness-convex-observability-skill": { input, runtime async throws in
+                let workflowURL = runtime.paths.resolve(path: (input["workflowPath"] as? String) ?? "Archon/MetaHarness/convex-observability-workflow.json")
+                let result = try await runtime.metaHarness.runObservabilityWorkflow(at: workflowURL)
+                return result.json
             }
         ]
     }
