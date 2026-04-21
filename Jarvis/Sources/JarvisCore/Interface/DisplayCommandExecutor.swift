@@ -67,6 +67,9 @@ public final class DisplayCommandExecutor: @unchecked Sendable {
     private let airPlayBridge: AirPlayBridge
     private let httpBridge: HTTPDisplayBridge
     private let hdmiCECBridge: HDMICECBridge
+    private let meshDispatcher: MeshDisplayDispatching
+    private let dialBridge: DIALDispatching
+    private let alexaRoutineBridge: AlexaRoutineDispatching
     private let n8nBridge: N8NBridge?
     private let n8nHAWebhookPath: String
 
@@ -75,7 +78,10 @@ public final class DisplayCommandExecutor: @unchecked Sendable {
         controlPlane: MyceliumControlPlane,
         telemetry: TelemetryStore,
         n8nBridge: N8NBridge? = nil,
-        n8nHAWebhookPath: String = "jarvis/ha/call-service"
+        n8nHAWebhookPath: String = "jarvis/ha/call-service",
+        meshDispatcher: MeshDisplayDispatching? = nil,
+        dialBridge: DIALDispatching? = nil,
+        alexaRoutineBridge: AlexaRoutineDispatching? = nil
     ) {
         self.registry = registry
         self.controlPlane = controlPlane
@@ -89,6 +95,9 @@ public final class DisplayCommandExecutor: @unchecked Sendable {
         self.airPlayBridge = AirPlayBridge(paths: paths)
         self.httpBridge = HTTPDisplayBridge()
         self.hdmiCECBridge = HDMICECBridge()
+        self.meshDispatcher = meshDispatcher ?? MeshDisplayDispatcher()
+        self.dialBridge = dialBridge ?? DIALBridge()
+        self.alexaRoutineBridge = alexaRoutineBridge ?? AlexaRoutineBridge()
         self.n8nBridge = n8nBridge
         self.n8nHAWebhookPath = n8nHAWebhookPath
     }
@@ -215,53 +224,13 @@ public final class DisplayCommandExecutor: @unchecked Sendable {
             )
 
         case .jarvisTunnel:
-            // Mesh nodes (alpha/beta/foxtrot/charlie/delta): dispatch via
-            // the host tunnel to the target node's JarvisCore instance.
-            // Stub: queue-and-ack until MeshDisplayDispatcher lands. The
-            // snapshot already carries node registry heartbeats.
-            return ExecutionResult(
-                success: true,
-                spokenText: "Command queued for \(display.displayName) over the Jarvis mesh.",
-                details: [
-                    "display": display.id,
-                    "transport": "jarvis-tunnel",
-                    "address": display.address ?? "",
-                    "action": action,
-                    "authority": display.authority.rawValue
-                ]
-            )
+            return try await meshDispatcher.dispatch(display: display, action: action, parameters: parameters)
 
         case .dial:
-            // Fire TV / Chromecast DIAL protocol. SSDP discovery + POST to
-            // :8008 / :8009. Not yet implemented — log intent and return
-            // a queued result so upstream callers and tests stay honest.
-            return ExecutionResult(
-                success: true,
-                spokenText: "Queued DIAL launch for \(display.displayName).",
-                details: [
-                    "display": display.id,
-                    "transport": "dial",
-                    "address": display.address ?? "",
-                    "action": action,
-                    "status": "queued-pending-dial-bridge"
-                ]
-            )
+            return try await dialBridge.launchApp(display: display, action: action, parameters: parameters)
 
         case .alexaRoutine:
-            // Echo Show routines invoked via webhook. The routine name is
-            // stored in `display.address`. Queued-log path until the
-            // Alexa routine bridge ships.
-            return ExecutionResult(
-                success: true,
-                spokenText: "Queued Alexa routine for \(display.displayName).",
-                details: [
-                    "display": display.id,
-                    "transport": "alexa-routine",
-                    "routine": display.address ?? "",
-                    "action": action,
-                    "status": "queued-pending-alexa-bridge"
-                ]
-            )
+            return try await alexaRoutineBridge.trigger(display: display, action: action, parameters: parameters)
         }
     }
 

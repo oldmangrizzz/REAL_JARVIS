@@ -1,0 +1,16 @@
+[Unit]
+Description=Jarvis Mesh Display Agent
+After=network-online.target graphical.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+EnvironmentFile=-/etc/jarvis/mesh-display.env
+ExecStart=/usr/bin/python3 /opt/jarvis/mesh-display-agent.py
+Restart=on-failure
+RestartSec=5
+User=jarvis
+Group=jarvis
+
+[Install]
+WantedBy=multi-user.target

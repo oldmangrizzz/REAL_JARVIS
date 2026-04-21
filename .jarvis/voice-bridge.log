@@ -29,3 +29,7 @@
 Jarvis error: A&Ox3: node is not fully oriented; output suppressed per PRINCIPLES.md §3.
 2026-04-21 14:23:21.867 Jarvis[1472:14922] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
 [voice-bridge] listening on :8787 — bearer=215e04004290932b4fe76c83a8e6a1e75e0ec0af541c756c
+2026-04-21 15:14:51.776 Jarvis[42972:187698] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+[voice-bridge] listening on :8787 — bearer=215e04004290932b4fe76c83a8e6a1e75e0ec0af541c756c
+2026-04-21 15:24:35.163 Jarvis[46930:204219] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+[voice-bridge] listening on :8787 — bearer=215e04004290932b4fe76c83a8e6a1e75e0ec0af541c756c

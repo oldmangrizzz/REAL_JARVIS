@@ -7,26 +7,26 @@
       "confidence" : 0.95,
       "notes" : "bound to ratified genesis",
       "payload" : "Grizz (Robert Barclay Hanson) — EMT-P Ret., Founder GrizzlyMedicine Research Institute",
-      "timestamp" : "2026-04-21T19:23:18Z"
+      "timestamp" : "2026-04-21T20:24:34Z"
     },
     {
       "axis" : "place",
       "confidence" : 0.8,
       "payload" : "host:workshop-echo.local; hw:locked; net:offline; fp:4bbc97755d019083",
-      "timestamp" : "2026-04-21T19:23:19Z"
+      "timestamp" : "2026-04-21T20:24:35Z"
     },
     {
       "axis" : "time",
       "confidence" : 0.99,
-      "payload" : "wall:2026-04-21T19:23:19Z; uptime:146s",
-      "timestamp" : "2026-04-21T19:23:19Z"
+      "payload" : "wall:2026-04-21T20:24:35Z; uptime:3821s",
+      "timestamp" : "2026-04-21T20:24:35Z"
     },
     {
       "axis" : "event",
-      "confidence" : 0.8751498487114907,
-      "payload" : "streams:aox4_probes; newest:4s",
-      "timestamp" : "2026-04-21T19:23:19Z"
+      "confidence" : 0.8572234336018563,
+      "payload" : "streams:execution_traces,node_registry; newest:20s",
+      "timestamp" : "2026-04-21T20:24:35Z"
     }
   ],
-  "timestamp" : "2026-04-21T19:23:19Z"
+  "timestamp" : "2026-04-21T20:24:35Z"
 }
