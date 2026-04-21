@@ -1,6 +1,6 @@
 import Foundation
 
-/// NAV-001 Phase A: Fail-over orchestrator for tile providers.
+/// NAV-001 Phase A: Fail‑over orchestrator for tile providers.
 ///
 /// Maintains a primary/fallback pair. If the primary reports unhealthy
 /// for `failureThreshold` consecutive probes, the orchestrator demotes
@@ -30,6 +30,8 @@ public actor TileProviderOrchestrator {
     private var consecutivePrimaryFailures: Int = 0
     private var consecutivePrimaryRecoveries: Int = 0
 
+    // MARK: - Initialization
+
     public init(
         primary: any MapTileProvider,
         fallback: any MapTileProvider,
@@ -51,17 +53,24 @@ public actor TileProviderOrchestrator {
         self.auditLog = auditLog
     }
 
-    /// The currently-active tile provider.
+    // MARK: - Public API
+
+    /// The currently‑active tile provider.
     public func currentProvider() -> any MapTileProvider {
         currentIsPrimary ? primary : fallback
     }
 
-    /// Run health probe on the current primary. Demotes if threshold hit.
-    /// If both providers report unhealthy, throws allProvidersUnhealthy.
-    public func probe() async {
+    /// Run a health probe on the primary (or fallback if already demoted).
+    ///
+    /// - Throws: `TileProviderError.allProvidersUnhealthy` when both
+    ///   providers are unhealthy.
+    public func probe() async throws {
+        // Always probe the primary to keep its health state up‑to‑date.
         let primaryHealth = await primary.healthProbe()
+
         switch primaryHealth {
         case .healthy:
+            // Primary healthy – possibly recover if we are on fallback.
             if !currentIsPrimary {
                 consecutivePrimaryRecoveries += 1
                 if consecutivePrimaryRecoveries >= failureThreshold {
@@ -75,20 +84,23 @@ public actor TileProviderOrchestrator {
                     ))
                 }
             } else {
+                // Reset counters when primary is already active.
                 consecutivePrimaryFailures = 0
                 consecutivePrimaryRecoveries = 0
             }
+
         case .degraded(reason: let reason):
-            // Degraded counts as partial failure for demotion tracking.
+            // Degraded counts as a partial failure for demotion tracking.
             if currentIsPrimary {
-                // Still usable but note degradation.
                 await auditLog.record(AuditEntry(
                     at: Date(),
                     kind: "tile.degraded",
                     detail: "Primary degraded: \(reason)"
                 ))
             }
+
         case .unhealthy(reason: let reason):
+            // Primary unhealthy – increment failure counter.
             if currentIsPrimary {
                 consecutivePrimaryFailures += 1
                 consecutivePrimaryRecoveries = 0
@@ -104,10 +116,19 @@ public actor TileProviderOrchestrator {
                 }
             }
         }
+
+        // If we are currently using the fallback, ensure it is still viable.
+        if !currentIsPrimary {
+            let fallbackHealth = await fallback.healthProbe()
+            if case .unhealthy(let reason) = fallbackHealth {
+                // Both providers unhealthy – surface a fatal error.
+                throw TileProviderError.allProvidersUnhealthy(reason: reason)
+            }
+        }
     }
 
     /// Force an immediate recovery attempt: probe the primary and switch
-    /// back if healthy. Returns true if recovered.
+    /// back if healthy. Returns `true` if recovered.
     public func forcePrimaryRecovery() async -> Bool {
         let health = await primary.healthProbe()
         if case .healthy = health {
@@ -147,7 +168,7 @@ public struct AuditEntry: Sendable, Equatable {
     }
 }
 
-/// In-memory audit log for testing. Thread-safe via actor isolation.
+/// In‑memory audit log for testing. Thread‑safe via actor isolation.
 public actor InMemoryAuditLog: AuditLog {
     private var _entries: [AuditEntry] = []
 

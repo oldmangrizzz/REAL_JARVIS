@@ -1,13 +1,13 @@
 import Foundation
 
-/// NAV-001 Phase B: Deterministic best-path router.
+/// NAV-001 Phase B: Deterministic best‑path router.
 ///
-/// Implements Dijkstra's algorithm with profile-aware edge weighting.
-/// Identical inputs always produce byte-equal `Route` outputs
-/// (deterministic tie-breaking by edge ID). No real network calls.
+/// Implements Dijkstra's algorithm with profile‑aware edge weighting and
+/// deterministic tie‑breaking (by edge identifier). Identical inputs always
+/// produce byte‑equal `Route` outputs. No network calls are performed.
 ///
-/// The router is `Sendable` and stateless — it holds only the graph,
-/// which is immutable after init.
+/// The router is `Sendable` and stateless — it holds only the graph, which is
+/// immutable after initialization.
 public struct UniversalRouter: Sendable {
 
     private let graph: any RoadGraph
@@ -17,11 +17,12 @@ public struct UniversalRouter: Sendable {
     }
 
     /// Compute up to `limit` routes from `start` to `end`.
-    /// Returns routes ordered by ascending total cost. Deterministic:
-    /// same start/end/profiles/context always yields the same routes.
     ///
-    /// Profiles whose `principalScope` does not include the principal's
-    /// category are silently skipped (exhaustive allow-list, no default).
+    /// The returned routes are ordered by ascending total cost. Deterministic:
+    /// the same start/end/profiles/context always yields the same routes.
+    ///
+    /// Profiles whose `principalScope` does not include the principal's category
+    /// are silently skipped (exhaustive allow‑list, no default).
     public func routes(
         from start: String,
         to end: String,
@@ -37,7 +38,12 @@ public struct UniversalRouter: Sendable {
                 // Tier gate: skip profiles not in this principal's scope.
                 continue
             }
-            if let route = singleRoute(from: start, to: end, profile: profile, context: context) {
+            if let route = singleRoute(
+                from: start,
+                to: end,
+                profile: profile,
+                context: context
+            ) {
                 results.append(route)
             }
             if results.count >= limit { break }
@@ -46,25 +52,41 @@ public struct UniversalRouter: Sendable {
         return results
     }
 
-    /// Single-source shortest path using Dijkstra with profile-weighted edges.
-    /// Tie-break on edge ID for determinism.
+    // MARK: - Private helpers
+
+    /// Single‑source shortest path using Dijkstra with profile‑weighted edges.
+    /// Deterministic tie‑breaking is performed on edge identifiers.
     private func singleRoute(
         from start: String,
         to end: String,
         profile: any RoutingProfile,
         context: RoutingContext
     ) -> Route? {
-        // Dijkstra's algorithm
+        // Distance from start to each node.
         var dist: [String: Double] = [:]
-        var prev: [String: String] = [:]
+        // Predecessor node for each visited node.
+        var prevNode: [String: String] = [:]
+        // Edge identifier that was used to reach the node.
+        var prevEdgeID: [String: String] = [:]
+
         var visited: Set<String> = []
 
         dist[start] = 0.0
-        // Priority queue approximated with sorted array (deterministic for tests).
+
+        // Frontier is a simple array; we always pick the minimum element.
+        // This guarantees deterministic ordering for the test suite.
         var frontier: [(node: String, cost: Double)] = [(start, 0.0)]
 
-        while let current = frontier.min(by: { $0.cost < $1.cost || ($0.cost == $1.cost && $0.node < $1.node) }) {
-            frontier.removeAll { $0.node == current.node && $0.cost == current.cost }
+        while let current = frontier.min(by: {
+            if $0.cost != $1.cost { return $0.cost < $1.cost }
+            // Deterministic tie‑break on node identifier.
+            return $0.node < $1.node
+        }) {
+            // Remove *all* entries that match the selected node & cost.
+            frontier.removeAll {
+                $0.node == current.node && $0.cost == current.cost
+            }
+
             guard !visited.contains(current.node) else { continue }
             visited.insert(current.node)
 
@@ -73,34 +95,56 @@ public struct UniversalRouter: Sendable {
             for edge in graph.neighbors(of: current.node) {
                 let weight = profile.edgeWeight(edge, context: context)
                 let alt = dist[current.node]! + weight
-                if alt < (dist[edge.toNode] ?? .infinity) {
+
+                let existing = dist[edge.toNode] ?? .infinity
+
+                if alt < existing {
+                    // Better path found.
                     dist[edge.toNode] = alt
-                    prev[edge.toNode] = current.node
-                    // Track the edge ID used to reach this node.
+                    prevNode[edge.toNode] = current.node
+                    prevEdgeID[edge.toNode] = edge.id
                     frontier.append((edge.toNode, alt))
+                } else if alt == existing {
+                    // Equal cost – apply deterministic tie‑break on edge ID.
+                    if let storedEdgeID = prevEdgeID[edge.toNode],
+                       edge.id < storedEdgeID {
+                        // Prefer the lexicographically smaller edge identifier.
+                        prevNode[edge.toNode] = current.node
+                        prevEdgeID[edge.toNode] = edge.id
+                        // No need to modify `dist` (same value) but we must ensure the
+                        // frontier contains the node so that subsequent relaxations see
+                        // the updated predecessor. Adding a duplicate is harmless.
+                        frontier.append((edge.toNode, alt))
+                    }
                 }
             }
         }
 
-        guard dist[end] != nil else { return nil }
+        guard let _ = dist[end] else { return nil }
 
-        // Reconstruct path as edge IDs.
-        var pathEdgeIDs: [String] = []
+        // Reconstruct the path from `end` back to `start`.
+        var edgeIDs: [String] = []
         var node = end
         var totalLength: Double = 0.0
+
         while node != start {
-            guard let predecessor = prev[node] else { return nil }
-            // Find the edge from predecessor to node.
-            let edgeOpt = graph.neighbors(of: predecessor).first(where: { $0.toNode == node })
-            guard let edge = edgeOpt else { return nil }
-            pathEdgeIDs.append(edge.id)
+            guard let predecessor = prevNode[node],
+                  let edgeID = prevEdgeID[node] else { return nil }
+
+            // Retrieve the edge to obtain its length.
+            guard let edge = graph.neighbors(of: predecessor).first(where: { $0.id == edgeID }) else {
+                return nil
+            }
+
+            edgeIDs.append(edgeID)
             totalLength += edge.lengthMeters
             node = predecessor
         }
-        pathEdgeIDs.reverse()
+
+        edgeIDs.reverse()
 
         return Route(
-            edgeIDs: pathEdgeIDs,
+            edgeIDs: edgeIDs,
             totalCostWeighted: dist[end]!,
             totalLengthMeters: totalLength,
             profileIdentifier: profile.identifier

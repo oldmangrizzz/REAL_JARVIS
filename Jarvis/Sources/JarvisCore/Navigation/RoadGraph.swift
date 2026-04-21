@@ -7,9 +7,11 @@ import Foundation
 /// Tests inject `InMemoryRoadGraph` with fixture data.
 ///
 /// CANON: operator-teachable; persistence ticket pending. The graph is
-/// read-only for routing; it does not persist taught parameters.
+/// read‑only for routing; it does not persist taught parameters.
 public protocol RoadGraph: Sendable {
+    /// Returns the edge with the given identifier, or `nil` if it does not exist.
     func edge(id: String) -> RouteEdge?
+    /// Returns all outgoing edges from the supplied node identifier.
     func neighbors(of node: String) -> [RouteEdge]
 }
 
@@ -22,9 +24,14 @@ public struct RouteEdge: Sendable, Equatable, Hashable, Codable {
     public let maxSpeedKPH: Double?
     public let attributes: [String: String]
 
-    public init(id: String, fromNode: String, toNode: String,
-                lengthMeters: Double, maxSpeedKPH: Double? = nil,
-                attributes: [String: String] = [:]) {
+    public init(
+        id: String,
+        fromNode: String,
+        toNode: String,
+        lengthMeters: Double,
+        maxSpeedKPH: Double? = nil,
+        attributes: [String: String] = [:]
+    ) {
         self.id = id
         self.fromNode = fromNode
         self.toNode = toNode
@@ -34,13 +41,17 @@ public struct RouteEdge: Sendable, Equatable, Hashable, Codable {
     }
 }
 
-/// Context passed into `RoutingProfile.edgeWeight` for hazard-aware routing.
+/// Context passed into `RoutingProfile.edgeWeight` for hazard‑aware routing.
 public struct RoutingContext: Sendable {
     public let principal: Principal
     public let activeHazards: [HazardOverlayFeature]
     public let requestedAt: Date
 
-    public init(principal: Principal, activeHazards: [HazardOverlayFeature], requestedAt: Date = Date()) {
+    public init(
+        principal: Principal,
+        activeHazards: [HazardOverlayFeature],
+        requestedAt: Date = Date()
+    ) {
         self.principal = principal
         self.activeHazards = activeHazards
         self.requestedAt = requestedAt
@@ -54,8 +65,12 @@ public struct Route: Sendable, Equatable, Codable {
     public let totalLengthMeters: Double
     public let profileIdentifier: String
 
-    public init(edgeIDs: [String], totalCostWeighted: Double,
-                totalLengthMeters: Double, profileIdentifier: String) {
+    public init(
+        edgeIDs: [String],
+        totalCostWeighted: Double,
+        totalLengthMeters: Double,
+        profileIdentifier: String
+    ) {
         self.edgeIDs = edgeIDs
         self.totalCostWeighted = totalCostWeighted
         self.totalLengthMeters = totalLengthMeters
@@ -66,7 +81,7 @@ public struct Route: Sendable, Equatable, Codable {
 /// Routing profile protocol. Each profile defines which principal
 /// categories are allowed and how edges are weighted.
 ///
-/// Tier gating: `principalScope` is an exhaustive allow-list. If the
+/// Tier gating: `principalScope` is an exhaustive allow‑list. If the
 /// principal's category is not in the scope, the profile is not used
 /// for that principal's routes.
 public protocol RoutingProfile: Sendable {
@@ -75,15 +90,17 @@ public protocol RoutingProfile: Sendable {
     func edgeWeight(_ edge: RouteEdge, context: RoutingContext) -> Double
 }
 
-// MARK: - In-Memory Road Graph (test fixture only; do not ship to production)
+// MARK: - In‑Memory Road Graph (test fixture only; do not ship to production)
 
-/// Tiny in-memory graph for deterministic test routing. Loaded from
+/// Tiny in‑memory graph for deterministic test routing. Loaded from
 /// JSON fixture `route_graph_small.json`. Production graphs come from
 /// real data pipelines — this is purely for hermetic unit tests.
 public struct InMemoryRoadGraph: RoadGraph, Sendable {
     private let edgeMap: [String: RouteEdge]
     private let adjacency: [String: [RouteEdge]]
 
+    /// Initialise the graph with a flat list of edges.
+    /// The constructor builds an edge lookup table and an adjacency list.
     public init(edges: [RouteEdge]) {
         var emap: [String: RouteEdge] = [:]
         var adj: [String: [RouteEdge]] = [:]
@@ -98,4 +115,40 @@ public struct InMemoryRoadGraph: RoadGraph, Sendable {
     public func edge(id: String) -> RouteEdge? { edgeMap[id] }
 
     public func neighbors(of node: String) -> [RouteEdge] { adjacency[node] ?? [] }
+
+    /// Returns the set of all node identifiers present in the graph.
+    public func allNodeIDs() -> Set<String> {
+        var nodes = Set<String>()
+        for edge in edgeMap.values {
+            nodes.insert(edge.fromNode)
+            nodes.insert(edge.toNode)
+        }
+        return nodes
+    }
+}
+
+// MARK: - Fixture Loading Helpers
+
+public extension InMemoryRoadGraph {
+    /// Load a JSON fixture bundled with the package and construct an
+    /// `InMemoryRoadGraph`. The JSON file must contain an array of
+    /// `RouteEdge` objects.
+    ///
+    /// - Parameter name: The base name of the fixture file (without extension).
+    /// - Returns: An in‑memory graph populated with the fixture data.
+    /// - Throws: Propagates any I/O or decoding errors.
+    static func loadFixture(named name: String) throws -> InMemoryRoadGraph {
+        // `Bundle.module` is generated by SwiftPM for resources declared in the package.
+        guard let url = Bundle.module.url(forResource: name, withExtension: "json") else {
+            throw NSError(
+                domain: "InMemoryRoadGraph",
+                code: 1,
+                userInfo: [NSLocalizedDescriptionKey: "Fixture '\(name).json' not found in bundle."]
+            )
+        }
+        let data = try Data(contentsOf: url)
+        let decoder = JSONDecoder()
+        let edges = try decoder.decode([RouteEdge].self, from: data)
+        return InMemoryRoadGraph(edges: edges)
+    }
 }

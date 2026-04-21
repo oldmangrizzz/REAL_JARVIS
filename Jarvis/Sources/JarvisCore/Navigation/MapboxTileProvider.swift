@@ -34,6 +34,8 @@ public struct MapboxTileProvider: MapTileProvider, Sendable {
         self.attribution = "© Mapbox © OpenStreetMap"
     }
 
+    // MARK: - MapTileProvider requirements
+
     public func styleURL(for principal: Principal) throws -> URL {
         guard let token = credentials.publicToken, !token.isEmpty else {
             throw TileProviderError.unauthorizedTier(principal)
@@ -42,21 +44,20 @@ public struct MapboxTileProvider: MapTileProvider, Sendable {
         guard let url = URL(string: urlString) else {
             throw TileProviderError.hostNotRegistered(identifier)
         }
-        // Fail-closed: every URL must pass through OSINTFetchGuard.
-        let result = guard_.authorize(url: url, principal: principal)
-        switch result {
-        case .success:
-            return url
-        case .failure(let denial):
-            switch denial {
-            case .unlistedHost(let host):
-                throw TileProviderError.hostNotRegistered(host)
-            case .operatorOnly(let key):
-                throw TileProviderError.hostNotRegistered(key)
-            case .invalidURL:
-                throw TileProviderError.hostNotRegistered("invalid")
-            }
+        try authorize(url, for: principal)
+        return url
+    }
+
+    public func tileURL(x: Int, y: Int, zoom: Int, for principal: Principal) throws -> URL {
+        guard let token = credentials.publicToken, !token.isEmpty else {
+            throw TileProviderError.unauthorizedTier(principal)
         }
+        let urlString = "https://api.mapbox.com/styles/v1/mapbox/\(styleID)/tiles/256/\(zoom)/\(x)/\(y)?access_token=\(token)"
+        guard let url = URL(string: urlString) else {
+            throw TileProviderError.hostNotRegistered(identifier)
+        }
+        try authorize(url, for: principal)
+        return url
     }
 
     public func healthProbe() async -> TileProviderHealth {
@@ -69,10 +70,29 @@ public struct MapboxTileProvider: MapTileProvider, Sendable {
         var request = URLRequest(url: url)
         request.timeoutInterval = 5
         do {
-            let _ = try await transport.fetch(request)
+            _ = try await transport.fetch(request)
             return .healthy
         } catch {
             return .unhealthy(reason: "Probe failed: \(error.localizedDescription)")
+        }
+    }
+
+    // MARK: - Private helpers
+
+    private func authorize(_ url: URL, for principal: Principal) throws {
+        let result = guard_.authorize(url: url, principal: principal)
+        switch result {
+        case .success:
+            return
+        case .failure(let denial):
+            switch denial {
+            case .unlistedHost(let host):
+                throw TileProviderError.hostNotRegistered(host)
+            case .operatorOnly(let key):
+                throw TileProviderError.hostNotRegistered(key)
+            case .invalidURL:
+                throw TileProviderError.hostNotRegistered("invalid")
+            }
         }
     }
 }

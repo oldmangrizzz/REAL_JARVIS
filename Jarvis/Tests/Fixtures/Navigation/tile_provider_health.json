@@ -1,0 +1,16 @@
+{
+  "providers": [
+    {
+      "name": "OpenStreetMap",
+      "status": "healthy",
+      "response_time_ms": 45,
+      "available": true
+    },
+    {
+      "name": "Mapbox",
+      "status": "healthy",
+      "response_time_ms": 30,
+      "available": true
+    }
+  ]
+}
