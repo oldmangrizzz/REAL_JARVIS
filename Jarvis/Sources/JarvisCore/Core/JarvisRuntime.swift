@@ -17,6 +17,7 @@ public final class JarvisRuntime {
     public let physicsSummarizer: PhysicsSummarizer
     public let arcBridge: ARCHarnessBridge
     public let presenceRouter: PresenceEventRouter
+    public let lettaBridge: LettaBridge?
 
     public init(paths: WorkspacePaths) throws {
         self.paths = paths
@@ -46,8 +47,18 @@ public final class JarvisRuntime {
             telemetry: self.telemetry,
             voiceCacheDirectory: paths.voiceCacheDirectory
         )
+        self.lettaBridge = Self.makeLettaBridge()
         Task.detached { [telemetrySync] in
             await telemetrySync.start()
         }
+    }
+
+    private static func makeLettaBridge() -> LettaBridge? {
+        let env = ProcessInfo.processInfo.environment
+        guard let raw = env["JARVIS_LETTA_BASE_URL"],
+              let url = URL(string: raw) else {
+            return nil
+        }
+        return LettaBridge(baseURL: url, bearerToken: env["JARVIS_LETTA_TOKEN"])
     }
 }

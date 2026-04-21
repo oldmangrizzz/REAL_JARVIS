@@ -30,6 +30,7 @@
 		04D9D0594EDE91118686B95A /* 0260.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7EF86AA0F67B9FF916140F5E /* 0260.wav */; };
 		0596D340B8A727A6936527FE /* 0231.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2724515C298BCB13E056EDFB /* 0231.wav */; };
 		0598592BE10CCF7B9A40C5AD /* 0001.wav in Resources */ = {isa = PBXBuildFile; fileRef = B4613D3D2D4891C7C138083E /* 0001.wav */; };
+		059A655586D474CE388CC42A /* LettaBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDDD02F3BAF4FF96DEACC6E /* LettaBridge.swift */; };
 		05CBF94105177A9E398CB3DA /* 0626.wav in Resources */ = {isa = PBXBuildFile; fileRef = E3709FA318234F267AEDF89D /* 0626.wav */; };
 		05E64C366C8FE65808F4B432 /* CarPlayNavigationScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D00027C8197D3130AFC3FC9 /* CarPlayNavigationScene.swift */; };
 		05EB2BF89D5F33D20FD1EDC8 /* 0694.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0C84E47826D95C91F401AAA1 /* 0694.wav */; };
@@ -141,6 +142,7 @@
 		1FE1796C0EE98F8801E356FA /* 0501.wav in Resources */ = {isa = PBXBuildFile; fileRef = A5DBF485463A37D5AA069ED7 /* 0501.wav */; };
 		1FEE45179362CFCA5835FA23 /* AppIntents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4C28BA9654C129DF08AD22 /* AppIntents.framework */; };
 		205B771FA01D6BED5EBDFEB1 /* 0202.wav in Resources */ = {isa = PBXBuildFile; fileRef = 33CBD65E506525D653AE3119 /* 0202.wav */; };
+		206325F0D48CD7484924FF6C /* LettaBridgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F36AD405D7A4AE32C08F988 /* LettaBridgeTests.swift */; };
 		216B0F4C4F03B99D1AF8793A /* 0269.wav in Resources */ = {isa = PBXBuildFile; fileRef = D204C8C40B901DF427B21A74 /* 0269.wav */; };
 		2187B1C87EFEBAE3199CAB36 /* 0425.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7F168B26E81E520E5F5498D4 /* 0425.wav */; };
 		21A66B658A112333E54F2920 /* 0063.wav in Resources */ = {isa = PBXBuildFile; fileRef = D57BB41EA4D20701363EEA88 /* 0063.wav */; };
@@ -1386,6 +1388,7 @@
 		3E3FDC0BA72D1FEB153F3BA7 /* 0303.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0303.wav; sourceTree = "<group>"; };
 		3EB34CFDD6ADC1DB07A5E2B5 /* SpeakerIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerIdentifier.swift; sourceTree = "<group>"; };
 		3F07FCD64DC1C89C963EE6B5 /* 0089.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0089.wav; sourceTree = "<group>"; };
+		3F36AD405D7A4AE32C08F988 /* LettaBridgeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LettaBridgeTests.swift; sourceTree = "<group>"; };
 		3FA1F2E9C5B20501CE768EA9 /* 0302.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0302.wav; sourceTree = "<group>"; };
 		3FB82FDE2CEB9857B7CE7973 /* 0680.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0680.wav; sourceTree = "<group>"; };
 		40CB99A8BADF687A3BD7EFE2 /* MasterOscillator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterOscillator.swift; sourceTree = "<group>"; };
@@ -1655,6 +1658,7 @@
 		8B8E0004911391BA41A7F9DD /* DisplayCommandExecutorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayCommandExecutorTests.swift; sourceTree = "<group>"; };
 		8BC7DFB0C9B381AA024D0EAA /* ref4_cfg2.1_ddpm15_RENDER.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ref4_cfg2.1_ddpm15_RENDER.wav; sourceTree = "<group>"; };
 		8CB5DB3BD572CB328AB68DDD /* 0463.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0463.wav; sourceTree = "<group>"; };
+		8CDDD02F3BAF4FF96DEACC6E /* LettaBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LettaBridge.swift; sourceTree = "<group>"; };
 		8D7180143C6346981A535E9A /* 0150.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0150.wav; sourceTree = "<group>"; };
 		8D989C21452B723B701D6F1A /* 0208.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0208.wav; sourceTree = "<group>"; };
 		8EBF8ED5EF2855A10D558355 /* plan.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = plan.json; sourceTree = "<group>"; };
@@ -3485,6 +3489,7 @@
 		D553F5BC4C9254EA92154643 /* Integrations */ = {
 			isa = PBXGroup;
 			children = (
+				8CDDD02F3BAF4FF96DEACC6E /* LettaBridge.swift */,
 				80C81BED52278E956553246F /* N8NBridge.swift */,
 			);
 			path = Integrations;
@@ -3550,6 +3555,7 @@
 				0D87707C697CF7AFA44D63E0 /* IntentParserTests.swift */,
 				1E052F3A66FA53951170F995 /* JarvisHostTunnelServerTests.swift */,
 				3A446970D091559EDBCC27E8 /* JarvisPaletteHexTests.swift */,
+				3F36AD405D7A4AE32C08F988 /* LettaBridgeTests.swift */,
 				F389B6B3E20B86F1B807EA01 /* MapboxCredentialsTests.swift */,
 				ED39C97D28386B343B1D38A3 /* MemoryEngineTests.swift */,
 				E2B8C826121D859879AEBB31 /* MeshDisplayDispatcherTests.swift */,
@@ -4727,6 +4733,7 @@
 				2808C2294634A31939161AB0 /* IntentParserTests.swift in Sources */,
 				2B729528EF909F29620C50F7 /* JarvisHostTunnelServerTests.swift in Sources */,
 				9041B6CC39045BD12428E371 /* JarvisPaletteHexTests.swift in Sources */,
+				206325F0D48CD7484924FF6C /* LettaBridgeTests.swift in Sources */,
 				6868EFB76FED771B25A1DE4E /* MapTileProviderTests.swift in Sources */,
 				DA4F7CE0EA3B715BF3B97350 /* MapboxCredentialsTests.swift in Sources */,
 				50A19BE0C7F5D7C9183831BD /* MemoryEngineTests.swift in Sources */,
@@ -4809,6 +4816,7 @@
 				B3265E6B5D60A87A3F133D73 /* JarvisHostTunnelServer.swift in Sources */,
 				AB0E8453F24B57C62315C6CC /* JarvisRuntime.swift in Sources */,
 				B551DEC2391F5F43E7847663 /* JarvisVoiceHTTPBridge.swift in Sources */,
+				059A655586D474CE388CC42A /* LettaBridge.swift in Sources */,
 				A382A8999CBE85BAEC3F814E /* MapLibreOSMTileProvider.swift in Sources */,
 				48F614CCC005B7CCE5738B7F /* MapTileProvider.swift in Sources */,
 				0D8ECD41A18B972D5C52B042 /* MapboxCredentials.swift in Sources */,
