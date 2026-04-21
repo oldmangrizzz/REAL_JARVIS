@@ -142,14 +142,14 @@ public final class JarvisVoicePipeline {
     private let backend: TTSBackend
     private var cachedSession: VoiceSessionConfiguration?
 
-    /// Bumped any time the persona framing format OR the locked
-    /// VibeVoice render parameters change. Bumping invalidates every
-    /// prior voice approval — the operator must re-audition because the
-    /// spoken output will be materially different.
-    /// v2: locks cfg_scale=2.1 + ddpm_steps=10 against canonical
-    /// reference 0299_TINCANS_CANONICAL.wav (Iron Man 1 dub-stage tone),
-    /// approved by operator 2026-04-18 from audition matrix matrix-01.
-    public static let personaFramingVersion = "persona-frame-v2-vibevoice-cfg2.1-ddpm10"
+    /// Bumped any time the persona framing format OR the locked TTS
+    /// render parameters change. Bumping invalidates every prior voice
+    /// approval — the operator must re-audition because the spoken
+    /// output will be materially different.
+    /// v3: CANON LAW locked 2026-04-21 — Coqui XTTS v2 only (Delta:8787).
+    /// Reference 0299_TINCANS_CANONICAL.wav (Derek/Harvard Iron Man dub-stage tone).
+    /// Supersedes v2 VibeVoice (sunset per PRINCIPLES.md CANON LAW — VOICE).
+    public static let personaFramingVersion = "persona-frame-v3-xtts-v2-delta-8787"
 
     public init(
         paths: WorkspacePaths,
@@ -179,16 +179,24 @@ public final class JarvisVoicePipeline {
     public var activeBackendIdentifier: String { backend.identifier }
 
     /// Default render parameters used when callers don't pass any.
-    /// HTTP/VibeVoice backend gets the operator-locked cfg/ddpm pair;
-    /// other backends fall back to neutral defaults (they ignore those
-    /// fields anyway). Env overrides: JARVIS_TTS_CFG_SCALE, JARVIS_TTS_DDPM_STEPS.
+    /// HTTP backend gets the operator-locked XTTS v2 canon parameters
+    /// (CANON LAW 2026-04-21, PRINCIPLES.md §"CANON LAW — VOICE").
+    /// Other backends fall back to neutral defaults. Env overrides:
+    /// JARVIS_TTS_CFG_SCALE, JARVIS_TTS_DDPM_STEPS (legacy; XTTS ignores).
     private func defaultRenderParameters() -> TTSRenderParameters {
         let env = ProcessInfo.processInfo.environment
         let isHTTP = backend is HTTPTTSBackend
         guard isHTTP else { return .default }
-        let cfg = (env["JARVIS_TTS_CFG_SCALE"].flatMap(Double.init)) ?? TTSRenderParameters.vibevoiceLocked.cfgScale ?? 2.1
-        let ddpm = (env["JARVIS_TTS_DDPM_STEPS"].flatMap(Int.init)) ?? TTSRenderParameters.vibevoiceLocked.ddpmSteps ?? 10
-        return TTSRenderParameters(cfgScale: cfg, ddpmSteps: ddpm)
+        let base = TTSRenderParameters.xttsLocked
+        let cfg = env["JARVIS_TTS_CFG_SCALE"].flatMap(Double.init) ?? base.cfgScale
+        let ddpm = env["JARVIS_TTS_DDPM_STEPS"].flatMap(Int.init) ?? base.ddpmSteps
+        return TTSRenderParameters(
+            temperature: base.temperature,
+            topP: base.topP,
+            maxNewTokens: base.maxNewTokens,
+            cfgScale: cfg,
+            ddpmSteps: ddpm
+        )
     }
 
     public func prepareSession() throws -> VoiceSessionConfiguration {

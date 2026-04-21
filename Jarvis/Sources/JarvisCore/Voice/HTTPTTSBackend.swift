@@ -32,7 +32,7 @@ public final class HTTPTTSBackend: TTSBackend {
         endpoint: URL,
         bearerToken: String,
         identifier: String,
-        selectedVoiceLabel: String = "vibevoice-remote-clone",
+        selectedVoiceLabel: String = "xtts-v2-jarvis-canonical",
         sampleRate: Int = 24_000,
         session: URLSession = .shared,
         timeout: TimeInterval = 300
