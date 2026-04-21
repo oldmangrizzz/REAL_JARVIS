@@ -1,0 +1,4 @@
+2026-04-21T18:39:45Z | soul_anchor.rotate.started mode=drill actor=grizzmed
+2026-04-21T18:39:45Z | soul_anchor.rotate.signed p256_fp=abb6a19abe7ca7e60f4d12062f49094cdcda02cc9b10dbc58c0cd32ee05335c0 ed25519_fp=ecfd611ad940548878d58afb57e1a18263b684f7c50241dcb4dfda7a978d5d03 artifact_sha256=747af8a5a5ed8aa0aa2018a9571d6419bb224f166e071783417c125e6dbae6d5
+2026-04-21T18:39:45Z | soul_anchor.rotate.verified mode=drill outcome=pass
+2026-04-21T18:39:45Z | soul_anchor.rotate.completed mode=drill

@@ -7,6 +7,22 @@ on:
     branches: [main]
 
 jobs:
+  canon-dual-sig:
+    name: Canon dual-signature gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Verify dual signatures on canon changes
+        run: |
+          set -e
+          BASE="${{ github.event.pull_request.base.sha }}"
+          HEAD="${{ github.event.pull_request.head.sha }}"
+          if [ -z "$BASE" ]; then BASE="origin/main"; fi
+          if [ -z "$HEAD" ]; then HEAD="HEAD"; fi
+          bash scripts/ci/canon-gate.sh "$BASE" "$HEAD"
+
   non-dom-invariant:
     name: Non-DOM invariant
     runs-on: ubuntu-latest
