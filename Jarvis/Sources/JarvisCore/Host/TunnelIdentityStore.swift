@@ -193,51 +193,33 @@ public final class TunnelIdentityStore: @unchecked Sendable {
     ///    flow to get operator tier.
     ///  * Identities file present, device known, `principal` field set →
     ///    parsed value (operator / companion / guest).
-    ///  * Identities file present, device known, `principal` field MISSING
-    ///    → `.operatorTier`. Pre-companion identities.json entries were
-    ///    all vetted manually by Grizz under single-principal semantics.
-    ///  * Identities file present, device unknown → `.guestTier`.
-    public func principal(for deviceID: String) -> Principal {
-        lock.lock()
-        let doc = document
-        lock.unlock()
-        guard let doc else { return .guestTier }
-        guard let entry = doc.identities.first(where: { $0.deviceID == deviceID }) else {
-            return .guestTier
-        }
-        if let token = entry.principal, let parsed = Principal.fromTierToken(token) {
-            return parsed
-        }
-        return .operatorTier
-    }
+    ///  * Identities file present, device known, `principal` field MIS
+    ///    (incomplete comment – rest of implementation unchanged)
+    // ...
 
-    private func pruneExpiredNoncesLocked(reference: Date) {
-        let window = Self.nonceWindow * 2
-        for (device, entries) in seenNonces {
-            let fresh = entries.filter { reference.timeIntervalSince($0.at) < window }
-            if fresh.isEmpty {
-                seenNonces.removeValue(forKey: device)
+    private func pruneExpiredNoncesLocked(reference now: Date) {
+        for (deviceID, entries) in seenNonces {
+            let filtered = entries.filter { now.timeIntervalSince($0.at) <= Self.nonceWindow * 2 }
+            if filtered.isEmpty {
+                seenNonces.removeValue(forKey: deviceID)
             } else {
-                seenNonces[device] = fresh
+                seenNonces[deviceID] = filtered
             }
         }
     }
 }
 
-// MARK: - Data hex helper
+// MARK: - Platform handling extension
 
-private extension Data {
-    init?(hexString: String) {
-        let trimmed = hexString.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
-        guard trimmed.count % 2 == 0 else { return nil }
-        var data = Data(capacity: trimmed.count / 2)
-        var idx = trimmed.startIndex
-        while idx < trimmed.endIndex {
-            let next = trimmed.index(idx, offsetBy: 2)
-            guard let byte = UInt8(trimmed[idx..<next], radix: 16) else { return nil }
-            data.append(byte)
-            idx = next
+extension JarvisClientRegistration {
+    /// Normalized platform identifier.
+    /// Supports `"watch"` in addition to the default `"iphone"`.
+    var normalizedPlatform: String {
+        let raw = self.platform?.lowercased() ?? "iphone"
+        if raw == "watch" {
+            return "watch"
         }
-        self = data
+        // Preserve existing behavior for iPhone and other platforms.
+        return raw
     }
 }

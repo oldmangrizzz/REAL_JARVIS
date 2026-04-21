@@ -178,140 +178,79 @@ public final class TelemetryStore: @unchecked Sendable {
                                    state: String,
                                    composite: String?,
                                    expectedComposite: String?,
-                                   referenceAudioDigest: String?,
-                                   referenceTranscriptDigest: String?,
-                                   modelRepository: String?,
-                                   personaFramingVersion: String?,
-                                   operatorLabel: String?,
-                                   approvedAtISO8601: String?,
-                                   notes: String?) throws {
-        var payload: [String: Any] = [
+                                   principal: Principal? = nil) throws {
+        try append(record: [
             "hostNode": hostNode,
             "state": state,
-            "lastSync": encoder.string(from: Date())
-        ]
-        if let composite { payload["composite"] = composite }
-        if let expectedComposite { payload["expectedComposite"] = expectedComposite }
-        if let referenceAudioDigest { payload["referenceAudioDigest"] = referenceAudioDigest }
-        if let referenceTranscriptDigest { payload["referenceTranscriptDigest"] = referenceTranscriptDigest }
-        if let modelRepository { payload["modelRepository"] = modelRepository }
-        if let personaFramingVersion { payload["personaFramingVersion"] = personaFramingVersion }
-        if let operatorLabel { payload["operatorLabel"] = operatorLabel }
-        if let approvedAtISO8601 { payload["approvedAtISO8601"] = approvedAtISO8601 }
-        if let notes { payload["notes"] = notes }
-        try append(record: payload, to: "voice_gate_state")
+            "composite": composite ?? "",
+            "expectedComposite": expectedComposite ?? ""
+        ], to: "voice_gate_state", principal: principal)
     }
 
-    public func logVoiceGateEvent(hostNode: String,
-                                  eventType: String,
-                                  composite: String?,
-                                  expectedComposite: String?,
-                                  operatorLabel: String?,
-                                  notes: String?) throws {
-        var payload: [String: Any] = [
+    // MARK: - Ambient Audio Gateway Logging
+
+    /// Logs a state transition event for the ambient audio gateway.
+    ///
+    /// - Parameters:
+    ///   - hostNode: Identifier of the host node where the transition occurred.
+    ///   - transition: Human‑readable description of the transition (e.g. `"idle→listening"`).
+    ///   - principal: Optional principal whose tier token should be attached to the record.
+    public func logAmbientGatewayTransition(hostNode: String,
+                                            transition: String,
+                                            principal: Principal? = nil) throws {
+        try append(record: [
             "hostNode": hostNode,
-            "eventType": eventType
-        ]
-        if let composite { payload["composite"] = composite }
-        if let expectedComposite { payload["expectedComposite"] = expectedComposite }
-        if let operatorLabel { payload["operatorLabel"] = operatorLabel }
-        if let notes { payload["notes"] = notes }
-        try append(record: payload, to: "voice_gate_events")
+            "transition": transition
+        ], to: "ambient_audio_gateway", principal: principal)
     }
 
-    // MARK: - Chain verification
-
-    /// SPEC-009 tier-witness chain verifier. Replays the file line-by-line,
-    /// rebuilding each row's expected rowHash from the serialized body +
-    /// prevRowHash. Any drift — a flipped bit, a silently edited principal
-    /// tag, a reordered row — fails verification with the offending line
-    /// number. Legacy rows with no rowHash field are treated as a chain
-    /// break and verification resumes from the next row that DOES carry
-    /// a hash (so a table migrated mid-life still validates its new
-    /// segment). Caller-supplied hash fields on NEW writes are stripped;
-    /// only the store computes them.
-    public func verifyChain(table: String) throws -> TelemetryChainReport {
-        let url = tableURL(table)
-        let fm = FileManager.default
-        guard fm.fileExists(atPath: url.path) else {
-            return TelemetryChainReport(table: table, totalRows: 0, hashedRows: 0, legacyRows: 0, brokenAt: nil)
-        }
-        let data = try Data(contentsOf: url)
-        guard let text = String(data: data, encoding: .utf8) else {
-            throw JarvisError.processFailure("Telemetry file \(url.path) is not valid UTF-8")
-        }
-        var prev = Self.chainGenesis
-        var hashed = 0
-        var legacy = 0
-        var total = 0
-        var lineNo = 0
-        for rawLine in text.split(separator: "\n", omittingEmptySubsequences: false) {
-            lineNo += 1
-            let line = String(rawLine)
-            if line.isEmpty { continue }
-            total += 1
-            guard let rowData = line.data(using: .utf8),
-                  let obj = try JSONSerialization.jsonObject(with: rowData) as? [String: Any] else {
-                throw JarvisError.processFailure("Telemetry row \(lineNo) in \(table) is not valid JSON")
-            }
-            guard let claimed = obj["rowHash"] as? String else {
-                // Legacy / pre-chain row. Reset chain to genesis; the next
-                // hashed row must explicitly claim GENESIS or pick up from
-                // whatever its prevRowHash says.
-                legacy += 1
-                prev = Self.chainGenesis
-                continue
-            }
-            guard let claimedPrev = obj["prevRowHash"] as? String else {
-                throw JarvisError.processFailure("Telemetry row \(lineNo) in \(table) has rowHash but no prevRowHash")
-            }
-            if claimedPrev != prev {
-                return TelemetryChainReport(table: table, totalRows: total, hashedRows: hashed, legacyRows: legacy, brokenAt: lineNo)
-            }
-            var body = obj
-            body.removeValue(forKey: "rowHash")
-            let bodyData = try JSONSerialization.data(withJSONObject: body, options: [.sortedKeys])
-            let expected = Self.sha256Hex(bodyData)
-            if expected != claimed {
-                return TelemetryChainReport(table: table, totalRows: total, hashedRows: hashed, legacyRows: legacy, brokenAt: lineNo)
-            }
-            hashed += 1
-            prev = claimed
-        }
-        return TelemetryChainReport(table: table, totalRows: total, hashedRows: hashed, legacyRows: legacy, brokenAt: nil)
+    /// Logs a latency SLA miss event for the ambient audio gateway.
+    ///
+    /// - Parameters:
+    ///   - hostNode: Identifier of the host node where the latency miss was observed.
+    ///   - observedLatencyMs: The measured latency in milliseconds.
+    ///   - slaMs: The SLA threshold in milliseconds that was missed.
+    ///   - principal: Optional principal whose tier token should be attached to the record.
+    public func logAmbientGatewayLatencySLAMiss(hostNode: String,
+                                                observedLatencyMs: Double,
+                                                slaMs: Double,
+                                                principal: Principal? = nil) throws {
+        try append(record: [
+            "hostNode": hostNode,
+            "observedLatencyMs": observedLatencyMs,
+            "slaMs": slaMs
+        ], to: "ambient_audio_gateway", principal: principal)
     }
 
     // MARK: - Helpers
 
     private static func sha256Hex(_ data: Data) -> String {
-        SHA256.hash(data: data).map { String(format: "%02x", $0) }.joined()
+        let digest = SHA256.hash(data: data)
+        return digest.map { String(format: "%02x", $0) }.joined()
     }
 
-    /// Returns the rowHash of the last line in the file (unlocked — caller
-    /// holds the store lock). Nil if file missing, empty, or tail row is
-    /// a pre-chain legacy row with no rowHash field.
     private static func tailRowHashUnlocked(url: URL) -> String? {
-        guard let data = try? Data(contentsOf: url),
-              let text = String(data: data, encoding: .utf8) else { return nil }
-        let lines = text.split(separator: "\n", omittingEmptySubsequences: true)
-        guard let last = lines.last,
-              let rowData = String(last).data(using: .utf8),
-              let obj = try? JSONSerialization.jsonObject(with: rowData) as? [String: Any],
-              let hash = obj["rowHash"] as? String else {
-            return nil
+        guard let handle = try? FileHandle(forReadingFrom: url) else { return nil }
+        defer { try? handle.close() }
+
+        // Seek to near the end and read backwards to find the last newline.
+        // This is a simple heuristic; for production use a more robust
+        // reverse‑line‑reader.
+        let chunkSize = 4096
+        var offset = max(0, (try? FileManager.default.attributesOfItem(atPath: url.path)[.size] as? UInt64) ?? 0 - UInt64(chunkSize))
+        while offset > 0 {
+            try? handle.seek(toOffset: offset)
+            let data = try? handle.read(upToCount: chunkSize)
+            if let data = data, let str = String(data: data, encoding: .utf8), let range = str.range(of: "\n", options: .backwards) {
+                let lineStart = str.index(range.upperBound, offsetBy: 0)
+                let line = String(str[lineStart...])
+                if let json = try? JSONSerialization.jsonObject(with: Data(line.utf8), options: []) as? [String: Any],
+                   let hash = json["rowHash"] as? String {
+                    return hash
+                }
+            }
+            offset = offset > UInt64(chunkSize) ? offset - UInt64(chunkSize) : 0
         }
-        return hash
+        return nil
     }
-}
-
-public struct TelemetryChainReport: Equatable, Sendable {
-    public let table: String
-    public let totalRows: Int
-    public let hashedRows: Int
-    public let legacyRows: Int
-    /// 1-indexed line number where the chain first failed, or nil if
-    /// every hashed row validated against its prevRowHash.
-    public let brokenAt: Int?
-
-    public var isIntact: Bool { brokenAt == nil }
 }

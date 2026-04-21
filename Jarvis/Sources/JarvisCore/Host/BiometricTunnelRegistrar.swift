@@ -1,4 +1,5 @@
 import Foundation
+import CryptoKit
 
 /// Client-side helper that produces a fully-signed
 /// `JarvisClientRegistration` from a `BiometricIdentityVault`.
@@ -61,6 +62,39 @@ public struct BiometricTunnelRegistrar: Sendable {
             appVersion: appVersion,
             nonce: nonceISO,
             identityProof: proof
+        )
+    }
+
+    /// Register from a watchOS device. Performs a biometric evaluation on
+    /// watchOS, falling back to the device passcode if needed. The supplied
+    /// `reason` is hashed (SHA‑256) before being incorporated into the
+    /// registration signature to avoid leaking raw user‑visible text in the
+    /// cryptographic material.
+    ///
+    /// The returned registration uses `"watchOS"` as the platform string.
+    public func registerWatch(
+        deviceID: String,
+        deviceName: String,
+        role: String,
+        appVersion: String,
+        reason: String
+    ) async throws -> JarvisClientRegistration {
+        // Hash the reason to bind it cryptographically without exposing the
+        // original text in the signature payload.
+        let reasonHash = SHA256.hash(data: Data(reason.utf8))
+        let hashedReason = reasonHash.compactMap { String(format: "%02x", $0) }.joined()
+
+        // Attempt the standard registration flow. If the biometric prompt
+        // fails because the watch cannot present a biometric UI, the vault
+        // implementation is expected to fall back to passcode internally.
+        // We simply propagate any error that is not recoverable.
+        return try await makeRegistration(
+            deviceID: deviceID,
+            deviceName: deviceName,
+            platform: "watchOS",
+            role: role,
+            appVersion: appVersion,
+            reason: hashedReason
         )
     }
 
