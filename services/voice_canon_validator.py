@@ -64,7 +64,7 @@ APPROVED_ENDPOINTS = {
     "127.0.0.1",
     "localhost",
     "delta.local",
-    "187.124.28.147",
+    os.environ.get("JARVIS_DELTA_HOST", "delta.grizzlymedicine.icu"),
 }
 
 # Canon framing version string — sourced from VoiceSynthesis.swift at runtime.
