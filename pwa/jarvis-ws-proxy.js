@@ -21,7 +21,11 @@ function getArg(name, def) {
   return i >= 0 ? args[i + 1] : def;
 }
 
-const SHARED_SECRET = process.env.SHARED_SECRET || 'changeme-jarvis-secret-2024';
+const SHARED_SECRET = process.env.SHARED_SECRET;
+if (!SHARED_SECRET) {
+  console.error('FATAL: SHARED_SECRET environment variable not set');
+  process.exit(1);
+}
 const AUTH_TIMEOUT_MS = 5000;
 const TUNNEL_HOST = process.env.TUNNEL_HOST || getArg('--tunnel-host', 'charlie.grizzlymedicine.icu');
 const TUNNEL_PORT = parseInt(process.env.TUNNEL_PORT || getArg('--tunnel-port', '9443'));

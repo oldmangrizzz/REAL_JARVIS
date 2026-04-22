@@ -15,6 +15,6 @@ services:
       - TUNNEL_HOST=host.docker.internal
       - TUNNEL_PORT=9443
       - WS_PORT=9444
-      - SHARED_SECRET=${SHARED_SECRET:-changeme-jarvis-secret-2024}
+      - SHARED_SECRET=${SHARED_SECRET:?SHARED_SECRET must be set}
     extra_hosts:
       - "host.docker.internal:host-gateway"
