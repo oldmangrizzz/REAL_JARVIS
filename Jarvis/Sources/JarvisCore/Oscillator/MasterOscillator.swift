@@ -179,8 +179,9 @@ public final class MasterOscillator {
             intervalMilliseconds: interval * 1000.0
         )
 
-        // CX-001: dispatch onTick to serial queue for timer ticks to prevent
-        // concurrent delivery; manualTick delivers synchronously for test determinism
+        // CX-005: dispatch onTick to serial queue (queue.async) for timer callbacks;
+        // serial queue (label: "jarvis.oscillator") ensures no concurrent onTick delivery.
+        // manualTick delivers synchronously for test determinism.
         if asyncOnTick {
             for sub in live.values { queue.async { sub.onTick(tick) } }
         } else {
