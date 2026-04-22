@@ -55,6 +55,28 @@ Fifteen secrets from `.env` require rotation before production. Each credential 
 
 ---
 
+## 1.1 Git History Secret Exposure Check (C2.2 & C2.3)
+
+### Status: CLEAN ✅
+
+**C2.2 — `.env` history:**
+```bash
+$ git log --all --full-history -- .env
+(no commits found)
+```
+**Result:** `.env` has never been committed to git history. No secrets exposure.
+
+**C2.3 — `.jarvis/voice-bridge.env` history:**
+```bash
+$ git log --all --full-history -- .jarvis/voice-bridge.env
+(no commits found)
+```
+**Result:** `.jarvis/voice-bridge.env` has never been committed. Clean.
+
+**Conclusion:** No operator action required. Both secrets files are properly excluded and have no historical exposure.
+
+---
+
 ## 2. Open CRITICAL Findings (Red-Team Remediation)
 
 ### Blockers: 3 CRITICAL Items Requiring Fix or Acceptance
