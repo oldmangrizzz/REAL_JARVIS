@@ -10,6 +10,7 @@ secrets/
 .jarvis/soul_anchor/private/
 .jarvis/soul_anchor/rotations.private.jsonl
 .jarvis/secrets/
+.jarvis/storage/tunnel/secret
 
 # System
 .DS_Store
@@ -31,6 +32,15 @@ voice-samples/
 .jarvis/DerivedData/
 .jarvis/venv-vibevoice/
 .jarvis/voice/auditions/
+.jarvis/alignment_tax/
+.jarvis/artifacts/
+.jarvis/*.log
+.jarvis/*.pid
+.jarvis/nim/
+.jarvis/storage/
+.jarvis/telemetry/
+.jarvis/validation_logs/
+.jarvis/voice/
 *.parquet
 *.metallib
 

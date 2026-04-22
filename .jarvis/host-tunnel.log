@@ -1,4 +1,0 @@
-2026-04-19 21:32:11.287 jarvis[89584:3029013] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
-2026-04-19 21:32:15.973 jarvis[89603:3029267] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
-Jarvis error: A&Ox3: node is not fully oriented; output suppressed per PRINCIPLES.md §3.
-2026-04-21 14:23:21.672 jarvis[1468:14827] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
