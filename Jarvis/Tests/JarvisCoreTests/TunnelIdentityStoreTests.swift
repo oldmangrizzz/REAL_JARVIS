@@ -269,4 +269,84 @@ final class TunnelIdentityStoreTests: XCTestCase {
         XCTAssertEqual(result.role, "mobile-cockpit")
         XCTAssertNil(result.error)
     }
+
+    // MARK: - §3.2 watch round-trip
+
+    func testStrictModeAcceptsWatchSignedProof() throws {
+        let (doc, keyHex) = sampleDocument(
+            deviceID: "watch-grizz",
+            allowedRoles: ["watch"]
+        )
+        let (url, _, _) = try makeWorkspaceWithIdentities(doc)
+        let store = TunnelIdentityStore(fileURL: url)
+        store.reload()
+
+        guard let signed = JarvisTunnelCrypto.signRegistration(
+            deviceID: "watch-grizz",
+            role: "watch",
+            identityKeyHex: keyHex
+        ) else { return XCTFail("sign failed") }
+
+        let reg = JarvisClientRegistration(
+            deviceID: "watch-grizz",
+            deviceName: "Apple Watch",
+            platform: "watch",
+            role: "watch",
+            appVersion: "1.0.0",
+            nonce: signed.nonce,
+            identityProof: signed.proof
+        )
+        XCTAssertNil(store.validate(reg),
+                     "signed watch registration must validate when watch is an allowed role")
+    }
+
+    func testBootstrapModeRejectsUnsignedWatchRole() throws {
+        // §3.4b hardens: watch is privileged, so bootstrap (no identities.json)
+        // must reject unsigned watch registrations just like voice-operator.
+        let store = TunnelIdentityStore(
+            fileURL: URL(fileURLWithPath: "/does/not/exist/\(UUID().uuidString).json")
+        )
+        store.reload()
+        XCTAssertTrue(store.isBootstrapMode)
+
+        let reg = JarvisClientRegistration(
+            deviceID: "watch-grizz",
+            deviceName: "Apple Watch",
+            platform: "watch",
+            role: "watch",
+            appVersion: "1.0.0"
+        )
+        XCTAssertEqual(store.validate(reg), .privilegedRoleRequiresIdentityProof,
+                       "unsigned watch registration must be rejected in bootstrap mode")
+    }
+
+    func testStrictModeRejectsWatchWithWrongKey() throws {
+        let (doc, _) = sampleDocument(
+            deviceID: "watch-grizz",
+            allowedRoles: ["watch"]
+        )
+        let (url, _, _) = try makeWorkspaceWithIdentities(doc)
+        let store = TunnelIdentityStore(fileURL: url)
+        store.reload()
+
+        // Sign with a key that doesn't match identities.json.
+        let wrongKeyHex = Data(repeating: 0xBB, count: 32)
+            .map { String(format: "%02x", $0) }.joined()
+        guard let signed = JarvisTunnelCrypto.signRegistration(
+            deviceID: "watch-grizz",
+            role: "watch",
+            identityKeyHex: wrongKeyHex
+        ) else { return XCTFail("sign failed") }
+
+        let reg = JarvisClientRegistration(
+            deviceID: "watch-grizz",
+            deviceName: "Apple Watch",
+            platform: "watch",
+            role: "watch",
+            appVersion: "1.0.0",
+            nonce: signed.nonce,
+            identityProof: signed.proof
+        )
+        XCTAssertEqual(store.validate(reg), .proofMismatch)
+    }
 }

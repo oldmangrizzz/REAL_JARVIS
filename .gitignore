@@ -48,3 +48,6 @@ voice-samples/
 vendor/
 .jarvis/voice-bridge.env
 .derived/
+
+# Journey kit cache (fetched on-demand, not source)
+.journey-kits/

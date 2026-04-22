@@ -7,7 +7,7 @@ public final class JarvisHostTunnelServer: @unchecked Sendable {
     private let registry: JarvisSkillRegistry
     private let queue = DispatchQueue(label: "ai.realjarvis.host-tunnel")
     private let crypto: JarvisTunnelCrypto
-    private let authorizedSources = Set(["obsidian-command-bar", "terminal", "voice-operator", "mobile-cockpit"])
+    private let authorizedSources = Set(["obsidian-command-bar", "terminal", "voice-operator", "mobile-cockpit", "watch"])
     private let port: UInt16
     private let idleTimeout: TimeInterval  // SPEC-011: disconnect unauthenticated clients after this interval
     private let isoFormatter = ISO8601DateFormatter()

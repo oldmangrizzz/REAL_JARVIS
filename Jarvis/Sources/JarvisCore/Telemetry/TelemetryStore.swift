@@ -174,6 +174,50 @@ public final class TelemetryStore: @unchecked Sendable {
         ], to: "harness_mutations")
     }
 
+    // MARK: - AMBIENT-002 ambient audio gateway telemetry
+    //
+    // Every route transition and SLA breach is witnessed by the bound
+    // principal's tier token via the SPEC-009 hash chain. Chain verification
+    // runs against table name `ambient_audio_gateway`.
+
+    public func logAmbientGatewayTransition(hostNode: String,
+                                            fromRoute: AmbientGatewayRoute,
+                                            toRoute: AmbientGatewayRoute,
+                                            endpointID: String?,
+                                            tunnelReachable: Bool,
+                                            wristAttached: Bool,
+                                            principal: Principal,
+                                            at timestamp: Date = Date()) throws {
+        var payload: [String: Any] = [
+            "hostNode": hostNode,
+            "eventType": "transition",
+            "fromRoute": fromRoute.rawValue,
+            "toRoute": toRoute.rawValue,
+            "tunnelReachable": tunnelReachable,
+            "wristAttached": wristAttached,
+            "timestamp": encoder.string(from: timestamp)
+        ]
+        if let endpointID { payload["endpointID"] = endpointID }
+        try append(record: payload, to: "ambient_audio_gateway", principal: principal)
+    }
+
+    public func logAmbientGatewayLatencySLAMiss(hostNode: String,
+                                                hopName: String,
+                                                measuredMs: Double,
+                                                ceilingMs: Double,
+                                                principal: Principal,
+                                                at timestamp: Date = Date()) throws {
+        let payload: [String: Any] = [
+            "hostNode": hostNode,
+            "eventType": "latencySLAMiss",
+            "hopName": hopName,
+            "measuredMs": measuredMs,
+            "ceilingMs": ceilingMs,
+            "timestamp": encoder.string(from: timestamp)
+        ]
+        try append(record: payload, to: "ambient_audio_gateway", principal: principal)
+    }
+
     public func syncVoiceGateState(hostNode: String,
                                    state: String,
                                    composite: String?,

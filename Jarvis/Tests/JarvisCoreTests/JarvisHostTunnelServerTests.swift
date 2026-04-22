@@ -222,6 +222,24 @@ final class JarvisHostTunnelServerTests: XCTestCase {
         XCTAssertNil(result.error, "Unknown roles drop silently without error response")
     }
 
+    // MARK: - §3.4 watch authorization
+
+    func testWatchRegistrationRejectedInBootstrapWithoutIdentityProof() throws {
+        // §3.4a+b: "watch" must be in authorizedSources (else silent drop with nil
+        // error) AND must be in privilegedRoles (else accepted unsigned in bootstrap).
+        // The combination asserts both: a role with error != nil in bootstrap is
+        // both authorized-source-recognized and privileged-role-guarded.
+        let paths = try makeTestWorkspace()
+        let runtime = try JarvisRuntime(paths: paths)
+        let registry = try JarvisSkillRegistry(paths: paths)
+        let server = JarvisHostTunnelServer(runtime: runtime, registry: registry, port: 19473, sharedSecret: "watch-a")
+
+        let result = server.authorizeRegistrationRole("watch")
+        XCTAssertNil(result.role, "§3.4b: watch is privileged — must not be admitted unsigned")
+        XCTAssertNotNil(result.error,
+                        "§3.4a: error (not silent drop) means watch passed authorizedSources and was rejected by privilegedRoles")
+    }
+
     // MARK: - Transport packet encoding
 
     func testTransportPacketEncodesOriginAndTimestamp() throws {

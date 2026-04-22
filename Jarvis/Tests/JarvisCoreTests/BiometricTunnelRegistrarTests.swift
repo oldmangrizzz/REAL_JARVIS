@@ -254,4 +254,110 @@ final class BiometricTunnelRegistrarTests: XCTestCase {
         )
         XCTAssertEqual(store.validate(reg), .proofMismatch)
     }
+
+    // MARK: - §3.3 registerWatch
+
+    private func makeWatchRegistrar(deviceID: String, key: SymmetricKey) -> BiometricTunnelRegistrar {
+        let iphoneStore = FixedIdentityKeyStore()
+        iphoneStore.seed(SymmetricKey(data: Data(repeating: 0xEE, count: 32)), for: "iphone-placeholder")
+        let iphoneVault = BiometricIdentityVault(authenticator: AlwaysApprove(), store: iphoneStore)
+
+        let watchStore = FixedIdentityKeyStore()
+        watchStore.seed(key, for: deviceID)
+        let watchVault = BiometricIdentityVault(authenticator: AlwaysApprove(), store: watchStore)
+        return BiometricTunnelRegistrar(vault: iphoneVault, watchVault: watchVault)
+    }
+
+    func testRegisterWatchWithoutWatchVaultThrowsBiometryUnavailable() async {
+        let registrar = makeRegistrar(deviceID: "watch-novault", key: SymmetricKey(data: Data(repeating: 0x01, count: 32)))
+        do {
+            _ = try await registrar.registerWatch(
+                deviceID: "watch-novault", deviceName: "Apple Watch",
+                role: "watch", appVersion: "1.0.0", reason: "bootstrap"
+            )
+            XCTFail("expected biometryUnavailable; watchVault is nil")
+        } catch BiometricVaultError.biometryUnavailable {
+            // expected
+        } catch {
+            XCTFail("expected biometryUnavailable, got \(error)")
+        }
+    }
+
+    func testRegisterWatchRoundTripsThroughTunnelIdentityStore() async throws {
+        let deviceID = "watch-round-trip"
+        let keyBytes = Data((0..<32).map { _ in UInt8.random(in: 0...255) })
+        let key = SymmetricKey(data: keyBytes)
+
+        let identity = TunnelIdentityStore.DeviceIdentity(
+            deviceID: deviceID,
+            allowedRoles: ["watch"],
+            identityKeyHex: keyBytes.map { String(format: "%02x", $0) }.joined(),
+            principal: "grizz"
+        )
+        let fileURL = try writeIdentitiesJSON(identities: [identity])
+        let store = TunnelIdentityStore(fileURL: fileURL)
+        store.reload()
+
+        let registrar = makeWatchRegistrar(deviceID: deviceID, key: key)
+        let reg = try await registrar.registerWatch(
+            deviceID: deviceID,
+            deviceName: "Apple Watch",
+            role: "watch",
+            appVersion: "1.0.0",
+            reason: "bootstrap watch tunnel"
+        )
+
+        XCTAssertEqual(reg.platform, "watch", "registerWatch must pin platform to 'watch'")
+        XCTAssertEqual(reg.role, "watch")
+        XCTAssertNil(store.validate(reg), "server must accept registerWatch-built proof")
+    }
+
+    func testRegisterWatchLowercasesRoleBeforeSigning() async throws {
+        let deviceID = "watch-uppercase-role"
+        let keyBytes = Data(repeating: 0x5A, count: 32)
+        let key = SymmetricKey(data: keyBytes)
+
+        let identity = TunnelIdentityStore.DeviceIdentity(
+            deviceID: deviceID,
+            allowedRoles: ["watch"],
+            identityKeyHex: keyBytes.map { String(format: "%02x", $0) }.joined()
+        )
+        let fileURL = try writeIdentitiesJSON(identities: [identity])
+        let store = TunnelIdentityStore(fileURL: fileURL)
+        store.reload()
+
+        let registrar = makeWatchRegistrar(deviceID: deviceID, key: key)
+        let reg = try await registrar.registerWatch(
+            deviceID: deviceID, deviceName: "Apple Watch",
+            role: "WATCH", appVersion: "1.0.0", reason: "r"
+        )
+        XCTAssertEqual(reg.role, "watch")
+        XCTAssertEqual(reg.platform, "watch")
+        XCTAssertNil(store.validate(reg))
+    }
+
+    func testRegisterWatchRejectedWhenWatchNotInAllowedRoles() async throws {
+        // Privileged role hardening: watch tunnel cannot borrow voice-operator's
+        // identity file slot.
+        let deviceID = "watch-unauth"
+        let keyBytes = Data(repeating: 0x77, count: 32)
+        let key = SymmetricKey(data: keyBytes)
+
+        let identity = TunnelIdentityStore.DeviceIdentity(
+            deviceID: deviceID,
+            allowedRoles: ["voice-operator"],
+            identityKeyHex: keyBytes.map { String(format: "%02x", $0) }.joined()
+        )
+        let fileURL = try writeIdentitiesJSON(identities: [identity])
+        let store = TunnelIdentityStore(fileURL: fileURL)
+        store.reload()
+
+        let registrar = makeWatchRegistrar(deviceID: deviceID, key: key)
+        let reg = try await registrar.registerWatch(
+            deviceID: deviceID, deviceName: "Apple Watch",
+            role: "watch", appVersion: "1.0.0", reason: "r"
+        )
+        // With role="watch" but allowedRoles=["voice-operator"], validate must reject.
+        XCTAssertEqual(store.validate(reg), .roleNotAllowedForDevice)
+    }
 }

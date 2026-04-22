@@ -75,3 +75,63 @@ muted surface; Responder gets the EMS blues scaled by cert level.
 - [[codebase/modules/Credentials]] — capability gating
 - [[codebase/modules/Interface]] — palette + cockpit branding
 - [[concepts/Voice-Approval-Gate]] — operator-only veto on companion asks
+
+## Watch (operator) — the wrist surface
+
+**Source:** AMBIENT-002-FIX-01, landed 2026-04-22.
+
+The Apple Watch is a first-class **operator surface**, not a new tier.
+It is a hardware-bound extension of `.operatorTier`: utterances captured
+on the watch still resolve to `grizz` for SPEC-009 witness and capability
+gating. The watch does not get its own `Principal` case.
+
+What the watch *does* get is its own **role + authentication policy +
+ambient-gateway routing identity**, so host security can tell "this
+registration came from Grizz's wrist" apart from "this came from Grizz's
+mac".
+
+| Surface        | Role string              | Auth policy                                   | Allowed unregistered? |
+|----------------|--------------------------|-----------------------------------------------|-----------------------|
+| Mac / cockpit  | `voice-operator`         | `.deviceOwnerAuthenticationWithBiometrics`    | No                    |
+| Apple Watch    | `watch`                  | `.deviceOwnerAuthentication` (wrist+passcode) | No                    |
+| Mobile cockpit | `mobile-cockpit`         | `.deviceOwnerAuthenticationWithBiometrics`    | No                    |
+
+Key host-plane invariants (all enforced by tests in
+`JarvisCoreTests/Host/`):
+
+- `"watch"` is in `JarvisHostTunnelServer.authorizedSources` alongside
+  `voice-operator`, `mobile-cockpit`, `obsidian-command-bar`, `terminal`.
+- `"watch"` is in `TunnelIdentityStore.privilegedRoles`, so an unsigned
+  bootstrap registration from a watch is rejected the same way an
+  unsigned `voice-operator` bootstrap is. There is no silent
+  "unregistered watch → guest" fallback — watch ⇒ operator-bound or
+  rejected.
+- `BiometricTunnelRegistrar.registerWatch(deviceID:keyID:)` runs the
+  wrist-attested auth path before signing, then hands the signed
+  registration to `TunnelIdentityStore.register`. Same vault, same HMAC
+  chain, different LA policy.
+
+### Responder as the watch's primary surface
+
+When `.responder(role:)` is active — i.e., Jarvis has clocked in to EMS
+duty — the watch becomes the **primary I/O surface**, not the mac.
+Ambient-audio gateway route transitions (`onWrist`, `offWrist`,
+`pairedPhone`, `unpairedDegraded`, `responderOverride`) are telemetered
+on the `ambient_audio_gateway` SPEC-009 chain so the post-call witness
+can answer:
+
+1. *Was the wrist surface attached when the responder utterance was
+   captured?*  — from `route == .onWrist` rows.
+2. *Did the gateway fall back to phone-paired audio mid-call?*  — from
+   `transition: onWrist → pairedPhone` rows with a `latencySLAMiss` row
+   nearby.
+3. *Did the operator invoke the cockpit emergency override?*  — from
+   `route == .responderOverride` rows; operator-only, not a role
+   elevation for the responder themselves.
+
+The responder primary surface choice is a **UX / routing decision**, not
+a trust elevation: tier gating still flows through the normal
+`Principal` resolution. The watch in responder mode is still bound to
+`.operatorTier` or `.responder(role:)` as diarized; nothing on the watch
+grants a role it did not already have.
+

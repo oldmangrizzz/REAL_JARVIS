@@ -62,7 +62,7 @@ public final class TunnelIdentityStore: @unchecked Sendable {
 
     /// Roles that MUST present a valid identity proof, whether or not an
     /// identities.json entry exists. Escalation-sensitive roles only.
-    public static let privilegedRoles: Set<String> = ["voice-operator"]
+    public static let privilegedRoles: Set<String> = ["voice-operator", "watch"]
 
     /// Clock skew tolerance for nonce freshness.
     public static let nonceWindow: TimeInterval = 120

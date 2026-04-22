@@ -85,13 +85,21 @@ public final class ConversationEngine: @unchecked Sendable {
             session.updateRoute(frame.routeHint)
         }
 
+        // Pump the ambient frame through the duplex VAD gate. Per SPEC-AMBIENT-002-FIX-01
+        // §3.1, DuplexVADGate returns a non-nil BargeInEvent synchronously when ongoing
+        // TTS should be preempted. This replaces the earlier AsyncStream-based design.
+        if let gate = duplexVADGate, gate.ingest(frame: frame) != nil {
+            try? handleBargeIn(sessionID: sessionID)
+        }
+
         // Canonicalize to Data (signed int16 LE)
         // The pcmData is already in the correct format per spec
         try ingestAudio(frame: frame.pcmData, sessionID: sessionID)
     }
     
 /// Subscribes to the ASR partials and coordinates the generation/synthesis loop.
-    /// Also subscribes to bargeInSignal for handling barge-in events.
+    /// Barge-in events are pumped synchronously per-frame via `DuplexVADGate.ingest(frame:)`
+    /// in `ingestAudio(frame: AmbientAudioFrame, sessionID:)` per SPEC-AMBIENT-002-FIX-01 §3.1.
     public func activate(sessionID: UUID) {
         let hypotheses: AsyncThrowingStream<ASRHypothesis, Error>
         do {
@@ -127,25 +135,13 @@ public final class ConversationEngine: @unchecked Sendable {
             }
         }
         
-        let bargeInTask = Task { [weak self] in
-            guard let self else { return }
-            guard let gate = self.duplexVADGate else { return }
-            guard let session = self.queue.sync(execute: { self.activeSessions[sessionID] }) else { return }
+        // NOTE: Barge-in events are now pumped synchronously per-frame through
+        // `DuplexVADGate.ingest(frame:)` in `ingestAudio(frame: AmbientAudioFrame, sessionID:)`
+        // per SPEC-AMBIENT-002-FIX-01 §3.1. No asynchronous barge-in subscription is needed.
 
-            for await event in gate.bargeInSignal {
-                if Task.isCancelled { break }
-
-                switch event.reason {
-                case .vadTrigger, .stopWord, .explicit:
-                    try? self.handleBargeIn(sessionID: session.id)
-                }
-            }
-        }
-        
         queue.async(flags: .barrier) {
             self.sessionTasks[sessionID] = Task {
                 _ = await asrTask.result
-                _ = await bargeInTask.result
             }
         }
     }

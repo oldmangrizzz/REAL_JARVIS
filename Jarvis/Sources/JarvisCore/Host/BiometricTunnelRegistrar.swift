@@ -21,13 +21,16 @@ import Foundation
 ///   owns the transport.
 public struct BiometricTunnelRegistrar: Sendable {
     private let vault: BiometricIdentityVault
+    private let watchVault: BiometricIdentityVault?
     private let clock: @Sendable () -> Date
 
     public init(
         vault: BiometricIdentityVault,
+        watchVault: BiometricIdentityVault? = nil,
         clock: @escaping @Sendable () -> Date = { Date() }
     ) {
         self.vault = vault
+        self.watchVault = watchVault
         self.clock = clock
     }
 
@@ -74,5 +77,47 @@ public struct BiometricTunnelRegistrar: Sendable {
         let formatter = ISO8601DateFormatter()
         formatter.formatOptions = [.withInternetDateTime]
         return formatter.string(from: date)
+    }
+
+    /// Watch-specific signed registration. Per SPEC-AMBIENT-002-FIX-01 §3.3,
+    /// watch registration must route through a watch-dedicated
+    /// `BiometricIdentityVault` (typically constructed with
+    /// `LAPolicy.deviceOwnerAuthentication` so Apple Watch PIN fallback is
+    /// accepted on Series 3 and other watches without Touch/Face ID).
+    ///
+    /// Platform is fixed to `"watch"` and the returned registration matches
+    /// the iPhone HMAC shape `"deviceID:role:nonce"` so
+    /// `TunnelIdentityStore.validate(...)` accepts it when
+    /// `privilegedRoles` contains `"watch"`. `reason` is passed to the
+    /// biometric prompt only — it is **not** hashed into the signature
+    /// (server verification does not hash reason; see
+    /// `TunnelIdentityStore.swift:169`).
+    public func registerWatch(
+        deviceID: String,
+        deviceName: String,
+        role: String,
+        appVersion: String,
+        reason: String
+    ) async throws -> JarvisClientRegistration {
+        guard let watchVault else {
+            throw BiometricVaultError.biometryUnavailable
+        }
+        let normalizedRole = role.lowercased()
+        let nonceISO = Self.makeNonce(clock())
+        let proof = try await watchVault.signRegistration(
+            deviceID: deviceID,
+            role: normalizedRole,
+            nonceISO: nonceISO,
+            reason: reason
+        )
+        return JarvisClientRegistration(
+            deviceID: deviceID,
+            deviceName: deviceName,
+            platform: "watch",
+            role: normalizedRole,
+            appVersion: appVersion,
+            nonce: nonceISO,
+            identityProof: proof
+        )
     }
 }
