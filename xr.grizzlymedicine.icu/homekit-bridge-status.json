@@ -3,7 +3,7 @@
     {
       "id" : "internal-regulation",
       "kind" : "internal_regulation",
-      "lastUpdated" : "2026-04-22T02:19:30Z",
+      "lastUpdated" : "2026-04-22T02:31:30Z",
       "name" : "J.A.R.V.I.S. Internal Regulation",
       "room" : "Iron Silo",
       "severity" : "warning",
@@ -13,7 +13,7 @@
     {
       "id" : "vagal-tone",
       "kind" : "internal_metric",
-      "lastUpdated" : "2026-04-22T02:19:30Z",
+      "lastUpdated" : "2026-04-22T02:31:30Z",
       "name" : "J.A.R.V.I.S. Vagal Tone",
       "room" : "Iron Silo",
       "severity" : "nominal",
@@ -22,7 +22,7 @@
     {
       "id" : "command-gate",
       "kind" : "command_gate",
-      "lastUpdated" : "2026-04-22T02:19:30Z",
+      "lastUpdated" : "2026-04-22T02:31:30Z",
       "name" : "J.A.R.V.I.S. Command Gate",
       "room" : "Iron Silo",
       "severity" : "nominal",
@@ -31,7 +31,7 @@
     {
       "id" : "voice-intercom",
       "kind" : "doorbell_intercom",
-      "lastUpdated" : "2026-04-22T02:19:30Z",
+      "lastUpdated" : "2026-04-22T02:31:30Z",
       "name" : "J.A.R.V.I.S. HomePod Intercom",
       "room" : "Iron Silo",
       "severity" : "nominal",
@@ -47,7 +47,7 @@
   "charlieAddress" : "192.168.4.151",
   "distressState" : "elevated",
   "homebridgePort" : 8581,
-  "lastSync" : "2026-04-22T02:19:30Z",
+  "lastSync" : "2026-04-22T02:31:30Z",
   "matterEnabled" : true,
   "reachable" : true,
   "regulationVisibility" : "internal-only",
