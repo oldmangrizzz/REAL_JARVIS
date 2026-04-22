@@ -11,7 +11,9 @@ private final class SystemCommandHandlerAwaitBox<T>: @unchecked Sendable {
     func result() throws -> T {
         lock.lock(); defer { lock.unlock() }
         if let error { throw error }
-        guard let value else { fatalError("SystemCommandHandlerAwaitBox: no result") }
+        guard let value else {
+            throw JarvisError.runtimeFailure("SystemCommandHandler: sync bridge resolved without value or error")
+        }
         return value
     }
 }

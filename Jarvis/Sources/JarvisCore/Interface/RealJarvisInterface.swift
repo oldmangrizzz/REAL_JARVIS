@@ -17,7 +17,9 @@ private final class AwaitSyncBox<T>: @unchecked Sendable {
     func result() throws -> T {
         lock.lock(); defer { lock.unlock() }
         if let failure { throw failure }
-        guard let success else { fatalError("AwaitSyncBox resolved without value") }
+        guard let success else {
+            throw JarvisError.runtimeFailure("AwaitSyncBox: sync bridge resolved without value or error")
+        }
         return success
     }
 }
