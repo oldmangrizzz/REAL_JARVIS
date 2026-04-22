@@ -2,3 +2,7 @@
 2026-04-21T18:39:45Z | soul_anchor.rotate.signed p256_fp=abb6a19abe7ca7e60f4d12062f49094cdcda02cc9b10dbc58c0cd32ee05335c0 ed25519_fp=ecfd611ad940548878d58afb57e1a18263b684f7c50241dcb4dfda7a978d5d03 artifact_sha256=747af8a5a5ed8aa0aa2018a9571d6419bb224f166e071783417c125e6dbae6d5
 2026-04-21T18:39:45Z | soul_anchor.rotate.verified mode=drill outcome=pass
 2026-04-21T18:39:45Z | soul_anchor.rotate.completed mode=drill
+2026-04-22T13:23:22Z | soul_anchor.rotate.started mode=drill actor=grizzmed
+2026-04-22T13:23:23Z | soul_anchor.rotate.signed p256_fp=1d6a4ef4de180d3dc2ac9f615ca9f5e2a8a18a791aa04843bd57ed7f4f730387 ed25519_fp=acf9b54fe9e190ba0f4c75e6185e2b72d9a72687f7567de519c3818e1c0e0d0a artifact_sha256=88452a162d43dc7f5fd08028c209884af6ae8abafe39bcec0856e4db6e76233e
+2026-04-22T13:23:23Z | soul_anchor.rotate.verified mode=drill outcome=pass
+2026-04-22T13:23:23Z | soul_anchor.rotate.completed mode=drill

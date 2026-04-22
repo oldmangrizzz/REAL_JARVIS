@@ -18,8 +18,115 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-REPO_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
-PUB_DIR="$REPO_ROOT/Jarvis/Sources/JarvisCore/SoulAnchor/pubkeys"
+REPO_ROOT="${CANON_GATE_REPO_ROOT:-$(cd "$SCRIPT_DIR/../.." && pwd)}"
+PUB_DIR="${CANON_GATE_PUB_DIR:-$REPO_ROOT/Jarvis/Sources/JarvisCore/SoulAnchor/pubkeys}"
+
+if [[ "${1:-}" == "--self-test" ]]; then
+  # Inline self-test harness covering MK2-EPIC-08 §2 acceptance list:
+  #   1. valid_dual_signature_pass
+  #   2. missing_p256_sig_reject
+  #   3. missing_ed25519_sig_reject
+  #   4. tampered_canon_file_reject
+  #   5. unrelated_file_ignored
+  # Each case builds an ephemeral git repo + ephemeral dual-root keypair,
+  # invokes the gate, and asserts exit code. No real canon is touched; no
+  # private key material leaves the sandbox's tmpdir.
+  set +e
+  SANDBOX="$(mktemp -d -t canon-gate-selftest.XXXXXX)"
+  trap 'rm -rf "$SANDBOX"' EXIT
+  pass=0; fail=0
+  assert_exit() {
+    local label="$1" want="$2" got="$3"
+    if [[ "$want" == "$got" ]]; then
+      echo "canon-gate selftest: PASS $label (exit=$got)"
+      pass=$((pass+1))
+    else
+      echo "canon-gate selftest: FAIL $label (want=$want got=$got)"
+      fail=$((fail+1))
+    fi
+  }
+  make_case() {
+    local name="$1"
+    local dir="$SANDBOX/$name"
+    mkdir -p "$dir/Jarvis/Sources/JarvisCore/SoulAnchor/pubkeys"
+    git -C "$dir" init -q
+    git -C "$dir" config user.email selftest@local
+    git -C "$dir" config user.name selftest
+    openssl ecparam -name prime256v1 -genkey -noout -out "$dir/p256.key.pem" 2>/dev/null
+    openssl ec -in "$dir/p256.key.pem" -pubout -outform DER \
+      -out "$dir/Jarvis/Sources/JarvisCore/SoulAnchor/pubkeys/p256.pub.der" 2>/dev/null
+    openssl genpkey -algorithm ED25519 -out "$dir/ed.key.pem" 2>/dev/null
+    openssl pkey -in "$dir/ed.key.pem" -pubout \
+      -out "$dir/Jarvis/Sources/JarvisCore/SoulAnchor/pubkeys/ed25519.pub.pem" 2>/dev/null
+    echo "$dir"
+  }
+  sign_dual() {
+    local dir="$1" file="$2"
+    openssl dgst -sha256 -sign "$dir/p256.key.pem" \
+      -out "$dir/$file.p256.sig" "$dir/$file"
+    openssl pkeyutl -sign -rawin -inkey "$dir/ed.key.pem" \
+      -in "$dir/$file" -out "$dir/$file.ed25519.sig"
+  }
+  run_gate() {
+    local dir="$1" base="$2" head="$3"
+    ( cd "$dir" && CANON_GATE_REPO_ROOT="$dir" \
+        CANON_GATE_PUB_DIR="$dir/Jarvis/Sources/JarvisCore/SoulAnchor/pubkeys" \
+        bash "$SCRIPT_DIR/canon-gate.sh" "$base" "$head" >/dev/null 2>&1 )
+    echo $?
+  }
+
+  # Case 1: valid_dual_signature_pass
+  d=$(make_case valid)
+  ( cd "$d" && git add . && git commit -q -m base )
+  BASE_SHA=$(git -C "$d" rev-parse HEAD)
+  echo "v1" > "$d/PRINCIPLES.md"
+  sign_dual "$d" PRINCIPLES.md
+  ( cd "$d" && git add . && git commit -q -m canon )
+  assert_exit valid_dual_signature_pass 0 "$(run_gate "$d" "$BASE_SHA" HEAD)"
+
+  # Case 2: missing_p256_sig_reject
+  d=$(make_case miss_p256)
+  ( cd "$d" && git add . && git commit -q -m base )
+  BASE_SHA=$(git -C "$d" rev-parse HEAD)
+  echo "v1" > "$d/PRINCIPLES.md"
+  sign_dual "$d" PRINCIPLES.md
+  rm "$d/PRINCIPLES.md.p256.sig"
+  ( cd "$d" && git add -A && git commit -q -m canon )
+  assert_exit missing_p256_sig_reject 1 "$(run_gate "$d" "$BASE_SHA" HEAD)"
+
+  # Case 3: missing_ed25519_sig_reject
+  d=$(make_case miss_ed)
+  ( cd "$d" && git add . && git commit -q -m base )
+  BASE_SHA=$(git -C "$d" rev-parse HEAD)
+  echo "v1" > "$d/PRINCIPLES.md"
+  sign_dual "$d" PRINCIPLES.md
+  rm "$d/PRINCIPLES.md.ed25519.sig"
+  ( cd "$d" && git add -A && git commit -q -m canon )
+  assert_exit missing_ed25519_sig_reject 1 "$(run_gate "$d" "$BASE_SHA" HEAD)"
+
+  # Case 4: tampered_canon_file_reject
+  d=$(make_case tampered)
+  ( cd "$d" && git add . && git commit -q -m base )
+  BASE_SHA=$(git -C "$d" rev-parse HEAD)
+  echo "v1" > "$d/PRINCIPLES.md"
+  sign_dual "$d" PRINCIPLES.md
+  echo "tamper" >> "$d/PRINCIPLES.md"
+  ( cd "$d" && git add -A && git commit -q -m canon )
+  assert_exit tampered_canon_file_reject 1 "$(run_gate "$d" "$BASE_SHA" HEAD)"
+
+  # Case 5: unrelated_file_ignored
+  d=$(make_case unrelated)
+  ( cd "$d" && git add . && git commit -q -m base )
+  BASE_SHA=$(git -C "$d" rev-parse HEAD)
+  mkdir -p "$d/Jarvis/Sources/JarvisCore/Other"
+  echo "noncanon" > "$d/Jarvis/Sources/JarvisCore/Other/Plain.swift"
+  echo "also noncanon" > "$d/README-extra.md"
+  ( cd "$d" && git add -A && git commit -q -m noncanon )
+  assert_exit unrelated_file_ignored 0 "$(run_gate "$d" "$BASE_SHA" HEAD)"
+
+  echo "canon-gate selftest: $pass passed, $fail failed"
+  [[ $fail -eq 0 ]] && exit 0 || exit 1
+fi
 
 BASE="${1:-${GITHUB_BASE_REF:-origin/main}}"
 HEAD="${2:-HEAD}"

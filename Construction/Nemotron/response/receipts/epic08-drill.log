@@ -1,0 +1,4 @@
+soul_anchor.rotate.started mode=drill actor=grizzmed
+soul_anchor.rotate.signed p256_fp=1d6a4ef4de180d3dc2ac9f615ca9f5e2a8a18a791aa04843bd57ed7f4f730387 ed25519_fp=acf9b54fe9e190ba0f4c75e6185e2b72d9a72687f7567de519c3818e1c0e0d0a artifact_sha256=88452a162d43dc7f5fd08028c209884af6ae8abafe39bcec0856e4db6e76233e
+soul_anchor.rotate.verified mode=drill outcome=pass
+soul_anchor.rotate.completed mode=drill

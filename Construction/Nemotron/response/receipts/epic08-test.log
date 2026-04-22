@@ -1,0 +1,50 @@
+Test Case '-[JarvisCoreTests.WiFiScannerRedactionTests testScanForNetworksIsEmptyBelowOperator]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WiFiScannerRedactionTests testSnapshotTimestampIsISO8601Parseable]' started.
+Test Case '-[JarvisCoreTests.WiFiScannerRedactionTests testSnapshotTimestampIsISO8601Parseable]' passed (0.006 seconds).
+Test Suite 'WiFiScannerRedactionTests' passed at 2026-04-22 08:25:08.747.
+	 Executed 9 tests, with 1 test skipped and 0 failures (0 unexpected) in 0.049 (0.052) seconds
+Test Suite 'WorkspacePathsTests' started at 2026-04-22 08:25:08.747.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testAudioSampleURLsCaseInsensitiveExtensions]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testAudioSampleURLsCaseInsensitiveExtensions]' passed (0.002 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testAudioSampleURLsFallsBackToRootWhenSamplesMissingOrEmpty]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testAudioSampleURLsFallsBackToRootWhenSamplesMissingOrEmpty]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testAudioSampleURLsPrefersVoiceSamplesDirWhenPopulated]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testAudioSampleURLsPrefersVoiceSamplesDirWhenPopulated]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testControlPlaneStatusFileLeafNames]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testControlPlaneStatusFileLeafNames]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testDefaultStorageRootIsDotJarvisUnderRoot]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testDefaultStorageRootIsDotJarvisUnderRoot]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testDiscoverFindsRootFromNestedSubdirectory]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testDiscoverFindsRootFromNestedSubdirectory]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testDiscoverThrowsWhenNoMarkers]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testDiscoverThrowsWhenNoMarkers]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testEnsureSupportDirectoriesCreatesAll]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testEnsureSupportDirectoriesCreatesAll]' passed (0.003 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testEnsureSupportDirectoriesIdempotent]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testEnsureSupportDirectoriesIdempotent]' passed (0.005 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testExplicitStorageRootOverridesDefault]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testExplicitStorageRootOverridesDefault]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testInitDerivesCanonicalLayoutUnderRoot]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testInitDerivesCanonicalLayoutUnderRoot]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testJarvisErrorDescriptionsSurfaceMessage]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testJarvisErrorDescriptionsSurfaceMessage]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testResolveAbsolutePathReturnsAsIs]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testResolveAbsolutePathReturnsAsIs]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testResolveRelativePathJoinsUnderRoot]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testResolveRelativePathJoinsUnderRoot]' passed (0.001 seconds).
+Test Suite 'WorkspacePathsTests' passed at 2026-04-22 08:25:08.773.
+	 Executed 14 tests, with 0 failures (0 unexpected) in 0.022 (0.026) seconds
+Test Suite 'JarvisCoreTests.xctest' passed at 2026-04-22 08:25:08.774.
+	 Executed 659 tests, with 1 test skipped and 0 failures (0 unexpected) in 20.007 (20.205) seconds
+Test Suite 'All tests' passed at 2026-04-22 08:25:08.775.
+	 Executed 659 tests, with 1 test skipped and 0 failures (0 unexpected) in 20.007 (20.206) seconds
+2026-04-22 08:25:09.199 xcodebuild[76317:583247] [MT] IDETestOperationsObserverDebug: 21.764 elapsed -- Testing started completed.
+2026-04-22 08:25:09.199 xcodebuild[76317:583247] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-04-22 08:25:09.199 xcodebuild[76317:583247] [MT] IDETestOperationsObserverDebug: 21.764 sec, +21.764 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Logs/Test/Test-Jarvis-2026.04.22_08-24-44--0500.xcresult
+
+** TEST SUCCEEDED **
+
+Testing started

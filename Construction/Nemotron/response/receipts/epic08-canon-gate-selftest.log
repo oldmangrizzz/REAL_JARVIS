@@ -1,0 +1,6 @@
+canon-gate selftest: PASS valid_dual_signature_pass (exit=0)
+canon-gate selftest: PASS missing_p256_sig_reject (exit=1)
+canon-gate selftest: PASS missing_ed25519_sig_reject (exit=1)
+canon-gate selftest: PASS tampered_canon_file_reject (exit=1)
+canon-gate selftest: PASS unrelated_file_ignored (exit=0)
+canon-gate selftest: 5 passed, 0 failed
