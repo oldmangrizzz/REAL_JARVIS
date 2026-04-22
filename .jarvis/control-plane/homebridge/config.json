@@ -26,8 +26,8 @@
       "kind" : "doorbell_intercom",
       "name" : "J.A.R.V.I.S. HomePod Intercom",
       "room" : "Iron Silo",
-      "severity" : "warning",
-      "state" : "config-ready"
+      "severity" : "nominal",
+      "state" : "route-ready"
     }
   ],
   "bridge" : {
@@ -77,7 +77,7 @@
         {
           "address" : "192.168.4.151",
           "nodeName" : "charlie",
-          "tunnelState" : "pending"
+          "tunnelState" : "online"
         },
         {
           "address" : "",

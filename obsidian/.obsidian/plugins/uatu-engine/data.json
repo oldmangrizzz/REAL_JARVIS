@@ -23,27 +23,27 @@
     {
       "nodeName" : "echo",
       "relayLocked" : true,
-      "rustDeskID" : "232611902"
+      "rustDeskID" : "IRONSILO-ECHO"
     },
     {
       "nodeName" : "alpha",
       "relayLocked" : true,
-      "rustDeskID" : "293187511"
+      "rustDeskID" : "IRONSILO-ALPHA"
     },
     {
       "nodeName" : "beta",
       "relayLocked" : true,
-      "rustDeskID" : "286923437"
+      "rustDeskID" : "IRONSILO-BETA"
     },
     {
       "nodeName" : "charlie",
       "relayLocked" : true,
-      "rustDeskID" : "347700740"
+      "rustDeskID" : "IRONSILO-CHARLIE"
     },
     {
       "nodeName" : "delta",
       "relayLocked" : true,
-      "rustDeskID" : "347824774"
+      "rustDeskID" : "IRONSILO-DELTA"
     }
   ],
   "voiceIntercomRoute" : "airplay2:\/\/192.168.4.151\/homepods\/jarvis-intercom"

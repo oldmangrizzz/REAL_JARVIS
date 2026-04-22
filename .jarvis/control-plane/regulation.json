@@ -1,7 +1,7 @@
 {
-  "bridgeState" : "Charlie Matter audio bridge pending deployment; audio-only config is staged.",
+  "bridgeState" : "Charlie audio bridge reachable through LiveKit.",
   "distressState" : "elevated",
-  "lastSync" : "2026-04-22T03:17:33Z",
+  "lastSync" : "2026-04-22T03:30:34Z",
   "obsidianVault" : "Obsidian vault requires reseed from Beta CouchDB.",
   "visibility" : "internal-only"
 }
