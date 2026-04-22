@@ -1,9 +1,13 @@
 import SwiftUI
 
-struct JarvisMacSettingsView: View {
-    @ObservedObject var store: JarvisMacCockpitStore
+public struct JarvisMacSettingsView: View {
+    @ObservedObject public var store: JarvisMacCockpitStore
 
-    var body: some View {
+    public init(store: JarvisMacCockpitStore) {
+        self.store = store
+    }
+
+    public var body: some View {
         Form {
             Section("Host Connection") {
                 TextField("Host Address", text: .constant("charlie.grizzlymedicine.icu"))
@@ -12,7 +16,6 @@ struct JarvisMacSettingsView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 TextField("Port", text: .constant("3000"))
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .keyboardType(.numberPad)
             }
 
             Section("Voice Gate") {
@@ -27,7 +30,7 @@ struct JarvisMacSettingsView: View {
                     HStack {
                         Text("Current State")
                         Spacer()
-                        Text(gate.state.description)
+                        Text(gate.state.rawValue)
                             .fontWeight(.semibold)
                             .foregroundColor(gateStateColor(gate.state))
                     }

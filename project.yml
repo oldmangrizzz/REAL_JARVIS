@@ -199,6 +199,73 @@ targets:
         GENERATE_INFOPLIST_FILE: NO
         INFOPLIST_FILE: Jarvis/Watch/Extension/Info.plist
 
+  JarvisMacCore:
+    type: framework
+    platform: macOS
+    deploymentTarget: "14.0"
+    sources:
+      - path: Jarvis/Mac/Sources/JarvisMacCore
+        excludes:
+          - JarvisMacCockpitStoreTests.swift
+      - path: Jarvis/MobileShared/Sources/JarvisMobileShared
+      - path: Jarvis/Shared/Sources/JarvisShared
+    dependencies:
+      - sdk: AppKit.framework
+      - sdk: AVFoundation.framework
+      - sdk: Network.framework
+      - sdk: CryptoKit.framework
+    settings:
+      base:
+        DEFINES_MODULE: YES
+        PRODUCT_NAME: JarvisMacCore
+        GENERATE_INFOPLIST_FILE: YES
+
+  JarvisMacCoreTests:
+    type: bundle.unit-test
+    platform: macOS
+    deploymentTarget: "14.0"
+    sources:
+      - path: Jarvis/Mac/Sources/JarvisMacCore/JarvisMacCockpitStoreTests.swift
+      - path: Jarvis/Tests/JarvisMacCoreTests
+    dependencies:
+      - target: JarvisMacCore
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+
+  RealJarvisMac:
+    type: application
+    platform: macOS
+    deploymentTarget: "14.0"
+    bundleId: ai.realjarvis.mac
+    sources:
+      - path: Jarvis/Mac/AppMac
+    dependencies:
+      - target: JarvisMacCore
+    settings:
+      base:
+        PRODUCT_NAME: RealJarvisMac
+        PRODUCT_BUNDLE_IDENTIFIER: ai.realjarvis.mac
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: J.A.R.V.I.S.
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.productivity
+        INFOPLIST_KEY_NSMicrophoneUsageDescription: J.A.R.V.I.S. uses the microphone for voice interaction.
+        INFOPLIST_KEY_NSSpeechRecognitionUsageDescription: J.A.R.V.I.S. transcribes spoken commands.
+
+  RealJarvisVision:
+    type: application
+    platform: visionOS
+    deploymentTarget: "1.0"
+    bundleId: ai.realjarvis.vision
+    sources:
+      - path: Jarvis/Vision/AppVision
+    settings:
+      base:
+        PRODUCT_NAME: RealJarvisVision
+        PRODUCT_BUNDLE_IDENTIFIER: ai.realjarvis.vision
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: J.A.R.V.I.S. Vision
+
 schemes:
   Jarvis:
     build:
@@ -224,3 +291,41 @@ schemes:
       targets:
         JarvisWatchApp: all
         JarvisWatchExtension: all
+
+  RealJarvisMac:
+    build:
+      targets:
+        RealJarvisMac: all
+        JarvisMacCoreTests: [test]
+    test:
+      targets:
+        - JarvisMacCoreTests
+
+  RealJarvisPhone:
+    build:
+      targets:
+        JarvisPhone: all
+
+  RealJarvisPad:
+    build:
+      targets:
+        JarvisPad: all
+
+  RealJarvisWatch:
+    build:
+      targets:
+        JarvisWatchApp: all
+        JarvisWatchExtension: all
+
+  RealJarvisVision:
+    build:
+      targets:
+        RealJarvisVision: all
+
+  all:
+    build:
+      targets:
+        JarvisCore: all
+        JarvisCLI: all
+        JarvisMacCore: all
+        RealJarvisMac: all

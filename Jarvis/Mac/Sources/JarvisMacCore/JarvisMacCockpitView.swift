@@ -1,8 +1,16 @@
 import SwiftUI
 
+/// Bridge typealias — `JarvisVoiceGateSnapshot.state` is typed as `JarvisSpatialIndicatorState`.
+/// The Mac surface views use `JarvisVoiceGateState`; unify here to avoid churn in view code.
+public typealias JarvisVoiceGateState = JarvisSpatialIndicatorState
+
 public struct JarvisMacCockpitView: View {
-    @ObservedObject var store: JarvisMacCockpitStore
+    @ObservedObject public var store: JarvisMacCockpitStore
     @State private var selectedPanel: Panel? = .status
+
+    public init(store: JarvisMacCockpitStore) {
+        self.store = store
+    }
 
     enum Panel: String, CaseIterable {
         case status = "Status"
@@ -15,7 +23,7 @@ public struct JarvisMacCockpitView: View {
         case signal = "Signal"
     }
 
-    var body: some View {
+    public var body: some View {
         NavigationSplitView {
             List(selection: $selectedPanel) {
                 ForEach(Panel.allCases, id: \.self) { panel in
@@ -59,7 +67,7 @@ struct JarvisStatusPanel: View {
                 HStack {
                     Text("State")
                     Spacer()
-                    Text(store.connectionState.description)
+                    Text(store.connectionState.rawValue)
                         .fontWeight(.semibold)
                         .foregroundColor(stateColor(store.connectionState))
                 }
@@ -79,7 +87,7 @@ struct JarvisStatusPanel: View {
                     HStack {
                         Text("State")
                         Spacer()
-                        Text(gate.state.description)
+                        Text(gate.state.rawValue)
                             .fontWeight(.semibold)
                             .foregroundColor(gateStateColor(gate.state))
                     }
@@ -95,7 +103,7 @@ struct JarvisStatusPanel: View {
                 if !store.spatialHUD.isEmpty {
                     List(store.spatialHUD, id: \.id) { element in
                         HStack {
-                            Text(element.title ?? "Untitled")
+                            Text(element.label)
                             Spacer()
                             Circle()
                                 .fill(gateStateColor(element.state))
@@ -107,15 +115,15 @@ struct JarvisStatusPanel: View {
             }
         }
         .padding(16)
-        .background(Color(NSColor.systemBackground))
+        .background(Color(NSColor.windowBackgroundColor))
     }
 
     func stateColor(_ state: JarvisConnectionState) -> Color {
         switch state {
-        case .connected: return .green
+        case .online: return .green
         case .connecting: return .yellow
-        case .disconnected: return .red
-        case .error: return .red
+        case .disconnected, .degraded: return .orange
+        case .failed: return .red
         }
     }
 
@@ -144,7 +152,7 @@ struct JarvisVoiceGatePanel: View {
                     HStack {
                         Text("State")
                         Spacer()
-                        Text(gate.state.description)
+                        Text(gate.state.rawValue)
                             .font(.headline)
                             .foregroundColor(gateStateColor(gate.state))
                     }
@@ -152,15 +160,15 @@ struct JarvisVoiceGatePanel: View {
                     HStack {
                         Text("Model")
                         Spacer()
-                        Text(gate.model)
+                        Text(gate.modelRepository ?? "–")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                     }
 
                     HStack {
-                        Text("References")
+                        Text("State Name")
                         Spacer()
-                        Text("\(gate.referenceCount)")
+                        Text(gate.stateName)
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                     }
@@ -193,13 +201,13 @@ struct JarvisSpatialHUDPanel: View {
     var body: some View {
         List(store.spatialHUD, id: \.id) { element in
             VStack(alignment: .leading, spacing: 4) {
-                Text(element.title ?? "Untitled")
+                Text(element.label)
                     .font(.headline)
-                Text(element.anchor.description)
+                Text(element.anchor.rawValue)
                     .font(.caption)
                     .foregroundColor(.secondary)
-                if let content = element.content {
-                    Text(content)
+                if let detail = element.detail {
+                    Text(detail)
                         .font(.subheadline)
                         .lineLimit(2)
                         .foregroundColor(.secondary)
@@ -236,7 +244,7 @@ struct JarvisAuthorizationPanel: View {
             HStack {
                 Text("Connection")
                 Spacer()
-                if store.connectionState == .connected {
+                if store.connectionState == .online {
                     Image(systemName: "lock.fill")
                         .foregroundColor(.green)
                     Text("Secure")
@@ -256,7 +264,7 @@ struct JarvisAuthorizationPanel: View {
             HStack {
                 Text("Tunnel")
                 Spacer()
-                Text(store.connectionState == .connected ? "Active" : "Inactive")
+                Text(store.connectionState == .online ? "Active" : "Inactive")
                     .foregroundColor(.secondary)
             }
 
@@ -280,7 +288,7 @@ struct JarvisHomeKitPanel: View {
             Text("HomeKit Bridge Status")
                 .font(.headline)
 
-            if let bridge = store.state.snapshot?.homeKitBridge {
+            if let bridge = store.state.homeKitBridge {
                 VStack(alignment: .leading, spacing: 8) {
                     HStack {
                         Text("Bridge State")
@@ -289,7 +297,7 @@ struct JarvisHomeKitPanel: View {
                             .font(.headline)
                             .foregroundColor(bridge.reachable ? .green : .red)
                     }
-                    if let address = bridge.charlieAddress {
+                    if let address = Optional(bridge.charlieAddress), !address.isEmpty {
                         HStack {
                             Text("Host")
                             Spacer()
@@ -298,7 +306,8 @@ struct JarvisHomeKitPanel: View {
                                 .foregroundColor(.secondary)
                         }
                     }
-                    if let sources = bridge.authorizedCommandSources {
+                    let sources = bridge.authorizedCommandSources
+                    if !sources.isEmpty {
                         HStack {
                             Text("Authorized Sources")
                             Spacer()
@@ -367,11 +376,15 @@ struct JarvisThoughtPanel: View {
                 .font(.headline)
                 .padding(.bottom, 8)
 
-            if let thoughts = store.state.thoughts, !thoughts.isEmpty {
-                ForEach(Array(thoughts.prefix(5)), id: \.self) { thought in
+            let thoughts = store.state.thoughts
+            if !thoughts.isEmpty {
+                ForEach(thoughts.prefix(5)) { thought in
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(thought)
+                        Text(thought.trace.joined(separator: " → "))
                             .font(.subheadline)
+                            .foregroundColor(.secondary)
+                        Text(thought.timestamp)
+                            .font(.caption2)
                             .foregroundColor(.secondary)
                     }
                     .padding(8)
@@ -397,11 +410,15 @@ struct JarvisSignalPanel: View {
                 .font(.headline)
                 .padding(.bottom, 8)
 
-            if let signals = store.state.signals, !signals.isEmpty {
-                ForEach(Array(signals.prefix(5)), id: \.self) { signal in
+            let signals = store.state.signals
+            if !signals.isEmpty {
+                ForEach(signals.prefix(5)) { signal in
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(signal)
+                        Text("\(signal.nodeSource) → \(signal.nodeTarget)")
                             .font(.subheadline)
+                            .foregroundColor(.secondary)
+                        Text("pheromone: \(String(format: "%.3f", signal.pheromone))")
+                            .font(.caption2)
                             .foregroundColor(.secondary)
                     }
                     .padding(8)

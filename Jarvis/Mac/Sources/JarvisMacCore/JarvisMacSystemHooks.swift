@@ -1,6 +1,7 @@
 import SwiftUI
 import AppKit
 
+@MainActor
 public final class JarvisMacSystemHooks {
     private let notificationCenter = NSUserNotificationCenter.default
 
@@ -15,7 +16,7 @@ public final class JarvisMacSystemHooks {
             notification.subtitle = subtitle
         }
         if let informational = informational {
-            notification.informationalText = informational
+            notification.informativeText = informational
         }
         notification.soundName = NSUserNotificationDefaultSoundName
         notificationCenter.deliver(notification)
