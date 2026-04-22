@@ -9,6 +9,8 @@ EnvironmentFile=-/etc/jarvis/mesh-display.env
 ExecStart=/usr/bin/python3 /opt/jarvis/mesh-display-agent.py
 Restart=on-failure
 RestartSec=5
+StartLimitBurst=5
+StartLimitIntervalSec=60
 User=jarvis
 Group=jarvis
 
