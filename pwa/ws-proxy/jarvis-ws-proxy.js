@@ -8,7 +8,11 @@ const http = require('http');
 const crypto = require('crypto');
 
 // --- Configuration -----------------------------------------------------------
-const SHARED_SECRET = process.env.SHARED_SECRET || 'changeme-jarvis-secret-2024';
+const SHARED_SECRET = process.env.SHARED_SECRET;
+if (!SHARED_SECRET) {
+  console.error('FATAL: SHARED_SECRET environment variable not set');
+  process.exit(1);
+}
 const AUTH_TIMEOUT_MS = 5000; // 5 seconds to authenticate
 const TUNNEL_HOST = process.env.TUNNEL_HOST || 'charlie.grizzlymedicine.icu';
 const TUNNEL_PORT = parseInt(process.env.TUNNEL_PORT || '9443');
