@@ -24,6 +24,7 @@ import signal
 import subprocess
 import sys
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from urllib.parse import urlparse
 
 LOG = logging.getLogger("mesh-display-agent")
 LISTEN_HOST = os.environ.get("MESH_DISPLAY_HOST", "0.0.0.0")
@@ -31,6 +32,18 @@ LISTEN_PORT = int(os.environ.get("MESH_DISPLAY_PORT", "9455"))
 SECRET = os.environ.get("MESH_DISPLAY_SECRET", "")
 BROWSER = os.environ.get("MESH_DISPLAY_BROWSER", "chromium")
 DEFAULT_URL = os.environ.get("MESH_DISPLAY_DEFAULT_URL", "about:blank")
+
+# URL allowlist — restrict to trusted domains (HTTPS + TLD matching).
+ALLOWED_HOSTS = {
+    "grizzlymedicine.icu",
+    "localhost",
+    "127.0.0.1",
+    "::1",
+}
+# Parse env var to add custom hosts
+_custom_hosts = os.environ.get("JARVIS_DISPLAY_ALLOWED_HOSTS", "")
+if _custom_hosts:
+    ALLOWED_HOSTS.update(h.strip() for h in _custom_hosts.split(",") if h.strip())
 
 _browser_proc: subprocess.Popen | None = None
 
@@ -67,6 +80,32 @@ def clear_display() -> None:
             except Exception:
                 pass
     _browser_proc = None
+
+
+def _is_url_allowed(url: str) -> bool:
+    """Validate URL matches allowlist: HTTPS + allowed host."""
+    # Allow about:blank and other special schemes
+    if url.startswith("about:"):
+        return True
+    try:
+        parsed = urlparse(url)
+        if parsed.scheme and parsed.scheme not in ("http", "https"):
+            LOG.warning("rejecting non-http(s) URL: %s", url)
+            return False
+        # HTTPS required for production (HTTP allowed for localhost dev)
+        host = parsed.hostname or ""
+        if parsed.scheme == "http" and host not in ("127.0.0.1", "localhost"):
+            LOG.warning("rejecting non-https remote URL: %s", url)
+            return False
+        # Check allowed hosts (exact match or subdomain match for *.grizzlymedicine.icu)
+        for allowed in ALLOWED_HOSTS:
+            if host == allowed or host.endswith("." + allowed):
+                return True
+        LOG.warning("rejecting URL from disallowed host: %s (allowed: %s)", host, ALLOWED_HOSTS)
+        return False
+    except Exception as exc:
+        LOG.warning("failed to validate URL %s: %s", url, exc)
+        return False
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -115,6 +154,11 @@ class Handler(BaseHTTPRequestHandler):
         action = str(body.get("action", "")).lower()
         params = body.get("parameters") or {}
         url = params.get("url") or params.get("content") or DEFAULT_URL
+
+        # Validate URL before launching
+        if not _is_url_allowed(url):
+            self._deny(403, f"URL not allowed: {url}")
+            return
 
         try:
             if action in ("clear", "off", "stop"):
