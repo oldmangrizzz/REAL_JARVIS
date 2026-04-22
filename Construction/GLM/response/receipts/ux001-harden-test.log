@@ -1,0 +1,1801 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -workspace jarvis.xcworkspace -scheme Jarvis -destination platform=macOS,arch=arm64 test
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  swift-nio: https://github.com/apple/swift-nio.git @ 2.95.0
+  Xet: https://github.com/mattt/swift-xet.git @ 0.2.3
+  swift-nio-http2: https://github.com/apple/swift-nio-http2.git @ 1.40.0
+  swift-asn1: https://github.com/apple/swift-asn1.git @ 1.5.1
+  swift-system: https://github.com/apple/swift-system.git @ 1.6.4
+  Jinja: https://github.com/huggingface/swift-jinja.git @ 2.3.2
+  swift-transformers: https://github.com/huggingface/swift-transformers.git @ 1.1.9
+  swift-http-types: https://github.com/apple/swift-http-types.git @ 1.5.1
+  swift-crypto: https://github.com/apple/swift-crypto.git @ 4.2.0
+  yyjson: https://github.com/ibireme/yyjson.git @ 0.12.0
+  mlx-swift-lm: https://github.com/ml-explore/mlx-swift-lm.git @ 2.30.6
+  swift-http-structured-headers: https://github.com/apple/swift-http-structured-headers.git @ 1.6.0
+  swift-nio-ssl: https://github.com/apple/swift-nio-ssl.git @ 2.36.0
+  swift-configuration: https://github.com/apple/swift-configuration.git @ 1.1.0
+  swift-atomics: https://github.com/apple/swift-atomics.git @ 1.3.0
+  swift-nio-transport-services: https://github.com/apple/swift-nio-transport-services.git @ 1.26.0
+  EventSource: https://github.com/mattt/EventSource.git @ 1.2.0
+  swift-collections: https://github.com/apple/swift-collections.git @ 1.3.0
+  async-http-client: https://github.com/swift-server/async-http-client @ 1.32.0
+  swift-huggingface: https://github.com/huggingface/swift-huggingface.git @ 0.8.1
+  swift-certificates: https://github.com/apple/swift-certificates.git @ 1.18.0
+  swift-async-algorithms: https://github.com/apple/swift-async-algorithms.git @ 1.1.2
+  swift-algorithms: https://github.com/apple/swift-algorithms.git @ 1.2.1
+  swift-log: https://github.com/apple/swift-log.git @ 1.10.1
+  swift-numerics: https://github.com/apple/swift-numerics @ 1.1.1
+  swift-nio-extras: https://github.com/apple/swift-nio-extras.git @ 1.32.1
+  swift-service-lifecycle: https://github.com/swift-server/swift-service-lifecycle @ 2.10.1
+  MLXAudio: /Users/grizzmed/REAL_JARVIS/vendor/mlx-audio-swift
+  mlx-swift: https://github.com/ml-explore/mlx-swift.git @ 0.30.6
+  swift-service-context: https://github.com/apple/swift-service-context.git @ 1.3.0
+  swift-distributed-tracing: https://github.com/apple/swift-distributed-tracing.git @ 1.4.0
+
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (3 targets)
+    Target 'JarvisCoreTests' in project 'Jarvis'
+        ➜ Explicit dependency on target 'JarvisCore' in project 'Jarvis'
+    Target 'JarvisCLI' in project 'Jarvis'
+        ➜ Explicit dependency on target 'JarvisCore' in project 'Jarvis'
+    Target 'JarvisCore' in project 'Jarvis' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.4.sdk /Users/grizzmed/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx26.4-25E236-688ef53f1462e2c8f657fdc38a81448f30f9ca8789b706f8bd3fc906a70d770f.sdkstatcache
+    cd /Users/grizzmed/REAL_JARVIS
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.4.sdk -o /Users/grizzmed/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/macosx26.4-25E236-688ef53f1462e2c8f657fdc38a81448f30f9ca8789b706f8bd3fc906a70d770f.sdkstatcache
+
+Test Suite 'All tests' started at 2026-04-22 08:33:04.807.
+Test Suite 'JarvisCoreTests.xctest' started at 2026-04-22 08:33:04.808.
+Test Suite 'AOxFourProbeTests' started at 2026-04-22 08:33:04.808.
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testEventIdle_whenNoTelemetry]' started.
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testEventIdle_whenNoTelemetry]' passed (0.009 seconds).
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testEventOriented_afterTelemetryWrite]' started.
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testEventOriented_afterTelemetryWrite]' passed (0.007 seconds).
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testPersonDegraded_whenStatusNotRatified]' started.
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testPersonDegraded_whenStatusNotRatified]' passed (0.006 seconds).
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testPersonOriented_whenRatifiedGenesisPresent]' started.
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testPersonOriented_whenRatifiedGenesisPresent]' passed (0.005 seconds).
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testPersonUnoriented_whenGenesisMissing]' started.
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testPersonUnoriented_whenGenesisMissing]' passed (0.007 seconds).
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testPlaceProducesStableFingerprint]' started.
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testPlaceProducesStableFingerprint]' passed (0.192 seconds).
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testRequireFullOrientationThrowsWhenDegraded]' started.
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testRequireFullOrientationThrowsWhenDegraded]' passed (0.073 seconds).
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testStatusCompositeMatchesOrientedAxes]' started.
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testStatusCompositeMatchesOrientedAxes]' passed (0.075 seconds).
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testStatusPersistsLatestFileForOutOfProcessGates]' started.
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testStatusPersistsLatestFileForOutOfProcessGates]' passed (0.074 seconds).
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testStatusRewritesLatestFileAtomically]' started.
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testStatusRewritesLatestFileAtomically]' passed (1.271 seconds).
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testTimeOrientedUnderNormalClock]' started.
+Test Case '-[JarvisCoreTests.AOxFourProbeTests testTimeOrientedUnderNormalClock]' passed (0.005 seconds).
+Test Suite 'AOxFourProbeTests' passed at 2026-04-22 08:33:06.536.
+	 Executed 11 tests, with 0 failures (0 unexpected) in 1.724 (1.728) seconds
+Test Suite 'ARCGridAdapterTests' started at 2026-04-22 08:33:06.536.
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testAllBackgroundGridReportsAllBlackSpatial]' started.
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testAllBackgroundGridReportsAllBlackSpatial]' passed (0.002 seconds).
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testARCGridCodableRoundTrip]' started.
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testARCGridCodableRoundTrip]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testColorCountsSortedDescending]' started.
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testColorCountsSortedDescending]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testColorNameMapCoversAllTenCanonColors]' started.
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testColorNameMapCoversAllTenCanonColors]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testEmptyGridHandling]' started.
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testEmptyGridHandling]' passed (0.002 seconds).
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testGridParsing]' started.
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testGridParsing]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testGridSummary]' started.
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testGridSummary]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testGridToPhysics]' started.
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testGridToPhysics]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testLargeGridSummaryBounds]' started.
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testLargeGridSummaryBounds]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testLoadGridZeroDimensionsThrows]' started.
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testLoadGridZeroDimensionsThrows]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testQuadrantDetectionPlacesColorsInCorrectRegion]' started.
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testQuadrantDetectionPlacesColorsInCorrectRegion]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testTaskSummary]' started.
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testTaskSummary]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testZeroRowGridInit]' started.
+Test Case '-[JarvisCoreTests.ARCGridAdapterTests testZeroRowGridInit]' passed (0.001 seconds).
+Test Suite 'ARCGridAdapterTests' passed at 2026-04-22 08:33:06.549.
+	 Executed 13 tests, with 0 failures (0 unexpected) in 0.011 (0.014) seconds
+Test Suite 'ARCHarnessBridgeWebSocketTests' started at 2026-04-22 08:33:06.549.
+Test Case '-[JarvisCoreTests.ARCHarnessBridgeWebSocketTests testBridgeStopsCleanlyWithNoWebSocket]' started.
+Test Case '-[JarvisCoreTests.ARCHarnessBridgeWebSocketTests testBridgeStopsCleanlyWithNoWebSocket]' passed (0.006 seconds).
+Test Case '-[JarvisCoreTests.ARCHarnessBridgeWebSocketTests testEmitMethodsForwardCorrectTypes]' started.
+2026-04-22 08:33:06.611780-0500 xctest[80127:602312] [connection] nw_socket_connect [C1.1.1:2] connectx(12 (guarded), [srcif=0, srcaddr=<NULL>, dstaddr=::1.18767], SAE_ASSOCID_ANY, 0, NULL, 0, NULL, SAE_CONNID_ANY) failed: [61: Connection refused]
+2026-04-22 08:33:06.615281-0500 xctest[80127:602312] [connection] nw_socket_connect [C1.1.1:2] connectx failed (fd 12) [61: Connection refused]
+2026-04-22 08:33:06.615289-0500 xctest[80127:602312] [] nw_socket_connect connectx failed [61: Connection refused]
+2026-04-22 08:33:06.616133-0500 xctest[80127:602312] [connection] nw_endpoint_flow_failed_with_error [C1.1.1 ::1.18767 in_progress socket-flow (satisfied (Path is satisfied), interface: lo0)] already failing, returning
+2026-04-22 08:33:06.621978-0500 xctest[80127:602312] [connection] nw_socket_handle_socket_event [C1.1.2:2] Socket SO_ERROR [61: Connection refused]
+2026-04-22 08:33:06.622099-0500 xctest[80127:602312] [connection] nw_endpoint_flow_failed_with_error [C1.1.2 127.0.0.1:18767 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: lo0)] already failing, returning
+2026-04-22 08:33:06.622218-0500 xctest[80127:602312] [connection] nw_endpoint_flow_failed_with_error [C1.1.2 127.0.0.1:18767 cancelled socket-flow ((null))] already failing, returning
+2026-04-22 08:33:06.622331-0500 xctest[80127:602312] [Default] Connection 1: received failure notification
+2026-04-22 08:33:06.623091-0500 xctest[80127:602312] [Default] Connection 1: failed to connect 1:61, reason -1
+2026-04-22 08:33:06.623113-0500 xctest[80127:602312] [Default] Connection 1: encountered error(1:61)
+2026-04-22 08:33:06.623740-0500 xctest[80127:602312] [Default] Task <6ED1FEE9-D999-4813-8FE5-5F5566E3AA9D>.<1> HTTP load failed, 0/0 bytes (error code: -1004 [1:61])
+2026-04-22 08:33:06.626909-0500 xctest[80127:602312] [Default] Task <6ED1FEE9-D999-4813-8FE5-5F5566E3AA9D>.<1> finished with error [-1004] Error Domain=NSURLErrorDomain Code=-1004 "Could not connect to the server." UserInfo={NSErrorFailingURLStringKey=http://localhost:18767/, NSErrorFailingURLKey=http://localhost:18767/, _NSURLErrorRelatedURLSessionTaskErrorKey=(
+    "LocalWebSocketTask <6ED1FEE9-D999-4813-8FE5-5F5566E3AA9D>.<1>"
+), _NSURLErrorFailingURLSessionTaskErrorKey=LocalWebSocketTask <6ED1FEE9-D999-4813-8FE5-5F5566E3AA9D>.<1>, NSLocalizedDescription=Could not connect to the server.}
+2026-04-22 08:33:06.631289-0500 xctest[80127:602356] [connection] nw_socket_handle_socket_event [C2.1.1:2] Socket SO_ERROR [61: Connection refused]
+2026-04-22 08:33:06.631337-0500 xctest[80127:602356] [connection] nw_endpoint_flow_failed_with_error [C2.1.1 ::1.18767 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: lo0)] already failing, returning
+2026-04-22 08:33:06.631714-0500 xctest[80127:602356] [connection] nw_socket_handle_socket_event [C2.1.2:2] Socket SO_ERROR [61: Connection refused]
+2026-04-22 08:33:06.631749-0500 xctest[80127:602356] [connection] nw_endpoint_flow_failed_with_error [C2.1.2 127.0.0.1:18767 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: lo0)] already failing, returning
+2026-04-22 08:33:06.631802-0500 xctest[80127:602356] [connection] nw_endpoint_flow_failed_with_error [C2.1.2 127.0.0.1:18767 cancelled socket-flow ((null))] already failing, returning
+2026-04-22 08:33:06.631884-0500 xctest[80127:602356] [Default] Connection 2: received failure notification
+2026-04-22 08:33:06.631922-0500 xctest[80127:602356] [Default] Connection 2: failed to connect 1:61, reason -1
+2026-04-22 08:33:06.631932-0500 xctest[80127:602356] [Default] Connection 2: encountered error(1:61)
+2026-04-22 08:33:06.632069-0500 xctest[80127:602356] [Default] Task <20E939E8-5E6A-47C1-A144-A36B021329D8>.<2> HTTP load failed, 0/0 bytes (error code: -1004 [1:61])
+2026-04-22 08:33:06.632210-0500 xctest[80127:602356] [Default] Task <20E939E8-5E6A-47C1-A144-A36B021329D8>.<2> finished with error [-1004] Error Domain=NSURLErrorDomain Code=-1004 "Could not connect to the server." UserInfo={NSErrorFailingURLStringKey=http://localhost:18767/, NSErrorFailingURLKey=http://localhost:18767/, _NSURLErrorRelatedURLSessionTaskErrorKey=(
+    "LocalWebSocketTask <20E939E8-5E6A-47C1-A144-A36B021329D8>.<2>"
+), _NSURLErrorFailingURLSessionTaskErrorKey=LocalWebSocketTask <20E939E8-5E6A-47C1-A144-A36B021329D8>.<2>, NSLocalizedDescription=Could not connect to the server.}
+2026-04-22 08:33:06.633550-0500 xctest[80127:602356] [connection] nw_socket_handle_socket_event [C3.1.1:2] Socket SO_ERROR [61: Connection refused]
+2026-04-22 08:33:06.633583-0500 xctest[80127:602356] [connection] nw_endpoint_flow_failed_with_error [C3.1.1 ::1.18767 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: lo0)] already failing, returning
+2026-04-22 08:33:06.633724-0500 xctest[80127:602356] [connection] nw_socket_handle_socket_event [C3.1.2:2] Socket SO_ERROR [61: Connection refused]
+2026-04-22 08:33:06.633744-0500 xctest[80127:602356] [connection] nw_endpoint_flow_failed_with_error [C3.1.2 127.0.0.1:18767 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: lo0)] already failing, returning
+2026-04-22 08:33:06.633786-0500 xctest[80127:602356] [connection] nw_endpoint_flow_failed_with_error [C3.1.2 127.0.0.1:18767 cancelled socket-flow ((null))] already failing, returning
+2026-04-22 08:33:06.633809-0500 xctest[80127:602356] [Default] Connection 3: received failure notification
+2026-04-22 08:33:06.633819-0500 xctest[80127:602356] [Default] Connection 3: failed to connect 1:61, reason -1
+2026-04-22 08:33:06.633822-0500 xctest[80127:602356] [Default] Connection 3: encountered error(1:61)
+2026-04-22 08:33:06.633901-0500 xctest[80127:602356] [Default] Task <608BC5E1-0069-439C-A6EE-6DF342B8E383>.<3> HTTP load failed, 0/0 bytes (error code: -1004 [1:61])
+2026-04-22 08:33:06.633969-0500 xctest[80127:602356] [Default] Task <608BC5E1-0069-439C-A6EE-6DF342B8E383>.<3> finished with error [-1004] Error Domain=NSURLErrorDomain Code=-1004 "Could not connect to the server." UserInfo={NSErrorFailingURLStringKey=http://localhost:18767/, NSErrorFailingURLKey=http://localhost:18767/, _NSURLErrorRelatedURLSessionTaskErrorKey=(
+    "LocalWebSocketTask <608BC5E1-0069-439C-A6EE-6DF342B8E383>.<3>"
+), _NSURLErrorFailingURLSessionTaskErrorKey=LocalWebSocketTask <608BC5E1-0069-439C-A6EE-6DF342B8E383>.<3>, NSLocalizedDescription=Could not connect to the server.}
+2026-04-22 08:33:06.635557-0500 xctest[80127:602312] [connection] nw_socket_handle_socket_event [C4.1.1:2] Socket SO_ERROR [61: Connection refused]
+2026-04-22 08:33:06.635588-0500 xctest[80127:602312] [connection] nw_endpoint_flow_failed_with_error [C4.1.1 ::1.18767 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: lo0)] already failing, returning
+2026-04-22 08:33:06.635749-0500 xctest[80127:602312] [connection] nw_socket_handle_socket_event [C4.1.2:2] Socket SO_ERROR [61: Connection refused]
+2026-04-22 08:33:06.635775-0500 xctest[80127:602312] [connection] nw_endpoint_flow_failed_with_error [C4.1.2 127.0.0.1:18767 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: lo0)] already failing, returning
+2026-04-22 08:33:06.635832-0500 xctest[80127:602312] [connection] nw_endpoint_flow_failed_with_error [C4.1.2 127.0.0.1:18767 cancelled socket-flow ((null))] already failing, returning
+2026-04-22 08:33:06.635870-0500 xctest[80127:602312] [Default] Connection 4: received failure notification
+2026-04-22 08:33:06.635882-0500 xctest[80127:602312] [Default] Connection 4: failed to connect 1:61, reason -1
+2026-04-22 08:33:06.635885-0500 xctest[80127:602312] [Default] Connection 4: encountered error(1:61)
+2026-04-22 08:33:06.636319-0500 xctest[80127:602356] [Default] Task <2BEEF843-D41F-4CCF-B602-D8542387AD1B>.<4> HTTP load failed, 0/0 bytes (error code: -1004 [1:61])
+2026-04-22 08:33:06.636384-0500 xctest[80127:602356] [Default] Task <2BEEF843-D41F-4CCF-B602-D8542387AD1B>.<4> finished with error [-1004] Error Domain=NSURLErrorDomain Code=-1004 "Could not connect to the server." UserInfo={NSErrorFailingURLStringKey=http://localhost:18767/, NSErrorFailingURLKey=http://localhost:18767/, _NSURLErrorRelatedURLSessionTaskErrorKey=(
+    "LocalWebSocketTask <2BEEF843-D41F-4CCF-B602-D8542387AD1B>.<4>"
+), _NSURLErrorFailingURLSessionTaskErrorKey=LocalWebSocketTask <2BEEF843-D41F-4CCF-B602-D8542387AD1B>.<4>, NSLocalizedDescription=Could not connect to the server.}
+Test Case '-[JarvisCoreTests.ARCHarnessBridgeWebSocketTests testEmitMethodsForwardCorrectTypes]' passed (0.082 seconds).
+Test Case '-[JarvisCoreTests.ARCHarnessBridgeWebSocketTests testSendJSONCreatesWebSocketTaskViaTelemetry]' started.
+2026-04-22 08:33:06.647244-0500 xctest[80127:602312] [connection] nw_socket_handle_socket_event [C5.1.1:2] Socket SO_ERROR [61: Connection refused]
+2026-04-22 08:33:06.647290-0500 xctest[80127:602312] [connection] nw_endpoint_flow_failed_with_error [C5.1.1 ::1.18765 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: lo0)] already failing, returning
+2026-04-22 08:33:06.647485-0500 xctest[80127:602312] [connection] nw_socket_handle_socket_event [C5.1.2:2] Socket SO_ERROR [61: Connection refused]
+2026-04-22 08:33:06.647511-0500 xctest[80127:602312] [connection] nw_endpoint_flow_failed_with_error [C5.1.2 127.0.0.1:18765 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: lo0)] already failing, returning
+2026-04-22 08:33:06.647550-0500 xctest[80127:602312] [connection] nw_endpoint_flow_failed_with_error [C5.1.2 127.0.0.1:18765 cancelled socket-flow ((null))] already failing, returning
+2026-04-22 08:33:06.647578-0500 xctest[80127:602312] [Default] Connection 5: received failure notification
+2026-04-22 08:33:06.647589-0500 xctest[80127:602312] [Default] Connection 5: failed to connect 1:61, reason -1
+2026-04-22 08:33:06.647593-0500 xctest[80127:602312] [Default] Connection 5: encountered error(1:61)
+2026-04-22 08:33:06.647664-0500 xctest[80127:602312] [Default] Task <E5A1418C-452A-45B4-996A-F3E532DC7070>.<5> HTTP load failed, 0/0 bytes (error code: -1004 [1:61])
+2026-04-22 08:33:06.647743-0500 xctest[80127:602312] [Default] Task <E5A1418C-452A-45B4-996A-F3E532DC7070>.<5> finished with error [-1004] Error Domain=NSURLErrorDomain Code=-1004 "Could not connect to the server." UserInfo={NSErrorFailingURLStringKey=http://localhost:18765/, NSErrorFailingURLKey=http://localhost:18765/, _NSURLErrorRelatedURLSessionTaskErrorKey=(
+    "LocalWebSocketTask <E5A1418C-452A-45B4-996A-F3E532DC7070>.<5>"
+), _NSURLErrorFailingURLSessionTaskErrorKey=LocalWebSocketTask <E5A1418C-452A-45B4-996A-F3E532DC7070>.<5>, NSLocalizedDescription=Could not connect to the server.}
+Test Case '-[JarvisCoreTests.ARCHarnessBridgeWebSocketTests testSendJSONCreatesWebSocketTaskViaTelemetry]' passed (2.087 seconds).
+Test Case '-[JarvisCoreTests.ARCHarnessBridgeWebSocketTests testStopCancelsWebSocketViaTelemetry]' started.
+2026-04-22 08:33:08.760738-0500 xctest[80127:602352] [connection] nw_socket_handle_socket_event [C6.1.1:2] Socket SO_ERROR [61: Connection refused]
+2026-04-22 08:33:08.760826-0500 xctest[80127:602352] [connection] nw_endpoint_flow_failed_with_error [C6.1.1 ::1.18766 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: lo0)] already failing, returning
+2026-04-22 08:33:08.761348-0500 xctest[80127:602352] [connection] nw_socket_handle_socket_event [C6.1.2:2] Socket SO_ERROR [61: Connection refused]
+2026-04-22 08:33:08.761655-0500 xctest[80127:602352] [connection] nw_endpoint_flow_failed_with_error [C6.1.2 127.0.0.1:18766 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: lo0)] already failing, returning
+2026-04-22 08:33:08.761840-0500 xctest[80127:602352] [connection] nw_endpoint_flow_failed_with_error [C6.1.2 127.0.0.1:18766 cancelled socket-flow ((null))] already failing, returning
+2026-04-22 08:33:08.761893-0500 xctest[80127:602352] [Default] Connection 6: received failure notification
+2026-04-22 08:33:08.761909-0500 xctest[80127:602352] [Default] Connection 6: failed to connect 1:61, reason -1
+2026-04-22 08:33:08.761913-0500 xctest[80127:602352] [Default] Connection 6: encountered error(1:61)
+2026-04-22 08:33:08.762084-0500 xctest[80127:602352] [Default] Task <3E279DBE-0CE2-4DAA-9807-AAB1B9EA5129>.<6> HTTP load failed, 0/0 bytes (error code: -1004 [1:61])
+2026-04-22 08:33:08.762689-0500 xctest[80127:602345] [Default] Task <3E279DBE-0CE2-4DAA-9807-AAB1B9EA5129>.<6> finished with error [-1004] Error Domain=NSURLErrorDomain Code=-1004 "Could not connect to the server." UserInfo={NSErrorFailingURLStringKey=http://localhost:18766/, NSErrorFailingURLKey=http://localhost:18766/, _NSURLErrorRelatedURLSessionTaskErrorKey=(
+    "LocalWebSocketTask <3E279DBE-0CE2-4DAA-9807-AAB1B9EA5129>.<6>"
+), _NSURLErrorFailingURLSessionTaskErrorKey=LocalWebSocketTask <3E279DBE-0CE2-4DAA-9807-AAB1B9EA5129>.<6>, NSLocalizedDescription=Could not connect to the server.}
+2026-04-22 08:33:09.293312-0500 xctest[80127:602314] [connection] nw_socket_handle_socket_event [C7.1.1:2] Socket SO_ERROR [61: Connection refused]
+2026-04-22 08:33:09.293416-0500 xctest[80127:602314] [connection] nw_endpoint_flow_failed_with_error [C7.1.1 ::1.18766 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: lo0)] already failing, returning
+2026-04-22 08:33:09.294244-0500 xctest[80127:602314] [connection] nw_socket_handle_socket_event [C7.1.2:2] Socket SO_ERROR [61: Connection refused]
+2026-04-22 08:33:09.294381-0500 xctest[80127:602314] [connection] nw_endpoint_flow_failed_with_error [C7.1.2 127.0.0.1:18766 in_progress socket-flow (satisfied (Path is satisfied), viable, interface: lo0)] already failing, returning
+2026-04-22 08:33:09.294571-0500 xctest[80127:602314] [connection] nw_endpoint_flow_failed_with_error [C7.1.2 127.0.0.1:18766 cancelled socket-flow ((null))] already failing, returning
+2026-04-22 08:33:09.294705-0500 xctest[80127:602314] [Default] Connection 7: received failure notification
+2026-04-22 08:33:09.294761-0500 xctest[80127:602314] [Default] Connection 7: failed to connect 1:61, reason -1
+2026-04-22 08:33:09.294778-0500 xctest[80127:602314] [Default] Connection 7: encountered error(1:61)
+2026-04-22 08:33:09.295229-0500 xctest[80127:602333] [Default] Task <8B92C738-2890-43DB-98F7-90AAB071EF08>.<7> HTTP load failed, 0/0 bytes (error code: -1004 [1:61])
+2026-04-22 08:33:09.295490-0500 xctest[80127:602333] [Default] Task <8B92C738-2890-43DB-98F7-90AAB071EF08>.<7> finished with error [-1004] Error Domain=NSURLErrorDomain Code=-1004 "Could not connect to the server." UserInfo={NSErrorFailingURLStringKey=http://localhost:18766/, NSErrorFailingURLKey=http://localhost:18766/, _NSURLErrorRelatedURLSessionTaskErrorKey=(
+    "LocalWebSocketTask <8B92C738-2890-43DB-98F7-90AAB071EF08>.<7>"
+), _NSURLErrorFailingURLSessionTaskErrorKey=LocalWebSocketTask <8B92C738-2890-43DB-98F7-90AAB071EF08>.<7>, NSLocalizedDescription=Could not connect to the server.}
+Test Case '-[JarvisCoreTests.ARCHarnessBridgeWebSocketTests testStopCancelsWebSocketViaTelemetry]' passed (2.607 seconds).
+Test Suite 'ARCHarnessBridgeWebSocketTests' passed at 2026-04-22 08:33:11.334.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 4.782 (4.785) seconds
+Test Suite 'ARCSubmissionTests' started at 2026-04-22 08:33:11.335.
+Test Case '-[JarvisCoreTests.ARCSubmissionTests testHappyPath_candidateGridMatchesInput]' started.
+Test Case '-[JarvisCoreTests.ARCSubmissionTests testHappyPath_candidateGridMatchesInput]' passed (0.029 seconds).
+Test Case '-[JarvisCoreTests.ARCSubmissionTests testInvalidJSON_throwsInvalidJSON]' started.
+Test Case '-[JarvisCoreTests.ARCSubmissionTests testInvalidJSON_throwsInvalidJSON]' passed (0.016 seconds).
+Test Case '-[JarvisCoreTests.ARCSubmissionTests testRLMTimeout_throwsRlmTimeout]' started.
+Test Case '-[JarvisCoreTests.ARCSubmissionTests testRLMTimeout_throwsRlmTimeout]' passed (0.008 seconds).
+Test Case '-[JarvisCoreTests.ARCSubmissionTests testShapeMismatch_throwsShapeMismatch]' started.
+Test Case '-[JarvisCoreTests.ARCSubmissionTests testShapeMismatch_throwsShapeMismatch]' passed (0.008 seconds).
+Test Case '-[JarvisCoreTests.ARCSubmissionTests testWitnessSha256_reflectsCandidateBytes]' started.
+Test Case '-[JarvisCoreTests.ARCSubmissionTests testWitnessSha256_reflectsCandidateBytes]' passed (0.010 seconds).
+Test Suite 'ARCSubmissionTests' passed at 2026-04-22 08:33:11.408.
+	 Executed 5 tests, with 0 failures (0 unexpected) in 0.071 (0.074) seconds
+Test Suite 'AlexaRoutineBridgeTests' started at 2026-04-22 08:33:11.408.
+Test Case '-[JarvisCoreTests.AlexaRoutineBridgeTests testTriggerAutoPrefixesHTTPSWhenSchemeMissing]' started.
+Test Case '-[JarvisCoreTests.AlexaRoutineBridgeTests testTriggerAutoPrefixesHTTPSWhenSchemeMissing]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.AlexaRoutineBridgeTests testTriggerPostsJSONToWebhook]' started.
+Test Case '-[JarvisCoreTests.AlexaRoutineBridgeTests testTriggerPostsJSONToWebhook]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.AlexaRoutineBridgeTests testTriggerThrowsOnServerError]' started.
+Test Case '-[JarvisCoreTests.AlexaRoutineBridgeTests testTriggerThrowsOnServerError]' passed (0.002 seconds).
+Test Case '-[JarvisCoreTests.AlexaRoutineBridgeTests testTriggerThrowsWithoutAddress]' started.
+Test Case '-[JarvisCoreTests.AlexaRoutineBridgeTests testTriggerThrowsWithoutAddress]' passed (0.001 seconds).
+Test Suite 'AlexaRoutineBridgeTests' passed at 2026-04-22 08:33:11.417.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 0.007 (0.009) seconds
+Test Suite 'AmbientAudioGatewayTests' started at 2026-04-22 08:33:11.417.
+Test Case '-[JarvisCoreTests.AmbientAudioGatewayTests testFakeGatewayCancelledObserverReceivesNoFurtherUpdates]' started.
+Test Case '-[JarvisCoreTests.AmbientAudioGatewayTests testFakeGatewayCancelledObserverReceivesNoFurtherUpdates]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.AmbientAudioGatewayTests testFakeGatewayObserverReceivesInitialAndUpdatedState]' started.
+Test Case '-[JarvisCoreTests.AmbientAudioGatewayTests testFakeGatewayObserverReceivesInitialAndUpdatedState]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.AmbientAudioGatewayTests testFakeGatewayTransitionsDrivenThroughObserverAreFullyLogged]' started.
+Test Case '-[JarvisCoreTests.AmbientAudioGatewayTests testFakeGatewayTransitionsDrivenThroughObserverAreFullyLogged]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.AmbientAudioGatewayTests testFakeGatewayTwoObserversBothNotifiedAndIndependentlyCancellable]' started.
+Test Case '-[JarvisCoreTests.AmbientAudioGatewayTests testFakeGatewayTwoObserversBothNotifiedAndIndependentlyCancellable]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.AmbientAudioGatewayTests testLogLatencySLAMissBindsResponderWatchPrincipal]' started.
+Test Case '-[JarvisCoreTests.AmbientAudioGatewayTests testLogLatencySLAMissBindsResponderWatchPrincipal]' passed (0.003 seconds).
+Test Case '-[JarvisCoreTests.AmbientAudioGatewayTests testLogLatencySLAMissInterleavesWithTransitionsInSameChain]' started.
+Test Case '-[JarvisCoreTests.AmbientAudioGatewayTests testLogLatencySLAMissInterleavesWithTransitionsInSameChain]' passed (0.003 seconds).
+Test Case '-[JarvisCoreTests.AmbientAudioGatewayTests testLogLatencySLAMissWritesDiscriminatedRow]' started.
+Test Case '-[JarvisCoreTests.AmbientAudioGatewayTests testLogLatencySLAMissWritesDiscriminatedRow]' passed (0.002 seconds).
+Test Case '-[JarvisCoreTests.AmbientAudioGatewayTests testLogTransitionAcceptsExplicitTimestamp]' started.
+Test Case '-[JarvisCoreTests.AmbientAudioGatewayTests testLogTransitionAcceptsExplicitTimestamp]' passed (0.002 seconds).
+Test Case '-[JarvisCoreTests.AmbientAudioGatewayTests testLogTransitionBindsCompanionPrincipal]' started.
+Test Case '-[JarvisCoreTests.AmbientAudioGatewayTests testLogTransitionBindsCompanionPrincipal]' passed (0.002 seconds).
+Test Case '-[JarvisCoreTests.AmbientAudioGatewayTests testLogTransitionBindsOperatorPrincipal]' started.
+Test Case '-[JarvisCoreTests.AmbientAudioGatewayTests testLogTransitionBindsOperatorPrincipal]' passed (0.002 seconds).
+Test Case '-[JarvisCoreTests.AmbientAudioGatewayTests testLogTransitionBindsResponderPrincipalForWatchTier]' started.
+Test Case '-[JarvisCoreTests.AmbientAudioGatewayTests testLogTransitionBindsResponderPrincipalForWatchTier]' passed (0.002 seconds).
+Test Case '-[JarvisCoreTests.AmbientAudioGatewayTests testLogTransitionIncludesEndpointIDWhenProvided]' started.
+Test Case '-[JarvisCoreTests.AmbientAudioGatewayTests testLogTransitionIncludesEndpointIDWhenProvided]' passed (0.002 seconds).
+Test Case '-[JarvisCoreTests.AmbientAudioGatewayTests testLogTransitionOmitsEndpointIDWhenNil]' started.
+Test Case '-[JarvisCoreTests.AmbientAudioGatewayTests testLogTransitionOmitsEndpointIDWhenNil]' passed (0.003 seconds).
+Test Case '-[JarvisCoreTests.AmbientAudioGatewayTests testLogTransitionWritesOneRowToAmbientTable]' started.
+Test Case '-[JarvisCoreTests.AmbientAudioGatewayTests testLogTransitionWritesOneRowToAmbientTable]' passed (0.002 seconds).
+Test Case '-[JarvisCoreTests.AmbientAudioGatewayTests testOffWristFreezeTransitionLogsAndChainsCleanly]' started.
+Test Case '-[JarvisCoreTests.AmbientAudioGatewayTests testOffWristFreezeTransitionLogsAndChainsCleanly]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.AmbientAudioGatewayTests testPrevRowHashThreadsAcrossAmbientTransitions]' started.
+Test Case '-[JarvisCoreTests.AmbientAudioGatewayTests testPrevRowHashThreadsAcrossAmbientTransitions]' passed (0.003 seconds).
+Test Case '-[JarvisCoreTests.AmbientAudioGatewayTests testTenTransitionsWriteTenChainedRowsWithIntactChain]' started.
+Test Case '-[JarvisCoreTests.AmbientAudioGatewayTests testTenTransitionsWriteTenChainedRowsWithIntactChain]' passed (0.004 seconds).
+Test Suite 'AmbientAudioGatewayTests' passed at 2026-04-22 08:33:11.462.
+	 Executed 17 tests, with 0 failures (0 unexpected) in 0.042 (0.045) seconds
+Test Suite 'BiometricIdentityVaultTests' started at 2026-04-22 08:33:11.462.
+Test Case '-[JarvisCoreTests.BiometricIdentityVaultTests testPromptsRecordedForAudit]' started.
+Test Case '-[JarvisCoreTests.BiometricIdentityVaultTests testPromptsRecordedForAudit]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.BiometricIdentityVaultTests testProvisionDeviceFailsIfBiometricDenied]' started.
+Test Case '-[JarvisCoreTests.BiometricIdentityVaultTests testProvisionDeviceFailsIfBiometricDenied]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.BiometricIdentityVaultTests testProvisionDeviceRejectsReProvisioning]' started.
+Test Case '-[JarvisCoreTests.BiometricIdentityVaultTests testProvisionDeviceRejectsReProvisioning]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.BiometricIdentityVaultTests testProvisionDeviceStoresKeyAndReturnsHex]' started.
+Test Case '-[JarvisCoreTests.BiometricIdentityVaultTests testProvisionDeviceStoresKeyAndReturnsHex]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.BiometricIdentityVaultTests testRevokeDeviceDeletesKeyAfterBiometric]' started.
+Test Case '-[JarvisCoreTests.BiometricIdentityVaultTests testRevokeDeviceDeletesKeyAfterBiometric]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.BiometricIdentityVaultTests testSignedProofMatchesIndependentHMACComputation]' started.
+Test Case '-[JarvisCoreTests.BiometricIdentityVaultTests testSignedProofMatchesIndependentHMACComputation]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.BiometricIdentityVaultTests testSignRegistrationDifferentNonceDifferentProof]' started.
+Test Case '-[JarvisCoreTests.BiometricIdentityVaultTests testSignRegistrationDifferentNonceDifferentProof]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.BiometricIdentityVaultTests testSignRegistrationFailsIfBiometricDeniedEvenIfKeyExists]' started.
+Test Case '-[JarvisCoreTests.BiometricIdentityVaultTests testSignRegistrationFailsIfBiometricDeniedEvenIfKeyExists]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.BiometricIdentityVaultTests testSignRegistrationFailsOnEmptyNonce]' started.
+Test Case '-[JarvisCoreTests.BiometricIdentityVaultTests testSignRegistrationFailsOnEmptyNonce]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.BiometricIdentityVaultTests testSignRegistrationFailsWithoutProvisioning]' started.
+Test Case '-[JarvisCoreTests.BiometricIdentityVaultTests testSignRegistrationFailsWithoutProvisioning]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.BiometricIdentityVaultTests testSignRegistrationMatchesTunnelIdentityStoreHMAC]' started.
+Test Case '-[JarvisCoreTests.BiometricIdentityVaultTests testSignRegistrationMatchesTunnelIdentityStoreHMAC]' passed (0.001 seconds).
+Test Suite 'BiometricIdentityVaultTests' passed at 2026-04-22 08:33:11.473.
+	 Executed 11 tests, with 0 failures (0 unexpected) in 0.008 (0.011) seconds
+Test Suite 'BiometricTunnelRegistrarTests' started at 2026-04-22 08:33:11.473.
+Test Case '-[JarvisCoreTests.BiometricTunnelRegistrarTests testInjectedClockDrivesNonceUniqueness]' started.
+Test Case '-[JarvisCoreTests.BiometricTunnelRegistrarTests testInjectedClockDrivesNonceUniqueness]' passed (0.003 seconds).
+Test Case '-[JarvisCoreTests.BiometricTunnelRegistrarTests testNonceIsFreshISO8601MatchingServerParser]' started.
+Test Case '-[JarvisCoreTests.BiometricTunnelRegistrarTests testNonceIsFreshISO8601MatchingServerParser]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.BiometricTunnelRegistrarTests testRegisterWatchLowercasesRoleBeforeSigning]' started.
+Test Case '-[JarvisCoreTests.BiometricTunnelRegistrarTests testRegisterWatchLowercasesRoleBeforeSigning]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.BiometricTunnelRegistrarTests testRegisterWatchRejectedWhenWatchNotInAllowedRoles]' started.
+Test Case '-[JarvisCoreTests.BiometricTunnelRegistrarTests testRegisterWatchRejectedWhenWatchNotInAllowedRoles]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.BiometricTunnelRegistrarTests testRegisterWatchRoundTripsThroughTunnelIdentityStore]' started.
+Test Case '-[JarvisCoreTests.BiometricTunnelRegistrarTests testRegisterWatchRoundTripsThroughTunnelIdentityStore]' passed (0.002 seconds).
+Test Case '-[JarvisCoreTests.BiometricTunnelRegistrarTests testRegisterWatchWithoutWatchVaultThrowsBiometryUnavailable]' started.
+Test Case '-[JarvisCoreTests.BiometricTunnelRegistrarTests testRegisterWatchWithoutWatchVaultThrowsBiometryUnavailable]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.BiometricTunnelRegistrarTests testRegistrationRoundTripsThroughTunnelIdentityStoreValidate]' started.
+Test Case '-[JarvisCoreTests.BiometricTunnelRegistrarTests testRegistrationRoundTripsThroughTunnelIdentityStoreValidate]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.BiometricTunnelRegistrarTests testReplayRejectedBySecondValidate]' started.
+Test Case '-[JarvisCoreTests.BiometricTunnelRegistrarTests testReplayRejectedBySecondValidate]' passed (0.003 seconds).
+Test Case '-[JarvisCoreTests.BiometricTunnelRegistrarTests testRoleIsLowercasedBeforeSigningSoServerHMACMatches]' started.
+Test Case '-[JarvisCoreTests.BiometricTunnelRegistrarTests testRoleIsLowercasedBeforeSigningSoServerHMACMatches]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.BiometricTunnelRegistrarTests testStaleClockIsRejectedByServer]' started.
+Test Case '-[JarvisCoreTests.BiometricTunnelRegistrarTests testStaleClockIsRejectedByServer]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.BiometricTunnelRegistrarTests testWrongKeyFailsProofMismatch]' started.
+Test Case '-[JarvisCoreTests.BiometricTunnelRegistrarTests testWrongKeyFailsProofMismatch]' passed (0.001 seconds).
+Test Suite 'BiometricTunnelRegistrarTests' passed at 2026-04-22 08:33:11.493.
+	 Executed 11 tests, with 0 failures (0 unexpected) in 0.018 (0.020) seconds
+Test Suite 'CanonAdversarialTests' started at 2026-04-22 08:33:11.493.
+Test Case '-[JarvisCoreTests.CanonAdversarialTests testARCBridgeRefusesEmptyGridDump]' started.
+Test Case '-[JarvisCoreTests.CanonAdversarialTests testARCBridgeRefusesEmptyGridDump]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CanonAdversarialTests testBenignCommandsStillParse]' started.
+Test Case '-[JarvisCoreTests.CanonAdversarialTests testBenignCommandsStillParse]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.CanonAdversarialTests testBlockedPatternsRejectObviousDestructiveCommands]' started.
+Test Case '-[JarvisCoreTests.CanonAdversarialTests testBlockedPatternsRejectObviousDestructiveCommands]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.CanonAdversarialTests testBlockedPatternsStillCaughtWithCasingAndPunctuation]' started.
+Test Case '-[JarvisCoreTests.CanonAdversarialTests testBlockedPatternsStillCaughtWithCasingAndPunctuation]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.CanonAdversarialTests testBootstrapModeRefusesVoiceOperatorWithoutIdentityProof]' started.
+Test Case '-[JarvisCoreTests.CanonAdversarialTests testBootstrapModeRefusesVoiceOperatorWithoutIdentityProof]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.CanonAdversarialTests testCapabilityRegistryAssignsCorrectAuthorityPerNATONode]' started.
+Test Case '-[JarvisCoreTests.CanonAdversarialTests testCapabilityRegistryAssignsCorrectAuthorityPerNATONode]' passed (0.003 seconds).
+Test Case '-[JarvisCoreTests.CanonAdversarialTests testCompanionTierCannotIssueDestructiveVoiceIntent]' started.
+Test Case '-[JarvisCoreTests.CanonAdversarialTests testCompanionTierCannotIssueDestructiveVoiceIntent]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.CanonAdversarialTests testDestructiveGuardRefusesBurstShutdownSequence]' started.
+Test Case '-[JarvisCoreTests.CanonAdversarialTests testDestructiveGuardRefusesBurstShutdownSequence]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.CanonAdversarialTests testGuestTierCannotIssueTunnelCommandsBeyondStatus]' started.
+Test Case '-[JarvisCoreTests.CanonAdversarialTests testGuestTierCannotIssueTunnelCommandsBeyondStatus]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CanonAdversarialTests testProductionCapabilitiesFileIncludesAllMeshNodes]' started.
+Test Case '-[JarvisCoreTests.CanonAdversarialTests testProductionCapabilitiesFileIncludesAllMeshNodes]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CanonAdversarialTests testRateLimiterHardCapsBurstVolume]' started.
+Test Case '-[JarvisCoreTests.CanonAdversarialTests testRateLimiterHardCapsBurstVolume]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CanonAdversarialTests testRateLimiterReleasesAfterWindow]' started.
+Test Case '-[JarvisCoreTests.CanonAdversarialTests testRateLimiterReleasesAfterWindow]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.CanonAdversarialTests testUnknownRoleDoesNotLeakAuthorization]' started.
+2026-04-22 08:33:11.593070-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.CanonAdversarialTests testUnknownRoleDoesNotLeakAuthorization]' passed (0.080 seconds).
+Test Case '-[JarvisCoreTests.CanonAdversarialTests testVoiceOperatorRoleBlockedWithoutGreenGate]' started.
+2026-04-22 08:33:11.677949-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.CanonAdversarialTests testVoiceOperatorRoleBlockedWithoutGreenGate]' passed (0.084 seconds).
+Test Suite 'CanonAdversarialTests' passed at 2026-04-22 08:33:11.681.
+	 Executed 14 tests, with 0 failures (0 unexpected) in 0.185 (0.188) seconds
+Test Suite 'CanonBackendGateTests' started at 2026-04-22 08:33:11.681.
+Test Case '-[JarvisCoreTests.CanonBackendGateTests test_verify_accepts_delta_xtts_with_matching_env]' started.
+Test Case '-[JarvisCoreTests.CanonBackendGateTests test_verify_accepts_delta_xtts_with_matching_env]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CanonBackendGateTests test_verify_rejects_missing_refclip_sha]' started.
+Test Case '-[JarvisCoreTests.CanonBackendGateTests test_verify_rejects_missing_refclip_sha]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CanonBackendGateTests test_verify_rejects_non_conforming_backend]' started.
+Test Case '-[JarvisCoreTests.CanonBackendGateTests test_verify_rejects_non_conforming_backend]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CanonBackendGateTests test_verify_rejects_wrong_host]' started.
+Test Case '-[JarvisCoreTests.CanonBackendGateTests test_verify_rejects_wrong_host]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CanonBackendGateTests test_verify_rejects_wrong_model]' started.
+Test Case '-[JarvisCoreTests.CanonBackendGateTests test_verify_rejects_wrong_model]' passed (0.002 seconds).
+Test Case '-[JarvisCoreTests.CanonBackendGateTests test_verify_rejects_wrong_port]' started.
+Test Case '-[JarvisCoreTests.CanonBackendGateTests test_verify_rejects_wrong_port]' passed (0.001 seconds).
+Test Suite 'CanonBackendGateTests' passed at 2026-04-22 08:33:11.688.
+	 Executed 6 tests, with 0 failures (0 unexpected) in 0.006 (0.008) seconds
+Test Suite 'CanonRegistryTests' started at 2026-04-22 08:33:11.689.
+Test Case '-[JarvisCoreTests.CanonRegistryTests testAllFilenamesAreUnique]' started.
+Test Case '-[JarvisCoreTests.CanonRegistryTests testAllFilenamesAreUnique]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CanonRegistryTests testAllHashesAreUnique]' started.
+Test Case '-[JarvisCoreTests.CanonRegistryTests testAllHashesAreUnique]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CanonRegistryTests testAllIdsAreUnique]' started.
+Test Case '-[JarvisCoreTests.CanonRegistryTests testAllIdsAreUnique]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CanonRegistryTests testLiveCorpusDirectoryExists]' started.
+Test Case '-[JarvisCoreTests.CanonRegistryTests testLiveCorpusDirectoryExists]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.CanonRegistryTests testLiveCorpusHashesMatchRegistry]' started.
+Test Case '-[JarvisCoreTests.CanonRegistryTests testLiveCorpusHashesMatchRegistry]' passed (0.007 seconds).
+Test Case '-[JarvisCoreTests.CanonRegistryTests testLoadVerifiedReturnsMatchingDocument]' started.
+Test Case '-[JarvisCoreTests.CanonRegistryTests testLoadVerifiedReturnsMatchingDocument]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CanonRegistryTests testLookupById]' started.
+Test Case '-[JarvisCoreTests.CanonRegistryTests testLookupById]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CanonRegistryTests testLookupByRole]' started.
+Test Case '-[JarvisCoreTests.CanonRegistryTests testLookupByRole]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CanonRegistryTests testLookupByTag]' started.
+Test Case '-[JarvisCoreTests.CanonRegistryTests testLookupByTag]' passed (0.002 seconds).
+Test Case '-[JarvisCoreTests.CanonRegistryTests testRegistryIsNonEmptyAndWellFormed]' started.
+Test Case '-[JarvisCoreTests.CanonRegistryTests testRegistryIsNonEmptyAndWellFormed]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CanonRegistryTests testRequireCleanCorpusDoesNotThrow]' started.
+Test Case '-[JarvisCoreTests.CanonRegistryTests testRequireCleanCorpusDoesNotThrow]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.CanonRegistryTests testSha256OfKnownData]' started.
+Test Case '-[JarvisCoreTests.CanonRegistryTests testSha256OfKnownData]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CanonRegistryTests testVerifyCorpusDetectsDrift]' started.
+Test Case '-[JarvisCoreTests.CanonRegistryTests testVerifyCorpusDetectsDrift]' passed (0.007 seconds).
+Test Case '-[JarvisCoreTests.CanonRegistryTests testVerifyCorpusDetectsMissingFiles]' started.
+Test Case '-[JarvisCoreTests.CanonRegistryTests testVerifyCorpusDetectsMissingFiles]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CanonRegistryTests testVerifyCorpusThrowsWhenCorpusDirectoryMissing]' started.
+Test Case '-[JarvisCoreTests.CanonRegistryTests testVerifyCorpusThrowsWhenCorpusDirectoryMissing]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CanonRegistryTests testWellKnownIDsMatchRegistry]' started.
+Test Case '-[JarvisCoreTests.CanonRegistryTests testWellKnownIDsMatchRegistry]' passed (0.002 seconds).
+Test Suite 'CanonRegistryTests' passed at 2026-04-22 08:33:11.721.
+	 Executed 16 tests, with 0 failures (0 unexpected) in 0.029 (0.033) seconds
+Test Suite 'CapabilityRegistryTests' started at 2026-04-22 08:33:11.722.
+Test Case '-[JarvisCoreTests.CapabilityRegistryTests testAccessoryMatchingByAlias]' started.
+Test Case '-[JarvisCoreTests.CapabilityRegistryTests testAccessoryMatchingByAlias]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.CapabilityRegistryTests testActionAndParametersExtraction]' started.
+Test Case '-[JarvisCoreTests.CapabilityRegistryTests testActionAndParametersExtraction]' passed (0.005 seconds).
+Test Case '-[JarvisCoreTests.CapabilityRegistryTests testAuthorityDecodesExplicitValues]' started.
+Test Case '-[JarvisCoreTests.CapabilityRegistryTests testAuthorityDecodesExplicitValues]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CapabilityRegistryTests testAuthorityDefaultsToStandardWhenMissing]' started.
+Test Case '-[JarvisCoreTests.CapabilityRegistryTests testAuthorityDefaultsToStandardWhenMissing]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.CapabilityRegistryTests testDisplayAndAccessoryLookupByID]' started.
+Test Case '-[JarvisCoreTests.CapabilityRegistryTests testDisplayAndAccessoryLookupByID]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.CapabilityRegistryTests testDisplayIndexIsOneBased]' started.
+Test Case '-[JarvisCoreTests.CapabilityRegistryTests testDisplayIndexIsOneBased]' passed (0.015 seconds).
+Test Case '-[JarvisCoreTests.CapabilityRegistryTests testDisplayMatchingByAlias]' started.
+Test Case '-[JarvisCoreTests.CapabilityRegistryTests testDisplayMatchingByAlias]' passed (0.005 seconds).
+Test Case '-[JarvisCoreTests.CapabilityRegistryTests testMatchActionBranches]' started.
+Test Case '-[JarvisCoreTests.CapabilityRegistryTests testMatchActionBranches]' passed (0.005 seconds).
+Test Case '-[JarvisCoreTests.CapabilityRegistryTests testMatchParametersBranches]' started.
+Test Case '-[JarvisCoreTests.CapabilityRegistryTests testMatchParametersBranches]' passed (0.005 seconds).
+Test Case '-[JarvisCoreTests.CapabilityRegistryTests testRegistryLoadsFromConfigFile]' started.
+Test Case '-[JarvisCoreTests.CapabilityRegistryTests testRegistryLoadsFromConfigFile]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.CapabilityRegistryTests testReloadReplacesState]' started.
+Test Case '-[JarvisCoreTests.CapabilityRegistryTests testReloadReplacesState]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.CapabilityRegistryTests testUnknownDisplayAndAccessoryReturnSentinel]' started.
+Test Case '-[JarvisCoreTests.CapabilityRegistryTests testUnknownDisplayAndAccessoryReturnSentinel]' passed (0.004 seconds).
+Test Suite 'CapabilityRegistryTests' passed at 2026-04-22 08:33:11.783.
+	 Executed 12 tests, with 0 failures (0 unexpected) in 0.059 (0.061) seconds
+Test Suite 'CircuitBreakerTests' started at 2026-04-22 08:33:11.783.
+Test Case '-[JarvisCoreTests.CircuitBreakerTests testCircuitBreakerInitiallyClosedAllowsRequests]' started.
+Test Case '-[JarvisCoreTests.CircuitBreakerTests testCircuitBreakerInitiallyClosedAllowsRequests]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CircuitBreakerTests testCircuitBreakerOpensAfterThresholdFailures]' started.
+Test Case '-[JarvisCoreTests.CircuitBreakerTests testCircuitBreakerOpensAfterThresholdFailures]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CircuitBreakerTests testCircuitBreakerRejectsRequestsWhenOpen]' started.
+Test Case '-[JarvisCoreTests.CircuitBreakerTests testCircuitBreakerRejectsRequestsWhenOpen]' passed (0.001 seconds).
+Test Suite 'CircuitBreakerTests' passed at 2026-04-22 08:33:11.786.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.002 (0.003) seconds
+Test Suite 'CommandRateLimiterTests' started at 2026-04-22 08:33:11.786.
+Test Case '-[JarvisCoreTests.CommandRateLimiterTests testAllowsUpToCapacity]' started.
+Test Case '-[JarvisCoreTests.CommandRateLimiterTests testAllowsUpToCapacity]' passed (0.002 seconds).
+Test Case '-[JarvisCoreTests.CommandRateLimiterTests testCapacityOneRhythm]' started.
+Test Case '-[JarvisCoreTests.CommandRateLimiterTests testCapacityOneRhythm]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CommandRateLimiterTests testClockRewindDoesNotGrantExtraTokens]' started.
+Test Case '-[JarvisCoreTests.CommandRateLimiterTests testClockRewindDoesNotGrantExtraTokens]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.CommandRateLimiterTests testConcurrentAllowIsThreadSafe]' started.
+Test Case '-[JarvisCoreTests.CommandRateLimiterTests testConcurrentAllowIsThreadSafe]' passed (0.002 seconds).
+Test Case '-[JarvisCoreTests.CommandRateLimiterTests testConstructorClampsCapacityLowerBound]' started.
+Test Case '-[JarvisCoreTests.CommandRateLimiterTests testConstructorClampsCapacityLowerBound]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.CommandRateLimiterTests testConstructorClampsWindowLowerBound]' started.
+Test Case '-[JarvisCoreTests.CommandRateLimiterTests testConstructorClampsWindowLowerBound]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CommandRateLimiterTests testConstructorDefaults]' started.
+Test Case '-[JarvisCoreTests.CommandRateLimiterTests testConstructorDefaults]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.CommandRateLimiterTests testCutoffIsStrictlyLessThan]' started.
+Test Case '-[JarvisCoreTests.CommandRateLimiterTests testCutoffIsStrictlyLessThan]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CommandRateLimiterTests testDefaultNowParameterSmokes]' started.
+Test Case '-[JarvisCoreTests.CommandRateLimiterTests testDefaultNowParameterSmokes]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CommandRateLimiterTests testEvictsExpiredTimestamps]' started.
+Test Case '-[JarvisCoreTests.CommandRateLimiterTests testEvictsExpiredTimestamps]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CommandRateLimiterTests testLimitExceededResponseCopy]' started.
+Test Case '-[JarvisCoreTests.CommandRateLimiterTests testLimitExceededResponseCopy]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CommandRateLimiterTests testMinimumWindowClampTakesEffect]' started.
+Test Case '-[JarvisCoreTests.CommandRateLimiterTests testMinimumWindowClampTakesEffect]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CommandRateLimiterTests testRecoveryAfterFullWindow]' started.
+Test Case '-[JarvisCoreTests.CommandRateLimiterTests testRecoveryAfterFullWindow]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CommandRateLimiterTests testRefusedCallDoesNotConsumeToken]' started.
+Test Case '-[JarvisCoreTests.CommandRateLimiterTests testRefusedCallDoesNotConsumeToken]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CommandRateLimiterTests testRefusesBeyondCapacityWithinWindow]' started.
+Test Case '-[JarvisCoreTests.CommandRateLimiterTests testRefusesBeyondCapacityWithinWindow]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CommandRateLimiterTests testSlidingWindowEvictsStampByStamp]' started.
+Test Case '-[JarvisCoreTests.CommandRateLimiterTests testSlidingWindowEvictsStampByStamp]' passed (0.001 seconds).
+Test Suite 'CommandRateLimiterTests' passed at 2026-04-22 08:33:11.801.
+	 Executed 16 tests, with 0 failures (0 unexpected) in 0.012 (0.015) seconds
+Test Suite 'CompanionCapabilityPolicyTests' started at 2026-04-22 08:33:11.801.
+Test Case '-[JarvisCoreTests.CompanionCapabilityPolicyTests testCompanionTierAllowsLightsAndStatus]' started.
+Test Case '-[JarvisCoreTests.CompanionCapabilityPolicyTests testCompanionTierAllowsLightsAndStatus]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CompanionCapabilityPolicyTests testCompanionTierDeniesDestructiveIntent]' started.
+Test Case '-[JarvisCoreTests.CompanionCapabilityPolicyTests testCompanionTierDeniesDestructiveIntent]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CompanionCapabilityPolicyTests testCompanionTierDeniesSelfHealAndReseed]' started.
+Test Case '-[JarvisCoreTests.CompanionCapabilityPolicyTests testCompanionTierDeniesSelfHealAndReseed]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.CompanionCapabilityPolicyTests testGuestTierAllowsStatusOnlyDeniesCommandVerbs]' started.
+Test Case '-[JarvisCoreTests.CompanionCapabilityPolicyTests testGuestTierAllowsStatusOnlyDeniesCommandVerbs]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CompanionCapabilityPolicyTests testOperatorTierAllowsDestructiveIntent]' started.
+Test Case '-[JarvisCoreTests.CompanionCapabilityPolicyTests testOperatorTierAllowsDestructiveIntent]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.CompanionCapabilityPolicyTests testPaletteEmeraldVsTealIsDistinct]' started.
+Test Case '-[JarvisCoreTests.CompanionCapabilityPolicyTests testPaletteEmeraldVsTealIsDistinct]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.CompanionCapabilityPolicyTests testPaletteMapsPrincipalToCorrectTier]' started.
+Test Case '-[JarvisCoreTests.CompanionCapabilityPolicyTests testPaletteMapsPrincipalToCorrectTier]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CompanionCapabilityPolicyTests testTunnelCompanionDeniedDestructiveAndSkills]' started.
+Test Case '-[JarvisCoreTests.CompanionCapabilityPolicyTests testTunnelCompanionDeniedDestructiveAndSkills]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.CompanionCapabilityPolicyTests testTunnelGuestAllowsOnlyStatusAndPing]' started.
+Test Case '-[JarvisCoreTests.CompanionCapabilityPolicyTests testTunnelGuestAllowsOnlyStatusAndPing]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.CompanionCapabilityPolicyTests testTunnelOperatorMayInvokeEverything]' started.
+Test Case '-[JarvisCoreTests.CompanionCapabilityPolicyTests testTunnelOperatorMayInvokeEverything]' passed (0.000 seconds).
+Test Suite 'CompanionCapabilityPolicyTests' passed at 2026-04-22 08:33:11.813.
+	 Executed 10 tests, with 0 failures (0 unexpected) in 0.006 (0.012) seconds
+Test Suite 'ContextualRetrievalBridgeTests' started at 2026-04-22 08:33:11.813.
+Test Case '-[JarvisCoreTests.ContextualRetrievalBridgeTests testEnrichedPromptFallsBackToBasePromptOnColdMemory]' started.
+2026-04-22 08:33:11.890470-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.ContextualRetrievalBridgeTests testEnrichedPromptFallsBackToBasePromptOnColdMemory]' passed (0.078 seconds).
+Test Case '-[JarvisCoreTests.ContextualRetrievalBridgeTests testEnrichedPromptIncludesStructuredHeader]' started.
+2026-04-22 08:33:11.968752-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.ContextualRetrievalBridgeTests testEnrichedPromptIncludesStructuredHeader]' passed (0.081 seconds).
+Test Case '-[JarvisCoreTests.ContextualRetrievalBridgeTests testPheromonePathsSortedByCombinedWeight]' started.
+2026-04-22 08:33:12.044024-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.ContextualRetrievalBridgeTests testPheromonePathsSortedByCombinedWeight]' passed (0.074 seconds).
+Test Case '-[JarvisCoreTests.ContextualRetrievalBridgeTests testQueryWithContextEnrichesPromptViaBridge]' started.
+2026-04-22 08:33:12.122134-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.ContextualRetrievalBridgeTests testQueryWithContextEnrichesPromptViaBridge]' passed (0.144 seconds).
+Test Case '-[JarvisCoreTests.ContextualRetrievalBridgeTests testRecordOutcomeMagnitudeScalesDeposit]' started.
+2026-04-22 08:33:12.263865-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.ContextualRetrievalBridgeTests testRecordOutcomeMagnitudeScalesDeposit]' passed (0.073 seconds).
+Test Case '-[JarvisCoreTests.ContextualRetrievalBridgeTests testRecordOutcomeOnEmptyContextReturnsZero]' started.
+2026-04-22 08:33:12.341429-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.ContextualRetrievalBridgeTests testRecordOutcomeOnEmptyContextReturnsZero]' passed (0.077 seconds).
+Test Case '-[JarvisCoreTests.ContextualRetrievalBridgeTests testRecordOutcomeReinforceBumpsPheromone]' started.
+2026-04-22 08:33:12.417753-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.ContextualRetrievalBridgeTests testRecordOutcomeReinforceBumpsPheromone]' passed (0.077 seconds).
+Test Case '-[JarvisCoreTests.ContextualRetrievalBridgeTests testRecordOutcomeRepelRaisesFailureCount]' started.
+2026-04-22 08:33:12.507292-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.ContextualRetrievalBridgeTests testRecordOutcomeRepelRaisesFailureCount]' passed (0.102 seconds).
+Test Case '-[JarvisCoreTests.ContextualRetrievalBridgeTests testRecordOutcomeZeroMagnitudeIsNoop]' started.
+2026-04-22 08:33:12.601018-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.ContextualRetrievalBridgeTests testRecordOutcomeZeroMagnitudeIsNoop]' passed (0.080 seconds).
+Test Case '-[JarvisCoreTests.ContextualRetrievalBridgeTests testRetrieveHasNoSideEffectsOnMainContext]' started.
+2026-04-22 08:33:12.675940-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.ContextualRetrievalBridgeTests testRetrieveHasNoSideEffectsOnMainContext]' passed (0.076 seconds).
+Test Case '-[JarvisCoreTests.ContextualRetrievalBridgeTests testRetrieveIncludesPheromonePathsSeededFromSemanticMatches]' started.
+2026-04-22 08:33:12.754580-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.ContextualRetrievalBridgeTests testRetrieveIncludesPheromonePathsSeededFromSemanticMatches]' passed (0.078 seconds).
+Test Case '-[JarvisCoreTests.ContextualRetrievalBridgeTests testRetrieveOnEmptyMemoryReturnsEmptyContext]' started.
+2026-04-22 08:33:12.829094-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.ContextualRetrievalBridgeTests testRetrieveOnEmptyMemoryReturnsEmptyContext]' passed (0.073 seconds).
+Test Case '-[JarvisCoreTests.ContextualRetrievalBridgeTests testRetrieveRespectsLimit]' started.
+2026-04-22 08:33:12.905629-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.ContextualRetrievalBridgeTests testRetrieveRespectsLimit]' passed (0.078 seconds).
+Test Case '-[JarvisCoreTests.ContextualRetrievalBridgeTests testRetrieveReturnsSemanticMatchesAfterMemify]' started.
+2026-04-22 08:33:12.979080-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.ContextualRetrievalBridgeTests testRetrieveReturnsSemanticMatchesAfterMemify]' passed (0.073 seconds).
+Test Case '-[JarvisCoreTests.ContextualRetrievalBridgeTests testRetrieveZeroLimitReturnsEmpty]' started.
+2026-04-22 08:33:13.054914-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.ContextualRetrievalBridgeTests testRetrieveZeroLimitReturnsEmpty]' passed (0.075 seconds).
+Test Case '-[JarvisCoreTests.ContextualRetrievalBridgeTests testRuntimeExposesSharedBridge]' started.
+2026-04-22 08:33:13.129255-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.ContextualRetrievalBridgeTests testRuntimeExposesSharedBridge]' passed (0.075 seconds).
+Test Suite 'ContextualRetrievalBridgeTests' passed at 2026-04-22 08:33:13.131.
+	 Executed 16 tests, with 0 failures (0 unexpected) in 1.314 (1.318) seconds
+Test Suite 'ConversationEngineTests' started at 2026-04-22 08:33:13.131.
+Test Case '-[JarvisCoreTests.ConversationEngineTests testASRFinalTriggersGenerating]' started.
+2026-04-22 08:33:13.209509-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.ConversationEngineTests testASRFinalTriggersGenerating]' passed (0.183 seconds).
+Test Case '-[JarvisCoreTests.ConversationEngineTests testASRPartialsTriggerPartialUnderstanding]' started.
+2026-04-22 08:33:13.390539-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.ConversationEngineTests testASRPartialsTriggerPartialUnderstanding]' passed (0.178 seconds).
+Test Case '-[JarvisCoreTests.ConversationEngineTests testBargeInYieldsAndReturnsToListening]' started.
+2026-04-22 08:33:13.568459-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.ConversationEngineTests testBargeInYieldsAndReturnsToListening]' passed (0.075 seconds).
+Test Case '-[JarvisCoreTests.ConversationEngineTests testIllegalTransitionsAreRejected]' started.
+2026-04-22 08:33:13.642537-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.ConversationEngineTests testIllegalTransitionsAreRejected]' passed (0.074 seconds).
+Test Case '-[JarvisCoreTests.ConversationEngineTests testIngestAudioStartsListening]' started.
+2026-04-22 08:33:13.718094-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.ConversationEngineTests testIngestAudioStartsListening]' passed (0.075 seconds).
+Test Case '-[JarvisCoreTests.ConversationEngineTests testInitialStateIsIdle]' started.
+2026-04-22 08:33:13.792691-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.ConversationEngineTests testInitialStateIsIdle]' passed (0.074 seconds).
+Test Suite 'ConversationEngineTests' passed at 2026-04-22 08:33:13.793.
+	 Executed 6 tests, with 0 failures (0 unexpected) in 0.660 (0.662) seconds
+Test Suite 'DIALBridgeTests' started at 2026-04-22 08:33:13.794.
+Test Case '-[JarvisCoreTests.DIALBridgeTests testLaunchAccepts206PartialContent]' started.
+Test Case '-[JarvisCoreTests.DIALBridgeTests testLaunchAccepts206PartialContent]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.DIALBridgeTests testLaunchDefaultsToYouTubeForDashboard]' started.
+Test Case '-[JarvisCoreTests.DIALBridgeTests testLaunchDefaultsToYouTubeForDashboard]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.DIALBridgeTests testLaunchHonorsContentParameterAndPort]' started.
+Test Case '-[JarvisCoreTests.DIALBridgeTests testLaunchHonorsContentParameterAndPort]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.DIALBridgeTests testLaunchThrowsOn404]' started.
+Test Case '-[JarvisCoreTests.DIALBridgeTests testLaunchThrowsOn404]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.DIALBridgeTests testLaunchThrowsWithoutAddress]' started.
+Test Case '-[JarvisCoreTests.DIALBridgeTests testLaunchThrowsWithoutAddress]' passed (0.001 seconds).
+Test Suite 'DIALBridgeTests' passed at 2026-04-22 08:33:13.799.
+	 Executed 5 tests, with 0 failures (0 unexpected) in 0.004 (0.005) seconds
+Test Suite 'DestructiveGuardrailTests' started at 2026-04-22 08:33:13.799.
+Test Case '-[JarvisCoreTests.DestructiveGuardrailTests testCanonicalHashHexDiffersAcrossDestructiveActions]' started.
+2026-04-22 08:33:13.840789-0500 xctest[80127:602530] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.DestructiveGuardrailTests testCanonicalHashHexDiffersAcrossDestructiveActions]' passed (0.043 seconds).
+Test Case '-[JarvisCoreTests.DestructiveGuardrailTests testCanonicalHashHexIsDeterministic]' started.
+2026-04-22 08:33:13.884553-0500 xctest[80127:602357] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.DestructiveGuardrailTests testCanonicalHashHexIsDeterministic]' passed (0.043 seconds).
+Test Case '-[JarvisCoreTests.DestructiveGuardrailTests testDestructiveActionWithCorrectHashIsAllowed]' started.
+2026-04-22 08:33:13.931074-0500 xctest[80127:602357] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.DestructiveGuardrailTests testDestructiveActionWithCorrectHashIsAllowed]' passed (0.047 seconds).
+Test Case '-[JarvisCoreTests.DestructiveGuardrailTests testDestructiveActionWithoutConfirmHashIsRejected]' started.
+2026-04-22 08:33:13.973735-0500 xctest[80127:602522] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.DestructiveGuardrailTests testDestructiveActionWithoutConfirmHashIsRejected]' passed (0.042 seconds).
+Test Case '-[JarvisCoreTests.DestructiveGuardrailTests testDestructiveActionWithWrongHashIsRejected]' started.
+2026-04-22 08:33:14.014342-0500 xctest[80127:602522] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.DestructiveGuardrailTests testDestructiveActionWithWrongHashIsRejected]' passed (0.040 seconds).
+Test Case '-[JarvisCoreTests.DestructiveGuardrailTests testIsDestructiveReturnsFalseForNonDestructiveActions]' started.
+2026-04-22 08:33:14.058087-0500 xctest[80127:602540] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.DestructiveGuardrailTests testIsDestructiveReturnsFalseForNonDestructiveActions]' passed (0.043 seconds).
+Test Case '-[JarvisCoreTests.DestructiveGuardrailTests testIsDestructiveReturnsTrueForAllDestructiveActions]' started.
+2026-04-22 08:33:14.104810-0500 xctest[80127:602523] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.DestructiveGuardrailTests testIsDestructiveReturnsTrueForAllDestructiveActions]' passed (0.047 seconds).
+Test Case '-[JarvisCoreTests.DestructiveGuardrailTests testNonceTrackerAcceptsDifferentNonces]' started.
+2026-04-22 08:33:14.154340-0500 xctest[80127:602551] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.DestructiveGuardrailTests testNonceTrackerAcceptsDifferentNonces]' passed (0.050 seconds).
+Test Case '-[JarvisCoreTests.DestructiveGuardrailTests testNonceTrackerRejectsEmptyNonce]' started.
+2026-04-22 08:33:14.200314-0500 xctest[80127:602551] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.DestructiveGuardrailTests testNonceTrackerRejectsEmptyNonce]' passed (0.045 seconds).
+Test Case '-[JarvisCoreTests.DestructiveGuardrailTests testNonceTrackerRejectsReplay]' started.
+2026-04-22 08:33:14.249196-0500 xctest[80127:602553] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.DestructiveGuardrailTests testNonceTrackerRejectsReplay]' passed (0.049 seconds).
+Test Case '-[JarvisCoreTests.DestructiveGuardrailTests testNonDestructiveActionAllowedWithoutConfirmHash]' started.
+2026-04-22 08:33:14.289859-0500 xctest[80127:602554] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.DestructiveGuardrailTests testNonDestructiveActionAllowedWithoutConfirmHash]' passed (0.040 seconds).
+Test Suite 'DestructiveGuardrailTests' passed at 2026-04-22 08:33:14.291.
+	 Executed 11 tests, with 0 failures (0 unexpected) in 0.489 (0.492) seconds
+Test Suite 'DestructiveIntentGuardTests' started at 2026-04-22 08:33:14.291.
+Test Case '-[JarvisCoreTests.DestructiveIntentGuardTests testAllowEvictsExpiredTokensOutsideWindow]' started.
+Test Case '-[JarvisCoreTests.DestructiveIntentGuardTests testAllowEvictsExpiredTokensOutsideWindow]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.DestructiveIntentGuardTests testAllowRefusesAfterCapacityExhausted]' started.
+Test Case '-[JarvisCoreTests.DestructiveIntentGuardTests testAllowRefusesAfterCapacityExhausted]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.DestructiveIntentGuardTests testClassifyIsCaseInsensitiveAndMatchesMultiWordFragments]' started.
+Test Case '-[JarvisCoreTests.DestructiveIntentGuardTests testClassifyIsCaseInsensitiveAndMatchesMultiWordFragments]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.DestructiveIntentGuardTests testConstructorClampsInvalidCapacityAndWindow]' started.
+Test Case '-[JarvisCoreTests.DestructiveIntentGuardTests testConstructorClampsInvalidCapacityAndWindow]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.DestructiveIntentGuardTests testDestructiveFragmentsIncludeCanonicalSet]' started.
+Test Case '-[JarvisCoreTests.DestructiveIntentGuardTests testDestructiveFragmentsIncludeCanonicalSet]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.DestructiveIntentGuardTests testDisplayActionIntentIsNeverDestructive]' started.
+Test Case '-[JarvisCoreTests.DestructiveIntentGuardTests testDisplayActionIntentIsNeverDestructive]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.DestructiveIntentGuardTests testHomeKitAndSkillIntentsAreNeverDestructive]' started.
+Test Case '-[JarvisCoreTests.DestructiveIntentGuardTests testHomeKitAndSkillIntentsAreNeverDestructive]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.DestructiveIntentGuardTests testNonDestructiveSystemQueryPassesThrough]' started.
+Test Case '-[JarvisCoreTests.DestructiveIntentGuardTests testNonDestructiveSystemQueryPassesThrough]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.DestructiveIntentGuardTests testRefusalResponseIsStableSpokenCopy]' started.
+Test Case '-[JarvisCoreTests.DestructiveIntentGuardTests testRefusalResponseIsStableSpokenCopy]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.DestructiveIntentGuardTests testSystemQueryWithDestructiveFragmentClassifiesAsDestructive]' started.
+Test Case '-[JarvisCoreTests.DestructiveIntentGuardTests testSystemQueryWithDestructiveFragmentClassifiesAsDestructive]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.DestructiveIntentGuardTests testUnknownIntentFallsBackToRawCommand]' started.
+Test Case '-[JarvisCoreTests.DestructiveIntentGuardTests testUnknownIntentFallsBackToRawCommand]' passed (0.000 seconds).
+Test Suite 'DestructiveIntentGuardTests' passed at 2026-04-22 08:33:14.299.
+	 Executed 11 tests, with 0 failures (0 unexpected) in 0.005 (0.007) seconds
+Test Suite 'DisplayCommandExecutorHAMappingTests' started at 2026-04-22 08:33:14.299.
+Test Case '-[JarvisCoreTests.DisplayCommandExecutorHAMappingTests testHAEntityID_passesThroughExplicitEntityID]' started.
+Test Case '-[JarvisCoreTests.DisplayCommandExecutorHAMappingTests testHAEntityID_passesThroughExplicitEntityID]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.DisplayCommandExecutorHAMappingTests testHAEntityID_returnsNilForUnknown]' started.
+Test Case '-[JarvisCoreTests.DisplayCommandExecutorHAMappingTests testHAEntityID_returnsNilForUnknown]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.DisplayCommandExecutorHAMappingTests testHAEntityID_slugifiesFreeformName]' started.
+Test Case '-[JarvisCoreTests.DisplayCommandExecutorHAMappingTests testHAEntityID_slugifiesFreeformName]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.DisplayCommandExecutorHAMappingTests testMapHomeKitToHA_brightness_includesPercent]' started.
+Test Case '-[JarvisCoreTests.DisplayCommandExecutorHAMappingTests testMapHomeKitToHA_brightness_includesPercent]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.DisplayCommandExecutorHAMappingTests testMapHomeKitToHA_brightnessClamped]' started.
+Test Case '-[JarvisCoreTests.DisplayCommandExecutorHAMappingTests testMapHomeKitToHA_brightnessClamped]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.DisplayCommandExecutorHAMappingTests testMapHomeKitToHA_offCharacteristic_mapsToLightTurnOff]' started.
+Test Case '-[JarvisCoreTests.DisplayCommandExecutorHAMappingTests testMapHomeKitToHA_offCharacteristic_mapsToLightTurnOff]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.DisplayCommandExecutorHAMappingTests testMapHomeKitToHA_onCharacteristic_mapsToLightTurnOn]' started.
+Test Case '-[JarvisCoreTests.DisplayCommandExecutorHAMappingTests testMapHomeKitToHA_onCharacteristic_mapsToLightTurnOn]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.DisplayCommandExecutorHAMappingTests testRouteToHomeKit_callsN8NWebhookWithMappedPayload]' started.
+Test Case '-[JarvisCoreTests.DisplayCommandExecutorHAMappingTests testRouteToHomeKit_callsN8NWebhookWithMappedPayload]' passed (0.007 seconds).
+Test Case '-[JarvisCoreTests.DisplayCommandExecutorHAMappingTests testRouteToHomeKit_withoutBridge_fallsBackToQueuedStub]' started.
+Test Case '-[JarvisCoreTests.DisplayCommandExecutorHAMappingTests testRouteToHomeKit_withoutBridge_fallsBackToQueuedStub]' passed (0.006 seconds).
+Test Suite 'DisplayCommandExecutorHAMappingTests' passed at 2026-04-22 08:33:14.321.
+	 Executed 9 tests, with 0 failures (0 unexpected) in 0.017 (0.022) seconds
+Test Suite 'DisplayCommandExecutorTests' started at 2026-04-22 08:33:14.321.
+Test Case '-[JarvisCoreTests.DisplayCommandExecutorTests testExecutorBlocksUnauthorizedDisplayAccess]' started.
+Test Case '-[JarvisCoreTests.DisplayCommandExecutorTests testExecutorBlocksUnauthorizedDisplayAccess]' passed (0.005 seconds).
+Test Case '-[JarvisCoreTests.DisplayCommandExecutorTests testExecutorBlocksUnauthorizedHomeKitAccess]' started.
+Test Case '-[JarvisCoreTests.DisplayCommandExecutorTests testExecutorBlocksUnauthorizedHomeKitAccess]' passed (0.005 seconds).
+Test Case '-[JarvisCoreTests.DisplayCommandExecutorTests testExecutorDispatchesToDisplayWithAuthorization]' started.
+Test Case '-[JarvisCoreTests.DisplayCommandExecutorTests testExecutorDispatchesToDisplayWithAuthorization]' passed (0.006 seconds).
+Test Suite 'DisplayCommandExecutorTests' passed at 2026-04-22 08:33:14.338.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.016 (0.017) seconds
+Test Suite 'F5TTSBackendTests' started at 2026-04-22 08:33:14.338.
+Test Case '-[JarvisCoreTests.F5TTSBackendTests testHTTPTTSBackendPayloadBuilding]' started.
+Test Case '-[JarvisCoreTests.F5TTSBackendTests testHTTPTTSBackendPayloadBuilding]' passed (0.003 seconds).
+Test Case '-[JarvisCoreTests.F5TTSBackendTests testPipelineParameterSelection]' started.
+Test Case '-[JarvisCoreTests.F5TTSBackendTests testPipelineParameterSelection]' passed (0.005 seconds).
+Test Case '-[JarvisCoreTests.F5TTSBackendTests testTTSRenderParametersMapping]' started.
+Test Case '-[JarvisCoreTests.F5TTSBackendTests testTTSRenderParametersMapping]' passed (0.003 seconds).
+Test Suite 'F5TTSBackendTests' passed at 2026-04-22 08:33:14.350.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.011 (0.012) seconds
+Test Suite 'GreetingOrchestratorTests' started at 2026-04-22 08:33:14.350.
+Test Case '-[JarvisCoreTests.GreetingOrchestratorTests test_afternoon_hour_uses_afternoon_word]' started.
+Test Case '-[JarvisCoreTests.GreetingOrchestratorTests test_afternoon_hour_uses_afternoon_word]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.GreetingOrchestratorTests test_arrival_plans_greeting_with_all_surfaces]' started.
+Test Case '-[JarvisCoreTests.GreetingOrchestratorTests test_arrival_plans_greeting_with_all_surfaces]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.GreetingOrchestratorTests test_cooldown_boundary_is_strict_less_than]' started.
+Test Case '-[JarvisCoreTests.GreetingOrchestratorTests test_cooldown_boundary_is_strict_less_than]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.GreetingOrchestratorTests test_cooldown_passes_after_window]' started.
+Test Case '-[JarvisCoreTests.GreetingOrchestratorTests test_cooldown_passes_after_window]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.GreetingOrchestratorTests test_cooldown_suppresses_within_window]' started.
+Test Case '-[JarvisCoreTests.GreetingOrchestratorTests test_cooldown_suppresses_within_window]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.GreetingOrchestratorTests test_csi_confidence_exactly_at_threshold_passes]' started.
+Test Case '-[JarvisCoreTests.GreetingOrchestratorTests test_csi_confidence_exactly_at_threshold_passes]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.GreetingOrchestratorTests test_csi_with_nil_confidence_passes]' started.
+Test Case '-[JarvisCoreTests.GreetingOrchestratorTests test_csi_with_nil_confidence_passes]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.GreetingOrchestratorTests test_departure_is_suppressed]' started.
+Test Case '-[JarvisCoreTests.GreetingOrchestratorTests test_departure_is_suppressed]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.GreetingOrchestratorTests test_high_confidence_csi_passes_and_tags_source]' started.
+Test Case '-[JarvisCoreTests.GreetingOrchestratorTests test_high_confidence_csi_passes_and_tags_source]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.GreetingOrchestratorTests test_low_confidence_csi_is_suppressed]' started.
+Test Case '-[JarvisCoreTests.GreetingOrchestratorTests test_low_confidence_csi_is_suppressed]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.GreetingOrchestratorTests test_mock_source_is_always_suppressed]' started.
+Test Case '-[JarvisCoreTests.GreetingOrchestratorTests test_mock_source_is_always_suppressed]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.GreetingOrchestratorTests test_operator_label_is_never_hardcoded]' started.
+Test Case '-[JarvisCoreTests.GreetingOrchestratorTests test_operator_label_is_never_hardcoded]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.GreetingOrchestratorTests test_plan_is_equatable]' started.
+Test Case '-[JarvisCoreTests.GreetingOrchestratorTests test_plan_is_equatable]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.GreetingOrchestratorTests test_presence_kind_presence_and_absence_are_both_suppressed]' started.
+Test Case '-[JarvisCoreTests.GreetingOrchestratorTests test_presence_kind_presence_and_absence_are_both_suppressed]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.GreetingOrchestratorTests test_source_tag_is_emitted_for_each_non_mock_source]' started.
+Test Case '-[JarvisCoreTests.GreetingOrchestratorTests test_source_tag_is_emitted_for_each_non_mock_source]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.GreetingOrchestratorTests test_suppress_factory_invariants]' started.
+Test Case '-[JarvisCoreTests.GreetingOrchestratorTests test_suppress_factory_invariants]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.GreetingOrchestratorTests test_time_of_day_varies]' started.
+Test Case '-[JarvisCoreTests.GreetingOrchestratorTests test_time_of_day_varies]' passed (0.002 seconds).
+Test Suite 'GreetingOrchestratorTests' passed at 2026-04-22 08:33:14.363.
+	 Executed 17 tests, with 0 failures (0 unexpected) in 0.009 (0.013) seconds
+Test Suite 'HarnessTests' started at 2026-04-22 08:33:14.363.
+Test Case '-[JarvisCoreTests.HarnessTests testDiagnosisCategorizesBuildFailures]' started.
+2026-04-22 08:33:14.440740-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.HarnessTests testDiagnosisCategorizesBuildFailures]' passed (0.080 seconds).
+Test Case '-[JarvisCoreTests.HarnessTests testDiagnosisCategorizesSchemaFailures]' started.
+2026-04-22 08:33:14.519745-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.HarnessTests testDiagnosisCategorizesSchemaFailures]' passed (0.080 seconds).
+Test Case '-[JarvisCoreTests.HarnessTests testDiagnosisReportsStableWorkflowWhenNoFailuresPresent]' started.
+2026-04-22 08:33:14.596803-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.HarnessTests testDiagnosisReportsStableWorkflowWhenNoFailuresPresent]' passed (0.076 seconds).
+Test Case '-[JarvisCoreTests.HarnessTests testFeedbackLoopGuardRejectsWorkflowWithThreeInjectedNodes]' started.
+2026-04-22 08:33:14.673792-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.HarnessTests testFeedbackLoopGuardRejectsWorkflowWithThreeInjectedNodes]' passed (0.076 seconds).
+Test Case '-[JarvisCoreTests.HarnessTests testMetaHarnessAddsValidationAndDiagnosisNodesWhenNeeded]' started.
+2026-04-22 08:33:14.748711-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.HarnessTests testMetaHarnessAddsValidationAndDiagnosisNodesWhenNeeded]' passed (0.076 seconds).
+Test Case '-[JarvisCoreTests.HarnessTests testMissingWorkflowIsBootstrappedWithCanonicalNodes]' started.
+2026-04-22 08:33:14.824803-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.HarnessTests testMissingWorkflowIsBootstrappedWithCanonicalNodes]' passed (0.076 seconds).
+Test Case '-[JarvisCoreTests.HarnessTests testRerunOnAlreadyMutatedWorkflowAppliesNoFurtherChanges]' started.
+2026-04-22 08:33:14.901077-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.HarnessTests testRerunOnAlreadyMutatedWorkflowAppliesNoFurtherChanges]' passed (0.077 seconds).
+Test Case '-[JarvisCoreTests.HarnessTests testResultExposesRollbackHashAndWorkflowPath]' started.
+2026-04-22 08:33:14.976464-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.HarnessTests testResultExposesRollbackHashAndWorkflowPath]' passed (0.075 seconds).
+Test Case '-[JarvisCoreTests.HarnessTests testReviewGainsValidationDependency]' started.
+2026-04-22 08:33:15.054802-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.HarnessTests testReviewGainsValidationDependency]' passed (0.077 seconds).
+Test Case '-[JarvisCoreTests.HarnessTests testTelemetryReceivesHarnessMutationRecord]' started.
+2026-04-22 08:33:15.130994-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.HarnessTests testTelemetryReceivesHarnessMutationRecord]' passed (0.076 seconds).
+Test Suite 'HarnessTests' passed at 2026-04-22 08:33:15.133.
+	 Executed 10 tests, with 0 failures (0 unexpected) in 0.768 (0.770) seconds
+Test Suite 'HazardAdaptersTests' started at 2026-04-22 08:33:15.133.
+Test Case '-[JarvisCoreTests.HazardAdaptersTests testAdapterFailsClosedOnMalformedPayload]' started.
+Test Case '-[JarvisCoreTests.HazardAdaptersTests testAdapterFailsClosedOnMalformedPayload]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.HazardAdaptersTests testAdapterRejectsUnauthorizedHost]' started.
+Test Case '-[JarvisCoreTests.HazardAdaptersTests testAdapterRejectsUnauthorizedHost]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.HazardAdaptersTests testFIRMSAdapterParsesGolden]' started.
+Test Case '-[JarvisCoreTests.HazardAdaptersTests testFIRMSAdapterParsesGolden]' passed (0.003 seconds).
+Test Case '-[JarvisCoreTests.HazardAdaptersTests testNOAAAdapterParsesGolden]' started.
+Test Case '-[JarvisCoreTests.HazardAdaptersTests testNOAAAdapterParsesGolden]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.HazardAdaptersTests testTxDOTAdapterParsesGolden]' started.
+Test Case '-[JarvisCoreTests.HazardAdaptersTests testTxDOTAdapterParsesGolden]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.HazardAdaptersTests testUSGSAdapterParsesGolden]' started.
+Test Case '-[JarvisCoreTests.HazardAdaptersTests testUSGSAdapterParsesGolden]' passed (0.001 seconds).
+Test Suite 'HazardAdaptersTests' passed at 2026-04-22 08:33:15.142.
+	 Executed 6 tests, with 0 failures (0 unexpected) in 0.007 (0.009) seconds
+Test Suite 'HeartbeatEmitterTests' started at 2026-04-22 08:33:15.142.
+Test Case '-[JarvisCoreTests.HeartbeatEmitterTests testHealthPillRulesFromTimestamps]' started.
+Test Case '-[JarvisCoreTests.HeartbeatEmitterTests testHealthPillRulesFromTimestamps]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.HeartbeatEmitterTests testMultipleTicksAppendMultipleRows]' started.
+Test Case '-[JarvisCoreTests.HeartbeatEmitterTests testMultipleTicksAppendMultipleRows]' passed (0.003 seconds).
+Test Case '-[JarvisCoreTests.HeartbeatEmitterTests testTickOmitsLastIntentWhenAbsent]' started.
+Test Case '-[JarvisCoreTests.HeartbeatEmitterTests testTickOmitsLastIntentWhenAbsent]' passed (0.003 seconds).
+Test Case '-[JarvisCoreTests.HeartbeatEmitterTests testTickWritesHeartbeatRowWithContract]' started.
+Test Case '-[JarvisCoreTests.HeartbeatEmitterTests testTickWritesHeartbeatRowWithContract]' passed (0.002 seconds).
+Test Suite 'HeartbeatEmitterTests' passed at 2026-04-22 08:33:15.152.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 0.009 (0.010) seconds
+Test Suite 'IntentParserTests' started at 2026-04-22 08:33:15.152.
+Test Case '-[JarvisCoreTests.IntentParserTests testDisplayIntentParsing]' started.
+Test Case '-[JarvisCoreTests.IntentParserTests testDisplayIntentParsing]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.IntentParserTests testHomeKitIntentParsing]' started.
+Test Case '-[JarvisCoreTests.IntentParserTests testHomeKitIntentParsing]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.IntentParserTests testSystemQueryIntent]' started.
+Test Case '-[JarvisCoreTests.IntentParserTests testSystemQueryIntent]' passed (0.010 seconds).
+Test Case '-[JarvisCoreTests.IntentParserTests testUnknownIntentWithLowConfidence]' started.
+Test Case '-[JarvisCoreTests.IntentParserTests testUnknownIntentWithLowConfidence]' passed (0.004 seconds).
+Test Suite 'IntentParserTests' passed at 2026-04-22 08:33:15.174.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 0.021 (0.022) seconds
+Test Suite 'JarvisHostTunnelServerTests' started at 2026-04-22 08:33:15.174.
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testAuthenticatedClientSurvivesIdleTimeout]' started.
+2026-04-22 08:33:15.246643-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testAuthenticatedClientSurvivesIdleTimeout]' passed (1.675 seconds).
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testClientRegistrationRoundTrip]' started.
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testClientRegistrationRoundTrip]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testConnectionStateAllCasesDecode]' started.
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testConnectionStateAllCasesDecode]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testGMRIPaletteHexValues]' started.
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testGMRIPaletteHexValues]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testIdleTimeoutIsClampedAboveZero]' started.
+2026-04-22 08:33:16.934638-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testIdleTimeoutIsClampedAboveZero]' passed (0.082 seconds).
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testMobileCockpitRegistrationAcceptedWithoutGateCheck]' started.
+2026-04-22 08:33:17.010357-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testMobileCockpitRegistrationAcceptedWithoutGateCheck]' passed (0.075 seconds).
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testPushDirectiveRoundTrip]' started.
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testPushDirectiveRoundTrip]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testRemoteActionAllCasesDecode]' started.
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testRemoteActionAllCasesDecode]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testServerDoubleStartIsNoOp]' started.
+2026-04-22 08:33:17.089046-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testServerDoubleStartIsNoOp]' passed (0.077 seconds).
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testServerGeneratesRandomSecretWhenNoneProvided]' started.
+2026-04-22 08:33:17.165428-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testServerGeneratesRandomSecretWhenNoneProvided]' passed (0.076 seconds).
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testServerStartsAndStopsWithoutError]' started.
+2026-04-22 08:33:17.242854-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testServerStartsAndStopsWithoutError]' passed (0.077 seconds).
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testServerStopCleansUp]' started.
+2026-04-22 08:33:17.317898-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testServerStopCleansUp]' passed (0.075 seconds).
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testSpatialHUDElementRoundTrip]' started.
+2026-04-22 08:33:17.320859-0500 xctest[80127:602562] [] nw_path_evaluator_evaluate NECP_CLIENT_ACTION_ADD error [48: Address already in use]
+2026-04-22 08:33:17.321119-0500 xctest[80127:602562] [] nw_path_create_evaluator_for_listener nw_path_evaluator_evaluate failed
+2026-04-22 08:33:17.321143-0500 xctest[80127:602562] [listener] nw_listener_start_on_queue [L7] nw_path_create_evaluator_for_listener failed
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testSpatialHUDElementRoundTrip]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testSpatialIndicatorStateMapsToPaletteColors]' started.
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testSpatialIndicatorStateMapsToPaletteColors]' passed (0.003 seconds).
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testTransportPacketEncodesOriginAndTimestamp]' started.
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testTransportPacketEncodesOriginAndTimestamp]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testTunnelMessageKindAllCasesDecode]' started.
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testTunnelMessageKindAllCasesDecode]' passed (0.002 seconds).
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testUnauthenticatedClientIsDisconnectedAfterIdleTimeout]' started.
+2026-04-22 08:33:17.404655-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testUnauthenticatedClientIsDisconnectedAfterIdleTimeout]' passed (0.881 seconds).
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testUnknownRoleSilentlyDropped]' started.
+2026-04-22 08:33:18.298941-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testUnknownRoleSilentlyDropped]' passed (0.091 seconds).
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testVoiceOperatorRegistrationRejectedWhenGateNotGreen]' started.
+2026-04-22 08:33:18.378296-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testVoiceOperatorRegistrationRejectedWhenGateNotGreen]' passed (0.079 seconds).
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testWatchRegistrationRejectedInBootstrapWithoutIdentityProof]' started.
+2026-04-22 08:33:18.455661-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.JarvisHostTunnelServerTests testWatchRegistrationRejectedInBootstrapWithoutIdentityProof]' passed (0.077 seconds).
+Test Suite 'JarvisHostTunnelServerTests' passed at 2026-04-22 08:33:18.458.
+	 Executed 20 tests, with 0 failures (0 unexpected) in 3.277 (3.284) seconds
+Test Suite 'JarvisPaletteHexTests' started at 2026-04-22 08:33:18.458.
+Test Case '-[JarvisCoreTests.JarvisPaletteHexTests testBlackAndWhiteBoundarySRGBComponents]' started.
+Test Case '-[JarvisCoreTests.JarvisPaletteHexTests testBlackAndWhiteBoundarySRGBComponents]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.JarvisPaletteHexTests testCompanionTealResolvesToExpectedSRGB]' started.
+Test Case '-[JarvisCoreTests.JarvisPaletteHexTests testCompanionTealResolvesToExpectedSRGB]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.JarvisPaletteHexTests testEveryCanonicalPaletteEntryIsParseable]' started.
+Test Case '-[JarvisCoreTests.JarvisPaletteHexTests testEveryCanonicalPaletteEntryIsParseable]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.JarvisPaletteHexTests testGrizzEmeraldResolvesToExpectedSRGB]' started.
+Test Case '-[JarvisCoreTests.JarvisPaletteHexTests testGrizzEmeraldResolvesToExpectedSRGB]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.JarvisPaletteHexTests testHexParserAcceptsNoLeadingHashAndIsCaseInsensitive]' started.
+Test Case '-[JarvisCoreTests.JarvisPaletteHexTests testHexParserAcceptsNoLeadingHashAndIsCaseInsensitive]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.JarvisPaletteHexTests testHexParserRejectsMalformed]' started.
+Test Case '-[JarvisCoreTests.JarvisPaletteHexTests testHexParserRejectsMalformed]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.JarvisPaletteHexTests testHexParserRejectsShorthandAndExtraChars]' started.
+Test Case '-[JarvisCoreTests.JarvisPaletteHexTests testHexParserRejectsShorthandAndExtraChars]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.JarvisPaletteHexTests testHexParserTrimsWhitespace]' started.
+Test Case '-[JarvisCoreTests.JarvisPaletteHexTests testHexParserTrimsWhitespace]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.JarvisPaletteHexTests testPaletteForPrincipalRoutesByTier]' started.
+Test Case '-[JarvisCoreTests.JarvisPaletteHexTests testPaletteForPrincipalRoutesByTier]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.JarvisPaletteHexTests testResponderDutyBlueResolvesToExpectedSRGB]' started.
+Test Case '-[JarvisCoreTests.JarvisPaletteHexTests testResponderDutyBlueResolvesToExpectedSRGB]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.JarvisPaletteHexTests testSharedCanonStaysConsistentAcrossTiers]' started.
+Test Case '-[JarvisCoreTests.JarvisPaletteHexTests testSharedCanonStaysConsistentAcrossTiers]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.JarvisPaletteHexTests testTierLabelsAreCanon]' started.
+Test Case '-[JarvisCoreTests.JarvisPaletteHexTests testTierLabelsAreCanon]' passed (0.001 seconds).
+Test Suite 'JarvisPaletteHexTests' passed at 2026-04-22 08:33:18.467.
+	 Executed 12 tests, with 0 failures (0 unexpected) in 0.007 (0.009) seconds
+Test Suite 'LettaBridgeTests' started at 2026-04-22 08:33:18.467.
+Test Case '-[JarvisCoreTests.LettaBridgeTests testHealthReturnsDecodedStatus]' started.
+Test Case '-[JarvisCoreTests.LettaBridgeTests testHealthReturnsDecodedStatus]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.LettaBridgeTests testHTTPErrorStatusSurfacesBody]' started.
+Test Case '-[JarvisCoreTests.LettaBridgeTests testHTTPErrorStatusSurfacesBody]' passed (0.002 seconds).
+Test Case '-[JarvisCoreTests.LettaBridgeTests testListAgentsDecodesArray]' started.
+Test Case '-[JarvisCoreTests.LettaBridgeTests testListAgentsDecodesArray]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.LettaBridgeTests testOmitsAuthorizationHeaderWhenTokenNil]' started.
+Test Case '-[JarvisCoreTests.LettaBridgeTests testOmitsAuthorizationHeaderWhenTokenNil]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.LettaBridgeTests testSendMessagePostsPayloadAndParses]' started.
+Test Case '-[JarvisCoreTests.LettaBridgeTests testSendMessagePostsPayloadAndParses]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.LettaBridgeTests testUnauthorizedMapsToError]' started.
+Test Case '-[JarvisCoreTests.LettaBridgeTests testUnauthorizedMapsToError]' passed (0.001 seconds).
+Test Suite 'LettaBridgeTests' passed at 2026-04-22 08:33:18.474.
+	 Executed 6 tests, with 0 failures (0 unexpected) in 0.006 (0.007) seconds
+Test Suite 'MapTileProviderTests' started at 2026-04-22 08:33:18.475.
+Test Case '-[JarvisCoreTests.MapTileProviderTests testMapboxProviderUsesPublicToken]' started.
+Test Case '-[JarvisCoreTests.MapTileProviderTests testMapboxProviderUsesPublicToken]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.MapTileProviderTests testMapboxStyleURLHost]' started.
+Test Case '-[JarvisCoreTests.MapTileProviderTests testMapboxStyleURLHost]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.MapTileProviderTests testOrchestratorAuditsEverySwitch]' started.
+Test Case '-[JarvisCoreTests.MapTileProviderTests testOrchestratorAuditsEverySwitch]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.MapTileProviderTests testOrchestratorBothProvidersUnhealthyRaises]' started.
+Test Case '-[JarvisCoreTests.MapTileProviderTests testOrchestratorBothProvidersUnhealthyRaises]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.MapTileProviderTests testOrchestratorCanonGateRejectsUnregisteredHost]' started.
+Test Case '-[JarvisCoreTests.MapTileProviderTests testOrchestratorCanonGateRejectsUnregisteredHost]' passed (0.002 seconds).
+Test Case '-[JarvisCoreTests.MapTileProviderTests testOrchestratorDemotesAfterNFailures]' started.
+Test Case '-[JarvisCoreTests.MapTileProviderTests testOrchestratorDemotesAfterNFailures]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.MapTileProviderTests testOrchestratorRecoversWhenPrimaryReturns]' started.
+Test Case '-[JarvisCoreTests.MapTileProviderTests testOrchestratorRecoversWhenPrimaryReturns]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.MapTileProviderTests testOrchestratorUsesPrimaryWhenHealthy]' started.
+Test Case '-[JarvisCoreTests.MapTileProviderTests testOrchestratorUsesPrimaryWhenHealthy]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.MapTileProviderTests testOSMProviderNoCredentialsRequired]' started.
+Test Case '-[JarvisCoreTests.MapTileProviderTests testOSMProviderNoCredentialsRequired]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.MapTileProviderTests testOSMProviderUserAgentSet]' started.
+Test Case '-[JarvisCoreTests.MapTileProviderTests testOSMProviderUserAgentSet]' passed (0.001 seconds).
+Test Suite 'MapTileProviderTests' passed at 2026-04-22 08:33:18.485.
+	 Executed 10 tests, with 0 failures (0 unexpected) in 0.008 (0.010) seconds
+Test Suite 'MapboxCredentialsTests' started at 2026-04-22 08:33:18.485.
+Test Case '-[JarvisCoreTests.MapboxCredentialsTests testDotenvParserHandlesCommentsAndQuotes]' started.
+Test Case '-[JarvisCoreTests.MapboxCredentialsTests testDotenvParserHandlesCommentsAndQuotes]' passed (0.003 seconds).
+Test Case '-[JarvisCoreTests.MapboxCredentialsTests testDotenvParserSkipsMalformedAndMissing]' started.
+Test Case '-[JarvisCoreTests.MapboxCredentialsTests testDotenvParserSkipsMalformedAndMissing]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.MapboxCredentialsTests testHasSecretTokenFalseWhenAbsent]' started.
+Test Case '-[JarvisCoreTests.MapboxCredentialsTests testHasSecretTokenFalseWhenAbsent]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.MapboxCredentialsTests testHasSecretTokenTracksPresenceNotLength]' started.
+Test Case '-[JarvisCoreTests.MapboxCredentialsTests testHasSecretTokenTracksPresenceNotLength]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.MapboxCredentialsTests testLoaderFallsBackToFileWhenNoEnv]' started.
+Test Case '-[JarvisCoreTests.MapboxCredentialsTests testLoaderFallsBackToFileWhenNoEnv]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.MapboxCredentialsTests testLoaderMergesEnvPublicAndFileSecret]' started.
+Test Case '-[JarvisCoreTests.MapboxCredentialsTests testLoaderMergesEnvPublicAndFileSecret]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.MapboxCredentialsTests testLoaderPrefersEnvironmentOverFile]' started.
+Test Case '-[JarvisCoreTests.MapboxCredentialsTests testLoaderPrefersEnvironmentOverFile]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.MapboxCredentialsTests testLoaderRejectsMalformedTokens]' started.
+Test Case '-[JarvisCoreTests.MapboxCredentialsTests testLoaderRejectsMalformedTokens]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.MapboxCredentialsTests testLoaderReturnsNilWhenNoSourcePresent]' started.
+Test Case '-[JarvisCoreTests.MapboxCredentialsTests testLoaderReturnsNilWhenNoSourcePresent]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.MapboxCredentialsTests testLoaderUsesEnvironmentWithoutTouchingFileWhenBothPresent]' started.
+Test Case '-[JarvisCoreTests.MapboxCredentialsTests testLoaderUsesEnvironmentWithoutTouchingFileWhenBothPresent]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.MapboxCredentialsTests testParseDotenvStripsOnlyMatchedSurroundingQuotes]' started.
+Test Case '-[JarvisCoreTests.MapboxCredentialsTests testParseDotenvStripsOnlyMatchedSurroundingQuotes]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.MapboxCredentialsTests testParseDotenvWithEmptyFileReturnsEmptyDict]' started.
+Test Case '-[JarvisCoreTests.MapboxCredentialsTests testParseDotenvWithEmptyFileReturnsEmptyDict]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.MapboxCredentialsTests testSecretTokenIsOperatorOnly]' started.
+Test Case '-[JarvisCoreTests.MapboxCredentialsTests testSecretTokenIsOperatorOnly]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.MapboxCredentialsTests testSecretTokenRejectsResponderPrincipal]' started.
+Test Case '-[JarvisCoreTests.MapboxCredentialsTests testSecretTokenRejectsResponderPrincipal]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.MapboxCredentialsTests testSecretTokenRejectsSpecificCompanionMember]' started.
+Test Case '-[JarvisCoreTests.MapboxCredentialsTests testSecretTokenRejectsSpecificCompanionMember]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.MapboxCredentialsTests testValidateTokenLengthBoundary]' started.
+Test Case '-[JarvisCoreTests.MapboxCredentialsTests testValidateTokenLengthBoundary]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.MapboxCredentialsTests testValidateTokenRejectsCorrectLengthButWrongPrefix]' started.
+Test Case '-[JarvisCoreTests.MapboxCredentialsTests testValidateTokenRejectsCorrectLengthButWrongPrefix]' passed (0.000 seconds).
+Test Suite 'MapboxCredentialsTests' passed at 2026-04-22 08:33:18.504.
+	 Executed 17 tests, with 0 failures (0 unexpected) in 0.016 (0.019) seconds
+Test Suite 'MemoryEngineTests' started at 2026-04-22 08:33:18.505.
+Test Case '-[JarvisCoreTests.MemoryEngineTests testMemifyCreatesEpisodicMemoryAndPagesContext]' started.
+2026-04-22 08:33:18.577885-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.MemoryEngineTests testMemifyCreatesEpisodicMemoryAndPagesContext]' passed (0.075 seconds).
+Test Case '-[JarvisCoreTests.MemoryEngineTests testMemifyCreatesMentionsEdgesForExtractedEntities]' started.
+2026-04-22 08:33:18.654468-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.MemoryEngineTests testMemifyCreatesMentionsEdgesForExtractedEntities]' passed (0.076 seconds).
+Test Case '-[JarvisCoreTests.MemoryEngineTests testMemifyIngestsMultipleFilesInOneCall]' started.
+2026-04-22 08:33:18.734242-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.MemoryEngineTests testMemifyIngestsMultipleFilesInOneCall]' passed (0.080 seconds).
+Test Case '-[JarvisCoreTests.MemoryEngineTests testMemifyIsIdempotentOnUnchangedContent]' started.
+2026-04-22 08:33:18.809278-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.MemoryEngineTests testMemifyIsIdempotentOnUnchangedContent]' passed (0.074 seconds).
+Test Case '-[JarvisCoreTests.MemoryEngineTests testMemifyPersistsAcrossReopen]' started.
+2026-04-22 08:33:18.892523-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+2026-04-22 08:33:18.960768-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.MemoryEngineTests testMemifyPersistsAcrossReopen]' passed (0.150 seconds).
+Test Case '-[JarvisCoreTests.MemoryEngineTests testMemifySkipsEmptyWhitespaceOnlyFiles]' started.
+2026-04-22 08:33:19.036069-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.MemoryEngineTests testMemifySkipsEmptyWhitespaceOnlyFiles]' passed (0.076 seconds).
+Test Case '-[JarvisCoreTests.MemoryEngineTests testMemifySkipsNonexistentFiles]' started.
+2026-04-22 08:33:19.109311-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.MemoryEngineTests testMemifySkipsNonexistentFiles]' passed (0.073 seconds).
+Test Case '-[JarvisCoreTests.MemoryEngineTests testPageInFIFOBoundedAt8Entries]' started.
+2026-04-22 08:33:19.184648-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.MemoryEngineTests testPageInFIFOBoundedAt8Entries]' passed (0.081 seconds).
+Test Case '-[JarvisCoreTests.MemoryEngineTests testPageInMutatesWorkingContextAndFIFO]' started.
+2026-04-22 08:33:19.262313-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.MemoryEngineTests testPageInMutatesWorkingContextAndFIFO]' passed (0.073 seconds).
+Test Case '-[JarvisCoreTests.MemoryEngineTests testPageInRespectsLimitBound]' started.
+2026-04-22 08:33:19.338013-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.MemoryEngineTests testPageInRespectsLimitBound]' passed (0.079 seconds).
+Test Case '-[JarvisCoreTests.MemoryEngineTests testPageInWritesRecursiveThoughtTelemetry]' started.
+2026-04-22 08:33:19.418174-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.MemoryEngineTests testPageInWritesRecursiveThoughtTelemetry]' passed (0.077 seconds).
+Test Case '-[JarvisCoreTests.MemoryEngineTests testRecordSomaticPathCreatesSomaticEdge]' started.
+2026-04-22 08:33:19.492689-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.MemoryEngineTests testRecordSomaticPathCreatesSomaticEdge]' passed (0.073 seconds).
+Test Case '-[JarvisCoreTests.MemoryEngineTests testRecordSomaticPathUpsertsRatherThanDuplicates]' started.
+2026-04-22 08:33:19.567830-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.MemoryEngineTests testRecordSomaticPathUpsertsRatherThanDuplicates]' passed (0.075 seconds).
+Test Case '-[JarvisCoreTests.MemoryEngineTests testRetrieveRankedIsPureReadAndReturnsScoresDescending]' started.
+2026-04-22 08:33:19.642981-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.MemoryEngineTests testRetrieveRankedIsPureReadAndReturnsScoresDescending]' passed (0.076 seconds).
+Test Case '-[JarvisCoreTests.MemoryEngineTests testRetrieveRankedRespectsLimit]' started.
+2026-04-22 08:33:19.718102-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.MemoryEngineTests testRetrieveRankedRespectsLimit]' passed (0.076 seconds).
+Test Case '-[JarvisCoreTests.MemoryEngineTests testRetrieveRankedWithZeroLimitReturnsEmpty]' started.
+2026-04-22 08:33:19.792807-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.MemoryEngineTests testRetrieveRankedWithZeroLimitReturnsEmpty]' passed (0.072 seconds).
+Test Suite 'MemoryEngineTests' passed at 2026-04-22 08:33:19.793.
+	 Executed 16 tests, with 0 failures (0 unexpected) in 1.285 (1.289) seconds
+Test Suite 'MeshDisplayDispatcherTests' started at 2026-04-22 08:33:19.794.
+Test Case '-[JarvisCoreTests.MeshDisplayDispatcherTests testDispatchHandlesHostPortAddress]' started.
+Test Case '-[JarvisCoreTests.MeshDisplayDispatcherTests testDispatchHandlesHostPortAddress]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.MeshDisplayDispatcherTests testDispatchPostsJSONWithBearer]' started.
+Test Case '-[JarvisCoreTests.MeshDisplayDispatcherTests testDispatchPostsJSONWithBearer]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.MeshDisplayDispatcherTests testDispatchThrowsOnHTTPFailure]' started.
+Test Case '-[JarvisCoreTests.MeshDisplayDispatcherTests testDispatchThrowsOnHTTPFailure]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.MeshDisplayDispatcherTests testDispatchThrowsOnMissingAddress]' started.
+Test Case '-[JarvisCoreTests.MeshDisplayDispatcherTests testDispatchThrowsOnMissingAddress]' passed (0.001 seconds).
+Test Suite 'MeshDisplayDispatcherTests' passed at 2026-04-22 08:33:19.799.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 0.004 (0.005) seconds
+Test Suite 'N8NBridgeTests' started at 2026-04-22 08:33:19.799.
+Test Case '-[JarvisCoreTests.N8NBridgeTests testRunWorkflow_buildsWebhookURLWithPath]' started.
+Test Case '-[JarvisCoreTests.N8NBridgeTests testRunWorkflow_buildsWebhookURLWithPath]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.N8NBridgeTests testRunWorkflow_emptyBodyReturnsEmptyDict]' started.
+Test Case '-[JarvisCoreTests.N8NBridgeTests testRunWorkflow_emptyBodyReturnsEmptyDict]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.N8NBridgeTests testRunWorkflow_encodesPayloadAsJSON]' started.
+Test Case '-[JarvisCoreTests.N8NBridgeTests testRunWorkflow_encodesPayloadAsJSON]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.N8NBridgeTests testRunWorkflow_httpErrorIncludesStatusAndBody]' started.
+Test Case '-[JarvisCoreTests.N8NBridgeTests testRunWorkflow_httpErrorIncludesStatusAndBody]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.N8NBridgeTests testRunWorkflow_setsBasicAuthHeader]' started.
+Test Case '-[JarvisCoreTests.N8NBridgeTests testRunWorkflow_setsBasicAuthHeader]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.N8NBridgeTests testRunWorkflow_stripsLeadingSlashInPath]' started.
+Test Case '-[JarvisCoreTests.N8NBridgeTests testRunWorkflow_stripsLeadingSlashInPath]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.N8NBridgeTests testRunWorkflow_success_returnsDecodedJSON]' started.
+Test Case '-[JarvisCoreTests.N8NBridgeTests testRunWorkflow_success_returnsDecodedJSON]' passed (0.104 seconds).
+Test Case '-[JarvisCoreTests.N8NBridgeTests testRunWorkflow_unauthorizedThrows]' started.
+Test Case '-[JarvisCoreTests.N8NBridgeTests testRunWorkflow_unauthorizedThrows]' passed (0.001 seconds).
+Test Suite 'N8NBridgeTests' passed at 2026-04-22 08:33:19.909.
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.108 (0.110) seconds
+Test Suite 'N8nWorkflowRunnerTests' started at 2026-04-22 08:33:19.909.
+Test Case '-[JarvisCoreTests.N8nWorkflowRunnerTests testRunPostsJSONToWebhookPath]' started.
+Test Case '-[JarvisCoreTests.N8nWorkflowRunnerTests testRunPostsJSONToWebhookPath]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.N8nWorkflowRunnerTests testRunPreservesCallerProvidedTsAndSource]' started.
+Test Case '-[JarvisCoreTests.N8nWorkflowRunnerTests testRunPreservesCallerProvidedTsAndSource]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.N8nWorkflowRunnerTests testRunSendsBasicAuthWhenConfigured]' started.
+Test Case '-[JarvisCoreTests.N8nWorkflowRunnerTests testRunSendsBasicAuthWhenConfigured]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.N8nWorkflowRunnerTests testRunStampsTsAndSourceWhenMissing]' started.
+Test Case '-[JarvisCoreTests.N8nWorkflowRunnerTests testRunStampsTsAndSourceWhenMissing]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.N8nWorkflowRunnerTests testRunStripsLeadingSlashAndWhitespaceFromPath]' started.
+Test Case '-[JarvisCoreTests.N8nWorkflowRunnerTests testRunStripsLeadingSlashAndWhitespaceFromPath]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.N8nWorkflowRunnerTests testRunThrowsOnEmptyPath]' started.
+Test Case '-[JarvisCoreTests.N8nWorkflowRunnerTests testRunThrowsOnEmptyPath]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.N8nWorkflowRunnerTests testRunThrowsOnHTTPFailure]' started.
+Test Case '-[JarvisCoreTests.N8nWorkflowRunnerTests testRunThrowsOnHTTPFailure]' passed (0.001 seconds).
+Test Suite 'N8nWorkflowRunnerTests' passed at 2026-04-22 08:33:19.917.
+	 Executed 7 tests, with 0 failures (0 unexpected) in 0.007 (0.009) seconds
+Test Suite 'NavUtteranceTests' started at 2026-04-22 08:33:19.918.
+Test Case '-[JarvisCoreTests.NavUtteranceTests testAdvisoryEnqueueDequeue]' started.
+Test Case '-[JarvisCoreTests.NavUtteranceTests testAdvisoryEnqueueDequeue]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.NavUtteranceTests testEmergencyEnqueueDequeue]' started.
+Test Case '-[JarvisCoreTests.NavUtteranceTests testEmergencyEnqueueDequeue]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.NavUtteranceTests testEmergencyPreemptsAllPriorities]' started.
+Test Case '-[JarvisCoreTests.NavUtteranceTests testEmergencyPreemptsAllPriorities]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.NavUtteranceTests testHazardEnqueueDequeue]' started.
+Test Case '-[JarvisCoreTests.NavUtteranceTests testHazardEnqueueDequeue]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.NavUtteranceTests testHazardPreemptsAdvisoryAndTurnByTurn]' started.
+Test Case '-[JarvisCoreTests.NavUtteranceTests testHazardPreemptsAdvisoryAndTurnByTurn]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.NavUtteranceTests testNavContextSnapshotDefaults]' started.
+Test Case '-[JarvisCoreTests.NavUtteranceTests testNavContextSnapshotDefaults]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.NavUtteranceTests testNavContextSnapshotFullConstruction]' started.
+Test Case '-[JarvisCoreTests.NavUtteranceTests testNavContextSnapshotFullConstruction]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.NavUtteranceTests testNavUtteranceNilRouteStepIDForHazard]' started.
+Test Case '-[JarvisCoreTests.NavUtteranceTests testNavUtteranceNilRouteStepIDForHazard]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.NavUtteranceTests testNavUtteranceRouteStepID]' started.
+Test Case '-[JarvisCoreTests.NavUtteranceTests testNavUtteranceRouteStepID]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.NavUtteranceTests testPriorityCodableRoundTrip]' started.
+Test Case '-[JarvisCoreTests.NavUtteranceTests testPriorityCodableRoundTrip]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.NavUtteranceTests testPriorityOrdering]' started.
+Test Case '-[JarvisCoreTests.NavUtteranceTests testPriorityOrdering]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.NavUtteranceTests testRouteStepSummaryCreation]' started.
+Test Case '-[JarvisCoreTests.NavUtteranceTests testRouteStepSummaryCreation]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.NavUtteranceTests testTTLDropsExpiredUtterances]' started.
+Test Case '-[JarvisCoreTests.NavUtteranceTests testTTLDropsExpiredUtterances]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.NavUtteranceTests testTurnByTurnEnqueueDequeue]' started.
+Test Case '-[JarvisCoreTests.NavUtteranceTests testTurnByTurnEnqueueDequeue]' passed (0.001 seconds).
+Test Suite 'NavUtteranceTests' passed at 2026-04-22 08:33:19.927.
+	 Executed 14 tests, with 0 failures (0 unexpected) in 0.007 (0.010) seconds
+Test Suite 'OSINTSourceRegistryTests' started at 2026-04-22 08:33:19.927.
+Test Case '-[JarvisCoreTests.OSINTSourceRegistryTests testAttributionsAreStableSorted]' started.
+Test Case '-[JarvisCoreTests.OSINTSourceRegistryTests testAttributionsAreStableSorted]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.OSINTSourceRegistryTests testCanonicalCoversOverlandingNeeds]' started.
+Test Case '-[JarvisCoreTests.OSINTSourceRegistryTests testCanonicalCoversOverlandingNeeds]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.OSINTSourceRegistryTests testCanonicalIncludesRecreationAndOverlandingSources]' started.
+Test Case '-[JarvisCoreTests.OSINTSourceRegistryTests testCanonicalIncludesRecreationAndOverlandingSources]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.OSINTSourceRegistryTests testCanonicalRegistryIncludesCoreOpenSources]' started.
+Test Case '-[JarvisCoreTests.OSINTSourceRegistryTests testCanonicalRegistryIncludesCoreOpenSources]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.OSINTSourceRegistryTests testDeniedHostsAreNotSilentlyListedInCanonical]' started.
+Test Case '-[JarvisCoreTests.OSINTSourceRegistryTests testDeniedHostsAreNotSilentlyListedInCanonical]' passed (0.002 seconds).
+Test Case '-[JarvisCoreTests.OSINTSourceRegistryTests testDeniedSourcesDocumentedWithReason]' started.
+Test Case '-[JarvisCoreTests.OSINTSourceRegistryTests testDeniedSourcesDocumentedWithReason]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.OSINTSourceRegistryTests testEveryCanonicalSourceHasLicenseAndAttribution]' started.
+Test Case '-[JarvisCoreTests.OSINTSourceRegistryTests testEveryCanonicalSourceHasLicenseAndAttribution]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.OSINTSourceRegistryTests testGuardAllowsListedHostForAnyTier]' started.
+Test Case '-[JarvisCoreTests.OSINTSourceRegistryTests testGuardAllowsListedHostForAnyTier]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.OSINTSourceRegistryTests testGuardDeniesInvalidURL]' started.
+Test Case '-[JarvisCoreTests.OSINTSourceRegistryTests testGuardDeniesInvalidURL]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.OSINTSourceRegistryTests testGuardDeniesUnlistedHost]' started.
+Test Case '-[JarvisCoreTests.OSINTSourceRegistryTests testGuardDeniesUnlistedHost]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.OSINTSourceRegistryTests testHostLookupMatchesDirectAndSubdomain]' started.
+Test Case '-[JarvisCoreTests.OSINTSourceRegistryTests testHostLookupMatchesDirectAndSubdomain]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.OSINTSourceRegistryTests testOperatorGatedSourceRejectsNonOperator]' started.
+Test Case '-[JarvisCoreTests.OSINTSourceRegistryTests testOperatorGatedSourceRejectsNonOperator]' passed (0.001 seconds).
+Test Suite 'OSINTSourceRegistryTests' passed at 2026-04-22 08:33:19.942.
+	 Executed 12 tests, with 0 failures (0 unexpected) in 0.012 (0.015) seconds
+Test Suite 'OscillatorConcurrencyTests' started at 2026-04-22 08:33:19.942.
+Test Case '-[JarvisCoreTests.OscillatorConcurrencyTests testOnTickDeliveryIsSerializedNotConcurrent]' started.
+Test Case '-[JarvisCoreTests.OscillatorConcurrencyTests testOnTickDeliveryIsSerializedNotConcurrent]' passed (0.007 seconds).
+Test Suite 'OscillatorConcurrencyTests' passed at 2026-04-22 08:33:19.949.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.007 (0.007) seconds
+Test Suite 'OscillatorTests' started at 2026-04-22 08:33:19.950.
+Test Case '-[JarvisCoreTests.OscillatorTests testAllScoresAggregatesMultipleSubscribers]' started.
+2026-04-22 08:33:20.023975-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.OscillatorTests testAllScoresAggregatesMultipleSubscribers]' passed (0.076 seconds).
+Test Case '-[JarvisCoreTests.OscillatorTests testBPMClampedWithinBand]' started.
+2026-04-22 08:33:20.101164-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.OscillatorTests testBPMClampedWithinBand]' passed (0.077 seconds).
+Test Case '-[JarvisCoreTests.OscillatorTests testConfigurationDefaultsMatchContract]' started.
+Test Case '-[JarvisCoreTests.OscillatorTests testConfigurationDefaultsMatchContract]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.OscillatorTests testConfigurationIntervalSeconds]' started.
+Test Case '-[JarvisCoreTests.OscillatorTests testConfigurationIntervalSeconds]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.OscillatorTests testFirstTickHasZeroDriftRegardlessOfEmitTime]' started.
+Test Case '-[JarvisCoreTests.OscillatorTests testFirstTickHasZeroDriftRegardlessOfEmitTime]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.OscillatorTests testIsRunningTogglesWithStartStop]' started.
+Test Case '-[JarvisCoreTests.OscillatorTests testIsRunningTogglesWithStartStop]' passed (0.005 seconds).
+Test Case '-[JarvisCoreTests.OscillatorTests testManualTickDriftAndInterval]' started.
+Test Case '-[JarvisCoreTests.OscillatorTests testManualTickDriftAndInterval]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.OscillatorTests testManualTickMonotonicSequence]' started.
+2026-04-22 08:33:20.192872-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.OscillatorTests testManualTickMonotonicSequence]' passed (0.075 seconds).
+Test Case '-[JarvisCoreTests.OscillatorTests testManualTickWithNoSubscribersDoesNotCrash]' started.
+Test Case '-[JarvisCoreTests.OscillatorTests testManualTickWithNoSubscribersDoesNotCrash]' passed (0.005 seconds).
+Test Case '-[JarvisCoreTests.OscillatorTests testMultipleLiveSubscribersAllReceiveSameTick]' started.
+Test Case '-[JarvisCoreTests.OscillatorTests testMultipleLiveSubscribersAllReceiveSameTick]' passed (0.006 seconds).
+Test Case '-[JarvisCoreTests.OscillatorTests testOscillatorTickEquatableAndCodableRoundTrip]' started.
+Test Case '-[JarvisCoreTests.OscillatorTests testOscillatorTickEquatableAndCodableRoundTrip]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.OscillatorTests testPhaseLockReinforceOnSteadyInPhaseCompletion]' started.
+2026-04-22 08:33:20.280507-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.OscillatorTests testPhaseLockReinforceOnSteadyInPhaseCompletion]' passed (0.078 seconds).
+Test Case '-[JarvisCoreTests.OscillatorTests testPhaseLockRepelOnCatastrophicDrift]' started.
+2026-04-22 08:33:20.359888-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.OscillatorTests testPhaseLockRepelOnCatastrophicDrift]' passed (0.079 seconds).
+Test Case '-[JarvisCoreTests.OscillatorTests testResubscribeWithSameIDReplacesPriorEntry]' started.
+Test Case '-[JarvisCoreTests.OscillatorTests testResubscribeWithSameIDReplacesPriorEntry]' passed (0.005 seconds).
+Test Case '-[JarvisCoreTests.OscillatorTests testSetBPMOutsideBandClampsWithoutDesync]' started.
+Test Case '-[JarvisCoreTests.OscillatorTests testSetBPMOutsideBandClampsWithoutDesync]' passed (0.005 seconds).
+Test Case '-[JarvisCoreTests.OscillatorTests testSetBPMToCurrentValueIsStable]' started.
+Test Case '-[JarvisCoreTests.OscillatorTests testSetBPMToCurrentValueIsStable]' passed (0.005 seconds).
+Test Case '-[JarvisCoreTests.OscillatorTests testStopWithoutStartIsNoOp]' started.
+Test Case '-[JarvisCoreTests.OscillatorTests testStopWithoutStartIsNoOp]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.OscillatorTests testUnsubscribeStopsDelivery]' started.
+2026-04-22 08:33:20.459691-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.OscillatorTests testUnsubscribeStopsDelivery]' passed (0.077 seconds).
+Test Case '-[JarvisCoreTests.OscillatorTests testWeakSubscriberIsReleased]' started.
+Test Case '-[JarvisCoreTests.OscillatorTests testWeakSubscriberIsReleased]' passed (0.007 seconds).
+Test Suite 'OscillatorTests' passed at 2026-04-22 08:33:20.468.
+	 Executed 19 tests, with 0 failures (0 unexpected) in 0.514 (0.518) seconds
+Test Suite 'PhaseLockMonitorTests' started at 2026-04-22 08:33:20.468.
+Test Case '-[JarvisCoreTests.PhaseLockMonitorTests testAllScoresReturnsStableSortedByID]' started.
+Test Case '-[JarvisCoreTests.PhaseLockMonitorTests testAllScoresReturnsStableSortedByID]' passed (0.007 seconds).
+Test Case '-[JarvisCoreTests.PhaseLockMonitorTests testHighVarianceDriftRepels]' started.
+Test Case '-[JarvisCoreTests.PhaseLockMonitorTests testHighVarianceDriftRepels]' passed (0.005 seconds).
+Test Case '-[JarvisCoreTests.PhaseLockMonitorTests testNoScoreUntilCadenceReached]' started.
+Test Case '-[JarvisCoreTests.PhaseLockMonitorTests testNoScoreUntilCadenceReached]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.PhaseLockMonitorTests testPerfectLockIsFlatlinePenalizedIntoHealthyBand]' started.
+Test Case '-[JarvisCoreTests.PhaseLockMonitorTests testPerfectLockIsFlatlinePenalizedIntoHealthyBand]' passed (0.007 seconds).
+Test Case '-[JarvisCoreTests.PhaseLockMonitorTests testResetClearsSubscriberState]' started.
+Test Case '-[JarvisCoreTests.PhaseLockMonitorTests testResetClearsSubscriberState]' passed (0.007 seconds).
+Test Case '-[JarvisCoreTests.PhaseLockMonitorTests testStableLowDriftProducesReinforce]' started.
+Test Case '-[JarvisCoreTests.PhaseLockMonitorTests testStableLowDriftProducesReinforce]' passed (0.008 seconds).
+Test Case '-[JarvisCoreTests.PhaseLockMonitorTests testTelemetryReceivesPLVRecord]' started.
+Test Case '-[JarvisCoreTests.PhaseLockMonitorTests testTelemetryReceivesPLVRecord]' passed (0.005 seconds).
+Test Case '-[JarvisCoreTests.PhaseLockMonitorTests testWindowIsBoundedBySize]' started.
+Test Case '-[JarvisCoreTests.PhaseLockMonitorTests testWindowIsBoundedBySize]' passed (0.009 seconds).
+Test Suite 'PhaseLockMonitorTests' passed at 2026-04-22 08:33:20.522.
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.052 (0.054) seconds
+Test Suite 'PheromindTests' started at 2026-04-22 08:33:20.522.
+Test Case '-[JarvisCoreTests.PheromindTests testAutoRegistersUnknownEdgeFromDeposit]' started.
+Test Case '-[JarvisCoreTests.PheromindTests testAutoRegistersUnknownEdgeFromDeposit]' passed (0.005 seconds).
+Test Case '-[JarvisCoreTests.PheromindTests testChooseNextEdgePicksHighestCombinedScore]' started.
+Test Case '-[JarvisCoreTests.PheromindTests testChooseNextEdgePicksHighestCombinedScore]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.PheromindTests testChooseNextEdgeReturnsNilWhenNoOutgoingEdges]' started.
+Test Case '-[JarvisCoreTests.PheromindTests testChooseNextEdgeReturnsNilWhenNoOutgoingEdges]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.PheromindTests testEvaporationCeiling]' started.
+Test Case '-[JarvisCoreTests.PheromindTests testEvaporationCeiling]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.PheromindTests testEvaporationFailureBias]' started.
+Test Case '-[JarvisCoreTests.PheromindTests testEvaporationFailureBias]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.PheromindTests testEvaporationFloor]' started.
+Test Case '-[JarvisCoreTests.PheromindTests testEvaporationFloor]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.PheromindTests testGlobalUpdateEquationAndTernaryController]' started.
+2026-04-22 08:33:20.623976-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.PheromindTests testGlobalUpdateEquationAndTernaryController]' passed (0.076 seconds).
+Test Case '-[JarvisCoreTests.PheromindTests testMultipleDepositsSameEdgeAggregateIntoSingleUpdate]' started.
+Test Case '-[JarvisCoreTests.PheromindTests testMultipleDepositsSameEdgeAggregateIntoSingleUpdate]' passed (0.005 seconds).
+Test Case '-[JarvisCoreTests.PheromindTests testNeutralDoesNotIncrementCounters]' started.
+Test Case '-[JarvisCoreTests.PheromindTests testNeutralDoesNotIncrementCounters]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.PheromindTests testPassiveDecayAppliesToNonDepositedEdges]' started.
+Test Case '-[JarvisCoreTests.PheromindTests testPassiveDecayAppliesToNonDepositedEdges]' passed (0.005 seconds).
+Test Case '-[JarvisCoreTests.PheromindTests testPheromoneClampedAtCeiling]' started.
+Test Case '-[JarvisCoreTests.PheromindTests testPheromoneClampedAtCeiling]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.PheromindTests testRegisterIsIdempotent]' started.
+Test Case '-[JarvisCoreTests.PheromindTests testRegisterIsIdempotent]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.PheromindTests testRepelDecreasesPheromoneAndIncrementsFailure]' started.
+Test Case '-[JarvisCoreTests.PheromindTests testRepelDecreasesPheromoneAndIncrementsFailure]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.PheromindTests testSomaticWeightClampedAtZeroFromBelow]' started.
+Test Case '-[JarvisCoreTests.PheromindTests testSomaticWeightClampedAtZeroFromBelow]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.PheromindTests testStateReturnsNilForUnknownEdge]' started.
+Test Case '-[JarvisCoreTests.PheromindTests testStateReturnsNilForUnknownEdge]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.PheromindTests testTernaryRegulateCustomThresholds]' started.
+Test Case '-[JarvisCoreTests.PheromindTests testTernaryRegulateCustomThresholds]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.PheromindTests testTernaryRegulateDefaultThresholds]' started.
+Test Case '-[JarvisCoreTests.PheromindTests testTernaryRegulateDefaultThresholds]' passed (0.001 seconds).
+Test Suite 'PheromindTests' passed at 2026-04-22 08:33:20.664.
+	 Executed 17 tests, with 0 failures (0 unexpected) in 0.139 (0.142) seconds
+Test Suite 'PheromineDataRaceTests' started at 2026-04-22 08:33:20.664.
+Test Case '-[JarvisCoreTests.PheromineDataRaceTests testLockHeldDuringGlobalUpdate]' started.
+Test Case '-[JarvisCoreTests.PheromineDataRaceTests testLockHeldDuringGlobalUpdate]' passed (0.013 seconds).
+Test Case '-[JarvisCoreTests.PheromineDataRaceTests testPheromindThreadSafetyUnderConcurrentAccess]' started.
+Test Case '-[JarvisCoreTests.PheromineDataRaceTests testPheromindThreadSafetyUnderConcurrentAccess]' passed (0.011 seconds).
+Test Suite 'PheromineDataRaceTests' passed at 2026-04-22 08:33:20.689.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 0.024 (0.025) seconds
+Test Suite 'PhysicsEngineTests' started at 2026-04-22 08:33:20.689.
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testAddRequiresMassForDynamic]' started.
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testAddRequiresMassForDynamic]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testBackendName]' started.
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testBackendName]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testGravityFreeFall]' started.
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testGravityFreeFall]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testGroundContactReportsContact]' started.
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testGroundContactReportsContact]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testHandleUniqueness]' started.
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testHandleUniqueness]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testImpulseChangesVelocity]' started.
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testImpulseChangesVelocity]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testRaycastHitsSphere]' started.
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testRaycastHitsSphere]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testRaycastMisses]' started.
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testRaycastMisses]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testRaycastZeroDirectionRejected]' started.
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testRaycastZeroDirectionRejected]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testRemoveBody]' started.
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testRemoveBody]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testResetRejectsBadConfig]' started.
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testResetRejectsBadConfig]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testStaticBodyIgnoresImpulse]' started.
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testStaticBodyIgnoresImpulse]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testStaticPlaneStopsFall]' started.
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testStaticPlaneStopsFall]' passed (0.003 seconds).
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testSummarizerFlagsMovingVsResting]' started.
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testSummarizerFlagsMovingVsResting]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testSummarizerProducesBoundedText]' started.
+Test Case '-[JarvisCoreTests.PhysicsEngineTests testSummarizerProducesBoundedText]' passed (0.001 seconds).
+Test Suite 'PhysicsEngineTests' passed at 2026-04-22 08:33:20.703.
+	 Executed 15 tests, with 0 failures (0 unexpected) in 0.011 (0.014) seconds
+Test Suite 'PhysicsSummarizerTests' started at 2026-04-22 08:33:20.703.
+Test Case '-[JarvisCoreTests.PhysicsSummarizerTests testConstructorClampsLowerBounds]' started.
+Test Case '-[JarvisCoreTests.PhysicsSummarizerTests testConstructorClampsLowerBounds]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.PhysicsSummarizerTests testConstructorDefaults]' started.
+Test Case '-[JarvisCoreTests.PhysicsSummarizerTests testConstructorDefaults]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.PhysicsSummarizerTests testContactsAndSimulatedTimeFromReport]' started.
+Test Case '-[JarvisCoreTests.PhysicsSummarizerTests testContactsAndSimulatedTimeFromReport]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.PhysicsSummarizerTests testEmptySnapshotNilReport]' started.
+Test Case '-[JarvisCoreTests.PhysicsSummarizerTests testEmptySnapshotNilReport]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.PhysicsSummarizerTests testHeaderIsFirstLineAndBodyLinesFollow]' started.
+Test Case '-[JarvisCoreTests.PhysicsSummarizerTests testHeaderIsFirstLineAndBodyLinesFollow]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.PhysicsSummarizerTests testMaxBodiesOneShowsSingleBodyAndOmitsRest]' started.
+Test Case '-[JarvisCoreTests.PhysicsSummarizerTests testMaxBodiesOneShowsSingleBodyAndOmitsRest]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.PhysicsSummarizerTests testMovingVsRestingAtThreshold]' started.
+Test Case '-[JarvisCoreTests.PhysicsSummarizerTests testMovingVsRestingAtThreshold]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.PhysicsSummarizerTests testNegativeVelocityComponentsContributeToMagnitude]' started.
+Test Case '-[JarvisCoreTests.PhysicsSummarizerTests testNegativeVelocityComponentsContributeToMagnitude]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.PhysicsSummarizerTests testNoOmissionMarkerWhenWithinCap]' started.
+Test Case '-[JarvisCoreTests.PhysicsSummarizerTests testNoOmissionMarkerWhenWithinCap]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.PhysicsSummarizerTests testPhysicsSummaryCodableRoundTrip]' started.
+Test Case '-[JarvisCoreTests.PhysicsSummarizerTests testPhysicsSummaryCodableRoundTrip]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.PhysicsSummarizerTests testPhysicsSummaryEquatable]' started.
+Test Case '-[JarvisCoreTests.PhysicsSummarizerTests testPhysicsSummaryEquatable]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.PhysicsSummarizerTests testPositionAndSpeedPrecision]' started.
+Test Case '-[JarvisCoreTests.PhysicsSummarizerTests testPositionAndSpeedPrecision]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.PhysicsSummarizerTests testReportWithZeroContactsRendersLiteralZero]' started.
+Test Case '-[JarvisCoreTests.PhysicsSummarizerTests testReportWithZeroContactsRendersLiteralZero]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.PhysicsSummarizerTests testRestingPlusMovingEqualsTotal]' started.
+Test Case '-[JarvisCoreTests.PhysicsSummarizerTests testRestingPlusMovingEqualsTotal]' passed (0.003 seconds).
+Test Case '-[JarvisCoreTests.PhysicsSummarizerTests testSingleContactIsNotGrammaticallyPluralised]' started.
+Test Case '-[JarvisCoreTests.PhysicsSummarizerTests testSingleContactIsNotGrammaticallyPluralised]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.PhysicsSummarizerTests testTruncatesPastMaxBodiesWithOmissionMarker]' started.
+Test Case '-[JarvisCoreTests.PhysicsSummarizerTests testTruncatesPastMaxBodiesWithOmissionMarker]' passed (0.000 seconds).
+Test Suite 'PhysicsSummarizerTests' passed at 2026-04-22 08:33:20.716.
+	 Executed 16 tests, with 0 failures (0 unexpected) in 0.011 (0.014) seconds
+Test Suite 'PresenceEventRouterPrincipalTests' started at 2026-04-22 08:33:20.717.
+Test Case '-[JarvisCoreTests.PresenceEventRouterPrincipalTests testEventIDIsPreservedThroughRoundTrip]' started.
+Test Case '-[JarvisCoreTests.PresenceEventRouterPrincipalTests testEventIDIsPreservedThroughRoundTrip]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.PresenceEventRouterPrincipalTests testFromTierTokenAcceptsOperatorSynonymAndCaseWhitespace]' started.
+Test Case '-[JarvisCoreTests.PresenceEventRouterPrincipalTests testFromTierTokenAcceptsOperatorSynonymAndCaseWhitespace]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.PresenceEventRouterPrincipalTests testFromTierTokenRejectsMalformed]' started.
+Test Case '-[JarvisCoreTests.PresenceEventRouterPrincipalTests testFromTierTokenRejectsMalformed]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.PresenceEventRouterPrincipalTests testLegacyPresenceJSONWithoutPrincipalDecodesCleanly]' started.
+Test Case '-[JarvisCoreTests.PresenceEventRouterPrincipalTests testLegacyPresenceJSONWithoutPrincipalDecodesCleanly]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.PresenceEventRouterPrincipalTests testPresenceEventCodableRoundTripsCompanionMember]' started.
+Test Case '-[JarvisCoreTests.PresenceEventRouterPrincipalTests testPresenceEventCodableRoundTripsCompanionMember]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.PresenceEventRouterPrincipalTests testPresenceEventCodableRoundTripsOperatorPrincipal]' started.
+Test Case '-[JarvisCoreTests.PresenceEventRouterPrincipalTests testPresenceEventCodableRoundTripsOperatorPrincipal]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.PresenceEventRouterPrincipalTests testPresenceEventCodableRoundTripsResponderRole]' started.
+Test Case '-[JarvisCoreTests.PresenceEventRouterPrincipalTests testPresenceEventCodableRoundTripsResponderRole]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.PresenceEventRouterPrincipalTests testPresumedPrincipalDefaultsToNilForBareSensor]' started.
+Test Case '-[JarvisCoreTests.PresenceEventRouterPrincipalTests testPresumedPrincipalDefaultsToNilForBareSensor]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.PresenceEventRouterPrincipalTests testPresumedPrincipalTokenRoundTripThroughJSON]' started.
+Test Case '-[JarvisCoreTests.PresenceEventRouterPrincipalTests testPresumedPrincipalTokenRoundTripThroughJSON]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.PresenceEventRouterPrincipalTests testPrincipalBrandSubtitleCoversAllTiers]' started.
+Test Case '-[JarvisCoreTests.PresenceEventRouterPrincipalTests testPrincipalBrandSubtitleCoversAllTiers]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.PresenceEventRouterPrincipalTests testUnknownPrincipalTokenFailsEventDecode]' started.
+Test Case '-[JarvisCoreTests.PresenceEventRouterPrincipalTests testUnknownPrincipalTokenFailsEventDecode]' passed (0.000 seconds).
+Test Suite 'PresenceEventRouterPrincipalTests' passed at 2026-04-22 08:33:20.731.
+	 Executed 11 tests, with 0 failures (0 unexpected) in 0.009 (0.015) seconds
+Test Suite 'PythonRLMBridgeTests' started at 2026-04-22 08:33:20.731.
+Test Case '-[JarvisCoreTests.PythonRLMBridgeTests testRecursivePromptQueryReturnsTrace]' started.
+2026-04-22 08:33:20.809174-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.PythonRLMBridgeTests testRecursivePromptQueryReturnsTrace]' passed (0.210 seconds).
+Test Suite 'PythonRLMBridgeTests' passed at 2026-04-22 08:33:20.942.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.210 (0.211) seconds
+Test Suite 'RLMBridgeSecurityTests' started at 2026-04-22 08:33:20.943.
+Test Case '-[JarvisCoreTests.RLMBridgeSecurityTests testRLMBridgeUsesStdinPipeNotHostStdin]' started.
+Test Case '-[JarvisCoreTests.RLMBridgeSecurityTests testRLMBridgeUsesStdinPipeNotHostStdin]' passed (0.073 seconds).
+Test Suite 'RLMBridgeSecurityTests' passed at 2026-04-22 08:33:21.016.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.073 (0.074) seconds
+Test Suite 'ResponderCapabilityPolicyTests' started at 2026-04-22 08:33:21.017.
+Test Case '-[JarvisCoreTests.ResponderCapabilityPolicyTests testResponderAllowsAdvocacyAndAwareness]' started.
+Test Case '-[JarvisCoreTests.ResponderCapabilityPolicyTests testResponderAllowsAdvocacyAndAwareness]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.ResponderCapabilityPolicyTests testResponderBrandSubtitle]' started.
+Test Case '-[JarvisCoreTests.ResponderCapabilityPolicyTests testResponderBrandSubtitle]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.ResponderCapabilityPolicyTests testResponderCannotReadMapboxSecretToken]' started.
+Test Case '-[JarvisCoreTests.ResponderCapabilityPolicyTests testResponderCannotReadMapboxSecretToken]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.ResponderCapabilityPolicyTests testResponderCertLevelEscalation]' started.
+Test Case '-[JarvisCoreTests.ResponderCapabilityPolicyTests testResponderCertLevelEscalation]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.ResponderCapabilityPolicyTests testResponderDeniesClinicalExecutionRegardlessOfRole]' started.
+Test Case '-[JarvisCoreTests.ResponderCapabilityPolicyTests testResponderDeniesClinicalExecutionRegardlessOfRole]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.ResponderCapabilityPolicyTests testResponderDeniesOperatorOnlyVerbs]' started.
+Test Case '-[JarvisCoreTests.ResponderCapabilityPolicyTests testResponderDeniesOperatorOnlyVerbs]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.ResponderCapabilityPolicyTests testResponderGetsResponderPalette]' started.
+Test Case '-[JarvisCoreTests.ResponderCapabilityPolicyTests testResponderGetsResponderPalette]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.ResponderCapabilityPolicyTests testResponderTierTokenDecode]' started.
+Test Case '-[JarvisCoreTests.ResponderCapabilityPolicyTests testResponderTierTokenDecode]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.ResponderCapabilityPolicyTests testResponderTierTokenEncode]' started.
+Test Case '-[JarvisCoreTests.ResponderCapabilityPolicyTests testResponderTierTokenEncode]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.ResponderCapabilityPolicyTests testResponderTunnelAllowsStatus]' started.
+Test Case '-[JarvisCoreTests.ResponderCapabilityPolicyTests testResponderTunnelAllowsStatus]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.ResponderCapabilityPolicyTests testResponderTunnelDeniesDestructive]' started.
+Test Case '-[JarvisCoreTests.ResponderCapabilityPolicyTests testResponderTunnelDeniesDestructive]' passed (0.000 seconds).
+Test Suite 'ResponderCapabilityPolicyTests' passed at 2026-04-22 08:33:21.026.
+	 Executed 11 tests, with 0 failures (0 unexpected) in 0.005 (0.009) seconds
+Test Suite 'RetryPolicyTests' started at 2026-04-22 08:33:21.026.
+Test Case '-[JarvisCoreTests.RetryPolicyTests testRetryPolicyRetriesOnFailure]' started.
+Test Case '-[JarvisCoreTests.RetryPolicyTests testRetryPolicyRetriesOnFailure]' passed (0.006 seconds).
+Test Case '-[JarvisCoreTests.RetryPolicyTests testRetryPolicySingleSuccess]' started.
+Test Case '-[JarvisCoreTests.RetryPolicyTests testRetryPolicySingleSuccess]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.RetryPolicyTests testRetryPolicyThrowsAfterMaxAttempts]' started.
+Test Case '-[JarvisCoreTests.RetryPolicyTests testRetryPolicyThrowsAfterMaxAttempts]' passed (0.003 seconds).
+Test Suite 'RetryPolicyTests' passed at 2026-04-22 08:33:21.036.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.009 (0.010) seconds
+Test Suite 'RoutingProfilesTests' started at 2026-04-22 08:33:21.036.
+Test Case '-[JarvisCoreTests.RoutingProfilesTests testAccessibilityCompanionAndResponder]' started.
+Test Case '-[JarvisCoreTests.RoutingProfilesTests testAccessibilityCompanionAndResponder]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.RoutingProfilesTests testEMSPreferredResponderOnly]' started.
+Test Case '-[JarvisCoreTests.RoutingProfilesTests testEMSPreferredResponderOnly]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.RoutingProfilesTests testScenicExcludesHighways]' started.
+Test Case '-[JarvisCoreTests.RoutingProfilesTests testScenicExcludesHighways]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.RoutingProfilesTests testStandardAutoAllTiers]' started.
+Test Case '-[JarvisCoreTests.RoutingProfilesTests testStandardAutoAllTiers]' passed (0.000 seconds).
+Test Suite 'RoutingProfilesTests' passed at 2026-04-22 08:33:21.038.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 0.002 (0.003) seconds
+Test Suite 'ScenePreSearchTests' started at 2026-04-22 08:33:21.039.
+Test Case '-[JarvisCoreTests.ScenePreSearchTests testCompanionTierExcludesSeismic]' started.
+Test Case '-[JarvisCoreTests.ScenePreSearchTests testCompanionTierExcludesSeismic]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.ScenePreSearchTests testGuestTierReturnsEmptyBriefing]' started.
+Test Case '-[JarvisCoreTests.ScenePreSearchTests testGuestTierReturnsEmptyBriefing]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.ScenePreSearchTests testOperatorTierGetsFullFusion]' started.
+Test Case '-[JarvisCoreTests.ScenePreSearchTests testOperatorTierGetsFullFusion]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.ScenePreSearchTests testResponderTierGetsEMSRelevant]' started.
+Test Case '-[JarvisCoreTests.ScenePreSearchTests testResponderTierGetsEMSRelevant]' passed (0.001 seconds).
+Test Suite 'ScenePreSearchTests' passed at 2026-04-22 08:33:21.042.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 0.003 (0.004) seconds
+Test Suite 'SkillRegistryTests' started at 2026-04-22 08:33:21.042.
+Test Case '-[JarvisCoreTests.SkillRegistryTests testCallableSkillNamesIsSubsetOfAllSkillNames]' started.
+Test Case '-[JarvisCoreTests.SkillRegistryTests testCallableSkillNamesIsSubsetOfAllSkillNames]' passed (0.005 seconds).
+Test Case '-[JarvisCoreTests.SkillRegistryTests testExecuteUnknownSkillThrowsSkillNotFound]' started.
+2026-04-22 08:33:21.126163-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.SkillRegistryTests testExecuteUnknownSkillThrowsSkillNotFound]' passed (0.081 seconds).
+Test Case '-[JarvisCoreTests.SkillRegistryTests testListPayloadExposesDescriptionAndFilePath]' started.
+Test Case '-[JarvisCoreTests.SkillRegistryTests testListPayloadExposesDescriptionAndFilePath]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.SkillRegistryTests testListPayloadIsSortedByName]' started.
+Test Case '-[JarvisCoreTests.SkillRegistryTests testListPayloadIsSortedByName]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.SkillRegistryTests testRegistryLoadsJarvisNativeSkillsAndExecutesOne]' started.
+2026-04-22 08:33:21.209395-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.SkillRegistryTests testRegistryLoadsJarvisNativeSkillsAndExecutesOne]' passed (0.075 seconds).
+Test Case '-[JarvisCoreTests.SkillRegistryTests testStigmergicSkillDefaultsApplyWhenInputOmitted]' started.
+2026-04-22 08:33:21.288902-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.SkillRegistryTests testStigmergicSkillDefaultsApplyWhenInputOmitted]' passed (0.078 seconds).
+Test Case '-[JarvisCoreTests.SkillRegistryTests testStigmergicSkillReflectsEvaporationOverride]' started.
+2026-04-22 08:33:21.365164-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.SkillRegistryTests testStigmergicSkillReflectsEvaporationOverride]' passed (0.077 seconds).
+Test Case '-[JarvisCoreTests.SkillRegistryTests testStigmergicSkillRejectsInvalidDepositSignal]' started.
+2026-04-22 08:33:21.443500-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.SkillRegistryTests testStigmergicSkillRejectsInvalidDepositSignal]' passed (0.077 seconds).
+Test Suite 'SkillRegistryTests' passed at 2026-04-22 08:33:21.446.
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.401 (0.403) seconds
+Test Suite 'SoulAnchorTests' started at 2026-04-22 08:33:21.446.
+Test Case '-[JarvisCoreTests.SoulAnchorTests testBiographicalTerminusEnforcement]' started.
+Test Case '-[JarvisCoreTests.SoulAnchorTests testBiographicalTerminusEnforcement]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.SoulAnchorTests testPrivateKeyGuardRefuses]' started.
+Test Case '-[JarvisCoreTests.SoulAnchorTests testPrivateKeyGuardRefuses]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.SoulAnchorTests testVerify_fullChain_succeeds]' started.
+Test Case '-[JarvisCoreTests.SoulAnchorTests testVerify_fullChain_succeeds]' passed (0.010 seconds).
+Test Case '-[JarvisCoreTests.SoulAnchorTests testVerifyLiveBindings_matchesCanonicalFiles_succeeds]' started.
+Test Case '-[JarvisCoreTests.SoulAnchorTests testVerifyLiveBindings_matchesCanonicalFiles_succeeds]' passed (0.007 seconds).
+Test Case '-[JarvisCoreTests.SoulAnchorTests testVerifyLiveBindings_modifiedFile_throwsBindingHashMismatch]' started.
+Test Case '-[JarvisCoreTests.SoulAnchorTests testVerifyLiveBindings_modifiedFile_throwsBindingHashMismatch]' passed (0.006 seconds).
+Test Case '-[JarvisCoreTests.SoulAnchorTests testVerifySignatures_tamperedSignature_throws]' started.
+Test Case '-[JarvisCoreTests.SoulAnchorTests testVerifySignatures_tamperedSignature_throws]' passed (0.007 seconds).
+Test Case '-[JarvisCoreTests.SoulAnchorTests testVerifySignatures_validGenesis_succeeds]' started.
+Test Case '-[JarvisCoreTests.SoulAnchorTests testVerifySignatures_validGenesis_succeeds]' passed (0.007 seconds).
+Test Suite 'SoulAnchorTests' passed at 2026-04-22 08:33:21.486.
+	 Executed 7 tests, with 0 failures (0 unexpected) in 0.039 (0.040) seconds
+Test Suite 'SpeakerIdentifierTests' started at 2026-04-22 08:33:21.489.
+Test Case '-[JarvisCoreTests.SpeakerIdentifierTests testCosineIdentifierAudioPathFailsClosedUntilExtractorLands]' started.
+Test Case '-[JarvisCoreTests.SpeakerIdentifierTests testCosineIdentifierAudioPathFailsClosedUntilExtractorLands]' passed (0.003 seconds).
+Test Case '-[JarvisCoreTests.SpeakerIdentifierTests testCosineIdentifierMatchesAboveThreshold]' started.
+Test Case '-[JarvisCoreTests.SpeakerIdentifierTests testCosineIdentifierMatchesAboveThreshold]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.SpeakerIdentifierTests testCosineIdentifierReturnsNilBelowThreshold]' started.
+Test Case '-[JarvisCoreTests.SpeakerIdentifierTests testCosineIdentifierReturnsNilBelowThreshold]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.SpeakerIdentifierTests testCosineIdentifierSkipsMismatchedEmbeddingDimensions]' started.
+Test Case '-[JarvisCoreTests.SpeakerIdentifierTests testCosineIdentifierSkipsMismatchedEmbeddingDimensions]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.SpeakerIdentifierTests testCosineSimilarityHandlesZeroAndEmpty]' started.
+Test Case '-[JarvisCoreTests.SpeakerIdentifierTests testCosineSimilarityHandlesZeroAndEmpty]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.SpeakerIdentifierTests testEnrollmentIdentityIncludesPrincipalToken]' started.
+Test Case '-[JarvisCoreTests.SpeakerIdentifierTests testEnrollmentIdentityIncludesPrincipalToken]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.SpeakerIdentifierTests testInMemoryStoreRemoveByPrincipal]' started.
+Test Case '-[JarvisCoreTests.SpeakerIdentifierTests testInMemoryStoreRemoveByPrincipal]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.SpeakerIdentifierTests testInMemoryStoreReplacesOnReEnrollment]' started.
+Test Case '-[JarvisCoreTests.SpeakerIdentifierTests testInMemoryStoreReplacesOnReEnrollment]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.SpeakerIdentifierTests testNullIdentifierAlwaysReturnsNil]' started.
+Test Case '-[JarvisCoreTests.SpeakerIdentifierTests testNullIdentifierAlwaysReturnsNil]' passed (0.000 seconds).
+Test Suite 'SpeakerIdentifierTests' passed at 2026-04-22 08:33:21.500.
+	 Executed 9 tests, with 0 failures (0 unexpected) in 0.009 (0.011) seconds
+Test Suite 'TTSBackendDriftTests' started at 2026-04-22 08:33:21.500.
+Test Case '-[JarvisCoreTests.TTSBackendDriftTests testGateRevocationBlocksPipeline]' started.
+Test Case '-[JarvisCoreTests.TTSBackendDriftTests testGateRevocationBlocksPipeline]' passed (0.008 seconds).
+Test Case '-[JarvisCoreTests.TTSBackendDriftTests testPipelineDetectsDriftOnModelMismatch]' started.
+Test Case '-[JarvisCoreTests.TTSBackendDriftTests testPipelineDetectsDriftOnModelMismatch]' passed (0.006 seconds).
+Test Case '-[JarvisCoreTests.TTSBackendDriftTests testPipelineRefusesWhenGateIsAbsent]' started.
+Test Case '-[JarvisCoreTests.TTSBackendDriftTests testPipelineRefusesWhenGateIsAbsent]' passed (0.005 seconds).
+Test Suite 'TTSBackendDriftTests' passed at 2026-04-22 08:33:21.519.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.018 (0.019) seconds
+Test Suite 'TelemetryChainWitnessTests' started at 2026-04-22 08:33:21.519.
+Test Case '-[JarvisCoreTests.TelemetryChainWitnessTests testAppendAutoAssignsTimestampWhenAbsent]' started.
+Test Case '-[JarvisCoreTests.TelemetryChainWitnessTests testAppendAutoAssignsTimestampWhenAbsent]' passed (0.008 seconds).
+Test Case '-[JarvisCoreTests.TelemetryChainWitnessTests testCallerSuppliedHashFieldsAreStripped]' started.
+Test Case '-[JarvisCoreTests.TelemetryChainWitnessTests testCallerSuppliedHashFieldsAreStripped]' passed (0.007 seconds).
+Test Case '-[JarvisCoreTests.TelemetryChainWitnessTests testChainOfAppendsVerifies]' started.
+Test Case '-[JarvisCoreTests.TelemetryChainWitnessTests testChainOfAppendsVerifies]' passed (0.008 seconds).
+Test Case '-[JarvisCoreTests.TelemetryChainWitnessTests testChainResumesFromFileTailOnFreshStoreInstance]' started.
+Test Case '-[JarvisCoreTests.TelemetryChainWitnessTests testChainResumesFromFileTailOnFreshStoreInstance]' passed (0.008 seconds).
+Test Case '-[JarvisCoreTests.TelemetryChainWitnessTests testCrossTableChainsAreIndependent]' started.
+Test Case '-[JarvisCoreTests.TelemetryChainWitnessTests testCrossTableChainsAreIndependent]' passed (0.007 seconds).
+Test Case '-[JarvisCoreTests.TelemetryChainWitnessTests testExplicitPrincipalOverridesCallerSuppliedPrincipalKey]' started.
+Test Case '-[JarvisCoreTests.TelemetryChainWitnessTests testExplicitPrincipalOverridesCallerSuppliedPrincipalKey]' passed (0.008 seconds).
+Test Case '-[JarvisCoreTests.TelemetryChainWitnessTests testFirstRowLinksToGenesisSentinel]' started.
+Test Case '-[JarvisCoreTests.TelemetryChainWitnessTests testFirstRowLinksToGenesisSentinel]' passed (0.007 seconds).
+Test Case '-[JarvisCoreTests.TelemetryChainWitnessTests testLegacyRowsWithoutHashDoNotBreakVerification]' started.
+Test Case '-[JarvisCoreTests.TelemetryChainWitnessTests testLegacyRowsWithoutHashDoNotBreakVerification]' passed (0.007 seconds).
+Test Case '-[JarvisCoreTests.TelemetryChainWitnessTests testReorderedRowsBreakChain]' started.
+Test Case '-[JarvisCoreTests.TelemetryChainWitnessTests testReorderedRowsBreakChain]' passed (0.008 seconds).
+Test Case '-[JarvisCoreTests.TelemetryChainWitnessTests testTamperedPrincipalBreaksChain]' started.
+Test Case '-[JarvisCoreTests.TelemetryChainWitnessTests testTamperedPrincipalBreaksChain]' passed (0.034 seconds).
+Test Case '-[JarvisCoreTests.TelemetryChainWitnessTests testVerifyChainOnMissingTableReportsZeroRows]' started.
+Test Case '-[JarvisCoreTests.TelemetryChainWitnessTests testVerifyChainOnMissingTableReportsZeroRows]' passed (0.010 seconds).
+Test Suite 'TelemetryChainWitnessTests' passed at 2026-04-22 08:33:21.634.
+	 Executed 11 tests, with 0 failures (0 unexpected) in 0.112 (0.115) seconds
+Test Suite 'TelemetryPrincipalWitnessTests' started at 2026-04-22 08:33:21.634.
+Test Case '-[JarvisCoreTests.TelemetryPrincipalWitnessTests testAppendWithCompanionPrincipalWritesMemberScopedToken]' started.
+Test Case '-[JarvisCoreTests.TelemetryPrincipalWitnessTests testAppendWithCompanionPrincipalWritesMemberScopedToken]' passed (0.002 seconds).
+Test Case '-[JarvisCoreTests.TelemetryPrincipalWitnessTests testAppendWithGuestPrincipalWritesGuestToken]' started.
+Test Case '-[JarvisCoreTests.TelemetryPrincipalWitnessTests testAppendWithGuestPrincipalWritesGuestToken]' passed (0.002 seconds).
+Test Case '-[JarvisCoreTests.TelemetryPrincipalWitnessTests testAppendWithNestedDictAndArrayRoundTrips]' started.
+Test Case '-[JarvisCoreTests.TelemetryPrincipalWitnessTests testAppendWithNestedDictAndArrayRoundTrips]' passed (0.002 seconds).
+Test Case '-[JarvisCoreTests.TelemetryPrincipalWitnessTests testAppendWithOperatorPrincipalWritesGrizzToken]' started.
+Test Case '-[JarvisCoreTests.TelemetryPrincipalWitnessTests testAppendWithOperatorPrincipalWritesGrizzToken]' passed (0.002 seconds).
+Test Case '-[JarvisCoreTests.TelemetryPrincipalWitnessTests testAppendWithoutPrincipalLeavesFieldAbsent]' started.
+Test Case '-[JarvisCoreTests.TelemetryPrincipalWitnessTests testAppendWithoutPrincipalLeavesFieldAbsent]' passed (0.002 seconds).
+Test Case '-[JarvisCoreTests.TelemetryPrincipalWitnessTests testAppendWithResponderPrincipalWritesRoleScopedToken]' started.
+Test Case '-[JarvisCoreTests.TelemetryPrincipalWitnessTests testAppendWithResponderPrincipalWritesRoleScopedToken]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.TelemetryPrincipalWitnessTests testCallerSuppliedRowHashIsStripped]' started.
+Test Case '-[JarvisCoreTests.TelemetryPrincipalWitnessTests testCallerSuppliedRowHashIsStripped]' passed (0.003 seconds).
+Test Case '-[JarvisCoreTests.TelemetryPrincipalWitnessTests testChainReportIsIntactReflectsBrokenAt]' started.
+Test Case '-[JarvisCoreTests.TelemetryPrincipalWitnessTests testChainReportIsIntactReflectsBrokenAt]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.TelemetryPrincipalWitnessTests testFirstRowPrevHashIsGenesisSentinel]' started.
+Test Case '-[JarvisCoreTests.TelemetryPrincipalWitnessTests testFirstRowPrevHashIsGenesisSentinel]' passed (0.003 seconds).
+Test Case '-[JarvisCoreTests.TelemetryPrincipalWitnessTests testLogExecutionTraceCarriesPrincipal]' started.
+Test Case '-[JarvisCoreTests.TelemetryPrincipalWitnessTests testLogExecutionTraceCarriesPrincipal]' passed (0.003 seconds).
+Test Case '-[JarvisCoreTests.TelemetryPrincipalWitnessTests testLogExecutionTraceWithoutPrincipalOmitsField]' started.
+Test Case '-[JarvisCoreTests.TelemetryPrincipalWitnessTests testLogExecutionTraceWithoutPrincipalOmitsField]' passed (0.002 seconds).
+Test Case '-[JarvisCoreTests.TelemetryPrincipalWitnessTests testPrincipalParameterOverridesCallerSuppliedField]' started.
+Test Case '-[JarvisCoreTests.TelemetryPrincipalWitnessTests testPrincipalParameterOverridesCallerSuppliedField]' passed (0.002 seconds).
+Test Case '-[JarvisCoreTests.TelemetryPrincipalWitnessTests testRowHashChainLinksAcrossAppends]' started.
+Test Case '-[JarvisCoreTests.TelemetryPrincipalWitnessTests testRowHashChainLinksAcrossAppends]' passed (0.003 seconds).
+Test Case '-[JarvisCoreTests.TelemetryPrincipalWitnessTests testSecondStoreInstanceResumesChainFromTail]' started.
+Test Case '-[JarvisCoreTests.TelemetryPrincipalWitnessTests testSecondStoreInstanceResumesChainFromTail]' passed (0.003 seconds).
+Test Case '-[JarvisCoreTests.TelemetryPrincipalWitnessTests testVerifyChainCountsLegacyRowsAndResumesOnNextHashed]' started.
+Test Case '-[JarvisCoreTests.TelemetryPrincipalWitnessTests testVerifyChainCountsLegacyRowsAndResumesOnNextHashed]' passed (0.003 seconds).
+Test Case '-[JarvisCoreTests.TelemetryPrincipalWitnessTests testVerifyChainDetectsBrokenPrevRowHashLink]' started.
+Test Case '-[JarvisCoreTests.TelemetryPrincipalWitnessTests testVerifyChainDetectsBrokenPrevRowHashLink]' passed (0.003 seconds).
+Test Case '-[JarvisCoreTests.TelemetryPrincipalWitnessTests testVerifyChainDetectsTamperedPrincipalMidFile]' started.
+Test Case '-[JarvisCoreTests.TelemetryPrincipalWitnessTests testVerifyChainDetectsTamperedPrincipalMidFile]' passed (0.003 seconds).
+Test Case '-[JarvisCoreTests.TelemetryPrincipalWitnessTests testVerifyChainOnMissingTableReturnsEmptyIntactReport]' started.
+Test Case '-[JarvisCoreTests.TelemetryPrincipalWitnessTests testVerifyChainOnMissingTableReturnsEmptyIntactReport]' passed (0.002 seconds).
+Test Suite 'TelemetryPrincipalWitnessTests' passed at 2026-04-22 08:33:21.685.
+	 Executed 18 tests, with 0 failures (0 unexpected) in 0.046 (0.050) seconds
+Test Suite 'TunnelAuthTests' started at 2026-04-22 08:33:21.685.
+Test Case '-[JarvisCoreTests.TunnelAuthTests testExpiredTokenRejected]' started.
+Test Case '-[JarvisCoreTests.TunnelAuthTests testExpiredTokenRejected]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.TunnelAuthTests testMissingTokenThrowsMissingRoleToken]' started.
+Test Case '-[JarvisCoreTests.TunnelAuthTests testMissingTokenThrowsMissingRoleToken]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.TunnelAuthTests testRoleDemotionAfterSecretRotation]' started.
+Test Case '-[JarvisCoreTests.TunnelAuthTests testRoleDemotionAfterSecretRotation]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.TunnelAuthTests testRoleTokenWireRoundTrip]' started.
+Test Case '-[JarvisCoreTests.TunnelAuthTests testRoleTokenWireRoundTrip]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.TunnelAuthTests testTamperedTokenMACRejected]' started.
+Test Case '-[JarvisCoreTests.TunnelAuthTests testTamperedTokenMACRejected]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.TunnelAuthTests testTunnelRoleAllCasesRoundTrip]' started.
+Test Case '-[JarvisCoreTests.TunnelAuthTests testTunnelRoleAllCasesRoundTrip]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.TunnelAuthTests testValidTokenPassesVerification]' started.
+Test Case '-[JarvisCoreTests.TunnelAuthTests testValidTokenPassesVerification]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.TunnelAuthTests testWrongRoleInTokenRejected]' started.
+Test Case '-[JarvisCoreTests.TunnelAuthTests testWrongRoleInTokenRejected]' passed (0.001 seconds).
+Test Suite 'TunnelAuthTests' passed at 2026-04-22 08:33:21.693.
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.006 (0.008) seconds
+Test Suite 'TunnelCryptoTests' started at 2026-04-22 08:33:21.693.
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testCryptoErrorDescriptionsAreNonEmpty]' started.
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testCryptoErrorDescriptionsAreNonEmpty]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testDifferentSecretsProduceDifferentCiphertexts]' started.
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testDifferentSecretsProduceDifferentCiphertexts]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testOpenThrowsInvalidPayloadErrorForNonBase64]' started.
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testOpenThrowsInvalidPayloadErrorForNonBase64]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testOpenWithInvalidBase64Fails]' started.
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testOpenWithInvalidBase64Fails]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testOpenWithValidBase64ButGarbageFails]' started.
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testOpenWithValidBase64ButGarbageFails]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testOpenWithWrongKeyFails]' started.
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testOpenWithWrongKeyFails]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testSameSecretSamePayloadProducesDifferentCiphertexts]' started.
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testSameSecretSamePayloadProducesDifferentCiphertexts]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testSealAndOpenRoundTripsForMessage]' started.
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testSealAndOpenRoundTripsForMessage]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testSealAndOpenRoundTripsForRegistration]' started.
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testSealAndOpenRoundTripsForRegistration]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testSealAndOpenRoundTripsForSnapshot]' started.
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testSealAndOpenRoundTripsForSnapshot]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testSignRegistrationAutoGeneratesISO8601Nonce]' started.
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testSignRegistrationAutoGeneratesISO8601Nonce]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testSignRegistrationIsDeterministicWithFixedNonce]' started.
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testSignRegistrationIsDeterministicWithFixedNonce]' passed (0.002 seconds).
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testSignRegistrationRejectsInvalidHex]' started.
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testSignRegistrationRejectsInvalidHex]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testSignRegistrationRoleIsCaseInsensitive]' started.
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testSignRegistrationRoleIsCaseInsensitive]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testSignRegistrationVariesByDeviceID]' started.
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testSignRegistrationVariesByDeviceID]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testSignRegistrationVariesByNonce]' started.
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testSignRegistrationVariesByNonce]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testTransportPacketRoundTrip]' started.
+Test Case '-[JarvisCoreTests.TunnelCryptoTests testTransportPacketRoundTrip]' passed (0.001 seconds).
+Test Suite 'TunnelCryptoTests' passed at 2026-04-22 08:33:21.711.
+	 Executed 17 tests, with 0 failures (0 unexpected) in 0.013 (0.018) seconds
+Test Suite 'TunnelIdentityStoreTests' started at 2026-04-22 08:33:21.712.
+Test Case '-[JarvisCoreTests.TunnelIdentityStoreTests testAllowUnregisteredNonPrivilegedFlag]' started.
+2026-04-22 08:33:21.788080-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.TunnelIdentityStoreTests testAllowUnregisteredNonPrivilegedFlag]' passed (0.078 seconds).
+Test Case '-[JarvisCoreTests.TunnelIdentityStoreTests testBootstrapModeAllowsNonPrivilegedRole]' started.
+Test Case '-[JarvisCoreTests.TunnelIdentityStoreTests testBootstrapModeAllowsNonPrivilegedRole]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.TunnelIdentityStoreTests testBootstrapModeRejectsPrivilegedRoleWithoutIdentityProof]' started.
+Test Case '-[JarvisCoreTests.TunnelIdentityStoreTests testBootstrapModeRejectsPrivilegedRoleWithoutIdentityProof]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.TunnelIdentityStoreTests testBootstrapModeRejectsUnsignedWatchRole]' started.
+Test Case '-[JarvisCoreTests.TunnelIdentityStoreTests testBootstrapModeRejectsUnsignedWatchRole]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.TunnelIdentityStoreTests testServerAuthorizeRegistrationIntegration]' started.
+2026-04-22 08:33:21.870884-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.TunnelIdentityStoreTests testServerAuthorizeRegistrationIntegration]' passed (0.081 seconds).
+Test Case '-[JarvisCoreTests.TunnelIdentityStoreTests testStrictModeAcceptsValidProof]' started.
+2026-04-22 08:33:21.949748-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.TunnelIdentityStoreTests testStrictModeAcceptsValidProof]' passed (0.078 seconds).
+Test Case '-[JarvisCoreTests.TunnelIdentityStoreTests testStrictModeAcceptsWatchSignedProof]' started.
+2026-04-22 08:33:22.026058-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.TunnelIdentityStoreTests testStrictModeAcceptsWatchSignedProof]' passed (0.076 seconds).
+Test Case '-[JarvisCoreTests.TunnelIdentityStoreTests testStrictModeRejectsProofMismatch]' started.
+2026-04-22 08:33:22.104471-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.TunnelIdentityStoreTests testStrictModeRejectsProofMismatch]' passed (0.078 seconds).
+Test Case '-[JarvisCoreTests.TunnelIdentityStoreTests testStrictModeRejectsReplay]' started.
+2026-04-22 08:33:22.179330-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.TunnelIdentityStoreTests testStrictModeRejectsReplay]' passed (0.075 seconds).
+Test Case '-[JarvisCoreTests.TunnelIdentityStoreTests testStrictModeRejectsStaleNonce]' started.
+2026-04-22 08:33:22.257356-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.TunnelIdentityStoreTests testStrictModeRejectsStaleNonce]' passed (0.078 seconds).
+Test Case '-[JarvisCoreTests.TunnelIdentityStoreTests testStrictModeRejectsUnknownDevicePrivilegedRole]' started.
+2026-04-22 08:33:22.334515-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.TunnelIdentityStoreTests testStrictModeRejectsUnknownDevicePrivilegedRole]' passed (0.076 seconds).
+Test Case '-[JarvisCoreTests.TunnelIdentityStoreTests testStrictModeRejectsWatchWithWrongKey]' started.
+2026-04-22 08:33:22.409590-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.TunnelIdentityStoreTests testStrictModeRejectsWatchWithWrongKey]' passed (0.076 seconds).
+Test Case '-[JarvisCoreTests.TunnelIdentityStoreTests testStrictModeRejectsWrongRoleForDevice]' started.
+2026-04-22 08:33:22.486287-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.TunnelIdentityStoreTests testStrictModeRejectsWrongRoleForDevice]' passed (0.076 seconds).
+Test Suite 'TunnelIdentityStoreTests' passed at 2026-04-22 08:33:22.489.
+	 Executed 13 tests, with 0 failures (0 unexpected) in 0.774 (0.777) seconds
+Test Suite 'UniversalRouterTests' started at 2026-04-22 08:33:22.489.
+Test Case '-[JarvisCoreTests.UniversalRouterTests testRouterDeterministicOrdering]' started.
+Test Case '-[JarvisCoreTests.UniversalRouterTests testRouterDeterministicOrdering]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.UniversalRouterTests testRouterLimitBounds]' started.
+Test Case '-[JarvisCoreTests.UniversalRouterTests testRouterLimitBounds]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.UniversalRouterTests testRouterProfileScopeRejectsWrongTier]' started.
+Test Case '-[JarvisCoreTests.UniversalRouterTests testRouterProfileScopeRejectsWrongTier]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.UniversalRouterTests testRouterRespectsActiveHazards]' started.
+Test Case '-[JarvisCoreTests.UniversalRouterTests testRouterRespectsActiveHazards]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.UniversalRouterTests testRouterReturnsEmptyWhenNoPath]' started.
+Test Case '-[JarvisCoreTests.UniversalRouterTests testRouterReturnsEmptyWhenNoPath]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.UniversalRouterTests testRouterShortestStandardProfile]' started.
+Test Case '-[JarvisCoreTests.UniversalRouterTests testRouterShortestStandardProfile]' passed (0.000 seconds).
+Test Suite 'UniversalRouterTests' passed at 2026-04-22 08:33:22.493.
+	 Executed 6 tests, with 0 failures (0 unexpected) in 0.003 (0.004) seconds
+Test Suite 'VoiceApprovalGateTests' started at 2026-04-22 08:33:22.493.
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testApproveThenRequireApprovedPasses]' started.
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testApproveThenRequireApprovedPasses]' passed (0.005 seconds).
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testDriftOnModelChangeInvalidatesApproval]' started.
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testDriftOnModelChangeInvalidatesApproval]' passed (0.007 seconds).
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testDriftOnPersonaFramingVersion]' started.
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testDriftOnPersonaFramingVersion]' passed (0.005 seconds).
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testDriftOnReferenceAudioContentInvalidatesApproval]' started.
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testDriftOnReferenceAudioContentInvalidatesApproval]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testDriftOnTranscriptChangeInvalidatesApproval]' started.
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testDriftOnTranscriptChangeInvalidatesApproval]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testGateFileWrittenWithRestrictivePermissions]' started.
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testGateFileWrittenWithRestrictivePermissions]' passed (0.005 seconds).
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testMalformedGateFileIsRejected]' started.
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testMalformedGateFileIsRejected]' passed (0.007 seconds).
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testNotApprovedByDefault]' started.
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testNotApprovedByDefault]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testRevokeClearsApproval]' started.
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testRevokeClearsApproval]' passed (0.005 seconds).
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testTelemetryFiresOnApproveRevokeAndDrift]' started.
+Test Case '-[JarvisCoreTests.VoiceApprovalGateTests testTelemetryFiresOnApproveRevokeAndDrift]' passed (0.005 seconds).
+Test Suite 'VoiceApprovalGateTests' passed at 2026-04-22 08:33:22.548.
+	 Executed 10 tests, with 0 failures (0 unexpected) in 0.051 (0.054) seconds
+Test Suite 'VoiceCommandRouterTests' started at 2026-04-22 08:33:22.548.
+Test Case '-[JarvisCoreTests.VoiceCommandRouterTests testBlockedPatternIsRefusedAtRouter]' started.
+2026-04-22 08:33:22.621599-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.VoiceCommandRouterTests testBlockedPatternIsRefusedAtRouter]' passed (0.077 seconds).
+Test Case '-[JarvisCoreTests.VoiceCommandRouterTests testBlockedPatternReturnsUnknownWithZeroConfidence]' started.
+Test Case '-[JarvisCoreTests.VoiceCommandRouterTests testBlockedPatternReturnsUnknownWithZeroConfidence]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.VoiceCommandRouterTests testDestructiveGuardClassification]' started.
+Test Case '-[JarvisCoreTests.VoiceCommandRouterTests testDestructiveGuardClassification]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.VoiceCommandRouterTests testDestructiveGuardRefusesBurstShutdowns]' started.
+2026-04-22 08:33:22.699915-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.VoiceCommandRouterTests testDestructiveGuardRefusesBurstShutdowns]' passed (0.074 seconds).
+Test Case '-[JarvisCoreTests.VoiceCommandRouterTests testRateLimiterRefusesBurstOverCapacity]' started.
+2026-04-22 08:33:22.775954-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.VoiceCommandRouterTests testRateLimiterRefusesBurstOverCapacity]' passed (0.076 seconds).
+Test Case '-[JarvisCoreTests.VoiceCommandRouterTests testRouterDispatchesDisplayIntentViaExecutor]' started.
+2026-04-22 08:33:22.854962-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.VoiceCommandRouterTests testRouterDispatchesDisplayIntentViaExecutor]' passed (0.078 seconds).
+Test Case '-[JarvisCoreTests.VoiceCommandRouterTests testRouterDispatchesHomeKitIntentViaExecutor]' started.
+2026-04-22 08:33:22.928404-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.VoiceCommandRouterTests testRouterDispatchesHomeKitIntentViaExecutor]' passed (0.073 seconds).
+Test Case '-[JarvisCoreTests.VoiceCommandRouterTests testRouterFallsBackToLegacyForUnmappedIntent]' started.
+2026-04-22 08:33:23.006900-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.VoiceCommandRouterTests testRouterFallsBackToLegacyForUnmappedIntent]' passed (0.078 seconds).
+Test Case '-[JarvisCoreTests.VoiceCommandRouterTests testRouterHandlesListSkillsViaIntentChain]' started.
+2026-04-22 08:33:23.087313-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.VoiceCommandRouterTests testRouterHandlesListSkillsViaIntentChain]' passed (0.082 seconds).
+Test Case '-[JarvisCoreTests.VoiceCommandRouterTests testRouterHandlesSelfHealViaIntentChain]' started.
+2026-04-22 08:33:23.174272-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.VoiceCommandRouterTests testRouterHandlesSelfHealViaIntentChain]' passed (0.086 seconds).
+Test Case '-[JarvisCoreTests.VoiceCommandRouterTests testRouterHandlesShutdownViaIntentChain]' started.
+2026-04-22 08:33:23.255285-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.VoiceCommandRouterTests testRouterHandlesShutdownViaIntentChain]' passed (0.079 seconds).
+Test Case '-[JarvisCoreTests.VoiceCommandRouterTests testRouterHandlesStatusAndShutdownCommands]' started.
+2026-04-22 08:33:23.331137-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.VoiceCommandRouterTests testRouterHandlesStatusAndShutdownCommands]' passed (0.075 seconds).
+Test Case '-[JarvisCoreTests.VoiceCommandRouterTests testStartupLineIncludesOperationalSummary]' started.
+2026-04-22 08:33:23.408719-0500 xctest[80127:602293] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+Test Case '-[JarvisCoreTests.VoiceCommandRouterTests testStartupLineIncludesOperationalSummary]' passed (0.081 seconds).
+Test Suite 'VoiceCommandRouterTests' passed at 2026-04-22 08:33:23.415.
+	 Executed 13 tests, with 0 failures (0 unexpected) in 0.863 (0.866) seconds
+Test Suite 'WebContentFetchPolicyTests' started at 2026-04-22 08:33:23.415.
+Test Case '-[JarvisCoreTests.WebContentFetchPolicyTests testArbitraryPublicURLAllowedWithProvenance]' started.
+Test Case '-[JarvisCoreTests.WebContentFetchPolicyTests testArbitraryPublicURLAllowedWithProvenance]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WebContentFetchPolicyTests testCanonicalWithoutSearchDoesNotLeakProviders]' started.
+Test Case '-[JarvisCoreTests.WebContentFetchPolicyTests testCanonicalWithoutSearchDoesNotLeakProviders]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.WebContentFetchPolicyTests testDefaultPolicyRegistryIsCanonicalWithoutSearch]' started.
+Test Case '-[JarvisCoreTests.WebContentFetchPolicyTests testDefaultPolicyRegistryIsCanonicalWithoutSearch]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WebContentFetchPolicyTests testHTTPSSchemeUppercaseNormalizedAndAllowed]' started.
+Test Case '-[JarvisCoreTests.WebContentFetchPolicyTests testHTTPSSchemeUppercaseNormalizedAndAllowed]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.WebContentFetchPolicyTests testInvalidURLMissingSchemeDenied]' started.
+Test Case '-[JarvisCoreTests.WebContentFetchPolicyTests testInvalidURLMissingSchemeDenied]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WebContentFetchPolicyTests testMissingProvenanceDenied]' started.
+Test Case '-[JarvisCoreTests.WebContentFetchPolicyTests testMissingProvenanceDenied]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WebContentFetchPolicyTests testNonHTTPSchemeDenied]' started.
+Test Case '-[JarvisCoreTests.WebContentFetchPolicyTests testNonHTTPSchemeDenied]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WebContentFetchPolicyTests testNonOperatorGatedProviderAllowsCompanion]' started.
+Test Case '-[JarvisCoreTests.WebContentFetchPolicyTests testNonOperatorGatedProviderAllowsCompanion]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WebContentFetchPolicyTests testNonOperatorGatedProviderAllowsResponderAndGuest]' started.
+Test Case '-[JarvisCoreTests.WebContentFetchPolicyTests testNonOperatorGatedProviderAllowsResponderAndGuest]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.WebContentFetchPolicyTests testOperatorGatedProviderBlocksCompanion]' started.
+Test Case '-[JarvisCoreTests.WebContentFetchPolicyTests testOperatorGatedProviderBlocksCompanion]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.WebContentFetchPolicyTests testOperatorGatedProviderBlocksResponder]' started.
+Test Case '-[JarvisCoreTests.WebContentFetchPolicyTests testOperatorGatedProviderBlocksResponder]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WebContentFetchPolicyTests testPrimarySearchProvidersAreOperatorGated]' started.
+Test Case '-[JarvisCoreTests.WebContentFetchPolicyTests testPrimarySearchProvidersAreOperatorGated]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.WebContentFetchPolicyTests testSearchProvenanceCodableRoundTrip]' started.
+Test Case '-[JarvisCoreTests.WebContentFetchPolicyTests testSearchProvenanceCodableRoundTrip]' passed (0.002 seconds).
+Test Case '-[JarvisCoreTests.WebContentFetchPolicyTests testSearchProvidersInCanonicalWithSearch]' started.
+Test Case '-[JarvisCoreTests.WebContentFetchPolicyTests testSearchProvidersInCanonicalWithSearch]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WebContentFetchPolicyTests testUnknownProviderDenied]' started.
+Test Case '-[JarvisCoreTests.WebContentFetchPolicyTests testUnknownProviderDenied]' passed (0.000 seconds).
+Test Case '-[JarvisCoreTests.WebContentFetchPolicyTests testWebContentDenialDescriptionsSurfaceContext]' started.
+Test Case '-[JarvisCoreTests.WebContentFetchPolicyTests testWebContentDenialDescriptionsSurfaceContext]' passed (0.001 seconds).
+Test Suite 'WebContentFetchPolicyTests' passed at 2026-04-22 08:33:23.429.
+	 Executed 16 tests, with 0 failures (0 unexpected) in 0.012 (0.015) seconds
+Test Suite 'WiFiScannerRedactionTests' started at 2026-04-22 08:33:23.430.
+Test Case '-[JarvisCoreTests.WiFiScannerRedactionTests testCompanionTierAlwaysGetsRedactedIdentifiers]' started.
+Test Case '-[JarvisCoreTests.WiFiScannerRedactionTests testCompanionTierAlwaysGetsRedactedIdentifiers]' passed (0.014 seconds).
+Test Case '-[JarvisCoreTests.WiFiScannerRedactionTests testGuestTierAlwaysGetsRedactedIdentifiers]' started.
+Test Case '-[JarvisCoreTests.WiFiScannerRedactionTests testGuestTierAlwaysGetsRedactedIdentifiers]' passed (0.005 seconds).
+Test Case '-[JarvisCoreTests.WiFiScannerRedactionTests testLegacySnapshotRoutesToOperatorTier]' started.
+Test Case '-[JarvisCoreTests.WiFiScannerRedactionTests testLegacySnapshotRoutesToOperatorTier]' passed (0.009 seconds).
+Test Case '-[JarvisCoreTests.WiFiScannerRedactionTests testNoInterfaceFailsClosedForOperator]' started.
+Test Case '-[JarvisCoreTests.WiFiScannerRedactionTests testNoInterfaceFailsClosedForOperator]' passed (0.004 seconds).
+Test Case '-[JarvisCoreTests.WiFiScannerRedactionTests testNoInterfaceShapeIsTierInvariant]' started.
+/Users/grizzmed/REAL_JARVIS/Jarvis/Tests/JarvisCoreTests/WiFiScannerRedactionTests.swift:96: -[JarvisCoreTests.WiFiScannerRedactionTests testNoInterfaceShapeIsTierInvariant] : Test skipped - WLAN interface available on host; fail-closed branch not exercised
+Test Case '-[JarvisCoreTests.WiFiScannerRedactionTests testNoInterfaceShapeIsTierInvariant]' skipped (0.008 seconds).
+Test Case '-[JarvisCoreTests.WiFiScannerRedactionTests testResponderTierIsRedacted]' started.
+Test Case '-[JarvisCoreTests.WiFiScannerRedactionTests testResponderTierIsRedacted]' passed (0.006 seconds).
+Test Case '-[JarvisCoreTests.WiFiScannerRedactionTests testScanForNetworksEmptyForResponder]' started.
+Test Case '-[JarvisCoreTests.WiFiScannerRedactionTests testScanForNetworksEmptyForResponder]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WiFiScannerRedactionTests testScanForNetworksIsEmptyBelowOperator]' started.
+Test Case '-[JarvisCoreTests.WiFiScannerRedactionTests testScanForNetworksIsEmptyBelowOperator]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WiFiScannerRedactionTests testSnapshotTimestampIsISO8601Parseable]' started.
+Test Case '-[JarvisCoreTests.WiFiScannerRedactionTests testSnapshotTimestampIsISO8601Parseable]' passed (0.004 seconds).
+Test Suite 'WiFiScannerRedactionTests' passed at 2026-04-22 08:33:23.484.
+	 Executed 9 tests, with 1 test skipped and 0 failures (0 unexpected) in 0.050 (0.054) seconds
+Test Suite 'WorkspacePathsTests' started at 2026-04-22 08:33:23.484.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testAudioSampleURLsCaseInsensitiveExtensions]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testAudioSampleURLsCaseInsensitiveExtensions]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testAudioSampleURLsFallsBackToRootWhenSamplesMissingOrEmpty]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testAudioSampleURLsFallsBackToRootWhenSamplesMissingOrEmpty]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testAudioSampleURLsPrefersVoiceSamplesDirWhenPopulated]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testAudioSampleURLsPrefersVoiceSamplesDirWhenPopulated]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testControlPlaneStatusFileLeafNames]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testControlPlaneStatusFileLeafNames]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testDefaultStorageRootIsDotJarvisUnderRoot]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testDefaultStorageRootIsDotJarvisUnderRoot]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testDiscoverFindsRootFromNestedSubdirectory]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testDiscoverFindsRootFromNestedSubdirectory]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testDiscoverThrowsWhenNoMarkers]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testDiscoverThrowsWhenNoMarkers]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testEnsureSupportDirectoriesCreatesAll]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testEnsureSupportDirectoriesCreatesAll]' passed (0.003 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testEnsureSupportDirectoriesIdempotent]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testEnsureSupportDirectoriesIdempotent]' passed (0.003 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testExplicitStorageRootOverridesDefault]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testExplicitStorageRootOverridesDefault]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testInitDerivesCanonicalLayoutUnderRoot]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testInitDerivesCanonicalLayoutUnderRoot]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testJarvisErrorDescriptionsSurfaceMessage]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testJarvisErrorDescriptionsSurfaceMessage]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testResolveAbsolutePathReturnsAsIs]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testResolveAbsolutePathReturnsAsIs]' passed (0.002 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testResolveRelativePathJoinsUnderRoot]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testResolveRelativePathJoinsUnderRoot]' passed (0.001 seconds).
+Test Suite 'WorkspacePathsTests' passed at 2026-04-22 08:33:23.505.
+	 Executed 14 tests, with 0 failures (0 unexpected) in 0.019 (0.022) seconds
+Test Suite 'JarvisCoreTests.xctest' passed at 2026-04-22 08:33:23.505.
+	 Executed 659 tests, with 1 test skipped and 0 failures (0 unexpected) in 18.517 (18.698) seconds
+Test Suite 'All tests' passed at 2026-04-22 08:33:23.506.
+	 Executed 659 tests, with 1 test skipped and 0 failures (0 unexpected) in 18.517 (18.699) seconds
+2026-04-22 08:33:23.877 xcodebuild[80092:601970] [MT] IDETestOperationsObserverDebug: 20.616 elapsed -- Testing started completed.
+2026-04-22 08:33:23.877 xcodebuild[80092:601970] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-04-22 08:33:23.877 xcodebuild[80092:601970] [MT] IDETestOperationsObserverDebug: 20.616 sec, +20.616 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Logs/Test/Test-Jarvis-2026.04.22_08-33-01--0500.xcresult
+
+** TEST SUCCEEDED **
+
+Testing started
