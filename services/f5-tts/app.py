@@ -45,6 +45,9 @@ class SynthesizeRequest(BaseModel):
     seed: Optional[int] = None
     speaker_label: str = Field(default="Jarvis", min_length=1, max_length=64)
     max_new_tokens: Optional[int] = None  # accepted, ignored
+    # New parameters exposed for Swift client integration
+    speed: Optional[float] = Field(default=None, description="Playback speed factor")
+    pitch: Optional[float] = Field(default=None, description="Pitch shift in semitones")
 
 
 def _require_bearer(authorization: Optional[str]) -> None:
@@ -97,7 +100,11 @@ def stats(authorization: Optional[str] = Header(default=None)) -> dict:
 
 
 @app.post("/tts/synthesize")
-def synthesize(req: SynthesizeRequest, request: Request, authorization: Optional[str] = Header(default=None)):
+def synthesize(
+    req: SynthesizeRequest,
+    request: Request,
+    authorization: Optional[str] = Header(default=None),
+):
     _require_bearer(authorization)
 
     try:
@@ -111,16 +118,23 @@ def synthesize(req: SynthesizeRequest, request: Request, authorization: Optional
     effective_nfe_steps = req.nfe_steps if req.nfe_steps is not None else req.ddpm_steps or 32
 
     s = F5Synthesizer.shared()
+    synth_kwargs = {
+        "text": req.text,
+        "reference_audio_bytes": ref_bytes,
+        "reference_text": req.reference_text,
+        "cfg_scale": req.cfg_scale,
+        "nfe_steps": effective_nfe_steps,
+        "seed": req.seed,
+        "speaker_label": req.speaker_label,
+    }
+    # Pass through new optional parameters if the backend supports them
+    if req.speed is not None:
+        synth_kwargs["speed"] = req.speed
+    if req.pitch is not None:
+        synth_kwargs["pitch"] = req.pitch
+
     try:
-        result = s.synthesize(
-            text=req.text,
-            reference_audio_bytes=ref_bytes,
-            reference_text=req.reference_text,
-            cfg_scale=req.cfg_scale,
-            nfe_steps=effective_nfe_steps,
-            seed=req.seed,
-            speaker_label=req.speaker_label,
-        )
+        result = s.synthesize(**synth_kwargs)
     except Exception as exc:
         raise HTTPException(status_code=500, detail=f"synthesis failure: {type(exc).__name__}: {exc}")
 
@@ -144,7 +158,7 @@ def synthesize(req: SynthesizeRequest, request: Request, authorization: Optional
     return Response(content=result.wav_bytes, media_type="audio/wav", headers=headers)
 
 
-def _idle_watchdog() -> None:
+def _idle_watchdog_thread() -> None:
     """Exit the process if no synthesis happens for IDLE_SECONDS so the
     spot instance auto-shutdown / instance-group scale-to-zero policy
     can deallocate the T4."""
@@ -164,6 +178,6 @@ def _idle_watchdog() -> None:
 
 @app.on_event("startup")
 def _on_startup() -> None:
-    threading.Thread(target=_idle_watchdog, daemon=True).start()
+    threading.Thread(target=_idle_watchdog_thread, daemon=True).start()
     if os.environ.get("F5_PRELOAD", "1") == "1":
         threading.Thread(target=lambda: F5Synthesizer.shared().ensure_loaded(), daemon=True).start()
