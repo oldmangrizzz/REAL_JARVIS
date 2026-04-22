@@ -6,7 +6,7 @@
       "room" : "Iron Silo",
       "severity" : "warning",
       "state" : "elevated",
-      "value" : 1.4839999994011721
+      "value" : 2.4399999981224538
     },
     {
       "kind" : "internal_metric",

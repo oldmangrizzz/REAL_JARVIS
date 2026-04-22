@@ -1,0 +1,30 @@
+<?php
+$CONFIG = array (
+  'trusted_domains' => 
+  array (
+    0 => 'cloud.grizzlymedicine.icu',
+    1 => '192.168.4.100',
+  ),
+  'datadirectory' => '/tank/nextcloud',
+  'dbtype' => 'mysql',
+  'dbhost' => 'localhost',
+  'dbport' => 3306,
+  'dbname' => 'nextcloud',
+  'dbuser' => 'nextcloud',
+  'dbpassword' => '',
+  'dbtableprefix' => 'oc_',
+  'dbpersistent' => false,
+  'installed' => false,
+  'instanceid' => '',
+  'secret' => '',
+  'default_language' => 'en',
+  'default_locale' => 'en_US',
+  'default_phone_region' => 'US',
+  'maintenance' => false,
+  'loglevel' => 2,
+  'log_type' => 'file',
+  'logpath' => '/var/log/nextcloud',
+  'logfile' => 'nextcloud.log',
+  'logfile_append' => false,
+  'config_is_read_only' => false,
+);

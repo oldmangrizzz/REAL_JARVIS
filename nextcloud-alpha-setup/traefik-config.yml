@@ -1,0 +1,23 @@
+http:
+  routers:
+    nextcloud:
+      rule: "Host(`cloud.grizzlymedicine.icu`)"
+      service: nextcloud
+      entryPoints:
+        - websecure
+      tls:
+        certResolver: letsencrypt
+    nextcloud-http:
+      rule: "Host(`cloud.grizzlymedicine.icu`)"
+      service: nextcloud
+      entryPoints:
+        - web
+  services:
+    nextcloud:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.4.100:80"
+        healthCheck:
+          path: "/index.php"
+          interval: "30s"
+          timeout: "10s"

@@ -1910,6 +1910,13 @@
       "target" : "entity-193470173",
       "timestamp" : "2026-04-17T10:03:54Z",
       "weight" : 0.35
+    },
+    {
+      "relation" : "somatic",
+      "source" : "operator-command",
+      "target" : "aox4-refresh",
+      "timestamp" : "2026-04-21T23:25:15Z",
+      "weight" : 1.1
     }
   ],
   "nodes" : [
