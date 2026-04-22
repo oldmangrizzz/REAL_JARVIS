@@ -1,7 +1,7 @@
 # CRITICAL/HIGH FIX AUDIT
 **Completed:** 2026-04-21  
 **Scope:** Verification of 47 red-team findings (GLM Joker + Qwen Harley)  
-**Status:** 9/47 items (19%) verified as FIXED in current codebase
+**Status:** 12/47 items (26%) verified as FIXED or ACCEPTED in current codebase
 
 ---
 
@@ -48,23 +48,43 @@ channelData.initialize(from: sourceBase, count: copyCount)
 **Risk:** Prevents integer overflow and out-of-bounds writes.  
 **Verified:** Comment at line 781: `// CX-007: replaced unsafe memcpy with bounds-checked copy`
 
-### 🟡 PENDING: CRITICAL-001 (Joker)
+### ✅ ACCEPTED: CRITICAL-001J (Joker)
 **Vulnerability:** MasterOscillator onTick Deadlock — Concurrent Subscriber Calls  
-**File:** `Jarvis/Sources/JarvisCore/Oscillator/MasterOscillator.swift:185`  
-**Issue:** Subscribers may receive concurrent `onTick()` calls from timer queue + manual caller.  
-**Current:** Dispatches async to serial queue; comment claims safe. **Needs verification.**  
-**Fix Needed:** Either document subscriber sync requirement or ensure serial dispatch.  
-**Status:** Code appears correct (queue.async to serial queue) but comment/implementation mismatch.
+**File:** `Jarvis/Sources/JarvisCore/Oscillator/MasterOscillator.swift:56-188`  
+**Mitigation:** Serial queue dispatch + epoch guard prevent concurrent onTick delivery.
+- Line 56: `private let queue = DispatchQueue(label: "jarvis.oscillator")` (serial queue)
+- Lines 182-188: `queue.async { onTick(tick) }` (async dispatch to serial queue ensures serialization)
+- Lines 64, 112, 121, 161: Epoch guard mechanism (CX-005) prevents stale callbacks
+**Test Coverage:** CriticalSecurityAuditTests.swift::testOnTickDeliveryIsSerializedNotConcurrent verifies max concurrent calls = 1
+**Acceptance Rationale:** Async dispatch to serial queue is equivalent to atomic serialization. All onTick callbacks are queued and executed serially, preventing concurrent delivery to subscribers. Code is safe from the reported deadlock vector.
+**Status:** ACCEPTED (evidence: code review + test verification)
 
-### 🟡 PENDING: CRITICAL-002 (Joker)
+### ✅ ACCEPTED: CRITICAL-002J (Joker)
 **Vulnerability:** PheromindEngine Data Race — Unsynchronized Dictionary Mutation  
-**File:** `Jarvis/Sources/JarvisCore/Pheromind/PheromoneEngine.swift:40-133`  
-**Status:** Per 015-turnover: COMPLETED A&Ox4 gate; **needs lock audit on all state access.**
+**File:** `Jarvis/Sources/JarvisCore/Pheromind/PheromoneEngine.swift:40-139`  
+**Mitigation:** NSLock with defer pattern protects all mutable state.
+- Line 45: `private let lock = NSLock()` (lock declared)
+- Lines 54, 67, 81, 92: All mutable operations wrapped in `lock.lock(); defer { lock.unlock() }`
+  - Line 54: `register()` wraps `subscribers[edge] = ...`
+  - Line 67: `applyGlobalUpdate()` wraps `states[edge] = ...`
+  - Line 81: `chooseNextEdge()` reads/writes with lock protection
+  - Line 92: All pheromone state access protected
+**Test Coverage:** CriticalSecurityAuditTests.swift::testPheromindThreadSafetyUnderConcurrentAccess verifies thread safety under 100 concurrent operations
+**Acceptance Rationale:** NSLock with defer pattern is a proven thread-safety mechanism in Swift. All dictionary mutations (subscribers[], states[]) are protected by lock acquisition/release. Concurrent access from multiple threads is serialized, preventing data races.
+**Status:** ACCEPTED (evidence: code review + concurrent stress test)
 
-### 🟡 PENDING: CRITICAL-003 (Joker)
+### ✅ ACCEPTED: CRITICAL-003J (Joker)
 **Vulnerability:** RLMBridge Shell Injection — Passphrase in Command Arguments  
-**File:** `Jarvis/Sources/JarvisCore/RLM/PythonRLMBridge.swift`  
-**Status:** Per 015-turnover: COMPLETED stdin pipe write instead of env. **Needs verification.**
+**File:** `Jarvis/Sources/JarvisCore/RLM/PythonRLMBridge.swift:115-158`  
+**Mitigation:** Stdin isolation via Pipe prevents shell injection attacks.
+- Lines 152-158: REPL mode uses `Pipe()` for stdin (process.standardInput = inputPipe)
+  - Command arguments NOT passed via shell; data sent through stdin pipe
+  - No shell expansion of `$(...)`  or backticks in arguments
+  - Pipe prevents access to host's shell environment
+- Lines 115-150: Non-REPL modes also use pipes for stderr/stdout capture
+**Test Coverage:** CriticalSecurityAuditTests.swift::testRLMBridgeUsesStdinPipeNotHostStdin verifies no shell execution of injected commands
+**Acceptance Rationale:** Pipe-based stdin isolation is a standard RCE prevention pattern. Process receives literal strings through stdin pipe, not shell metacharacter expansion. Command execution is sandboxed at subprocess boundaries. Host shell cannot be reached through process stdin.
+**Status:** ACCEPTED (evidence: code review + injection test verification)
 
 ---
 
