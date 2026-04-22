@@ -25,12 +25,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "knowledge/canon/README.md",
+                "file": "knowledge/canon/Grizz-OS.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "Grizz-OS"
             }
           }
         ],
@@ -218,6 +218,12 @@
   },
   "active": "69ddc1c2c86a4143",
   "lastOpenFiles": [
+    "knowledge/canon/CANON_GATE_CI.md",
+    "knowledge/canon/CANON_CORPUS.md",
+    "knowledge/architecture/SOUL_ANCHOR_DEEP_DIVE.md",
+    "knowledge/canon/Responder-OS.md",
+    "knowledge/OPENMYTHOS_EVALUATION_2026-04-21.md",
+    "knowledge/canon/README.md",
     "knowledge/grind-log/2026-04-21-phase-f-e2e-smoke.md",
     "knowledge/device-registry/ha-inventory.md",
     "knowledge/grind-log/2026-04-21-verified-infrastructure.md",
@@ -239,12 +245,6 @@
     "knowledge/device-registry/devices.md",
     "knowledge/operator-tasks",
     "knowledge/grind-log/2026-04-21-phase1-complete.md",
-    "knowledge/operations/n8n.md",
-    "knowledge/canon/voice.md",
-    "knowledge/workflow-registry/README.md",
-    "knowledge/device-registry/README.md",
-    "knowledge/grind-log/2026-04-21-phase1-kickoff.md",
-    "knowledge/phase-status/phase-1.md",
     "knowledge/operations",
     "knowledge/phase-status",
     "knowledge/workflow-registry",

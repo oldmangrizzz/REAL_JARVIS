@@ -18,7 +18,7 @@ public final class NoopTTSBackend: TTSBackend {
         parameters: TTSRenderParameters,
         outputURL: URL
     ) throws {
-        throw JarvisError.configurationError(
+        throw JarvisError.invalidInput(
             "TTS backend not configured. Canonical backend requires JARVIS_CANON_TTS_HOST and JARVIS_TTS_BEARER."
         )
     }

@@ -53,7 +53,7 @@ public final class JarvisRuntime {
         }
     }
 
-    private static func makeLettaBridge() -> LettaBridge? {
+    private static func makeLettaBridge() -> ResilientLettaBridge? {
         let env = ProcessInfo.processInfo.environment
         guard let raw = env["JARVIS_LETTA_BASE_URL"],
               let url = URL(string: raw) else {

@@ -103,7 +103,7 @@ final class PheromineDataRaceTests: XCTestCase {
         }
         
         let final = try XCTUnwrap(engine.state(for: edge))
-        XCTAssertGreater(final.pheromone, 0.0)
+        XCTAssertGreaterThan(final.pheromone, 0.0)
     }
 }
 

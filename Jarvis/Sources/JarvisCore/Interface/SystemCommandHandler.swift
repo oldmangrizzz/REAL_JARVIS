@@ -12,7 +12,7 @@ private final class SystemCommandHandlerAwaitBox<T>: @unchecked Sendable {
         lock.lock(); defer { lock.unlock() }
         if let error { throw error }
         guard let value else {
-            throw JarvisError.runtimeFailure("SystemCommandHandler: sync bridge resolved without value or error")
+            throw JarvisError.processFailure("SystemCommandHandler: sync bridge resolved without value or error")
         }
         return value
     }

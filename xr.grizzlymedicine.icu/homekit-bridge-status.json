@@ -3,7 +3,7 @@
     {
       "id" : "internal-regulation",
       "kind" : "internal_regulation",
-      "lastUpdated" : "2026-04-22T02:52:02Z",
+      "lastUpdated" : "2026-04-22T03:17:33Z",
       "name" : "J.A.R.V.I.S. Internal Regulation",
       "room" : "Iron Silo",
       "severity" : "warning",
@@ -13,7 +13,7 @@
     {
       "id" : "vagal-tone",
       "kind" : "internal_metric",
-      "lastUpdated" : "2026-04-22T02:52:02Z",
+      "lastUpdated" : "2026-04-22T03:17:33Z",
       "name" : "J.A.R.V.I.S. Vagal Tone",
       "room" : "Iron Silo",
       "severity" : "nominal",
@@ -22,7 +22,7 @@
     {
       "id" : "command-gate",
       "kind" : "command_gate",
-      "lastUpdated" : "2026-04-22T02:52:02Z",
+      "lastUpdated" : "2026-04-22T03:17:33Z",
       "name" : "J.A.R.V.I.S. Command Gate",
       "room" : "Iron Silo",
       "severity" : "nominal",
@@ -31,11 +31,11 @@
     {
       "id" : "voice-intercom",
       "kind" : "doorbell_intercom",
-      "lastUpdated" : "2026-04-22T02:52:02Z",
+      "lastUpdated" : "2026-04-22T03:17:33Z",
       "name" : "J.A.R.V.I.S. HomePod Intercom",
       "room" : "Iron Silo",
-      "severity" : "nominal",
-      "state" : "route-ready"
+      "severity" : "warning",
+      "state" : "config-ready"
     }
   ],
   "authorizedCommandSources" : [
@@ -43,13 +43,13 @@
     "terminal"
   ],
   "bridgeName" : "J.A.R.V.I.S. Iron Silo Matter Bridge",
-  "bridgeState" : "Charlie audio bridge reachable through LiveKit.",
+  "bridgeState" : "Charlie Matter audio bridge pending deployment; audio-only config is staged.",
   "charlieAddress" : "192.168.4.151",
   "distressState" : "elevated",
   "homebridgePort" : 8581,
-  "lastSync" : "2026-04-22T02:52:02Z",
+  "lastSync" : "2026-04-22T03:17:33Z",
   "matterEnabled" : true,
-  "reachable" : true,
+  "reachable" : false,
   "regulationVisibility" : "internal-only",
   "voiceIntercomRoute" : "airplay2:\/\/192.168.4.151\/homepods\/jarvis-intercom"
 }

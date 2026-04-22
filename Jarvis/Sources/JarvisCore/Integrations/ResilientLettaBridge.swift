@@ -1,7 +1,7 @@
 import Foundation
 
 /// Wraps `LettaBridge` with circuit breaker + retry policy for fault tolerance.
-public final class ResilientLettaBridge: Sendable {
+public final class ResilientLettaBridge {
     private let inner: LettaBridge
     private let breaker: CircuitBreaker
     private let retryPolicy: RetryPolicy

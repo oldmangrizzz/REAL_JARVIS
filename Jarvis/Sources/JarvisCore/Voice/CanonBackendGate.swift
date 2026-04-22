@@ -9,7 +9,7 @@ public enum CanonBackend {
 
 /// CanonBackendIdentity wraps the verified identity of a TTS backend.
 /// This must match the env-configured Delta service exactly.
-public struct CanonBackendIdentity: Equatable {
+public struct CanonBackendIdentity: Equatable, Sendable {
     public let host: String
     public let port: Int
     public let model: String
