@@ -121,13 +121,17 @@ public final class VoiceCommandRouter {
             // confidence — refuse with a telemetry record before anything
             // else touches the command.
             if IntentParser.isBlockedIntent(command) {
-                try? runtime.telemetry.logExecutionTrace(
-                    workflowID: "voice-command-router",
-                    stepID: "spec-008-blocked-pattern",
-                    inputContext: command,
-                    outputResult: "blocked",
-                    status: "command_refused"
-                )
+                do {
+                    try runtime.telemetry.logExecutionTrace(
+                        workflowID: "voice-command-router",
+                        stepID: "spec-008-blocked-pattern",
+                        inputContext: command,
+                        outputResult: "blocked",
+                        status: "command_refused"
+                    )
+                } catch {
+                    FileHandle.standardError.write(Data("VoiceCommandRouter telemetry (spec-008-blocked-pattern): \(error)\n".utf8))
+                }
                 return VoiceCommandResponse(
                     spokenText: "That phrasing trips a safety guardrail, so I'm going to decline.",
                     details: ["command": "blocked", "transcript": command],
@@ -202,14 +206,18 @@ public final class VoiceCommandRouter {
             default: return CompanionCapabilityPolicy.companionDenialLine
             }
         }()
-        try? runtime.telemetry.logExecutionTrace(
-            workflowID: "voice-command-router",
-            stepID: "spec-009-companion-policy",
-            inputContext: command,
-            outputResult: "\(principal.tierToken):\(reason)",
-            status: "command_refused",
-            principal: principal
-        )
+        do {
+            try runtime.telemetry.logExecutionTrace(
+                workflowID: "voice-command-router",
+                stepID: "spec-009-companion-policy",
+                inputContext: command,
+                outputResult: "\(principal.tierToken):\(reason)",
+                status: "command_refused",
+                principal: principal
+            )
+        } catch {
+            FileHandle.standardError.write(Data("VoiceCommandRouter telemetry (spec-009-companion-policy): \(error)\n".utf8))
+        }
         return VoiceCommandResponse(
             spokenText: spoken,
             details: [
@@ -231,13 +239,17 @@ public final class VoiceCommandRouter {
         let classification = destructiveGuard.classify(intent: parsed, command: command)
         guard case .destructive(let reason) = classification else { return nil }
         if destructiveGuard.allow() { return nil }
-        try? runtime.telemetry.logExecutionTrace(
-            workflowID: "voice-command-router",
-            stepID: "spec-008-destructive-rate-limit",
-            inputContext: command,
-            outputResult: "destructive:\(reason)",
-            status: "command_refused"
-        )
+        do {
+            try runtime.telemetry.logExecutionTrace(
+                workflowID: "voice-command-router",
+                stepID: "spec-008-destructive-rate-limit",
+                inputContext: command,
+                outputResult: "destructive:\(reason)",
+                status: "command_refused"
+            )
+        } catch {
+            FileHandle.standardError.write(Data("VoiceCommandRouter telemetry (spec-008-destructive-rate-limit): \(error)\n".utf8))
+        }
         return VoiceCommandResponse(
             spokenText: DestructiveIntentGuard.refusalResponse,
             details: [
@@ -272,13 +284,17 @@ public final class VoiceCommandRouter {
 
         // SPEC-008.2: rate-limit display/HomeKit dispatch before touching executor.
         guard rateLimiter.allow() else {
-            try? runtime.telemetry.logExecutionTrace(
-                workflowID: "voice-command-router",
-                stepID: "spec-008-rate-limit",
-                inputContext: command,
-                outputResult: "rate_limited",
-                status: "command_refused"
-            )
+            do {
+                try runtime.telemetry.logExecutionTrace(
+                    workflowID: "voice-command-router",
+                    stepID: "spec-008-rate-limit",
+                    inputContext: command,
+                    outputResult: "rate_limited",
+                    status: "command_refused"
+                )
+            } catch {
+                FileHandle.standardError.write(Data("VoiceCommandRouter telemetry (spec-008-rate-limit): \(error)\n".utf8))
+            }
             return VoiceCommandResponse(
                 spokenText: CommandRateLimiter.limitExceededResponse,
                 details: [
@@ -397,8 +413,16 @@ public final class RealJarvisInterface: NSObject {
         audioEngine.stop()
         audioEngine.inputNode.removeTap(onBus: 0)
         isRunning = false
-        try? appendLog("interface-stopped")
-        try? FileManager.default.removeItem(at: runtime.paths.interfacePIDURL)
+        do {
+            try appendLog("interface-stopped")
+        } catch {
+            FileHandle.standardError.write(Data("RealJarvisInterface.stop appendLog: \(error)\n".utf8))
+        }
+        do {
+            try FileManager.default.removeItem(at: runtime.paths.interfacePIDURL)
+        } catch {
+            FileHandle.standardError.write(Data("RealJarvisInterface.stop removePID: \(error)\n".utf8))
+        }
     }
 
     public func startupLine(registry: JarvisSkillRegistry) throws -> String {
@@ -529,7 +553,11 @@ public final class RealJarvisInterface: NSObject {
         do {
             try startListening()
         } catch {
-            try? appendLog("restart-error \(error)")
+            do {
+                try appendLog("restart-error \(error)")
+            } catch {
+                FileHandle.standardError.write(Data("RealJarvisInterface.restartListening appendLog: \(error)\n".utf8))
+            }
         }
     }
 
@@ -564,15 +592,25 @@ public final class RealJarvisInterface: NSObject {
                 stop()
             }
         } catch {
-            try? appendLog("command-error \(error)")
+            do {
+                try appendLog("command-error \(error)")
+            } catch {
+                FileHandle.standardError.write(Data("RealJarvisInterface.handleTranscript appendLog: \(error)\n".utf8))
+            }
         }
     }
 
     private static func makeCommandRouter(runtime: JarvisRuntime, registry: JarvisSkillRegistry) -> VoiceCommandRouter {
         // Wire SPEC-004 pipeline if a capability config is present; otherwise fall back to legacy keyword router.
         let configURL = runtime.paths.capabilityConfigURL
-        guard FileManager.default.fileExists(atPath: configURL.path),
-              let capabilityRegistry = try? CapabilityRegistry(configURL: configURL) else {
+        guard FileManager.default.fileExists(atPath: configURL.path) else {
+            return VoiceCommandRouter(runtime: runtime, registry: registry)
+        }
+        let capabilityRegistry: CapabilityRegistry
+        do {
+            capabilityRegistry = try CapabilityRegistry(configURL: configURL)
+        } catch {
+            FileHandle.standardError.write(Data("RealJarvisInterface.makeCommandRouter CapabilityRegistry init failed: \(error); falling back to legacy router\n".utf8))
             return VoiceCommandRouter(runtime: runtime, registry: registry)
         }
         let intentParser = IntentParser(capabilityRegistry: capabilityRegistry)
@@ -621,7 +659,13 @@ public final class RealJarvisInterface: NSObject {
 
     private func performAutonomousPulse() {
         do {
-            let logText = (try? String(contentsOf: runtime.telemetry.tableURL("execution_traces"), encoding: .utf8)) ?? ""
+            let logText: String
+            do {
+                logText = try String(contentsOf: runtime.telemetry.tableURL("execution_traces"), encoding: .utf8)
+            } catch {
+                FileHandle.standardError.write(Data("RealJarvisInterface.performAutonomousPulse read execution_traces: \(error)\n".utf8))
+                logText = ""
+            }
             guard logText.lowercased().contains("\"status\":\"failure\"") else {
                 try appendLog("heartbeat stable")
                 return
@@ -642,7 +686,11 @@ public final class RealJarvisInterface: NSObject {
             )
             try appendLog("autonomous-pulse \(result.json)")
         } catch {
-            try? appendLog("autonomous-pulse-error \(error)")
+            do {
+                try appendLog("autonomous-pulse-error \(error)")
+            } catch {
+                FileHandle.standardError.write(Data("RealJarvisInterface.performAutonomousPulse appendLog: \(error)\n".utf8))
+            }
         }
     }
 
@@ -678,7 +726,13 @@ public final class RealJarvisInterface: NSObject {
             FileManager.default.createFile(atPath: runtime.paths.interfaceLogURL.path, contents: nil)
         }
         let handle = try FileHandle(forWritingTo: runtime.paths.interfaceLogURL)
-        defer { try? handle.close() }
+        defer {
+            do {
+                try handle.close()
+            } catch {
+                FileHandle.standardError.write(Data("RealJarvisInterface.appendLog handle.close: \(error)\n".utf8))
+            }
+        }
         try handle.seekToEnd()
         try handle.write(contentsOf: data)
     }

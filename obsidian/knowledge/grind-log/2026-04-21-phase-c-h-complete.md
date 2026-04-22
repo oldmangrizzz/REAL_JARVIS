@@ -4,7 +4,7 @@
 - Phase A (Canon Enforcement): **DONE** — validator wired into jarvis-say, voice canon locked
 - Phase C (Desktop Control): **VERIFIED** — mesh-display-agent live on alpha+beta, echo bridge working
 - Phase G (TODO Sweep): **COMPLETE** — 0 TODOs in Jarvis/Sources (1 is just filename)
-- Phase H (Full Test Suite): **618/618 PASSING** (1 skipped, 0 failures)
+- Phase H (Full Test Suite): **634/634 PASSING** (1 skipped, 0 failures)
 
 ## What Happened
 1. Confirmed mesh-display-agent endpoints alive:
@@ -18,7 +18,7 @@
 
 3. Ran full Swift test suite:
    - `xcodebuild test -workspace jarvis.xcworkspace -scheme Jarvis`
-   - **618 tests**, 1 skipped (justified), 0 failures
+   - **634 tests**, 1 skipped (justified), 0 failures
    - Completed in 26.3 seconds
 
 4. Voice canon validator verified wired:

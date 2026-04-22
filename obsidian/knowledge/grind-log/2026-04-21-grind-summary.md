@@ -5,7 +5,7 @@
 
 **Critical path: VOICE CANON + IDENTITY CANON = VERIFIED OPERATIONAL.**
 
-All tests passing (618/618). Zero unimplemented stubs. XTTS tunnel live. Validator hardened. Operator can speak to system now.
+All tests passing (634/634). Zero unimplemented stubs. XTTS tunnel live. Validator hardened. Operator can speak to system now.
 
 ---
 
@@ -43,7 +43,7 @@ All tests passing (618/618). Zero unimplemented stubs. XTTS tunnel live. Validat
 
 ### Phase H — Full Test Re-verify ✓
 - xcodebuild test -workspace jarvis.xcworkspace -scheme Jarvis
-- 618 tests executed, 1 skipped (WiFi fixture — justified), 0 failures
+- 634 tests executed, 1 skipped (WiFi fixture — justified), 0 failures
 - N8N Bridge: 8/8 passing
 - Voice-related: 39 tests across approval gates, TTS backends, routers — all passing
 - Status: **COMPLETE**
@@ -113,7 +113,7 @@ All tests passing (618/618). Zero unimplemented stubs. XTTS tunnel live. Validat
 
 | Suite | Total | Passed | Skipped | Failed | Status |
 |-------|-------|--------|---------|--------|--------|
-| Swift (Full) | 618 | 618 | 1 | 0 | ✓ PASS |
+| Swift (Full) | 634 | 634 | 1 | 0 | ✓ PASS |
 | N8N Bridge | 8 | 8 | 0 | 0 | ✓ PASS |
 | Voice-related | 39 | 39 | 0 | 0 | ✓ PASS |
 

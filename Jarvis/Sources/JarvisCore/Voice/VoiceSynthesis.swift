@@ -172,8 +172,17 @@ public final class JarvisVoicePipeline {
         } else {
             let homeDir = FileManager.default.homeDirectoryForCurrentUser
             let sha256File = homeDir.appendingPathComponent(".jarvis/voice/canon_ref.sha256")
-            if let sha = try? String(contentsOf: sha256File, encoding: .utf8).trimmingCharacters(in: .whitespacesAndNewlines),
-               !sha.isEmpty {
+            let sha: String?
+            do {
+                sha = try String(contentsOf: sha256File, encoding: .utf8)
+                    .trimmingCharacters(in: .whitespacesAndNewlines)
+            } catch {
+                // Missing/unreadable canon_ref.sha256 is an expected first-run
+                // state. Log to stderr so operator can diagnose if unexpected.
+                FileHandle.standardError.write(Data("VoiceSynthesis: canon_ref.sha256 unreadable: \(error)\n".utf8))
+                sha = nil
+            }
+            if let sha, !sha.isEmpty {
                 do {
                     self.backend = try DeltaXTTSBackend(refClipSHA: sha)
                 } catch {
@@ -271,7 +280,14 @@ public final class JarvisVoicePipeline {
                 "backend": String(describing: type(of: backend)),
                 "text_prefix": String(renderedText.prefix(100))
             ]
-            if let logData = try? JSONSerialization.data(withJSONObject: logEntry),
+            let logData: Data?
+            do {
+                logData = try JSONSerialization.data(withJSONObject: logEntry)
+            } catch {
+                FileHandle.standardError.write(Data("VoiceSynthesis: canon-failure log serialize failed: \(error)\n".utf8))
+                logData = nil
+            }
+            if let logData,
                let logString = String(data: logData, encoding: .utf8) {
                 let homeDir = FileManager.default.homeDirectoryForCurrentUser
                 let logFile = homeDir.appendingPathComponent(".jarvis/alignment_tax/voice_canon_failures.log")

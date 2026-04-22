@@ -96,7 +96,13 @@ public final class SystemCommandHandler: @unchecked Sendable {
 
         // Default: `.systemQuery` fell through to generic status report.
         let callable = skillRegistry.callableSkillNames()
-        let sampleCount = (try? runtime.paths.audioSampleURLs().count) ?? 0
+        let sampleCount: Int
+        do {
+            sampleCount = try runtime.paths.audioSampleURLs().count
+        } catch {
+            FileHandle.standardError.write(Data("SystemCommandHandler: audioSampleURLs failed: \(error)\n".utf8))
+            sampleCount = 0
+        }
         let summary = "Systems are online. I have \(skillRegistry.allSkillNames().count) indexed skills, \(callable.count) native callable skills, and \(sampleCount) local voice reference samples ready."
         return VoiceCommandResponse(
             spokenText: summary,
