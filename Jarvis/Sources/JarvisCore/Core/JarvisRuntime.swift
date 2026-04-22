@@ -59,6 +59,17 @@ public final class JarvisRuntime {
               let url = URL(string: raw) else {
             return nil
         }
+        // H2: Letta exclusivity preflight. The Letta server on Alpha LXC 201
+        // stores episodic memory for a *digital person* (see PRINCIPLES.md §1,
+        // Natural-Language Barrier). If that same Letta instance is shared
+        // with any other persona/project the substrate-merger invariant is
+        // violated. We require operator attestation via env var. Default
+        // (unset / not "true") disables the bridge; memory stays local in
+        // .jarvis/storage/ via MemoryEngine.
+        let exclusive = (env["JARVIS_LETTA_EXCLUSIVE"] ?? "").lowercased()
+        guard exclusive == "true" || exclusive == "1" || exclusive == "yes" else {
+            return nil
+        }
         let inner = LettaBridge(baseURL: url, bearerToken: env["JARVIS_LETTA_TOKEN"])
         return ResilientLettaBridge(inner: inner)
     }
