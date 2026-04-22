@@ -1,0 +1,10 @@
+[arc-smoke] REPO_ROOT: /Users/grizzmed/REAL_JARVIS
+[arc-smoke] Using binary: /Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Build/Products/Debug/Jarvis
+[arc-smoke] Running: /Users/grizzmed/REAL_JARVIS/scripts/arc/submit.sh /Users/grizzmed/REAL_JARVIS/arc-agi-tasks/demo/SAMPLE-0001.json --out /Users/grizzmed/REAL_JARVIS/.arc-smoke-out
+[arc-smoke] Output:
+2026-04-22 08:24:22.267 Jarvis[76064:582088] [ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production
+{"candidateGrid":[[1,0,0],[0,1,0],[0,0,1]],"latencyMs":63,"taskId":"SAMPLE-0001","ttl":1776864562.341043,"witnessSha256":"109bbb0d098bdafc39cf6a1bd168f764524693e0397d50d120c246ac1ea69b38"}
+[arc-smoke] candidateGrid ✓ matches expected identity matrix
+[arc-smoke] witnessSha256 ✓ (109bbb0d098bdafc…)
+[arc-smoke] PASS — ARC submission E2E smoke test succeeded
+{"candidateGrid":[[1,0,0],[0,1,0],[0,0,1]],"latencyMs":63,"taskId":"SAMPLE-0001","ttl":1776864562.341043,"witnessSha256":"109bbb0d098bdafc39cf6a1bd168f764524693e0397d50d120c246ac1ea69b38"}
