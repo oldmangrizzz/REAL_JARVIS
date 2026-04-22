@@ -1,0 +1,40 @@
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testAudioSampleURLsPrefersVoiceSamplesDirWhenPopulated]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testAudioSampleURLsPrefersVoiceSamplesDirWhenPopulated]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testControlPlaneStatusFileLeafNames]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testControlPlaneStatusFileLeafNames]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testDefaultStorageRootIsDotJarvisUnderRoot]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testDefaultStorageRootIsDotJarvisUnderRoot]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testDiscoverFindsRootFromNestedSubdirectory]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testDiscoverFindsRootFromNestedSubdirectory]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testDiscoverThrowsWhenNoMarkers]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testDiscoverThrowsWhenNoMarkers]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testEnsureSupportDirectoriesCreatesAll]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testEnsureSupportDirectoriesCreatesAll]' passed (0.003 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testEnsureSupportDirectoriesIdempotent]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testEnsureSupportDirectoriesIdempotent]' passed (0.003 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testExplicitStorageRootOverridesDefault]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testExplicitStorageRootOverridesDefault]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testInitDerivesCanonicalLayoutUnderRoot]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testInitDerivesCanonicalLayoutUnderRoot]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testJarvisErrorDescriptionsSurfaceMessage]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testJarvisErrorDescriptionsSurfaceMessage]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testResolveAbsolutePathReturnsAsIs]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testResolveAbsolutePathReturnsAsIs]' passed (0.001 seconds).
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testResolveRelativePathJoinsUnderRoot]' started.
+Test Case '-[JarvisCoreTests.WorkspacePathsTests testResolveRelativePathJoinsUnderRoot]' passed (0.001 seconds).
+Test Suite 'WorkspacePathsTests' passed at 2026-04-22 08:04:25.739.
+	 Executed 14 tests, with 0 failures (0 unexpected) in 0.018 (0.021) seconds
+Test Suite 'JarvisCoreTests.xctest' passed at 2026-04-22 08:04:25.739.
+	 Executed 659 tests, with 1 test skipped and 0 failures (0 unexpected) in 21.354 (21.538) seconds
+Test Suite 'All tests' passed at 2026-04-22 08:04:25.740.
+	 Executed 659 tests, with 1 test skipped and 0 failures (0 unexpected) in 21.354 (21.539) seconds
+2026-04-22 08:04:26.098 xcodebuild[69092:537043] [MT] IDETestOperationsObserverDebug: 22.996 elapsed -- Testing started completed.
+2026-04-22 08:04:26.098 xcodebuild[69092:537043] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-04-22 08:04:26.098 xcodebuild[69092:537043] [MT] IDETestOperationsObserverDebug: 22.996 sec, +22.996 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/grizzmed/Library/Developer/Xcode/DerivedData/jarvis-azitohqgzfenblhgjgawfqvnbzwb/Logs/Test/Test-Jarvis-2026.04.22_08-04-00--0500.xcresult
+
+** TEST SUCCEEDED **
+
+Testing started
