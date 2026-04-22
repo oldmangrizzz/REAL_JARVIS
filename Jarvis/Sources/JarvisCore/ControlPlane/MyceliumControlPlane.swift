@@ -280,7 +280,7 @@ public final class MyceliumControlPlane {
                 "name": homeKitBridge.bridgeName,
                 "username": "0E:CA:04:15:10:01",
                 "port": 51826,
-                "pin": "031-45-154"
+                "pin": ProcessInfo.processInfo.environment["HOMEBRIDGE_PIN"] ?? "SET_VIA_SECRETS"
             ],
             "description": "J.A.R.V.I.S. Iron Silo Matter bridge for Charlie.",
             "platforms": [
