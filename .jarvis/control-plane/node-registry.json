@@ -2,18 +2,18 @@
   {
     "guiReachable" : false,
     "id" : "echo",
-    "lastSeen" : "2026-04-22T02:01:29Z",
+    "lastSeen" : "2026-04-22T02:19:30Z",
     "nodeName" : "echo",
-    "rustDeskID" : "232611902",
+    "rustDeskID" : "IRONSILO-ECHO",
     "source" : "rustdesk",
     "tunnelState" : "pending"
   },
   {
     "guiReachable" : false,
     "id" : "alpha",
-    "lastSeen" : "2026-04-22T02:01:29Z",
+    "lastSeen" : "2026-04-22T02:19:30Z",
     "nodeName" : "alpha",
-    "rustDeskID" : "293187511",
+    "rustDeskID" : "IRONSILO-ALPHA",
     "source" : "rustdesk",
     "tunnelState" : "pending"
   },
@@ -21,9 +21,9 @@
     "address" : "192.168.4.151:5984",
     "guiReachable" : true,
     "id" : "beta",
-    "lastSeen" : "2026-04-22T02:01:29Z",
+    "lastSeen" : "2026-04-22T02:19:30Z",
     "nodeName" : "beta",
-    "rustDeskID" : "286923437",
+    "rustDeskID" : "IRONSILO-BETA",
     "source" : "rustdesk",
     "tunnelState" : "online"
   },
@@ -31,18 +31,18 @@
     "address" : "192.168.4.151",
     "guiReachable" : true,
     "id" : "charlie",
-    "lastSeen" : "2026-04-22T02:01:29Z",
+    "lastSeen" : "2026-04-22T02:19:30Z",
     "nodeName" : "charlie",
-    "rustDeskID" : "347700740",
+    "rustDeskID" : "IRONSILO-CHARLIE",
     "source" : "homebridge",
     "tunnelState" : "online"
   },
   {
     "guiReachable" : false,
     "id" : "delta",
-    "lastSeen" : "2026-04-22T02:01:29Z",
+    "lastSeen" : "2026-04-22T02:19:30Z",
     "nodeName" : "delta",
-    "rustDeskID" : "347824774",
+    "rustDeskID" : "IRONSILO-DELTA",
     "source" : "rustdesk",
     "tunnelState" : "pending"
   }
