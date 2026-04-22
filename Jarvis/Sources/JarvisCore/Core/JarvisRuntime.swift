@@ -17,7 +17,7 @@ public final class JarvisRuntime {
     public let physicsSummarizer: PhysicsSummarizer
     public let arcBridge: ARCHarnessBridge
     public let presenceRouter: PresenceEventRouter
-    public let lettaBridge: LettaBridge?
+    public let lettaBridge: ResilientLettaBridge?
 
     public init(paths: WorkspacePaths) throws {
         self.paths = paths
@@ -59,6 +59,7 @@ public final class JarvisRuntime {
               let url = URL(string: raw) else {
             return nil
         }
-        return LettaBridge(baseURL: url, bearerToken: env["JARVIS_LETTA_TOKEN"])
+        let inner = LettaBridge(baseURL: url, bearerToken: env["JARVIS_LETTA_TOKEN"])
+        return ResilientLettaBridge(inner: inner)
     }
 }

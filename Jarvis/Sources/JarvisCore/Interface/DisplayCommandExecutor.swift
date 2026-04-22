@@ -95,7 +95,8 @@ public final class DisplayCommandExecutor: @unchecked Sendable {
         self.airPlayBridge = AirPlayBridge(paths: paths)
         self.httpBridge = HTTPDisplayBridge()
         self.hdmiCECBridge = HDMICECBridge()
-        self.meshDispatcher = meshDispatcher ?? MeshDisplayDispatcher()
+        let innerDispatcher = meshDispatcher ?? MeshDisplayDispatcher()
+        self.meshDispatcher = ResilientMeshDisplayDispatcher(inner: innerDispatcher)
         self.dialBridge = dialBridge ?? DIALBridge()
         self.alexaRoutineBridge = alexaRoutineBridge ?? AlexaRoutineBridge()
         self.n8nBridge = n8nBridge

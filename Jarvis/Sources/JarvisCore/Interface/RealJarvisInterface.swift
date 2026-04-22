@@ -37,17 +37,19 @@ public final class VoiceCommandRouter {
 
     /// Returns a live `N8nWorkflowRunner` when `JARVIS_N8N_BASE_URL` is set.
     /// Falls back to `nil` so the skill handler simply reports "no runner".
+    /// H3: Wraps inner runner with CircuitBreaker + RetryPolicy for resilience.
     static func makeN8nRunner() -> N8nWorkflowRunning? {
         let env = ProcessInfo.processInfo.environment
         guard let raw = env["JARVIS_N8N_BASE_URL"],
               let url = URL(string: raw) else {
             return nil
         }
-        return N8nWorkflowRunner(
+        let inner = N8nWorkflowRunner(
             baseURL: url,
             basicAuthUser: env["JARVIS_N8N_USER"],
             basicAuthPassword: env["JARVIS_N8N_PASSWORD"]
         )
+        return ResilientN8nWorkflowRunner(inner: inner)
     }
 
     public init(runtime: JarvisRuntime, registry: JarvisSkillRegistry) {
