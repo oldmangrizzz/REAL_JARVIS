@@ -310,3 +310,54 @@ EOF
 **Status:** READY FOR OPERATOR EXECUTION  
 **Next Step:** Execute credential rotation (Section 1) → verify findings (Section 2) → sign docs (Section 4) → run lockdown (Section 8)  
 **Estimated Time to Completion:** 3-4 hours (depends on credential rotation speed)
+
+---
+
+## APPENDIX H5: Delta IP Configuration Audit
+
+### Summary
+
+**Audit Date:** 2026-04-21  
+**Audit Scope:** All hardcoded IP literals matching cluster node addresses  
+**Finding:** `services/voice_canon_validator.py` already uses env var pattern (`JARVIS_DELTA_HOST`).
+
+### Audit Results
+
+Full codebase scan for hardcoded IP literals:
+
+```
+grep -rEn "\b(192\.168\.4\.(100|151|152)|192\.168\.7\.(114|199)|76\.13\.146\.61|187\.124\.28\.147)\b"
+```
+
+**Codebase entries (deployable code):**
+
+| File | Line | Pattern | Status | Rationale |
+|------|------|---------|--------|-----------|
+| `Jarvis/Sources/JarvisCore/ControlPlane/MyceliumControlPlane.swift` | 36 | `192.168.4.151` default | ✓ ENV-COMPLIANT | Already uses `JARVIS_CONTROL_HOST` env var with fallback |
+| `services/jarvis-linux-node/jarvis_node.py` | 95 | `192.168.7.114` default | ✓ ENV-COMPLIANT | Already uses `JARVIS_HOST_ADDR` env var with fallback |
+| `scripts/mesh-unity-build.sh` | 10-11 | `192.168.4.100/151` defaults | ✓ ENV-COMPLIANT | Already uses `ALPHA_IP`/`BETA_IP` env vars with fallbacks |
+| `services/voice_canon_validator.py` | 67 | Delta host | ✓ ENV-COMPLIANT | Uses `JARVIS_DELTA_HOST` env var (no hardcoded IP) |
+
+**Non-deployable entries (excluded from remediation):**
+
+| Category | Files | Rationale |
+|----------|-------|-----------|
+| Test fixtures | `Jarvis/Tests/JarvisCoreTests/MeshDisplayDispatcherTests.swift` | IP `192.168.4.100` in test data; acceptable for unit test constant |
+| Documentation / comments | `scripts/seed_letta_persona.py` lines 557-576 | Node topology reference; documentation-only, no effect on deployment |
+| IDE development settings | `.claude/settings.local.json` | Developer shell commands; environment-specific, no production impact |
+| Runtime state / knowledge graphs | `.jarvis/storage/knowledge-graph.json`, `.jarvis/capabilities.json` | Generated runtime data; regenerated on each boot |
+| Infrastructure config | `nextcloud-alpha-setup/traefik-config.yml`, `n8n/workflows/*.json` | Infrastructure declarations; owner's responsibility |
+| HomeKit metadata | `xr.grizzlymedicine.icu/homekit-bridge-status.json`, `obsidian/.obsidian/plugins/*/data.json` | Device state snapshots; transient |
+
+### Acceptance Criteria Met
+
+✅ No hardcoded IP literals in `services/voice_canon_validator.py`  
+✅ All deployable code uses env var patterns with sensible defaults  
+✅ `JARVIS_DELTA_HOST` defined in `.env.example`  
+✅ `JARVIS_DELTA_HOST` documented in `DEPLOY.md` § Environment Variables  
+✅ Complete audit documented  
+
+### Operator Actions Required
+
+**None.** H5 is fully compliant. The codebase already uses environment variables for all node addresses in deployable code.
+
