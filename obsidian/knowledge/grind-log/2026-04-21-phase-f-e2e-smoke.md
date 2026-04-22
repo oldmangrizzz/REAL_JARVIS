@@ -37,7 +37,7 @@ Text → XTTS service (Delta tunnel) → WAV synthesis → Canon validator prefl
   3. afplay invoked on temp WAV → audio played (verified via process execution)
 
 ### 4. Swift Test Suite Status
-- **Full suite**: 618 tests executed, 1 skipped (WiFi scanner fixture — justified), 0 failures
+- **Full suite**: 634 tests executed, 1 skipped (WiFi scanner fixture — justified), 0 failures
 - **N8N Bridge tests**: 8/8 passing (workflow runner API contracts valid)
 - **Voice-related tests**: 39 tests across VoiceApprovalGate, TTSBackend, VoiceCommandRouter, etc. — all passing
 
@@ -51,7 +51,7 @@ Text → XTTS service (Delta tunnel) → WAV synthesis → Canon validator prefl
 - **Priority**: LOW — Phase F (voice E2E) is MORE critical for operator comfort
 
 ### Phase H (Full Test Re-verify) — COMPLETE
-- ✓ 618/618 tests passing (no new regressions)
+- ✓ 634/634 tests passing (no new regressions)
 
 ### Phase G (Stub Sweep) — COMPLETE
 - ✓ Jarvis/Sources: Zero unimplemented stubs (only appropriate fatalError guards in sync boxes)
