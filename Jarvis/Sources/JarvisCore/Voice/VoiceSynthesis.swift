@@ -164,14 +164,24 @@ public final class JarvisVoicePipeline {
         self.runner = runner
         self.playback = playback
         self.approvalGate = approvalGate ?? VoiceApprovalGate(paths: paths)
-        // Default backend selection: HTTP if env says so, else the
-        // bundled fish-audio MLX backend (local fallback).
+        // Backend factory: prefer canonical Delta XTTS v2, then noop.
+        // Non-canonical backends (HTTPTTSBackend, FishAudioMLXBackend) are
+        // only available in test-doubles target per CANON LAW enforcement.
         if let injected = backend {
             self.backend = injected
-        } else if let http = HTTPTTSBackendFactory.fromEnvironment() {
-            self.backend = http
         } else {
-            self.backend = FishAudioMLXBackend(paths: paths, runner: runner)
+            let homeDir = FileManager.default.homeDirectoryForCurrentUser
+            let sha256File = homeDir.appendingPathComponent(".jarvis/voice/canon_ref.sha256")
+            if let sha = try? String(contentsOf: sha256File, encoding: .utf8).trimmingCharacters(in: .whitespacesAndNewlines),
+               !sha.isEmpty {
+                do {
+                    self.backend = try DeltaXTTSBackend(refClipSHA: sha)
+                } catch {
+                    self.backend = NoopTTSBackend()
+                }
+            } else {
+                self.backend = NoopTTSBackend()
+            }
         }
     }
 
@@ -248,6 +258,49 @@ public final class JarvisVoicePipeline {
         let renderedText = personaFrame(text)
         try FileManager.default.createDirectory(at: outputURL.deletingLastPathComponent(), withIntermediateDirectories: true)
         let effectiveParameters = parameters ?? defaultRenderParameters()
+
+        // CANON GATE: verify backend before any audio synthesis.
+        // Per PRINCIPLES.md, canon failure = silent (no fallback, no substitution).
+        do {
+            _ = try CanonBackendGate.verify(backend)
+        } catch let error as CanonGateError {
+            // Log the failure to alignment tax
+            let logEntry: [String: Any] = [
+                "timestamp": ISO8601DateFormatter().string(from: Date()),
+                "error": "\(error)",
+                "backend": String(describing: type(of: backend)),
+                "text_prefix": String(renderedText.prefix(100))
+            ]
+            if let logData = try? JSONSerialization.data(withJSONObject: logEntry),
+               let logString = String(data: logData, encoding: .utf8) {
+                let homeDir = FileManager.default.homeDirectoryForCurrentUser
+                let logFile = homeDir.appendingPathComponent(".jarvis/alignment_tax/voice_canon_failures.log")
+                try FileManager.default.createDirectory(
+                    at: logFile.deletingLastPathComponent(),
+                    withIntermediateDirectories: true
+                )
+                let logLine = logString + "\n"
+                if FileManager.default.fileExists(atPath: logFile.path) {
+                    if let handle = FileHandle(forWritingAtPath: logFile.path) {
+                        handle.seekToEndOfFile()
+                        if let data = logLine.data(using: .utf8) {
+                            handle.write(data)
+                        }
+                        handle.closeFile()
+                    }
+                } else {
+                    try logLine.write(toFile: logFile.path, atomically: true, encoding: .utf8)
+                }
+            }
+            // Silent failure: return empty result, no audio output
+            return VoiceSynthesisResult(
+                outputPath: "",
+                selectedVoice: session.selectedVoice,
+                rate: session.rate,
+                sampleCount: 0,
+                profile: session.profile
+            )
+        }
 
         try backend.synthesize(
             text: renderedText,
