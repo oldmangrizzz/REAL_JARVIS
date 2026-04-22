@@ -1,0 +1,9 @@
+{
+  "target": "claude-code",
+  "kitRef": "suparahul/supabuilder",
+  "ref": "latest",
+  "suggestedRootDir": ".",
+  "selfContained": true,
+  "dependencyKits": [],
+  "compatibilityNotes": []
+}

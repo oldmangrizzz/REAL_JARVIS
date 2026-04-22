@@ -1,0 +1,15 @@
+{
+  "target": "claude-code",
+  "kitRef": "brian-wagner/proposal-to-pdf",
+  "ref": "latest",
+  "suggestedRootDir": ".",
+  "selfContained": true,
+  "dependencyKits": [],
+  "compatibilityNotes": [
+    {
+      "category": "os",
+      "requirement": "Tested on: linux, macos, windows",
+      "adaptationHint": "The workflow steps, models, and parameters are cross-platform. Only shell commands, file paths, and OS-specific package manager calls may need adjustment for a different OS."
+    }
+  ]
+}

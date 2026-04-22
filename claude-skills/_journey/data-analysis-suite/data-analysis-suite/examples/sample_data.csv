@@ -1,0 +1,101 @@
+Customer ID,First Name,Last Name,Email,Phone Number,Order Date,Amount,Currency Amount,Status,Notes
+1,John,Smith,john.smith@example.com,PHONE-1001,2024-01-15,$1234.56,$1234.56,Active,Regular customer
+2,Jane,Doe,jane.doe@example.com,PHONE-1002,01/20/2024,$987.65,$987.65,Active,VIP member
+3,Bob,Johnson,bob.j@example.com,PHONE-1003,2024-02-01,$2345.67,$2345.67,Inactive,
+4, Alice ,Williams, alice.w@example.com ,PHONE-1004,02/15/2024,$456.78,$456.78,Active,New customer
+5,Charlie,Brown,charlie.b@example.com,PHONE-1005,2024-03-01,$789.12,$789.12,Active,Referred by John
+6,Diana,Miller,diana.m@example.com,PHONE-1006,03/10/2024,$3456.78,$3456.78,Pending,
+7,Edward,Davis,edward.d@example.com,PHONE-1007,2024-03-15,$234.56,$234.56,Active,Corporate account
+8,Fiona,Garcia,fiona.g@example.com,PHONE-1008,15/03/2024,$567.89,$567.89,Active,International
+9,George,Martinez,george.m@example.com,PHONE-1009,2024-04-01,$890.12,$890.12,Active,
+10,Helen,Anderson,helen.a@example.com,PHONE-1010,04/05/2024,$1234.00,$1234.00,Inactive,Account on hold
+11,Ivan,Taylor,ivan.t@example.com,PHONE-1011,2024-04-10,"€1.234,56","EUR 1.234,56",Active,European pricing
+12,Julia,Thomas,julia.t@example.com,PHONE-1012,10/04/2024,($500.00),(500.00),Active,Refund processed
+13,Kevin,Jackson,kevin.j@example.com,PHONE-1013,2024-05-01,$0.99,$0.99,Active,Trial user
+14,Laura,White,laura.w@example.com,,05/15/2024,$2500.00,$2500.00,Active,Missing phone
+15,Michael,Harris,michael.h@example.com,PHONE-1014,2024-05-20,$15000.00,$15000.00,Active,High value
+16,Nancy,Clark,nancy.c@example.com,PHONE-1015,20/05/2024,$750.25,$750.25,Pending,
+17,Oliver,Lewis,oliver.l@example.com,PHONE-1016,2024-06-01,$125.50,$125.50,Active,
+18,Patricia,Robinson,patricia.r@example.com,PHONE-1017,06/10/2024,$3333.33,$3333.33,Active,
+19,Quinn,Walker,quinn.w@example.com,PHONE-1018,2024-06-15,$444.44,$444.44,Inactive,
+20,Robert,Hall,robert.h@example.com,PHONE-1019,15/06/2024,$555.55,$555.55,Active,
+21,Sarah,Allen,sarah.a@example.com,PHONE-1020,2024-07-01,$666.66,$666.66,Active,
+22,Thomas,Young,thomas.y@example.com,PHONE-1021,07/10/2024,$777.77,$777.77,Active,
+23,Uma,King,uma.k@example.com,PHONE-1022,2024-07-15,$888.88,$888.88,Pending,Awaiting verification
+24,Victor,Wright,victor.w@example.com,PHONE-1023,10/07/2024,$999.99,$999.99,Active,
+25,Wendy,Lopez,wendy.l@example.com,PHONE-1024,2024-08-01,$111.11,$111.11,Active,
+26,Xavier,Hill,xavier.h@example.com,PHONE-1025,08/05/2024,$222.22,$222.22,Active,
+27,Yolanda,Scott,yolanda.s@example.com,PHONE-1026,2024-08-10,$50000.00,$50000.00,Active,Enterprise
+28,Zachary,Green,zachary.g@example.com,PHONE-1027,05/08/2024,$0.50,$0.50,Inactive,Minimal activity
+29,John,Smith,john.smith@example.com,PHONE-1028,2024-01-15,$1234.56,$1234.56,Active,Regular customer
+30,Amy,Baker,amy.b@example.com,PHONE-1029,2024-09-01,$345.67,$345.67,Active,
+31,Brian,Adams,brian.a@example.com,PHONE-1030,09/10/2024,$456.78,$456.78,Active,CafÃ© regular
+32,Carla,Nelson,,PHONE-1031,2024-09-15,$567.89,$567.89,Active,Missing email
+33,Derek,Carter,derek.c@example.com,PHONE-1032,10/09/2024,$678.90,$678.90,Pending,
+34,Elena,Mitchell,elena.m@example.com,PHONE-1033,2024-10-01,$789.01,$789.01,Active,RÃ©sumÃ© attached
+35,Frank,Perez,frank.p@example.com,PHONE-1034,10/05/2024,$890.12,$890.12,Active,
+36,Grace,Roberts,grace.r@example.com,PHONE-1035,2024-10-10,$901.23,$901.23,Active,naÃ¯ve user
+37,Henry,Turner,henry.t@example.com,PHONE-1036,05/10/2024,$12.34,$12.34,Inactive,
+38,Iris,Phillips,iris.p@example.com,PHONE-1037,2024-11-01,$23.45,$23.45,Active,
+39,Jack,Campbell,jack.c@example.com,PHONE-1038,11/10/2024,$34.56,$34.56,Active,
+40,Kate,Parker,kate.p@example.com,PHONE-1039,2024-11-15,$45.67,$45.67,Active,
+41,Leo,Evans,leo.e@example.com,PHONE-1040,10/11/2024,$56.78,$56.78,Pending,
+42,Mia,Edwards,mia.e@example.com,PHONE-1041,2024-12-01,$67.89,$67.89,Active,
+43,Noah,Collins,noah.c@example.com,PHONE-1042,12/05/2024,$78.90,$78.90,Active,
+44,Olivia,Stewart,olivia.s@example.com,PHONE-1043,2024-12-10,$89.01,$89.01,Active,
+45,Peter,Sanchez,peter.s@example.com,PHONE-1044,05/12/2024,$90.12,$90.12,Inactive,
+46,Quinn,Morris,quinn.m@example.com,PHONE-1045,2024-12-15,$1.23,$1.23,Active,Micro transaction
+47,Rachel,Rogers,rachel.r@example.com,PHONE-1046,15/12/2024,$2.34,$2.34,Active,
+48,Sam,Reed,sam.r@example.com,PHONE-1047,2024-12-20,$3.45,$3.45,Active,
+49,Tina,Cook,tina.c@example.com,PHONE-1048,20/12/2024,$4.56,$4.56,Pending,
+50,Ulysses,Morgan,ulysses.m@example.com,PHONE-1049,2024-12-25,$5.67,$5.67,Active,
+51,Vera,Bell,vera.b@example.com,PHONE-1050,25/12/2024,$6.78,$6.78,Active,
+52,William,Murphy,william.m@example.com,PHONE-1051,2024-12-30,$7.89,$7.89,Active,
+53,Xena,Bailey,xena.b@example.com,PHONE-1052,30/12/2024,$8.90,$8.90,Inactive,
+54,Yuri,Rivera,yuri.r@example.com,PHONE-1053,2025-01-01,$9.01,$9.01,Active,New year signup
+55,Zara,Cooper,zara.c@example.com,PHONE-1054,01/05/2025,$10.12,$10.12,Active,
+56,Adam,Richardson,adam.r@example.com,PHONE-1055,2025-01-10,$100.00,$100.00,Active,Round number
+57,Bella,Cox,bella.c@example.com,PHONE-1056,05/01/2025,$200.00,$200.00,Pending,
+58,Chris,Howard,chris.h@example.com,PHONE-1057,2025-01-15,$300.00,$300.00,Active,
+59,Dana,Ward,dana.w@example.com,PHONE-1058,10/01/2025,$400.00,$400.00,Active,
+60,Eric,Torres,eric.t@example.com,PHONE-1059,2025-01-20,$500.00,$500.00,Inactive,
+61,Faith,Peterson,faith.p@example.com,PHONE-1060,15/01/2025,$600.00,$600.00,Active,
+62,Gary,Gray,gary.g@example.com,PHONE-1061,2025-01-25,$700.00,$700.00,Active,
+63,Holly,Ramirez,holly.r@example.com,PHONE-1062,20/01/2025,$800.00,$800.00,Active,
+64,Ian,James,ian.j@example.com,PHONE-1063,2025-02-01,$900.00,$900.00,Pending,
+65,Jill,Watson,jill.w@example.com,PHONE-1064,01/02/2025,$1000.00,$1000.00,Active,
+66,Kyle,Brooks,kyle.b@example.com,PHONE-1065,2025-02-10,$1100.00,$1100.00,Active,
+67,Lisa,Kelly,lisa.k@example.com,PHONE-1066,05/02/2025,$1200.00,$1200.00,Active,
+68,Mark,Sanders,mark.s@example.com,PHONE-1067,2025-02-15,$1300.00,$1300.00,Inactive,
+69,Nina,Price,nina.p@example.com,PHONE-1068,10/02/2025,$1400.00,$1400.00,Active,
+70,Oscar,Bennett,oscar.b@example.com,PHONE-1069,2025-02-20,$1500.00,$1500.00,Active,
+71,Paula,Wood,paula.w@example.com,PHONE-1070,15/02/2025,$1600.00,$1600.00,Pending,
+72,Quincy,Barnes,quincy.b@example.com,PHONE-1071,2025-02-25,$1700.00,$1700.00,Active,
+73,Rita,Ross,rita.r@example.com,PHONE-1072,20/02/2025,$1800.00,$1800.00,Active,
+74,Steve,Henderson,steve.h@example.com,PHONE-1073,2025-03-01,$1900.00,$1900.00,Active,
+75,Tracy,Coleman,tracy.c@example.com,PHONE-1074,01/03/2025,$2000.00,$2000.00,Inactive,
+76,Uma,Jenkins,uma.j@example.com,PHONE-1075,2025-03-05,$2100.00,$2100.00,Active,
+77,Vince,Perry,vince.p@example.com,PHONE-1076,05/03/2025,$2200.00,$2200.00,Active,
+78,Wanda,Powell,wanda.p@example.com,PHONE-1077,2025-03-10,$2300.00,$2300.00,Pending,
+79,Xander,Long,xander.l@example.com,PHONE-1078,10/03/2025,$2400.00,$2400.00,Active,
+80,Yvonne,Patterson,yvonne.p@example.com,PHONE-1079,2025-03-15,$2500.00,$2500.00,Active,
+81,Zack,Hughes,zack.h@example.com,PHONE-1080,15/03/2025,$2600.00,$2600.00,Inactive,
+82,Anna,Flores,anna.f@example.com,PHONE-1081,2025-03-20,$2700.00,$2700.00,Active,
+83,Ben,Washington,ben.w@example.com,PHONE-1082,20/03/2025,$2800.00,$2800.00,Active,
+84,Cathy,Butler,cathy.b@example.com,PHONE-1083,2025-03-25,$2900.00,$2900.00,Pending,
+85,Dan,Simmons,dan.s@example.com,PHONE-1084,25/03/2025,$3000.00,$3000.00,Active,
+86,Emma,Foster,emma.f@example.com,PHONE-1085,2025-03-30,,£3100.00,Active,Missing amount
+87,Fred,Gonzales,fred.g@example.com,PHONE-1086,30/03/2025,$3200.00,$3200.00,Active,
+88,Gina,Bryant,gina.b@example.com,PHONE-1087,2025-04-01,$3300.00,$3300.00,Inactive,
+89,Hank,Alexander,hank.a@example.com,PHONE-1088,01/04/2025,$3400.00,$3400.00,Active,
+90,Ivy,Russell,ivy.r@example.com,PHONE-1089,2025-04-05,$3500.00,$3500.00,Active,
+91,Jake,Griffin,jake.g@example.com,PHONE-1090,05/04/2025,$3600.00,$3600.00,Pending,
+92,Kim,Diaz,kim.d@example.com,PHONE-1091,2025-04-10,$3700.00,$3700.00,Active,
+93,Larry,Hayes,larry.h@example.com,PHONE-1092,10/04/2025,$3800.00,$3800.00,Active,
+94,Mary,Myers,mary.m@example.com,PHONE-1093,2025-04-15,$3900.00,$3900.00,Inactive,
+95,Ned,Ford,ned.f@example.com,PHONE-1094,15/04/2025,$4000.00,$4000.00,Active,
+96,Opal,Hamilton,opal.h@example.com,PHONE-1095,2025-04-20,$4100.00,$4100.00,Active,
+97,Paul,Graham,paul.g@example.com,PHONE-1096,20/04/2025,$4200.00,$4200.00,Pending,
+98,Queenie,Sullivan,queenie.s@example.com,PHONE-1097,2025-04-25,$4300.00,$4300.00,Active,
+99,Roy,Wallace,roy.w@example.com,PHONE-1098,25/04/2025,$4400.00,$4400.00,Active,
+100,Sue,West,sue.w@example.com,PHONE-1099,2025-04-30,$4500.00,$4500.00,Active,Final test row

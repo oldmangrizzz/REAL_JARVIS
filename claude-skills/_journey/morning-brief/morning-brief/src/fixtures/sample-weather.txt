@@ -1,0 +1,6 @@
+Location: San Francisco
+Condition: Partly cloudy
+Temperature: +61F
+Feels like: +61F
+Wind: 9mph
+Humidity: 67%

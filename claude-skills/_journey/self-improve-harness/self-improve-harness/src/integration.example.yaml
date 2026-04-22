@@ -1,0 +1,149 @@
+# Example integration configuration.
+# Copy to your runtime path (default: ~/.self-improve-harness/config/integration.yaml)
+# and replace placeholder values for your environment.
+#
+# ACTIVE KEYS (read and used by the starter):
+# - proposer.command, proposer.timeout_seconds
+# - scorer.command, scorer.timeout_seconds
+# - resources.quiet_hours_start, resources.quiet_hours_end
+# - paths.harness_base, paths.rollback_dir
+# - orchestrator.* (all keys)
+# - validator.require_manual_approval
+# - approval.* (all keys)
+# - locks.regression_hours, locks.plateau_hours
+#
+# PLACEHOLDER KEYS (read but not sent to external services by the starter itself):
+# - model.*, tokens.*, resources.max_concurrent_subagents, resources.max_active_sessions_blocking,
+#   validator.sandbox_timeout_seconds, notifications.*
+# These are for your own proposer/scorer integrations or external wrappers.
+
+# ---- Proposer Extension Point (ACTIVE if command is set) ----
+# The proposer is a CLI command that improves a file.
+# 
+# Contract:
+# - Receives current file content on stdin
+# - Reads metadata from environment variables:
+#   * TARGET_PATH: absolute path to file
+#   * TARGET_TYPE: value from manifest (e.g. "skill", "doc", "memory", "config")
+#   * TARGET_CATEGORY: value from manifest (e.g. "memory", "skill", "other")
+#   * TARGET_NAME: filename (basename)
+# - Must write the full proposed replacement to stdout and exit 0
+# - On error: exit non-zero and write error message to stderr
+#
+# Timeout: if command does not finish in proposer.timeout_seconds, it is killed.
+# Retry: on timeout or non-zero exit, orchestrator retries up to 2 times with exponential backoff (1s, 2s).
+# Size guard: output capped at 3x original file size. If >10% oversized, proposal is rejected.
+# Fallback: if all retries fail, target is re-queued for next cycle.
+#
+# Leave command empty ("") to run in audit or dry-run mode only (no proposals generated).
+proposer:
+  command: ""            # e.g. python3 ~/.self-improve-harness/proposals/proposer.example.py
+  timeout_seconds: 120
+
+# ---- Scorer Extension Point (ACTIVE if command is set) ----
+# The scorer is a CLI command that evaluates file quality.
+#
+# Contract:
+# - Receives current file content on stdin
+# - Reads metadata from environment variable:
+#   * TARGET_PATH: absolute path to file
+# - Must write a single float 0.0-1.0 to stdout and exit 0
+# - On error: exit non-zero and write error message to stderr
+# - Optional: write JSON breakdown to stderr with dimension breakdown (see SCORER_VERBOSE)
+#
+# Timeout: if command does not finish in scorer.timeout_seconds, it is killed.
+# Retry: on timeout or non-zero exit, orchestrator retries up to 1 time with 1s delay.
+# Fallback: if external scorer fails all retries, uses language-specific heuristic scorer:
+#   - File size heuristic (too small or too large = low score)
+#   - Double-newline check (well-formatted docs have structure)
+#   - Keyword list matching (if proposal mentions key terms, higher score)
+#   - Language-specific checks: Python imports/functions, Markdown heading structure, JSON syntax
+#
+# Leave command empty ("") to use the built-in heuristic scorer.
+scorer:
+  command: ""            # e.g. python3 ~/.self-improve-harness/scorers/scorer.example.py
+  timeout_seconds: 30
+
+# PLACEHOLDER -- metadata for your own proposer or scorer integration.
+# Not read by the orchestrator, but passed to your external proposer/scorer if you implement them.
+model:
+  default: "your-model-name-here"
+  fallback: ["your-fallback-model-here"]
+  judge_model: "your-judge-model-here"
+
+# PLACEHOLDER -- token budgets for your own proposer or scorer integration.
+# Not enforced by the orchestrator, but available for you to use in your proposer/scorer commands.
+tokens:
+  proposer_max: 5000
+  scorer_max: 3000
+  total_per_iteration: 8000
+
+resources:
+  # PLACEHOLDER -- not read by the starter.
+  max_concurrent_subagents: 1
+  max_active_sessions_blocking: 3
+  
+  # ACTIVE -- quiet hours gating is implemented. Uses local wall-clock hour (0-23).
+  # If the current hour is >= quiet_hours_start OR < quiet_hours_end, cycle is skipped.
+  # Example: quiet_hours_start=22, quiet_hours_end=7 means skip 10pm-7am.
+  quiet_hours_start: 22
+  quiet_hours_end: 7
+
+# PLACEHOLDER -- notifications are loaded but not sent by the starter.
+# Integrate with your own notification wrapper or use your proposer/scorer as a callback.
+notifications:
+  enabled: false
+  improvements_threshold: 0.10
+  notify_on_idle: false
+  notify_on_lock: true
+
+# ACTIVE -- paths.harness_base and paths.rollback_dir are used by the orchestrator.
+# paths.workspace is reserved for your own wrapper logic.
+paths:
+  harness_base: "~/.self-improve-harness"
+  rollback_dir: "~/.self-improve-harness/data/rollback"
+  workspace: "~/.workspace"
+
+# ACTIVE -- all orchestrator keys are read and used by the orchestrator.
+# Adjust iteration_delay_seconds to pace proposal generation (e.g. for rate limiting external APIs).
+# Adjust max_iterations_per_cycle to control batch size per run.
+orchestrator:
+  max_iterations_per_cycle: 3
+  iteration_delay_seconds: 5
+  state_file: "~/.self-improve-harness/data/loop-state.json"
+  queue_file: "~/.self-improve-harness/data/loop-queue.json"
+  proposals_file: "~/.self-improve-harness/data/proposals.jsonl"
+  scores_file: "~/.self-improve-harness/data/scores.jsonl"
+  validation_log: "~/.self-improve-harness/data/validation-log.jsonl"
+  apply_log: "~/.self-improve-harness/data/apply-log.jsonl"
+  lock_file: "~/.self-improve-harness/data/loop.lock"
+
+validator:
+  # PLACEHOLDER -- not read by the starter.
+  # If you build a custom validator that runs external sandboxes, use this timeout.
+  sandbox_timeout_seconds: 45
+  
+  # ACTIVE -- files or paths listed here force targets into manual approval.
+  # Useful for critical config, secrets, memory, or policy files.
+  # Checked as substring match against the target path.
+  require_manual_approval:
+    - "openclaw.json"
+    - "gateway.json"
+    - "MEMORY.md"
+    - "credentials"
+
+# ACTIVE -- all approval keys are read and used.
+approval:
+  # timeout_hours: how long an approval stays pending before auto-expiry
+  timeout_hours: 2
+  # diff_max_lines: show only first N lines of diff in approval queue to keep output manageable
+  diff_max_lines: 120
+  # queue_file: where pending and expired approvals are stored
+  queue_file: "~/.self-improve-harness/data/approval-queue.json"
+
+# ACTIVE -- regression_hours and plateau_hours are used for lock durations.
+# If a target fails to improve (regression lock) or stops improving (plateau lock),
+# it is locked for the specified duration to avoid proposal spam.
+locks:
+  regression_hours: 72
+  plateau_hours: 48

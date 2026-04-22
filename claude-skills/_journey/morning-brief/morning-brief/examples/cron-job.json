@@ -1,0 +1,14 @@
+{
+  "name": "Daily Brief (7am)",
+  "schedule": {
+    "kind": "cron",
+    "expr": "0 7 * * *",
+    "tz": "America/Los_Angeles"
+  },
+  "deliveryTarget": "auto",
+  "payload": {
+    "kind": "prompt",
+    "message": "Generate the daily brief using src/scripts/fetch-calendar.sh, src/scripts/fetch-weather.sh, the configured task file, and src/templates/brief-template.md. Keep it text-only. Deliver it through the install target's preferred output channel, or print to stdout if no delivery channel is configured."
+  },
+  "enabled": true
+}

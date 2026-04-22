@@ -1,0 +1,25 @@
+{
+  "target": "claude-code",
+  "kitRef": "giorgio/memory-stack-integration",
+  "ref": "latest",
+  "suggestedRootDir": ".",
+  "selfContained": false,
+  "dependencyKits": [],
+  "compatibilityNotes": [
+    {
+      "category": "service",
+      "requirement": "Requires service: qmd (semantic-search)",
+      "adaptationHint": "npm install -g qmd"
+    },
+    {
+      "category": "service",
+      "requirement": "Requires service: notebooklm-mcp (synthesis-mirror)",
+      "adaptationHint": "Optional: Follow setup at https://github.com/google/notebooklm-mcp"
+    },
+    {
+      "category": "general",
+      "requirement": "Verified in harnesses: openclaw",
+      "adaptationHint": "These are the exact harnesses the author tested. Other harnesses may still work when the source kit is portable and the install target adapts destination-specific wording."
+    }
+  ]
+}

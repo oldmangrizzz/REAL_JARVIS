@@ -1,0 +1,9 @@
+{
+  "target": "claude-code",
+  "kitRef": "kevin-bigham/multi-agent-game-dev",
+  "ref": "v1.0.0",
+  "suggestedRootDir": ".",
+  "selfContained": true,
+  "dependencyKits": [],
+  "compatibilityNotes": []
+}

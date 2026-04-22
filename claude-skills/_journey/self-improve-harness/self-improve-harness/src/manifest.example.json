@@ -1,0 +1,37 @@
+[
+  {
+    "_schema": {
+      "description": "Manifest entry schema for self-improve harness targets",
+      "path": "Absolute or home-relative file path to improve (required)",
+      "type": "Target type for proposer context (e.g. 'skill', 'doc', 'memory', 'config') (required)",
+      "weight": "Priority weight where higher means checked more often (default 1.0)",
+      "category": "Grouping label for reporting and filtering (e.g. 'memory', 'skill', 'config') (optional)",
+      "auto_approve": "If true, validated changes are applied immediately. If false, requires manual approval (default false)"
+    }
+  },
+  {
+    "_comment": "Example: a skill file set to auto-approve after validation",
+    "path": "~/.openclaw/skills/my-skill/SKILL.md",
+    "type": "skill",
+    "weight": 1.0,
+    "category": "skill",
+    "auto_approve": true
+  },
+  {
+    "_comment": "Example: general documentation that can be auto-approved",
+    "path": "~/.openclaw/workspace/CLAUDE.md",
+    "type": "doc",
+    "weight": 0.9,
+    "category": "memory",
+    "auto_approve": true
+  },
+  {
+    "_warning": "Do not auto-approve sensitive files like MEMORY.md, credentials, auth config, policy files, or business logic. Always require manual review.",
+    "_comment": "Example: memory file that requires manual approval before changes",
+    "path": "~/.openclaw/workspace/MEMORY.md",
+    "type": "memory",
+    "weight": 0.8,
+    "category": "memory",
+    "auto_approve": false
+  }
+]

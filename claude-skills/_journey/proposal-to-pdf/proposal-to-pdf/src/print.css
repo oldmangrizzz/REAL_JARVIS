@@ -1,0 +1,77 @@
+/*
+ * Standalone print stylesheet for proposal-to-pdf kit.
+ * Link or inline this AFTER the author's web styles.
+ * Target: Chrome, Safari, Firefox browser Print-to-PDF.
+ */
+
+@media print {
+  @page {
+    margin: 0.5in;
+    size: Letter;
+  }
+
+  body {
+    margin: 0;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #111827;
+    background: #ffffff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Force background colors to render in print output */
+  .hero,
+  .dark-section,
+  .cta,
+  .footer-dark {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    background-color: #0D9488 !important;
+    color: #ffffff !important;
+  }
+
+  /* Keep headings with their content */
+  h1, h2, h3, h4 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  /* Do not split these blocks across pages */
+  .pricing-tier,
+  .signature-block,
+  .cta,
+  .why-me,
+  .next-steps,
+  table,
+  figure,
+  blockquote {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Force a new page before major sections when the author wants it */
+  .page-break-before {
+    page-break-before: always;
+    break-before: page;
+  }
+
+  /* Hide screen-only chrome */
+  .nav,
+  .hover-cta,
+  .tooltip,
+  .interactive-only,
+  .screen-only {
+    display: none !important;
+  }
+
+  /* Suppress verbose link URLs after anchors in print */
+  a[href]:after {
+    content: "";
+  }
+
+  /* Stronger contrast for body copy on paper */
+  p, li {
+    color: #111827;
+    line-height: 1.55;
+  }
+}

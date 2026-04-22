@@ -1,0 +1,20 @@
+{
+  "target": "claude-code",
+  "kitRef": "giorgio/self-improve-harness",
+  "ref": "latest",
+  "suggestedRootDir": ".",
+  "selfContained": true,
+  "dependencyKits": [],
+  "compatibilityNotes": [
+    {
+      "category": "runtime",
+      "requirement": "Requires runtime: python",
+      "adaptationHint": "Check whether python is installed. The rest of the kit is independent of this runtime."
+    },
+    {
+      "category": "service",
+      "requirement": "Requires service: anthropic-api (proposer-and-scorer)",
+      "adaptationHint": "Set ANTHROPIC_API_KEY env var"
+    }
+  ]
+}

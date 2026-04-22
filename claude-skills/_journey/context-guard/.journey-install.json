@@ -1,0 +1,29 @@
+{
+  "target": "claude-code",
+  "kitRef": "lilu/context-guard",
+  "ref": "latest",
+  "suggestedRootDir": ".",
+  "selfContained": true,
+  "dependencyKits": [],
+  "compatibilityNotes": [
+    {
+      "category": "os",
+      "requirement": "Tested on: cross-platform (macOS, Linux, Windows via Git Bash)",
+      "adaptationHint": "The workflow steps, models, and parameters are cross-platform. Only shell commands, file paths, and OS-specific package manager calls may need adjustment for a different OS."
+    },
+    {
+      "category": "runtime",
+      "requirement": "Requires runtime: Any AI coding agent with skill support",
+      "adaptationHint": "Check whether Any AI coding agent with skill support is installed. The rest of the kit is independent of this runtime."
+    },
+    {
+      "category": "platform",
+      "requirement": "Tested with: claude-code",
+      "adaptationHint": "The core workflow logic is platform-independent. Only the claude-code-specific API calls and configuration may need adjustment if the user's integration target differs."
+    },
+    {
+      "category": "general",
+      "requirement": "The reference implementation uses Claude Code and CLAUDE.md. To adapt for other agents, replace CLAUDE.md with your agent's instruction file and map the 5 skills to your agent's skill/command system. The core principle \u2014 external state files that survive context windows \u2014 is LLM-agnostic."
+    }
+  ]
+}

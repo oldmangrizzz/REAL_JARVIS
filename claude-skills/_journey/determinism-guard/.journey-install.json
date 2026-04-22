@@ -1,0 +1,15 @@
+{
+  "target": "claude-code",
+  "kitRef": "kevin-bigham/determinism-guard",
+  "ref": "v1.1.0",
+  "suggestedRootDir": ".",
+  "selfContained": true,
+  "dependencyKits": [],
+  "compatibilityNotes": [
+    {
+      "category": "runtime",
+      "requirement": "Requires runtime: local-filesystem",
+      "adaptationHint": "Check whether local-filesystem is installed. The rest of the kit is independent of this runtime."
+    }
+  ]
+}

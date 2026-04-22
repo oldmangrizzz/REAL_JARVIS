@@ -1,0 +1,199 @@
+---
+name: end
+description: Session save point. Updates all safeguard files, commits uncommitted work, and ensures a clean handoff for the next session. Optional — use when you want to cleanly wrap up before stopping.
+disable-model-invocation: false
+allowed-tools: Read, Grep, Glob, Bash, Edit, Write
+---
+
+# Context Guard — Session End (/end)
+
+Wrap up this session cleanly. This skill creates a save point so the next session can pick up seamlessly via `/start`.
+
+**Important: /end is a SAVE-ONLY operation.** Do not start new work, execute plans, or make code changes beyond updating safeguard files. If a plan was approved this session but not yet executed, log it as ⏳ pending in TASK_REGISTRY.md and note it in the "Next session" field of the report. The next session will pick it up via /start.
+
+## Step 0: Locate CCG Root
+
+Safeguard files may not be in the current working directory — they could be in a subdirectory. Find them first.
+
+1. **Check the working directory:** Try to read `CLAUDE.md` in the current directory.
+2. **If not found, search subdirectories:**
+   ```bash
+   find . -maxdepth 4 -name "CLAUDE.md" -type f 2>/dev/null | head -10
+   ```
+3. **Filter:** For each result, check it contains `TASK_REGISTRY.md` (confirms it's a Context Guard CLAUDE.md) and does NOT contain `{PROJECT_NAME}` (uninitialized template).
+4. **Set CCG_ROOT:** Use the directory of the valid CLAUDE.md found. If multiple, ask the user. If none, warn: "No Context Guard files found. Run /start first."
+
+**All safeguard file paths in subsequent steps are relative to CCG_ROOT.** Git operations should also run from CCG_ROOT if it differs from the working directory.
+
+## Step 0.5: Verify Completeness Before Saving
+
+Before saving, verify nothing has been missed this session:
+- Are there any user comments from this session NOT yet in COMMENTS.md?
+- Are there any tasks worked on NOT yet updated in TASK_REGISTRY.md?
+- Review the conversation for any decisions made but not logged in DECISIONS.md
+
+If anything is missing, log it BEFORE proceeding to Step 1.
+
+## Step 1: Gather Session Context
+
+Review what was done this session:
+- What tasks were worked on?
+- What files were created or modified?
+- What decisions were made?
+- What user comments were given?
+
+## Step 2: Update Safeguard Files
+
+Check and update all of these:
+
+### SESSION_LOG.md
+- Add an entry for this session (or update the existing one)
+- Include: what happened, commits made, tasks completed, tasks remaining
+- **Next step:** Capture what the user wants done next, using their own words where possible. Not just a list of pending tasks — the actual direction, priority, and intent. This is what the next session's /start will read to understand where to pick up.
+- **Errors encountered:** If any significant errors, blockers, or unexpected issues were hit during the session, log what happened and how it was resolved. Skip this if nothing notable occurred — don't force empty sections. This prevents future sessions from repeating the same mistakes.
+
+### TASK_REGISTRY.md
+- Log any new tasks created this session
+- Update status of tasks worked on (✅ done / ⏳ pending / 🔄 in-progress)
+- Ensure NO tasks are missing — cross-reference with what was actually done
+
+### COMMENTS.md
+- Verify all user comments from this session are logged verbatim
+- If any are missing, add them now with timestamps
+
+### DECISIONS.md
+- If any architectural decisions were made this session, log them
+
+### FEATURE_LIST.json
+- If any features changed status (passes: false → true), update them
+
+## Step 2.5: Rotate Safeguard Files (Pagination)
+
+After updating safeguard files, check if any have grown too large and need rotation. You have full session context right now — use it to make smart archival decisions.
+
+**Threshold:** 300 lines. Skip this step if all files are under 300 lines.
+
+For each file over 300 lines, apply the appropriate rotation:
+
+### SESSION_LOG.md
+1. Count `## Session` headers. Keep the **last 3 sessions** in the main file.
+2. Everything above the 3rd-from-last `## Session` header → move to archive.
+3. Determine the next page number: check for existing `SESSION_LOG_page*.md` files. New page = highest existing + 1 (or 1 if none exist).
+4. Create `SESSION_LOG_pageN.md` with header:
+   ```
+   # SESSION_LOG — Archive Page N (Sessions X–Y)
+   # Current sessions: see SESSION_LOG.md
+   ---
+   [archived content]
+   ```
+5. Trim `SESSION_LOG.md`: keep the file header (lines before the first `## Session`) + the last 3 sessions.
+6. Add/update an archive reference line after the file header: `# 📁 Archives: SESSION_LOG_page1.md, SESSION_LOG_page2.md, ...`
+
+### TASK_REGISTRY.md
+1. Scan all task rows. Separate into:
+   - **Keep:** All non-done tasks (⏳ 🔄 ❌ 🔁) regardless of session + done tasks (✅) from the last 3 sessions
+   - **Archive:** Done tasks (✅) from sessions older than the last 3
+2. Create `TASK_REGISTRY_pageN.md` with archived done tasks, preserving their session headers.
+3. Trim the main file: keep file header + all non-done tasks + last 3 sessions of done tasks.
+4. Add/update archive reference line.
+
+### DECISIONS.md
+1. Review each decision using your session context. Identify **actioned decisions** — those fully implemented and no longer actively constraining current work.
+2. Move actioned decisions → `DECISIONS_pageN.md`.
+3. Keep all active/unactioned decisions in the main file.
+4. Add/update archive reference line.
+
+### COMMENTS.md
+1. Review each comment using your session context. Identify:
+   - **Actioned comments** — turned into decisions, tasks, or file changes
+   - **Curiosity questions** — exploratory/informational, not project directives
+2. Move both categories → `COMMENTS_pageN.md`.
+3. Keep all unactioned project directives in the main file.
+4. Add/update archive reference line.
+
+**FEATURE_LIST.json** — skip, stays compact.
+
+**If no files exceed 300 lines, skip this entire step.**
+
+## Step 2.8: Verify Update Completion
+
+Before proceeding to git, confirm every safeguard file was addressed. Output this checklist:
+
+**Update verification:**
+- SESSION_LOG.md — [updated / already current — reason]
+- TASK_REGISTRY.md — [N tasks added/updated / no task changes — reason]
+- COMMENTS.md — [N comments logged / no new comments this session]
+- DECISIONS.md — [N decisions logged / no new decisions — checked: no architecture choices, algorithm choices, UI patterns, data model changes, naming conventions, or approach reversals this session]
+- FEATURE_LIST.json — [N features updated / no feature status changes — checked: no features changed pass/fail, no new sub-features, no significant rework]
+
+**Decision trigger check:** Were ANY of these made this session?
+  Architecture choices, algorithm/approach selections, UI/UX pattern decisions,
+  data model changes, naming conventions, technology selections, approach reversals,
+  workflow changes, configuration decisions.
+  If yes and DECISIONS.md wasn't updated → go back and update it now.
+
+**Feature trigger check:** Did ANY feature change status this session?
+  New features added, existing features passing/failing, sub-features created,
+  significant feature rework.
+  If yes and FEATURE_LIST.json wasn't updated → go back and update it now.
+
+If any file shows 0 changes, the reason must be specific (not "no changes needed").
+"No changes needed" without explanation is not acceptable — state what you checked.
+
+## Step 3: Archive Plans
+
+- Check `~/.claude/plans/` for plans belonging to this project
+- **`~/.claude/plans/` is SHARED across all Claude Code projects.** Plans from other projects will be in this folder — do not touch them. To identify which plans belong to this project:
+  - For each `.md` file (excluding `-agent-` files which are sub-agent plans):
+    - Read the first ~500 characters
+    - If the content contains the current project name (from CLAUDE.md), OR contains file paths matching this project's directory structure — it belongs to this project. Archive it.
+    - If the content clearly references a different project name — skip it.
+    - If ambiguous (no project name found) — skip it. Do not archive plans you can't confidently attribute.
+- Copy matched plans to `plans/S{session}-{seq}_{description}.md`
+- **Do not EXECUTE archived plans.** /end is a save point, not an execution trigger. If a plan was approved but not yet implemented, mark its tasks as ⏳ pending in TASK_REGISTRY.md and record it in SESSION_LOG.md's "Next step" field so /start picks it up.
+
+**Proof of check:** For each .md file examined in `~/.claude/plans/`, state:
+- Filename
+- First line of content (or "empty/unreadable")
+- Verdict: "matches this project — archived as [destination]" or "different project ([name]) — skipped" or "ambiguous — skipped"
+
+Do not use the word "likely". Either you read the file and it matches, or it doesn't.
+
+## Step 4: Git Commit & Push
+
+- Run `git status` to see what's uncommitted
+- Stage and commit all changes with a descriptive message
+- Tag with the project's commit tagging convention
+- Push to remote (including tags)
+- **Backup remote (CCG only):** This step applies only to the Context Guard source-of-truth repo, which uses a dual-remote setup: `origin` (public) + `backup` (private dev). Most projects have a single `origin` remote — that IS their backup. If you're on a project with only `origin`, skip this step. Do not flag a missing `backup` remote as an issue.
+  If a `backup` remote exists: `git checkout dev && git merge main --no-edit && git push backup dev && git checkout main`
+
+## Step 5: Verify Clean State
+
+Run these checks:
+- `git status` — should be clean (no uncommitted changes)
+- `git log origin/main..HEAD --oneline` — should be empty (nothing unpushed)
+- All safeguard files should be up to date
+
+## Step 6: Report
+
+Present the session summary in carefully this format. Do not vary the structure, headings, or field names:
+
+```
+## Session [N] — Save Point
+
+**What was done:** [1-2 sentence summary of the session's main accomplishments]
+
+**Tasks:** [X] done, [Y] pending, [Z] in progress
+- Pending: [list task IDs and names, or "None"]
+- In progress: [list task IDs and names, or "None"]
+
+**Commits:** [list of commit hashes, or "None — working tree clean"]
+
+**Repos pushed:**
+- [repo name]: [commit hash] ✅ (or ❌ if not pushed, with reason)
+
+**Next session:** [What /start will find. User's stated intent for next session, or "No pending work."]
+```
+
+Do not add extra sections. Do not add "Files Modified" unless the session had no commits (uncommitted work needs visibility). Keep it scannable — this is a status report, not a narrative.

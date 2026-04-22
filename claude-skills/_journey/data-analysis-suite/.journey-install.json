@@ -1,0 +1,30 @@
+{
+  "target": "claude-code",
+  "kitRef": "bronsonelliott/data-analysis-suite",
+  "ref": "latest",
+  "suggestedRootDir": ".",
+  "selfContained": true,
+  "dependencyKits": [],
+  "compatibilityNotes": [
+    {
+      "category": "os",
+      "requirement": "Tested on: macos, linux, windows",
+      "adaptationHint": "The workflow steps, models, and parameters are cross-platform. Only shell commands, file paths, and OS-specific package manager calls may need adjustment for a different OS."
+    },
+    {
+      "category": "platform",
+      "requirement": "Tested with: claude-code",
+      "adaptationHint": "The core workflow logic is platform-independent. Only the claude-code-specific API calls and configuration may need adjustment if the user's integration target differs."
+    },
+    {
+      "category": "service",
+      "requirement": "Requires service: python (runtime) v>=3.11",
+      "adaptationHint": "Install Python 3.11 or later"
+    },
+    {
+      "category": "service",
+      "requirement": "Requires service: uv (package-manager) v>=0.1.0",
+      "adaptationHint": "Install uv from https://docs.astral.sh/uv/getting-started/installation/"
+    }
+  ]
+}

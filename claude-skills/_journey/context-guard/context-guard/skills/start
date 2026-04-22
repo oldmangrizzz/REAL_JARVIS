@@ -1,0 +1,203 @@
+---
+name: start
+description: Session start and context recovery. Reads all safeguard files, cross-references plans against task registry, and summarises project state. On first run, sets up safeguard files from templates. Type /start at the start of every session.
+disable-model-invocation: false
+allowed-tools: Read, Grep, Glob, Bash, Write, Edit
+---
+
+# Context Guard — Session Recovery (/start)
+
+This skill starts or resumes a session. Steps:
+
+## Step 0: Locate CCG Root
+
+Context Guard safeguard files may not be in the current working directory — they could be in a subdirectory (e.g. the working directory is a parent folder that contains the actual project). Find them before doing anything else.
+
+1. **Check the working directory first:** Try to read `CLAUDE.md` in the current directory.
+2. **If not found, search subdirectories:**
+   ```bash
+   find . -maxdepth 4 -name "CLAUDE.md" -type f 2>/dev/null | head -10
+   ```
+3. **Filter results:** For each CLAUDE.md found, check if it contains `TASK_REGISTRY.md` (which confirms it's a Context Guard CLAUDE.md, not an unrelated file). Ignore any that contain the placeholder `{PROJECT_NAME}` — those are uninitialized templates.
+4. **Set CCG_ROOT:**
+   - If exactly one valid CLAUDE.md is found → use its directory as CCG_ROOT
+   - If multiple valid CLAUDE.md files are found → list them and ask the user which project to recover
+   - If none found → this is a **first run**. Set CCG_ROOT to the current working directory and go to the First-Run Setup below.
+
+**Important: All safeguard file paths in ALL subsequent steps are relative to CCG_ROOT, not the working directory.** When this skill says "read SESSION_LOG.md", it means `{CCG_ROOT}/SESSION_LOG.md`. When it says "run git status", `cd` into CCG_ROOT first if it differs from the working directory.
+
+## Step 0.5: First-Run Detection
+
+If Step 0 found a valid CLAUDE.md:
+- If it **contains the placeholder text `{PROJECT_NAME}`** — this is a **first run**. Go to the First-Run Setup below.
+- Otherwise — this is a normal session. Skip to Step 1.
+
+### First-Run Setup
+
+**Note: First-run setup is procedural, not a design task. Skip plan mode. Proceed directly with creating safeguard files. If plan mode is active, exit it before continuing.**
+
+1. **Check for templates:** Look for a `templates/` folder in CCG_ROOT. If it doesn't exist, also search subdirectories: `find . -maxdepth 4 -name "templates" -type d`. If still not found, tell the user: "No templates/ folder found. Please run install.sh first or copy the templates/ folder from the Context Guard repo." Then stop.
+
+2. **Ask for project details:**
+   > "Welcome to Claude Context Guard! Let's set up your project."
+   > "What is your **project name**?"
+
+   Await their answer. Then ask:
+   > "Brief description (one line, or say 'skip'):"
+
+3. **Create safeguard files from templates:**
+   - Copy `templates/CLAUDE.md` → `CLAUDE.md` (project root)
+   - Copy `templates/SESSION_LOG.md` → `SESSION_LOG.md`
+   - Copy `templates/TASK_REGISTRY.md` → `TASK_REGISTRY.md`
+   - Copy `templates/DECISIONS.md` → `DECISIONS.md`
+   - Copy `templates/COMMENTS.md` → `COMMENTS.md`
+   - Copy `templates/FEATURE_LIST.json` → `FEATURE_LIST.json`
+   - Create `plans/` directory if it doesn't exist
+
+4. **Populate placeholders in CLAUDE.md:**
+   - Replace `{PROJECT_NAME}` with the user's project name
+   - Replace `{PROJECT_DESCRIPTION}` with their description (or "TODO" if skipped)
+   - Replace `{DATE}` with today's date
+
+5. **Initialise SESSION_LOG.md:**
+   - Add a Session 1 entry:
+   ```
+   ## Session 1 — [today's date] (Project Setup)
+
+   **What happened:**
+   - Project initialised with Claude Context Guard
+   - Safeguard files created from templates
+
+   **Tasks completed:** Context Guard setup
+   **Tasks remaining:** None yet
+   ```
+
+6. **Report to the user:**
+   ```
+   ## Context Guard — First-Run Setup Complete
+
+   ### Files Created
+   - CLAUDE.md — project instructions (auto-read every session)
+   - SESSION_LOG.md — session history
+   - TASK_REGISTRY.md — task tracker
+   - DECISIONS.md — decisions register
+   - COMMENTS.md — user comments log
+   - FEATURE_LIST.json — feature tracker
+   - plans/ — plan archive directory
+
+   ### Next Steps
+   - Type /start at the beginning of every session for full context recovery
+   - Type /save during a session to checkpoint progress without ending
+   - Type /audit at any time to verify integrity
+   - Type /end when you're done for the day (optional clean save point)
+
+   ### Would you like to run /itemise?
+   The Itemisation Protocol adds numbered section markers to your code files,
+   making every block referenceable by address (e.g. "check section 2.3.1").
+   It's optional — toggle it off in CLAUDE.md at any time.
+   Type /itemise to run it now, or skip and come back to it later.
+   ```
+
+7. **End of first-run setup.** Skip Step 1. The user is starting fresh — there are no previous sessions to recover from.
+
+---
+
+## Step 1: Read Safeguard Files
+
+Read all of these files in order:
+1. `CLAUDE.md` — project rules and architecture
+2. `SESSION_LOG.md` — what happened in recent sessions
+3. `TASK_REGISTRY.md` — active and recent tasks, find the PENDING ones
+4. `DECISIONS.md` — architectural decisions, never contradict these
+5. `COMMENTS.md` — user's verbatim comments, check for unactioned ones
+6. `FEATURE_LIST.json` — feature pass/fail status
+
+**Archive awareness:** After reading each file, check for `_page*.md` archives (e.g. `SESSION_LOG_page1.md`, `TASK_REGISTRY_page1.md`). If archives exist:
+- Skip reading them — they contain older history that was rotated out to save context
+- Note them in your Step 5 summary: "📁 N archive pages available for [file]"
+- Only read archives if the user explicitly asks you to, or if you genuinely feel something is missing and cannot make sense of the current files without historical context
+
+## Step 2: Check Git State
+
+Run: `git log --oneline --decorate -10 && echo "===" && git status && echo "===" && git log origin/main..HEAD --oneline`
+
+Report: any uncommitted files, any unpushed commits.
+
+## Step 2.5: Detect Unlogged Sessions
+
+After checking git state, detect potential orphaned work:
+
+1. Get the date of the last session entry in SESSION_LOG.md
+2. Get the date of the most recent git commit: `git log -1 --format=%ci`
+3. If the last commit is AFTER the last session log date, warn:
+
+> ⚠️ **Orphaned Session Detected**
+> Last session logged: S[N] on [date]
+> Last git commit: [hash] on [date] — "[message]"
+> Work was done after the last logged session. This may mean a session ended without /end.
+> Recommend: Review git log and reconstruct the missing session entry.
+
+If the dates match or the session log is current, continue normally.
+
+## Step 2.7: Commit Orphaned Work
+
+If Step 2 found **uncommitted changes** (modified or untracked files), a previous session likely ended without `/end` (context overflow, rate limit, crash). This work must be committed before proceeding.
+
+1. **Run `git status`** to see all uncommitted and untracked files
+2. **Review the changes** — run `git diff` and `git diff --cached` to understand what was done
+3. **Cross-reference with TASK_REGISTRY.md and SESSION_LOG.md** — identify which session produced these changes and what tasks they relate to
+4. **Stage and commit** with a descriptive message summarising the orphaned work:
+   ```
+   git add [relevant files]
+   git commit -m "Recover uncommitted work from session [N] — [brief summary]"
+   ```
+5. **Push** to remote: `git push`
+6. **Report** what was committed:
+   > ✅ **Orphaned work committed:** [commit hash] — [summary of what was recovered]
+
+If there are **unpushed commits** (committed but not pushed), push them now: `git push && git push --tags`
+
+If the working tree is clean and all commits are pushed, skip this step.
+
+## Step 3: Cross-Reference Plans
+
+Read the **last 3 plan files** from the `plans/` directory IN FULL.
+
+For each plan:
+- Check every task/step mentioned against TASK_REGISTRY.md
+- Flag any task that appears in a plan but NOT in the registry (Dropped Task — critical)
+- Note: completed tasks may have been archived to `TASK_REGISTRY_page*.md` by pagination. If flagged tasks seem like they were likely completed in older sessions, mention this possibility rather than treating it as critical. Full archive cross-referencing is the `/audit` skill's job.
+- Flag any task in the registry with no corresponding plan, decision, or user comment (Unexplained Task)
+
+## Step 4: Determine Session Number
+
+The new session number = last session in SESSION_LOG.md + 1.
+
+## Step 5: Summarise
+
+Present a clear summary:
+
+```
+## Session [N] — Context Recovery
+
+### Last Session ([N-1])
+[What was done]
+
+### Pending Tasks
+[List from TASK_REGISTRY with pending status]
+
+### Unactioned Comments
+[Any user comments not yet turned into decisions/tasks/changes]
+
+### Cross-Reference Results
+[Any dropped or unexplained tasks found]
+
+### Git State
+[Clean / uncommitted files / unpushed commits]
+
+### Ready to proceed?
+```
+
+## Step 6: Wait
+
+Await user confirmation before starting work. Await their go-ahead.

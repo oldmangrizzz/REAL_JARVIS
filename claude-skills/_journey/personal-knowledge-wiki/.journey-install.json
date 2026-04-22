@@ -1,0 +1,29 @@
+{
+  "target": "claude-code",
+  "kitRef": "henryfinn/personal-knowledge-wiki",
+  "ref": "latest",
+  "suggestedRootDir": ".",
+  "selfContained": true,
+  "dependencyKits": [],
+  "compatibilityNotes": [
+    {
+      "category": "os",
+      "requirement": "Tested on: any",
+      "adaptationHint": "The workflow steps, models, and parameters are cross-platform. Only shell commands, file paths, and OS-specific package manager calls may need adjustment for a different OS."
+    },
+    {
+      "category": "runtime",
+      "requirement": "Requires runtime: node",
+      "adaptationHint": "Check whether node is installed. The rest of the kit is independent of this runtime."
+    },
+    {
+      "category": "service",
+      "requirement": "Requires service: Obsidian (vault-storage) v1.0+",
+      "adaptationHint": "Install Obsidian and create a vault. The wiki reads/writes markdown files directly \u2014 no Obsidian plugins required."
+    },
+    {
+      "category": "general",
+      "requirement": "Update the WIKI_DIR path in lib/wiki.ts to point to your Obsidian vault's wiki/ directory. If not using Obsidian, any folder of markdown files works \u2014 the system only reads/writes .md files."
+    }
+  ]
+}

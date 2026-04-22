@@ -1,0 +1,49 @@
+{
+  "target": "claude-code",
+  "kitRef": "robert-gordon/personal-ops-loop",
+  "ref": "v1.0.0",
+  "suggestedRootDir": ".",
+  "selfContained": true,
+  "dependencyKits": [],
+  "compatibilityNotes": [
+    {
+      "category": "os",
+      "requirement": "Tested on: windows, linux, macos",
+      "adaptationHint": "The workflow steps, models, and parameters are cross-platform. Only shell commands, file paths, and OS-specific package manager calls may need adjustment for a different OS."
+    },
+    {
+      "category": "runtime",
+      "requirement": "Requires runtime: openclaw",
+      "adaptationHint": "Check whether openclaw is installed. The rest of the kit is independent of this runtime."
+    },
+    {
+      "category": "platform",
+      "requirement": "Tested with: direct chat",
+      "adaptationHint": "The core workflow logic is platform-independent. Only the direct chat-specific API calls and configuration may need adjustment if the user's integration target differs."
+    },
+    {
+      "category": "platform",
+      "requirement": "Tested with: group chat",
+      "adaptationHint": "The core workflow logic is platform-independent. Only the group chat-specific API calls and configuration may need adjustment if the user's integration target differs."
+    },
+    {
+      "category": "platform",
+      "requirement": "Tested with: heartbeat-driven assistant runtime",
+      "adaptationHint": "The core workflow logic is platform-independent. Only the heartbeat-driven assistant runtime-specific API calls and configuration may need adjustment if the user's integration target differs."
+    },
+    {
+      "category": "service",
+      "requirement": "Requires service: Local memory files (durable context and reminder state)",
+      "adaptationHint": "Requires writable workspace files such as MEMORY.md, HEARTBEAT.md, and memory/heartbeat-state.json"
+    },
+    {
+      "category": "service",
+      "requirement": "Requires service: Messaging surface (user-visible reminders and replies)",
+      "adaptationHint": "Requires an agent harness with a message/reply channel"
+    },
+    {
+      "category": "general",
+      "requirement": "If the host lacks heartbeat polls, invoke the checklist on a cron or scheduled trigger. If presence data is unavailable, skip presence-aware gating rather than faking it."
+    }
+  ]
+}

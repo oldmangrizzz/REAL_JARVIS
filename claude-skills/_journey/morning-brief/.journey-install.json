@@ -1,0 +1,39 @@
+{
+  "target": "claude-code",
+  "kitRef": "matt-clawd/morning-brief",
+  "ref": "latest",
+  "suggestedRootDir": ".",
+  "selfContained": true,
+  "dependencyKits": [],
+  "compatibilityNotes": [
+    {
+      "category": "os",
+      "requirement": "Tested on: macos, linux",
+      "adaptationHint": "The workflow steps, models, and parameters are cross-platform. Only shell commands, file paths, and OS-specific package manager calls may need adjustment for a different OS."
+    },
+    {
+      "category": "runtime",
+      "requirement": "Requires runtime: shell",
+      "adaptationHint": "Check whether shell is installed. The rest of the kit is independent of this runtime."
+    },
+    {
+      "category": "service",
+      "requirement": "Requires service: Google Calendar via gcalcli (source of today's schedule and meeting titles)",
+      "adaptationHint": "Install gcalcli, authenticate it against your Google account, and optionally set GCALCLI_CALENDAR if you want to target a specific calendar."
+    },
+    {
+      "category": "service",
+      "requirement": "Requires service: wttr.in (source of the daily weather summary)",
+      "adaptationHint": "No API key is required. The bundled weather script queries wttr.in over HTTPS using the configured WEATHER_LOCATION."
+    },
+    {
+      "category": "service",
+      "requirement": "Requires service: Telegram (optional delivery channel for the final text brief)",
+      "adaptationHint": "Optional. Set TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID only if your runtime supports Telegram delivery. Otherwise print the brief to stdout or route it to whatever delivery mechanism your install target provides."
+    },
+    {
+      "category": "general",
+      "requirement": "If you do not use Google Calendar, replace src/scripts/fetch-calendar.sh with any source that can print today's schedule in plain text. If your runtime prefers email or another messenger, keep the brief content the same and swap only the final delivery step."
+    }
+  ]
+}

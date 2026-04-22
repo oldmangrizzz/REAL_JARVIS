@@ -1,0 +1,20 @@
+{
+  "target": "claude-code",
+  "kitRef": "matt-clawd/humanizer",
+  "ref": "latest",
+  "suggestedRootDir": ".",
+  "selfContained": true,
+  "dependencyKits": [],
+  "compatibilityNotes": [
+    {
+      "category": "os",
+      "requirement": "Tested on: any",
+      "adaptationHint": "The workflow steps, models, and parameters are cross-platform. Only shell commands, file paths, and OS-specific package manager calls may need adjustment for a different OS."
+    },
+    {
+      "category": "runtime",
+      "requirement": "Requires runtime: none",
+      "adaptationHint": "Check whether none is installed. The rest of the kit is independent of this runtime."
+    }
+  ]
+}

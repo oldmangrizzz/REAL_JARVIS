@@ -1,0 +1,6 @@
+{
+  "orchestrator_active": true,
+  "cost_mode": "smart",
+  "user_control": "hands-on",
+  "supabuilder_version": "1.0.0"
+}

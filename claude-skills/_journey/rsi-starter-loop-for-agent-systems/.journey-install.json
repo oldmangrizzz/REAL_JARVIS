@@ -1,0 +1,9 @@
+{
+  "target": "claude-code",
+  "kitRef": "maxcoo/rsi-starter-loop-for-agent-systems",
+  "ref": "latest",
+  "suggestedRootDir": ".",
+  "selfContained": false,
+  "dependencyKits": [],
+  "compatibilityNotes": []
+}
