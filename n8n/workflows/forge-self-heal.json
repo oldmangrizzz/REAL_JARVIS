@@ -71,7 +71,7 @@
         "sendBody": true,
         "contentType": "raw",
         "rawContentType": "text/plain",
-        "body": "Forge health probe failed \u2014 attempting restart"
+        "body": "Forge health probe failed — attempting restart"
       },
       "id": "h4",
       "name": "Notify",
@@ -79,6 +79,34 @@
       "typeVersion": 4,
       "position": [
         1100,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://delta.grizzlymedicine.icu/api/forge/restart",
+        "authentication": "genericCredentialType",
+        "genericCredentialType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{$env[\"JARVIS_DELTA_ADMIN_TOKEN\"]}}"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 10000
+        }
+      },
+      "id": "h5",
+      "name": "Restart Forge Service",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        1400,
         220
       ]
     }
@@ -116,9 +144,20 @@
           }
         ]
       ]
+    },
+    "Notify": {
+      "main": [
+        [
+          {
+            "node": "Restart Forge Service",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
-  "active": false,
+  "active": true,
   "settings": {
     "executionOrder": "v1"
   },
