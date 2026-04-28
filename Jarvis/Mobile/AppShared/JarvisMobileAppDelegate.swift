@@ -4,6 +4,11 @@ import UIKit
 import UserNotifications
 
 public final class JarvisMobileAppDelegate: NSObject, UIApplicationDelegate {
+    public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
+        JarvisMobileSystemHooks.shared.registerLaunchHandlers()
+        return true
+    }
+
     public func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         Task { @MainActor in
             JarvisMobileSystemHooks.shared.didRegisterForRemoteNotifications(deviceToken: deviceToken)

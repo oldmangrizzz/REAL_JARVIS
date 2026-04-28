@@ -16,8 +16,11 @@ public final class JarvisMobileSystemHooks: NSObject, UNUserNotificationCenterDe
         UNUserNotificationCenter.current().delegate = self
         requestNotificationAuthorization()
         UIApplication.shared.registerForRemoteNotifications()
-        registerBackgroundTasks()
         scheduleRefresh()
+    }
+
+    public func registerLaunchHandlers() {
+        registerBackgroundTasks()
     }
 
     public func didRegisterForRemoteNotifications(deviceToken: Data) {
@@ -53,11 +56,11 @@ public final class JarvisMobileSystemHooks: NSObject, UNUserNotificationCenterDe
 
     private func registerBackgroundTasks() {
         guard !registeredTasks else { return }
-        BGTaskScheduler.shared.register(forTaskWithIdentifier: refreshTaskIdentifier, using: nil) { [weak self] task in
+        let registered = BGTaskScheduler.shared.register(forTaskWithIdentifier: refreshTaskIdentifier, using: nil) { [weak self] task in
             guard let task = task as? BGAppRefreshTask else { return }
             self?.handleAppRefresh(task)
         }
-        registeredTasks = true
+        registeredTasks = registered
     }
 
     private func handleAppRefresh(_ task: BGAppRefreshTask) {
@@ -76,6 +79,7 @@ public final class JarvisMobileSystemHooks: NSObject, UNUserNotificationCenterDe
     }
 
     private func scheduleRefresh() {
+        guard registeredTasks else { return }
         let request = BGAppRefreshTaskRequest(identifier: refreshTaskIdentifier)
         request.earliestBeginDate = Date().addingTimeInterval(300)
         try? BGTaskScheduler.shared.submit(request)

@@ -7,7 +7,7 @@ public final class JarvisMobileCockpitStore: ObservableObject {
 
     @Published public private(set) var connectionState: JarvisConnectionState = .disconnected
     @Published public private(set) var state = JarvisSharedState(snapshot: nil, thoughts: [], signals: [], pendingPushDirectives: [])
-    @Published public private(set) var voiceState = "warming"
+    @Published public private(set) var voiceState = "standby"
     @Published public private(set) var lastSpeechPath = ""
     @Published public private(set) var latestResponse = ""
     @Published public private(set) var diagnostics = ""
@@ -69,13 +69,6 @@ public final class JarvisMobileCockpitStore: ObservableObject {
         } else {
             connectionState = .disconnected
             diagnostics = configuration.tunnelConfigurationError ?? "Tunnel configuration is incomplete."
-        }
-
-        do {
-            try await voice.warm()
-            voiceState = "ready"
-        } catch {
-            voiceState = "failed: \(error.localizedDescription)"
         }
 
         do {
