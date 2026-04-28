@@ -1,5 +1,106 @@
 import Foundation
 
+public enum JarvisMemorySurfaceRole: String, Codable, Equatable, Sendable {
+    case identityAnchor
+    case localWitnessedShard
+    case agentMemory
+    case semanticGraphRecall
+    case realtimeStateBus
+    case knowledgeCabinet
+}
+
+public enum JarvisMemorySurfaceState: String, Codable, Equatable, Sendable {
+    case online
+    case configured
+    case degraded
+    case missing
+}
+
+public struct JarvisMemorySurfaceStatus: Codable, Sendable {
+    public let name: String
+    public let role: JarvisMemorySurfaceRole
+    public let state: JarvisMemorySurfaceState
+    public let authority: String
+    public let details: [String: String]
+
+    public init(
+        name: String,
+        role: JarvisMemorySurfaceRole,
+        state: JarvisMemorySurfaceState,
+        authority: String,
+        details: [String: String] = [:]
+    ) {
+        self.name = name
+        self.role = role
+        self.state = state
+        self.authority = authority
+        self.details = details
+    }
+
+    public var json: [String: Any] {
+        [
+            "name": name,
+            "role": role.rawValue,
+            "state": state.rawValue,
+            "authority": authority,
+            "details": details
+        ]
+    }
+}
+
+public struct JarvisMemoryFabricStatus: Codable, Sendable {
+    public let canonicalSummary: String
+    public let securityPosture: String
+    public let surfaces: [JarvisMemorySurfaceStatus]
+
+    public init(
+        canonicalSummary: String,
+        securityPosture: String,
+        surfaces: [JarvisMemorySurfaceStatus]
+    ) {
+        self.canonicalSummary = canonicalSummary
+        self.securityPosture = securityPosture
+        self.surfaces = surfaces
+    }
+
+    public var json: [String: Any] {
+        [
+            "canonicalSummary": canonicalSummary,
+            "securityPosture": securityPosture,
+            "surfaces": surfaces.map(\.json)
+        ]
+    }
+}
+
+public struct JarvisMemoryFabricRecall {
+    public let query: String
+    public let external: ExternalMemoryRecall?
+    public let local: PageInResult
+
+    public var preferredSpokenSummary: String? {
+        if let external, !external.isEmpty {
+            return external.spokenSummary
+        }
+        return local.matches.first
+    }
+
+    public var source: String {
+        if let external, !external.isEmpty {
+            return "external-memory-fabric"
+        }
+        return "local-memory-shard"
+    }
+
+    public var json: [String: Any] {
+        [
+            "query": query,
+            "source": source,
+            "external": external?.json ?? [:],
+            "local": local.json
+        ]
+    }
+}
+
 public final class JarvisRuntime {
     public let paths: WorkspacePaths
     public let soulAnchor: SoulAnchor
@@ -88,6 +189,87 @@ public final class JarvisRuntime {
         }
     }
 
+    public func memoryFabricStatus() -> JarvisMemoryFabricStatus {
+        let env = JarvisRuntimeEnvironment.resolved(root: paths.root)
+        let obsidianPath = FileManager.default.homeDirectoryForCurrentUser
+            .appendingPathComponent("Documents", isDirectory: true)
+            .appendingPathComponent("Obsidian Vault", isDirectory: true)
+        let obsidianExists = FileManager.default.fileExists(atPath: obsidianPath.path)
+        let externalDetails = externalMemory?.status ?? [:]
+        let convexHasAuth = !(env["JARVIS_CONVEX_AUTH_TOKEN"] ?? env["CONVEX_DEPLOYMENT_KEY"] ?? "").isEmpty
+        let convexURL = env["CONVEX_URL"]
+            ?? env["JARVIS_CONVEX_URL"]
+            ?? "https://enduring-starfish-794.convex.cloud/api/mutation"
+
+        let surfaces = [
+            JarvisMemorySurfaceStatus(
+                name: "SoulAnchor",
+                role: .identityAnchor,
+                state: .online,
+                authority: "identity continuity and canon binding",
+                details: ["root": paths.root.path]
+            ),
+            JarvisMemorySurfaceStatus(
+                name: "MemoryEngine",
+                role: .localWitnessedShard,
+                state: .online,
+                authority: "authoritative local witnessed memory shard",
+                details: [
+                    "nodes": String(memory.graph.nodes.count),
+                    "edges": String(memory.graph.edges.count),
+                    "v1Path": paths.storageDirectory.appendingPathComponent(MemoryMigration.v1FileName).path
+                ]
+            ),
+            JarvisMemorySurfaceStatus(
+                name: "Letta/MemGPT",
+                role: .agentMemory,
+                state: externalMemory == nil ? .missing : .configured,
+                authority: "durable conversational agent memory; not a chat model identity substitute",
+                details: stringDetails(from: externalDetails, allowedKeys: ["baseURL", "agentID", "model"])
+            ),
+            JarvisMemorySurfaceStatus(
+                name: "Cognee",
+                role: .semanticGraphRecall,
+                state: externalMemory == nil ? .missing : .configured,
+                authority: "semantic graph recall and corpus retrieval through the external memory bridge",
+                details: stringDetails(from: externalDetails, allowedKeys: ["embeddingModel", "bridgeConfigPath", "scriptsDirectory"])
+            ),
+            JarvisMemorySurfaceStatus(
+                name: "Convex",
+                role: .realtimeStateBus,
+                state: convexHasAuth ? .configured : .degraded,
+                authority: "real-time sync and node state bus; not long-term autobiographical memory",
+                details: [
+                    "url": convexURL,
+                    "authenticated": convexHasAuth ? "true" : "false"
+                ]
+            ),
+            JarvisMemorySurfaceStatus(
+                name: "Obsidian",
+                role: .knowledgeCabinet,
+                state: obsidianExists ? .configured : .missing,
+                authority: "knowledge wiki, corpus, and operator IDE; never the mind or identity root",
+                details: ["path": obsidianPath.path]
+            )
+        ]
+
+        let securityPosture = convexHasAuth
+            ? "memory surfaces are explicitly role-separated; external sync has an auth token configured"
+            : "memory surfaces are explicitly role-separated; Convex telemetry auth is not configured for this process"
+
+        return JarvisMemoryFabricStatus(
+            canonicalSummary: "JARVIS identity is anchored by SoulAnchor and expressed through the memory fabric. Obsidian is a knowledge cabinet, not the brain.",
+            securityPosture: securityPosture,
+            surfaces: surfaces
+        )
+    }
+
+    public func recallMemory(query: String, limit: Int = 3) throws -> JarvisMemoryFabricRecall {
+        let external = try externalMemory?.recall(query: query)
+        let local = try memory.pageIn(query: query, limit: limit)
+        return JarvisMemoryFabricRecall(query: query, external: external, local: local)
+    }
+
     private static func shouldStartTelemetrySync() -> Bool {
         let env = ProcessInfo.processInfo.environment
         if env["XCTestConfigurationFilePath"] != nil {
@@ -156,6 +338,15 @@ public final class JarvisRuntime {
             return text
         }
         return String(describing: value)
+    }
+
+    private func stringDetails(from payload: [String: Any], allowedKeys: [String]) -> [String: String] {
+        var details: [String: String] = [:]
+        for key in allowedKeys {
+            guard let value = payload[key] else { continue }
+            details[key] = String(describing: value)
+        }
+        return details
     }
 }
 

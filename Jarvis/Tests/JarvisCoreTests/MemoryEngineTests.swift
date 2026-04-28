@@ -271,5 +271,39 @@ final class MemoryEngineTests: XCTestCase {
         XCTAssertEqual(try XCTUnwrap(somatic.first).weight, 0.9, accuracy: 1e-9,
                        "upsert must retain the max observed weight (0.9 > 0.7 > 0.4)")
     }
-}
 
+    func testRecallFiltersV1EntriesAndVerifiesIntegrity() throws {
+        let paths = try makeTestWorkspace()
+        let runtime = try JarvisRuntime(paths: paths)
+        let log = paths.traceDirectory.appendingPathComponent("recall.log")
+        try "VoiceSynthesis routed the canonical XTTS path through MemoryEngine witness recall.".write(
+            to: log,
+            atomically: true,
+            encoding: .utf8
+        )
+        _ = try runtime.memory.memify(logFileURLs: [log])
+
+        let result = try runtime.memory.recall(query: RecallQuery(entities: ["VoiceSynthesis"], limit: 10))
+
+        XCTAssertTrue(result.integrityOK)
+        XCTAssertNil(result.chainBreakAt)
+        XCTAssertFalse(result.entries.isEmpty)
+        XCTAssertTrue(result.entries.contains { entry in
+            ([entry.payload] + entry.entities).joined(separator: " ").contains("VoiceSynthesis")
+        })
+    }
+
+    func testMemoryFabricStatusSeparatesObsidianFromMind() throws {
+        let paths = try makeTestWorkspace()
+        let runtime = try JarvisRuntime(paths: paths)
+
+        let status = runtime.memoryFabricStatus()
+        let memory = try XCTUnwrap(status.surfaces.first { $0.name == "MemoryEngine" })
+        let obsidian = try XCTUnwrap(status.surfaces.first { $0.name == "Obsidian" })
+
+        XCTAssertEqual(memory.role, .localWitnessedShard)
+        XCTAssertEqual(obsidian.role, .knowledgeCabinet)
+        XCTAssertTrue(obsidian.authority.contains("never the mind"))
+        XCTAssertTrue(status.canonicalSummary.contains("Obsidian is a knowledge cabinet"))
+    }
+}

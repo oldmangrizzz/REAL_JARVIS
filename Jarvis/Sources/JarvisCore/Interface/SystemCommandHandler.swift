@@ -81,22 +81,11 @@ public final class SystemCommandHandler: @unchecked Sendable {
         }
 
         if q.contains("recall") || q.contains("what happened") {
-            if let externalMemory = runtime.externalMemory {
-                let recalled = try externalMemory.recall(query: command)
-                if !recalled.isEmpty {
-                    let spoken = recalled.spokenSummary
-                        .map { "Here's the strongest external memory trace: \($0)" }
-                        ?? "I've pulled context from the external memory stack."
-                    return VoiceCommandResponse(
-                        spokenText: spoken,
-                        details: recalled.json,
-                        shouldShutdown: false
-                    )
-                }
-            }
-            let page = try runtime.memory.pageIn(query: command, limit: 3)
-            let spoken = page.matches.first.map { "Here's the strongest memory trace: \($0)" } ?? "I don't yet have a strong memory trace for that."
-            return VoiceCommandResponse(spokenText: spoken, details: page.json, shouldShutdown: false)
+            let recalled = try runtime.recallMemory(query: command, limit: 3)
+            let spoken = recalled.preferredSpokenSummary
+                .map { "Here's the strongest memory trace from \(recalled.source): \($0)" }
+                ?? "I don't yet have a strong memory trace for that."
+            return VoiceCommandResponse(spokenText: spoken, details: recalled.json, shouldShutdown: false)
         }
 
         if q.contains("shutdown") || q.contains("go quiet") || q.contains("stop listening") {
@@ -116,13 +105,15 @@ public final class SystemCommandHandler: @unchecked Sendable {
             FileHandle.standardError.write(Data("SystemCommandHandler: audioSampleURLs failed: \(error)\n".utf8))
             sampleCount = 0
         }
-        let summary = "Systems are online. I have \(skillRegistry.allSkillNames().count) indexed skills, \(callable.count) native callable skills, and \(sampleCount) local voice reference samples ready."
+        let memoryFabric = runtime.memoryFabricStatus()
+        let summary = "Systems are online. I have \(skillRegistry.allSkillNames().count) indexed skills, \(callable.count) native callable skills, and \(sampleCount) local voice reference samples ready. Memory fabric is role-separated: Obsidian is the knowledge cabinet, not the brain."
         return VoiceCommandResponse(
             spokenText: summary,
             details: [
                 "command": "status",
                 "indexedSkills": skillRegistry.allSkillNames().count,
-                "callableSkills": callable
+                "callableSkills": callable,
+                "memoryFabric": memoryFabric.json
             ],
             shouldShutdown: false
         )

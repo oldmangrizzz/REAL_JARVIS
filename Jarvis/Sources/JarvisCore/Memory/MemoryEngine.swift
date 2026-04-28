@@ -231,6 +231,40 @@ public final class MemoryEngine {
             .map { (node: $0.0, score: $0.1) }
     }
 
+    public func recall(query: RecallQuery) throws -> RecallResult {
+        lock.lock(); defer { lock.unlock() }
+        let entries = try MemoryMigration.loadOrMigrate(
+            storageDirectory: paths.storageDirectory,
+            legacyGraph: graph,
+            telemetry: telemetry
+        )
+        let requestedEntities = query.entities
+            .map { $0.trimmingCharacters(in: .whitespacesAndNewlines).lowercased() }
+            .filter { !$0.isEmpty }
+
+        let filtered = entries
+            .filter { query.kinds.contains($0.kind) }
+            .filter { entry in
+                guard let since = query.since else { return true }
+                return entry.createdAt >= since
+            }
+            .filter { entry in
+                guard !requestedEntities.isEmpty else { return true }
+                let searchable = ([entry.payload] + entry.entities).joined(separator: "\n").lowercased()
+                return requestedEntities.contains { searchable.contains($0) }
+            }
+            .sorted { $0.createdAt > $1.createdAt }
+            .prefix(query.limit)
+
+        let resultEntries = Array(filtered)
+        let verification = RecallResult.verify(resultEntries)
+        return RecallResult(
+            entries: resultEntries,
+            integrityOK: verification.integrityOK,
+            chainBreakAt: verification.chainBreakAt
+        )
+    }
+
     public func recordSomaticPath(edge: EdgeKey, weight: Double) throws {
         lock.lock(); defer { lock.unlock() }
         upsert(edge: KnowledgeEdge(

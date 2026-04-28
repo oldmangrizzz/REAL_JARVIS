@@ -86,12 +86,14 @@ public final class JarvisAPIGateway: ObservableObject {
         let baseLetta = LettaBridge(baseURL: lettaBaseURL, bearerToken: lettaToken)
         self.letta = ResilientLettaBridge(inner: baseLetta)
 
+        let sharedSecret = env["JARVIS_SHARED_SECRET"] ?? ""
         let convexConfig = JarvisHostConfiguration(
             hostAddress: env["JARVIS_DELTA_HOST"] ?? "delta.grizzlymedicine.icu",
             hostPort: 9443,
             convexURL: URL(string: env["JARVIS_CONVEX_URL"] ?? "https://enduring-starfish-794.convex.cloud")!,
-            sharedSecret: env["JARVIS_SHARED_SECRET"] ?? "",
-            convexAuthToken: convexAuthToken
+            sharedSecret: sharedSecret,
+            convexAuthToken: convexAuthToken,
+            tunnelConfigurationError: sharedSecret.isEmpty ? "JARVIS_SHARED_SECRET is not configured for API gateway tunnel use." : nil
         )
         self.convex = JarvisConvexSyncClient(configuration: convexConfig)
 
