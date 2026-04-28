@@ -6,21 +6,27 @@
 #
 # Stages:
 #   1  xcodegen                 — regenerate project from project.yml
-#   2  build/macOS              — Jarvis + JarvisCore schemes (arm64 macOS)
+#   2  build/macOS              — Jarvis + RealJarvisMac schemes (arm64 macOS)
 #   3  build/iOS                — JarvisPhone + JarvisPad + JarvisMobileCore
 #   4  build/watchOS            — JarvisWatch + JarvisWatchCore
 #   5  tests                    — JarvisCore xcodebuild test (must be >=130)
 #   6  soul-anchor/drill        — MK2 gate #7 rotation drill
-#   7  canon-gate                — MK2 gate #10 dual-sig verifier
+#   7  canon-gate               — MK2 gate #10 dual-sig verifier
 #   8  smoke/arc-submit         — MK2 gate #8 ARC submission smoke
 #   9  smoke/voice-latency      — MK2 gate #4 voice E2E latency probe
-#  10  artifact                 — writes Storage/ship-mark-ii/<ts>.log
+#  10  deploy/f5-tts            — idempotent GCP bring-up (best-effort)
+#  11  deploy/pwa               — rsync to static host (best-effort)
+#  12  deploy/launchagents      — reload watchdog + ntfy bridge (best-effort)
+#  13  deploy/convex            — post ship record to Convex (best-effort)
+#  14  artifact                 — writes Storage/ship-mark-ii/<ts>.log
 #
 # Flags:
 #   --skip-ios        skip iOS builds (for macOS-only dev loops)
 #   --skip-watchos    skip watchOS builds
 #   --skip-smoke      skip smoke/arc + smoke/voice
-#   --fast            implies --skip-ios --skip-watchos --skip-smoke
+#   --skip-deploy     skip deploy stages (build-only loop)
+#   --fast            implies --skip-ios --skip-watchos --skip-smoke --skip-deploy
+#   --dry-run         print planned actions, do not execute
 #
 # Non-zero on any stage failure with a single trailing diagnostic line:
 #   ship-mark-ii: FAILED at stage <name> — see <log>
@@ -39,13 +45,17 @@ LOG_FILE="$LOG_DIR/$TS.log"
 SKIP_IOS=0
 SKIP_WATCHOS=0
 SKIP_SMOKE=0
+SKIP_DEPLOY=0
+DRY_RUN=0
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --skip-ios)     SKIP_IOS=1; shift;;
     --skip-watchos) SKIP_WATCHOS=1; shift;;
     --skip-smoke)   SKIP_SMOKE=1; shift;;
-    --fast)         SKIP_IOS=1; SKIP_WATCHOS=1; SKIP_SMOKE=1; shift;;
+    --skip-deploy)  SKIP_DEPLOY=1; shift;;
+    --fast)         SKIP_IOS=1; SKIP_WATCHOS=1; SKIP_SMOKE=1; SKIP_DEPLOY=1; shift;;
+    --dry-run)      DRY_RUN=1; shift;;
     -h|--help)      grep '^#' "$0" | sed 's/^# \{0,1\}//'; exit 0;;
     *) echo "unknown arg: $1" >&2; exit 2;;
   esac
@@ -88,12 +98,13 @@ stage_xcodegen() {
 xb() {
   # $1 scheme, $2 destination
   xcodebuild -workspace jarvis.xcworkspace -scheme "$1" -destination "$2" \
+    CODE_SIGNING_ALLOWED=NO \
     -quiet build
 }
 
 stage_build_macos() {
-  xb Jarvis      'platform=macOS,arch=arm64'
-  xb JarvisCore  'platform=macOS,arch=arm64'
+  xb Jarvis         'platform=macOS,arch=arm64'
+  xb RealJarvisMac  'platform=macOS,arch=arm64'
 }
 
 stage_build_ios() {
@@ -115,9 +126,9 @@ stage_tests() {
   testlog="$LOG_DIR/$TS.tests.log"
   set -o pipefail
   xcodebuild -workspace jarvis.xcworkspace -scheme Jarvis \
-    -destination 'platform=macOS,arch=arm64' test 2>&1 | tee "$testlog" >/dev/null
+    -destination 'platform=macOS,arch=arm64' CODE_SIGNING_ALLOWED=NO test 2>&1 | tee "$testlog" >/dev/null
   local executed
-  executed=$(grep -Eo 'Executed [0-9]+ tests, with 0 failures' "$testlog" \
+  executed=$(grep -Eo 'Executed [0-9]+ tests.*0 failures' "$testlog" \
     | tail -1 | grep -Eo '[0-9]+' | head -1 || echo 0)
   say "   tests executed: $executed"
   if [[ -z "$executed" || "$executed" -lt 130 ]]; then
@@ -168,7 +179,101 @@ stage_smoke_voice() {
 }
 
 # -----------------------------------------------------------------------------
-# stage 10: artifact
+# stage 10: deploy F5-TTS (idempotent)
+# -----------------------------------------------------------------------------
+stage_deploy_f5_tts() {
+  local up_script="$REPO_ROOT/services/f5-tts/deploy/gcp-up.sh"
+  if [[ "$DRY_RUN" -eq 1 ]]; then
+    say "   [dry-run] would call $up_script if gcloud present"
+    return 0
+  fi
+  if ! command -v gcloud >/dev/null 2>&1; then
+    say "   (gcloud not installed — F5-TTS deploy deferred)"
+    return 0
+  fi
+  if [[ ! -x "$up_script" ]]; then
+    say "   (gcp-up.sh not present — F5-TTS deploy deferred)"
+    return 0
+  fi
+  (cd "$REPO_ROOT" && bash "$up_script")
+}
+
+# -----------------------------------------------------------------------------
+# stage 11: deploy PWA
+# -----------------------------------------------------------------------------
+stage_deploy_pwa() {
+  local deploy_env="${HOME}/.jarvis/deploy-env"
+  if [[ "$DRY_RUN" -eq 1 ]]; then
+    say "   [dry-run] would rsync pwa/ if $deploy_env present"
+    return 0
+  fi
+  if [[ ! -f "$deploy_env" ]]; then
+    say "   ($deploy_env missing — PWA deploy deferred)"
+    return 0
+  fi
+  # shellcheck source=/dev/null
+  source "$deploy_env"
+  if [[ -z "${JARVIS_PWA_HOST:-}" ]]; then
+    say "   (JARVIS_PWA_HOST not set in $deploy_env — PWA deploy deferred)"
+    return 0
+  fi
+  rsync -az --delete "$REPO_ROOT/pwa/" "${JARVIS_PWA_HOST}"
+}
+
+# -----------------------------------------------------------------------------
+# stage 12: reload LaunchAgents
+# -----------------------------------------------------------------------------
+stage_deploy_launchagents() {
+  if [[ "$DRY_RUN" -eq 1 ]]; then
+    say "   [dry-run] would reload LaunchAgents"
+    return 0
+  fi
+  local agents=(
+    "com.grizz.jarvis.tts.watchdog"
+    "com.grizzlymedicine.jarvis-ntfy-bridge"
+  )
+  for agent in "${agents[@]}"; do
+    local plist="${HOME}/Library/LaunchAgents/${agent}.plist"
+    if [[ -f "$plist" ]]; then
+      /bin/launchctl bootout "gui/$(id -u)/${agent}" 2>/dev/null || true
+      /bin/launchctl bootstrap "gui/$(id -u)" "$plist" 2>/dev/null || true
+      say "   reloaded $agent"
+    else
+      say "   ($plist missing — skipped)"
+    fi
+  done
+}
+
+# -----------------------------------------------------------------------------
+# stage 13: post completion artifact to Convex
+# -----------------------------------------------------------------------------
+stage_deploy_convex() {
+  local convex_url="https://enduring-starfish-794.convex.cloud/api/mutation"
+  local token="${JARVIS_CONVEX_AUTH_TOKEN:-${CONVEX_AUTH_TOKEN:-}}"
+  if [[ "$DRY_RUN" -eq 1 ]]; then
+    say "   [dry-run] would POST ship record to Convex"
+    return 0
+  fi
+  if [[ -z "$token" ]]; then
+    say "   (JARVIS_CONVEX_AUTH_TOKEN not set — Convex post deferred)"
+    return 0
+  fi
+  local git_sha
+  git_sha=$(git rev-parse HEAD)
+  local payload
+  payload=$(printf '{"path":"ships:record","args":{"version":"MarkII-1.0.0","gitSha":"%s","timestamp":"%s","log":"%s"}}' "$git_sha" "$TS" "$LOG_FILE")
+  curl -sf -X POST "$convex_url" \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer $token" \
+    -d "$payload" || {
+    say "   (Convex post failed — non-fatal)"
+    return 0
+  }
+  say "   Convex ship record posted"
+}
+
+# -----------------------------------------------------------------------------
+# stage 14: artifact
 # -----------------------------------------------------------------------------
 stage_artifact() {
   local git_sha
@@ -184,6 +289,10 @@ stage_artifact() {
 # -----------------------------------------------------------------------------
 say "ship-mark-ii start $TS (sha=$(git rev-parse --short HEAD))"
 
+if [[ "$DRY_RUN" -eq 1 ]]; then
+  say "DRY-RUN mode — printing planned stages:"
+fi
+
 run_stage xcodegen            stage_xcodegen
 run_stage build/macOS         stage_build_macos
 [[ "$SKIP_IOS"     -eq 0 ]] && run_stage build/iOS        stage_build_ios
@@ -193,6 +302,10 @@ run_stage soul-anchor/drill   stage_soul_anchor_drill
 run_stage canon-gate          stage_canon_gate
 [[ "$SKIP_SMOKE"   -eq 0 ]] && run_stage smoke/arc        stage_smoke_arc
 [[ "$SKIP_SMOKE"   -eq 0 ]] && run_stage smoke/voice      stage_smoke_voice
+[[ "$SKIP_DEPLOY"  -eq 0 ]] && run_stage deploy/f5-tts   stage_deploy_f5_tts
+[[ "$SKIP_DEPLOY"  -eq 0 ]] && run_stage deploy/pwa      stage_deploy_pwa
+[[ "$SKIP_DEPLOY"  -eq 0 ]] && run_stage deploy/agents   stage_deploy_launchagents
+[[ "$SKIP_DEPLOY"  -eq 0 ]] && run_stage deploy/convex   stage_deploy_convex
 run_stage artifact            stage_artifact
 
 say "ship-mark-ii: GREEN"

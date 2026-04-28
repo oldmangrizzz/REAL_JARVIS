@@ -9,27 +9,27 @@ final class OscillatorConcurrencyTests: XCTestCase {
         let paths = try makeTestWorkspace()
         let tel = try TelemetryStore(paths: paths)
         let osc = MasterOscillator(telemetry: tel, configuration: .init(bpm: 600))
-        
-        class ConcurrencyDetector: PhaseLockedSubscriber {
+
+        final class ConcurrencyDetector: PhaseLockedSubscriber {
             let subscriberID = "concurrency-test"
-            var activeCalls = 0
-            var maxConcurrentCalls = 0
-            
-            func onTick(_ tick: OscillatorTick) {
+            nonisolated(unsafe) private var activeCalls = 0
+            nonisolated(unsafe) fileprivate var maxConcurrentCalls = 0
+
+            nonisolated func onTick(_ tick: OscillatorTick) {
                 activeCalls += 1
                 maxConcurrentCalls = max(maxConcurrentCalls, activeCalls)
                 usleep(100)
                 activeCalls -= 1
             }
         }
-        
+
         let detector = ConcurrencyDetector()
         osc.subscribe(detector)
-        
+
         for _ in 0..<20 {
             osc.manualTick()
         }
-        
+
         XCTAssertEqual(detector.maxConcurrentCalls, 1, "onTick must be serialized")
     }
 }
@@ -42,19 +42,19 @@ final class PheromineDataRaceTests: XCTestCase {
         let paths = try makeTestWorkspace()
         let tel = try TelemetryStore(paths: paths)
         let engine = PheromindEngine(telemetry: tel)
-        
+
         let edge = EdgeKey(source: "test", target: "goal")
         engine.register(edge: edge, pheromone: 0.5)
-        
+
         var errors: [Error] = []
         let group = DispatchGroup()
         let queue = DispatchQueue.global()
-        
+
         for i in 0..<100 {
             group.enter()
             queue.async {
                 defer { group.leave() }
-                
+
                 if i % 3 == 0 {
                     _ = engine.state(for: edge)
                 } else if i % 3 == 1 {
@@ -75,21 +75,21 @@ final class PheromineDataRaceTests: XCTestCase {
                 }
             }
         }
-        
+
         let result = group.wait(timeout: .now() + 30)
         XCTAssertEqual(result, .success, "concurrent operations should complete")
         XCTAssertEqual(errors.count, 0, "no errors under concurrent access")
     }
-    
+
     /// Verify lock is held during applyGlobalUpdate
     func testLockHeldDuringGlobalUpdate() throws {
         let paths = try makeTestWorkspace()
         let tel = try TelemetryStore(paths: paths)
         let engine = PheromindEngine(telemetry: tel)
-        
+
         let edge = EdgeKey(source: "a", target: "b")
         engine.register(edge: edge, pheromone: 0.0)
-        
+
         let deposit = PheromoneDeposit(
             edge: edge,
             signal: .reinforce,
@@ -97,11 +97,11 @@ final class PheromineDataRaceTests: XCTestCase {
             agentID: "tester",
             timestamp: Date()
         )
-        
+
         for _ in 0..<50 {
             _ = try engine.applyGlobalUpdate(deposits: [deposit])
         }
-        
+
         let final = try XCTUnwrap(engine.state(for: edge))
         XCTAssertGreaterThan(final.pheromone, 0.0)
     }
@@ -115,10 +115,10 @@ final class RLMBridgeSecurityTests: XCTestCase {
     func testRLMBridgeUsesStdinPipeNotHostStdin() throws {
         let paths = try makeTestWorkspace()
         let bridge = PythonRLMBridge(paths: paths, telemetry: try TelemetryStore(paths: paths))
-        
+
         let maliciousPrompt = "test_prompt_with_semicolon;"
         let maliciousQuery = "test_query_with_dollar_sign"
-        
+
         do {
             _ = try bridge.query(prompt: maliciousPrompt, query: maliciousQuery)
         } catch let error as JarvisError {

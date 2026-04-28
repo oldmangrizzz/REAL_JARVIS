@@ -140,6 +140,37 @@ final class HarnessTests: XCTestCase {
         XCTAssertEqual(result.diagnosis, "no failure hotspot detected; workflow remains stable")
     }
 
+    func testDiagnosisIgnoresSuccessfulNoErrorTraceText() throws {
+        let paths = try makeTestWorkspace()
+        let runtime = try JarvisRuntime(paths: paths)
+        let workflowURL = paths.archonDirectory.appendingPathComponent("default_workflow.yaml")
+        try writeWorkflow(canonicalWorkflow, at: workflowURL)
+        let traceURL = paths.traceDirectory.appendingPathComponent("execution.jsonl")
+        try """
+        {"workflowId":"jarvis-default","stepId":"validation","outputResult":"No dependency errors detected","status":"success"}
+        """.write(to: traceURL, atomically: true, encoding: .utf8)
+
+        let result = try runtime.metaHarness.diagnoseAndRewrite(workflowURL: workflowURL, traceDirectory: paths.traceDirectory)
+        XCTAssertEqual(result.diagnosis, "no failure hotspot detected; workflow remains stable")
+    }
+
+    func testDiagnosisIgnoresOtherWorkflowTelemetry() throws {
+        let paths = try makeTestWorkspace()
+        let runtime = try JarvisRuntime(paths: paths)
+        let workflowURL = paths.archonDirectory.appendingPathComponent("default_workflow.yaml")
+        try writeWorkflow(canonicalWorkflow, at: workflowURL)
+        try runtime.telemetry.logExecutionTrace(
+            workflowID: "external-memory",
+            stepID: "session-start",
+            inputContext: "boot",
+            outputResult: "bridge bootstrap failed",
+            status: "error"
+        )
+
+        let result = try runtime.metaHarness.diagnoseAndRewrite(workflowURL: workflowURL, traceDirectory: paths.traceDirectory)
+        XCTAssertEqual(result.diagnosis, "no failure hotspot detected; workflow remains stable")
+    }
+
     // MARK: - review depends_on linkage
 
     func testReviewGainsValidationDependency() throws {
@@ -198,4 +229,3 @@ final class HarnessTests: XCTestCase {
         XCTAssertTrue(content.contains("\"evaluationScore\""))
     }
 }
-

@@ -4,14 +4,30 @@
 <dict>
     <key>CFBundleIdentifier</key>
     <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+    <key>CFBundleExecutable</key>
+    <string>$(EXECUTABLE_NAME)</string>
+    <key>CFBundleName</key>
+    <string>$(PRODUCT_NAME)</string>
     <key>CFBundleDisplayName</key>
     <string>Jarvis</string>
+    <key>CFBundlePackageType</key>
+    <string>XPC!</string>
     <key>CFBundleShortVersionString</key>
     <string>$(MARKETING_VERSION)</string>
     <key>CFBundleVersion</key>
     <string>$(CURRENT_PROJECT_VERSION)</string>
+    <key>JARVIS_CONVEX_URL</key>
+    <string>https://enduring-starfish-794.convex.cloud</string>
+    <key>JARVIS_HOST_ADDRESS</key>
+    <string>$(JARVIS_HOST_ADDRESS)</string>
+    <key>JARVIS_HOST_PORT</key>
+    <string>$(JARVIS_HOST_PORT)</string>
+    <key>JARVIS_SHARED_SECRET</key>
+    <string>$(JARVIS_SHARED_SECRET)</string>
     <key>NSHealthShareUsageDescription</key>
     <string>J.A.R.V.I.S. monitors watch vital signs to surface critical cockpit context.</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>J.A.R.V.I.S. uses the watch microphone for operator-triggered voice interaction.</string>
     <key>NSExtension</key>
     <dict>
         <key>NSExtensionAttributes</key>

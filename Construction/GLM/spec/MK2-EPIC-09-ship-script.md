@@ -2,7 +2,7 @@
 
 **Lane:** GLM (infra)
 **Parent:** `MARK_II_COMPLETION_PRD.md` §4
-**Depends on:** MK2-EPIC-01, MK2-EPIC-02, MK2-EPIC-05, MK2-EPIC-06
+**Depends on:** MK2-EPIC-01, MK2-EPIC-02, MK2-EPIC-05, MK2-EPIC-06, MK2-EPIC-11
 **Priority:** P0
 **Canon sensitivity:** LOW
 
@@ -23,6 +23,7 @@ Mark II ship is declared ONLY when `scripts/ship-mark-ii.sh` produces green on e
      - `nav-happy-path.sh` (EPIC-06)
      - `voice-loop.sh` (EPIC-05)
      - `arc-submit.sh` (EPIC-03)
+     - `xr-physics-bridge.sh` (EPIC-11)
      - `destructive-confirm-ui.sh` (EPIC-02)
      - `xcodebuild test -workspace jarvis.xcworkspace -scheme all` (EPIC-01, tests)
    - Writes summary to `Storage/mark-ii/last-smoke.json` with per-step ms + pass/fail.

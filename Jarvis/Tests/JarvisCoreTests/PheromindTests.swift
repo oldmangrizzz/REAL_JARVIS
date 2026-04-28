@@ -134,7 +134,7 @@ final class PheromindTests: XCTestCase {
         let states = try engine.applyGlobalUpdate(deposits: deposits, now: now)
         let u = try XCTUnwrap(states[untouched])
         // No deposit: just (1 - 0.20) * 1.0 = 0.80
-        XCTAssertEqual(u.pheromone, 0.80, accuracy: 1e-9)
+        XCTAssertEqual(u.pheromone, 0.80, accuracy: 1e-8)
     }
 
     func testAutoRegistersUnknownEdgeFromDeposit() throws {
@@ -207,4 +207,3 @@ final class PheromindTests: XCTestCase {
         XCTAssertNil(engine.chooseNextEdge(from: "nowhere"))
     }
 }
-

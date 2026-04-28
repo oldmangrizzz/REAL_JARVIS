@@ -1,25 +1,31 @@
 import SwiftUI
 import AppKit
+import UserNotifications
 
 @MainActor
 public final class JarvisMacSystemHooks {
-    private let notificationCenter = NSUserNotificationCenter.default
+    private let notificationCenter = UNUserNotificationCenter.current()
 
     public static let shared = JarvisMacSystemHooks()
 
     private init() {}
 
     public func showNotification(title: String, subtitle: String? = nil, informational: String? = nil) {
-        let notification = NSUserNotification()
-        notification.title = title
+        let content = UNMutableNotificationContent()
+        content.title = title
         if let subtitle = subtitle {
-            notification.subtitle = subtitle
+            content.subtitle = subtitle
         }
         if let informational = informational {
-            notification.informativeText = informational
+            content.body = informational
         }
-        notification.soundName = NSUserNotificationDefaultSoundName
-        notificationCenter.deliver(notification)
+        content.sound = .default
+        let request = UNNotificationRequest(
+            identifier: UUID().uuidString,
+            content: content,
+            trigger: nil
+        )
+        notificationCenter.add(request) { _ in }
     }
 
     public func setDockBadge(_ count: Int) {

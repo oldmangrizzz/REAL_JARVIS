@@ -213,7 +213,11 @@ public final class KeychainIdentityKeyStore: IdentityKeyStore, @unchecked Sendab
             kSecAttrAccount as String: deviceID,
             kSecReturnData as String: false,
             kSecMatchLimit as String: kSecMatchLimitOne,
-            kSecUseAuthenticationUI as String: kSecUseAuthenticationUIFail
+            kSecUseAuthenticationContext as String: {
+                let ctx = LAContext()
+                ctx.interactionNotAllowed = true
+                return ctx
+            }()
         ]
         let status = SecItemCopyMatching(query as CFDictionary, nil)
         return status == errSecSuccess || status == errSecInteractionNotAllowed

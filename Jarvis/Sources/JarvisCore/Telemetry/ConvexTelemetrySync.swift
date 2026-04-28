@@ -16,7 +16,8 @@ public actor ConvexTelemetrySync {
     public init(paths: WorkspacePaths,
                 hostNode: String = ProcessInfo.processInfo.hostName,
                 convexURLString: String? = nil,
-                authToken: String? = ProcessInfo.processInfo.environment["JARVIS_CONVEX_AUTH_TOKEN"]) throws {
+                authToken: String? = ProcessInfo.processInfo.environment["JARVIS_CONVEX_AUTH_TOKEN"],
+                warnWhenUnauthenticated: Bool = true) throws {
         self.paths = paths
         self.hostNode = hostNode
         // R11: allow environment variable override for Convex URL
@@ -29,7 +30,7 @@ public actor ConvexTelemetrySync {
         }
         self.convexURL = url
         self.authToken = authToken
-        if authToken == nil {
+        if authToken == nil && warnWhenUnauthenticated {
             NSLog("[ConvexTelemetrySync] WARNING: Pushing telemetry WITHOUT auth token — set JARVIS_CONVEX_AUTH_TOKEN for production")
         }
     }
@@ -70,10 +71,10 @@ public actor ConvexTelemetrySync {
     private func syncVoiceGateEvents() async {
         let url = tableURL("voice_gate_events")
         guard FileManager.default.fileExists(atPath: url.path) else { return }
-        
+
         let sidecarURL = url.appendingPathExtension("synced_offset")
         var offset: Int64 = 0
-        
+
         // Load previous offset if available, otherwise start from 0
         do {
             let data = try Data(contentsOf: sidecarURL)
@@ -84,7 +85,7 @@ public actor ConvexTelemetrySync {
         } catch {
             // If sidecar missing or corrupt, start from 0; will read all lines
         }
-        
+
         // CX-043: incremental read — seek to offset instead of full file re-read
         guard FileManager.default.fileExists(atPath: url.path) else { return }
         let fileHandle: FileHandle
@@ -103,14 +104,14 @@ public actor ConvexTelemetrySync {
         }
         guard offset >= 0, UInt64(offset) < fileSize else { return }  // nothing new
 
-        try? fileHandle.seek(toFileOffset: UInt64(clamping: offset))
+        fileHandle.seek(toFileOffset: UInt64(clamping: offset))
         let newData = fileHandle.readDataToEndOfFile()
         guard let newContent = String(data: newData, encoding: .utf8) else { return }
         let newLines = newContent.components(separatedBy: .newlines).filter { !$0.isEmpty }
-        
+
         // If nothing new, nothing to do
         if newLines.isEmpty { return }
-        
+
         // Push each new event to Convex
         for line in newLines {
             guard let data = line.data(using: .utf8),
@@ -120,7 +121,7 @@ public actor ConvexTelemetrySync {
             }
             await pushToConvex(path: "jarvis:logVoiceGateEvent", args: json)
         }
-        
+
         // Update offset to reflect what we've processed
         do {
             try String(format: "%lld", Int64(fileSize)).write(to: sidecarURL, atomically: true, encoding: .utf8)
@@ -149,7 +150,6 @@ public actor ConvexTelemetrySync {
             pushFailureCount += 1
             // Observability: log first failure and every 100th thereafter to avoid log spam
             if pushFailureCount == 1 || pushFailureCount % 100 == 0 {
-                let message = "Convex push failed (total failures: \(pushFailureCount)): \(path) — \(error.localizedDescription)"
                 let record: [String: Any] = [
                     "source": "convex_telemetry_sync",
                     "event": "push_failure",
@@ -196,7 +196,7 @@ public actor ConvexTelemetrySync {
         guard fileSize > 0 else { return nil }
         // Read last 4KB max — any single JSONL line will fit
         let readStart = max(0, Int64(fileSize) - 4096)
-        try? handle.seek(toFileOffset: UInt64(clamping: readStart))
+        handle.seek(toFileOffset: UInt64(clamping: readStart))
         let tailData = handle.readDataToEndOfFile()
         guard let tail = String(data: tailData, encoding: .utf8) else { return nil }
         return tail.components(separatedBy: .newlines).filter { !$0.isEmpty }.last

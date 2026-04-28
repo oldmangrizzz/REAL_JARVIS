@@ -1,0 +1,13 @@
+{
+  "name": "jarvis-dark-factory",
+  "version": "1.0.0",
+  "description": "Autonomous CI/CD dark factory for JARVIS project",
+  "type": "module",
+  "scripts": {
+    "dev": "convex dev",
+    "deploy": "convex deploy"
+  },
+  "dependencies": {
+    "convex": "^1.36.1"
+  }
+}

@@ -6,9 +6,10 @@ settings:
   base:
     SWIFT_VERSION: 6.0
     MACOSX_DEPLOYMENT_TARGET: 14.0
-    CODE_SIGNING_ALLOWED: NO
+    CODE_SIGN_STYLE: Automatic
     MARKETING_VERSION: 1.0
-    CURRENT_PROJECT_VERSION: 1
+    CURRENT_PROJECT_VERSION: 2
+    DEVELOPMENT_TEAM: T5AFHQ4L9C
 packages:
   MLXAudio:
     path: vendor/mlx-audio-swift
@@ -19,6 +20,8 @@ targets:
     deploymentTarget: "14.0"
     sources:
       - path: Jarvis/Sources/JarvisCore
+      - path: Jarvis/MobileShared/Sources/JarvisMobileShared/JarvisConvexSyncClient.swift
+      - path: Jarvis/MobileShared/Sources/JarvisMobileShared/JarvisHostConfiguration.swift
       - path: Jarvis/Shared/Sources/JarvisShared
     dependencies:
       - sdk: AppKit.framework
@@ -68,7 +71,7 @@ targets:
       - path: Jarvis/Shared/Sources/JarvisShared
       - path: Jarvis/Mobile/Resources
         buildPhase: resources
-      - path: voice-samples
+      - path: voice-samples/0299_TINCANS_CANONICAL.wav
         buildPhase: resources
     dependencies:
       - sdk: AVFoundation.framework
@@ -77,6 +80,14 @@ targets:
       - sdk: Network.framework
       - sdk: UserNotifications.framework
       - sdk: AppIntents.framework
+      - sdk: HealthKit.framework
+      - sdk: WatchConnectivity.framework
+      - sdk: CloudKit.framework
+      - sdk: HomeKit.framework
+      - sdk: CarPlay.framework
+      - sdk: Speech.framework
+      - sdk: CoreMotion.framework
+      - sdk: PassKit.framework
       - package: MLXAudio
         product: MLXAudioCore
       - package: MLXAudio
@@ -86,6 +97,15 @@ targets:
         DEFINES_MODULE: YES
         PRODUCT_NAME: JarvisMobileCore
         GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_NSHealthShareUsageDescription: "JARVIS reads your health data to provide context-aware assistance during EMS operations and daily life."
+        INFOPLIST_KEY_NSHealthUpdateUsageDescription: "JARVIS records workout and health data to maintain your wellness profile."
+        INFOPLIST_KEY_NSMicrophoneUsageDescription: J.A.R.V.I.S. captures speech for hands-free voice interaction.
+        INFOPLIST_KEY_NSSpeechRecognitionUsageDescription: J.A.R.V.I.S. transcribes spoken commands for voice-driven operation.
+        INFOPLIST_KEY_NSLocationWhenInUseUsageDescription: J.A.R.V.I.S. uses location to provide route, presence, and situational-awareness context.
+        INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription: J.A.R.V.I.S. uses background location only for operator-authorized presence and safety automations.
+        INFOPLIST_KEY_NSMotionUsageDescription: J.A.R.V.I.S. reads motion activity to understand walking, driving, stationary, and responder-context state.
+        INFOPLIST_KEY_NSHomeKitUsageDescription: J.A.R.V.I.S. connects to your HomeKit home so authorized cockpit actions can control local devices.
+        INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription: J.A.R.V.I.S. uses Bluetooth-adjacent audio routing context for authorized private comms endpoints.
 
   JarvisWatchCore:
     type: framework
@@ -99,20 +119,36 @@ targets:
       - sdk: CryptoKit.framework
       - sdk: HealthKit.framework
       - sdk: Network.framework
+      - sdk: WatchConnectivity.framework
     settings:
       base:
         DEFINES_MODULE: YES
         PRODUCT_NAME: JarvisWatchCore
         GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_NSHealthShareUsageDescription: "JARVIS reads your vital signs to provide real-time health context."
 
   JarvisPhone:
     type: application
     platform: iOS
     deploymentTarget: "17.0"
     bundleId: ai.realjarvis.phone
+    entitlements:
+      path: Jarvis/Mobile/Entitlements/JarvisPhone.entitlements
+      properties:
+        com.apple.developer.healthkit: true
+        com.apple.developer.healthkit.access: []
+        aps-environment: production
+        com.apple.developer.icloud-container-identifiers:
+          - iCloud.ai.realjarvis.cloud
+        com.apple.developer.icloud-services:
+          - CloudKit
+        com.apple.security.application-groups:
+          - group.ai.realjarvis
     sources:
       - path: Jarvis/Mobile/AppShared
       - path: Jarvis/Mobile/AppiPhone
+      - path: Jarvis/Mobile/Assets.xcassets
+        buildPhase: resources
     dependencies:
       - target: JarvisMobileCore
       - target: JarvisWatchApp
@@ -121,13 +157,23 @@ targets:
         PRODUCT_NAME: JarvisPhone
         PRODUCT_BUNDLE_IDENTIFIER: ai.realjarvis.phone
         GENERATE_INFOPLIST_FILE: YES
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         TARGETED_DEVICE_FAMILY: "1"
         INFOPLIST_KEY_CFBundleDisplayName: Jarvis
-        INFOPLIST_KEY_JARVIS_HOST_ADDRESS: 127.0.0.1
-        INFOPLIST_KEY_JARVIS_HOST_PORT: "9443"
+        INFOPLIST_KEY_CFBundleIconName: AppIcon
+        INFOPLIST_KEY_JARVIS_HOST_ADDRESS: "$(JARVIS_HOST_ADDRESS)"
+        INFOPLIST_KEY_JARVIS_HOST_PORT: "$(JARVIS_HOST_PORT)"
         INFOPLIST_KEY_JARVIS_CONVEX_URL: https://enduring-starfish-794.convex.cloud
-        INFOPLIST_KEY_JARVIS_SHARED_SECRET: "SET_VIA_BUILD_CONFIG"
+        INFOPLIST_KEY_JARVIS_SHARED_SECRET: "$(JARVIS_SHARED_SECRET)"
         INFOPLIST_KEY_NSMicrophoneUsageDescription: J.A.R.V.I.S. captures speech for cockpit voice startup and command handling.
+        INFOPLIST_KEY_NSSpeechRecognitionUsageDescription: J.A.R.V.I.S. transcribes spoken commands for voice-driven operation.
+        INFOPLIST_KEY_NSLocationWhenInUseUsageDescription: J.A.R.V.I.S. uses location to provide route, presence, and situational-awareness context.
+        INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription: J.A.R.V.I.S. uses background location only for operator-authorized presence and safety automations.
+        INFOPLIST_KEY_NSMotionUsageDescription: J.A.R.V.I.S. reads motion activity to understand walking, driving, stationary, and responder-context state.
+        INFOPLIST_KEY_NSHomeKitUsageDescription: J.A.R.V.I.S. connects to your HomeKit home so authorized cockpit actions can control local devices.
+        INFOPLIST_KEY_NSHealthShareUsageDescription: J.A.R.V.I.S. reads health data only with permission to provide operator safety and context.
+        INFOPLIST_KEY_NSHealthUpdateUsageDescription: J.A.R.V.I.S. writes health data only with permission for operator-approved wellness records.
+        INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription: J.A.R.V.I.S. uses Bluetooth-adjacent audio routing context for authorized private comms endpoints.
         INFOPLIST_KEY_NSUserNotificationsUsageDescription: J.A.R.V.I.S. triggers proactive interruptions when the host brain emits a push event.
         INFOPLIST_KEY_UIBackgroundModes:
           - audio
@@ -142,9 +188,23 @@ targets:
     platform: iOS
     deploymentTarget: "17.0"
     bundleId: ai.realjarvis.pad
+    entitlements:
+      path: Jarvis/Mobile/Entitlements/JarvisPad.entitlements
+      properties:
+        com.apple.developer.healthkit: true
+        com.apple.developer.healthkit.access: []
+        aps-environment: production
+        com.apple.developer.icloud-container-identifiers:
+          - iCloud.ai.realjarvis.cloud
+        com.apple.developer.icloud-services:
+          - CloudKit
+        com.apple.security.application-groups:
+          - group.ai.realjarvis
     sources:
       - path: Jarvis/Mobile/AppShared
       - path: Jarvis/Mobile/AppiPad
+      - path: Jarvis/Mobile/Assets.xcassets
+        buildPhase: resources
     dependencies:
       - target: JarvisMobileCore
     settings:
@@ -152,13 +212,23 @@ targets:
         PRODUCT_NAME: JarvisPad
         PRODUCT_BUNDLE_IDENTIFIER: ai.realjarvis.pad
         GENERATE_INFOPLIST_FILE: YES
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         TARGETED_DEVICE_FAMILY: "2"
         INFOPLIST_KEY_CFBundleDisplayName: Jarvis Cockpit
-        INFOPLIST_KEY_JARVIS_HOST_ADDRESS: 127.0.0.1
-        INFOPLIST_KEY_JARVIS_HOST_PORT: "9443"
+        INFOPLIST_KEY_CFBundleIconName: AppIcon
+        INFOPLIST_KEY_JARVIS_HOST_ADDRESS: "$(JARVIS_HOST_ADDRESS)"
+        INFOPLIST_KEY_JARVIS_HOST_PORT: "$(JARVIS_HOST_PORT)"
         INFOPLIST_KEY_JARVIS_CONVEX_URL: https://enduring-starfish-794.convex.cloud
-        INFOPLIST_KEY_JARVIS_SHARED_SECRET: "SET_VIA_BUILD_CONFIG"
+        INFOPLIST_KEY_JARVIS_SHARED_SECRET: "$(JARVIS_SHARED_SECRET)"
         INFOPLIST_KEY_NSMicrophoneUsageDescription: J.A.R.V.I.S. captures speech for cockpit voice startup and command handling.
+        INFOPLIST_KEY_NSSpeechRecognitionUsageDescription: J.A.R.V.I.S. transcribes spoken commands for voice-driven operation.
+        INFOPLIST_KEY_NSLocationWhenInUseUsageDescription: J.A.R.V.I.S. uses location to provide route, presence, and situational-awareness context.
+        INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription: J.A.R.V.I.S. uses background location only for operator-authorized presence and safety automations.
+        INFOPLIST_KEY_NSMotionUsageDescription: J.A.R.V.I.S. reads motion activity to understand walking, driving, stationary, and responder-context state.
+        INFOPLIST_KEY_NSHomeKitUsageDescription: J.A.R.V.I.S. connects to your HomeKit home so authorized cockpit actions can control local devices.
+        INFOPLIST_KEY_NSHealthShareUsageDescription: J.A.R.V.I.S. reads health data only with permission to provide operator safety and context.
+        INFOPLIST_KEY_NSHealthUpdateUsageDescription: J.A.R.V.I.S. writes health data only with permission for operator-approved wellness records.
+        INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription: J.A.R.V.I.S. uses Bluetooth-adjacent audio routing context for authorized private comms endpoints.
         INFOPLIST_KEY_NSUserNotificationsUsageDescription: J.A.R.V.I.S. triggers proactive interruptions when the host brain emits a push event.
         INFOPLIST_KEY_UIBackgroundModes:
           - audio
@@ -175,12 +245,17 @@ targets:
     bundleId: ai.realjarvis.phone.watchkitapp
     dependencies:
       - target: JarvisWatchExtension
+    sources:
+      - path: Jarvis/Watch/Assets.xcassets
+        buildPhase: resources
     settings:
       base:
         PRODUCT_NAME: JarvisWatch
         PRODUCT_BUNDLE_IDENTIFIER: ai.realjarvis.phone.watchkitapp
         GENERATE_INFOPLIST_FILE: YES
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         INFOPLIST_KEY_CFBundleDisplayName: Jarvis
+        INFOPLIST_KEY_CFBundleIconName: AppIcon
         INFOPLIST_KEY_WKCompanionAppBundleIdentifier: ai.realjarvis.phone
 
   JarvisWatchExtension:

@@ -33,16 +33,49 @@ workshop/quest-cockpit/
 
 ## Runtime wiring
 
-`JarvisTunnelClient.cs` is the thin TCP client that speaks the same
-`TunnelFrame` protocol as `Jarvis/Shared/Sources/JarvisShared/TunnelModels.swift`.
-The frame wire format is JSON + HMAC (see `TunnelCrypto.swift`). Reference
-implementation in Swift — keep the Unity client byte-for-byte compatible.
+Apple phone/watch are the canonical mobile surfaces. Quest follows Apple, not
+the other way around.
 
-Endpoints:
-- Registration: `POST /register` with role `voice-operator` or `mobile-cockpit`.
-  Gated by SPEC-007 (voice-approval-gate must be green for `voice-operator`).
-- Cockpit snapshot stream: `GET /snapshot` — same payload `JarvisMobileCockpitStore`
-  renders.
+`JarvisTunnelClient.cs` now mirrors the Apple TestFlight cockpit by calling the
+same Convex functions used by `JarvisMobileCockpitStore`:
+
+- `jarvis:registerMobileDevice`
+- `jarvis:recordMobileHeartbeat`
+- `jarvis:sharedMobileState`
+
+The rendered data contract is the same shared state:
+
+- Central Brain: `snapshot.statusLine`, tunnel state, diagnostics.
+- Voice Approval Gate: `snapshot.voiceGate`.
+- Spatial HUD Elements: `snapshot.spatialHUD`.
+- Authorization: commands remain restricted to Obsidian Command Bar and terminal.
+- HomeKit Bridge: `homeKitBridge`.
+- Obsidian Control Plane: `obsidianVault`.
+- Recursive Thoughts: `thoughts` / `snapshot.recentThoughts`.
+- Stigmergic Signals: `signals` / `snapshot.recentSignals`.
+
+The encrypted TCP tunnel used by Apple is newline-framed
+`JarvisTransportPacket` + `JarvisTunnelCrypto` ChaChaPoly. Unity does not yet
+ship a byte-compatible tunnel implementation in this project. Until that exists,
+Quest is a cockpit/state surface and Roger Roger/GhostLine control-plane surface;
+it is not a privileged command surface.
+
+## Roger Roger / GhostLine parity
+
+Quest exposes the same modes:
+
+- Sentinel -> Watch Haptics/Text
+- Push to Talk -> Watch Speaker
+- Full Live Speech -> Elehear Beyond
+
+This is state routing, not a surprise live microphone. The live media plane
+must be deliberately connected after voice gate approval.
+
+## Release safety
+
+For release builds, the Quest client fails closed if host address, host port, or
+shared secret are blank, localhost, or build-setting placeholders. Secrets are
+injected locally; never commit them.
 
 ## Building
 

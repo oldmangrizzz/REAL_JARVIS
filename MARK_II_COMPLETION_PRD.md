@@ -48,7 +48,7 @@ The operator cannot read code. Operator acceptance is judged by:
 | Memory engine (knowledge graph, SHA256, witness telemetry) | `Memory/MemoryEngine.swift` | REAL |
 | Master oscillator + phase-lock monitor | `Oscillator/*.swift` | REAL |
 | Pheromind (stigmergic routing) | `Pheromind/*.swift` | REAL |
-| Physics bridge (stub) + ARC grid adapter | `Physics/*.swift`, `ARC/*.swift` | REAL — **end-to-end path incomplete (EPIC-03)** |
+| Physics bridge (stub) + ARC grid adapter | `Physics/*.swift`, `ARC/*.swift` | REAL — **ARC E2E shipped by EPIC-03; XR bridge feed added by EPIC-11** |
 | Soul Anchor (dual-root signing) | `SoulAnchor/SoulAnchor.swift` | REAL — **rotation scripts missing (EPIC-08)** |
 | WiFi environment scanner (RSSI proximity) | `Network/WiFiEnvironmentScanner.swift`, `PresenceDetector.swift` | REAL (RSSI-based, not true CSI) |
 | Display bridges (DDC, AirPlay, HDMI-CEC, HTTP) | `Interface/{AirPlay,HDMICEC,HTTPDisplay}Bridge.swift` | REAL — **runtime hardware untested on mesh (EPIC-09 smoke)** |
@@ -64,8 +64,8 @@ The operator cannot read code. Operator acceptance is judged by:
 ### 1.4 Clients / Frontends
 
 - `pwa/index.html` — 1062-line PWA cockpit; real WebSocket tunnel.
-- `xr.grizzlymedicine.icu/` — WebXR portal rewritten (GAP-002 done).
-- `the_workshop.html` — A-Frame 1.7.1 workshop (knowledge graph renderer).
+- `xr.grizzlymedicine.icu/` — lightweight status portal rewritten (GAP-002 done).
+- `the_workshop.html` — A-Frame 1.7.1 passthrough workshop (knowledge graph + pheromone renderer); **needs physics-summary feed + smoke gate (EPIC-11)**.
 
 ### 1.5 Forge (the builder that executes this PRD)
 
@@ -108,17 +108,18 @@ Mark II ships when **every one of these is true**:
 6. **Tunnel authorization bounded.** Client cannot self-assert role. Server issues role-scoped tokens signed with host key. Destructive commands require explicit `--confirm` header echoing the command hash.
 7. **Soul Anchor rotation drill passes.** `scripts/soul-anchor/rotate.sh` produces a new key pair, dual-signs a canon test artifact, verifies signatures, and rolls back cleanly. Operator completes one live drill, result logged to `Storage/soul-anchor/rotation.log`.
 8. **ARC-AGI end-to-end submission.** `scripts/arc/submit.sh <task-file.json>` loads a task into physics, runs RLM, emits a proposed grid, writes submission JSON, and logs a telemetry decision. Does not require network to demonstrate; demo uses canned task.
-9. **Dashboard shows operator-useful state.** `https://forge.grizzlymedicine.icu` displays: active Ralph iter per task, last 20 telemetry events, mesh-display health, voice gate state, RustDesk pill. Updates within 3 s of state change.
-10. **CI canon-gate.** Any PR that modifies `PRINCIPLES.md`, `SOUL_ANCHOR.md`, `VERIFICATION_PROTOCOL.md`, or `CANON/**` is blocked unless it carries a dual signature artifact. Enforced by `scripts/ci/canon-gate.sh` executed in GitHub Actions.
+9. **XR passthrough workshop + physics grounding.** `the_workshop.html` enters WebXR passthrough where supported, renders live knowledge/pheromone telemetry, and consumes a bounded `PhysicsSummary` feed generated through `PhysicsSummarizer` (never raw arrays). `scripts/smoke/xr-physics-bridge.sh` exits 0 against local static assets and demo physics output.
+10. **Dashboard shows operator-useful state.** `https://forge.grizzlymedicine.icu` displays: active Ralph iter per task, last 20 telemetry events, mesh-display health, voice gate state, RustDesk pill, and XR/physics bridge state. Updates within 3 s of state change.
+11. **CI canon-gate.** Any PR that modifies `PRINCIPLES.md`, `SOUL_ANCHOR.md`, `VERIFICATION_PROTOCOL.md`, or `CANON/**` is blocked unless it carries a dual signature artifact. Enforced by `scripts/ci/canon-gate.sh` executed in GitHub Actions.
 
-If any of (1)–(10) is red, Mark II is **not** shipped. Ralph continues.
+If any of (1)–(11) is red, Mark II is **not** shipped. Ralph continues.
 
 ---
 
 ## 3. Non-Goals (explicit — do NOT do as part of Mark II)
 
-- MuJoCo production physics. Stub physics engine is sufficient for Mark II ARC demo.
-- Full WebXR immersive ARC competition scoring UI. Mark III.
+- MuJoCo production physics. Stub physics engine remains sufficient for Mark II ARC demo and XR grounding, but the bridge must keep the backend seam ready for MuJoCo.
+- Full VR world / immersive ARC competition scoring UI. Mark III. Mark II delivers the passthrough workshop and physics summary feed only.
 - HomeKit write-paths (dimming lights, locks). Read-only status is Mark II; writes are Mark III.
 - Multi-operator support. Single-operator only in Mark II.
 - Full F5-TTS fleet autoscaling. One-VM-per-region is Mark II.
@@ -143,21 +144,22 @@ Each epic below is a **single Forge task** with a dedicated spec under `Construc
 | **MK2-EPIC-08** | Soul Anchor rotation + CI canon gate | Nemotron | — | P0 |
 | **MK2-EPIC-09** | One-command deploy + smoke suite | GLM | EPIC-01, 05, 06 | P0 |
 | **MK2-EPIC-10** | visionOS thin client (behind SDK gate) | Qwen | EPIC-01 | P2 |
+| **MK2-EPIC-11** | XR passthrough physics bridge | Qwen | EPIC-03, EPIC-04, EPIC-07 | P0 |
 
 **Dependency graph (execution order hint for Ralph):**
 
 ```
 EPIC-01 ─┬─> EPIC-02 ─┐
-         ├─> EPIC-03  │
-         ├─> EPIC-06  ├─> EPIC-09 (deploy)
-         ├─> EPIC-07  │
-         └─> EPIC-10  │
-EPIC-04  ─────────────┤
-EPIC-05  ─────────────┤
-EPIC-08  ─────────────┘
+         ├─> EPIC-03 ─┬─> EPIC-11 ─┐
+         ├─> EPIC-06  │            │
+         ├─> EPIC-07 ─┘            ├─> EPIC-09 (deploy)
+         └─> EPIC-10               │
+EPIC-04  ───────────────> EPIC-11 ─┤
+EPIC-05  ──────────────────────────┤
+EPIC-08  ──────────────────────────┘
 ```
 
-P0 epics block Mark II ship. P1 are strongly desired. P2 ships if green; otherwise deferred to Mark III.
+P0 epics block Mark II ship. P1 are strongly desired. P2 ships if green; otherwise deferred to Mark III. EPIC-11 is P0 because Mark III construction depends on JARVIS having a live spatial/physics grounding surface while remaining functional for day-to-day work.
 
 ---
 
@@ -200,9 +202,9 @@ If **any three consecutive epics** hit `needs_spec_clarification` or fail SHIELD
 
 ## 7. Definition of Mark III (forward reference — NOT scope)
 
-Mark III begins when Mark II is declared shipped per §2. Mark III scope is drafted separately and will address: MuJoCo physics, HomeKit writes, WebXR competition UI, F5-TTS autoscale, Aragorn persona-pair NLB protocol, multi-operator, post-terminus corpus handling, ARC-AGI live competition submission.
+Mark III begins when Mark II is declared shipped per §2. Mark III scope is drafted separately and will address: production MuJoCo physics, HomeKit writes, full VR / WebXR competition UI, F5-TTS autoscale, Aragorn persona-pair NLB protocol, multi-operator, post-terminus corpus handling, ARC-AGI live competition submission.
 
-Mark III is **explicitly out of scope for this PRD**. Do not pre-build it into Mark II epics. Premature generalization is rejected by SHIELD.
+Mark III is **explicitly out of scope for this PRD**. Do not pre-build it into Mark II epics. The exception is EPIC-11's narrow bridge: XR passthrough plus bounded physics summaries are Mark II operational infrastructure, not the full Mark III VR/MuJoCo organism. Premature generalization beyond that bridge is rejected by SHIELD.
 
 ---
 
@@ -210,8 +212,8 @@ Mark III is **explicitly out of scope for this PRD**. Do not pre-build it into M
 
 This PRD is accepted when:
 - Committed to `main` at `REAL_JARVIS/MARK_II_COMPLETION_PRD.md`.
-- 10 lane specs land under `Construction/<Lane>/spec/MK2-EPIC-NN-*.md`.
-- Forge ingests all 10 on next ignition and emits iMessage: `MK2 PRD ingested — 10 epics queued`.
+- 11 lane specs land under `Construction/<Lane>/spec/MK2-EPIC-NN-*.md`.
+- Forge ingests all 11 on next ignition and emits iMessage: `MK2 PRD ingested — 11 epics queued`.
 
 Signed: **Operator** (procedural acknowledgement — cryptographic signatures applied per SOUL_ANCHOR §4 on first canon reference by any shipped artifact).
 

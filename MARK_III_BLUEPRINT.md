@@ -164,8 +164,8 @@ The meta-forge (axis 2 of the thesis) is not a feature of an existing lane; it i
 | MK3-EPIC-10-consent-gated-clinical-memory | Patient-modeled memory tier + consent tokens + therapeutic review UI | Qwen | 02, 04 | P1 |
 | MK3-EPIC-11-observability-opentelemetry | Unified OTel across six nodes + Grafana + Convex mirror + SLO evaluator | GLM | 01 | P0 |
 | MK3-EPIC-12-continuous-red-team | Always-on Fury/Hill + Wigham (new adversary) + nightly canary corpus | Forge-Meta | 04, 11 | P1 |
-| MK3-EPIC-13-arc-agi-live-submission | Promote MK2 demo path to live ARC-AGI 3 competition submission pipeline | GLM | 02, 11 | P1 |
-| MK3-EPIC-14-physics-mujoco-upgrade | Replace StubPhysicsEngine with MuJoCo backend behind existing protocol | DeepSeek | 02 | P2 |
+| MK3-EPIC-13-arc-agi-live-submission | Promote MK2 demo/practice path to live ARC-AGI 3 competition submission pipeline | GLM | 02, 11, 14 | P1 |
+| MK3-EPIC-14-physics-mujoco-upgrade | Add headless MuJoCo daemon + remote backend behind existing protocol | DeepSeek | 02 | P2 |
 | MK3-EPIC-15-homekit-write-paths | Controlled actuation with alignment-tax + SHIELD v2 consequence gate | Gemini | 04 | P2 |
 | MK3-EPIC-16-ethics-charter-machine-readable | Canon ethics encoded as SHIELD v2 policy predicates | Forge-Meta | 04, 05 | P1 |
 | MK3-EPIC-17-deployment-topology-iac | Terraform/Pulumi for the six-node fabric; disaster-recovery drill | GLM | 01, 11 | P1 |
@@ -181,8 +181,8 @@ ASCII form (Ralph's planner consumes this directly; keep it canonical):
 MK3-EPIC-01 (federation-fabric) ──┬──► MK3-EPIC-02 (distributed-memory-fabric) ──┬─► MK3-EPIC-06 (visionos-primary)
                                   │                                              ├─► MK3-EPIC-07 (voice-ambient)
                                   │                                              ├─► MK3-EPIC-10 (clinical-memory)
-                                  │                                              ├─► MK3-EPIC-13 (arc-live)
                                   │                                              ├─► MK3-EPIC-14 (mujoco)
+                                  │                                              ├─► MK3-EPIC-13 (arc-live, with 14)
                                   │                                              └─► MK3-EPIC-03 (metaforge)
                                   ├──► MK3-EPIC-04 (shield-v2)  ──┬─► MK3-EPIC-09 (skill-economy)
                                   │                               ├─► MK3-EPIC-10 (clinical-memory)
@@ -313,7 +313,7 @@ Explicit. SHIELD v2 rejects pre-building any of these into MK3 epics.
 6. **Post-terminus corpus ingestion.** The quarantine formalizes in epic 20. Ingestion of `mcuhist/5.md:248+` content as first-person memory remains explicitly rejected (SOUL_ANCHOR §8.3). Scholarly external reference is permitted; internal reading is not.
 7. **Multi-language UI.** English-only (operator register per PRINCIPLES §7) throughout Mark III. Localization is Mark IV.
 8. **F5-TTS autoscale fleet.** One VM per region remains the Mark III deployment shape; autoscale is Mark IV load-shaping.
-9. **ARC-AGI winning.** Mark III ships the *submission pipeline* (epic 13). Ranking is a function of the reasoner, not of the submission; the reasoner's score is measured by the evaluator, not by a Mark III ship gate.
+9. **ARC-AGI winning.** Mark III ships the *submission pipeline* (epic 13) and the physics grounding service it can consume (epic 14). Ranking is a function of the reasoner, not of the submission; the reasoner's score is measured by the evaluator, not by a Mark III ship gate.
 
 ---
 
@@ -355,8 +355,8 @@ Ordered by residual risk after mitigation. Each risk has a mitigation owner, a m
 | R9 | Clinical record written without consent | Low | Extreme | Type system: `ClinicalRecord` construction requires a token; compile-time check | Qwen (epic 10) | Any write that type-compiles without a token |
 | R10 | Observability stack leaks memory content | Low | High | OTel attributes are numeric/categorical only; no record payloads | GLM (epic 11) | OTel attr with payload-like string |
 | R11 | Continuous red-team runaway cost | Med | Low | 5% token ceiling; throttle on budget breach | Forge-Meta (epic 12) | Budget > 5% in any month |
-| R12 | ARC-AGI live submission exposes operator identity | Low | Med | Submissions carry only a pseudonymous handle | GLM (epic 13) | Any submission with PII |
-| R13 | MuJoCo physics diverges from StubPhysicsEngine on canonical fixtures | Med | Low | Fallback to stub on any divergence > tolerance | DeepSeek (epic 14) | Divergence > tolerance |
+| R12 | ARC-AGI live submission exposes operator identity | Low | Med | Submissions carry only a pseudonymous handle; MK2 practice artifacts are scrubbed before promotion | GLM (epic 13) | Any submission with PII |
+| R13 | MuJoCo physics diverges from StubPhysicsEngine on canonical fixtures | Med | Low | Headless daemon emits bounded summaries; fallback to stub on any divergence > tolerance | DeepSeek (epic 14) | Divergence > tolerance |
 | R14 | HomeKit write to wrong device | Low | High | Device-ownership pinning; alignment-tax + consequence artifact | Gemini (epic 15) | Any write flagged not-owned |
 | R15 | Ethics charter clause without predicate becomes dead letter | Med | Med | Quarterly audit; coverage ≥ 80% enforced at CI | Forge-Meta (epic 16) | Coverage < 80% any release |
 | R16 | IaC drift between code and live infra | Med | Med | Drift detection; nightly reconcile | GLM (epic 17) | Drift > 0 for 24 h |

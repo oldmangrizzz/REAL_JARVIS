@@ -70,7 +70,7 @@ public struct CanonBackendGate {
             )
         }
 
-        let env = ProcessInfo.processInfo.environment
+        let env = JarvisRuntimeEnvironment.resolved()
         let expectedHost = env["JARVIS_CANON_TTS_HOST"] ?? "delta.grizzlymedicine.icu"
         let expectedPort = Int(env["JARVIS_CANON_TTS_PORT"] ?? "8787") ?? 8787
         let expectedModel = "xtts-v2"
@@ -119,7 +119,7 @@ public struct CanonBackendGate {
         // Load and verify reference clip SHA
         let homeDir = FileManager.default.homeDirectoryForCurrentUser
         let sha256File = homeDir.appendingPathComponent(".jarvis/voice/canon_ref.sha256")
-        
+
         guard FileManager.default.fileExists(atPath: sha256File.path) else {
             throw CanonGateError.missingRefClipSHA
         }

@@ -183,4 +183,65 @@ final class WorkspacePathsTests: XCTestCase {
         XCTAssertEqual(JarvisError.processFailure("boom").description, "boom")
         XCTAssertEqual(JarvisError.serializationFailure("json").description, "json")
     }
+
+    // MARK: - Runtime environment + bridge config
+
+    func testResolvedEnvironmentLoadsDotEnvWithoutClobberingProcessEnvironment() throws {
+        let home = tempRoot.appendingPathComponent("home", isDirectory: true)
+        let workspace = tempRoot.appendingPathComponent("workspace", isDirectory: true)
+        try fm.createDirectory(at: home.appendingPathComponent("real_jarvis", isDirectory: true), withIntermediateDirectories: true)
+        try fm.createDirectory(at: workspace, withIntermediateDirectories: true)
+
+        try """
+        HF_TOKEN=from-root
+        JARVIS_SHARED_SECRET=root-secret
+        """.write(
+            to: workspace.appendingPathComponent(".env"),
+            atomically: true,
+            encoding: .utf8
+        )
+
+        try """
+        LIVEKIT_URL=wss://delta.example.test
+        NVIDIA_API_KEY=nv-key
+        HF_TOKEN=from-home
+        """.write(
+            to: home.appendingPathComponent("real_jarvis/.env"),
+            atomically: true,
+            encoding: .utf8
+        )
+
+        let resolved = JarvisRuntimeEnvironment.resolved(
+            root: workspace,
+            processEnvironment: ["HF_TOKEN": "from-process"],
+            homeDirectory: home
+        )
+
+        XCTAssertEqual(resolved["HF_TOKEN"], "from-process")
+        XCTAssertEqual(resolved["JARVIS_SHARED_SECRET"], "root-secret")
+        XCTAssertEqual(resolved["LIVEKIT_URL"], "wss://delta.example.test")
+        XCTAssertEqual(resolved["NVIDIA_API_KEY"], "nv-key")
+    }
+
+    func testBridgeConfigurationDecodesClaudeBridgeJSON() throws {
+        let configURL = tempRoot.appendingPathComponent("bridge.json")
+        try """
+        {
+          "base_url": "http://127.0.0.1:8283",
+          "agent_id": "agent-kimi",
+          "model": "openai-proxy/kimi-k2.6:cloud",
+          "embedding_model": "openai-proxy/all-minilm:latest",
+          "vault_path": "/Users/grizzmed/Documents/Obsidian Vault",
+          "vault_write_folder": "AI/Memory"
+        }
+        """.write(to: configURL, atomically: true, encoding: .utf8)
+
+        let config = try JarvisBridgeConfiguration.load(from: configURL)
+
+        XCTAssertEqual(config.baseURL.absoluteString, "http://127.0.0.1:8283")
+        XCTAssertEqual(config.agentID, "agent-kimi")
+        XCTAssertEqual(config.model, "openai-proxy/kimi-k2.6:cloud")
+        XCTAssertEqual(config.embeddingModel, "openai-proxy/all-minilm:latest")
+        XCTAssertEqual(config.vaultWriteFolder, "AI/Memory")
+    }
 }

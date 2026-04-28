@@ -130,7 +130,7 @@ final class CompanionCapabilityPolicyTests: XCTestCase {
                 XCTFail("companion must be denied \(action.rawValue)")
             }
         }
-        let allowed: [JarvisRemoteAction] = [.status, .ping, .homeKitStatus, .listSkills, .presenceArrival]
+        let allowed: [JarvisRemoteAction] = [.status, .ping, .homeKitStatus, .listSkills, .presenceArrival, .rogerRogerMode]
         for action in allowed {
             XCTAssertEqual(
                 policy.evaluateTunnelAction(action, principal: .companion(memberID: "melissa")),

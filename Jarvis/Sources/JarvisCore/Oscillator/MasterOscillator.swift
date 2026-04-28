@@ -26,7 +26,7 @@ public struct OscillatorTick: Codable, Sendable, Equatable {
     public let intervalMilliseconds: Double
 }
 
-public protocol PhaseLockedSubscriber: AnyObject {
+public protocol PhaseLockedSubscriber: AnyObject, Sendable {
     var subscriberID: String { get }
     func onTick(_ tick: OscillatorTick)
 }
@@ -183,7 +183,7 @@ public final class MasterOscillator {
         // serial queue (label: "jarvis.oscillator") ensures no concurrent onTick delivery.
         // manualTick delivers synchronously for test determinism.
         if asyncOnTick {
-            for sub in live.values { queue.async { sub.onTick(tick) } }
+            for sub in live.values { queue.async { [sub] in sub.onTick(tick) } }
         } else {
             for sub in live.values { sub.onTick(tick) }
         }

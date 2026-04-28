@@ -115,4 +115,55 @@ final class LettaBridgeTests: XCTestCase {
         _ = try await bridge(t, token: nil).health()
         XCTAssertNil(t.calls[0].authorization)
     }
+
+    func testExternalMemoryBridgeRecallParsesHookContext() throws {
+        let paths = try makeTestWorkspace()
+        let telemetry = try TelemetryStore(paths: paths)
+        let temp = FileManager.default.temporaryDirectory.appendingPathComponent("external-memory-\(UUID().uuidString)", isDirectory: true)
+        try FileManager.default.createDirectory(at: temp, withIntermediateDirectories: true)
+        let scripts = temp.appendingPathComponent("scripts", isDirectory: true)
+        try FileManager.default.createDirectory(at: scripts, withIntermediateDirectories: true)
+
+        let configURL = temp.appendingPathComponent("bridge.json")
+        try """
+        {
+          "base_url": "http://127.0.0.1:8283",
+          "agent_id": "agent-test",
+          "model": "openai-proxy/kimi-k2.6:cloud",
+          "embedding_model": "openai-proxy/all-minilm:latest",
+          "vault_path": "/vault",
+          "vault_write_folder": "AI/Memory"
+        }
+        """.write(to: configURL, atomically: true, encoding: .utf8)
+
+        let recallScript = scripts.appendingPathComponent("bridge-context-lookup.py")
+        try """
+        #!/usr/bin/env python3
+        import json, sys
+        payload = json.load(sys.stdin)
+        assert payload["prompt"] == "migration status"
+        print(json.dumps({
+          "hookSpecificOutput": {
+            "additionalContext": "=== Letta archival memory ===\\n- migration succeeded cleanly",
+            "systemMessage": "bridge recall: 1 letta / 0 vault hits"
+          }
+        }))
+        """.write(to: recallScript, atomically: true, encoding: .utf8)
+
+        let bridge = ExternalMemoryBridge(
+            paths: paths,
+            telemetry: telemetry,
+            bridgeConfig: try JarvisBridgeConfiguration.load(from: configURL),
+            bridgeConfigURL: configURL,
+            scriptsDirectory: scripts,
+            pythonExecutableURL: URL(fileURLWithPath: "/usr/bin/python3"),
+            environment: [:]
+        )
+
+        let recall = try bridge.recall(query: "migration status")
+
+        XCTAssertFalse(recall.isEmpty)
+        XCTAssertEqual(recall.systemMessage, "bridge recall: 1 letta / 0 vault hits")
+        XCTAssertEqual(recall.spokenSummary, "migration succeeded cleanly")
+    }
 }

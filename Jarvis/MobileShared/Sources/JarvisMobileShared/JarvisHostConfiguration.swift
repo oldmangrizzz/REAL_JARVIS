@@ -8,6 +8,7 @@ public enum JarvisDeviceRole: String, Codable, CaseIterable, Sendable {
     case phone
     case tablet
     case watch
+    case macDesktop
 }
 
 public struct JarvisHostConfiguration: Sendable {
@@ -16,6 +17,11 @@ public struct JarvisHostConfiguration: Sendable {
     public let convexURL: URL
     public let sharedSecret: String
     public let convexAuthToken: String?
+    public let tunnelConfigurationError: String?
+
+    public var canConnectTunnel: Bool {
+        tunnelConfigurationError == nil
+    }
 
     public static func load(from bundle: Bundle = .main, role: JarvisDeviceRole) -> JarvisHostConfiguration {
         let hostAddress = bundle.object(forInfoDictionaryKey: "JARVIS_HOST_ADDRESS") as? String ?? "127.0.0.1"
@@ -24,20 +30,52 @@ public struct JarvisHostConfiguration: Sendable {
         let authToken = bundle.object(forInfoDictionaryKey: "JARVIS_CONVEX_AUTH_TOKEN") as? String
         let configuredSecret = bundle.object(forInfoDictionaryKey: "JARVIS_SHARED_SECRET") as? String
 
-        if let secret = configuredSecret, secret == "SET_VIA_BUILD_CONFIG" || secret.isEmpty {
-            NSLog("[JarvisHostConfiguration] WARNING: Shared secret is placeholder/empty — tunnel connection will be insecure. Set JARVIS_SHARED_SECRET in build config for production.")
+        let trimmedSecret = configuredSecret?.trimmingCharacters(in: .whitespacesAndNewlines)
+        let hasPlaceholderSecret = trimmedSecret == nil
+            || trimmedSecret == ""
+            || trimmedSecret == "SET_VIA_BUILD_CONFIG"
+            || trimmedSecret == "$(JARVIS_SHARED_SECRET)"
+        let trimmedHost = hostAddress.trimmingCharacters(in: .whitespacesAndNewlines)
+        let trimmedPort = hostPortString.trimmingCharacters(in: .whitespacesAndNewlines)
+        let hasPlaceholderHost = trimmedHost.isEmpty
+            || trimmedHost == "127.0.0.1"
+            || trimmedHost == "localhost"
+            || trimmedHost.hasPrefix("$(")
+        let hasPlaceholderPort = trimmedPort.isEmpty || trimmedPort.hasPrefix("$(")
+
+        let configurationError: String?
+        if hasPlaceholderSecret {
+            configurationError = "JARVIS_SHARED_SECRET must be injected before tunnel audio/control can connect."
+        } else if hasPlaceholderHost {
+            configurationError = "JARVIS_HOST_ADDRESS must be a real reachable host before tunnel audio/control can connect."
+        } else if hasPlaceholderPort || UInt16(trimmedPort) == nil {
+            configurationError = "JARVIS_HOST_PORT must be injected as a valid port before tunnel audio/control can connect."
+        } else {
+            configurationError = nil
         }
 
-        let seed = configuredSecret?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty == false
-            ? configuredSecret!
-            : derivedSecret(bundle: bundle, address: hostAddress, port: hostPortString, role: role)
+        #if DEBUG
+        if hasPlaceholderSecret {
+            NSLog("[JarvisHostConfiguration] WARNING: Shared secret is placeholder/empty; using debug-only derived tunnel secret.")
+        }
+        let resolvedPort = UInt16(trimmedPort) ?? 9443
+        let seed = hasPlaceholderSecret
+            ? derivedSecret(bundle: bundle, address: hostAddress, port: hostPortString, role: role)
+            : trimmedSecret!
+        #else
+        let resolvedPort = UInt16(trimmedPort) ?? 9443
+        let seed = hasPlaceholderSecret
+            ? derivedSecret(bundle: bundle, address: hostAddress, port: hostPortString, role: role)
+            : trimmedSecret!
+        #endif
 
         return JarvisHostConfiguration(
             hostAddress: hostAddress,
-            hostPort: UInt16(hostPortString) ?? 9443,
+            hostPort: resolvedPort,
             convexURL: URL(string: convexString) ?? URL(string: "https://real-jarvis.convex.site")!,
             sharedSecret: seed,
-            convexAuthToken: authToken
+            convexAuthToken: authToken,
+            tunnelConfigurationError: configurationError
         )
     }
 

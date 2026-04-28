@@ -18,6 +18,8 @@ ARC-AGI 3 is the program's public forcing function (per `JARVIS_INTELLIGENCE_REP
 
 Missing: a **single-command path** from "here is a task file" → "submission JSON emitted" that exercises all of: grid ingest → physics simulation → RLM inference → candidate grid emission → submission write + telemetry.
 
+This is also the Mark II practice lane for ARC-AGI-3 while Mark III is being built. Mark II does not submit to the live competition, but it must produce repeatable offline practice artifacts that a later Mark III live-submission pipeline can ingest without reworking the core reasoning path.
+
 ## Scope
 
 ### In
@@ -48,7 +50,7 @@ Missing: a **single-command path** from "here is a task file" → "submission JS
 ### Out
 
 - Do NOT build the online competition submission uploader (Mark III).
-- Do NOT add MuJoCo. Stub physics is sufficient.
+- Do NOT make MuJoCo mandatory for this epic. Stub physics is sufficient for the smoke path. If EPIC-11 or a later MuJoCo service exists, this orchestrator may consume its bounded `PhysicsSummary` as extra grounding, but the ARC demo must still pass without MuJoCo.
 - Do NOT modify the RLM Python side beyond adding a small `propose_grid(state) -> [[int]]` wrapper if not present. Keep the RLM sovereign per NLB §1.1.
 
 ## Acceptance Criteria
@@ -63,6 +65,7 @@ Missing: a **single-command path** from "here is a task file" → "submission JS
 
 - PRINCIPLES §2: RLM runs locally (existing Python subprocess). No cloud inference for ARC.
 - Physics engine output summarized by `PhysicsSummarizer` for any operator-visible log lines (NLB-compliant natural-language output).
+- ARC-AGI-3 live submission is a Mark III target. Mark II creates offline practice artifacts and telemetry; it does not represent ranking, winning, or external submission as a ship criterion.
 
 ## Artifacts
 

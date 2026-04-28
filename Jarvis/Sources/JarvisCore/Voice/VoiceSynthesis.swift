@@ -812,7 +812,7 @@ private struct VoiceReferenceAnalyzer {
             throw JarvisError.processFailure("Unable to create resampled buffer for \(url.path).")
         }
 
-        final class Provider {
+        final class Provider: @unchecked Sendable {
             let buffer: AVAudioPCMBuffer
             var consumed = false
             init(buffer: AVAudioPCMBuffer) { self.buffer = buffer }

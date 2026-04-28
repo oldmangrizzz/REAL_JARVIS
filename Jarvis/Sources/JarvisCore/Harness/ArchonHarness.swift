@@ -40,6 +40,10 @@ private struct ExecutionTrace {
     let inputContext: String
     let outputResult: String
     let status: String
+
+    var isFailure: Bool {
+        status.lowercased() != "success"
+    }
 }
 
 public final class MetaHarness {
@@ -63,9 +67,10 @@ public final class MetaHarness {
         }
 
         let traces = try loadExecutionTraces(from: traceDirectory)
+            .filter { $0.workflowID == workflow.name }
 
         let failureCounts = traces.reduce(into: [String: Int]()) { partial, trace in
-            if trace.status.lowercased() != "success" {
+            if trace.isFailure {
                 partial[trace.stepID, default: 0] += 1
             }
         }
@@ -179,7 +184,15 @@ public final class MetaHarness {
     }
 
     private func diagnose(from traces: [ExecutionTrace], failureCounts: [String: Int]) -> String {
-        let joined = traces.map(\.outputResult).joined(separator: "\n").lowercased()
+        guard !failureCounts.isEmpty else {
+            return "no failure hotspot detected; workflow remains stable"
+        }
+
+        let joined = traces
+            .filter(\.isFailure)
+            .map(\.outputResult)
+            .joined(separator: "\n")
+            .lowercased()
         if joined.contains("dependency") || joined.contains("depends_on") {
             return "missing dependency detected during counterfactual diagnosis"
         }
@@ -188,9 +201,6 @@ public final class MetaHarness {
         }
         if joined.contains("compile") || joined.contains("xcodebuild") || joined.contains("swift") {
             return "validation failure detected in host build pipeline"
-        }
-        if failureCounts.isEmpty {
-            return "no failure hotspot detected; workflow remains stable"
         }
         return "high failure density detected around \(failureCounts.max(by: { $0.value < $1.value })?.key ?? "unknown")"
     }

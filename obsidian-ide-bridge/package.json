@@ -1,0 +1,19 @@
+{
+  "name": "obsidian-ide-bridge",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "env -u CONVEX_DEPLOY_KEY convex dev",
+    "deploy": "env -u CONVEX_DEPLOY_KEY convex deploy",
+    "deploy:ci": "convex deploy",
+    "codegen": "env -u CONVEX_DEPLOY_KEY convex codegen",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "convex": "^1.36.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}

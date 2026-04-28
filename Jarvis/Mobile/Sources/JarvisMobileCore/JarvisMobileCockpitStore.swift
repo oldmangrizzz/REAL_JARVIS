@@ -64,7 +64,12 @@ public final class JarvisMobileCockpitStore: ObservableObject {
             return
         }
         started = true
-        tunnel.connect()
+        if configuration.canConnectTunnel {
+            tunnel.connect()
+        } else {
+            connectionState = .disconnected
+            diagnostics = configuration.tunnelConfigurationError ?? "Tunnel configuration is incomplete."
+        }
 
         do {
             try await voice.warm()

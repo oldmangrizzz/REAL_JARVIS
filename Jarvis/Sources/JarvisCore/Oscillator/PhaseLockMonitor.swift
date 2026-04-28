@@ -117,7 +117,6 @@ public final class PhaseLockMonitor {
     }
 
     private func computeScore(subscriberID: String, window: [PhaseSample]) -> PhaseLockScore {
-        let n = Double(window.count)
         let drifts = window.map(\.driftMilliseconds)
 
         // Guard against NaN/Inf propagation from Date arithmetic edge cases.

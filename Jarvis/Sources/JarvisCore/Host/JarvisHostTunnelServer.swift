@@ -96,7 +96,8 @@ public final class JarvisHostTunnelServer: @unchecked Sendable {
             }
         }
         listener.newConnectionHandler = { [weak self] connection in
-            self?.queue.async { self?.accept(connection) }  // CX-011: dispatch accept onto serial queue
+            guard let self else { return }
+            self.queue.async { self.accept(connection) }  // CX-011: dispatch accept onto serial queue
         }
         listener.start(queue: queue)
         self.listener = listener
@@ -577,6 +578,26 @@ public final class JarvisHostTunnelServer: @unchecked Sendable {
                     "reachable": controlPlane.homeKitBridge.reachable,
                     "authorizedCommandSources": controlPlane.homeKitBridge.authorizedCommandSources
                 ])
+            )
+        case .rogerRogerMode:
+            let payload = try parsePayload(command.payloadJSON)
+            let mode = (payload["mode"] as? String) ?? "unknown"
+            let endpoint = (payload["preferredEndpoint"] as? String) ?? "unknown"
+            try runtime.telemetry.append(
+                record: [
+                    "mode": mode,
+                    "preferredEndpoint": endpoint,
+                    "source": command.source ?? "unknown",
+                    "acceptedAt": isoFormatter.string(from: Date()),
+                    "payloadJSON": command.payloadJSON ?? ""
+                ],
+                to: "roger_roger_mode_events"
+            )
+            return JarvisTunnelResponse(
+                action: .rogerRogerMode,
+                spokenText: "Roger Roger \(mode) routed to \(endpoint).",
+                snapshot: try makeSnapshot(),
+                payloadJSON: command.payloadJSON
             )
         case .queueGuiIntent:
             let payload = try parsePayload(command.payloadJSON)

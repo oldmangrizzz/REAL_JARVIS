@@ -296,7 +296,7 @@ try:
             raise HTTPException(status_code=422, detail=asdict(r))
         return asdict(r)
 
-except ImportError:  # fastapi not installed — CLI still works
+except (ImportError, SystemError):  # fastapi/pydantic sidecar unavailable; CLI still works.
     app = None  # type: ignore[assignment]
 
 

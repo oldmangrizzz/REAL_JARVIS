@@ -15,7 +15,7 @@ final class AOxFourProbeTests: XCTestCase {
         // Explicitly remove the genesis created by makeTestWorkspace to test missing file
         let genesisURL = paths.root.appendingPathComponent(".jarvis/soul_anchor/genesis.json")
         try? FileManager.default.removeItem(at: genesisURL)
-        
+
         let telemetry = try TelemetryStore(paths: paths)
         let probe = AOxFourProbe(paths: paths, telemetry: telemetry)
         let r = probe.probePerson()
@@ -42,6 +42,16 @@ final class AOxFourProbeTests: XCTestCase {
         XCTAssertTrue(r.isOriented)
         XCTAssertGreaterThanOrEqual(r.confidence, 0.75)
         XCTAssertTrue(r.payload?.contains("Grizz") == true)
+    }
+
+    func testPersonOriented_whenEmbeddedGenesisPresent() throws {
+        let paths = try makeTestWorkspace()
+        let telemetry = try TelemetryStore(paths: paths)
+        let probe = AOxFourProbe(paths: paths, telemetry: telemetry)
+        let r = probe.probePerson()
+        XCTAssertTrue(r.isOriented)
+        XCTAssertEqual(r.payload, "TestOperator")
+        XCTAssertEqual(r.confidence, 0.95, accuracy: 0.0001)
     }
 
     func testPersonDegraded_whenStatusNotRatified() throws {

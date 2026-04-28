@@ -81,6 +81,19 @@ public final class SystemCommandHandler: @unchecked Sendable {
         }
 
         if q.contains("recall") || q.contains("what happened") {
+            if let externalMemory = runtime.externalMemory {
+                let recalled = try externalMemory.recall(query: command)
+                if !recalled.isEmpty {
+                    let spoken = recalled.spokenSummary
+                        .map { "Here's the strongest external memory trace: \($0)" }
+                        ?? "I've pulled context from the external memory stack."
+                    return VoiceCommandResponse(
+                        spokenText: spoken,
+                        details: recalled.json,
+                        shouldShutdown: false
+                    )
+                }
+            }
             let page = try runtime.memory.pageIn(query: command, limit: 3)
             let spoken = page.matches.first.map { "Here's the strongest memory trace: \($0)" } ?? "I don't yet have a strong memory trace for that."
             return VoiceCommandResponse(spokenText: spoken, details: page.json, shouldShutdown: false)

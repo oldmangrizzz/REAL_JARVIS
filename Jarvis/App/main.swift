@@ -40,6 +40,31 @@ struct JarvisCLI {
                 try bridge.start()
                 FileHandle.standardError.write(Data("[voice-bridge] listening on :\(portOverride ?? 8787) — bearer=\(bridge.bearerToken)\n".utf8))
                 RunLoop.current.run()
+            case "memory-status":
+                try printJSON(runtime.externalMemory?.status ?? ["configured": false])
+            case "sync-memory":
+                guard let bridge = runtime.externalMemory else {
+                    throw JarvisError.nativeSkillUnavailable("External memory bridge is not configured.")
+                }
+                try printJSON(try bridge.syncSession())
+            case "memory-recall":
+                guard arguments.count >= 2 else {
+                    throw JarvisError.invalidInput("Usage: Jarvis memory-recall <query>")
+                }
+                guard let bridge = runtime.externalMemory else {
+                    throw JarvisError.nativeSkillUnavailable("External memory bridge is not configured.")
+                }
+                let query = arguments.dropFirst().joined(separator: " ")
+                try printJSON(try bridge.recall(query: query).json)
+            case "memory-store":
+                guard arguments.count >= 2 else {
+                    throw JarvisError.invalidInput("Usage: Jarvis memory-store <assistant-message>")
+                }
+                guard let bridge = runtime.externalMemory else {
+                    throw JarvisError.nativeSkillUnavailable("External memory bridge is not configured.")
+                }
+                let message = arguments.dropFirst().joined(separator: " ")
+                try printJSON(try bridge.storeAssistantMessage(message))
             case "sync-control-plane", "control-plane":
                 try printJSON(runtime.controlPlane.dashboardJSON())
             case "reseed-obsidian":
@@ -219,6 +244,10 @@ struct JarvisCLI {
           Jarvis start-interface
           Jarvis start-host-tunnel
           Jarvis start-voice-bridge [port]
+          Jarvis memory-status
+          Jarvis sync-memory
+          Jarvis memory-recall <query>
+          Jarvis memory-store <assistant-message>
           Jarvis sync-control-plane
           Jarvis reseed-obsidian
           Jarvis self-heal

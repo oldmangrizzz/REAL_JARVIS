@@ -122,12 +122,26 @@ private struct RegisterDeviceArgs: Encodable {
     let platform: String
     let role: String
     let appVersion: String
+
+    enum CodingKeys: String, CodingKey {
+        case deviceID = "deviceId"
+        case deviceName
+        case platform
+        case role
+        case appVersion
+    }
 }
 
 private struct HeartbeatArgs: Encodable {
     let deviceID: String
     let tunnelState: String
     let pushToken: String?
+
+    enum CodingKeys: String, CodingKey {
+        case deviceID = "deviceId"
+        case tunnelState
+        case pushToken
+    }
 }
 
 private struct PushDirectiveArgs: Encodable {
@@ -138,6 +152,16 @@ private struct PushDirectiveArgs: Encodable {
     let startupLine: String
     let requiresSpeech: Bool
     let timestamp: String
+
+    enum CodingKeys: String, CodingKey {
+        case deviceID = "deviceId"
+        case directiveID
+        case title
+        case body
+        case startupLine
+        case requiresSpeech
+        case timestamp
+    }
 }
 
 private struct LimitArgs: Encodable {

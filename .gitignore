@@ -3,6 +3,7 @@
 .env
 .env.*
 !.env.example
+!**/.env.example
 secrets/
 *.pem
 *.key
@@ -14,6 +15,11 @@ secrets/
 
 # System
 .DS_Store
+*.log
+
+# Package/dependency installs
+node_modules/
+**/node_modules/
 
 # Swift / Xcode
 /.build
@@ -25,6 +31,49 @@ DerivedData/
 
 # Auth
 .netrc
+
+# Local agent/session artifacts
+.claude/
+.playwright-mcp/
+.status-*.txt
+compaction-backups/
+crashes/
+copilot-session-*.md
+20[0-9][0-9]-*.txt
+20[0-9][0-9]-*.md
+deepseekcrash*.md
+main
+openapi_*.json
+test_circuit.swift
+
+# Local agent policy/context mirrors
+/AGENTS*.md*
+/CLAUDE.md
+/COPILOT.md
+/GEMINI*.md*
+/GMRI_POLICY_GTP_SDK.md
+/MEMO_CLINICAL_STANDARD.md
+
+# Local JARVIS runtime state
+.jarvis/control-plane/*.json
+.jarvis/control-plane/**/*.json
+.jarvis/control-plane/homebridge/config.json
+.jarvis/soul_anchor/signing/*.json
+.jarvis/soul_anchor/v*/
+cockpit/cmd-interface/homekit-bridge-status.json
+obsidian/.obsidian/workspace.json
+storage/soul-anchor/*.log
+storage/ship-mark-ii/
+xr.grizzlymedicine.icu/homekit-bridge-status.json
+
+# Local skill cache/checkouts
+agent-skills/
+claude-skills/
+swift-agent-skills/
+
+# Local screenshots / account UI captures
+asc-*.png
+dev-account.png
 
 # Large media / evidence (tracked outside git; archive separately)
 elijah_mcclain.mp4

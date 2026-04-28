@@ -6,6 +6,7 @@ public final class JarvisWatchCockpitStore: ObservableObject {
     @Published public private(set) var connectionState: JarvisConnectionState = .disconnected
     @Published public private(set) var state = JarvisSharedState(snapshot: nil, thoughts: [], signals: [], pendingPushDirectives: [])
     @Published public private(set) var diagnostics = ""
+    @Published public private(set) var rogerRogerProfile: RogerRogerSessionProfile = .watchSentinel
 
     public let vitals = JarvisWatchVitalMonitor()
 
@@ -47,7 +48,12 @@ public final class JarvisWatchCockpitStore: ObservableObject {
             return
         }
         started = true
-        tunnel.connect()
+        if configuration.canConnectTunnel {
+            tunnel.connect()
+        } else {
+            connectionState = .disconnected
+            diagnostics = configuration.tunnelConfigurationError ?? "Tunnel configuration is incomplete."
+        }
         await vitals.start()
 
         do {
@@ -75,6 +81,32 @@ public final class JarvisWatchCockpitStore: ObservableObject {
 
     public func startupVoice() {
         diagnostics = "Voice startup remains gated behind the Obsidian Command Bar and terminal."
+    }
+
+    public func setRogerRogerMode(_ mode: RogerRogerMode) {
+        let endpoint: GhostLineEndpoint
+        switch mode {
+        case .sentinel:
+            endpoint = .watchHapticsText
+        case .pushToTalk:
+            endpoint = .watchSpeaker
+        case .fullDuplexLiveSpeech:
+            endpoint = .elehearBeyond
+        }
+
+        let profile = RogerRogerSessionProfile(
+            mode: mode,
+            preferredEndpoint: endpoint,
+            watchAvailable: true,
+            elehearPreferred: true
+        )
+        rogerRogerProfile = profile
+        diagnostics = "\(mode.displayName): \(mode.watchLine)"
+
+        if let data = try? JSONEncoder().encode(profile),
+           let payload = String(data: data, encoding: .utf8) {
+            tunnel.send(JarvisRemoteCommand(action: .rogerRogerMode, payloadJSON: payload, source: "watch"))
+        }
     }
 
     private func receive(message: JarvisTunnelMessage) {

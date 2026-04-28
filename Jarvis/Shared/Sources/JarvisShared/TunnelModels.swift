@@ -10,6 +10,7 @@ public enum JarvisRemoteAction: String, Codable, CaseIterable, Sendable, Identif
     case queueGuiIntent = "queue_gui_intent"
     case reseedObsidian = "reseed_obsidian"
     case bridgeIntercom = "bridge_intercom"
+    case rogerRogerMode = "roger_roger_mode"
     case presenceArrival = "presence_arrival"
     case shutdown
     case runSkill = "run_skill"
@@ -641,6 +642,7 @@ public enum TunnelRole: String, Codable, Sendable, CaseIterable {
     case mobileClient = "mobile_client"
     case watchClient  = "watch_client"
     case guest        = "guest"
+    case voiceOperator = "voice_operator"
 }
 
 /// Signed role token issued by the host at registration time.

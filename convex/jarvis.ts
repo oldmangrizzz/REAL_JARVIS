@@ -7,7 +7,7 @@ export const logStigmergicSignal = mutation({
     nodeTarget: v.string(),
     ternaryValue: v.union(v.literal(-1), v.literal(0), v.literal(1)),
     agentId: v.string(),
-    pheromone: v.float64(),
+    pheromone: v.number(),
     timestamp: v.string(),
   },
   handler: async (ctx, args) => {
@@ -32,7 +32,7 @@ export const logHarnessMutation = mutation({
     versionId: v.string(),
     workflowId: v.string(),
     diffPatch: v.string(),
-    evaluationScore: v.float64(),
+    evaluationScore: v.number(),
     rollbackHash: v.string(),
     timestamp: v.string(),
   },
@@ -44,7 +44,7 @@ export const logHarnessMutation = mutation({
 export const logVagalTone = mutation({
   args: {
     sourceNode: v.string(),
-    value: v.float64(),
+    value: v.number(),
     state: v.string(),
     timestamp: v.string(),
   },
@@ -57,7 +57,7 @@ export const syncHomeKitBridge = mutation({
   args: {
     bridgeName: v.string(),
     charlieAddress: v.string(),
-    homebridgePort: v.float64(),
+    homebridgePort: v.number(),
     reachable: v.boolean(),
     matterEnabled: v.boolean(),
     voiceIntercomRoute: v.string(),
@@ -84,7 +84,7 @@ export const upsertObsidianVaultState = mutation({
   args: {
     databaseName: v.string(),
     betaCouchEndpoint: v.string(),
-    docCount: v.float64(),
+    docCount: v.number(),
     replicationConfigured: v.boolean(),
     replicationObserved: v.boolean(),
     reseedTriggered: v.boolean(),

@@ -1,4 +1,4 @@
-import Foundation
+@preconcurrency import Foundation
 
 public struct RLMQueryResult {
     public let response: String
@@ -106,6 +106,7 @@ public final class PythonRLMBridge: @unchecked Sendable {
 
     private let defaultTimeout: Double = 30.0  // CX-010: seconds before Python process is killed
 
+    @discardableResult
     private func runPython(arguments: [String], captureOutput: Bool) throws -> String {
         guard FileManager.default.fileExists(atPath: paths.rlmScriptURL.path) else {
             throw JarvisError.processFailure("Missing Python RLM script at \(paths.rlmScriptURL.path).")

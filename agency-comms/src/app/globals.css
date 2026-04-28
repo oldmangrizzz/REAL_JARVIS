@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #12121a;
+  --bg-tertiary: #1a1a2e;
+  --bg-card: #16162a;
+  --border-subtle: #2a2a40;
+  --border-active: #4a4a6a;
+  --text-primary: #e8e8f0;
+  --text-secondary: #8888a0;
+  --text-muted: #555570;
+  --accent-blue: #3b82f6;
+  --accent-amber: #f59e0b;
+  --accent-red: #ef4444;
+  --accent-purple: #8b5cf6;
+  --accent-green: #10b981;
+}
+
+@theme inline {
+  --color-background: #0a0a0f;
+  --color-foreground: #e8e8f0;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--border-subtle); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border-active); }
+
+.priority-immediate { box-shadow: inset 3px 0 0 var(--accent-red), 0 0 12px rgba(239,68,68,0.15); }
+.priority-priority { box-shadow: inset 3px 0 0 var(--accent-amber), 0 0 8px rgba(245,158,11,0.15); }
+.priority-routine { box-shadow: inset 3px 0 0 var(--accent-blue); }
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+
+.mapboxgl-popup-content {
+  background: #16162a !important;
+  color: #e8e8f0 !important;
+  border: 1px solid #2a2a40 !important;
+  border-radius: 6px !important;
+  padding: 8px 12px !important;
+  font-family: 'SF Mono', monospace !important;
+  font-size: 12px !important;
+}
+
+.mapboxgl-popup-tip { border-top-color: #16162a !important; }

@@ -28,6 +28,24 @@ public struct JarvisWatchCockpitView: View {
                 }
             }
 
+            Section("Roger Roger") {
+                LabeledContent("Mode", value: store.rogerRogerProfile.mode.displayName)
+                LabeledContent("Route", value: store.rogerRogerProfile.preferredEndpoint.displayName)
+                Text(store.rogerRogerProfile.mode.watchLine)
+                    .font(.caption2)
+                    .foregroundStyle(.secondary)
+
+                Button("Sentinel") {
+                    store.setRogerRogerMode(.sentinel)
+                }
+                Button("Push to Talk") {
+                    store.setRogerRogerMode(.pushToTalk)
+                }
+                Button("Full Live Speech") {
+                    store.setRogerRogerMode(.fullDuplexLiveSpeech)
+                }
+            }
+
             Section("Authorization") {
                 Text("Commands are restricted to the Obsidian Command Bar and terminal.")
                 Button("Refresh") {

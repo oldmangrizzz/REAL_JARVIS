@@ -104,9 +104,16 @@ public final class AOxFourProbe {
         }
         let status = (obj["status"] as? String) ?? ""
         let ratified = status.uppercased() == "RATIFIED"
+        let embeddedSignedGenesis = obj["bindings"] != nil
+            && obj["publicKeys"] != nil
+            && obj["signatures"] != nil
 
         var operatorLabel: String? = nil
         if let legacy = obj["operatorOfRecord"] as? String, !legacy.isEmpty {
+            operatorLabel = legacy
+        } else if let bindings = obj["bindings"] as? [String: Any],
+                  let legacy = bindings["operatorOfRecord"] as? String,
+                  !legacy.isEmpty {
             operatorLabel = legacy
         } else if let op = obj["operator"] as? [String: Any] {
             let callsign = (op["callsign"] as? String) ?? ""
@@ -124,7 +131,7 @@ public final class AOxFourProbe {
                           notes: "genesis.json does not name an operator")
         }
         // CX-030: sanity floor — reduce confidence if genesis.json is stale
-        var confidence = ratified ? 0.95 : 0.70
+        var confidence = (ratified || embeddedSignedGenesis) ? 0.95 : 0.70
         if let attrs = try? FileManager.default.attributesOfItem(atPath: genesisURL.path),
            let modDate = attrs[.modificationDate] as? Date {
             let age = Date().timeIntervalSince(modDate)
@@ -135,7 +142,9 @@ public final class AOxFourProbe {
         return result(axis: .person,
                       payload: op,
                       confidence: confidence,
-                      notes: ratified ? "bound to ratified genesis" : "operator named but status != RATIFIED")
+                      notes: ratified
+                        ? "bound to ratified genesis"
+                        : (embeddedSignedGenesis ? "bound to embedded genesis" : "operator named but status != RATIFIED"))
     }
 
     public func probePlace() -> AOxProbeResult {

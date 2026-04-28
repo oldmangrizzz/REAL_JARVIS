@@ -4,17 +4,17 @@ import Foundation
 private class MutableBox<T>: @unchecked Sendable {
     var value: T
     private let lock = NSLock()
-    
+
     init(_ value: T) {
         self.value = value
     }
-    
+
     func set(_ value: T) {
         lock.lock()
         defer { lock.unlock() }
         self.value = value
     }
-    
+
     func get() -> T {
         lock.lock()
         defer { lock.unlock() }
@@ -33,13 +33,14 @@ public final class DeltaXTTSBackend: TTSBackend, CanonVerifiedBackend, Sendable 
     public let identifier: String
     public let selectedVoiceLabel: String
     public let sampleRate: Int
-    
+
     public let canonIdentity: CanonBackendIdentity
-    
+
     private let host: String
     private let port: Int
     private let bearerToken: String
     private let session: URLSession
+    private let endpointURL: URL
     private let connectTimeout: TimeInterval
     private let requestTimeout: TimeInterval
     private let refClipSHA: String
@@ -49,29 +50,38 @@ public final class DeltaXTTSBackend: TTSBackend, CanonVerifiedBackend, Sendable 
     /// Environment variables:
     /// - JARVIS_CANON_TTS_HOST (default: delta.grizzlymedicine.icu)
     /// - JARVIS_CANON_TTS_PORT (default: 8787)
+    /// - JARVIS_CANON_TTS_SCHEME (default: http)
+    /// - JARVIS_CANON_TTS_PATH (default: /speak)
     /// - JARVIS_TTS_BEARER (required; will fail if missing)
     /// - JARVIS_TTS_VOICE_LABEL (default: xtts-v2-jarvis-canonical)
     /// - JARVIS_TTS_SAMPLE_RATE (default: 24000)
     /// - JARVIS_CANON_CONNECT_TIMEOUT (default: 10 seconds)
     /// - JARVIS_CANON_REQUEST_TIMEOUT (default: 45 seconds)
     public init(refClipSHA: String, session: URLSession = .shared) throws {
-        let env = ProcessInfo.processInfo.environment
-        
+        let env = JarvisRuntimeEnvironment.resolved()
+
         self.host = env["JARVIS_CANON_TTS_HOST"] ?? "delta.grizzlymedicine.icu"
         self.port = Int(env["JARVIS_CANON_TTS_PORT"] ?? "8787") ?? 8787
-        
+        let scheme = env["JARVIS_CANON_TTS_SCHEME"] ?? "http"
+        let rawPath = env["JARVIS_CANON_TTS_PATH"] ?? "/speak"
+        let path = rawPath.hasPrefix("/") ? rawPath : "/\(rawPath)"
+        guard let endpointURL = URL(string: "\(scheme)://\(self.host):\(self.port)\(path)") else {
+            throw JarvisError.invalidInput("Invalid canonical XTTS endpoint")
+        }
+        self.endpointURL = endpointURL
+
         guard let bearer = env["JARVIS_TTS_BEARER"], !bearer.isEmpty else {
             throw JarvisError.invalidInput("JARVIS_TTS_BEARER not set")
         }
         self.bearerToken = bearer
-        
+
         self.selectedVoiceLabel = env["JARVIS_TTS_VOICE_LABEL"] ?? "xtts-v2-jarvis-canonical"
         self.sampleRate = Int(env["JARVIS_TTS_SAMPLE_RATE"] ?? "24000") ?? 24_000
         self.connectTimeout = TimeInterval(env["JARVIS_CANON_CONNECT_TIMEOUT"] ?? "10") ?? 10
         self.requestTimeout = TimeInterval(env["JARVIS_CANON_REQUEST_TIMEOUT"] ?? "45") ?? 45
         self.refClipSHA = refClipSHA
         self.session = session
-        
+
         self.identifier = "delta-xtts-v2-canonical"
         self.canonIdentity = CanonBackendIdentity(
             host: self.host,
@@ -97,8 +107,9 @@ public final class DeltaXTTSBackend: TTSBackend, CanonVerifiedBackend, Sendable 
         let resultBox: MutableBox<Result<Data, Error>> = MutableBox(.failure(JarvisError.processFailure("not set")))
 
         // Capture all needed properties on the sync side
-        let host = self.host
-        let port = self.port
+        let bearerToken = self.bearerToken
+        let session = self.session
+        let endpointURL = self.endpointURL
         let requestTimeout = self.requestTimeout
 
         let task = Task.detached { @Sendable in
@@ -108,8 +119,9 @@ public final class DeltaXTTSBackend: TTSBackend, CanonVerifiedBackend, Sendable 
                     referenceAudioURL: referenceAudioURL,
                     referenceTranscript: referenceTranscript,
                     parameters: parameters,
-                    host: host,
-                    port: port,
+                    bearerToken: bearerToken,
+                    session: session,
+                    endpointURL: endpointURL,
                     requestTimeout: requestTimeout
                 )
                 resultBox.set(.success(data))
@@ -148,8 +160,9 @@ private func deltaTTSSynthesizeAsyncHelper(
     referenceAudioURL: URL,
     referenceTranscript: String,
     parameters: TTSRenderParameters,
-    host: String,
-    port: Int,
+    bearerToken: String,
+    session: URLSession,
+    endpointURL: URL,
     requestTimeout: TimeInterval
 ) async throws -> Data {
     let referenceData = try Data(contentsOf: referenceAudioURL)
@@ -171,11 +184,12 @@ private func deltaTTSSynthesizeAsyncHelper(
     }
 
     let body = try JSONSerialization.data(withJSONObject: payload)
-    let url = URL(string: "https://\(host):\(port)/tts")!
+    let url = endpointURL
 
     var request = URLRequest(url: url)
     request.httpMethod = "POST"
     request.timeoutInterval = requestTimeout
+    request.setValue("Bearer \(bearerToken)", forHTTPHeaderField: "Authorization")
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     request.setValue("audio/wav", forHTTPHeaderField: "Accept")
     request.httpBody = body
@@ -187,7 +201,7 @@ private func deltaTTSSynthesizeAsyncHelper(
 
     while retryCount < maxRetries {
         do {
-            let (data, response) = try await URLSession.shared.data(for: request)
+            let (data, response) = try await session.data(for: request)
 
             guard let httpResponse = response as? HTTPURLResponse else {
                 throw JarvisError.processFailure("DeltaXTTSBackend: response was not HTTP")

@@ -4,9 +4,9 @@ import XCTest
 final class OscillatorTests: XCTestCase {
     final class Recorder: PhaseLockedSubscriber {
         let subscriberID: String
-        var ticks: [OscillatorTick] = []
+        nonisolated(unsafe) fileprivate var ticks: [OscillatorTick] = []
         init(_ id: String) { self.subscriberID = id }
-        func onTick(_ tick: OscillatorTick) { ticks.append(tick) }
+        nonisolated func onTick(_ tick: OscillatorTick) { ticks.append(tick) }
     }
 
     func testManualTickMonotonicSequence() throws {

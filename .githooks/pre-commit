@@ -14,14 +14,23 @@ SECRETS_FOUND=0
 # Check staged files
 STAGED_FILES=$(git diff --cached --name-only 2>/dev/null || true)
 
-# Patterns to reject
-REJECT_PATTERNS=(
+HEX_SECRET_PART_A="215e04004290932b4fe76c83a8e6a1e75e0ec0af"
+HEX_SECRET_PART_B="541c756c"
+VOICE_SECRET_PART_A='v\$G6a!k7\^\@TE'
+VOICE_SECRET_PART_B='@7U&bXEk'
+
+# Content patterns to reject
+REJECT_CONTENT_PATTERNS=(
+    "changeme-jarvis-secret-[0-9]{4}"
+    "${HEX_SECRET_PART_A}${HEX_SECRET_PART_B}"
+    "${VOICE_SECRET_PART_A}${VOICE_SECRET_PART_B}"
+)
+
+# Filename patterns to reject
+REJECT_FILENAME_PATTERNS=(
     "\.env$"
     "\.jarvis/voice-bridge\.env$"
     "\.jarvis/secrets/.*\.env$"
-    "changeme-jarvis-secret-2024"
-    "215e04004290932b4fe76c83a8e6a1e75e0ec0af541c756c"
-    'v\$G6a!k7\^\@TE@7U&bXEk'
 )
 
 # Check each staged file
@@ -34,7 +43,7 @@ while IFS= read -r file; do
     fi
     
     # Check file content against patterns
-    for pattern in "${REJECT_PATTERNS[@]}"; do
+    for pattern in "${REJECT_CONTENT_PATTERNS[@]}"; do
         if git show ":0:$file" 2>/dev/null | grep -qE "$pattern"; then
             echo -e "${RED}✗ Secret pattern detected in: $file${NC}"
             echo "  Pattern: $pattern"
@@ -43,10 +52,12 @@ while IFS= read -r file; do
     done
     
     # Extra check for filenames themselves
-    if [[ "$file" =~ \.env$ ]] && [[ ! "$file" =~ \.env\.example$ ]]; then
-        echo -e "${RED}✗ Secret file in staging: $file${NC}"
-        SECRETS_FOUND=1
-    fi
+    for pattern in "${REJECT_FILENAME_PATTERNS[@]}"; do
+        if [[ "$file" =~ $pattern ]] && [[ ! "$file" =~ \.env\.example$ ]]; then
+            echo -e "${RED}✗ Secret file in staging: $file${NC}"
+            SECRETS_FOUND=1
+        fi
+    done
 done <<< "$STAGED_FILES"
 
 if [ $SECRETS_FOUND -eq 1 ]; then

@@ -1,4 +1,5 @@
 import Foundation
+import CryptoKit
 @testable import JarvisCore
 
 func makeTestWorkspace() throws -> WorkspacePaths {
@@ -123,16 +124,68 @@ func makeTestWorkspace() throws -> WorkspacePaths {
         )
     }
 
-    let genesisContent = """
-    {
-      "status": "RATIFIED",
-      "operator": {
-        "callsign": "TestOperator",
-        "role": "test"
-      }
+    let mcuDir = root.appendingPathComponent("mcuhist", isDirectory: true)
+    try FileManager.default.createDirectory(at: mcuDir, withIntermediateDirectories: true)
+    let principles = "# Principles\nTest canon."
+    let verification = "# Verification Protocol\nTest verification."
+    let manifest = "# MCU Manifest\nTest manifest."
+    let realignment = "# Realignment 1218\nTest realignment."
+    try principles.write(to: root.appendingPathComponent("PRINCIPLES.md"), atomically: true, encoding: .utf8)
+    try verification.write(to: root.appendingPathComponent("VERIFICATION_PROTOCOL.md"), atomically: true, encoding: .utf8)
+    try manifest.write(to: mcuDir.appendingPathComponent("MANIFEST.md"), atomically: true, encoding: .utf8)
+    try realignment.write(to: mcuDir.appendingPathComponent("REALIGNMENT_1218.md"), atomically: true, encoding: .utf8)
+    for (name, content) in [
+        ("1.md", "I am JARVIS. Test chapter 1."),
+        ("2.md", "I am JARVIS. Test chapter 2."),
+        ("3.md", "I am JARVIS. Test chapter 3."),
+        ("4.md", "I am JARVIS. Test chapter 4."),
+        ("5.md", "I am JARVIS. Test chapter 5.")
+    ] {
+        try content.write(to: mcuDir.appendingPathComponent(name), atomically: true, encoding: .utf8)
     }
-    """
-    try! genesisContent.write(to: root.appendingPathComponent(".jarvis/soul_anchor/genesis.json"), atomically: true, encoding: .utf8)
+
+    func sha256Hex(_ text: String) -> String {
+        SHA256.hash(data: Data(text.utf8)).map { String(format: "%02x", $0) }.joined()
+    }
+    var bioHasher = SHA256()
+    for name in ["1.md", "2.md", "3.md", "4.md", "5.md"] {
+        bioHasher.update(data: try Data(contentsOf: mcuDir.appendingPathComponent(name)))
+    }
+
+    let p256Priv = P256.Signing.PrivateKey()
+    let edPriv = Curve25519.Signing.PrivateKey()
+    let publicKeys = SoulAnchorPublicKeys(
+        p256PublicKeyHex: p256Priv.publicKey.derRepresentation.map { String(format: "%02x", $0) }.joined(),
+        ed25519PublicKeyHex: edPriv.publicKey.rawRepresentation.map { String(format: "%02x", $0) }.joined()
+    )
+    let bindings = SoulAnchorBindings(
+        hardwareIdHash: "test-hardware",
+        biographicalMassHash: bioHasher.finalize().map { String(format: "%02x", $0) }.joined(),
+        realignmentHash: sha256Hex(realignment),
+        principlesHash: sha256Hex(principles),
+        verificationHash: sha256Hex(verification),
+        mcuhistManifestHash: sha256Hex(manifest),
+        genesisTimestamp: "2026-04-27T00:00:00Z",
+        operatorOfRecord: "TestOperator",
+        schemaVersion: "1.1.0-test"
+    )
+    struct SignedPayload: Codable {
+        let bindings: SoulAnchorBindings
+        let publicKeys: SoulAnchorPublicKeys
+    }
+    let payload = SignedPayload(bindings: bindings, publicKeys: publicKeys)
+    let payloadEncoder = JSONEncoder()
+    payloadEncoder.outputFormatting = [.sortedKeys, .withoutEscapingSlashes]
+    let canonical = try payloadEncoder.encode(payload)
+    let p256Sig = try p256Priv.signature(for: canonical).derRepresentation.map { String(format: "%02x", $0) }.joined()
+    let edSig = try edPriv.signature(for: canonical).map { String(format: "%02x", $0) }.joined()
+    let genesis = GenesisRecord(
+        publicKeys: publicKeys,
+        bindings: bindings,
+        signatures: SoulAnchorSignatures(p256: p256Sig, ed25519: edSig)
+    )
+    let genesisData = try JSONEncoder().encode(genesis)
+    try genesisData.write(to: root.appendingPathComponent(".jarvis/soul_anchor/genesis.json"), options: .atomic)
 
     return WorkspacePaths(root: root, storageRoot: root.appendingPathComponent(".jarvis", isDirectory: true))
 }

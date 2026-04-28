@@ -498,13 +498,16 @@ public final class RealJarvisInterface: NSObject {
             return true
         case .notDetermined:
             let semaphore = DispatchSemaphore(value: 0)
-            var granted = false
+            final class GrantBox: @unchecked Sendable {
+                var value = false
+            }
+            let box = GrantBox()
             AVCaptureDevice.requestAccess(for: .audio) {
-                granted = $0
+                box.value = $0
                 semaphore.signal()
             }
             semaphore.wait()
-            return granted
+            return box.value
         case .denied, .restricted:
             return false
         @unknown default:

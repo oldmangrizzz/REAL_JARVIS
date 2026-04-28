@@ -14,7 +14,7 @@ public final class PresenceDetector {
         var rssiValues: [Int] = []
         for _ in 0..<samples {
             let snapshot = scanner.currentSnapshot()
-            if let bssid = snapshot.bssid {
+            if snapshot.bssid != nil {
                 rssiValues.append(snapshot.rssi)
             }
         }
@@ -25,7 +25,7 @@ public final class PresenceDetector {
 
     public func estimateRoom() -> String? {
         let snapshot = scanner.currentSnapshot()
-        guard let bssid = snapshot.bssid else { return nil }
+        guard snapshot.bssid != nil else { return nil }
 
         let liveRSSI = snapshot.rssi
         var bestRoom: String?

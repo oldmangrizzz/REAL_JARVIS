@@ -191,4 +191,168 @@ export default defineSchema({
     .index("by_host", ["hostNode"])
     .index("by_timestamp", ["timestamp"])
     .index("by_event_type", ["eventType"]),
+
+  // ─── Dark Factory ───────────────────────────────────────────────────────────
+
+  factory_tasks: defineTable({
+    taskId: v.string(),
+    title: v.string(),
+    description: v.optional(v.string()),
+    status: v.string(),
+    priority: v.number(),
+    assignedLane: v.optional(v.string()),
+    attemptCount: v.number(),
+    maxAttempts: v.number(),
+    tags: v.array(v.string()),
+    blockedBy: v.optional(v.array(v.string())),
+    createdAt: v.string(),
+    claimedAt: v.optional(v.string()),
+    completedAt: v.optional(v.string()),
+    projectType: v.optional(v.string()),
+    effort: v.optional(v.string()),
+  })
+    .index("by_status", ["status"])
+    .index("by_priority", ["priority"])
+    .index("by_lane", ["assignedLane"])
+    .index("by_created", ["createdAt"]),
+
+  factory_runs: defineTable({
+    runId: v.string(),
+    taskId: v.string(),
+    agentId: v.string(),
+    laneType: v.string(),
+    status: v.string(),
+    logOutput: v.optional(v.string()),
+    errorMessage: v.optional(v.string()),
+    errorCategory: v.optional(v.string()),
+    result: v.optional(v.string()),
+    startedAt: v.string(),
+    completedAt: v.optional(v.string()),
+    durationMs: v.number(),
+  })
+    .index("by_task", ["taskId"])
+    .index("by_agent", ["agentId"])
+    .index("by_status", ["status"]),
+
+  factory_ideas: defineTable({
+    ideaId: v.string(),
+    title: v.string(),
+    description: v.string(),
+    source: v.string(),
+    tags: v.array(v.string()),
+    status: v.string(),
+    specId: v.optional(v.string()),
+    createdAt: v.string(),
+    specGeneratedAt: v.optional(v.string()),
+    approvedAt: v.optional(v.string()),
+    approvalNotes: v.optional(v.string()),
+  })
+    .index("by_status", ["status"])
+    .index("by_created", ["createdAt"])
+    .index("by_idea", ["ideaId"]),
+
+  factory_specs: defineTable({
+    specId: v.string(),
+    ideaId: v.string(),
+    content: v.string(),
+    estimatedEffort: v.string(),
+    blockers: v.array(v.string()),
+    status: v.string(),
+    createdAt: v.string(),
+    approvedAt: v.optional(v.string()),
+  })
+    .index("by_status", ["status"])
+    .index("by_idea", ["ideaId"])
+    .index("by_spec", ["specId"]),
+
+  factory_projects: defineTable({
+    projectId: v.string(),
+    name: v.string(),
+    description: v.string(),
+    ideaIds: v.array(v.string()),
+    status: v.string(),
+    createdAt: v.string(),
+    completedAt: v.optional(v.string()),
+  })
+    .index("by_status", ["status"]),
+
+  agent_heartbeats: defineTable({
+    agentId: v.string(),
+    laneType: v.string(),
+    status: v.string(),
+    lastHeartbeat: v.string(),
+    lastTaskId: v.optional(v.string()),
+    successCount: v.number(),
+    errorCount: v.number(),
+  })
+    .index("by_agent", ["agentId"])
+    .index("by_status", ["status"]),
+
+  pheromone_field: defineTable({
+    laneName: v.string(),
+    capabilityTag: v.string(),
+    intensity: v.number(),
+    urgency: v.string(),
+    decayFactor: v.number(),
+    updatedAt: v.string(),
+  })
+    .index("by_lane", ["laneName"])
+    .index("by_tag", ["capabilityTag"]),
+
+  // ─── IDE Backend ─────────────────────────────────────────────────────────────
+
+  ideCommandQueue: defineTable({
+    commandId: v.string(),
+    type: v.string(),
+    payload: v.string(),
+    status: v.string(),
+    output: v.optional(v.string()),
+    error: v.optional(v.string()),
+    exitCode: v.optional(v.number()),
+    executionTimeMs: v.optional(v.number()),
+    createdAt: v.string(),
+    startedAt: v.optional(v.string()),
+    completedAt: v.optional(v.string()),
+    agentId: v.optional(v.string()),
+  })
+    .index("by_status", ["status"])
+    .index("by_createdAt", ["createdAt"]),
+
+  fileCache: defineTable({
+    path: v.string(),
+    content: v.string(),
+    size: v.number(),
+    mimeType: v.string(),
+    lastModified: v.string(),
+    hash: v.string(),
+  })
+    .index("by_path", ["path"]),
+
+  secretsVault: defineTable({
+    key: v.string(),
+    value: v.string(),
+    scope: v.string(),
+    createdAt: v.string(),
+  })
+    .index("by_key", ["key"]),
+
+  buildArtifacts: defineTable({
+    buildId: v.string(),
+    type: v.string(),
+    path: v.string(),
+    size: v.number(),
+    hash: v.string(),
+    metadata: v.optional(v.string()),
+    createdAt: v.string(),
+  })
+    .index("by_buildId", ["buildId"]),
+
+  executionLogs: defineTable({
+    commandId: v.string(),
+    line: v.number(),
+    level: v.string(),
+    text: v.string(),
+    timestamp: v.string(),
+  })
+    .index("by_commandId", ["commandId"]),
 });
